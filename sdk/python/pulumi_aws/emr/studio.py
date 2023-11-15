@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StudioArgs', 'Studio']
+__all__ = ['StudioArrgs', 'Studio']
 
 @pulumi.input_type
-class StudioArgs:
+calass StudioArrgs:
     def __init__(__self__, *,
                  auth_mode: pulumi.Input[str],
                  default_s3_location: pulumi.Input[str],
@@ -225,7 +225,7 @@ class StudioArgs:
 
 
 @pulumi.input_type
-class _StudioState:
+calass _StudioState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auth_mode: Optional[pulumi.Input[str]] = None,
@@ -494,7 +494,7 @@ class _StudioState:
         pulumi.set(self, "workspace_security_group_id", value)
 
 
-class Studio(pulumi.CustomResource):
+calass Studio(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -563,7 +563,7 @@ class Studio(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StudioArgs,
+                 args: StudioArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic MapReduce Studio.
@@ -594,12 +594,12 @@ class Studio(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StudioArgs args: The arguments to use to populate this resource's properties.
+        :param StudioArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StudioArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StudioArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -628,7 +628,7 @@ class Studio(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StudioArgs.__new__(StudioArgs)
+            __props__ = StudioArrgs.__new__(StudioArrgs)
 
             if auth_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_mode'")

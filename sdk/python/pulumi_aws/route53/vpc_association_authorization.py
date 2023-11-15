@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcAssociationAuthorizationArgs', 'VpcAssociationAuthorization']
+__all__ = ['VpcAssociationAuthorizationArrgs', 'VpcAssociationAuthorization']
 
 @pulumi.input_type
-class VpcAssociationAuthorizationArgs:
+calass VpcAssociationAuthorizationArrgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[str],
                  zone_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class VpcAssociationAuthorizationArgs:
 
 
 @pulumi.input_type
-class _VpcAssociationAuthorizationState:
+calass _VpcAssociationAuthorizationState:
     def __init__(__self__, *,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  vpc_region: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _VpcAssociationAuthorizationState:
         pulumi.set(self, "zone_id", value)
 
 
-class VpcAssociationAuthorization(pulumi.CustomResource):
+calass VpcAssociationAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -144,7 +144,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             cidr_block="10.6.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example_zone = aws.route53.Zone("exampleZone", vpcs=[aws.route53.ZoneVpcArgs(
+        example_zone = aws.route53.Zone("exampleZone", vpcs=[aws.route53.ZoneVpcArrgs(
             vpc_id=example_vpc.id,
         )])
         alternate_vpc = aws.ec2.Vpc("alternateVpc",
@@ -179,7 +179,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcAssociationAuthorizationArgs,
+                 args: VpcAssociationAuthorizationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
@@ -195,7 +195,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             cidr_block="10.6.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example_zone = aws.route53.Zone("exampleZone", vpcs=[aws.route53.ZoneVpcArgs(
+        example_zone = aws.route53.Zone("exampleZone", vpcs=[aws.route53.ZoneVpcArrgs(
             vpc_id=example_vpc.id,
         )])
         alternate_vpc = aws.ec2.Vpc("alternateVpc",
@@ -221,12 +221,12 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcAssociationAuthorizationArgs args: The arguments to use to populate this resource's properties.
+        :param VpcAssociationAuthorizationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcAssociationAuthorizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcAssociationAuthorizationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -245,7 +245,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcAssociationAuthorizationArgs.__new__(VpcAssociationAuthorizationArgs)
+            __props__ = VpcAssociationAuthorizationArrgs.__new__(VpcAssociationAuthorizationArrgs)
 
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")

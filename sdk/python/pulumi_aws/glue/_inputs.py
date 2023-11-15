@@ -10,78 +10,78 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CatalogDatabaseCreateTableDefaultPermissionArgs',
-    'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs',
-    'CatalogDatabaseTargetDatabaseArgs',
-    'CatalogTableOpenTableFormatInputArgs',
-    'CatalogTableOpenTableFormatInputIcebergInputArgs',
-    'CatalogTablePartitionIndexArgs',
-    'CatalogTablePartitionKeyArgs',
-    'CatalogTableStorageDescriptorArgs',
-    'CatalogTableStorageDescriptorColumnArgs',
-    'CatalogTableStorageDescriptorSchemaReferenceArgs',
-    'CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs',
-    'CatalogTableStorageDescriptorSerDeInfoArgs',
-    'CatalogTableStorageDescriptorSkewedInfoArgs',
-    'CatalogTableStorageDescriptorSortColumnArgs',
-    'CatalogTableTargetTableArgs',
-    'ClassifierCsvClassifierArgs',
-    'ClassifierGrokClassifierArgs',
-    'ClassifierJsonClassifierArgs',
-    'ClassifierXmlClassifierArgs',
-    'ConnectionPhysicalConnectionRequirementsArgs',
-    'CrawlerCatalogTargetArgs',
-    'CrawlerDeltaTargetArgs',
-    'CrawlerDynamodbTargetArgs',
-    'CrawlerHudiTargetArgs',
-    'CrawlerIcebergTargetArgs',
-    'CrawlerJdbcTargetArgs',
-    'CrawlerLakeFormationConfigurationArgs',
-    'CrawlerLineageConfigurationArgs',
-    'CrawlerMongodbTargetArgs',
-    'CrawlerRecrawlPolicyArgs',
-    'CrawlerS3TargetArgs',
-    'CrawlerSchemaChangePolicyArgs',
-    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs',
-    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs',
-    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs',
-    'DataQualityRulesetTargetTableArgs',
-    'JobCommandArgs',
-    'JobExecutionPropertyArgs',
-    'JobNotificationPropertyArgs',
-    'MLTransformInputRecordTableArgs',
-    'MLTransformParametersArgs',
-    'MLTransformParametersFindMatchesParametersArgs',
-    'MLTransformSchemaArgs',
-    'PartitionIndexPartitionIndexArgs',
-    'PartitionStorageDescriptorArgs',
-    'PartitionStorageDescriptorColumnArgs',
-    'PartitionStorageDescriptorSerDeInfoArgs',
-    'PartitionStorageDescriptorSkewedInfoArgs',
-    'PartitionStorageDescriptorSortColumnArgs',
-    'SecurityConfigurationEncryptionConfigurationArgs',
-    'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs',
-    'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs',
-    'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs',
-    'TriggerActionArgs',
-    'TriggerActionNotificationPropertyArgs',
-    'TriggerEventBatchingConditionArgs',
-    'TriggerPredicateArgs',
-    'TriggerPredicateConditionArgs',
-    'UserDefinedFunctionResourceUriArgs',
-    'GetScriptDagEdgeArgs',
-    'GetScriptDagNodeArgs',
-    'GetScriptDagNodeArgArgs',
+    'CatalogDatabaseCreateTableDefaultPermissionArrgs',
+    'CatalogDatabaseCreateTableDefaultPermissionPrincipalArrgs',
+    'CatalogDatabaseTargetDatabaseArrgs',
+    'CatalogTableOpenTableFormatInputArrgs',
+    'CatalogTableOpenTableFormatInputIcebergInputArrgs',
+    'CatalogTablePartitionIndexArrgs',
+    'CatalogTablePartitionKeyArrgs',
+    'CatalogTableStorageDescriptorArrgs',
+    'CatalogTableStorageDescriptorColumnArrgs',
+    'CatalogTableStorageDescriptorSchemaReferenceArrgs',
+    'CatalogTableStorageDescriptorSchemaReferenceSchemaIdArrgs',
+    'CatalogTableStorageDescriptorSerDeInfoArrgs',
+    'CatalogTableStorageDescriptorSkewedInfoArrgs',
+    'CatalogTableStorageDescriptorSortColumnArrgs',
+    'CatalogTableTargetTableArrgs',
+    'ClassifierCsvClassifierArrgs',
+    'ClassifierGrokClassifierArrgs',
+    'ClassifierJsonClassifierArrgs',
+    'ClassifierXmlClassifierArrgs',
+    'ConnectionPhysicalConnectionRequirementsArrgs',
+    'CrawlerCatalogTargetArrgs',
+    'CrawlerDeltaTargetArrgs',
+    'CrawlerDynamodbTargetArrgs',
+    'CrawlerHudiTargetArrgs',
+    'CrawlerIcebergTargetArrgs',
+    'CrawlerJdbcTargetArrgs',
+    'CrawlerLakeFormationConfigurationArrgs',
+    'CrawlerLineageConfigurationArrgs',
+    'CrawlerMongodbTargetArrgs',
+    'CrawlerRecrawlPolicyArrgs',
+    'CrawlerS3TargetArrgs',
+    'CrawlerSchemaChangePolicyArrgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs',
+    'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs',
+    'DataQualityRulesetTargetTableArrgs',
+    'JobCommandArrgs',
+    'JobExecutionPropertyArrgs',
+    'JobNotificationPropertyArrgs',
+    'MLTransformInputRecordTableArrgs',
+    'MLTransformParametersArrgs',
+    'MLTransformParametersFindMatchesParametersArrgs',
+    'MLTransformSchemaArrgs',
+    'PartitionIndexPartitionIndexArrgs',
+    'PartitionStorageDescriptorArrgs',
+    'PartitionStorageDescriptorColumnArrgs',
+    'PartitionStorageDescriptorSerDeInfoArrgs',
+    'PartitionStorageDescriptorSkewedInfoArrgs',
+    'PartitionStorageDescriptorSortColumnArrgs',
+    'SecurityConfigurationEncryptionConfigurationArrgs',
+    'SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArrgs',
+    'SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArrgs',
+    'SecurityConfigurationEncryptionConfigurationS3EncryptionArrgs',
+    'TriggerActionArrgs',
+    'TriggerActionNotificationPropertyArrgs',
+    'TriggerEventBatchingConditionArrgs',
+    'TriggerPredicateArrgs',
+    'TriggerPredicateConditionArrgs',
+    'UserDefinedFunctionResourceUriArrgs',
+    'GetScriptDagEdgeArrgs',
+    'GetScriptDagNodeArrgs',
+    'GetScriptDagNodeArgArrgs',
 ]
 
 @pulumi.input_type
-class CatalogDatabaseCreateTableDefaultPermissionArgs:
+calass CatalogDatabaseCreateTableDefaultPermissionArrgs:
     def __init__(__self__, *,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 principal: Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs']] = None):
+                 principal: Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArrgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: The permissions that are granted to the principal.
-        :param pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs'] principal: The principal who is granted permissions.. See `principal` below.
+        :param pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArrgs'] principal: The principal who is granted permissions.. See `principal` below.
         """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
@@ -102,19 +102,19 @@ class CatalogDatabaseCreateTableDefaultPermissionArgs:
 
     @property
     @pulumi.getter
-    def principal(self) -> Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs']]:
+    def principal(self) -> Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArrgs']]:
         """
         The principal who is granted permissions.. See `principal` below.
         """
         return pulumi.get(self, "principal")
 
     @principal.setter
-    def principal(self, value: Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs']]):
+    def principal(self, value: Optional[pulumi.Input['CatalogDatabaseCreateTableDefaultPermissionPrincipalArrgs']]):
         pulumi.set(self, "principal", value)
 
 
 @pulumi.input_type
-class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs:
+calass CatalogDatabaseCreateTableDefaultPermissionPrincipalArrgs:
     def __init__(__self__, *,
                  data_lake_principal_identifier: Optional[pulumi.Input[str]] = None):
         """
@@ -137,7 +137,7 @@ class CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs:
 
 
 @pulumi.input_type
-class CatalogDatabaseTargetDatabaseArgs:
+calass CatalogDatabaseTargetDatabaseArrgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  database_name: pulumi.Input[str],
@@ -190,29 +190,29 @@ class CatalogDatabaseTargetDatabaseArgs:
 
 
 @pulumi.input_type
-class CatalogTableOpenTableFormatInputArgs:
+calass CatalogTableOpenTableFormatInputArrgs:
     def __init__(__self__, *,
-                 iceberg_input: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs']):
+                 iceberg_input: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArrgs']):
         """
-        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs'] iceberg_input: Configuration block for iceberg table config. See `iceberg_input` below.
+        :param pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArrgs'] iceberg_input: Configuration block for iceberg table config. See `iceberg_input` below.
         """
         pulumi.set(__self__, "iceberg_input", iceberg_input)
 
     @property
     @pulumi.getter(name="icebergInput")
-    def iceberg_input(self) -> pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs']:
+    def iceberg_input(self) -> pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArrgs']:
         """
         Configuration block for iceberg table config. See `iceberg_input` below.
         """
         return pulumi.get(self, "iceberg_input")
 
     @iceberg_input.setter
-    def iceberg_input(self, value: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArgs']):
+    def iceberg_input(self, value: pulumi.Input['CatalogTableOpenTableFormatInputIcebergInputArrgs']):
         pulumi.set(self, "iceberg_input", value)
 
 
 @pulumi.input_type
-class CatalogTableOpenTableFormatInputIcebergInputArgs:
+calass CatalogTableOpenTableFormatInputIcebergInputArrgs:
     def __init__(__self__, *,
                  metadata_operation: pulumi.Input[str],
                  version: Optional[pulumi.Input[str]] = None):
@@ -250,7 +250,7 @@ class CatalogTableOpenTableFormatInputIcebergInputArgs:
 
 
 @pulumi.input_type
-class CatalogTablePartitionIndexArgs:
+calass CatalogTablePartitionIndexArrgs:
     def __init__(__self__, *,
                  index_name: pulumi.Input[str],
                  keys: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -299,7 +299,7 @@ class CatalogTablePartitionIndexArgs:
 
 
 @pulumi.input_type
-class CatalogTablePartitionKeyArgs:
+calass CatalogTablePartitionKeyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
@@ -353,34 +353,34 @@ class CatalogTablePartitionKeyArgs:
 
 
 @pulumi.input_type
-class CatalogTableStorageDescriptorArgs:
+calass CatalogTableStorageDescriptorArrgs:
     def __init__(__self__, *,
                  bucket_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArgs']]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArrgs']]]] = None,
                  compressed: Optional[pulumi.Input[bool]] = None,
                  input_format: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  number_of_buckets: Optional[pulumi.Input[int]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_reference: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs']] = None,
-                 ser_de_info: Optional[pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArgs']] = None,
-                 skewed_info: Optional[pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArgs']] = None,
-                 sort_columns: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgs']]]] = None,
+                 schema_reference: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArrgs']] = None,
+                 ser_de_info: Optional[pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArrgs']] = None,
+                 skewed_info: Optional[pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArrgs']] = None,
+                 sort_columns: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArrgs']]]] = None,
                  stored_as_sub_directories: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bucket_columns: List of reducer grouping columns, clustering columns, and bucketing columns in the table.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArgs']]] columns: Configuration block for columns in the table. See `columns` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArrgs']]] columns: Configuration block for columns in the table. See `columns` below.
         :param pulumi.Input[bool] compressed: Whether the data in the table is compressed.
         :param pulumi.Input[str] input_format: Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         :param pulumi.Input[str] location: Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         :param pulumi.Input[int] number_of_buckets: Must be specified if the table contains any dimension columns.
         :param pulumi.Input[str] output_format: Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: User-supplied properties in key-value form.
-        :param pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs'] schema_reference: Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
-        :param pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArgs'] ser_de_info: Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
-        :param pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArgs'] skewed_info: Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgs']]] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
+        :param pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArrgs'] schema_reference: Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+        :param pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArrgs'] ser_de_info: Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
+        :param pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArrgs'] skewed_info: Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArrgs']]] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         :param pulumi.Input[bool] stored_as_sub_directories: Whether the table data is stored in subdirectories.
         """
         if bucket_columns is not None:
@@ -424,14 +424,14 @@ class CatalogTableStorageDescriptorArgs:
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArgs']]]]:
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArrgs']]]]:
         """
         Configuration block for columns in the table. See `columns` below.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArgs']]]]):
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorColumnArrgs']]]]):
         pulumi.set(self, "columns", value)
 
     @property
@@ -508,50 +508,50 @@ class CatalogTableStorageDescriptorArgs:
 
     @property
     @pulumi.getter(name="schemaReference")
-    def schema_reference(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs']]:
+    def schema_reference(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArrgs']]:
         """
         Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
         """
         return pulumi.get(self, "schema_reference")
 
     @schema_reference.setter
-    def schema_reference(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArgs']]):
+    def schema_reference(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceArrgs']]):
         pulumi.set(self, "schema_reference", value)
 
     @property
     @pulumi.getter(name="serDeInfo")
-    def ser_de_info(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArgs']]:
+    def ser_de_info(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArrgs']]:
         """
         Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
         """
         return pulumi.get(self, "ser_de_info")
 
     @ser_de_info.setter
-    def ser_de_info(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArgs']]):
+    def ser_de_info(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSerDeInfoArrgs']]):
         pulumi.set(self, "ser_de_info", value)
 
     @property
     @pulumi.getter(name="skewedInfo")
-    def skewed_info(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArgs']]:
+    def skewed_info(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArrgs']]:
         """
         Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
         """
         return pulumi.get(self, "skewed_info")
 
     @skewed_info.setter
-    def skewed_info(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArgs']]):
+    def skewed_info(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSkewedInfoArrgs']]):
         pulumi.set(self, "skewed_info", value)
 
     @property
     @pulumi.getter(name="sortColumns")
-    def sort_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgs']]]]:
+    def sort_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArrgs']]]]:
         """
         Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         """
         return pulumi.get(self, "sort_columns")
 
     @sort_columns.setter
-    def sort_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArgs']]]]):
+    def sort_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTableStorageDescriptorSortColumnArrgs']]]]):
         pulumi.set(self, "sort_columns", value)
 
     @property
@@ -568,7 +568,7 @@ class CatalogTableStorageDescriptorArgs:
 
 
 @pulumi.input_type
-class CatalogTableStorageDescriptorColumnArgs:
+calass CatalogTableStorageDescriptorColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
@@ -638,14 +638,14 @@ class CatalogTableStorageDescriptorColumnArgs:
 
 
 @pulumi.input_type
-class CatalogTableStorageDescriptorSchemaReferenceArgs:
+calass CatalogTableStorageDescriptorSchemaReferenceArrgs:
     def __init__(__self__, *,
                  schema_version_number: pulumi.Input[int],
-                 schema_id: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs']] = None,
+                 schema_id: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArrgs']] = None,
                  schema_version_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] schema_version_number: Version number of the schema.
-        :param pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs'] schema_id: Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+        :param pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArrgs'] schema_id: Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
         :param pulumi.Input[str] schema_version_id: Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
         """
         pulumi.set(__self__, "schema_version_number", schema_version_number)
@@ -668,14 +668,14 @@ class CatalogTableStorageDescriptorSchemaReferenceArgs:
 
     @property
     @pulumi.getter(name="schemaId")
-    def schema_id(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs']]:
+    def schema_id(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArrgs']]:
         """
         Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
         """
         return pulumi.get(self, "schema_id")
 
     @schema_id.setter
-    def schema_id(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs']]):
+    def schema_id(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorSchemaReferenceSchemaIdArrgs']]):
         pulumi.set(self, "schema_id", value)
 
     @property
@@ -692,7 +692,7 @@ class CatalogTableStorageDescriptorSchemaReferenceArgs:
 
 
 @pulumi.input_type
-class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs:
+calass CatalogTableStorageDescriptorSchemaReferenceSchemaIdArrgs:
     def __init__(__self__, *,
                  registry_name: Optional[pulumi.Input[str]] = None,
                  schema_arn: Optional[pulumi.Input[str]] = None,
@@ -747,7 +747,7 @@ class CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs:
 
 
 @pulumi.input_type
-class CatalogTableStorageDescriptorSerDeInfoArgs:
+calass CatalogTableStorageDescriptorSerDeInfoArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -802,7 +802,7 @@ class CatalogTableStorageDescriptorSerDeInfoArgs:
 
 
 @pulumi.input_type
-class CatalogTableStorageDescriptorSkewedInfoArgs:
+calass CatalogTableStorageDescriptorSkewedInfoArrgs:
     def __init__(__self__, *,
                  skewed_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skewed_column_value_location_maps: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -857,7 +857,7 @@ class CatalogTableStorageDescriptorSkewedInfoArgs:
 
 
 @pulumi.input_type
-class CatalogTableStorageDescriptorSortColumnArgs:
+calass CatalogTableStorageDescriptorSortColumnArrgs:
     def __init__(__self__, *,
                  column: pulumi.Input[str],
                  sort_order: pulumi.Input[int]):
@@ -894,7 +894,7 @@ class CatalogTableStorageDescriptorSortColumnArgs:
 
 
 @pulumi.input_type
-class CatalogTableTargetTableArgs:
+calass CatalogTableTargetTableArrgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[str],
                  database_name: pulumi.Input[str],
@@ -946,7 +946,7 @@ class CatalogTableTargetTableArgs:
 
 
 @pulumi.input_type
-class ClassifierCsvClassifierArgs:
+calass ClassifierCsvClassifierArrgs:
     def __init__(__self__, *,
                  allow_single_column: Optional[pulumi.Input[bool]] = None,
                  contains_header: Optional[pulumi.Input[str]] = None,
@@ -1081,7 +1081,7 @@ class ClassifierCsvClassifierArgs:
 
 
 @pulumi.input_type
-class ClassifierGrokClassifierArgs:
+calass ClassifierGrokClassifierArrgs:
     def __init__(__self__, *,
                  classification: pulumi.Input[str],
                  grok_pattern: pulumi.Input[str],
@@ -1134,7 +1134,7 @@ class ClassifierGrokClassifierArgs:
 
 
 @pulumi.input_type
-class ClassifierJsonClassifierArgs:
+calass ClassifierJsonClassifierArrgs:
     def __init__(__self__, *,
                  json_path: pulumi.Input[str]):
         """
@@ -1156,7 +1156,7 @@ class ClassifierJsonClassifierArgs:
 
 
 @pulumi.input_type
-class ClassifierXmlClassifierArgs:
+calass ClassifierXmlClassifierArrgs:
     def __init__(__self__, *,
                  classification: pulumi.Input[str],
                  row_tag: pulumi.Input[str]):
@@ -1193,7 +1193,7 @@ class ClassifierXmlClassifierArgs:
 
 
 @pulumi.input_type
-class ConnectionPhysicalConnectionRequirementsArgs:
+calass ConnectionPhysicalConnectionRequirementsArrgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  security_group_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1248,7 +1248,7 @@ class ConnectionPhysicalConnectionRequirementsArgs:
 
 
 @pulumi.input_type
-class CrawlerCatalogTargetArgs:
+calass CrawlerCatalogTargetArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  tables: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1341,7 +1341,7 @@ class CrawlerCatalogTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerDeltaTargetArgs:
+calass CrawlerDeltaTargetArrgs:
     def __init__(__self__, *,
                  delta_tables: pulumi.Input[Sequence[pulumi.Input[str]]],
                  write_manifest: pulumi.Input[bool],
@@ -1410,7 +1410,7 @@ class CrawlerDeltaTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerDynamodbTargetArgs:
+calass CrawlerDynamodbTargetArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  scan_all: Optional[pulumi.Input[bool]] = None,
@@ -1464,7 +1464,7 @@ class CrawlerDynamodbTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerHudiTargetArgs:
+calass CrawlerHudiTargetArrgs:
     def __init__(__self__, *,
                  maximum_traversal_depth: pulumi.Input[int],
                  paths: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1533,7 +1533,7 @@ class CrawlerHudiTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerIcebergTargetArgs:
+calass CrawlerIcebergTargetArrgs:
     def __init__(__self__, *,
                  maximum_traversal_depth: pulumi.Input[int],
                  paths: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1602,7 +1602,7 @@ class CrawlerIcebergTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerJdbcTargetArgs:
+calass CrawlerJdbcTargetArrgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[str],
                  path: pulumi.Input[str],
@@ -1671,7 +1671,7 @@ class CrawlerJdbcTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerLakeFormationConfigurationArgs:
+calass CrawlerLakeFormationConfigurationArrgs:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  use_lake_formation_credentials: Optional[pulumi.Input[bool]] = None):
@@ -1710,7 +1710,7 @@ class CrawlerLakeFormationConfigurationArgs:
 
 
 @pulumi.input_type
-class CrawlerLineageConfigurationArgs:
+calass CrawlerLineageConfigurationArrgs:
     def __init__(__self__, *,
                  crawler_lineage_settings: Optional[pulumi.Input[str]] = None):
         """
@@ -1733,7 +1733,7 @@ class CrawlerLineageConfigurationArgs:
 
 
 @pulumi.input_type
-class CrawlerMongodbTargetArgs:
+calass CrawlerMongodbTargetArrgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[str],
                  path: pulumi.Input[str],
@@ -1786,7 +1786,7 @@ class CrawlerMongodbTargetArgs:
 
 
 @pulumi.input_type
-class CrawlerRecrawlPolicyArgs:
+calass CrawlerRecrawlPolicyArrgs:
     def __init__(__self__, *,
                  recrawl_behavior: Optional[pulumi.Input[str]] = None):
         """
@@ -1809,7 +1809,7 @@ class CrawlerRecrawlPolicyArgs:
 
 
 @pulumi.input_type
-class CrawlerS3TargetArgs:
+calass CrawlerS3TargetArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  connection_name: Optional[pulumi.Input[str]] = None,
@@ -1919,7 +1919,7 @@ class CrawlerS3TargetArgs:
 
 
 @pulumi.input_type
-class CrawlerSchemaChangePolicyArgs:
+calass CrawlerSchemaChangePolicyArrgs:
     def __init__(__self__, *,
                  delete_behavior: Optional[pulumi.Input[str]] = None,
                  update_behavior: Optional[pulumi.Input[str]] = None):
@@ -1958,44 +1958,44 @@ class CrawlerSchemaChangePolicyArgs:
 
 
 @pulumi.input_type
-class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs:
+calass DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs:
     def __init__(__self__, *,
-                 connection_password_encryption: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs'],
-                 encryption_at_rest: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs']):
+                 connection_password_encryption: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs'],
+                 encryption_at_rest: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs']):
         """
-        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs'] connection_password_encryption: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
-        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs'] encryption_at_rest: Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs'] connection_password_encryption: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs'] encryption_at_rest: Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
         pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
         pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
 
     @property
     @pulumi.getter(name="connectionPasswordEncryption")
-    def connection_password_encryption(self) -> pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']:
+    def connection_password_encryption(self) -> pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs']:
         """
         When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
         """
         return pulumi.get(self, "connection_password_encryption")
 
     @connection_password_encryption.setter
-    def connection_password_encryption(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs']):
+    def connection_password_encryption(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs']):
         pulumi.set(self, "connection_password_encryption", value)
 
     @property
     @pulumi.getter(name="encryptionAtRest")
-    def encryption_at_rest(self) -> pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs']:
+    def encryption_at_rest(self) -> pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs']:
         """
         Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
         return pulumi.get(self, "encryption_at_rest")
 
     @encryption_at_rest.setter
-    def encryption_at_rest(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs']):
+    def encryption_at_rest(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs']):
         pulumi.set(self, "encryption_at_rest", value)
 
 
 @pulumi.input_type
-class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs:
+calass DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs:
     def __init__(__self__, *,
                  return_connection_password_encrypted: pulumi.Input[bool],
                  aws_kms_key_id: Optional[pulumi.Input[str]] = None):
@@ -2033,7 +2033,7 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswo
 
 
 @pulumi.input_type
-class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs:
+calass DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs:
     def __init__(__self__, *,
                  catalog_encryption_mode: pulumi.Input[str],
                  sse_aws_kms_key_id: Optional[pulumi.Input[str]] = None):
@@ -2071,7 +2071,7 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
 
 
 @pulumi.input_type
-class DataQualityRulesetTargetTableArgs:
+calass DataQualityRulesetTargetTableArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  table_name: pulumi.Input[str],
@@ -2124,7 +2124,7 @@ class DataQualityRulesetTargetTableArgs:
 
 
 @pulumi.input_type
-class JobCommandArgs:
+calass JobCommandArrgs:
     def __init__(__self__, *,
                  script_location: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -2194,7 +2194,7 @@ class JobCommandArgs:
 
 
 @pulumi.input_type
-class JobExecutionPropertyArgs:
+calass JobExecutionPropertyArrgs:
     def __init__(__self__, *,
                  max_concurrent_runs: Optional[pulumi.Input[int]] = None):
         """
@@ -2217,7 +2217,7 @@ class JobExecutionPropertyArgs:
 
 
 @pulumi.input_type
-class JobNotificationPropertyArgs:
+calass JobNotificationPropertyArrgs:
     def __init__(__self__, *,
                  notify_delay_after: Optional[pulumi.Input[int]] = None):
         """
@@ -2240,7 +2240,7 @@ class JobNotificationPropertyArgs:
 
 
 @pulumi.input_type
-class MLTransformInputRecordTableArgs:
+calass MLTransformInputRecordTableArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  table_name: pulumi.Input[str],
@@ -2309,12 +2309,12 @@ class MLTransformInputRecordTableArgs:
 
 
 @pulumi.input_type
-class MLTransformParametersArgs:
+calass MLTransformParametersArrgs:
     def __init__(__self__, *,
-                 find_matches_parameters: pulumi.Input['MLTransformParametersFindMatchesParametersArgs'],
+                 find_matches_parameters: pulumi.Input['MLTransformParametersFindMatchesParametersArrgs'],
                  transform_type: pulumi.Input[str]):
         """
-        :param pulumi.Input['MLTransformParametersFindMatchesParametersArgs'] find_matches_parameters: The parameters for the find matches algorithm. see Find Matches Parameters.
+        :param pulumi.Input['MLTransformParametersFindMatchesParametersArrgs'] find_matches_parameters: The parameters for the find matches algorithm. see Find Matches Parameters.
         :param pulumi.Input[str] transform_type: The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
         """
         pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
@@ -2322,14 +2322,14 @@ class MLTransformParametersArgs:
 
     @property
     @pulumi.getter(name="findMatchesParameters")
-    def find_matches_parameters(self) -> pulumi.Input['MLTransformParametersFindMatchesParametersArgs']:
+    def find_matches_parameters(self) -> pulumi.Input['MLTransformParametersFindMatchesParametersArrgs']:
         """
         The parameters for the find matches algorithm. see Find Matches Parameters.
         """
         return pulumi.get(self, "find_matches_parameters")
 
     @find_matches_parameters.setter
-    def find_matches_parameters(self, value: pulumi.Input['MLTransformParametersFindMatchesParametersArgs']):
+    def find_matches_parameters(self, value: pulumi.Input['MLTransformParametersFindMatchesParametersArrgs']):
         pulumi.set(self, "find_matches_parameters", value)
 
     @property
@@ -2346,7 +2346,7 @@ class MLTransformParametersArgs:
 
 
 @pulumi.input_type
-class MLTransformParametersFindMatchesParametersArgs:
+calass MLTransformParametersFindMatchesParametersArrgs:
     def __init__(__self__, *,
                  accuracy_cost_trade_off: Optional[pulumi.Input[float]] = None,
                  enforce_provided_labels: Optional[pulumi.Input[bool]] = None,
@@ -2417,7 +2417,7 @@ class MLTransformParametersFindMatchesParametersArgs:
 
 
 @pulumi.input_type
-class MLTransformSchemaArgs:
+calass MLTransformSchemaArrgs:
     def __init__(__self__, *,
                  data_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -2456,7 +2456,7 @@ class MLTransformSchemaArgs:
 
 
 @pulumi.input_type
-class PartitionIndexPartitionIndexArgs:
+calass PartitionIndexPartitionIndexArrgs:
     def __init__(__self__, *,
                  index_name: Optional[pulumi.Input[str]] = None,
                  index_status: Optional[pulumi.Input[str]] = None,
@@ -2507,32 +2507,32 @@ class PartitionIndexPartitionIndexArgs:
 
 
 @pulumi.input_type
-class PartitionStorageDescriptorArgs:
+calass PartitionStorageDescriptorArrgs:
     def __init__(__self__, *,
                  bucket_columns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArrgs']]]] = None,
                  compressed: Optional[pulumi.Input[bool]] = None,
                  input_format: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  number_of_buckets: Optional[pulumi.Input[int]] = None,
                  output_format: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ser_de_info: Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs']] = None,
-                 skewed_info: Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs']] = None,
-                 sort_columns: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]]] = None,
+                 ser_de_info: Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArrgs']] = None,
+                 skewed_info: Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArrgs']] = None,
+                 sort_columns: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArrgs']]]] = None,
                  stored_as_sub_directories: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] bucket_columns: A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-        :param pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]] columns: A list of the Columns in the table.
+        :param pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArrgs']]] columns: A list of the Columns in the table.
         :param pulumi.Input[bool] compressed: True if the data in the table is compressed, or False if not.
         :param pulumi.Input[str] input_format: The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         :param pulumi.Input[str] location: The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         :param pulumi.Input[int] number_of_buckets: Must be specified if the table contains any dimension columns.
         :param pulumi.Input[str] output_format: The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: User-supplied properties in key-value form.
-        :param pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs'] ser_de_info: Serialization/deserialization (SerDe) information.
-        :param pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs'] skewed_info: Information about values that appear very frequently in a column (skewed values).
-        :param pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
+        :param pulumi.Input['PartitionStorageDescriptorSerDeInfoArrgs'] ser_de_info: Serialization/deserialization (SerDe) information.
+        :param pulumi.Input['PartitionStorageDescriptorSkewedInfoArrgs'] skewed_info: Information about values that appear very frequently in a column (skewed values).
+        :param pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArrgs']]] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
         :param pulumi.Input[bool] stored_as_sub_directories: True if the table data is stored in subdirectories, or False if not.
         """
         if bucket_columns is not None:
@@ -2574,14 +2574,14 @@ class PartitionStorageDescriptorArgs:
 
     @property
     @pulumi.getter
-    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]]]:
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArrgs']]]]:
         """
         A list of the Columns in the table.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArgs']]]]):
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorColumnArrgs']]]]):
         pulumi.set(self, "columns", value)
 
     @property
@@ -2658,38 +2658,38 @@ class PartitionStorageDescriptorArgs:
 
     @property
     @pulumi.getter(name="serDeInfo")
-    def ser_de_info(self) -> Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs']]:
+    def ser_de_info(self) -> Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArrgs']]:
         """
         Serialization/deserialization (SerDe) information.
         """
         return pulumi.get(self, "ser_de_info")
 
     @ser_de_info.setter
-    def ser_de_info(self, value: Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArgs']]):
+    def ser_de_info(self, value: Optional[pulumi.Input['PartitionStorageDescriptorSerDeInfoArrgs']]):
         pulumi.set(self, "ser_de_info", value)
 
     @property
     @pulumi.getter(name="skewedInfo")
-    def skewed_info(self) -> Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs']]:
+    def skewed_info(self) -> Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArrgs']]:
         """
         Information about values that appear very frequently in a column (skewed values).
         """
         return pulumi.get(self, "skewed_info")
 
     @skewed_info.setter
-    def skewed_info(self, value: Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArgs']]):
+    def skewed_info(self, value: Optional[pulumi.Input['PartitionStorageDescriptorSkewedInfoArrgs']]):
         pulumi.set(self, "skewed_info", value)
 
     @property
     @pulumi.getter(name="sortColumns")
-    def sort_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]]]:
+    def sort_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArrgs']]]]:
         """
         A list of Order objects specifying the sort order of each bucket in the table.
         """
         return pulumi.get(self, "sort_columns")
 
     @sort_columns.setter
-    def sort_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArgs']]]]):
+    def sort_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PartitionStorageDescriptorSortColumnArrgs']]]]):
         pulumi.set(self, "sort_columns", value)
 
     @property
@@ -2706,7 +2706,7 @@ class PartitionStorageDescriptorArgs:
 
 
 @pulumi.input_type
-class PartitionStorageDescriptorColumnArgs:
+calass PartitionStorageDescriptorColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
@@ -2760,7 +2760,7 @@ class PartitionStorageDescriptorColumnArgs:
 
 
 @pulumi.input_type
-class PartitionStorageDescriptorSerDeInfoArgs:
+calass PartitionStorageDescriptorSerDeInfoArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2815,7 +2815,7 @@ class PartitionStorageDescriptorSerDeInfoArgs:
 
 
 @pulumi.input_type
-class PartitionStorageDescriptorSkewedInfoArgs:
+calass PartitionStorageDescriptorSkewedInfoArrgs:
     def __init__(__self__, *,
                  skewed_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skewed_column_value_location_maps: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2870,7 +2870,7 @@ class PartitionStorageDescriptorSkewedInfoArgs:
 
 
 @pulumi.input_type
-class PartitionStorageDescriptorSortColumnArgs:
+calass PartitionStorageDescriptorSortColumnArrgs:
     def __init__(__self__, *,
                  column: pulumi.Input[str],
                  sort_order: pulumi.Input[int]):
@@ -2907,13 +2907,13 @@ class PartitionStorageDescriptorSortColumnArgs:
 
 
 @pulumi.input_type
-class SecurityConfigurationEncryptionConfigurationArgs:
+calass SecurityConfigurationEncryptionConfigurationArrgs:
     def __init__(__self__, *,
-                 cloudwatch_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs'],
-                 job_bookmarks_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs'],
-                 s3_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgs']):
+                 cloudwatch_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArrgs'],
+                 job_bookmarks_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArrgs'],
+                 s3_encryption: pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArrgs']):
         """
-        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgs'] s3_encryption: A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        :param pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArrgs'] s3_encryption: A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
         """
         pulumi.set(__self__, "cloudwatch_encryption", cloudwatch_encryption)
         pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
@@ -2921,37 +2921,37 @@ class SecurityConfigurationEncryptionConfigurationArgs:
 
     @property
     @pulumi.getter(name="cloudwatchEncryption")
-    def cloudwatch_encryption(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs']:
+    def cloudwatch_encryption(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArrgs']:
         return pulumi.get(self, "cloudwatch_encryption")
 
     @cloudwatch_encryption.setter
-    def cloudwatch_encryption(self, value: pulumi.Input['SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs']):
+    def cloudwatch_encryption(self, value: pulumi.Input['SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArrgs']):
         pulumi.set(self, "cloudwatch_encryption", value)
 
     @property
     @pulumi.getter(name="jobBookmarksEncryption")
-    def job_bookmarks_encryption(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs']:
+    def job_bookmarks_encryption(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArrgs']:
         return pulumi.get(self, "job_bookmarks_encryption")
 
     @job_bookmarks_encryption.setter
-    def job_bookmarks_encryption(self, value: pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs']):
+    def job_bookmarks_encryption(self, value: pulumi.Input['SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArrgs']):
         pulumi.set(self, "job_bookmarks_encryption", value)
 
     @property
     @pulumi.getter(name="s3Encryption")
-    def s3_encryption(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgs']:
+    def s3_encryption(self) -> pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArrgs']:
         """
         A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
         """
         return pulumi.get(self, "s3_encryption")
 
     @s3_encryption.setter
-    def s3_encryption(self, value: pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArgs']):
+    def s3_encryption(self, value: pulumi.Input['SecurityConfigurationEncryptionConfigurationS3EncryptionArrgs']):
         pulumi.set(self, "s3_encryption", value)
 
 
 @pulumi.input_type
-class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs:
+calass SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArrgs:
     def __init__(__self__, *,
                  cloudwatch_encryption_mode: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
@@ -2990,7 +2990,7 @@ class SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs:
 
 
 @pulumi.input_type
-class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs:
+calass SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArrgs:
     def __init__(__self__, *,
                  job_bookmarks_encryption_mode: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
@@ -3029,7 +3029,7 @@ class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs:
 
 
 @pulumi.input_type
-class SecurityConfigurationEncryptionConfigurationS3EncryptionArgs:
+calass SecurityConfigurationEncryptionConfigurationS3EncryptionArrgs:
     def __init__(__self__, *,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  s3_encryption_mode: Optional[pulumi.Input[str]] = None):
@@ -3068,19 +3068,19 @@ class SecurityConfigurationEncryptionConfigurationS3EncryptionArgs:
 
 
 @pulumi.input_type
-class TriggerActionArgs:
+calass TriggerActionArrgs:
     def __init__(__self__, *,
                  arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  crawler_name: Optional[pulumi.Input[str]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
-                 notification_property: Optional[pulumi.Input['TriggerActionNotificationPropertyArgs']] = None,
+                 notification_property: Optional[pulumi.Input['TriggerActionNotificationPropertyArrgs']] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  timeout: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
         :param pulumi.Input[str] crawler_name: The name of the crawler to be executed. Conflicts with `job_name`.
         :param pulumi.Input[str] job_name: The name of a job to be executed. Conflicts with `crawler_name`.
-        :param pulumi.Input['TriggerActionNotificationPropertyArgs'] notification_property: Specifies configuration properties of a job run notification. See Notification Property details below.
+        :param pulumi.Input['TriggerActionNotificationPropertyArrgs'] notification_property: Specifies configuration properties of a job run notification. See Notification Property details below.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration structure to be used with this action.
         :param pulumi.Input[int] timeout: The job run timeout in minutes. It overrides the timeout value of the job.
         """
@@ -3135,14 +3135,14 @@ class TriggerActionArgs:
 
     @property
     @pulumi.getter(name="notificationProperty")
-    def notification_property(self) -> Optional[pulumi.Input['TriggerActionNotificationPropertyArgs']]:
+    def notification_property(self) -> Optional[pulumi.Input['TriggerActionNotificationPropertyArrgs']]:
         """
         Specifies configuration properties of a job run notification. See Notification Property details below.
         """
         return pulumi.get(self, "notification_property")
 
     @notification_property.setter
-    def notification_property(self, value: Optional[pulumi.Input['TriggerActionNotificationPropertyArgs']]):
+    def notification_property(self, value: Optional[pulumi.Input['TriggerActionNotificationPropertyArrgs']]):
         pulumi.set(self, "notification_property", value)
 
     @property
@@ -3171,7 +3171,7 @@ class TriggerActionArgs:
 
 
 @pulumi.input_type
-class TriggerActionNotificationPropertyArgs:
+calass TriggerActionNotificationPropertyArrgs:
     def __init__(__self__, *,
                  notify_delay_after: Optional[pulumi.Input[int]] = None):
         """
@@ -3194,7 +3194,7 @@ class TriggerActionNotificationPropertyArgs:
 
 
 @pulumi.input_type
-class TriggerEventBatchingConditionArgs:
+calass TriggerEventBatchingConditionArrgs:
     def __init__(__self__, *,
                  batch_size: pulumi.Input[int],
                  batch_window: Optional[pulumi.Input[int]] = None):
@@ -3232,12 +3232,12 @@ class TriggerEventBatchingConditionArgs:
 
 
 @pulumi.input_type
-class TriggerPredicateArgs:
+calass TriggerPredicateArrgs:
     def __init__(__self__, *,
-                 conditions: pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgs']]],
+                 conditions: pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArrgs']]],
                  logical: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgs']]] conditions: A list of the conditions that determine when the trigger will fire. See Conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArrgs']]] conditions: A list of the conditions that determine when the trigger will fire. See Conditions.
         :param pulumi.Input[str] logical: How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -3246,14 +3246,14 @@ class TriggerPredicateArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgs']]]:
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArrgs']]]:
         """
         A list of the conditions that determine when the trigger will fire. See Conditions.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArgs']]]):
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['TriggerPredicateConditionArrgs']]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -3270,7 +3270,7 @@ class TriggerPredicateArgs:
 
 
 @pulumi.input_type
-class TriggerPredicateConditionArgs:
+calass TriggerPredicateConditionArrgs:
     def __init__(__self__, *,
                  crawl_state: Optional[pulumi.Input[str]] = None,
                  crawler_name: Optional[pulumi.Input[str]] = None,
@@ -3357,7 +3357,7 @@ class TriggerPredicateConditionArgs:
 
 
 @pulumi.input_type
-class UserDefinedFunctionResourceUriArgs:
+calass UserDefinedFunctionResourceUriArrgs:
     def __init__(__self__, *,
                  resource_type: pulumi.Input[str],
                  uri: pulumi.Input[str]):
@@ -3394,7 +3394,7 @@ class UserDefinedFunctionResourceUriArgs:
 
 
 @pulumi.input_type
-class GetScriptDagEdgeArgs:
+calass GetScriptDagEdgeArrgs:
     def __init__(__self__, *,
                  source: str,
                  target: str,
@@ -3447,14 +3447,14 @@ class GetScriptDagEdgeArgs:
 
 
 @pulumi.input_type
-class GetScriptDagNodeArgs:
+calass GetScriptDagNodeArrgs:
     def __init__(__self__, *,
-                 args: Sequence['GetScriptDagNodeArgArgs'],
+                 args: Sequence['GetScriptDagNodeArgArrgs'],
                  id: str,
                  node_type: str,
                  line_number: Optional[int] = None):
         """
-        :param Sequence['GetScriptDagNodeArgArgs'] args: Nested configuration an argument or property of a node. Defined below.
+        :param Sequence['GetScriptDagNodeArgArrgs'] args: Nested configuration an argument or property of a node. Defined below.
         :param str id: Node identifier that is unique within the node's graph.
         :param str node_type: Type of node this is.
         :param int line_number: Line number of the node.
@@ -3467,14 +3467,14 @@ class GetScriptDagNodeArgs:
 
     @property
     @pulumi.getter
-    def args(self) -> Sequence['GetScriptDagNodeArgArgs']:
+    def args(self) -> Sequence['GetScriptDagNodeArgArrgs']:
         """
         Nested configuration an argument or property of a node. Defined below.
         """
         return pulumi.get(self, "args")
 
     @args.setter
-    def args(self, value: Sequence['GetScriptDagNodeArgArgs']):
+    def args(self, value: Sequence['GetScriptDagNodeArgArrgs']):
         pulumi.set(self, "args", value)
 
     @property
@@ -3515,7 +3515,7 @@ class GetScriptDagNodeArgs:
 
 
 @pulumi.input_type
-class GetScriptDagNodeArgArgs:
+calass GetScriptDagNodeArgArrgs:
     def __init__(__self__, *,
                  name: str,
                  value: str,

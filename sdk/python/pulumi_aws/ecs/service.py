@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceArgs', 'Service']
+__all__ = ['ServiceArrgs', 'Service']
 
 @pulumi.input_type
-class ServiceArgs:
+calass ServiceArrgs:
     def __init__(__self__, *,
-                 alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
+                 alarms: Optional[pulumi.Input['ServiceAlarmsArrgs']] = None,
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArrgs']]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
-                 deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
-                 deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
+                 deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArrgs']] = None,
+                 deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArrgs']] = None,
                  deployment_maximum_percent: Optional[pulumi.Input[int]] = None,
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
                  desired_count: Optional[pulumi.Input[int]] = None,
@@ -30,27 +30,27 @@ class ServiceArgs:
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
                  iam_role: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
-                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
+                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']] = None,
+                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArrgs']]]] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArrgs']]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
                  propagate_tags: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
-                 service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
-                 service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
+                 service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArrgs']] = None,
+                 service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Service resource.
-        :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+        :param pulumi.Input['ServiceAlarmsArrgs'] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArrgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
-        :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
-        :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: Configuration block for deployment controller configuration. See below.
+        :param pulumi.Input['ServiceDeploymentCircuitBreakerArrgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
+        :param pulumi.Input['ServiceDeploymentControllerArrgs'] deployment_controller: Configuration block for deployment controller configuration. See below.
         :param pulumi.Input[int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         :param pulumi.Input[int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         :param pulumi.Input[int] desired_count: Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
@@ -60,18 +60,18 @@ class ServiceArgs:
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: Configuration block for load balancers. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArrgs']]] load_balancers: Configuration block for load balancers. See below.
         :param pulumi.Input[str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
-        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+        :param pulumi.Input['ServiceNetworkConfigurationArrgs'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArrgs']]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArrgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         :param pulumi.Input[str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         :param pulumi.Input[str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        :param pulumi.Input['ServiceServiceConnectConfigurationArrgs'] service_connect_configuration: The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        :param pulumi.Input['ServiceServiceRegistriesArrgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
@@ -136,26 +136,26 @@ class ServiceArgs:
 
     @property
     @pulumi.getter
-    def alarms(self) -> Optional[pulumi.Input['ServiceAlarmsArgs']]:
+    def alarms(self) -> Optional[pulumi.Input['ServiceAlarmsArrgs']]:
         """
         Information about the CloudWatch alarms. See below.
         """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
-    def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArgs']]):
+    def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArrgs']]):
         pulumi.set(self, "alarms", value)
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
-    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]]:
+    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArrgs']]]]:
         """
         Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
-    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]]):
+    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArrgs']]]]):
         pulumi.set(self, "capacity_provider_strategies", value)
 
     @property
@@ -172,26 +172,26 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="deploymentCircuitBreaker")
-    def deployment_circuit_breaker(self) -> Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]:
+    def deployment_circuit_breaker(self) -> Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArrgs']]:
         """
         Configuration block for deployment circuit breaker. See below.
         """
         return pulumi.get(self, "deployment_circuit_breaker")
 
     @deployment_circuit_breaker.setter
-    def deployment_circuit_breaker(self, value: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]):
+    def deployment_circuit_breaker(self, value: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArrgs']]):
         pulumi.set(self, "deployment_circuit_breaker", value)
 
     @property
     @pulumi.getter(name="deploymentController")
-    def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArgs']]:
+    def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArrgs']]:
         """
         Configuration block for deployment controller configuration. See below.
         """
         return pulumi.get(self, "deployment_controller")
 
     @deployment_controller.setter
-    def deployment_controller(self, value: Optional[pulumi.Input['ServiceDeploymentControllerArgs']]):
+    def deployment_controller(self, value: Optional[pulumi.Input['ServiceDeploymentControllerArrgs']]):
         pulumi.set(self, "deployment_controller", value)
 
     @property
@@ -304,14 +304,14 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]:
+    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArrgs']]]]:
         """
         Configuration block for load balancers. See below.
         """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
-    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]):
+    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArrgs']]]]):
         pulumi.set(self, "load_balancers", value)
 
     @property
@@ -330,38 +330,38 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']]:
         """
         Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @property
     @pulumi.getter(name="orderedPlacementStrategies")
-    def ordered_placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]]:
+    def ordered_placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArrgs']]]]:
         """
         Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         """
         return pulumi.get(self, "ordered_placement_strategies")
 
     @ordered_placement_strategies.setter
-    def ordered_placement_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]]):
+    def ordered_placement_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArrgs']]]]):
         pulumi.set(self, "ordered_placement_strategies", value)
 
     @property
     @pulumi.getter(name="placementConstraints")
-    def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]:
+    def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArrgs']]]]:
         """
         Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         """
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
-    def placement_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]):
+    def placement_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArrgs']]]]):
         pulumi.set(self, "placement_constraints", value)
 
     @property
@@ -402,26 +402,26 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="serviceConnectConfiguration")
-    def service_connect_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']]:
+    def service_connect_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationArrgs']]:
         """
         The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         """
         return pulumi.get(self, "service_connect_configuration")
 
     @service_connect_configuration.setter
-    def service_connect_configuration(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']]):
+    def service_connect_configuration(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationArrgs']]):
         pulumi.set(self, "service_connect_configuration", value)
 
     @property
     @pulumi.getter(name="serviceRegistries")
-    def service_registries(self) -> Optional[pulumi.Input['ServiceServiceRegistriesArgs']]:
+    def service_registries(self) -> Optional[pulumi.Input['ServiceServiceRegistriesArrgs']]:
         """
         Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
-    def service_registries(self, value: Optional[pulumi.Input['ServiceServiceRegistriesArgs']]):
+    def service_registries(self, value: Optional[pulumi.Input['ServiceServiceRegistriesArrgs']]):
         pulumi.set(self, "service_registries", value)
 
     @property
@@ -474,13 +474,13 @@ class ServiceArgs:
 
 
 @pulumi.input_type
-class _ServiceState:
+calass _ServiceState:
     def __init__(__self__, *,
-                 alarms: Optional[pulumi.Input['ServiceAlarmsArgs']] = None,
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]] = None,
+                 alarms: Optional[pulumi.Input['ServiceAlarmsArrgs']] = None,
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArrgs']]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
-                 deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']] = None,
-                 deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArgs']] = None,
+                 deployment_circuit_breaker: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArrgs']] = None,
+                 deployment_controller: Optional[pulumi.Input['ServiceDeploymentControllerArrgs']] = None,
                  deployment_maximum_percent: Optional[pulumi.Input[int]] = None,
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
                  desired_count: Optional[pulumi.Input[int]] = None,
@@ -490,16 +490,16 @@ class _ServiceState:
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
                  iam_role: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
-                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]] = None,
+                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']] = None,
+                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArrgs']]]] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArrgs']]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
                  propagate_tags: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
-                 service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']] = None,
-                 service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArgs']] = None,
+                 service_connect_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationArrgs']] = None,
+                 service_registries: Optional[pulumi.Input['ServiceServiceRegistriesArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
@@ -507,11 +507,11 @@ class _ServiceState:
                  wait_for_steady_state: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Service resources.
-        :param pulumi.Input['ServiceAlarmsArgs'] alarms: Information about the CloudWatch alarms. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+        :param pulumi.Input['ServiceAlarmsArrgs'] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArrgs']]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
-        :param pulumi.Input['ServiceDeploymentCircuitBreakerArgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
-        :param pulumi.Input['ServiceDeploymentControllerArgs'] deployment_controller: Configuration block for deployment controller configuration. See below.
+        :param pulumi.Input['ServiceDeploymentCircuitBreakerArrgs'] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
+        :param pulumi.Input['ServiceDeploymentControllerArrgs'] deployment_controller: Configuration block for deployment controller configuration. See below.
         :param pulumi.Input[int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         :param pulumi.Input[int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         :param pulumi.Input[int] desired_count: Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
@@ -521,18 +521,18 @@ class _ServiceState:
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]] load_balancers: Configuration block for load balancers. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArrgs']]] load_balancers: Configuration block for load balancers. See below.
         :param pulumi.Input[str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
-        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+        :param pulumi.Input['ServiceNetworkConfigurationArrgs'] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArrgs']]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArrgs']]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         :param pulumi.Input[str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         :param pulumi.Input[str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        :param pulumi.Input['ServiceServiceConnectConfigurationArgs'] service_connect_configuration: The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        :param pulumi.Input['ServiceServiceRegistriesArgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        :param pulumi.Input['ServiceServiceConnectConfigurationArrgs'] service_connect_configuration: The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        :param pulumi.Input['ServiceServiceRegistriesArrgs'] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
@@ -603,26 +603,26 @@ class _ServiceState:
 
     @property
     @pulumi.getter
-    def alarms(self) -> Optional[pulumi.Input['ServiceAlarmsArgs']]:
+    def alarms(self) -> Optional[pulumi.Input['ServiceAlarmsArrgs']]:
         """
         Information about the CloudWatch alarms. See below.
         """
         return pulumi.get(self, "alarms")
 
     @alarms.setter
-    def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArgs']]):
+    def alarms(self, value: Optional[pulumi.Input['ServiceAlarmsArrgs']]):
         pulumi.set(self, "alarms", value)
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
-    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]]:
+    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArrgs']]]]:
         """
         Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
-    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArgs']]]]):
+    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCapacityProviderStrategyArrgs']]]]):
         pulumi.set(self, "capacity_provider_strategies", value)
 
     @property
@@ -639,26 +639,26 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="deploymentCircuitBreaker")
-    def deployment_circuit_breaker(self) -> Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]:
+    def deployment_circuit_breaker(self) -> Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArrgs']]:
         """
         Configuration block for deployment circuit breaker. See below.
         """
         return pulumi.get(self, "deployment_circuit_breaker")
 
     @deployment_circuit_breaker.setter
-    def deployment_circuit_breaker(self, value: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArgs']]):
+    def deployment_circuit_breaker(self, value: Optional[pulumi.Input['ServiceDeploymentCircuitBreakerArrgs']]):
         pulumi.set(self, "deployment_circuit_breaker", value)
 
     @property
     @pulumi.getter(name="deploymentController")
-    def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArgs']]:
+    def deployment_controller(self) -> Optional[pulumi.Input['ServiceDeploymentControllerArrgs']]:
         """
         Configuration block for deployment controller configuration. See below.
         """
         return pulumi.get(self, "deployment_controller")
 
     @deployment_controller.setter
-    def deployment_controller(self, value: Optional[pulumi.Input['ServiceDeploymentControllerArgs']]):
+    def deployment_controller(self, value: Optional[pulumi.Input['ServiceDeploymentControllerArrgs']]):
         pulumi.set(self, "deployment_controller", value)
 
     @property
@@ -771,14 +771,14 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]:
+    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArrgs']]]]:
         """
         Configuration block for load balancers. See below.
         """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
-    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArgs']]]]):
+    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceLoadBalancerArrgs']]]]):
         pulumi.set(self, "load_balancers", value)
 
     @property
@@ -797,38 +797,38 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']]:
         """
         Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @property
     @pulumi.getter(name="orderedPlacementStrategies")
-    def ordered_placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]]:
+    def ordered_placement_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArrgs']]]]:
         """
         Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         """
         return pulumi.get(self, "ordered_placement_strategies")
 
     @ordered_placement_strategies.setter
-    def ordered_placement_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArgs']]]]):
+    def ordered_placement_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceOrderedPlacementStrategyArrgs']]]]):
         pulumi.set(self, "ordered_placement_strategies", value)
 
     @property
     @pulumi.getter(name="placementConstraints")
-    def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]:
+    def placement_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArrgs']]]]:
         """
         Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         """
         return pulumi.get(self, "placement_constraints")
 
     @placement_constraints.setter
-    def placement_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArgs']]]]):
+    def placement_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServicePlacementConstraintArrgs']]]]):
         pulumi.set(self, "placement_constraints", value)
 
     @property
@@ -869,26 +869,26 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="serviceConnectConfiguration")
-    def service_connect_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']]:
+    def service_connect_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationArrgs']]:
         """
         The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
         """
         return pulumi.get(self, "service_connect_configuration")
 
     @service_connect_configuration.setter
-    def service_connect_configuration(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationArgs']]):
+    def service_connect_configuration(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationArrgs']]):
         pulumi.set(self, "service_connect_configuration", value)
 
     @property
     @pulumi.getter(name="serviceRegistries")
-    def service_registries(self) -> Optional[pulumi.Input['ServiceServiceRegistriesArgs']]:
+    def service_registries(self) -> Optional[pulumi.Input['ServiceServiceRegistriesArrgs']]:
         """
         Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
-    def service_registries(self, value: Optional[pulumi.Input['ServiceServiceRegistriesArgs']]):
+    def service_registries(self, value: Optional[pulumi.Input['ServiceServiceRegistriesArrgs']]):
         pulumi.set(self, "service_registries", value)
 
     @property
@@ -955,16 +955,16 @@ class _ServiceState:
         pulumi.set(self, "wait_for_steady_state", value)
 
 
-class Service(pulumi.CustomResource):
+calass Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']]] = None,
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]]] = None,
+                 alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArrgs']]] = None,
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArrgs']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
-                 deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']]] = None,
-                 deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']]] = None,
+                 deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArrgs']]] = None,
+                 deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArrgs']]] = None,
                  deployment_maximum_percent: Optional[pulumi.Input[int]] = None,
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
                  desired_count: Optional[pulumi.Input[int]] = None,
@@ -974,16 +974,16 @@ class Service(pulumi.CustomResource):
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
                  iam_role: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
-                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArgs']]]]] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']]] = None,
+                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArrgs']]]]] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArrgs']]]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
                  propagate_tags: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
-                 service_connect_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArgs']]] = None,
-                 service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']]] = None,
+                 service_connect_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArrgs']]] = None,
+                 service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1007,16 +1007,16 @@ class Service(pulumi.CustomResource):
             task_definition=aws_ecs_task_definition["mongo"]["arn"],
             desired_count=3,
             iam_role=aws_iam_role["foo"]["arn"],
-            ordered_placement_strategies=[aws.ecs.ServiceOrderedPlacementStrategyArgs(
+            ordered_placement_strategies=[aws.ecs.ServiceOrderedPlacementStrategyArrgs(
                 type="binpack",
                 field="cpu",
             )],
-            load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
+            load_balancers=[aws.ecs.ServiceLoadBalancerArrgs(
                 target_group_arn=aws_lb_target_group["foo"]["arn"],
                 container_name="mongo",
                 container_port=8080,
             )],
-            placement_constraints=[aws.ecs.ServicePlacementConstraintArgs(
+            placement_constraints=[aws.ecs.ServicePlacementConstraintArrgs(
                 type="memberOf",
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )],
@@ -1052,7 +1052,7 @@ class Service(pulumi.CustomResource):
 
         example = aws.ecs.Service("example",
             cluster=aws_ecs_cluster["example"]["id"],
-            alarms=aws.ecs.ServiceAlarmsArgs(
+            alarms=aws.ecs.ServiceAlarmsArrgs(
                 enable=True,
                 rollback=True,
                 alarm_names=[aws_cloudwatch_metric_alarm["example"]["alarm_name"]],
@@ -1066,7 +1066,7 @@ class Service(pulumi.CustomResource):
 
         example = aws.ecs.Service("example",
             cluster=aws_ecs_cluster["example"]["id"],
-            deployment_controller=aws.ecs.ServiceDeploymentControllerArgs(
+            deployment_controller=aws.ecs.ServiceDeploymentControllerArrgs(
                 type="EXTERNAL",
             ))
         ```
@@ -1081,11 +1081,11 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']] alarms: Information about the CloudWatch alarms. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceAlarmsArrgs']] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArrgs']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
-        :param pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
-        :param pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']] deployment_controller: Configuration block for deployment controller configuration. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArrgs']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArrgs']] deployment_controller: Configuration block for deployment controller configuration. See below.
         :param pulumi.Input[int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         :param pulumi.Input[int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         :param pulumi.Input[int] desired_count: Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
@@ -1095,18 +1095,18 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]] load_balancers: Configuration block for load balancers. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArrgs']]]] load_balancers: Configuration block for load balancers. See below.
         :param pulumi.Input[str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArgs']]]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArrgs']]]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArrgs']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         :param pulumi.Input[str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         :param pulumi.Input[str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        :param pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArgs']] service_connect_configuration: The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        :param pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArrgs']] service_connect_configuration: The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArrgs']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update (redeployment). Useful with `timestamp()`. See example above.
@@ -1116,7 +1116,7 @@ class Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ServiceArgs] = None,
+                 args: Optional[ServiceArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note:** To prevent a race condition during service deletion, make sure to set `depends_on` to the related `iam.RolePolicy`; otherwise, the policy may be destroyed too soon and the ECS service will then get stuck in the `DRAINING` state.
@@ -1136,16 +1136,16 @@ class Service(pulumi.CustomResource):
             task_definition=aws_ecs_task_definition["mongo"]["arn"],
             desired_count=3,
             iam_role=aws_iam_role["foo"]["arn"],
-            ordered_placement_strategies=[aws.ecs.ServiceOrderedPlacementStrategyArgs(
+            ordered_placement_strategies=[aws.ecs.ServiceOrderedPlacementStrategyArrgs(
                 type="binpack",
                 field="cpu",
             )],
-            load_balancers=[aws.ecs.ServiceLoadBalancerArgs(
+            load_balancers=[aws.ecs.ServiceLoadBalancerArrgs(
                 target_group_arn=aws_lb_target_group["foo"]["arn"],
                 container_name="mongo",
                 container_port=8080,
             )],
-            placement_constraints=[aws.ecs.ServicePlacementConstraintArgs(
+            placement_constraints=[aws.ecs.ServicePlacementConstraintArrgs(
                 type="memberOf",
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )],
@@ -1181,7 +1181,7 @@ class Service(pulumi.CustomResource):
 
         example = aws.ecs.Service("example",
             cluster=aws_ecs_cluster["example"]["id"],
-            alarms=aws.ecs.ServiceAlarmsArgs(
+            alarms=aws.ecs.ServiceAlarmsArrgs(
                 enable=True,
                 rollback=True,
                 alarm_names=[aws_cloudwatch_metric_alarm["example"]["alarm_name"]],
@@ -1195,7 +1195,7 @@ class Service(pulumi.CustomResource):
 
         example = aws.ecs.Service("example",
             cluster=aws_ecs_cluster["example"]["id"],
-            deployment_controller=aws.ecs.ServiceDeploymentControllerArgs(
+            deployment_controller=aws.ecs.ServiceDeploymentControllerArrgs(
                 type="EXTERNAL",
             ))
         ```
@@ -1209,12 +1209,12 @@ class Service(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1223,11 +1223,11 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']]] = None,
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]]] = None,
+                 alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArrgs']]] = None,
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArrgs']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
-                 deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']]] = None,
-                 deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']]] = None,
+                 deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArrgs']]] = None,
+                 deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArrgs']]] = None,
                  deployment_maximum_percent: Optional[pulumi.Input[int]] = None,
                  deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
                  desired_count: Optional[pulumi.Input[int]] = None,
@@ -1237,16 +1237,16 @@ class Service(pulumi.CustomResource):
                  health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
                  iam_role: Optional[pulumi.Input[str]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
-                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArgs']]]]] = None,
-                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']]] = None,
+                 ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArrgs']]]]] = None,
+                 placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArrgs']]]]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
                  propagate_tags: Optional[pulumi.Input[str]] = None,
                  scheduling_strategy: Optional[pulumi.Input[str]] = None,
-                 service_connect_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArgs']]] = None,
-                 service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']]] = None,
+                 service_connect_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArrgs']]] = None,
+                 service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1258,7 +1258,7 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceArgs.__new__(ServiceArgs)
+            __props__ = ServiceArrgs.__new__(ServiceArrgs)
 
             __props__.__dict__["alarms"] = alarms
             __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
@@ -1301,11 +1301,11 @@ class Service(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']]] = None,
-            capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]]] = None,
+            alarms: Optional[pulumi.Input[pulumi.InputType['ServiceAlarmsArrgs']]] = None,
+            capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArrgs']]]]] = None,
             cluster: Optional[pulumi.Input[str]] = None,
-            deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']]] = None,
-            deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']]] = None,
+            deployment_circuit_breaker: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArrgs']]] = None,
+            deployment_controller: Optional[pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArrgs']]] = None,
             deployment_maximum_percent: Optional[pulumi.Input[int]] = None,
             deployment_minimum_healthy_percent: Optional[pulumi.Input[int]] = None,
             desired_count: Optional[pulumi.Input[int]] = None,
@@ -1315,16 +1315,16 @@ class Service(pulumi.CustomResource):
             health_check_grace_period_seconds: Optional[pulumi.Input[int]] = None,
             iam_role: Optional[pulumi.Input[str]] = None,
             launch_type: Optional[pulumi.Input[str]] = None,
-            load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]]] = None,
+            load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
-            ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArgs']]]]] = None,
-            placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]]] = None,
+            network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']]] = None,
+            ordered_placement_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArrgs']]]]] = None,
+            placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArrgs']]]]] = None,
             platform_version: Optional[pulumi.Input[str]] = None,
             propagate_tags: Optional[pulumi.Input[str]] = None,
             scheduling_strategy: Optional[pulumi.Input[str]] = None,
-            service_connect_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArgs']]] = None,
-            service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']]] = None,
+            service_connect_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArrgs']]] = None,
+            service_registries: Optional[pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             task_definition: Optional[pulumi.Input[str]] = None,
@@ -1337,11 +1337,11 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceAlarmsArgs']] alarms: Information about the CloudWatch alarms. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArgs']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceAlarmsArrgs']] alarms: Information about the CloudWatch alarms. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceCapacityProviderStrategyArrgs']]]] capacity_provider_strategies: Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         :param pulumi.Input[str] cluster: ARN of an ECS cluster.
-        :param pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArgs']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
-        :param pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArgs']] deployment_controller: Configuration block for deployment controller configuration. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceDeploymentCircuitBreakerArrgs']] deployment_circuit_breaker: Configuration block for deployment circuit breaker. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceDeploymentControllerArrgs']] deployment_controller: Configuration block for deployment controller configuration. See below.
         :param pulumi.Input[int] deployment_maximum_percent: Upper limit (as a percentage of the service's desiredCount) of the number of running tasks that can be running in a service during a deployment. Not valid when using the `DAEMON` scheduling strategy.
         :param pulumi.Input[int] deployment_minimum_healthy_percent: Lower limit (as a percentage of the service's desiredCount) of the number of running tasks that must remain running and healthy in a service during a deployment.
         :param pulumi.Input[int] desired_count: Number of instances of the task definition to place and keep running. Defaults to 0. Do not specify if using the `DAEMON` scheduling strategy.
@@ -1351,18 +1351,18 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[int] health_check_grace_period_seconds: Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
         :param pulumi.Input[str] iam_role: ARN of the IAM role that allows Amazon ECS to make calls to your load balancer on your behalf. This parameter is required if you are using a load balancer with your service, but only if your task definition does not use the `awsvpc` network mode. If using `awsvpc` network mode, do not specify this role. If your account has already created the Amazon ECS service-linked role, that role is used by default for your service unless you specify a role here.
         :param pulumi.Input[str] launch_type: Launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArgs']]]] load_balancers: Configuration block for load balancers. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceLoadBalancerArrgs']]]] load_balancers: Configuration block for load balancers. See below.
         :param pulumi.Input[str] name: Name of the service (up to 255 letters, numbers, hyphens, and underscores)
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArgs']]]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArgs']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']] network_configuration: Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceOrderedPlacementStrategyArrgs']]]] ordered_placement_strategies: Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServicePlacementConstraintArrgs']]]] placement_constraints: Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         :param pulumi.Input[str] platform_version: Platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param pulumi.Input[str] propagate_tags: Specifies whether to propagate the tags from the task definition or the service to the tasks. The valid values are `SERVICE` and `TASK_DEFINITION`.
         :param pulumi.Input[str] scheduling_strategy: Scheduling strategy to use for the service. The valid values are `REPLICA` and `DAEMON`. Defaults to `REPLICA`. Note that [*Tasks using the Fargate launch type or the `CODE_DEPLOY` or `EXTERNAL` deployment controller types don't support the `DAEMON` scheduling strategy*](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html).
-        :param pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArgs']] service_connect_configuration: The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
-        :param pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArgs']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceServiceConnectConfigurationArrgs']] service_connect_configuration: The ECS Service Connect configuration for this service to discover and connect to services, and be discovered by, and connected from, other services within a namespace. See below.
+        :param pulumi.Input[pulumi.InputType['ServiceServiceRegistriesArrgs']] service_registries: Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] task_definition: Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.

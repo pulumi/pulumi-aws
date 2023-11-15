@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReleaseLabelsResult:
+calass GetReleaseLabelsResult:
     """
     A collection of values returned by getReleaseLabels.
     """
@@ -56,7 +56,7 @@ class GetReleaseLabelsResult:
         return pulumi.get(self, "release_labels")
 
 
-class AwaitableGetReleaseLabelsResult(GetReleaseLabelsResult):
+calass AwaitableGetReleaseLabelsResult(GetReleaseLabelsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -67,7 +67,7 @@ class AwaitableGetReleaseLabelsResult(GetReleaseLabelsResult):
             release_labels=self.release_labels)
 
 
-def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFiltersArgs']] = None,
+def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFiltersArrgs']] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReleaseLabelsResult:
     """
     Retrieve information about EMR Release Labels.
@@ -78,14 +78,14 @@ def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFilte
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.emr.get_release_labels(filters=aws.emr.GetReleaseLabelsFiltersArgs(
+    example = aws.emr.get_release_labels(filters=aws.emr.GetReleaseLabelsFiltersArrgs(
         application="spark@2.1.0",
         prefix="emr-5",
     ))
     ```
 
 
-    :param pulumi.InputType['GetReleaseLabelsFiltersArgs'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+    :param pulumi.InputType['GetReleaseLabelsFiltersArrgs'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -99,7 +99,7 @@ def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFilte
 
 
 @_utilities.lift_output_func(get_release_labels)
-def get_release_labels_output(filters: Optional[pulumi.Input[Optional[pulumi.InputType['GetReleaseLabelsFiltersArgs']]]] = None,
+def get_release_labels_output(filters: Optional[pulumi.Input[Optional[pulumi.InputType['GetReleaseLabelsFiltersArrgs']]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReleaseLabelsResult]:
     """
     Retrieve information about EMR Release Labels.
@@ -110,13 +110,13 @@ def get_release_labels_output(filters: Optional[pulumi.Input[Optional[pulumi.Inp
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.emr.get_release_labels(filters=aws.emr.GetReleaseLabelsFiltersArgs(
+    example = aws.emr.get_release_labels(filters=aws.emr.GetReleaseLabelsFiltersArrgs(
         application="spark@2.1.0",
         prefix="emr-5",
     ))
     ```
 
 
-    :param pulumi.InputType['GetReleaseLabelsFiltersArgs'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
+    :param pulumi.InputType['GetReleaseLabelsFiltersArrgs'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
     """
     ...

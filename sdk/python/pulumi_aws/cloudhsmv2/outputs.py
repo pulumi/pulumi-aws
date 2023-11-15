@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterClusterCertificate(dict):
+calass ClusterClusterCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -85,7 +85,7 @@ class ClusterClusterCertificate(dict):
 
 
 @pulumi.output_type
-class GetClusterClusterCertificateResult(dict):
+calass GetClusterClusterCertificateResult(dict):
     def __init__(__self__, *,
                  aws_hardware_certificate: str,
                  cluster_certificate: str,

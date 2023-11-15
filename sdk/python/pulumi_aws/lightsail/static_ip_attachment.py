@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StaticIpAttachmentArgs', 'StaticIpAttachment']
+__all__ = ['StaticIpAttachmentArrgs', 'StaticIpAttachment']
 
 @pulumi.input_type
-class StaticIpAttachmentArgs:
+calass StaticIpAttachmentArrgs:
     def __init__(__self__, *,
                  instance_name: pulumi.Input[str],
                  static_ip_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class StaticIpAttachmentArgs:
 
 
 @pulumi.input_type
-class _StaticIpAttachmentState:
+calass _StaticIpAttachmentState:
     def __init__(__self__, *,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  ip_address: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class _StaticIpAttachmentState:
         pulumi.set(self, "static_ip_name", value)
 
 
-class StaticIpAttachment(pulumi.CustomResource):
+calass StaticIpAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -144,7 +144,7 @@ class StaticIpAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StaticIpAttachmentArgs,
+                 args: StaticIpAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a static IP address attachment - relationship between a Lightsail static IP & Lightsail instance.
@@ -169,12 +169,12 @@ class StaticIpAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StaticIpAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param StaticIpAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StaticIpAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StaticIpAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -192,7 +192,7 @@ class StaticIpAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StaticIpAttachmentArgs.__new__(StaticIpAttachmentArgs)
+            __props__ = StaticIpAttachmentArrgs.__new__(StaticIpAttachmentArrgs)
 
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")

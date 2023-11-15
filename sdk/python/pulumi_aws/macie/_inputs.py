@@ -10,35 +10,35 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'FindingsFilterFindingCriteriaArgs',
-    'FindingsFilterFindingCriteriaCriterionArgs',
+    'FindingsFilterFindingCriteriaArrgs',
+    'FindingsFilterFindingCriteriaCriterionArrgs',
 ]
 
 @pulumi.input_type
-class FindingsFilterFindingCriteriaArgs:
+calass FindingsFilterFindingCriteriaArrgs:
     def __init__(__self__, *,
-                 criterions: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]] = None):
+                 criterions: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArrgs']]] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
         """
         if criterions is not None:
             pulumi.set(__self__, "criterions", criterions)
 
     @property
     @pulumi.getter
-    def criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]]:
+    def criterions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArrgs']]]]:
         """
         A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
         """
         return pulumi.get(self, "criterions")
 
     @criterions.setter
-    def criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArgs']]]]):
+    def criterions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FindingsFilterFindingCriteriaCriterionArrgs']]]]):
         pulumi.set(self, "criterions", value)
 
 
 @pulumi.input_type
-class FindingsFilterFindingCriteriaCriterionArgs:
+calass FindingsFilterFindingCriteriaCriterionArrgs:
     def __init__(__self__, *,
                  field: pulumi.Input[str],
                  eq_exact_matches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

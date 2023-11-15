@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ReportDefinitionArgs', 'ReportDefinition']
+__all__ = ['ReportDefinitionArrgs', 'ReportDefinition']
 
 @pulumi.input_type
-class ReportDefinitionArgs:
+calass ReportDefinitionArrgs:
     def __init__(__self__, *,
                  additional_schema_elements: pulumi.Input[Sequence[pulumi.Input[str]]],
                  compression: pulumi.Input[str],
@@ -189,7 +189,7 @@ class ReportDefinitionArgs:
 
 
 @pulumi.input_type
-class _ReportDefinitionState:
+calass _ReportDefinitionState:
     def __init__(__self__, *,
                  additional_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  additional_schema_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -388,7 +388,7 @@ class _ReportDefinitionState:
         pulumi.set(self, "time_unit", value)
 
 
-class ReportDefinition(pulumi.CustomResource):
+calass ReportDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -459,7 +459,7 @@ class ReportDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReportDefinitionArgs,
+                 args: ReportDefinitionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Cost and Usage Report Definitions.
@@ -498,12 +498,12 @@ class ReportDefinition(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReportDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param ReportDefinitionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReportDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReportDefinitionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -530,7 +530,7 @@ class ReportDefinition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReportDefinitionArgs.__new__(ReportDefinitionArgs)
+            __props__ = ReportDefinitionArrgs.__new__(ReportDefinitionArrgs)
 
             __props__.__dict__["additional_artifacts"] = additional_artifacts
             if additional_schema_elements is None and not opts.urn:

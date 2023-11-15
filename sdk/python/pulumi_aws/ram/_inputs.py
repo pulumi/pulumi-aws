@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetResourceShareFilterArgs',
+    'GetResourceShareFilterArrgs',
 ]
 
 @pulumi.input_type
-class GetResourceShareFilterArgs:
+calass GetResourceShareFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

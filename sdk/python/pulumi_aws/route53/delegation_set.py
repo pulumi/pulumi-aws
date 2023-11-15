@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DelegationSetArgs', 'DelegationSet']
+__all__ = ['DelegationSetArrgs', 'DelegationSet']
 
 @pulumi.input_type
-class DelegationSetArgs:
+calass DelegationSetArrgs:
     def __init__(__self__, *,
                  reference_name: Optional[pulumi.Input[str]] = None):
         """
@@ -38,7 +38,7 @@ class DelegationSetArgs:
 
 
 @pulumi.input_type
-class _DelegationSetState:
+calass _DelegationSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -97,7 +97,7 @@ class _DelegationSetState:
         pulumi.set(self, "reference_name", value)
 
 
-class DelegationSet(pulumi.CustomResource):
+calass DelegationSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -135,7 +135,7 @@ class DelegationSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DelegationSetArgs] = None,
+                 args: Optional[DelegationSetArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
@@ -160,12 +160,12 @@ class DelegationSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DelegationSetArgs args: The arguments to use to populate this resource's properties.
+        :param DelegationSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DelegationSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DelegationSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -182,7 +182,7 @@ class DelegationSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DelegationSetArgs.__new__(DelegationSetArgs)
+            __props__ = DelegationSetArrgs.__new__(DelegationSetArrgs)
 
             __props__.__dict__["reference_name"] = reference_name
             __props__.__dict__["arn"] = None

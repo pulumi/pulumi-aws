@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ClusterIamRolesArgs', 'ClusterIamRoles']
+__all__ = ['ClusterIamRolesArrgs', 'ClusterIamRoles']
 
 @pulumi.input_type
-class ClusterIamRolesArgs:
+calass ClusterIamRolesArrgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str],
                  default_iam_role_arn: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class ClusterIamRolesArgs:
 
 
 @pulumi.input_type
-class _ClusterIamRolesState:
+calass _ClusterIamRolesState:
     def __init__(__self__, *,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  default_iam_role_arn: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _ClusterIamRolesState:
         pulumi.set(self, "iam_role_arns", value)
 
 
-class ClusterIamRoles(pulumi.CustomResource):
+calass ClusterIamRoles(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -165,7 +165,7 @@ class ClusterIamRoles(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterIamRolesArgs,
+                 args: ClusterIamRolesArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Redshift Cluster IAM Roles resource.
@@ -192,12 +192,12 @@ class ClusterIamRoles(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterIamRolesArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterIamRolesArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterIamRolesArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterIamRolesArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,7 +216,7 @@ class ClusterIamRoles(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterIamRolesArgs.__new__(ClusterIamRolesArgs)
+            __props__ = ClusterIamRolesArrgs.__new__(ClusterIamRolesArrgs)
 
             if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")

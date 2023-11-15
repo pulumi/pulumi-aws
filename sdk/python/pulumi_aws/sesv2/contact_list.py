@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ContactListArgs', 'ContactList']
+__all__ = ['ContactListArrgs', 'ContactList']
 
 @pulumi.input_type
-class ContactListArgs:
+calass ContactListArrgs:
     def __init__(__self__, *,
                  contact_list_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None):
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArrgs']]]] = None):
         """
         The set of arguments for constructing a ContactList resource.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
@@ -27,7 +27,7 @@ class ContactListArgs:
                The following arguments are optional:
         :param pulumi.Input[str] description: A description of what the contact list is about.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArrgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         pulumi.set(__self__, "contact_list_name", contact_list_name)
         if description is not None:
@@ -77,19 +77,19 @@ class ContactListArgs:
 
     @property
     @pulumi.getter
-    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]]:
+    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArrgs']]]]:
         """
         Configuration block(s) with topic for the contact list. Detailed below.
         """
         return pulumi.get(self, "topics")
 
     @topics.setter
-    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]]):
+    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArrgs']]]]):
         pulumi.set(self, "topics", value)
 
 
 @pulumi.input_type
-class _ContactListState:
+calass _ContactListState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  contact_list_name: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class _ContactListState:
                  last_updated_timestamp: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]] = None):
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArrgs']]]] = None):
         """
         Input properties used for looking up and filtering ContactList resources.
         :param pulumi.Input[str] contact_list_name: The name of the contact list.
@@ -108,7 +108,7 @@ class _ContactListState:
         :param pulumi.Input[str] description: A description of what the contact list is about.
         :param pulumi.Input[str] last_updated_timestamp: A timestamp noting the last time the contact list was updated in ISO 8601 format.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactListTopicArrgs']]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -215,18 +215,18 @@ class _ContactListState:
 
     @property
     @pulumi.getter
-    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]]:
+    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArrgs']]]]:
         """
         Configuration block(s) with topic for the contact list. Detailed below.
         """
         return pulumi.get(self, "topics")
 
     @topics.setter
-    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArgs']]]]):
+    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContactListTopicArrgs']]]]):
         pulumi.set(self, "topics", value)
 
 
-class ContactList(pulumi.CustomResource):
+calass ContactList(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -234,7 +234,7 @@ class ContactList(pulumi.CustomResource):
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArrgs']]]]] = None,
                  __props__=None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
@@ -257,7 +257,7 @@ class ContactList(pulumi.CustomResource):
         example = aws.sesv2.ContactList("example",
             contact_list_name="example",
             description="description",
-            topics=[aws.sesv2.ContactListTopicArgs(
+            topics=[aws.sesv2.ContactListTopicArrgs(
                 default_subscription_status="OPT_IN",
                 description="topic description",
                 display_name="Example Topic",
@@ -280,13 +280,13 @@ class ContactList(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] description: A description of what the contact list is about.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArrgs']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContactListArgs,
+                 args: ContactListArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
@@ -309,7 +309,7 @@ class ContactList(pulumi.CustomResource):
         example = aws.sesv2.ContactList("example",
             contact_list_name="example",
             description="description",
-            topics=[aws.sesv2.ContactListTopicArgs(
+            topics=[aws.sesv2.ContactListTopicArrgs(
                 default_subscription_status="OPT_IN",
                 description="topic description",
                 display_name="Example Topic",
@@ -326,12 +326,12 @@ class ContactList(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContactListArgs args: The arguments to use to populate this resource's properties.
+        :param ContactListArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContactListArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContactListArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -343,7 +343,7 @@ class ContactList(pulumi.CustomResource):
                  contact_list_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None,
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -351,7 +351,7 @@ class ContactList(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContactListArgs.__new__(ContactListArgs)
+            __props__ = ContactListArrgs.__new__(ContactListArrgs)
 
             if contact_list_name is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_list_name'")
@@ -382,7 +382,7 @@ class ContactList(pulumi.CustomResource):
             last_updated_timestamp: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]]] = None) -> 'ContactList':
+            topics: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArrgs']]]]] = None) -> 'ContactList':
         """
         Get an existing ContactList resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -397,7 +397,7 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of what the contact list is about.
         :param pulumi.Input[str] last_updated_timestamp: A timestamp noting the last time the contact list was updated in ISO 8601 format.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the contact list. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArgs']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactListTopicArrgs']]]] topics: Configuration block(s) with topic for the contact list. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

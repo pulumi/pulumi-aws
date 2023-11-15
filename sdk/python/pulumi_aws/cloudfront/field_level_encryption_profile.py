@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FieldLevelEncryptionProfileArgs', 'FieldLevelEncryptionProfile']
+__all__ = ['FieldLevelEncryptionProfileArrgs', 'FieldLevelEncryptionProfile']
 
 @pulumi.input_type
-class FieldLevelEncryptionProfileArgs:
+calass FieldLevelEncryptionProfileArrgs:
     def __init__(__self__, *,
-                 encryption_entities: pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs'],
+                 encryption_entities: pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArrgs'],
                  comment: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FieldLevelEncryptionProfile resource.
-        :param pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs'] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+        :param pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArrgs'] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Profile.
         :param pulumi.Input[str] name: The name of the Field Level Encryption Profile.
         """
@@ -33,14 +33,14 @@ class FieldLevelEncryptionProfileArgs:
 
     @property
     @pulumi.getter(name="encryptionEntities")
-    def encryption_entities(self) -> pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']:
+    def encryption_entities(self) -> pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']:
         """
         The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         """
         return pulumi.get(self, "encryption_entities")
 
     @encryption_entities.setter
-    def encryption_entities(self, value: pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']):
+    def encryption_entities(self, value: pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']):
         pulumi.set(self, "encryption_entities", value)
 
     @property
@@ -69,18 +69,18 @@ class FieldLevelEncryptionProfileArgs:
 
 
 @pulumi.input_type
-class _FieldLevelEncryptionProfileState:
+calass _FieldLevelEncryptionProfileState:
     def __init__(__self__, *,
                  caller_reference: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 encryption_entities: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']] = None,
+                 encryption_entities: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FieldLevelEncryptionProfile resources.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Profile.
-        :param pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs'] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+        :param pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArrgs'] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         :param pulumi.Input[str] etag: The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] name: The name of the Field Level Encryption Profile.
         """
@@ -121,14 +121,14 @@ class _FieldLevelEncryptionProfileState:
 
     @property
     @pulumi.getter(name="encryptionEntities")
-    def encryption_entities(self) -> Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]:
+    def encryption_entities(self) -> Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']]:
         """
         The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         """
         return pulumi.get(self, "encryption_entities")
 
     @encryption_entities.setter
-    def encryption_entities(self, value: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]):
+    def encryption_entities(self, value: Optional[pulumi.Input['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']]):
         pulumi.set(self, "encryption_entities", value)
 
     @property
@@ -156,13 +156,13 @@ class _FieldLevelEncryptionProfileState:
         pulumi.set(self, "name", value)
 
 
-class FieldLevelEncryptionProfile(pulumi.CustomResource):
+calass FieldLevelEncryptionProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 encryption_entities: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]] = None,
+                 encryption_entities: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -179,11 +179,11 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
             encoded_key=(lambda path: open(path).read())("public_key.pem"))
         test = aws.cloudfront.FieldLevelEncryptionProfile("test",
             comment="test comment",
-            encryption_entities=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs(
-                items=[aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs(
+            encryption_entities=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArrgs(
+                items=[aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArrgs(
                     public_key_id=example.id,
                     provider_id="test provider",
-                    field_patterns=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs(
+                    field_patterns=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArrgs(
                         items=["DateOfBirth"],
                     ),
                 )],
@@ -201,14 +201,14 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Profile.
-        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArgs']] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         :param pulumi.Input[str] name: The name of the Field Level Encryption Profile.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FieldLevelEncryptionProfileArgs,
+                 args: FieldLevelEncryptionProfileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudFront Field-level Encryption Profile resource.
@@ -224,11 +224,11 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
             encoded_key=(lambda path: open(path).read())("public_key.pem"))
         test = aws.cloudfront.FieldLevelEncryptionProfile("test",
             comment="test comment",
-            encryption_entities=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArgs(
-                items=[aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArgs(
+            encryption_entities=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesArrgs(
+                items=[aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemArrgs(
                     public_key_id=example.id,
                     provider_id="test provider",
-                    field_patterns=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs(
+                    field_patterns=aws.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArrgs(
                         items=["DateOfBirth"],
                     ),
                 )],
@@ -244,12 +244,12 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FieldLevelEncryptionProfileArgs args: The arguments to use to populate this resource's properties.
+        :param FieldLevelEncryptionProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FieldLevelEncryptionProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FieldLevelEncryptionProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -259,7 +259,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 encryption_entities: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]] = None,
+                 encryption_entities: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -268,7 +268,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FieldLevelEncryptionProfileArgs.__new__(FieldLevelEncryptionProfileArgs)
+            __props__ = FieldLevelEncryptionProfileArrgs.__new__(FieldLevelEncryptionProfileArrgs)
 
             __props__.__dict__["comment"] = comment
             if encryption_entities is None and not opts.urn:
@@ -289,7 +289,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             caller_reference: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            encryption_entities: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArgs']]] = None,
+            encryption_entities: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'FieldLevelEncryptionProfile':
         """
@@ -301,7 +301,7 @@ class FieldLevelEncryptionProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future updates to the Field Level Encryption Profile.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Profile.
-        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArgs']] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
+        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionProfileEncryptionEntitiesArrgs']] encryption_entities: The encryption entities config block for field-level encryption profiles that contains an attribute `items` which includes the encryption key and field pattern specifications.
         :param pulumi.Input[str] etag: The current version of the Field Level Encryption Profile. For example: `E2QWRUHAPOMQZL`.
         :param pulumi.Input[str] name: The name of the Field Level Encryption Profile.
         """

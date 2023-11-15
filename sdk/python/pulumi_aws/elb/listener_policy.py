@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ListenerPolicyArgs', 'ListenerPolicy']
+__all__ = ['ListenerPolicyArrgs', 'ListenerPolicy']
 
 @pulumi.input_type
-class ListenerPolicyArgs:
+calass ListenerPolicyArrgs:
     def __init__(__self__, *,
                  load_balancer_name: pulumi.Input[str],
                  load_balancer_port: pulumi.Input[int],
@@ -82,7 +82,7 @@ class ListenerPolicyArgs:
 
 
 @pulumi.input_type
-class _ListenerPolicyState:
+calass _ListenerPolicyState:
     def __init__(__self__, *,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
                  load_balancer_port: Optional[pulumi.Input[int]] = None,
@@ -153,7 +153,7 @@ class _ListenerPolicyState:
         pulumi.set(self, "triggers", value)
 
 
-class ListenerPolicy(pulumi.CustomResource):
+calass ListenerPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,7 +175,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=443,
                 instance_protocol="http",
                 lb_port=443,
@@ -190,11 +190,11 @@ class ListenerPolicy(pulumi.CustomResource):
             policy_name="wu-tang-ssl",
             policy_type_name="SSLNegotiationPolicyType",
             policy_attributes=[
-                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+                aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                     name="ECDHE-ECDSA-AES128-GCM-SHA256",
                     value="true",
                 ),
-                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+                aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                     name="Protocol-TLSv1.2",
                     value="true",
                 ),
@@ -214,7 +214,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=443,
                 instance_protocol="http",
                 lb_port=443,
@@ -228,7 +228,7 @@ class ListenerPolicy(pulumi.CustomResource):
             load_balancer_name=wu_tang.name,
             policy_name="wu-tang-ssl",
             policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                 name="Reference-Security-Policy",
                 value="ELBSecurityPolicy-TLS-1-1-2017-01",
             )])
@@ -251,7 +251,7 @@ class ListenerPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ListenerPolicyArgs,
+                 args: ListenerPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a load balancer policy to an ELB Listener.
@@ -265,7 +265,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=443,
                 instance_protocol="http",
                 lb_port=443,
@@ -280,11 +280,11 @@ class ListenerPolicy(pulumi.CustomResource):
             policy_name="wu-tang-ssl",
             policy_type_name="SSLNegotiationPolicyType",
             policy_attributes=[
-                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+                aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                     name="ECDHE-ECDSA-AES128-GCM-SHA256",
                     value="true",
                 ),
-                aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+                aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                     name="Protocol-TLSv1.2",
                     value="true",
                 ),
@@ -304,7 +304,7 @@ class ListenerPolicy(pulumi.CustomResource):
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=443,
                 instance_protocol="http",
                 lb_port=443,
@@ -318,7 +318,7 @@ class ListenerPolicy(pulumi.CustomResource):
             load_balancer_name=wu_tang.name,
             policy_name="wu-tang-ssl",
             policy_type_name="SSLNegotiationPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                 name="Reference-Security-Policy",
                 value="ELBSecurityPolicy-TLS-1-1-2017-01",
             )])
@@ -331,12 +331,12 @@ class ListenerPolicy(pulumi.CustomResource):
         This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
 
         :param str resource_name: The name of the resource.
-        :param ListenerPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ListenerPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ListenerPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ListenerPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -356,7 +356,7 @@ class ListenerPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ListenerPolicyArgs.__new__(ListenerPolicyArgs)
+            __props__ = ListenerPolicyArrgs.__new__(ListenerPolicyArrgs)
 
             if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")

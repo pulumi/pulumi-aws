@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LanguageModelInputDataConfigArgs',
+    'LanguageModelInputDataConfigArrgs',
 ]
 
 @pulumi.input_type
-class LanguageModelInputDataConfigArgs:
+calass LanguageModelInputDataConfigArrgs:
     def __init__(__self__, *,
                  data_access_role_arn: pulumi.Input[str],
                  s3_uri: pulumi.Input[str],

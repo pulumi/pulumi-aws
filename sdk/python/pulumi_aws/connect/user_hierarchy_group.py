@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserHierarchyGroupArgs', 'UserHierarchyGroup']
+__all__ = ['UserHierarchyGroupArrgs', 'UserHierarchyGroup']
 
 @pulumi.input_type
-class UserHierarchyGroupArgs:
+calass UserHierarchyGroupArrgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -87,11 +87,11 @@ class UserHierarchyGroupArgs:
 
 
 @pulumi.input_type
-class _UserHierarchyGroupState:
+calass _UserHierarchyGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  hierarchy_group_id: Optional[pulumi.Input[str]] = None,
-                 hierarchy_paths: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]] = None,
+                 hierarchy_paths: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArrgs']]]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  level_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class _UserHierarchyGroupState:
         Input properties used for looking up and filtering UserHierarchyGroup resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[str] hierarchy_group_id: The identifier for the hierarchy group.
-        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArrgs']]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] level_id: The identifier of the level in the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.
@@ -159,14 +159,14 @@ class _UserHierarchyGroupState:
 
     @property
     @pulumi.getter(name="hierarchyPaths")
-    def hierarchy_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]]:
+    def hierarchy_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArrgs']]]]:
         """
         A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         """
         return pulumi.get(self, "hierarchy_paths")
 
     @hierarchy_paths.setter
-    def hierarchy_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArgs']]]]):
+    def hierarchy_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathArrgs']]]]):
         pulumi.set(self, "hierarchy_paths", value)
 
     @property
@@ -246,7 +246,7 @@ class _UserHierarchyGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class UserHierarchyGroup(pulumi.CustomResource):
+calass UserHierarchyGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -314,7 +314,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserHierarchyGroupArgs,
+                 args: UserHierarchyGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Connect User Hierarchy Group resource. For more information see
@@ -363,12 +363,12 @@ class UserHierarchyGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserHierarchyGroupArgs args: The arguments to use to populate this resource's properties.
+        :param UserHierarchyGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserHierarchyGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserHierarchyGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -388,7 +388,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserHierarchyGroupArgs.__new__(UserHierarchyGroupArgs)
+            __props__ = UserHierarchyGroupArrgs.__new__(UserHierarchyGroupArrgs)
 
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
@@ -415,7 +415,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             hierarchy_group_id: Optional[pulumi.Input[str]] = None,
-            hierarchy_paths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupHierarchyPathArgs']]]]] = None,
+            hierarchy_paths: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupHierarchyPathArrgs']]]]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
             level_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -431,7 +431,7 @@ class UserHierarchyGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the hierarchy group.
         :param pulumi.Input[str] hierarchy_group_id: The identifier for the hierarchy group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupHierarchyPathArgs']]]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserHierarchyGroupHierarchyPathArrgs']]]] hierarchy_paths: A block that contains information about the levels in the hierarchy group. The `hierarchy_path` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] level_id: The identifier of the level in the hierarchy group.
         :param pulumi.Input[str] name: The name of the user hierarchy group. Must not be more than 100 characters.

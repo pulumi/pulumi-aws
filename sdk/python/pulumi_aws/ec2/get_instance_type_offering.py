@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstanceTypeOfferingResult:
+calass GetInstanceTypeOfferingResult:
     """
     A collection of values returned by getInstanceTypeOffering.
     """
@@ -72,7 +72,7 @@ class GetInstanceTypeOfferingResult:
         return pulumi.get(self, "preferred_instance_types")
 
 
-class AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
+calass AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -85,7 +85,7 @@ class AwaitableGetInstanceTypeOfferingResult(GetInstanceTypeOfferingResult):
             preferred_instance_types=self.preferred_instance_types)
 
 
-def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']]] = None,
+def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArrgs']]] = None,
                                location_type: Optional[str] = None,
                                preferred_instance_types: Optional[Sequence[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypeOfferingResult:
@@ -98,7 +98,7 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_instance_type_offering(filters=[aws.ec2.GetInstanceTypeOfferingFilterArgs(
+    example = aws.ec2.get_instance_type_offering(filters=[aws.ec2.GetInstanceTypeOfferingFilterArrgs(
             name="instance-type",
             values=[
                 "t2.micro",
@@ -112,7 +112,7 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArrgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     """
@@ -132,7 +132,7 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
 
 
 @_utilities.lift_output_func(get_instance_type_offering)
-def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']]]]] = None,
+def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArrgs']]]]] = None,
                                       location_type: Optional[pulumi.Input[Optional[str]]] = None,
                                       preferred_instance_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypeOfferingResult]:
@@ -145,7 +145,7 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_instance_type_offering(filters=[aws.ec2.GetInstanceTypeOfferingFilterArgs(
+    example = aws.ec2.get_instance_type_offering(filters=[aws.ec2.GetInstanceTypeOfferingFilterArrgs(
             name="instance-type",
             values=[
                 "t2.micro",
@@ -159,7 +159,7 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArrgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
     :param str location_type: Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
     :param Sequence[str] preferred_instance_types: Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     """

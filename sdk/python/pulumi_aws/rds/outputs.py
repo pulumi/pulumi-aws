@@ -40,7 +40,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterMasterUserSecret(dict):
+calass ClusterMasterUserSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -104,7 +104,7 @@ class ClusterMasterUserSecret(dict):
 
 
 @pulumi.output_type
-class ClusterParameterGroupParameter(dict):
+calass ClusterParameterGroupParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -166,7 +166,7 @@ class ClusterParameterGroupParameter(dict):
 
 
 @pulumi.output_type
-class ClusterRestoreToPointInTime(dict):
+calass ClusterRestoreToPointInTime(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -245,7 +245,7 @@ class ClusterRestoreToPointInTime(dict):
 
 
 @pulumi.output_type
-class ClusterS3Import(dict):
+calass ClusterS3Import(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -337,7 +337,7 @@ class ClusterS3Import(dict):
 
 
 @pulumi.output_type
-class ClusterScalingConfiguration(dict):
+calass ClusterScalingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -429,7 +429,7 @@ class ClusterScalingConfiguration(dict):
 
 
 @pulumi.output_type
-class ClusterServerlessv2ScalingConfiguration(dict):
+calass ClusterServerlessv2ScalingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -477,7 +477,7 @@ class ClusterServerlessv2ScalingConfiguration(dict):
 
 
 @pulumi.output_type
-class ExportTaskTimeouts(dict):
+calass ExportTaskTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None):
@@ -498,7 +498,7 @@ class ExportTaskTimeouts(dict):
 
 
 @pulumi.output_type
-class GlobalClusterGlobalClusterMember(dict):
+calass GlobalClusterGlobalClusterMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -548,7 +548,7 @@ class GlobalClusterGlobalClusterMember(dict):
 
 
 @pulumi.output_type
-class InstanceBlueGreenUpdate(dict):
+calass InstanceBlueGreenUpdate(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -583,7 +583,7 @@ class InstanceBlueGreenUpdate(dict):
 
 
 @pulumi.output_type
-class InstanceListenerEndpoint(dict):
+calass InstanceListenerEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -643,7 +643,7 @@ class InstanceListenerEndpoint(dict):
 
 
 @pulumi.output_type
-class InstanceMasterUserSecret(dict):
+calass InstanceMasterUserSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -709,7 +709,7 @@ class InstanceMasterUserSecret(dict):
 
 
 @pulumi.output_type
-class InstanceRestoreToPointInTime(dict):
+calass InstanceRestoreToPointInTime(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -801,7 +801,7 @@ class InstanceRestoreToPointInTime(dict):
 
 
 @pulumi.output_type
-class InstanceS3Import(dict):
+calass InstanceS3Import(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -893,7 +893,7 @@ class InstanceS3Import(dict):
 
 
 @pulumi.output_type
-class OptionGroupOption(dict):
+calass OptionGroupOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -927,7 +927,7 @@ class OptionGroupOption(dict):
         """
         :param str option_name: Name of the option (e.g., MEMCACHED).
         :param Sequence[str] db_security_group_memberships: List of DB Security Groups for which the option is enabled.
-        :param Sequence['OptionGroupOptionOptionSettingArgs'] option_settings: List of option settings to apply.
+        :param Sequence['OptionGroupOptionOptionSettingArrgs'] option_settings: List of option settings to apply.
         :param int port: Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         :param str version: Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         :param Sequence[str] vpc_security_group_memberships: List of VPC Security Groups for which the option is enabled.
@@ -994,7 +994,7 @@ class OptionGroupOption(dict):
 
 
 @pulumi.output_type
-class OptionGroupOptionOptionSetting(dict):
+calass OptionGroupOptionOptionSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1023,7 +1023,7 @@ class OptionGroupOptionOptionSetting(dict):
 
 
 @pulumi.output_type
-class ParameterGroupParameter(dict):
+calass ParameterGroupParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1085,7 +1085,7 @@ class ParameterGroupParameter(dict):
 
 
 @pulumi.output_type
-class ProxyAuth(dict):
+calass ProxyAuth(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1187,7 +1187,7 @@ class ProxyAuth(dict):
 
 
 @pulumi.output_type
-class ProxyDefaultTargetGroupConnectionPoolConfig(dict):
+calass ProxyDefaultTargetGroupConnectionPoolConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1279,7 +1279,7 @@ class ProxyDefaultTargetGroupConnectionPoolConfig(dict):
 
 
 @pulumi.output_type
-class ReservedInstanceRecurringCharge(dict):
+calass ReservedInstanceRecurringCharge(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1319,7 +1319,7 @@ class ReservedInstanceRecurringCharge(dict):
 
 
 @pulumi.output_type
-class GetClusterMasterUserSecretResult(dict):
+calass GetClusterMasterUserSecretResult(dict):
     def __init__(__self__, *,
                  kms_key_id: str,
                  secret_arn: str,
@@ -1345,7 +1345,7 @@ class GetClusterMasterUserSecretResult(dict):
 
 
 @pulumi.output_type
-class GetClustersFilterResult(dict):
+calass GetClustersFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1374,7 +1374,7 @@ class GetClustersFilterResult(dict):
 
 
 @pulumi.output_type
-class GetEngineVersionFilterResult(dict):
+calass GetEngineVersionFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1393,7 +1393,7 @@ class GetEngineVersionFilterResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceMasterUserSecretResult(dict):
+calass GetInstanceMasterUserSecretResult(dict):
     def __init__(__self__, *,
                  kms_key_id: str,
                  secret_arn: str,
@@ -1433,7 +1433,7 @@ class GetInstanceMasterUserSecretResult(dict):
 
 
 @pulumi.output_type
-class GetInstancesFilterResult(dict):
+calass GetInstancesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1462,7 +1462,7 @@ class GetInstancesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetProxyAuthResult(dict):
+calass GetProxyAuthResult(dict):
     def __init__(__self__, *,
                  auth_scheme: str,
                  client_password_auth_type: str,

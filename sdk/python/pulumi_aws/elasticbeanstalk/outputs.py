@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationAppversionLifecycle(dict):
+calass ApplicationAppversionLifecycle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -95,7 +95,7 @@ class ApplicationAppversionLifecycle(dict):
 
 
 @pulumi.output_type
-class ConfigurationTemplateSetting(dict):
+calass ConfigurationTemplateSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  namespace: str,
@@ -135,7 +135,7 @@ class ConfigurationTemplateSetting(dict):
 
 
 @pulumi.output_type
-class EnvironmentAllSetting(dict):
+calass EnvironmentAllSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  namespace: str,
@@ -177,7 +177,7 @@ class EnvironmentAllSetting(dict):
 
 
 @pulumi.output_type
-class EnvironmentSetting(dict):
+calass EnvironmentSetting(dict):
     def __init__(__self__, *,
                  name: str,
                  namespace: str,
@@ -219,7 +219,7 @@ class EnvironmentSetting(dict):
 
 
 @pulumi.output_type
-class GetApplicationAppversionLifecycleResult(dict):
+calass GetApplicationAppversionLifecycleResult(dict):
     def __init__(__self__, *,
                  delete_source_from_s3: bool,
                  max_age_in_days: int,

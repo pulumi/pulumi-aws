@@ -11,33 +11,33 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PipelineArgs', 'Pipeline']
+__all__ = ['PipelineArrgs', 'Pipeline']
 
 @pulumi.input_type
-class PipelineArgs:
+calass PipelineArrgs:
     def __init__(__self__, *,
                  input_bucket: pulumi.Input[str],
                  role: pulumi.Input[str],
                  aws_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 content_config: Optional[pulumi.Input['PipelineContentConfigArgs']] = None,
-                 content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]] = None,
+                 content_config: Optional[pulumi.Input['PipelineContentConfigArrgs']] = None,
+                 content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input['PipelineNotificationsArgs']] = None,
+                 notifications: Optional[pulumi.Input['PipelineNotificationsArrgs']] = None,
                  output_bucket: Optional[pulumi.Input[str]] = None,
-                 thumbnail_config: Optional[pulumi.Input['PipelineThumbnailConfigArgs']] = None,
-                 thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None):
+                 thumbnail_config: Optional[pulumi.Input['PipelineThumbnailConfigArrgs']] = None,
+                 thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArrgs']]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
         :param pulumi.Input[str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
         :param pulumi.Input[str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        :param pulumi.Input['PipelineContentConfigArgs'] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]] content_config_permissions: The permissions for the `content_config` object. (documented below)
+        :param pulumi.Input['PipelineContentConfigArrgs'] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArrgs']]] content_config_permissions: The permissions for the `content_config` object. (documented below)
         :param pulumi.Input[str] name: The name of the pipeline. Maximum 40 characters
-        :param pulumi.Input['PipelineNotificationsArgs'] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+        :param pulumi.Input['PipelineNotificationsArrgs'] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         :param pulumi.Input[str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
-        :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+        :param pulumi.Input['PipelineThumbnailConfigArrgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArrgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
                
                The `content_config` object specifies information about the Amazon S3 bucket in
                which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -103,26 +103,26 @@ class PipelineArgs:
 
     @property
     @pulumi.getter(name="contentConfig")
-    def content_config(self) -> Optional[pulumi.Input['PipelineContentConfigArgs']]:
+    def content_config(self) -> Optional[pulumi.Input['PipelineContentConfigArrgs']]:
         """
         The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
         """
         return pulumi.get(self, "content_config")
 
     @content_config.setter
-    def content_config(self, value: Optional[pulumi.Input['PipelineContentConfigArgs']]):
+    def content_config(self, value: Optional[pulumi.Input['PipelineContentConfigArrgs']]):
         pulumi.set(self, "content_config", value)
 
     @property
     @pulumi.getter(name="contentConfigPermissions")
-    def content_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]]:
+    def content_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArrgs']]]]:
         """
         The permissions for the `content_config` object. (documented below)
         """
         return pulumi.get(self, "content_config_permissions")
 
     @content_config_permissions.setter
-    def content_config_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]]):
+    def content_config_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArrgs']]]]):
         pulumi.set(self, "content_config_permissions", value)
 
     @property
@@ -139,14 +139,14 @@ class PipelineArgs:
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input['PipelineNotificationsArgs']]:
+    def notifications(self) -> Optional[pulumi.Input['PipelineNotificationsArrgs']]:
         """
         The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input['PipelineNotificationsArgs']]):
+    def notifications(self, value: Optional[pulumi.Input['PipelineNotificationsArrgs']]):
         pulumi.set(self, "notifications", value)
 
     @property
@@ -163,19 +163,19 @@ class PipelineArgs:
 
     @property
     @pulumi.getter(name="thumbnailConfig")
-    def thumbnail_config(self) -> Optional[pulumi.Input['PipelineThumbnailConfigArgs']]:
+    def thumbnail_config(self) -> Optional[pulumi.Input['PipelineThumbnailConfigArrgs']]:
         """
         The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         """
         return pulumi.get(self, "thumbnail_config")
 
     @thumbnail_config.setter
-    def thumbnail_config(self, value: Optional[pulumi.Input['PipelineThumbnailConfigArgs']]):
+    def thumbnail_config(self, value: Optional[pulumi.Input['PipelineThumbnailConfigArrgs']]):
         pulumi.set(self, "thumbnail_config", value)
 
     @property
     @pulumi.getter(name="thumbnailConfigPermissions")
-    def thumbnail_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]]:
+    def thumbnail_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArrgs']]]]:
         """
         The permissions for the `thumbnail_config` object. (documented below)
 
@@ -189,37 +189,37 @@ class PipelineArgs:
         return pulumi.get(self, "thumbnail_config_permissions")
 
     @thumbnail_config_permissions.setter
-    def thumbnail_config_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]]):
+    def thumbnail_config_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArrgs']]]]):
         pulumi.set(self, "thumbnail_config_permissions", value)
 
 
 @pulumi.input_type
-class _PipelineState:
+calass _PipelineState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 content_config: Optional[pulumi.Input['PipelineContentConfigArgs']] = None,
-                 content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]] = None,
+                 content_config: Optional[pulumi.Input['PipelineContentConfigArrgs']] = None,
+                 content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArrgs']]]] = None,
                  input_bucket: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input['PipelineNotificationsArgs']] = None,
+                 notifications: Optional[pulumi.Input['PipelineNotificationsArrgs']] = None,
                  output_bucket: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 thumbnail_config: Optional[pulumi.Input['PipelineThumbnailConfigArgs']] = None,
-                 thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]] = None):
+                 thumbnail_config: Optional[pulumi.Input['PipelineThumbnailConfigArrgs']] = None,
+                 thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArrgs']]]] = None):
         """
         Input properties used for looking up and filtering Pipeline resources.
         :param pulumi.Input[str] arn: The ARN of the Elastictranscoder pipeline.
         :param pulumi.Input[str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        :param pulumi.Input['PipelineContentConfigArgs'] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]] content_config_permissions: The permissions for the `content_config` object. (documented below)
+        :param pulumi.Input['PipelineContentConfigArrgs'] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArrgs']]] content_config_permissions: The permissions for the `content_config` object. (documented below)
         :param pulumi.Input[str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         :param pulumi.Input[str] name: The name of the pipeline. Maximum 40 characters
-        :param pulumi.Input['PipelineNotificationsArgs'] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+        :param pulumi.Input['PipelineNotificationsArrgs'] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         :param pulumi.Input[str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        :param pulumi.Input['PipelineThumbnailConfigArgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+        :param pulumi.Input['PipelineThumbnailConfigArrgs'] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArrgs']]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
                
                The `content_config` object specifies information about the Amazon S3 bucket in
                which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -277,26 +277,26 @@ class _PipelineState:
 
     @property
     @pulumi.getter(name="contentConfig")
-    def content_config(self) -> Optional[pulumi.Input['PipelineContentConfigArgs']]:
+    def content_config(self) -> Optional[pulumi.Input['PipelineContentConfigArrgs']]:
         """
         The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
         """
         return pulumi.get(self, "content_config")
 
     @content_config.setter
-    def content_config(self, value: Optional[pulumi.Input['PipelineContentConfigArgs']]):
+    def content_config(self, value: Optional[pulumi.Input['PipelineContentConfigArrgs']]):
         pulumi.set(self, "content_config", value)
 
     @property
     @pulumi.getter(name="contentConfigPermissions")
-    def content_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]]:
+    def content_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArrgs']]]]:
         """
         The permissions for the `content_config` object. (documented below)
         """
         return pulumi.get(self, "content_config_permissions")
 
     @content_config_permissions.setter
-    def content_config_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArgs']]]]):
+    def content_config_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineContentConfigPermissionArrgs']]]]):
         pulumi.set(self, "content_config_permissions", value)
 
     @property
@@ -325,14 +325,14 @@ class _PipelineState:
 
     @property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input['PipelineNotificationsArgs']]:
+    def notifications(self) -> Optional[pulumi.Input['PipelineNotificationsArrgs']]:
         """
         The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input['PipelineNotificationsArgs']]):
+    def notifications(self, value: Optional[pulumi.Input['PipelineNotificationsArrgs']]):
         pulumi.set(self, "notifications", value)
 
     @property
@@ -361,19 +361,19 @@ class _PipelineState:
 
     @property
     @pulumi.getter(name="thumbnailConfig")
-    def thumbnail_config(self) -> Optional[pulumi.Input['PipelineThumbnailConfigArgs']]:
+    def thumbnail_config(self) -> Optional[pulumi.Input['PipelineThumbnailConfigArrgs']]:
         """
         The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
         """
         return pulumi.get(self, "thumbnail_config")
 
     @thumbnail_config.setter
-    def thumbnail_config(self, value: Optional[pulumi.Input['PipelineThumbnailConfigArgs']]):
+    def thumbnail_config(self, value: Optional[pulumi.Input['PipelineThumbnailConfigArrgs']]):
         pulumi.set(self, "thumbnail_config", value)
 
     @property
     @pulumi.getter(name="thumbnailConfigPermissions")
-    def thumbnail_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]]:
+    def thumbnail_config_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArrgs']]]]:
         """
         The permissions for the `thumbnail_config` object. (documented below)
 
@@ -387,25 +387,25 @@ class _PipelineState:
         return pulumi.get(self, "thumbnail_config_permissions")
 
     @thumbnail_config_permissions.setter
-    def thumbnail_config_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArgs']]]]):
+    def thumbnail_config_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineThumbnailConfigPermissionArrgs']]]]):
         pulumi.set(self, "thumbnail_config_permissions", value)
 
 
-class Pipeline(pulumi.CustomResource):
+calass Pipeline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 content_config: Optional[pulumi.Input[pulumi.InputType['PipelineContentConfigArgs']]] = None,
-                 content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArgs']]]]] = None,
+                 content_config: Optional[pulumi.Input[pulumi.InputType['PipelineContentConfigArrgs']]] = None,
+                 content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArrgs']]]]] = None,
                  input_bucket: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[pulumi.InputType['PipelineNotificationsArgs']]] = None,
+                 notifications: Optional[pulumi.Input[pulumi.InputType['PipelineNotificationsArrgs']]] = None,
                  output_bucket: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 thumbnail_config: Optional[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArgs']]] = None,
-                 thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArgs']]]]] = None,
+                 thumbnail_config: Optional[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArrgs']]] = None,
+                 thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArrgs']]]]] = None,
                  __props__=None):
         """
         Provides an Elastic Transcoder pipeline resource.
@@ -419,11 +419,11 @@ class Pipeline(pulumi.CustomResource):
         bar = aws.elastictranscoder.Pipeline("bar",
             input_bucket=aws_s3_bucket["input_bucket"]["id"],
             role=aws_iam_role["test_role"]["arn"],
-            content_config=aws.elastictranscoder.PipelineContentConfigArgs(
+            content_config=aws.elastictranscoder.PipelineContentConfigArrgs(
                 bucket=aws_s3_bucket["content_bucket"]["id"],
                 storage_class="Standard",
             ),
-            thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArgs(
+            thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArrgs(
                 bucket=aws_s3_bucket["thumb_bucket"]["id"],
                 storage_class="Standard",
             ))
@@ -440,15 +440,15 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        :param pulumi.Input[pulumi.InputType['PipelineContentConfigArgs']] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArgs']]]] content_config_permissions: The permissions for the `content_config` object. (documented below)
+        :param pulumi.Input[pulumi.InputType['PipelineContentConfigArrgs']] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArrgs']]]] content_config_permissions: The permissions for the `content_config` object. (documented below)
         :param pulumi.Input[str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         :param pulumi.Input[str] name: The name of the pipeline. Maximum 40 characters
-        :param pulumi.Input[pulumi.InputType['PipelineNotificationsArgs']] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+        :param pulumi.Input[pulumi.InputType['PipelineNotificationsArrgs']] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         :param pulumi.Input[str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        :param pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArgs']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArgs']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+        :param pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArrgs']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArrgs']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
                
                The `content_config` object specifies information about the Amazon S3 bucket in
                which you want Elastic Transcoder to save transcoded files and playlists: which
@@ -461,7 +461,7 @@ class Pipeline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PipelineArgs,
+                 args: PipelineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic Transcoder pipeline resource.
@@ -475,11 +475,11 @@ class Pipeline(pulumi.CustomResource):
         bar = aws.elastictranscoder.Pipeline("bar",
             input_bucket=aws_s3_bucket["input_bucket"]["id"],
             role=aws_iam_role["test_role"]["arn"],
-            content_config=aws.elastictranscoder.PipelineContentConfigArgs(
+            content_config=aws.elastictranscoder.PipelineContentConfigArrgs(
                 bucket=aws_s3_bucket["content_bucket"]["id"],
                 storage_class="Standard",
             ),
-            thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArgs(
+            thumbnail_config=aws.elastictranscoder.PipelineThumbnailConfigArrgs(
                 bucket=aws_s3_bucket["thumb_bucket"]["id"],
                 storage_class="Standard",
             ))
@@ -494,12 +494,12 @@ class Pipeline(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PipelineArgs args: The arguments to use to populate this resource's properties.
+        :param PipelineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PipelineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PipelineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -509,15 +509,15 @@ class Pipeline(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_kms_key_arn: Optional[pulumi.Input[str]] = None,
-                 content_config: Optional[pulumi.Input[pulumi.InputType['PipelineContentConfigArgs']]] = None,
-                 content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArgs']]]]] = None,
+                 content_config: Optional[pulumi.Input[pulumi.InputType['PipelineContentConfigArrgs']]] = None,
+                 content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArrgs']]]]] = None,
                  input_bucket: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notifications: Optional[pulumi.Input[pulumi.InputType['PipelineNotificationsArgs']]] = None,
+                 notifications: Optional[pulumi.Input[pulumi.InputType['PipelineNotificationsArrgs']]] = None,
                  output_bucket: Optional[pulumi.Input[str]] = None,
                  role: Optional[pulumi.Input[str]] = None,
-                 thumbnail_config: Optional[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArgs']]] = None,
-                 thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArgs']]]]] = None,
+                 thumbnail_config: Optional[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArrgs']]] = None,
+                 thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -525,7 +525,7 @@ class Pipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PipelineArgs.__new__(PipelineArgs)
+            __props__ = PipelineArrgs.__new__(PipelineArrgs)
 
             __props__.__dict__["aws_kms_key_arn"] = aws_kms_key_arn
             __props__.__dict__["content_config"] = content_config
@@ -554,15 +554,15 @@ class Pipeline(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             aws_kms_key_arn: Optional[pulumi.Input[str]] = None,
-            content_config: Optional[pulumi.Input[pulumi.InputType['PipelineContentConfigArgs']]] = None,
-            content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArgs']]]]] = None,
+            content_config: Optional[pulumi.Input[pulumi.InputType['PipelineContentConfigArrgs']]] = None,
+            content_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArrgs']]]]] = None,
             input_bucket: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notifications: Optional[pulumi.Input[pulumi.InputType['PipelineNotificationsArgs']]] = None,
+            notifications: Optional[pulumi.Input[pulumi.InputType['PipelineNotificationsArrgs']]] = None,
             output_bucket: Optional[pulumi.Input[str]] = None,
             role: Optional[pulumi.Input[str]] = None,
-            thumbnail_config: Optional[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArgs']]] = None,
-            thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArgs']]]]] = None) -> 'Pipeline':
+            thumbnail_config: Optional[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArrgs']]] = None,
+            thumbnail_config_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArrgs']]]]] = None) -> 'Pipeline':
         """
         Get an existing Pipeline resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -572,15 +572,15 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Elastictranscoder pipeline.
         :param pulumi.Input[str] aws_kms_key_arn: The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
-        :param pulumi.Input[pulumi.InputType['PipelineContentConfigArgs']] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArgs']]]] content_config_permissions: The permissions for the `content_config` object. (documented below)
+        :param pulumi.Input[pulumi.InputType['PipelineContentConfigArrgs']] content_config: The ContentConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save transcoded files and playlists. (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineContentConfigPermissionArrgs']]]] content_config_permissions: The permissions for the `content_config` object. (documented below)
         :param pulumi.Input[str] input_bucket: The Amazon S3 bucket in which you saved the media files that you want to transcode and the graphics that you want to use as watermarks.
         :param pulumi.Input[str] name: The name of the pipeline. Maximum 40 characters
-        :param pulumi.Input[pulumi.InputType['PipelineNotificationsArgs']] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
+        :param pulumi.Input[pulumi.InputType['PipelineNotificationsArrgs']] notifications: The Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status. (documented below)
         :param pulumi.Input[str] output_bucket: The Amazon S3 bucket in which you want Elastic Transcoder to save the transcoded files.
         :param pulumi.Input[str] role: The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
-        :param pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArgs']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArgs']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
+        :param pulumi.Input[pulumi.InputType['PipelineThumbnailConfigArrgs']] thumbnail_config: The ThumbnailConfig object specifies information about the Amazon S3 bucket in which you want Elastic Transcoder to save thumbnail files. (documented below)
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PipelineThumbnailConfigPermissionArrgs']]]] thumbnail_config_permissions: The permissions for the `thumbnail_config` object. (documented below)
                
                The `content_config` object specifies information about the Amazon S3 bucket in
                which you want Elastic Transcoder to save transcoded files and playlists: which

@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDistributionConfigurationsResult:
+calass GetDistributionConfigurationsResult:
     """
     A collection of values returned by getDistributionConfigurations.
     """
@@ -67,7 +67,7 @@ class GetDistributionConfigurationsResult:
         return pulumi.get(self, "names")
 
 
-class AwaitableGetDistributionConfigurationsResult(GetDistributionConfigurationsResult):
+calass AwaitableGetDistributionConfigurationsResult(GetDistributionConfigurationsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -79,7 +79,7 @@ class AwaitableGetDistributionConfigurationsResult(GetDistributionConfigurations
             names=self.names)
 
 
-def get_distribution_configurations(filters: Optional[Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArgs']]] = None,
+def get_distribution_configurations(filters: Optional[Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArrgs']]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDistributionConfigurationsResult:
     """
     Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
@@ -90,14 +90,14 @@ def get_distribution_configurations(filters: Optional[Sequence[pulumi.InputType[
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_distribution_configurations(filters=[aws.imagebuilder.GetDistributionConfigurationsFilterArgs(
+    example = aws.imagebuilder.get_distribution_configurations(filters=[aws.imagebuilder.GetDistributionConfigurationsFilterArrgs(
         name="name",
         values=["example"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -112,7 +112,7 @@ def get_distribution_configurations(filters: Optional[Sequence[pulumi.InputType[
 
 
 @_utilities.lift_output_func(get_distribution_configurations)
-def get_distribution_configurations_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArgs']]]]] = None,
+def get_distribution_configurations_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArrgs']]]]] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDistributionConfigurationsResult]:
     """
     Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
@@ -123,13 +123,13 @@ def get_distribution_configurations_output(filters: Optional[pulumi.Input[Option
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_distribution_configurations(filters=[aws.imagebuilder.GetDistributionConfigurationsFilterArgs(
+    example = aws.imagebuilder.get_distribution_configurations(filters=[aws.imagebuilder.GetDistributionConfigurationsFilterArrgs(
         name="name",
         values=["example"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetDistributionConfigurationsFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
     ...

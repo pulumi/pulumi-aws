@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IngestionArgs', 'Ingestion']
+__all__ = ['IngestionArrgs', 'Ingestion']
 
 @pulumi.input_type
-class IngestionArgs:
+calass IngestionArrgs:
     def __init__(__self__, *,
                  data_set_id: pulumi.Input[str],
                  ingestion_id: pulumi.Input[str],
@@ -85,7 +85,7 @@ class IngestionArgs:
 
 
 @pulumi.input_type
-class _IngestionState:
+calass _IngestionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
@@ -192,7 +192,7 @@ class _IngestionState:
         pulumi.set(self, "ingestion_type", value)
 
 
-class Ingestion(pulumi.CustomResource):
+calass Ingestion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -239,7 +239,7 @@ class Ingestion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IngestionArgs,
+                 args: IngestionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS QuickSight Ingestion.
@@ -266,12 +266,12 @@ class Ingestion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IngestionArgs args: The arguments to use to populate this resource's properties.
+        :param IngestionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IngestionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IngestionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -291,7 +291,7 @@ class Ingestion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IngestionArgs.__new__(IngestionArgs)
+            __props__ = IngestionArrgs.__new__(IngestionArrgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             if data_set_id is None and not opts.urn:

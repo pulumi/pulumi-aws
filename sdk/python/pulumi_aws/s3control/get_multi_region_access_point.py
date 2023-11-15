@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMultiRegionAccessPointResult:
+calass GetMultiRegionAccessPointResult:
     """
     A collection of values returned by getMultiRegionAccessPoint.
     """
@@ -129,7 +129,7 @@ class GetMultiRegionAccessPointResult:
         return pulumi.get(self, "status")
 
 
-class AwaitableGetMultiRegionAccessPointResult(GetMultiRegionAccessPointResult):
+calass AwaitableGetMultiRegionAccessPointResult(GetMultiRegionAccessPointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

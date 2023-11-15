@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WebhookArgs', 'Webhook']
+__all__ = ['WebhookArrgs', 'Webhook']
 
 @pulumi.input_type
-class WebhookArgs:
+calass WebhookArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  branch_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class WebhookArgs:
 
 
 @pulumi.input_type
-class _WebhookState:
+calass _WebhookState:
     def __init__(__self__, *,
                  app_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _WebhookState:
         pulumi.set(self, "url", value)
 
 
-class Webhook(pulumi.CustomResource):
+calass Webhook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -199,7 +199,7 @@ class Webhook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebhookArgs,
+                 args: WebhookArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amplify Webhook resource.
@@ -229,12 +229,12 @@ class Webhook(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WebhookArgs args: The arguments to use to populate this resource's properties.
+        :param WebhookArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebhookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebhookArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -253,7 +253,7 @@ class Webhook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebhookArgs.__new__(WebhookArgs)
+            __props__ = WebhookArrgs.__new__(WebhookArrgs)
 
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")

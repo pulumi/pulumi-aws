@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DirectoryConfigServiceAccountCredentials(dict):
+calass DirectoryConfigServiceAccountCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -73,7 +73,7 @@ class DirectoryConfigServiceAccountCredentials(dict):
 
 
 @pulumi.output_type
-class FleetComputeCapacity(dict):
+calass FleetComputeCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -146,7 +146,7 @@ class FleetComputeCapacity(dict):
 
 
 @pulumi.output_type
-class FleetDomainJoinInfo(dict):
+calass FleetDomainJoinInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -196,7 +196,7 @@ class FleetDomainJoinInfo(dict):
 
 
 @pulumi.output_type
-class FleetVpcConfig(dict):
+calass FleetVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -246,7 +246,7 @@ class FleetVpcConfig(dict):
 
 
 @pulumi.output_type
-class ImageBuilderAccessEndpoint(dict):
+calass ImageBuilderAccessEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -295,7 +295,7 @@ class ImageBuilderAccessEndpoint(dict):
 
 
 @pulumi.output_type
-class ImageBuilderDomainJoinInfo(dict):
+calass ImageBuilderDomainJoinInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -345,7 +345,7 @@ class ImageBuilderDomainJoinInfo(dict):
 
 
 @pulumi.output_type
-class ImageBuilderVpcConfig(dict):
+calass ImageBuilderVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -395,7 +395,7 @@ class ImageBuilderVpcConfig(dict):
 
 
 @pulumi.output_type
-class StackAccessEndpoint(dict):
+calass StackAccessEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -446,7 +446,7 @@ class StackAccessEndpoint(dict):
 
 
 @pulumi.output_type
-class StackApplicationSettings(dict):
+calass StackApplicationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -497,7 +497,7 @@ class StackApplicationSettings(dict):
 
 
 @pulumi.output_type
-class StackStorageConnector(dict):
+calass StackStorageConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -560,7 +560,7 @@ class StackStorageConnector(dict):
 
 
 @pulumi.output_type
-class StackStreamingExperienceSettings(dict):
+calass StackStreamingExperienceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -598,7 +598,7 @@ class StackStreamingExperienceSettings(dict):
 
 
 @pulumi.output_type
-class StackUserSetting(dict):
+calass StackUserSetting(dict):
     def __init__(__self__, *,
                  action: str,
                  permission: str):

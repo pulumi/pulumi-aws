@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'TriggerTriggerArgs',
+    'TriggerTriggerArrgs',
 ]
 
 @pulumi.input_type
-class TriggerTriggerArgs:
+calass TriggerTriggerArrgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  events: pulumi.Input[Sequence[pulumi.Input[str]]],

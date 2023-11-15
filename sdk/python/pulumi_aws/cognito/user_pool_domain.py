@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserPoolDomainArgs', 'UserPoolDomain']
+__all__ = ['UserPoolDomainArrgs', 'UserPoolDomain']
 
 @pulumi.input_type
-class UserPoolDomainArgs:
+calass UserPoolDomainArrgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
                  user_pool_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class UserPoolDomainArgs:
 
 
 @pulumi.input_type
-class _UserPoolDomainState:
+calass _UserPoolDomainState:
     def __init__(__self__, *,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class _UserPoolDomainState:
         pulumi.set(self, "version", value)
 
 
-class UserPoolDomain(pulumi.CustomResource):
+calass UserPoolDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -257,7 +257,7 @@ class UserPoolDomain(pulumi.CustomResource):
             name=main.domain,
             type="A",
             zone_id=example_zone.zone_id,
-            aliases=[aws.route53.RecordAliasArgs(
+            aliases=[aws.route53.RecordAliasArrgs(
                 evaluate_target_health=False,
                 name=main.cloudfront_distribution,
                 zone_id=main.cloudfront_distribution_zone_id,
@@ -282,7 +282,7 @@ class UserPoolDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserPoolDomainArgs,
+                 args: UserPoolDomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Cognito User Pool Domain resource.
@@ -315,7 +315,7 @@ class UserPoolDomain(pulumi.CustomResource):
             name=main.domain,
             type="A",
             zone_id=example_zone.zone_id,
-            aliases=[aws.route53.RecordAliasArgs(
+            aliases=[aws.route53.RecordAliasArrgs(
                 evaluate_target_health=False,
                 name=main.cloudfront_distribution,
                 zone_id=main.cloudfront_distribution_zone_id,
@@ -331,12 +331,12 @@ class UserPoolDomain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserPoolDomainArgs args: The arguments to use to populate this resource's properties.
+        :param UserPoolDomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserPoolDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserPoolDomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -355,7 +355,7 @@ class UserPoolDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserPoolDomainArgs.__new__(UserPoolDomainArgs)
+            __props__ = UserPoolDomainArrgs.__new__(UserPoolDomainArrgs)
 
             __props__.__dict__["certificate_arn"] = certificate_arn
             if domain is None and not opts.urn:

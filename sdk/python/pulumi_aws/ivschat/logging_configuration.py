@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LoggingConfigurationArgs', 'LoggingConfiguration']
+__all__ = ['LoggingConfigurationArrgs', 'LoggingConfiguration']
 
 @pulumi.input_type
-class LoggingConfigurationArgs:
+calass LoggingConfigurationArrgs:
     def __init__(__self__, *,
-                 destination_configuration: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']] = None,
+                 destination_configuration: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LoggingConfiguration resource.
-        :param pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationArrgs'] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         :param pulumi.Input[str] name: Logging Configuration name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -34,14 +34,14 @@ class LoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="destinationConfiguration")
-    def destination_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']]:
+    def destination_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArrgs']]:
         """
         Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
-    def destination_configuration(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']]):
+    def destination_configuration(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArrgs']]):
         pulumi.set(self, "destination_configuration", value)
 
     @property
@@ -70,10 +70,10 @@ class LoggingConfigurationArgs:
 
 
 @pulumi.input_type
-class _LoggingConfigurationState:
+calass _LoggingConfigurationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 destination_configuration: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']] = None,
+                 destination_configuration: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -81,7 +81,7 @@ class _LoggingConfigurationState:
         """
         Input properties used for looking up and filtering LoggingConfiguration resources.
         :param pulumi.Input[str] arn: ARN of the Logging Configuration.
-        :param pulumi.Input['LoggingConfigurationDestinationConfigurationArgs'] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationArrgs'] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         :param pulumi.Input[str] name: Logging Configuration name.
         :param pulumi.Input[str] state: State of the Logging Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -117,14 +117,14 @@ class _LoggingConfigurationState:
 
     @property
     @pulumi.getter(name="destinationConfiguration")
-    def destination_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']]:
+    def destination_configuration(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArrgs']]:
         """
         Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         """
         return pulumi.get(self, "destination_configuration")
 
     @destination_configuration.setter
-    def destination_configuration(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArgs']]):
+    def destination_configuration(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationArrgs']]):
         pulumi.set(self, "destination_configuration", value)
 
     @property
@@ -179,12 +179,12 @@ class _LoggingConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
-class LoggingConfiguration(pulumi.CustomResource):
+calass LoggingConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']]] = None,
+                 destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -199,8 +199,8 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArrgs(
+            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs(
                 log_group_name=example_log_group.name,
             ),
         ))
@@ -212,9 +212,9 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["firehose.amazonaws.com"],
             )],
@@ -223,7 +223,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
             destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
+            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArrgs(
                 role_arn=example_role.arn,
                 bucket_arn=example_bucket_v2.arn,
             ),
@@ -233,8 +233,8 @@ class LoggingConfiguration(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArrgs(
+            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArrgs(
                 delivery_stream_name=example_firehose_delivery_stream.name,
             ),
         ))
@@ -250,7 +250,7 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+        :param pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArrgs']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         :param pulumi.Input[str] name: Logging Configuration name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -258,7 +258,7 @@ class LoggingConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[LoggingConfigurationArgs] = None,
+                 args: Optional[LoggingConfigurationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
@@ -271,8 +271,8 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs(
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArrgs(
+            cloudwatch_logs=aws.ivschat.LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs(
                 log_group_name=example_log_group.name,
             ),
         ))
@@ -284,9 +284,9 @@ class LoggingConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", bucket_prefix="tf-ivschat-logging-bucket")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["firehose.amazonaws.com"],
             )],
@@ -295,7 +295,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
             destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
+            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArrgs(
                 role_arn=example_role.arn,
                 bucket_arn=example_bucket_v2.arn,
             ),
@@ -305,8 +305,8 @@ class LoggingConfiguration(pulumi.CustomResource):
         example_bucket_acl_v2 = aws.s3.BucketAclV2("exampleBucketAclV2",
             bucket=example_bucket_v2.id,
             acl="private")
-        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArgs(
-            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArgs(
+        example_logging_configuration = aws.ivschat.LoggingConfiguration("exampleLoggingConfiguration", destination_configuration=aws.ivschat.LoggingConfigurationDestinationConfigurationArrgs(
+            firehose=aws.ivschat.LoggingConfigurationDestinationConfigurationFirehoseArrgs(
                 delivery_stream_name=example_firehose_delivery_stream.name,
             ),
         ))
@@ -321,12 +321,12 @@ class LoggingConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LoggingConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param LoggingConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LoggingConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LoggingConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -335,7 +335,7 @@ class LoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']]] = None,
+                 destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -345,7 +345,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LoggingConfigurationArgs.__new__(LoggingConfigurationArgs)
+            __props__ = LoggingConfigurationArrgs.__new__(LoggingConfigurationArrgs)
 
             __props__.__dict__["destination_configuration"] = destination_configuration
             __props__.__dict__["name"] = name
@@ -366,7 +366,7 @@ class LoggingConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']]] = None,
+            destination_configuration: Optional[pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -379,7 +379,7 @@ class LoggingConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Logging Configuration.
-        :param pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArgs']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
+        :param pulumi.Input[pulumi.InputType['LoggingConfigurationDestinationConfigurationArrgs']] destination_configuration: Object containing destination configuration for where chat activity will be logged. This object must contain exactly one of the following children arguments:
         :param pulumi.Input[str] name: Logging Configuration name.
         :param pulumi.Input[str] state: State of the Logging Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

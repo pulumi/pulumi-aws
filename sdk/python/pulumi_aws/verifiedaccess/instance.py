@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['InstanceArgs', 'Instance']
+__all__ = ['InstanceArrgs', 'Instance']
 
 @pulumi.input_type
-class InstanceArgs:
+calass InstanceArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
@@ -70,7 +70,7 @@ class InstanceArgs:
 
 
 @pulumi.input_type
-class _InstanceState:
+calass _InstanceState:
     def __init__(__self__, *,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -78,7 +78,7 @@ class _InstanceState:
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]]] = None):
+                 verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArrgs']]]] = None):
         """
         Input properties used for looking up and filtering Instance resources.
         :param pulumi.Input[str] creation_time: The time that the Verified Access Instance was created.
@@ -86,7 +86,7 @@ class _InstanceState:
         :param pulumi.Input[bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[str] last_updated_time: The time that the Verified Access Instance was last updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArrgs']]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """
         if creation_time is not None:
             pulumi.set(__self__, "creation_time", creation_time)
@@ -180,18 +180,18 @@ class _InstanceState:
 
     @property
     @pulumi.getter(name="verifiedAccessTrustProviders")
-    def verified_access_trust_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]]]:
+    def verified_access_trust_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArrgs']]]]:
         """
         One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """
         return pulumi.get(self, "verified_access_trust_providers")
 
     @verified_access_trust_providers.setter
-    def verified_access_trust_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArgs']]]]):
+    def verified_access_trust_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceVerifiedAccessTrustProviderArrgs']]]]):
         pulumi.set(self, "verified_access_trust_providers", value)
 
 
-class Instance(pulumi.CustomResource):
+calass Instance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -245,7 +245,7 @@ class Instance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[InstanceArgs] = None,
+                 args: Optional[InstanceArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing a Verified Access Instance.
@@ -283,12 +283,12 @@ class Instance(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InstanceArgs args: The arguments to use to populate this resource's properties.
+        :param InstanceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -307,7 +307,7 @@ class Instance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InstanceArgs.__new__(InstanceArgs)
+            __props__ = InstanceArrgs.__new__(InstanceArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["fips_enabled"] = fips_enabled
@@ -334,7 +334,7 @@ class Instance(pulumi.CustomResource):
             last_updated_time: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVerifiedAccessTrustProviderArgs']]]]] = None) -> 'Instance':
+            verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVerifiedAccessTrustProviderArrgs']]]]] = None) -> 'Instance':
         """
         Get an existing Instance resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -347,7 +347,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] fips_enabled: Enable or disable support for Federal Information Processing Standards (FIPS) on the AWS Verified Access Instance.
         :param pulumi.Input[str] last_updated_time: The time that the Verified Access Instance was last updated.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVerifiedAccessTrustProviderArgs']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceVerifiedAccessTrustProviderArrgs']]]] verified_access_trust_providers: One or more blocks of providing information about the AWS Verified Access Trust Providers. See verified_access_trust_providers below for details.One or more blocks
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

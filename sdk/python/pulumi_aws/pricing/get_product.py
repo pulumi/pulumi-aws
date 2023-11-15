@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetProductResult:
+calass GetProductResult:
     """
     A collection of values returned by getProduct.
     """
@@ -64,7 +64,7 @@ class GetProductResult:
         return pulumi.get(self, "service_code")
 
 
-class AwaitableGetProductResult(GetProductResult):
+calass AwaitableGetProductResult(GetProductResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -76,7 +76,7 @@ class AwaitableGetProductResult(GetProductResult):
             service_code=self.service_code)
 
 
-def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArgs']]] = None,
+def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArrgs']]] = None,
                 service_code: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProductResult:
     """
@@ -90,31 +90,31 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
     import pulumi_aws as aws
 
     example = aws.pricing.get_product(filters=[
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="instanceType",
                 value="c5.xlarge",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="operatingSystem",
                 value="Linux",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="location",
                 value="US East (N. Virginia)",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="preInstalledSw",
                 value="NA",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="licenseModel",
                 value="No License required",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="tenancy",
                 value="Shared",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="capacitystatus",
                 value="Used",
             ),
@@ -127,11 +127,11 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
     import pulumi_aws as aws
 
     example = aws.pricing.get_product(filters=[
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="instanceType",
                 value="ds1.xlarge",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="location",
                 value="US East (N. Virginia)",
             ),
@@ -140,7 +140,7 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
     ```
 
 
-    :param Sequence[pulumi.InputType['GetProductFilterArgs']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[pulumi.InputType['GetProductFilterArrgs']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     __args__ = dict()
@@ -157,7 +157,7 @@ def get_product(filters: Optional[Sequence[pulumi.InputType['GetProductFilterArg
 
 
 @_utilities.lift_output_func(get_product)
-def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['GetProductFilterArgs']]]] = None,
+def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['GetProductFilterArrgs']]]] = None,
                        service_code: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductResult]:
     """
@@ -171,31 +171,31 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
     import pulumi_aws as aws
 
     example = aws.pricing.get_product(filters=[
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="instanceType",
                 value="c5.xlarge",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="operatingSystem",
                 value="Linux",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="location",
                 value="US East (N. Virginia)",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="preInstalledSw",
                 value="NA",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="licenseModel",
                 value="No License required",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="tenancy",
                 value="Shared",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="capacitystatus",
                 value="Used",
             ),
@@ -208,11 +208,11 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
     import pulumi_aws as aws
 
     example = aws.pricing.get_product(filters=[
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="instanceType",
                 value="ds1.xlarge",
             ),
-            aws.pricing.GetProductFilterArgs(
+            aws.pricing.GetProductFilterArrgs(
                 field="location",
                 value="US East (N. Virginia)",
             ),
@@ -221,7 +221,7 @@ def get_product_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetProductFilterArgs']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+    :param Sequence[pulumi.InputType['GetProductFilterArrgs']] filters: List of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
     :param str service_code: Code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
     """
     ...

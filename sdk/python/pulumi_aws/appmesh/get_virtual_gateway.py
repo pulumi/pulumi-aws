@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualGatewayResult:
+calass GetVirtualGatewayResult:
     """
     A collection of values returned by getVirtualGateway.
     """
@@ -126,7 +126,7 @@ class GetVirtualGatewayResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVirtualGatewayResult(GetVirtualGatewayResult):
+calass AwaitableGetVirtualGatewayResult(GetVirtualGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

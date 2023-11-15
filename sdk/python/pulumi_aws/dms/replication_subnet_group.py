@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ReplicationSubnetGroupArgs', 'ReplicationSubnetGroup']
+__all__ = ['ReplicationSubnetGroupArrgs', 'ReplicationSubnetGroup']
 
 @pulumi.input_type
-class ReplicationSubnetGroupArgs:
+calass ReplicationSubnetGroupArrgs:
     def __init__(__self__, *,
                  replication_subnet_group_description: pulumi.Input[str],
                  replication_subnet_group_id: pulumi.Input[str],
@@ -81,7 +81,7 @@ class ReplicationSubnetGroupArgs:
 
 
 @pulumi.input_type
-class _ReplicationSubnetGroupState:
+calass _ReplicationSubnetGroupState:
     def __init__(__self__, *,
                  replication_subnet_group_arn: Optional[pulumi.Input[str]] = None,
                  replication_subnet_group_description: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class _ReplicationSubnetGroupState:
         pulumi.set(self, "vpc_id", value)
 
 
-class ReplicationSubnetGroup(pulumi.CustomResource):
+calass ReplicationSubnetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -292,7 +292,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicationSubnetGroupArgs,
+                 args: ReplicationSubnetGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DMS (Data Migration Service) replication subnet group resource. DMS replication subnet groups can be created, updated, deleted, and imported.
@@ -364,12 +364,12 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReplicationSubnetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ReplicationSubnetGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReplicationSubnetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationSubnetGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -389,7 +389,7 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReplicationSubnetGroupArgs.__new__(ReplicationSubnetGroupArgs)
+            __props__ = ReplicationSubnetGroupArrgs.__new__(ReplicationSubnetGroupArrgs)
 
             if replication_subnet_group_description is None and not opts.urn:
                 raise TypeError("Missing required property 'replication_subnet_group_description'")

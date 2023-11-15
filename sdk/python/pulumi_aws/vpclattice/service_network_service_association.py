@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceNetworkServiceAssociationArgs', 'ServiceNetworkServiceAssociation']
+__all__ = ['ServiceNetworkServiceAssociationArrgs', 'ServiceNetworkServiceAssociation']
 
 @pulumi.input_type
-class ServiceNetworkServiceAssociationArgs:
+calass ServiceNetworkServiceAssociationArrgs:
     def __init__(__self__, *,
                  service_identifier: pulumi.Input[str],
                  service_network_identifier: pulumi.Input[str],
@@ -70,12 +70,12 @@ class ServiceNetworkServiceAssociationArgs:
 
 
 @pulumi.input_type
-class _ServiceNetworkServiceAssociationState:
+calass _ServiceNetworkServiceAssociationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
-                 dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]]] = None,
+                 dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArrgs']]]] = None,
                  service_identifier: Optional[pulumi.Input[str]] = None,
                  service_network_identifier: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -86,7 +86,7 @@ class _ServiceNetworkServiceAssociationState:
         :param pulumi.Input[str] arn: The ARN of the Association.
         :param pulumi.Input[str] created_by: The account that created the association.
         :param pulumi.Input[str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]] dns_entries: The DNS name of the service.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArrgs']]] dns_entries: The DNS name of the service.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
                The following arguments are optional:
@@ -154,14 +154,14 @@ class _ServiceNetworkServiceAssociationState:
 
     @property
     @pulumi.getter(name="dnsEntries")
-    def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]]]:
+    def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArrgs']]]]:
         """
         The DNS name of the service.
         """
         return pulumi.get(self, "dns_entries")
 
     @dns_entries.setter
-    def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs']]]]):
+    def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArrgs']]]]):
         pulumi.set(self, "dns_entries", value)
 
     @property
@@ -229,7 +229,7 @@ class _ServiceNetworkServiceAssociationState:
         pulumi.set(self, "tags_all", value)
 
 
-class ServiceNetworkServiceAssociation(pulumi.CustomResource):
+calass ServiceNetworkServiceAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -272,7 +272,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceNetworkServiceAssociationArgs,
+                 args: ServiceNetworkServiceAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS VPC Lattice Service Network Service Association.
@@ -298,12 +298,12 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceNetworkServiceAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceNetworkServiceAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceNetworkServiceAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceNetworkServiceAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -322,7 +322,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceNetworkServiceAssociationArgs.__new__(ServiceNetworkServiceAssociationArgs)
+            __props__ = ServiceNetworkServiceAssociationArrgs.__new__(ServiceNetworkServiceAssociationArrgs)
 
             if service_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'service_identifier'")
@@ -352,7 +352,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_by: Optional[pulumi.Input[str]] = None,
             custom_domain_name: Optional[pulumi.Input[str]] = None,
-            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']]]]] = None,
+            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArrgs']]]]] = None,
             service_identifier: Optional[pulumi.Input[str]] = None,
             service_network_identifier: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -368,7 +368,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Association.
         :param pulumi.Input[str] created_by: The account that created the association.
         :param pulumi.Input[str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArgs']]]] dns_entries: The DNS name of the service.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkServiceAssociationDnsEntryArrgs']]]] dns_entries: The DNS name of the service.
         :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Identifier (ARN) of the service.
         :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Identifier (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
                The following arguments are optional:

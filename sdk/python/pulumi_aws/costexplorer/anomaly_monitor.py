@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AnomalyMonitorArgs', 'AnomalyMonitor']
+__all__ = ['AnomalyMonitorArrgs', 'AnomalyMonitor']
 
 @pulumi.input_type
-class AnomalyMonitorArgs:
+calass AnomalyMonitorArrgs:
     def __init__(__self__, *,
                  monitor_type: pulumi.Input[str],
                  monitor_dimension: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class AnomalyMonitorArgs:
 
 
 @pulumi.input_type
-class _AnomalyMonitorState:
+calass _AnomalyMonitorState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  monitor_dimension: Optional[pulumi.Input[str]] = None,
@@ -224,7 +224,7 @@ class _AnomalyMonitorState:
         pulumi.set(self, "tags_all", value)
 
 
-class AnomalyMonitor(pulumi.CustomResource):
+calass AnomalyMonitor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -294,7 +294,7 @@ class AnomalyMonitor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AnomalyMonitorArgs,
+                 args: AnomalyMonitorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CE Anomaly Monitor.
@@ -344,12 +344,12 @@ class AnomalyMonitor(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AnomalyMonitorArgs args: The arguments to use to populate this resource's properties.
+        :param AnomalyMonitorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AnomalyMonitorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AnomalyMonitorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -370,7 +370,7 @@ class AnomalyMonitor(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AnomalyMonitorArgs.__new__(AnomalyMonitorArgs)
+            __props__ = AnomalyMonitorArrgs.__new__(AnomalyMonitorArrgs)
 
             __props__.__dict__["monitor_dimension"] = monitor_dimension
             __props__.__dict__["monitor_specification"] = monitor_specification

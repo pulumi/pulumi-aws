@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOrderableClusterResult:
+calass GetOrderableClusterResult:
     """
     A collection of values returned by getOrderableCluster.
     """
@@ -78,7 +78,7 @@ class GetOrderableClusterResult:
         return pulumi.get(self, "preferred_node_types")
 
 
-class AwaitableGetOrderableClusterResult(GetOrderableClusterResult):
+calass AwaitableGetOrderableClusterResult(GetOrderableClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

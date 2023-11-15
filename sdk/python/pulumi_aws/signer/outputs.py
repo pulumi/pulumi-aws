@@ -31,11 +31,11 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class SigningJobDestination(dict):
+calass SigningJobDestination(dict):
     def __init__(__self__, *,
                  s3: 'outputs.SigningJobDestinationS3'):
         """
-        :param 'SigningJobDestinationS3Args' s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        :param 'SigningJobDestinationS3Arrgs' s3: A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -49,7 +49,7 @@ class SigningJobDestination(dict):
 
 
 @pulumi.output_type
-class SigningJobDestinationS3(dict):
+calass SigningJobDestinationS3(dict):
     def __init__(__self__, *,
                  bucket: str,
                  prefix: Optional[str] = None):
@@ -79,7 +79,7 @@ class SigningJobDestinationS3(dict):
 
 
 @pulumi.output_type
-class SigningJobRevocationRecord(dict):
+calass SigningJobRevocationRecord(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -127,11 +127,11 @@ class SigningJobRevocationRecord(dict):
 
 
 @pulumi.output_type
-class SigningJobSignedObject(dict):
+calass SigningJobSignedObject(dict):
     def __init__(__self__, *,
                  s3s: Optional[Sequence['outputs.SigningJobSignedObjectS3']] = None):
         """
-        :param Sequence['SigningJobSignedObjectS3Args'] s3s: A configuration block describing the S3 Destination object: See S3 Destination below for details.
+        :param Sequence['SigningJobSignedObjectS3Arrgs'] s3s: A configuration block describing the S3 Destination object: See S3 Destination below for details.
         """
         if s3s is not None:
             pulumi.set(__self__, "s3s", s3s)
@@ -146,7 +146,7 @@ class SigningJobSignedObject(dict):
 
 
 @pulumi.output_type
-class SigningJobSignedObjectS3(dict):
+calass SigningJobSignedObjectS3(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  key: Optional[str] = None):
@@ -177,11 +177,11 @@ class SigningJobSignedObjectS3(dict):
 
 
 @pulumi.output_type
-class SigningJobSource(dict):
+calass SigningJobSource(dict):
     def __init__(__self__, *,
                  s3: 'outputs.SigningJobSourceS3'):
         """
-        :param 'SigningJobSourceS3Args' s3: A configuration block describing the S3 Source object: See S3 Source below for details.
+        :param 'SigningJobSourceS3Arrgs' s3: A configuration block describing the S3 Source object: See S3 Source below for details.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -195,7 +195,7 @@ class SigningJobSource(dict):
 
 
 @pulumi.output_type
-class SigningJobSourceS3(dict):
+calass SigningJobSourceS3(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str,
@@ -235,7 +235,7 @@ class SigningJobSourceS3(dict):
 
 
 @pulumi.output_type
-class SigningProfileRevocationRecord(dict):
+calass SigningProfileRevocationRecord(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -285,7 +285,7 @@ class SigningProfileRevocationRecord(dict):
 
 
 @pulumi.output_type
-class SigningProfileSignatureValidityPeriod(dict):
+calass SigningProfileSignatureValidityPeriod(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
@@ -304,7 +304,7 @@ class SigningProfileSignatureValidityPeriod(dict):
 
 
 @pulumi.output_type
-class SigningProfileSigningMaterial(dict):
+calass SigningProfileSigningMaterial(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -333,7 +333,7 @@ class SigningProfileSigningMaterial(dict):
 
 
 @pulumi.output_type
-class GetSigningJobRevocationRecordResult(dict):
+calass GetSigningJobRevocationRecordResult(dict):
     def __init__(__self__, *,
                  reason: str,
                  revoked_at: str,
@@ -359,7 +359,7 @@ class GetSigningJobRevocationRecordResult(dict):
 
 
 @pulumi.output_type
-class GetSigningJobSignedObjectResult(dict):
+calass GetSigningJobSignedObjectResult(dict):
     def __init__(__self__, *,
                  s3s: Sequence['outputs.GetSigningJobSignedObjectS3Result']):
         pulumi.set(__self__, "s3s", s3s)
@@ -371,7 +371,7 @@ class GetSigningJobSignedObjectResult(dict):
 
 
 @pulumi.output_type
-class GetSigningJobSignedObjectS3Result(dict):
+calass GetSigningJobSignedObjectS3Result(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str):
@@ -390,7 +390,7 @@ class GetSigningJobSignedObjectS3Result(dict):
 
 
 @pulumi.output_type
-class GetSigningJobSourceResult(dict):
+calass GetSigningJobSourceResult(dict):
     def __init__(__self__, *,
                  s3s: Sequence['outputs.GetSigningJobSourceS3Result']):
         pulumi.set(__self__, "s3s", s3s)
@@ -402,7 +402,7 @@ class GetSigningJobSourceResult(dict):
 
 
 @pulumi.output_type
-class GetSigningJobSourceS3Result(dict):
+calass GetSigningJobSourceS3Result(dict):
     def __init__(__self__, *,
                  bucket: str,
                  key: str,
@@ -428,7 +428,7 @@ class GetSigningJobSourceS3Result(dict):
 
 
 @pulumi.output_type
-class GetSigningProfileRevocationRecordResult(dict):
+calass GetSigningProfileRevocationRecordResult(dict):
     def __init__(__self__, *,
                  revocation_effective_from: str,
                  revoked_at: str,
@@ -454,7 +454,7 @@ class GetSigningProfileRevocationRecordResult(dict):
 
 
 @pulumi.output_type
-class GetSigningProfileSignatureValidityPeriodResult(dict):
+calass GetSigningProfileSignatureValidityPeriodResult(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):

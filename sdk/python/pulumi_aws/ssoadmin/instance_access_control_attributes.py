@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['InstanceAccessControlAttributesArgs', 'InstanceAccessControlAttributes']
+__all__ = ['InstanceAccessControlAttributesArrgs', 'InstanceAccessControlAttributes']
 
 @pulumi.input_type
-class InstanceAccessControlAttributesArgs:
+calass InstanceAccessControlAttributesArrgs:
     def __init__(__self__, *,
-                 attributes: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]],
+                 attributes: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArrgs']]],
                  instance_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a InstanceAccessControlAttributes resource.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]] attributes: See AccessControlAttribute for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArrgs']]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
         """
         pulumi.set(__self__, "attributes", attributes)
@@ -28,14 +28,14 @@ class InstanceAccessControlAttributesArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]]:
+    def attributes(self) -> pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArrgs']]]:
         """
         See AccessControlAttribute for more details.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]]):
+    def attributes(self, value: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArrgs']]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -52,15 +52,15 @@ class InstanceAccessControlAttributesArgs:
 
 
 @pulumi.input_type
-class _InstanceAccessControlAttributesState:
+calass _InstanceAccessControlAttributesState:
     def __init__(__self__, *,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArrgs']]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  status_reason: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering InstanceAccessControlAttributes resources.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]] attributes: See AccessControlAttribute for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArrgs']]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
         """
         if attributes is not None:
@@ -74,14 +74,14 @@ class _InstanceAccessControlAttributesState:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]]]:
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArrgs']]]]:
         """
         See AccessControlAttribute for more details.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]]]):
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArrgs']]]]):
         pulumi.set(self, "attributes", value)
 
     @property
@@ -115,12 +115,12 @@ class _InstanceAccessControlAttributesState:
         pulumi.set(self, "status_reason", value)
 
 
-class InstanceAccessControlAttributes(pulumi.CustomResource):
+calass InstanceAccessControlAttributes(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArrgs']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -136,14 +136,14 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]] attributes: See AccessControlAttribute for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArrgs']]]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InstanceAccessControlAttributesArgs,
+                 args: InstanceAccessControlAttributesArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
@@ -157,12 +157,12 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InstanceAccessControlAttributesArgs args: The arguments to use to populate this resource's properties.
+        :param InstanceAccessControlAttributesArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InstanceAccessControlAttributesArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceAccessControlAttributesArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -171,7 +171,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]]] = None,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArrgs']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -180,7 +180,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InstanceAccessControlAttributesArgs.__new__(InstanceAccessControlAttributesArgs)
+            __props__ = InstanceAccessControlAttributesArrgs.__new__(InstanceAccessControlAttributesArrgs)
 
             if attributes is None and not opts.urn:
                 raise TypeError("Missing required property 'attributes'")
@@ -200,7 +200,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]]] = None,
+            attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArrgs']]]]] = None,
             instance_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             status_reason: Optional[pulumi.Input[str]] = None) -> 'InstanceAccessControlAttributes':
@@ -211,7 +211,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArgs']]]] attributes: See AccessControlAttribute for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceAccessControlAttributesAttributeArrgs']]]] attributes: See AccessControlAttribute for more details.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

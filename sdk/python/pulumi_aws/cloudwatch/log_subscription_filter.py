@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LogSubscriptionFilterArgs', 'LogSubscriptionFilter']
+__all__ = ['LogSubscriptionFilterArrgs', 'LogSubscriptionFilter']
 
 @pulumi.input_type
-class LogSubscriptionFilterArgs:
+calass LogSubscriptionFilterArrgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  filter_pattern: pulumi.Input[str],
@@ -113,7 +113,7 @@ class LogSubscriptionFilterArgs:
 
 
 @pulumi.input_type
-class _LogSubscriptionFilterState:
+calass _LogSubscriptionFilterState:
     def __init__(__self__, *,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  distribution: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _LogSubscriptionFilterState:
         pulumi.set(self, "role_arn", value)
 
 
-class LogSubscriptionFilter(pulumi.CustomResource):
+calass LogSubscriptionFilter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -266,7 +266,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LogSubscriptionFilterArgs,
+                 args: LogSubscriptionFilterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Logs subscription filter resource.
@@ -294,12 +294,12 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogSubscriptionFilterArgs args: The arguments to use to populate this resource's properties.
+        :param LogSubscriptionFilterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogSubscriptionFilterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogSubscriptionFilterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -321,7 +321,7 @@ class LogSubscriptionFilter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogSubscriptionFilterArgs.__new__(LogSubscriptionFilterArgs)
+            __props__ = LogSubscriptionFilterArrgs.__new__(LogSubscriptionFilterArrgs)
 
             if destination_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_arn'")

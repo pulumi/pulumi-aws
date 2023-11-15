@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MetricsDestinationArgs', 'MetricsDestination']
+__all__ = ['MetricsDestinationArrgs', 'MetricsDestination']
 
 @pulumi.input_type
-class MetricsDestinationArgs:
+calass MetricsDestinationArrgs:
     def __init__(__self__, *,
                  app_monitor_name: pulumi.Input[str],
                  destination: pulumi.Input[str],
@@ -82,7 +82,7 @@ class MetricsDestinationArgs:
 
 
 @pulumi.input_type
-class _MetricsDestinationState:
+calass _MetricsDestinationState:
     def __init__(__self__, *,
                  app_monitor_name: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _MetricsDestinationState:
         pulumi.set(self, "iam_role_arn", value)
 
 
-class MetricsDestination(pulumi.CustomResource):
+calass MetricsDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -196,7 +196,7 @@ class MetricsDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MetricsDestinationArgs,
+                 args: MetricsDestinationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch RUM Metrics Destination resource.
@@ -221,12 +221,12 @@ class MetricsDestination(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MetricsDestinationArgs args: The arguments to use to populate this resource's properties.
+        :param MetricsDestinationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MetricsDestinationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MetricsDestinationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -246,7 +246,7 @@ class MetricsDestination(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MetricsDestinationArgs.__new__(MetricsDestinationArgs)
+            __props__ = MetricsDestinationArrgs.__new__(MetricsDestinationArrgs)
 
             if app_monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_monitor_name'")

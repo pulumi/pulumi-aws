@@ -10,34 +10,34 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ProjectArtifactsArgs',
-    'ProjectBuildBatchConfigArgs',
-    'ProjectBuildBatchConfigRestrictionsArgs',
-    'ProjectCacheArgs',
-    'ProjectEnvironmentArgs',
-    'ProjectEnvironmentEnvironmentVariableArgs',
-    'ProjectEnvironmentRegistryCredentialArgs',
-    'ProjectFileSystemLocationArgs',
-    'ProjectLogsConfigArgs',
-    'ProjectLogsConfigCloudwatchLogsArgs',
-    'ProjectLogsConfigS3LogsArgs',
-    'ProjectSecondaryArtifactArgs',
-    'ProjectSecondarySourceArgs',
-    'ProjectSecondarySourceBuildStatusConfigArgs',
-    'ProjectSecondarySourceGitSubmodulesConfigArgs',
-    'ProjectSecondarySourceVersionArgs',
-    'ProjectSourceArgs',
-    'ProjectSourceBuildStatusConfigArgs',
-    'ProjectSourceGitSubmodulesConfigArgs',
-    'ProjectVpcConfigArgs',
-    'ReportGroupExportConfigArgs',
-    'ReportGroupExportConfigS3DestinationArgs',
-    'WebhookFilterGroupArgs',
-    'WebhookFilterGroupFilterArgs',
+    'ProjectArtifactsArrgs',
+    'ProjectBuildBatchConfigArrgs',
+    'ProjectBuildBatchConfigRestrictionsArrgs',
+    'ProjectCacheArrgs',
+    'ProjectEnvironmentArrgs',
+    'ProjectEnvironmentEnvironmentVariableArrgs',
+    'ProjectEnvironmentRegistryCredentialArrgs',
+    'ProjectFileSystemLocationArrgs',
+    'ProjectLogsConfigArrgs',
+    'ProjectLogsConfigCloudwatchLogsArrgs',
+    'ProjectLogsConfigS3LogsArrgs',
+    'ProjectSecondaryArtifactArrgs',
+    'ProjectSecondarySourceArrgs',
+    'ProjectSecondarySourceBuildStatusConfigArrgs',
+    'ProjectSecondarySourceGitSubmodulesConfigArrgs',
+    'ProjectSecondarySourceVersionArrgs',
+    'ProjectSourceArrgs',
+    'ProjectSourceBuildStatusConfigArrgs',
+    'ProjectSourceGitSubmodulesConfigArrgs',
+    'ProjectVpcConfigArrgs',
+    'ReportGroupExportConfigArrgs',
+    'ReportGroupExportConfigS3DestinationArrgs',
+    'WebhookFilterGroupArrgs',
+    'WebhookFilterGroupFilterArrgs',
 ]
 
 @pulumi.input_type
-class ProjectArtifactsArgs:
+calass ProjectArtifactsArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  artifact_identifier: Optional[pulumi.Input[str]] = None,
@@ -203,16 +203,16 @@ class ProjectArtifactsArgs:
 
 
 @pulumi.input_type
-class ProjectBuildBatchConfigArgs:
+calass ProjectBuildBatchConfigArrgs:
     def __init__(__self__, *,
                  service_role: pulumi.Input[str],
                  combine_artifacts: Optional[pulumi.Input[bool]] = None,
-                 restrictions: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']] = None,
+                 restrictions: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArrgs']] = None,
                  timeout_in_mins: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] service_role: Specifies the service role ARN for the batch build project.
         :param pulumi.Input[bool] combine_artifacts: Specifies if the build artifacts for the batch build should be combined into a single artifact location.
-        :param pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs'] restrictions: Configuration block specifying the restrictions for the batch build. Detailed below.
+        :param pulumi.Input['ProjectBuildBatchConfigRestrictionsArrgs'] restrictions: Configuration block specifying the restrictions for the batch build. Detailed below.
         :param pulumi.Input[int] timeout_in_mins: Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
         """
         pulumi.set(__self__, "service_role", service_role)
@@ -249,14 +249,14 @@ class ProjectBuildBatchConfigArgs:
 
     @property
     @pulumi.getter
-    def restrictions(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']]:
+    def restrictions(self) -> Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArrgs']]:
         """
         Configuration block specifying the restrictions for the batch build. Detailed below.
         """
         return pulumi.get(self, "restrictions")
 
     @restrictions.setter
-    def restrictions(self, value: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArgs']]):
+    def restrictions(self, value: Optional[pulumi.Input['ProjectBuildBatchConfigRestrictionsArrgs']]):
         pulumi.set(self, "restrictions", value)
 
     @property
@@ -273,7 +273,7 @@ class ProjectBuildBatchConfigArgs:
 
 
 @pulumi.input_type
-class ProjectBuildBatchConfigRestrictionsArgs:
+calass ProjectBuildBatchConfigRestrictionsArrgs:
     def __init__(__self__, *,
                  compute_types_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_builds_allowed: Optional[pulumi.Input[int]] = None):
@@ -312,7 +312,7 @@ class ProjectBuildBatchConfigRestrictionsArgs:
 
 
 @pulumi.input_type
-class ProjectCacheArgs:
+calass ProjectCacheArrgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -367,25 +367,25 @@ class ProjectCacheArgs:
 
 
 @pulumi.input_type
-class ProjectEnvironmentArgs:
+calass ProjectEnvironmentArrgs:
     def __init__(__self__, *,
                  compute_type: pulumi.Input[str],
                  image: pulumi.Input[str],
                  type: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
-                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]] = None,
+                 environment_variables: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArrgs']]]] = None,
                  image_pull_credentials_type: Optional[pulumi.Input[str]] = None,
                  privileged_mode: Optional[pulumi.Input[bool]] = None,
-                 registry_credential: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']] = None):
+                 registry_credential: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArrgs']] = None):
         """
         :param pulumi.Input[str] compute_type: Information about the compute resources the build project will use. Valid values: `BUILD_GENERAL1_SMALL`, `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`, `BUILD_GENERAL1_2XLARGE`. `BUILD_GENERAL1_SMALL` is only valid if `type` is set to `LINUX_CONTAINER`. When `type` is set to `LINUX_GPU_CONTAINER`, `compute_type` must be `BUILD_GENERAL1_LARGE`.
         :param pulumi.Input[str] image: Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
         :param pulumi.Input[str] type: Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         :param pulumi.Input[str] certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-        :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]] environment_variables: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArrgs']]] environment_variables: Configuration block. Detailed below.
         :param pulumi.Input[str] image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
         :param pulumi.Input[bool] privileged_mode: Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
-        :param pulumi.Input['ProjectEnvironmentRegistryCredentialArgs'] registry_credential: Configuration block. Detailed below.
+        :param pulumi.Input['ProjectEnvironmentRegistryCredentialArrgs'] registry_credential: Configuration block. Detailed below.
         """
         pulumi.set(__self__, "compute_type", compute_type)
         pulumi.set(__self__, "image", image)
@@ -451,14 +451,14 @@ class ProjectEnvironmentArgs:
 
     @property
     @pulumi.getter(name="environmentVariables")
-    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]:
+    def environment_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArrgs']]]]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "environment_variables")
 
     @environment_variables.setter
-    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArgs']]]]):
+    def environment_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProjectEnvironmentEnvironmentVariableArrgs']]]]):
         pulumi.set(self, "environment_variables", value)
 
     @property
@@ -487,19 +487,19 @@ class ProjectEnvironmentArgs:
 
     @property
     @pulumi.getter(name="registryCredential")
-    def registry_credential(self) -> Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']]:
+    def registry_credential(self) -> Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArrgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "registry_credential")
 
     @registry_credential.setter
-    def registry_credential(self, value: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArgs']]):
+    def registry_credential(self, value: Optional[pulumi.Input['ProjectEnvironmentRegistryCredentialArrgs']]):
         pulumi.set(self, "registry_credential", value)
 
 
 @pulumi.input_type
-class ProjectEnvironmentEnvironmentVariableArgs:
+calass ProjectEnvironmentEnvironmentVariableArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -552,7 +552,7 @@ class ProjectEnvironmentEnvironmentVariableArgs:
 
 
 @pulumi.input_type
-class ProjectEnvironmentRegistryCredentialArgs:
+calass ProjectEnvironmentRegistryCredentialArrgs:
     def __init__(__self__, *,
                  credential: pulumi.Input[str],
                  credential_provider: pulumi.Input[str]):
@@ -589,7 +589,7 @@ class ProjectEnvironmentRegistryCredentialArgs:
 
 
 @pulumi.input_type
-class ProjectFileSystemLocationArgs:
+calass ProjectFileSystemLocationArrgs:
     def __init__(__self__, *,
                  identifier: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -676,13 +676,13 @@ class ProjectFileSystemLocationArgs:
 
 
 @pulumi.input_type
-class ProjectLogsConfigArgs:
+calass ProjectLogsConfigArrgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs']] = None,
-                 s3_logs: Optional[pulumi.Input['ProjectLogsConfigS3LogsArgs']] = None):
+                 cloudwatch_logs: Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArrgs']] = None,
+                 s3_logs: Optional[pulumi.Input['ProjectLogsConfigS3LogsArrgs']] = None):
         """
-        :param pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs'] cloudwatch_logs: Configuration block. Detailed below.
-        :param pulumi.Input['ProjectLogsConfigS3LogsArgs'] s3_logs: Configuration block. Detailed below.
+        :param pulumi.Input['ProjectLogsConfigCloudwatchLogsArrgs'] cloudwatch_logs: Configuration block. Detailed below.
+        :param pulumi.Input['ProjectLogsConfigS3LogsArrgs'] s3_logs: Configuration block. Detailed below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -691,31 +691,31 @@ class ProjectLogsConfigArgs:
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArrgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['ProjectLogsConfigCloudwatchLogsArrgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @property
     @pulumi.getter(name="s3Logs")
-    def s3_logs(self) -> Optional[pulumi.Input['ProjectLogsConfigS3LogsArgs']]:
+    def s3_logs(self) -> Optional[pulumi.Input['ProjectLogsConfigS3LogsArrgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "s3_logs")
 
     @s3_logs.setter
-    def s3_logs(self, value: Optional[pulumi.Input['ProjectLogsConfigS3LogsArgs']]):
+    def s3_logs(self, value: Optional[pulumi.Input['ProjectLogsConfigS3LogsArrgs']]):
         pulumi.set(self, "s3_logs", value)
 
 
 @pulumi.input_type
-class ProjectLogsConfigCloudwatchLogsArgs:
+calass ProjectLogsConfigCloudwatchLogsArrgs:
     def __init__(__self__, *,
                  group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -770,7 +770,7 @@ class ProjectLogsConfigCloudwatchLogsArgs:
 
 
 @pulumi.input_type
-class ProjectLogsConfigS3LogsArgs:
+calass ProjectLogsConfigS3LogsArrgs:
     def __init__(__self__, *,
                  bucket_owner_access: Optional[pulumi.Input[str]] = None,
                  encryption_disabled: Optional[pulumi.Input[bool]] = None,
@@ -841,7 +841,7 @@ class ProjectLogsConfigS3LogsArgs:
 
 
 @pulumi.input_type
-class ProjectSecondaryArtifactArgs:
+calass ProjectSecondaryArtifactArrgs:
     def __init__(__self__, *,
                  artifact_identifier: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -1006,24 +1006,24 @@ class ProjectSecondaryArtifactArgs:
 
 
 @pulumi.input_type
-class ProjectSecondarySourceArgs:
+calass ProjectSecondarySourceArrgs:
     def __init__(__self__, *,
                  source_identifier: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 build_status_config: Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']] = None,
+                 build_status_config: Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArrgs']] = None,
                  buildspec: Optional[pulumi.Input[str]] = None,
                  git_clone_depth: Optional[pulumi.Input[int]] = None,
-                 git_submodules_config: Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs']] = None,
+                 git_submodules_config: Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArrgs']] = None,
                  insecure_ssl: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  report_build_status: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] source_identifier: An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
         :param pulumi.Input[str] type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
-        :param pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs'] build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+        :param pulumi.Input['ProjectSecondarySourceBuildStatusConfigArrgs'] build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
         :param pulumi.Input[str] buildspec: The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
         :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
-        :param pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
+        :param pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArrgs'] git_submodules_config: Configuration block. Detailed below.
         :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
@@ -1071,14 +1071,14 @@ class ProjectSecondarySourceArgs:
 
     @property
     @pulumi.getter(name="buildStatusConfig")
-    def build_status_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']]:
+    def build_status_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArrgs']]:
         """
         Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
         """
         return pulumi.get(self, "build_status_config")
 
     @build_status_config.setter
-    def build_status_config(self, value: Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArgs']]):
+    def build_status_config(self, value: Optional[pulumi.Input['ProjectSecondarySourceBuildStatusConfigArrgs']]):
         pulumi.set(self, "build_status_config", value)
 
     @property
@@ -1107,14 +1107,14 @@ class ProjectSecondarySourceArgs:
 
     @property
     @pulumi.getter(name="gitSubmodulesConfig")
-    def git_submodules_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs']]:
+    def git_submodules_config(self) -> Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArrgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "git_submodules_config")
 
     @git_submodules_config.setter
-    def git_submodules_config(self, value: Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArgs']]):
+    def git_submodules_config(self, value: Optional[pulumi.Input['ProjectSecondarySourceGitSubmodulesConfigArrgs']]):
         pulumi.set(self, "git_submodules_config", value)
 
     @property
@@ -1155,7 +1155,7 @@ class ProjectSecondarySourceArgs:
 
 
 @pulumi.input_type
-class ProjectSecondarySourceBuildStatusConfigArgs:
+calass ProjectSecondarySourceBuildStatusConfigArrgs:
     def __init__(__self__, *,
                  context: Optional[pulumi.Input[str]] = None,
                  target_url: Optional[pulumi.Input[str]] = None):
@@ -1194,7 +1194,7 @@ class ProjectSecondarySourceBuildStatusConfigArgs:
 
 
 @pulumi.input_type
-class ProjectSecondarySourceGitSubmodulesConfigArgs:
+calass ProjectSecondarySourceGitSubmodulesConfigArrgs:
     def __init__(__self__, *,
                  fetch_submodules: pulumi.Input[bool]):
         """
@@ -1216,7 +1216,7 @@ class ProjectSecondarySourceGitSubmodulesConfigArgs:
 
 
 @pulumi.input_type
-class ProjectSecondarySourceVersionArgs:
+calass ProjectSecondarySourceVersionArrgs:
     def __init__(__self__, *,
                  source_identifier: pulumi.Input[str],
                  source_version: pulumi.Input[str]):
@@ -1253,22 +1253,22 @@ class ProjectSecondarySourceVersionArgs:
 
 
 @pulumi.input_type
-class ProjectSourceArgs:
+calass ProjectSourceArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 build_status_config: Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']] = None,
+                 build_status_config: Optional[pulumi.Input['ProjectSourceBuildStatusConfigArrgs']] = None,
                  buildspec: Optional[pulumi.Input[str]] = None,
                  git_clone_depth: Optional[pulumi.Input[int]] = None,
-                 git_submodules_config: Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArgs']] = None,
+                 git_submodules_config: Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArrgs']] = None,
                  insecure_ssl: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  report_build_status: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
-        :param pulumi.Input['ProjectSourceBuildStatusConfigArgs'] build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+        :param pulumi.Input['ProjectSourceBuildStatusConfigArrgs'] build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
         :param pulumi.Input[str] buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         :param pulumi.Input[int] git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
-        :param pulumi.Input['ProjectSourceGitSubmodulesConfigArgs'] git_submodules_config: Configuration block. Detailed below.
+        :param pulumi.Input['ProjectSourceGitSubmodulesConfigArrgs'] git_submodules_config: Configuration block. Detailed below.
         :param pulumi.Input[bool] insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param pulumi.Input[str] location: Location of the source code from git or s3.
         :param pulumi.Input[bool] report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
@@ -1303,14 +1303,14 @@ class ProjectSourceArgs:
 
     @property
     @pulumi.getter(name="buildStatusConfig")
-    def build_status_config(self) -> Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']]:
+    def build_status_config(self) -> Optional[pulumi.Input['ProjectSourceBuildStatusConfigArrgs']]:
         """
         Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
         """
         return pulumi.get(self, "build_status_config")
 
     @build_status_config.setter
-    def build_status_config(self, value: Optional[pulumi.Input['ProjectSourceBuildStatusConfigArgs']]):
+    def build_status_config(self, value: Optional[pulumi.Input['ProjectSourceBuildStatusConfigArrgs']]):
         pulumi.set(self, "build_status_config", value)
 
     @property
@@ -1339,14 +1339,14 @@ class ProjectSourceArgs:
 
     @property
     @pulumi.getter(name="gitSubmodulesConfig")
-    def git_submodules_config(self) -> Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArgs']]:
+    def git_submodules_config(self) -> Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArrgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "git_submodules_config")
 
     @git_submodules_config.setter
-    def git_submodules_config(self, value: Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArgs']]):
+    def git_submodules_config(self, value: Optional[pulumi.Input['ProjectSourceGitSubmodulesConfigArrgs']]):
         pulumi.set(self, "git_submodules_config", value)
 
     @property
@@ -1387,7 +1387,7 @@ class ProjectSourceArgs:
 
 
 @pulumi.input_type
-class ProjectSourceBuildStatusConfigArgs:
+calass ProjectSourceBuildStatusConfigArrgs:
     def __init__(__self__, *,
                  context: Optional[pulumi.Input[str]] = None,
                  target_url: Optional[pulumi.Input[str]] = None):
@@ -1426,7 +1426,7 @@ class ProjectSourceBuildStatusConfigArgs:
 
 
 @pulumi.input_type
-class ProjectSourceGitSubmodulesConfigArgs:
+calass ProjectSourceGitSubmodulesConfigArrgs:
     def __init__(__self__, *,
                  fetch_submodules: pulumi.Input[bool]):
         """
@@ -1448,7 +1448,7 @@ class ProjectSourceGitSubmodulesConfigArgs:
 
 
 @pulumi.input_type
-class ProjectVpcConfigArgs:
+calass ProjectVpcConfigArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1500,13 +1500,13 @@ class ProjectVpcConfigArgs:
 
 
 @pulumi.input_type
-class ReportGroupExportConfigArgs:
+calass ReportGroupExportConfigArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 s3_destination: Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArgs']] = None):
+                 s3_destination: Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArrgs']] = None):
         """
         :param pulumi.Input[str] type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        :param pulumi.Input['ReportGroupExportConfigS3DestinationArgs'] s3_destination: contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+        :param pulumi.Input['ReportGroupExportConfigS3DestinationArrgs'] s3_destination: contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
         """
         pulumi.set(__self__, "type", type)
         if s3_destination is not None:
@@ -1526,19 +1526,19 @@ class ReportGroupExportConfigArgs:
 
     @property
     @pulumi.getter(name="s3Destination")
-    def s3_destination(self) -> Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArgs']]:
+    def s3_destination(self) -> Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArrgs']]:
         """
         contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
         """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
-    def s3_destination(self, value: Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArgs']]):
+    def s3_destination(self, value: Optional[pulumi.Input['ReportGroupExportConfigS3DestinationArrgs']]):
         pulumi.set(self, "s3_destination", value)
 
 
 @pulumi.input_type
-class ReportGroupExportConfigS3DestinationArgs:
+calass ReportGroupExportConfigS3DestinationArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  encryption_key: pulumi.Input[str],
@@ -1625,30 +1625,30 @@ class ReportGroupExportConfigS3DestinationArgs:
 
 
 @pulumi.input_type
-class WebhookFilterGroupArgs:
+calass WebhookFilterGroupArrgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]] = None):
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]] filters: A webhook filter for the group. Filter blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArrgs']]] filters: A webhook filter for the group. Filter blocks are documented below.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]]:
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArrgs']]]]:
         """
         A webhook filter for the group. Filter blocks are documented below.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArgs']]]]):
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebhookFilterGroupFilterArrgs']]]]):
         pulumi.set(self, "filters", value)
 
 
 @pulumi.input_type
-class WebhookFilterGroupFilterArgs:
+calass WebhookFilterGroupFilterArrgs:
     def __init__(__self__, *,
                  pattern: pulumi.Input[str],
                  type: pulumi.Input[str],

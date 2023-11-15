@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPrefixListResult:
+calass GetPrefixListResult:
     """
     A collection of values returned by getPrefixList.
     """
@@ -75,7 +75,7 @@ class GetPrefixListResult:
         return pulumi.get(self, "prefix_list_id")
 
 
-class AwaitableGetPrefixListResult(GetPrefixListResult):
+calass AwaitableGetPrefixListResult(GetPrefixListResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -88,7 +88,7 @@ class AwaitableGetPrefixListResult(GetPrefixListResult):
             prefix_list_id=self.prefix_list_id)
 
 
-def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFilterArgs']]] = None,
+def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFilterArrgs']]] = None,
                     name: Optional[str] = None,
                     prefix_list_id: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrefixListResult:
@@ -130,14 +130,14 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArgs(
+    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArrgs(
         name="prefix-list-id",
         values=["pl-68a54001"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetPrefixListFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: Name of the prefix list to select.
     :param str prefix_list_id: ID of the prefix list to select.
     """
@@ -157,7 +157,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
 
 
 @_utilities.lift_output_func(get_prefix_list)
-def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPrefixListFilterArgs']]]]] = None,
+def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPrefixListFilterArrgs']]]]] = None,
                            name: Optional[pulumi.Input[Optional[str]]] = None,
                            prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrefixListResult]:
@@ -199,14 +199,14 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArgs(
+    test = aws.ec2.get_prefix_list(filters=[aws.ec2.GetPrefixListFilterArrgs(
         name="prefix-list-id",
         values=["pl-68a54001"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetPrefixListFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str name: Name of the prefix list to select.
     :param str prefix_list_id: ID of the prefix list to select.
     """

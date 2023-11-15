@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EndpointAccessArgs', 'EndpointAccess']
+__all__ = ['EndpointAccessArrgs', 'EndpointAccess']
 
 @pulumi.input_type
-class EndpointAccessArgs:
+calass EndpointAccessArrgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str],
                  endpoint_name: pulumi.Input[str],
@@ -99,7 +99,7 @@ class EndpointAccessArgs:
 
 
 @pulumi.input_type
-class _EndpointAccessState:
+calass _EndpointAccessState:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
@@ -107,7 +107,7 @@ class _EndpointAccessState:
                  port: Optional[pulumi.Input[int]] = None,
                  resource_owner: Optional[pulumi.Input[str]] = None,
                  subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]] = None,
+                 vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArrgs']]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering EndpointAccess resources.
@@ -117,7 +117,7 @@ class _EndpointAccessState:
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[str] resource_owner: The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         :param pulumi.Input[str] subnet_group_name: The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArrgs']]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         if address is not None:
@@ -211,14 +211,14 @@ class _EndpointAccessState:
 
     @property
     @pulumi.getter(name="vpcEndpoints")
-    def vpc_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]]:
+    def vpc_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArrgs']]]]:
         """
         The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         """
         return pulumi.get(self, "vpc_endpoints")
 
     @vpc_endpoints.setter
-    def vpc_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArgs']]]]):
+    def vpc_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointArrgs']]]]):
         pulumi.set(self, "vpc_endpoints", value)
 
     @property
@@ -234,7 +234,7 @@ class _EndpointAccessState:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-class EndpointAccess(pulumi.CustomResource):
+calass EndpointAccess(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -280,7 +280,7 @@ class EndpointAccess(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointAccessArgs,
+                 args: EndpointAccessArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a new Amazon Redshift endpoint access.
@@ -306,12 +306,12 @@ class EndpointAccess(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointAccessArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointAccessArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointAccessArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointAccessArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -332,7 +332,7 @@ class EndpointAccess(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointAccessArgs.__new__(EndpointAccessArgs)
+            __props__ = EndpointAccessArrgs.__new__(EndpointAccessArrgs)
 
             if cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_identifier'")
@@ -364,7 +364,7 @@ class EndpointAccess(pulumi.CustomResource):
             port: Optional[pulumi.Input[int]] = None,
             resource_owner: Optional[pulumi.Input[str]] = None,
             subnet_group_name: Optional[pulumi.Input[str]] = None,
-            vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArgs']]]]] = None,
+            vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArrgs']]]]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'EndpointAccess':
         """
         Get an existing EndpointAccess resource's state with the given name, id, and optional extra
@@ -379,7 +379,7 @@ class EndpointAccess(pulumi.CustomResource):
         :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
         :param pulumi.Input[str] resource_owner: The Amazon Web Services account ID of the owner of the cluster. This is only required if the cluster is in another Amazon Web Services account.
         :param pulumi.Input[str] subnet_group_name: The subnet group from which Amazon Redshift chooses the subnet to deploy the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArgs']]]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAccessVpcEndpointArrgs']]]] vpc_endpoints: The connection endpoint for connecting to an Amazon Redshift cluster through the proxy. See details below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: The security group that defines the ports, protocols, and sources for inbound traffic that you are authorizing into your endpoint.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ContactFlowArgs', 'ContactFlow']
+__all__ = ['ContactFlowArrgs', 'ContactFlow']
 
 @pulumi.input_type
-class ContactFlowArgs:
+calass ContactFlowArrgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[str],
                  content: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class ContactFlowArgs:
 
 
 @pulumi.input_type
-class _ContactFlowState:
+calass _ContactFlowState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  contact_flow_id: Optional[pulumi.Input[str]] = None,
@@ -336,7 +336,7 @@ class _ContactFlowState:
         pulumi.set(self, "type", value)
 
 
-class ContactFlow(pulumi.CustomResource):
+calass ContactFlow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -426,7 +426,7 @@ class ContactFlow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContactFlowArgs,
+                 args: ContactFlowArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Connect Contact Flow resource. For more information see
@@ -490,12 +490,12 @@ class ContactFlow(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContactFlowArgs args: The arguments to use to populate this resource's properties.
+        :param ContactFlowArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContactFlowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContactFlowArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -519,7 +519,7 @@ class ContactFlow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContactFlowArgs.__new__(ContactFlowArgs)
+            __props__ = ContactFlowArrgs.__new__(ContactFlowArrgs)
 
             __props__.__dict__["content"] = content
             __props__.__dict__["content_hash"] = content_hash

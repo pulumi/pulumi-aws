@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StoredIscsiVolumeArgs', 'StoredIscsiVolume']
+__all__ = ['StoredIscsiVolumeArrgs', 'StoredIscsiVolume']
 
 @pulumi.input_type
-class StoredIscsiVolumeArgs:
+calass StoredIscsiVolumeArrgs:
     def __init__(__self__, *,
                  disk_id: pulumi.Input[str],
                  gateway_arn: pulumi.Input[str],
@@ -159,7 +159,7 @@ class StoredIscsiVolumeArgs:
 
 
 @pulumi.input_type
-class _StoredIscsiVolumeState:
+calass _StoredIscsiVolumeState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  chap_enabled: Optional[pulumi.Input[bool]] = None,
@@ -492,7 +492,7 @@ class _StoredIscsiVolumeState:
         pulumi.set(self, "volume_type", value)
 
 
-class StoredIscsiVolume(pulumi.CustomResource):
+calass StoredIscsiVolume(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -565,7 +565,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StoredIscsiVolumeArgs,
+                 args: StoredIscsiVolumeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Storage Gateway stored iSCSI volume.
@@ -610,12 +610,12 @@ class StoredIscsiVolume(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StoredIscsiVolumeArgs args: The arguments to use to populate this resource's properties.
+        :param StoredIscsiVolumeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StoredIscsiVolumeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StoredIscsiVolumeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -640,7 +640,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StoredIscsiVolumeArgs.__new__(StoredIscsiVolumeArgs)
+            __props__ = StoredIscsiVolumeArrgs.__new__(StoredIscsiVolumeArrgs)
 
             if disk_id is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_id'")

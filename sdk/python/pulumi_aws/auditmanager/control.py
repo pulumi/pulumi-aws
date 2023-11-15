@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ControlArgs', 'Control']
+__all__ = ['ControlArrgs', 'Control']
 
 @pulumi.input_type
-class ControlArgs:
+calass ControlArrgs:
     def __init__(__self__, *,
                  action_plan_instructions: Optional[pulumi.Input[str]] = None,
                  action_plan_title: Optional[pulumi.Input[str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
+                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -27,7 +27,7 @@ class ControlArgs:
         The set of arguments for constructing a Control resource.
         :param pulumi.Input[str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArrgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the control.
@@ -76,7 +76,7 @@ class ControlArgs:
 
     @property
     @pulumi.getter(name="controlMappingSources")
-    def control_mapping_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]:
+    def control_mapping_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArrgs']]]]:
         """
         Data mapping sources. See `control_mapping_sources` below.
 
@@ -85,7 +85,7 @@ class ControlArgs:
         return pulumi.get(self, "control_mapping_sources")
 
     @control_mapping_sources.setter
-    def control_mapping_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]):
+    def control_mapping_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArrgs']]]]):
         pulumi.set(self, "control_mapping_sources", value)
 
     @property
@@ -138,12 +138,12 @@ class ControlArgs:
 
 
 @pulumi.input_type
-class _ControlState:
+calass _ControlState:
     def __init__(__self__, *,
                  action_plan_instructions: Optional[pulumi.Input[str]] = None,
                  action_plan_title: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]] = None,
+                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -156,7 +156,7 @@ class _ControlState:
         :param pulumi.Input[str] action_plan_title: Title of the action plan for remediating the control.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the control.
                * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-        :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArrgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the control.
@@ -228,7 +228,7 @@ class _ControlState:
 
     @property
     @pulumi.getter(name="controlMappingSources")
-    def control_mapping_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]:
+    def control_mapping_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArrgs']]]]:
         """
         Data mapping sources. See `control_mapping_sources` below.
 
@@ -237,7 +237,7 @@ class _ControlState:
         return pulumi.get(self, "control_mapping_sources")
 
     @control_mapping_sources.setter
-    def control_mapping_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]]]):
+    def control_mapping_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArrgs']]]]):
         pulumi.set(self, "control_mapping_sources", value)
 
     @property
@@ -313,14 +313,14 @@ class _ControlState:
         pulumi.set(self, "type", value)
 
 
-class Control(pulumi.CustomResource):
+calass Control(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_plan_instructions: Optional[pulumi.Input[str]] = None,
                  action_plan_title: Optional[pulumi.Input[str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]]] = None,
+                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -336,7 +336,7 @@ class Control(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.Control("example", control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArgs(
+        example = aws.auditmanager.Control("example", control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArrgs(
             source_name="example",
             source_set_up_option="Procedural_Controls_Mapping",
             source_type="MANUAL",
@@ -355,7 +355,7 @@ class Control(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArrgs']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the control.
@@ -367,7 +367,7 @@ class Control(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ControlArgs] = None,
+                 args: Optional[ControlArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Audit Manager Control.
@@ -379,7 +379,7 @@ class Control(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.auditmanager.Control("example", control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArgs(
+        example = aws.auditmanager.Control("example", control_mapping_sources=[aws.auditmanager.ControlControlMappingSourceArrgs(
             source_name="example",
             source_set_up_option="Procedural_Controls_Mapping",
             source_type="MANUAL",
@@ -395,12 +395,12 @@ class Control(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ControlArgs args: The arguments to use to populate this resource's properties.
+        :param ControlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ControlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ControlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -411,7 +411,7 @@ class Control(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action_plan_instructions: Optional[pulumi.Input[str]] = None,
                  action_plan_title: Optional[pulumi.Input[str]] = None,
-                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]]] = None,
+                 control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -423,7 +423,7 @@ class Control(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ControlArgs.__new__(ControlArgs)
+            __props__ = ControlArrgs.__new__(ControlArrgs)
 
             __props__.__dict__["action_plan_instructions"] = action_plan_instructions
             __props__.__dict__["action_plan_title"] = action_plan_title
@@ -450,7 +450,7 @@ class Control(pulumi.CustomResource):
             action_plan_instructions: Optional[pulumi.Input[str]] = None,
             action_plan_title: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]]] = None,
+            control_mapping_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArrgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -468,7 +468,7 @@ class Control(pulumi.CustomResource):
         :param pulumi.Input[str] action_plan_title: Title of the action plan for remediating the control.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the control.
                * `control_mapping_sources.*.source_id` - Unique identifier for the source.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArgs']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ControlControlMappingSourceArrgs']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the control.

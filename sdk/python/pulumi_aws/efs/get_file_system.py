@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFileSystemResult:
+calass GetFileSystemResult:
     """
     A collection of values returned by getFileSystem.
     """
@@ -195,7 +195,7 @@ class GetFileSystemResult:
         return pulumi.get(self, "throughput_mode")
 
 
-class AwaitableGetFileSystemResult(GetFileSystemResult):
+calass AwaitableGetFileSystemResult(GetFileSystemResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrameworkResult:
+calass GetFrameworkResult:
     """
     A collection of values returned by getFramework.
     """
@@ -124,7 +124,7 @@ class GetFrameworkResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetFrameworkResult(GetFrameworkResult):
+calass AwaitableGetFrameworkResult(GetFrameworkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

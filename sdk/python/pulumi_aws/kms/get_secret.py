@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSecretResult:
+calass GetSecretResult:
     """
     A collection of values returned by getSecret.
     """
@@ -45,7 +45,7 @@ class GetSecretResult:
         return pulumi.get(self, "secrets")
 
 
-class AwaitableGetSecretResult(GetSecretResult):
+calass AwaitableGetSecretResult(GetSecretResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -55,7 +55,7 @@ class AwaitableGetSecretResult(GetSecretResult):
             secrets=self.secrets)
 
 
-def get_secret(secrets: Optional[Sequence[pulumi.InputType['GetSecretSecretArgs']]] = None,
+def get_secret(secrets: Optional[Sequence[pulumi.InputType['GetSecretSecretArrgs']]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretResult:
     """
     Use this data source to access information about an existing resource.
@@ -71,7 +71,7 @@ def get_secret(secrets: Optional[Sequence[pulumi.InputType['GetSecretSecretArgs'
 
 
 @_utilities.lift_output_func(get_secret)
-def get_secret_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretSecretArgs']]]] = None,
+def get_secret_output(secrets: Optional[pulumi.Input[Sequence[pulumi.InputType['GetSecretSecretArrgs']]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecretResult]:
     """
     Use this data source to access information about an existing resource.

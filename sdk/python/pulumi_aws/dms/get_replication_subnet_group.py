@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReplicationSubnetGroupResult:
+calass GetReplicationSubnetGroupResult:
     """
     A collection of values returned by getReplicationSubnetGroup.
     """
@@ -100,7 +100,7 @@ class GetReplicationSubnetGroupResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetReplicationSubnetGroupResult(GetReplicationSubnetGroupResult):
+calass AwaitableGetReplicationSubnetGroupResult(GetReplicationSubnetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConstraintArgs', 'Constraint']
+__all__ = ['ConstraintArrgs', 'Constraint']
 
 @pulumi.input_type
-class ConstraintArgs:
+calass ConstraintArrgs:
     def __init__(__self__, *,
                  parameters: pulumi.Input[str],
                  portfolio_id: pulumi.Input[str],
@@ -116,7 +116,7 @@ class ConstraintArgs:
 
 
 @pulumi.input_type
-class _ConstraintState:
+calass _ConstraintState:
     def __init__(__self__, *,
                  accept_language: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -251,7 +251,7 @@ class _ConstraintState:
         pulumi.set(self, "type", value)
 
 
-class Constraint(pulumi.CustomResource):
+calass Constraint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -309,7 +309,7 @@ class Constraint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConstraintArgs,
+                 args: ConstraintArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog Constraint.
@@ -343,12 +343,12 @@ class Constraint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConstraintArgs args: The arguments to use to populate this resource's properties.
+        :param ConstraintArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConstraintArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConstraintArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -370,7 +370,7 @@ class Constraint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConstraintArgs.__new__(ConstraintArgs)
+            __props__ = ConstraintArrgs.__new__(ConstraintArrgs)
 
             __props__.__dict__["accept_language"] = accept_language
             __props__.__dict__["description"] = description

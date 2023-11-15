@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMapResult:
+calass GetMapResult:
     """
     A collection of values returned by getMap.
     """
@@ -110,7 +110,7 @@ class GetMapResult:
         return pulumi.get(self, "update_time")
 
 
-class AwaitableGetMapResult(GetMapResult):
+calass AwaitableGetMapResult(GetMapResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

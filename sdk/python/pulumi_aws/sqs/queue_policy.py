@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['QueuePolicyArgs', 'QueuePolicy']
+__all__ = ['QueuePolicyArrgs', 'QueuePolicy']
 
 @pulumi.input_type
-class QueuePolicyArgs:
+calass QueuePolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  queue_url: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class QueuePolicyArgs:
 
 
 @pulumi.input_type
-class _QueuePolicyState:
+calass _QueuePolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None,
                  queue_url: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _QueuePolicyState:
         pulumi.set(self, "queue_url", value)
 
 
-class QueuePolicy(pulumi.CustomResource):
+calass QueuePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -108,16 +108,16 @@ class QueuePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue")
-        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="First",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["sqs:SendMessage"],
             resources=[arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="ArnEquals",
                 variable="aws:SourceArn",
                 values=[aws_sns_topic["example"]["arn"]],
@@ -145,7 +145,7 @@ class QueuePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: QueuePolicyArgs,
+                 args: QueuePolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a policy of an SQS Queue
@@ -158,16 +158,16 @@ class QueuePolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         queue = aws.sqs.Queue("queue")
-        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = queue.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="First",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="*",
                 identifiers=["*"],
             )],
             actions=["sqs:SendMessage"],
             resources=[arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="ArnEquals",
                 variable="aws:SourceArn",
                 values=[aws_sns_topic["example"]["arn"]],
@@ -187,12 +187,12 @@ class QueuePolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param QueuePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param QueuePolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(QueuePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(QueuePolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -210,7 +210,7 @@ class QueuePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = QueuePolicyArgs.__new__(QueuePolicyArgs)
+            __props__ = QueuePolicyArrgs.__new__(QueuePolicyArrgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

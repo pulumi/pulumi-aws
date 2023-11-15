@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDocumentResult:
+calass GetDocumentResult:
     """
     A collection of values returned by getDocument.
     """
@@ -92,7 +92,7 @@ class GetDocumentResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetDocumentResult(GetDocumentResult):
+calass AwaitableGetDocumentResult(GetDocumentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

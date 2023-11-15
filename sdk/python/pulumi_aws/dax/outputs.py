@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterNode(dict):
+calass ClusterNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -76,7 +76,7 @@ class ClusterNode(dict):
 
 
 @pulumi.output_type
-class ClusterServerSideEncryption(dict):
+calass ClusterServerSideEncryption(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -95,7 +95,7 @@ class ClusterServerSideEncryption(dict):
 
 
 @pulumi.output_type
-class ParameterGroupParameter(dict):
+calass ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):

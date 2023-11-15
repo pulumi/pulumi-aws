@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClusterArgs', 'Cluster']
+__all__ = ['ClusterArrgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterArgs:
+calass ClusterArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -38,16 +38,16 @@ class ClusterArgs:
 
 
 @pulumi.input_type
-class _ClusterState:
+calass _ClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]] = None,
+                 cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: ARN of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]] cluster_endpoints: List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArrgs']]] cluster_endpoints: List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
         :param pulumi.Input[str] name: Unique name describing the cluster.
         :param pulumi.Input[str] status: Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
         """
@@ -74,14 +74,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="clusterEndpoints")
-    def cluster_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]]:
+    def cluster_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArrgs']]]]:
         """
         List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
         """
         return pulumi.get(self, "cluster_endpoints")
 
     @cluster_endpoints.setter
-    def cluster_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]]):
+    def cluster_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArrgs']]]]):
         pulumi.set(self, "cluster_endpoints", value)
 
     @property
@@ -109,7 +109,7 @@ class _ClusterState:
         pulumi.set(self, "status", value)
 
 
-class Cluster(pulumi.CustomResource):
+calass Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -144,7 +144,7 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ClusterArgs] = None,
+                 args: Optional[ClusterArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Route 53 Recovery Control Config Cluster.
@@ -167,12 +167,12 @@ class Cluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -189,7 +189,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterArgs.__new__(ClusterArgs)
+            __props__ = ClusterArrgs.__new__(ClusterArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["arn"] = None
@@ -206,7 +206,7 @@ class Cluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArgs']]]]] = None,
+            cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'Cluster':
         """
@@ -217,7 +217,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArgs']]]] cluster_endpoints: List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArrgs']]]] cluster_endpoints: List of 5 endpoints in 5 regions that can be used to talk to the cluster. See below.
         :param pulumi.Input[str] name: Unique name describing the cluster.
         :param pulumi.Input[str] status: Status of cluster. `PENDING` when it is being created, `PENDING_DELETION` when it is being deleted and `DEPLOYED` otherwise.
         """

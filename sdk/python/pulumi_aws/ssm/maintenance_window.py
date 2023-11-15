@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MaintenanceWindowArgs', 'MaintenanceWindow']
+__all__ = ['MaintenanceWindowArrgs', 'MaintenanceWindow']
 
 @pulumi.input_type
-class MaintenanceWindowArgs:
+calass MaintenanceWindowArrgs:
     def __init__(__self__, *,
                  cutoff: pulumi.Input[int],
                  duration: pulumi.Input[int],
@@ -209,7 +209,7 @@ class MaintenanceWindowArgs:
 
 
 @pulumi.input_type
-class _MaintenanceWindowState:
+calass _MaintenanceWindowState:
     def __init__(__self__, *,
                  allow_unassociated_targets: Optional[pulumi.Input[bool]] = None,
                  cutoff: Optional[pulumi.Input[int]] = None,
@@ -430,7 +430,7 @@ class _MaintenanceWindowState:
         pulumi.set(self, "tags_all", value)
 
 
-class MaintenanceWindow(pulumi.CustomResource):
+calass MaintenanceWindow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -492,7 +492,7 @@ class MaintenanceWindow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MaintenanceWindowArgs,
+                 args: MaintenanceWindowArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SSM Maintenance Window resource
@@ -520,12 +520,12 @@ class MaintenanceWindow(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MaintenanceWindowArgs args: The arguments to use to populate this resource's properties.
+        :param MaintenanceWindowArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MaintenanceWindowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MaintenanceWindowArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -553,7 +553,7 @@ class MaintenanceWindow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MaintenanceWindowArgs.__new__(MaintenanceWindowArgs)
+            __props__ = MaintenanceWindowArrgs.__new__(MaintenanceWindowArrgs)
 
             __props__.__dict__["allow_unassociated_targets"] = allow_unassociated_targets
             if cutoff is None and not opts.urn:

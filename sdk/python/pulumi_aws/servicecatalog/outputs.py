@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ProductProvisioningArtifactParameters(dict):
+calass ProductProvisioningArtifactParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -123,7 +123,7 @@ class ProductProvisioningArtifactParameters(dict):
 
 
 @pulumi.output_type
-class ProvisionedProductOutput(dict):
+calass ProvisionedProductOutput(dict):
     def __init__(__self__, *,
                  description: Optional[str] = None,
                  key: Optional[str] = None,
@@ -166,7 +166,7 @@ class ProvisionedProductOutput(dict):
 
 
 @pulumi.output_type
-class ProvisionedProductProvisioningParameter(dict):
+calass ProvisionedProductProvisioningParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -225,7 +225,7 @@ class ProvisionedProductProvisioningParameter(dict):
 
 
 @pulumi.output_type
-class ProvisionedProductStackSetProvisioningPreferences(dict):
+calass ProvisionedProductStackSetProvisioningPreferences(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -327,7 +327,7 @@ class ProvisionedProductStackSetProvisioningPreferences(dict):
 
 
 @pulumi.output_type
-class ServiceActionDefinition(dict):
+calass ServiceActionDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -409,14 +409,14 @@ class ServiceActionDefinition(dict):
 
 
 @pulumi.output_type
-class GetLaunchPathsSummaryResult(dict):
+calass GetLaunchPathsSummaryResult(dict):
     def __init__(__self__, *,
                  constraint_summaries: Sequence['outputs.GetLaunchPathsSummaryConstraintSummaryResult'],
                  name: str,
                  path_id: str,
                  tags: Mapping[str, str]):
         """
-        :param Sequence['GetLaunchPathsSummaryConstraintSummaryArgs'] constraint_summaries: Block for constraints on the portfolio-product relationship. See details below.
+        :param Sequence['GetLaunchPathsSummaryConstraintSummaryArrgs'] constraint_summaries: Block for constraints on the portfolio-product relationship. See details below.
         :param str name: Name of the portfolio to which the path was assigned.
         :param str path_id: Identifier of the product path.
         :param Mapping[str, str] tags: Tags associated with this product path.
@@ -460,7 +460,7 @@ class GetLaunchPathsSummaryResult(dict):
 
 
 @pulumi.output_type
-class GetLaunchPathsSummaryConstraintSummaryResult(dict):
+calass GetLaunchPathsSummaryConstraintSummaryResult(dict):
     def __init__(__self__, *,
                  description: str,
                  type: str):
@@ -489,7 +489,7 @@ class GetLaunchPathsSummaryConstraintSummaryResult(dict):
 
 
 @pulumi.output_type
-class GetPortfolioConstraintsDetailResult(dict):
+calass GetPortfolioConstraintsDetailResult(dict):
     def __init__(__self__, *,
                  constraint_id: str,
                  description: str,
@@ -562,7 +562,7 @@ class GetPortfolioConstraintsDetailResult(dict):
 
 
 @pulumi.output_type
-class GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
+calass GetProvisioningArtifactsProvisioningArtifactDetailResult(dict):
     def __init__(__self__, *,
                  active: bool,
                  created_time: str,

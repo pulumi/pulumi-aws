@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ThingGroupMembershipArgs', 'ThingGroupMembership']
+__all__ = ['ThingGroupMembershipArrgs', 'ThingGroupMembership']
 
 @pulumi.input_type
-class ThingGroupMembershipArgs:
+calass ThingGroupMembershipArrgs:
     def __init__(__self__, *,
                  thing_group_name: pulumi.Input[str],
                  thing_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ThingGroupMembershipArgs:
 
 
 @pulumi.input_type
-class _ThingGroupMembershipState:
+calass _ThingGroupMembershipState:
     def __init__(__self__, *,
                  override_dynamic_group: Optional[pulumi.Input[bool]] = None,
                  thing_group_name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _ThingGroupMembershipState:
         pulumi.set(self, "thing_name", value)
 
 
-class ThingGroupMembership(pulumi.CustomResource):
+calass ThingGroupMembership(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -163,7 +163,7 @@ class ThingGroupMembership(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ThingGroupMembershipArgs,
+                 args: ThingGroupMembershipArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Adds an IoT Thing to an IoT Thing Group.
@@ -189,12 +189,12 @@ class ThingGroupMembership(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ThingGroupMembershipArgs args: The arguments to use to populate this resource's properties.
+        :param ThingGroupMembershipArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ThingGroupMembershipArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ThingGroupMembershipArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -213,7 +213,7 @@ class ThingGroupMembership(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ThingGroupMembershipArgs.__new__(ThingGroupMembershipArgs)
+            __props__ = ThingGroupMembershipArrgs.__new__(ThingGroupMembershipArrgs)
 
             __props__.__dict__["override_dynamic_group"] = override_dynamic_group
             if thing_group_name is None and not opts.urn:

@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterClusterEndpoint(dict):
+calass ClusterClusterEndpoint(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  port: Optional[int] = None):
@@ -59,7 +59,7 @@ class ClusterClusterEndpoint(dict):
 
 
 @pulumi.output_type
-class ClusterShard(dict):
+calass ClusterShard(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -84,7 +84,7 @@ class ClusterShard(dict):
                  slots: Optional[str] = None):
         """
         :param str name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param Sequence['ClusterShardNodeArgs'] nodes: Set of nodes in this shard.
+        :param Sequence['ClusterShardNodeArrgs'] nodes: Set of nodes in this shard.
         :param int num_nodes: Number of individual nodes in this shard.
         :param str slots: Keyspace for this shard. Example: `0-16383`.
         """
@@ -131,7 +131,7 @@ class ClusterShard(dict):
 
 
 @pulumi.output_type
-class ClusterShardNode(dict):
+calass ClusterShardNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -201,7 +201,7 @@ class ClusterShardNode(dict):
 
 
 @pulumi.output_type
-class ClusterShardNodeEndpoint(dict):
+calass ClusterShardNodeEndpoint(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  port: Optional[int] = None):
@@ -232,7 +232,7 @@ class ClusterShardNodeEndpoint(dict):
 
 
 @pulumi.output_type
-class ParameterGroupParameter(dict):
+calass ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -261,7 +261,7 @@ class ParameterGroupParameter(dict):
 
 
 @pulumi.output_type
-class SnapshotClusterConfiguration(dict):
+calass SnapshotClusterConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -459,7 +459,7 @@ class SnapshotClusterConfiguration(dict):
 
 
 @pulumi.output_type
-class UserAuthenticationMode(dict):
+calass UserAuthenticationMode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -517,7 +517,7 @@ class UserAuthenticationMode(dict):
 
 
 @pulumi.output_type
-class GetClusterClusterEndpointResult(dict):
+calass GetClusterClusterEndpointResult(dict):
     def __init__(__self__, *,
                  address: str,
                  port: int):
@@ -546,7 +546,7 @@ class GetClusterClusterEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetClusterShardResult(dict):
+calass GetClusterShardResult(dict):
     def __init__(__self__, *,
                  name: str,
                  nodes: Sequence['outputs.GetClusterShardNodeResult'],
@@ -554,7 +554,7 @@ class GetClusterShardResult(dict):
                  slots: str):
         """
         :param str name: Name of the cluster.
-        :param Sequence['GetClusterShardNodeArgs'] nodes: Set of nodes in this shard.
+        :param Sequence['GetClusterShardNodeArrgs'] nodes: Set of nodes in this shard.
         :param int num_nodes: Number of individual nodes in this shard.
         :param str slots: Keyspace for this shard. Example: `0-16383`.
         """
@@ -597,7 +597,7 @@ class GetClusterShardResult(dict):
 
 
 @pulumi.output_type
-class GetClusterShardNodeResult(dict):
+calass GetClusterShardNodeResult(dict):
     def __init__(__self__, *,
                  availability_zone: str,
                  create_time: str,
@@ -644,7 +644,7 @@ class GetClusterShardNodeResult(dict):
 
 
 @pulumi.output_type
-class GetClusterShardNodeEndpointResult(dict):
+calass GetClusterShardNodeEndpointResult(dict):
     def __init__(__self__, *,
                  address: str,
                  port: int):
@@ -673,7 +673,7 @@ class GetClusterShardNodeEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetParameterGroupParameterResult(dict):
+calass GetParameterGroupParameterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -702,7 +702,7 @@ class GetParameterGroupParameterResult(dict):
 
 
 @pulumi.output_type
-class GetSnapshotClusterConfigurationResult(dict):
+calass GetSnapshotClusterConfigurationResult(dict):
     def __init__(__self__, *,
                  description: str,
                  engine_version: str,
@@ -852,7 +852,7 @@ class GetSnapshotClusterConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetUserAuthenticationModeResult(dict):
+calass GetUserAuthenticationModeResult(dict):
     def __init__(__self__, *,
                  password_count: int,
                  type: str):

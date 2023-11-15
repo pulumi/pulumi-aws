@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AssessmentTemplateEventSubscriptionArgs',
+    'AssessmentTemplateEventSubscriptionArrgs',
 ]
 
 @pulumi.input_type
-class AssessmentTemplateEventSubscriptionArgs:
+calass AssessmentTemplateEventSubscriptionArrgs:
     def __init__(__self__, *,
                  event: pulumi.Input[str],
                  topic_arn: pulumi.Input[str]):

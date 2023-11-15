@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DomainPermissionsArgs', 'DomainPermissions']
+__all__ = ['DomainPermissionsArrgs', 'DomainPermissions']
 
 @pulumi.input_type
-class DomainPermissionsArgs:
+calass DomainPermissionsArrgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
                  policy_document: pulumi.Input[str],
@@ -82,7 +82,7 @@ class DomainPermissionsArgs:
 
 
 @pulumi.input_type
-class _DomainPermissionsState:
+calass _DomainPermissionsState:
     def __init__(__self__, *,
                  domain: Optional[pulumi.Input[str]] = None,
                  domain_owner: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class _DomainPermissionsState:
         pulumi.set(self, "resource_arn", value)
 
 
-class DomainPermissions(pulumi.CustomResource):
+calass DomainPermissions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -192,9 +192,9 @@ class DomainPermissions(pulumi.CustomResource):
         example_domain = aws.codeartifact.Domain("exampleDomain",
             domain="example",
             encryption_key=example_key.arn)
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="*",
                 identifiers=["*"],
             )],
@@ -225,7 +225,7 @@ class DomainPermissions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainPermissionsArgs,
+                 args: DomainPermissionsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeArtifact Domains Permissions Policy Resource.
@@ -240,9 +240,9 @@ class DomainPermissions(pulumi.CustomResource):
         example_domain = aws.codeartifact.Domain("exampleDomain",
             domain="example",
             encryption_key=example_key.arn)
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="*",
                 identifiers=["*"],
             )],
@@ -263,12 +263,12 @@ class DomainPermissions(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DomainPermissionsArgs args: The arguments to use to populate this resource's properties.
+        :param DomainPermissionsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DomainPermissionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DomainPermissionsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -288,7 +288,7 @@ class DomainPermissions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DomainPermissionsArgs.__new__(DomainPermissionsArgs)
+            __props__ = DomainPermissionsArrgs.__new__(DomainPermissionsArrgs)
 
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")

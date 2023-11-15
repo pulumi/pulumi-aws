@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDelegatedServicesResult:
+calass GetDelegatedServicesResult:
     """
     A collection of values returned by getDelegatedServices.
     """
@@ -55,7 +55,7 @@ class GetDelegatedServicesResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetDelegatedServicesResult(GetDelegatedServicesResult):
+calass AwaitableGetDelegatedServicesResult(GetDelegatedServicesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

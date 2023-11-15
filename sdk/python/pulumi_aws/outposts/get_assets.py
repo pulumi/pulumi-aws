@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAssetsResult:
+calass GetAssetsResult:
     """
     A collection of values returned by getAssets.
     """
@@ -70,7 +70,7 @@ class GetAssetsResult:
         return pulumi.get(self, "status_id_filters")
 
 
-class AwaitableGetAssetsResult(GetAssetsResult):
+calass AwaitableGetAssetsResult(GetAssetsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

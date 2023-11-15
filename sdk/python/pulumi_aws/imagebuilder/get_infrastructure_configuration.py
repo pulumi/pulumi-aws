@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInfrastructureConfigurationResult:
+calass GetInfrastructureConfigurationResult:
     """
     A collection of values returned by getInfrastructureConfiguration.
     """
@@ -206,7 +206,7 @@ class GetInfrastructureConfigurationResult:
         return pulumi.get(self, "terminate_instance_on_failure")
 
 
-class AwaitableGetInfrastructureConfigurationResult(GetInfrastructureConfigurationResult):
+calass AwaitableGetInfrastructureConfigurationResult(GetInfrastructureConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

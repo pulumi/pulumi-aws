@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetWebAclResult:
+calass GetWebAclResult:
     """
     A collection of values returned by getWebAcl.
     """
@@ -73,7 +73,7 @@ class GetWebAclResult:
         return pulumi.get(self, "scope")
 
 
-class AwaitableGetWebAclResult(GetWebAclResult):
+calass AwaitableGetWebAclResult(GetWebAclResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BucketObjectArgs', 'BucketObject']
+__all__ = ['BucketObjectArrgs', 'BucketObject']
 
 @pulumi.input_type
-class BucketObjectArgs:
+calass BucketObjectArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  acl: Optional[pulumi.Input[str]] = None,
@@ -411,7 +411,7 @@ class BucketObjectArgs:
 
 
 @pulumi.input_type
-class _BucketObjectState:
+calass _BucketObjectState:
     def __init__(__self__, *,
                  acl: Optional[pulumi.Input[str]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
@@ -848,7 +848,7 @@ class _BucketObjectState:
         pulumi.set(self, "website_redirect", value)
 
 
-class BucketObject(pulumi.CustomResource):
+calass BucketObject(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -945,7 +945,7 @@ class BucketObject(pulumi.CustomResource):
             acl="private")
         example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
             bucket=examplebucket.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
+            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArrgs(
                 status="Enabled",
             ))
         example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
@@ -1011,7 +1011,7 @@ class BucketObject(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BucketObjectArgs,
+                 args: BucketObjectArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an S3 object resource.
@@ -1080,7 +1080,7 @@ class BucketObject(pulumi.CustomResource):
             acl="private")
         example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
             bucket=examplebucket.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
+            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArrgs(
                 status="Enabled",
             ))
         example_bucket_object = aws.s3.BucketObject("exampleBucketObject",
@@ -1112,12 +1112,12 @@ class BucketObject(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BucketObjectArgs args: The arguments to use to populate this resource's properties.
+        :param BucketObjectArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BucketObjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BucketObjectArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1157,7 +1157,7 @@ class BucketObject(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BucketObjectArgs.__new__(BucketObjectArgs)
+            __props__ = BucketObjectArrgs.__new__(BucketObjectArrgs)
 
             __props__.__dict__["acl"] = acl
             if bucket is None and not opts.urn:

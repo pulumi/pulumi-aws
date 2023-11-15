@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DrtAccessRoleArnAssociationArgs', 'DrtAccessRoleArnAssociation']
+__all__ = ['DrtAccessRoleArnAssociationArrgs', 'DrtAccessRoleArnAssociation']
 
 @pulumi.input_type
-class DrtAccessRoleArnAssociationArgs:
+calass DrtAccessRoleArnAssociationArrgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
-                 timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a DrtAccessRoleArnAssociation resource.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
@@ -40,19 +40,19 @@ class DrtAccessRoleArnAssociationArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _DrtAccessRoleArnAssociationState:
+calass _DrtAccessRoleArnAssociationState:
     def __init__(__self__, *,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArrgs']] = None):
         """
         Input properties used for looking up and filtering DrtAccessRoleArnAssociation resources.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
@@ -76,21 +76,21 @@ class _DrtAccessRoleArnAssociationState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['DrtAccessRoleArnAssociationTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
-class DrtAccessRoleArnAssociation(pulumi.CustomResource):
+calass DrtAccessRoleArnAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArrgs']]] = None,
                  __props__=None):
         """
         Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
@@ -128,7 +128,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DrtAccessRoleArnAssociationArgs,
+                 args: DrtAccessRoleArnAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Authorizes the Shield Response Team (SRT) using the specified role, to access your AWS account to assist with DDoS attack mitigation during potential attacks. For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
@@ -159,12 +159,12 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DrtAccessRoleArnAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param DrtAccessRoleArnAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DrtAccessRoleArnAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DrtAccessRoleArnAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -174,7 +174,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -182,7 +182,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DrtAccessRoleArnAssociationArgs.__new__(DrtAccessRoleArnAssociationArgs)
+            __props__ = DrtAccessRoleArnAssociationArrgs.__new__(DrtAccessRoleArnAssociationArrgs)
 
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
@@ -199,7 +199,7 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArgs']]] = None) -> 'DrtAccessRoleArnAssociation':
+            timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessRoleArnAssociationTimeoutsArrgs']]] = None) -> 'DrtAccessRoleArnAssociation':
         """
         Get an existing DrtAccessRoleArnAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

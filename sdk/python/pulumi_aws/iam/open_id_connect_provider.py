@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OpenIdConnectProviderArgs', 'OpenIdConnectProvider']
+__all__ = ['OpenIdConnectProviderArrgs', 'OpenIdConnectProvider']
 
 @pulumi.input_type
-class OpenIdConnectProviderArgs:
+calass OpenIdConnectProviderArrgs:
     def __init__(__self__, *,
                  client_id_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
                  thumbprint_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -81,7 +81,7 @@ class OpenIdConnectProviderArgs:
 
 
 @pulumi.input_type
-class _OpenIdConnectProviderState:
+calass _OpenIdConnectProviderState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  client_id_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -190,7 +190,7 @@ class _OpenIdConnectProviderState:
         pulumi.set(self, "url", value)
 
 
-class OpenIdConnectProvider(pulumi.CustomResource):
+calass OpenIdConnectProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -234,7 +234,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OpenIdConnectProviderArgs,
+                 args: OpenIdConnectProviderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM OpenID Connect provider.
@@ -260,12 +260,12 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OpenIdConnectProviderArgs args: The arguments to use to populate this resource's properties.
+        :param OpenIdConnectProviderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OpenIdConnectProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OpenIdConnectProviderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -285,7 +285,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OpenIdConnectProviderArgs.__new__(OpenIdConnectProviderArgs)
+            __props__ = OpenIdConnectProviderArrgs.__new__(OpenIdConnectProviderArrgs)
 
             if client_id_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id_lists'")

@@ -10,16 +10,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConfigurationProfileValidatorArgs',
-    'EnvironmentMonitorArgs',
-    'EventIntegrationEventFilterArgs',
-    'ExtensionActionPointArgs',
-    'ExtensionActionPointActionArgs',
-    'ExtensionParameterArgs',
+    'ConfigurationProfileValidatorArrgs',
+    'EnvironmentMonitorArrgs',
+    'EventIntegrationEventFilterArrgs',
+    'ExtensionActionPointArrgs',
+    'ExtensionActionPointActionArrgs',
+    'ExtensionParameterArrgs',
 ]
 
 @pulumi.input_type
-class ConfigurationProfileValidatorArgs:
+calass ConfigurationProfileValidatorArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  content: Optional[pulumi.Input[str]] = None):
@@ -57,7 +57,7 @@ class ConfigurationProfileValidatorArgs:
 
 
 @pulumi.input_type
-class EnvironmentMonitorArgs:
+calass EnvironmentMonitorArrgs:
     def __init__(__self__, *,
                  alarm_arn: pulumi.Input[str],
                  alarm_role_arn: Optional[pulumi.Input[str]] = None):
@@ -95,7 +95,7 @@ class EnvironmentMonitorArgs:
 
 
 @pulumi.input_type
-class EventIntegrationEventFilterArgs:
+calass EventIntegrationEventFilterArrgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str]):
         """
@@ -117,12 +117,12 @@ class EventIntegrationEventFilterArgs:
 
 
 @pulumi.input_type
-class ExtensionActionPointArgs:
+calass ExtensionActionPointArrgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]],
+                 actions: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArrgs']]],
                  point: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]] actions: An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArrgs']]] actions: An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
         :param pulumi.Input[str] point: The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
         """
         pulumi.set(__self__, "actions", actions)
@@ -130,14 +130,14 @@ class ExtensionActionPointArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArrgs']]]:
         """
         An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgs']]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArrgs']]]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -154,7 +154,7 @@ class ExtensionActionPointArgs:
 
 
 @pulumi.input_type
-class ExtensionActionPointActionArgs:
+calass ExtensionActionPointActionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
@@ -222,7 +222,7 @@ class ExtensionActionPointActionArgs:
 
 
 @pulumi.input_type
-class ExtensionParameterArgs:
+calass ExtensionParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,

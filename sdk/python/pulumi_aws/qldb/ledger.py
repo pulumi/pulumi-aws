@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LedgerArgs', 'Ledger']
+__all__ = ['LedgerArrgs', 'Ledger']
 
 @pulumi.input_type
-class LedgerArgs:
+calass LedgerArrgs:
     def __init__(__self__, *,
                  permissions_mode: pulumi.Input[str],
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -99,7 +99,7 @@ class LedgerArgs:
 
 
 @pulumi.input_type
-class _LedgerState:
+calass _LedgerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -224,7 +224,7 @@ class _LedgerState:
         pulumi.set(self, "tags_all", value)
 
 
-class Ledger(pulumi.CustomResource):
+calass Ledger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -269,7 +269,7 @@ class Ledger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LedgerArgs,
+                 args: LedgerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Quantum Ledger Database (QLDB) resource
@@ -294,12 +294,12 @@ class Ledger(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LedgerArgs args: The arguments to use to populate this resource's properties.
+        :param LedgerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LedgerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LedgerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -320,7 +320,7 @@ class Ledger(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LedgerArgs.__new__(LedgerArgs)
+            __props__ = LedgerArrgs.__new__(LedgerArrgs)
 
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["kms_key"] = kms_key

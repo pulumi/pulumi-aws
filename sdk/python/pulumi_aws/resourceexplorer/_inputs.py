@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'IndexTimeoutsArgs',
-    'ViewFiltersArgs',
-    'ViewIncludedPropertyArgs',
+    'IndexTimeoutsArrgs',
+    'ViewFiltersArrgs',
+    'ViewIncludedPropertyArrgs',
 ]
 
 @pulumi.input_type
-class IndexTimeoutsArgs:
+calass IndexTimeoutsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,7 @@ class IndexTimeoutsArgs:
 
 
 @pulumi.input_type
-class ViewFiltersArgs:
+calass ViewFiltersArrgs:
     def __init__(__self__, *,
                  filter_string: pulumi.Input[str]):
         """
@@ -79,7 +79,7 @@ class ViewFiltersArgs:
 
 
 @pulumi.input_type
-class ViewIncludedPropertyArgs:
+calass ViewIncludedPropertyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """

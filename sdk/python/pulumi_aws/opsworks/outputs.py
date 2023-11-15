@@ -87,7 +87,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationAppSource(dict):
+calass ApplicationAppSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -182,7 +182,7 @@ class ApplicationAppSource(dict):
 
 
 @pulumi.output_type
-class ApplicationEnvironment(dict):
+calass ApplicationEnvironment(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str,
@@ -223,7 +223,7 @@ class ApplicationEnvironment(dict):
 
 
 @pulumi.output_type
-class ApplicationSslConfiguration(dict):
+calass ApplicationSslConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -281,7 +281,7 @@ class ApplicationSslConfiguration(dict):
 
 
 @pulumi.output_type
-class CustomLayerCloudwatchConfiguration(dict):
+calass CustomLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -303,7 +303,7 @@ class CustomLayerCloudwatchConfiguration(dict):
                  enabled: Optional[bool] = None,
                  log_streams: Optional[Sequence['outputs.CustomLayerCloudwatchConfigurationLogStream']] = None):
         """
-        :param Sequence['CustomLayerCloudwatchConfigurationLogStreamArgs'] log_streams: A block the specifies how an opsworks logs look like. See Log Streams.
+        :param Sequence['CustomLayerCloudwatchConfigurationLogStreamArrgs'] log_streams: A block the specifies how an opsworks logs look like. See Log Streams.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -325,7 +325,7 @@ class CustomLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class CustomLayerCloudwatchConfigurationLogStream(dict):
+calass CustomLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -495,7 +495,7 @@ class CustomLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class CustomLayerEbsVolume(dict):
+calass CustomLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -604,15 +604,15 @@ class CustomLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class CustomLayerLoadBasedAutoScaling(dict):
+calass CustomLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.CustomLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
                  upscaling: Optional['outputs.CustomLayerLoadBasedAutoScalingUpscaling'] = None):
         """
-        :param 'CustomLayerLoadBasedAutoScalingDownscalingArgs' downscaling: The downscaling settings, as defined below, used for load-based autoscaling
+        :param 'CustomLayerLoadBasedAutoScalingDownscalingArrgs' downscaling: The downscaling settings, as defined below, used for load-based autoscaling
         :param bool enable: Whether load-based auto scaling is enabled for the layer.
-        :param 'CustomLayerLoadBasedAutoScalingUpscalingArgs' upscaling: The upscaling settings, as defined below, used for load-based autoscaling
+        :param 'CustomLayerLoadBasedAutoScalingUpscalingArrgs' upscaling: The upscaling settings, as defined below, used for load-based autoscaling
         """
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
@@ -647,7 +647,7 @@ class CustomLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class CustomLayerLoadBasedAutoScalingDownscaling(dict):
+calass CustomLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -765,7 +765,7 @@ class CustomLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class CustomLayerLoadBasedAutoScalingUpscaling(dict):
+calass CustomLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -883,7 +883,7 @@ class CustomLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class EcsClusterLayerCloudwatchConfiguration(dict):
+calass EcsClusterLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -921,7 +921,7 @@ class EcsClusterLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class EcsClusterLayerCloudwatchConfigurationLogStream(dict):
+calass EcsClusterLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1045,7 +1045,7 @@ class EcsClusterLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class EcsClusterLayerEbsVolume(dict):
+calass EcsClusterLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1150,7 +1150,7 @@ class EcsClusterLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class EcsClusterLayerLoadBasedAutoScaling(dict):
+calass EcsClusterLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.EcsClusterLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -1179,7 +1179,7 @@ class EcsClusterLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class EcsClusterLayerLoadBasedAutoScalingDownscaling(dict):
+calass EcsClusterLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1267,7 +1267,7 @@ class EcsClusterLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class EcsClusterLayerLoadBasedAutoScalingUpscaling(dict):
+calass EcsClusterLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1355,7 +1355,7 @@ class EcsClusterLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class GangliaLayerCloudwatchConfiguration(dict):
+calass GangliaLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1393,7 +1393,7 @@ class GangliaLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class GangliaLayerCloudwatchConfigurationLogStream(dict):
+calass GangliaLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1517,7 +1517,7 @@ class GangliaLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class GangliaLayerEbsVolume(dict):
+calass GangliaLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1622,7 +1622,7 @@ class GangliaLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class GangliaLayerLoadBasedAutoScaling(dict):
+calass GangliaLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.GangliaLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -1651,7 +1651,7 @@ class GangliaLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class GangliaLayerLoadBasedAutoScalingDownscaling(dict):
+calass GangliaLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1739,7 +1739,7 @@ class GangliaLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class GangliaLayerLoadBasedAutoScalingUpscaling(dict):
+calass GangliaLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1827,7 +1827,7 @@ class GangliaLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class HaproxyLayerCloudwatchConfiguration(dict):
+calass HaproxyLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1865,7 +1865,7 @@ class HaproxyLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class HaproxyLayerCloudwatchConfigurationLogStream(dict):
+calass HaproxyLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1989,7 +1989,7 @@ class HaproxyLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class HaproxyLayerEbsVolume(dict):
+calass HaproxyLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2094,7 +2094,7 @@ class HaproxyLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class HaproxyLayerLoadBasedAutoScaling(dict):
+calass HaproxyLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.HaproxyLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -2123,7 +2123,7 @@ class HaproxyLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class HaproxyLayerLoadBasedAutoScalingDownscaling(dict):
+calass HaproxyLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2211,7 +2211,7 @@ class HaproxyLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class HaproxyLayerLoadBasedAutoScalingUpscaling(dict):
+calass HaproxyLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2299,7 +2299,7 @@ class HaproxyLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class InstanceEbsBlockDevice(dict):
+calass InstanceEbsBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2376,7 +2376,7 @@ class InstanceEbsBlockDevice(dict):
 
 
 @pulumi.output_type
-class InstanceEphemeralBlockDevice(dict):
+calass InstanceEphemeralBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2414,7 +2414,7 @@ class InstanceEphemeralBlockDevice(dict):
 
 
 @pulumi.output_type
-class InstanceRootBlockDevice(dict):
+calass InstanceRootBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2472,7 +2472,7 @@ class InstanceRootBlockDevice(dict):
 
 
 @pulumi.output_type
-class JavaAppLayerCloudwatchConfiguration(dict):
+calass JavaAppLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2510,7 +2510,7 @@ class JavaAppLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class JavaAppLayerCloudwatchConfigurationLogStream(dict):
+calass JavaAppLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2634,7 +2634,7 @@ class JavaAppLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class JavaAppLayerEbsVolume(dict):
+calass JavaAppLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2739,7 +2739,7 @@ class JavaAppLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class JavaAppLayerLoadBasedAutoScaling(dict):
+calass JavaAppLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.JavaAppLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -2768,7 +2768,7 @@ class JavaAppLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class JavaAppLayerLoadBasedAutoScalingDownscaling(dict):
+calass JavaAppLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2856,7 +2856,7 @@ class JavaAppLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class JavaAppLayerLoadBasedAutoScalingUpscaling(dict):
+calass JavaAppLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2944,7 +2944,7 @@ class JavaAppLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class MemcachedLayerCloudwatchConfiguration(dict):
+calass MemcachedLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2982,7 +2982,7 @@ class MemcachedLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class MemcachedLayerCloudwatchConfigurationLogStream(dict):
+calass MemcachedLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3106,7 +3106,7 @@ class MemcachedLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class MemcachedLayerEbsVolume(dict):
+calass MemcachedLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3211,7 +3211,7 @@ class MemcachedLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class MemcachedLayerLoadBasedAutoScaling(dict):
+calass MemcachedLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.MemcachedLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -3240,7 +3240,7 @@ class MemcachedLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class MemcachedLayerLoadBasedAutoScalingDownscaling(dict):
+calass MemcachedLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3328,7 +3328,7 @@ class MemcachedLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class MemcachedLayerLoadBasedAutoScalingUpscaling(dict):
+calass MemcachedLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3416,7 +3416,7 @@ class MemcachedLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class MysqlLayerCloudwatchConfiguration(dict):
+calass MysqlLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3454,7 +3454,7 @@ class MysqlLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class MysqlLayerCloudwatchConfigurationLogStream(dict):
+calass MysqlLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3578,7 +3578,7 @@ class MysqlLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class MysqlLayerEbsVolume(dict):
+calass MysqlLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3683,7 +3683,7 @@ class MysqlLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class MysqlLayerLoadBasedAutoScaling(dict):
+calass MysqlLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.MysqlLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -3712,7 +3712,7 @@ class MysqlLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class MysqlLayerLoadBasedAutoScalingDownscaling(dict):
+calass MysqlLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3800,7 +3800,7 @@ class MysqlLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class MysqlLayerLoadBasedAutoScalingUpscaling(dict):
+calass MysqlLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3888,7 +3888,7 @@ class MysqlLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class NodejsAppLayerCloudwatchConfiguration(dict):
+calass NodejsAppLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3926,7 +3926,7 @@ class NodejsAppLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class NodejsAppLayerCloudwatchConfigurationLogStream(dict):
+calass NodejsAppLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4050,7 +4050,7 @@ class NodejsAppLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class NodejsAppLayerEbsVolume(dict):
+calass NodejsAppLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4155,7 +4155,7 @@ class NodejsAppLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class NodejsAppLayerLoadBasedAutoScaling(dict):
+calass NodejsAppLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.NodejsAppLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -4184,7 +4184,7 @@ class NodejsAppLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class NodejsAppLayerLoadBasedAutoScalingDownscaling(dict):
+calass NodejsAppLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4272,7 +4272,7 @@ class NodejsAppLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class NodejsAppLayerLoadBasedAutoScalingUpscaling(dict):
+calass NodejsAppLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4360,7 +4360,7 @@ class NodejsAppLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class PhpAppLayerCloudwatchConfiguration(dict):
+calass PhpAppLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4398,7 +4398,7 @@ class PhpAppLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class PhpAppLayerCloudwatchConfigurationLogStream(dict):
+calass PhpAppLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4522,7 +4522,7 @@ class PhpAppLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class PhpAppLayerEbsVolume(dict):
+calass PhpAppLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4627,7 +4627,7 @@ class PhpAppLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class PhpAppLayerLoadBasedAutoScaling(dict):
+calass PhpAppLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.PhpAppLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -4656,7 +4656,7 @@ class PhpAppLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class PhpAppLayerLoadBasedAutoScalingDownscaling(dict):
+calass PhpAppLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4744,7 +4744,7 @@ class PhpAppLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class PhpAppLayerLoadBasedAutoScalingUpscaling(dict):
+calass PhpAppLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4832,7 +4832,7 @@ class PhpAppLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class RailsAppLayerCloudwatchConfiguration(dict):
+calass RailsAppLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4870,7 +4870,7 @@ class RailsAppLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class RailsAppLayerCloudwatchConfigurationLogStream(dict):
+calass RailsAppLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4994,7 +4994,7 @@ class RailsAppLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class RailsAppLayerEbsVolume(dict):
+calass RailsAppLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5099,7 +5099,7 @@ class RailsAppLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class RailsAppLayerLoadBasedAutoScaling(dict):
+calass RailsAppLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.RailsAppLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -5128,7 +5128,7 @@ class RailsAppLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class RailsAppLayerLoadBasedAutoScalingDownscaling(dict):
+calass RailsAppLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5216,7 +5216,7 @@ class RailsAppLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class RailsAppLayerLoadBasedAutoScalingUpscaling(dict):
+calass RailsAppLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5304,7 +5304,7 @@ class RailsAppLayerLoadBasedAutoScalingUpscaling(dict):
 
 
 @pulumi.output_type
-class StackCustomCookbooksSource(dict):
+calass StackCustomCookbooksSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5398,7 +5398,7 @@ class StackCustomCookbooksSource(dict):
 
 
 @pulumi.output_type
-class StaticWebLayerCloudwatchConfiguration(dict):
+calass StaticWebLayerCloudwatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5436,7 +5436,7 @@ class StaticWebLayerCloudwatchConfiguration(dict):
 
 
 @pulumi.output_type
-class StaticWebLayerCloudwatchConfigurationLogStream(dict):
+calass StaticWebLayerCloudwatchConfigurationLogStream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5560,7 +5560,7 @@ class StaticWebLayerCloudwatchConfigurationLogStream(dict):
 
 
 @pulumi.output_type
-class StaticWebLayerEbsVolume(dict):
+calass StaticWebLayerEbsVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5665,7 +5665,7 @@ class StaticWebLayerEbsVolume(dict):
 
 
 @pulumi.output_type
-class StaticWebLayerLoadBasedAutoScaling(dict):
+calass StaticWebLayerLoadBasedAutoScaling(dict):
     def __init__(__self__, *,
                  downscaling: Optional['outputs.StaticWebLayerLoadBasedAutoScalingDownscaling'] = None,
                  enable: Optional[bool] = None,
@@ -5694,7 +5694,7 @@ class StaticWebLayerLoadBasedAutoScaling(dict):
 
 
 @pulumi.output_type
-class StaticWebLayerLoadBasedAutoScalingDownscaling(dict):
+calass StaticWebLayerLoadBasedAutoScalingDownscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5782,7 +5782,7 @@ class StaticWebLayerLoadBasedAutoScalingDownscaling(dict):
 
 
 @pulumi.output_type
-class StaticWebLayerLoadBasedAutoScalingUpscaling(dict):
+calass StaticWebLayerLoadBasedAutoScalingUpscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

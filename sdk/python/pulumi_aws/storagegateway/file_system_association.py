@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FileSystemAssociationArgs', 'FileSystemAssociation']
+__all__ = ['FileSystemAssociationArrgs', 'FileSystemAssociation']
 
 @pulumi.input_type
-class FileSystemAssociationArgs:
+calass FileSystemAssociationArrgs:
     def __init__(__self__, *,
                  gateway_arn: pulumi.Input[str],
                  location_arn: pulumi.Input[str],
                  password: pulumi.Input[str],
                  username: pulumi.Input[str],
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']] = None,
+                 cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FileSystemAssociation resource.
@@ -30,7 +30,7 @@ class FileSystemAssociationArgs:
         :param pulumi.Input[str] password: The password of the user credential.
         :param pulumi.Input[str] username: The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
-        :param pulumi.Input['FileSystemAssociationCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input['FileSystemAssociationCacheAttributesArrgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "gateway_arn", gateway_arn)
@@ -106,14 +106,14 @@ class FileSystemAssociationArgs:
 
     @property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']]:
+    def cache_attributes(self) -> Optional[pulumi.Input['FileSystemAssociationCacheAttributesArrgs']]:
         """
         Refresh cache information. see Cache Attributes for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']]):
+    def cache_attributes(self, value: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArrgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @property
@@ -130,11 +130,11 @@ class FileSystemAssociationArgs:
 
 
 @pulumi.input_type
-class _FileSystemAssociationState:
+calass _FileSystemAssociationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']] = None,
+                 cache_attributes: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArrgs']] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  location_arn: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -145,7 +145,7 @@ class _FileSystemAssociationState:
         Input properties used for looking up and filtering FileSystemAssociation resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the newly created file system association.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
-        :param pulumi.Input['FileSystemAssociationCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input['FileSystemAssociationCacheAttributesArrgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[str] password: The password of the user credential.
@@ -201,14 +201,14 @@ class _FileSystemAssociationState:
 
     @property
     @pulumi.getter(name="cacheAttributes")
-    def cache_attributes(self) -> Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']]:
+    def cache_attributes(self) -> Optional[pulumi.Input['FileSystemAssociationCacheAttributesArrgs']]:
         """
         Refresh cache information. see Cache Attributes for more details.
         """
         return pulumi.get(self, "cache_attributes")
 
     @cache_attributes.setter
-    def cache_attributes(self, value: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArgs']]):
+    def cache_attributes(self, value: Optional[pulumi.Input['FileSystemAssociationCacheAttributesArrgs']]):
         pulumi.set(self, "cache_attributes", value)
 
     @property
@@ -287,13 +287,13 @@ class _FileSystemAssociationState:
         pulumi.set(self, "username", value)
 
 
-class FileSystemAssociation(pulumi.CustomResource):
+calass FileSystemAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArgs']]] = None,
+                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArrgs']]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  location_arn: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -340,7 +340,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             gateway_name="test-sgw",
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
-            smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArgs(
+            smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArrgs(
                 domain_name=aws_directory_service_directory["test"]["name"],
                 password=aws_directory_service_directory["test"]["password"],
                 username="Admin",
@@ -357,7 +357,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             location_arn=test_windows_file_system.arn,
             username="Admin",
             password=aws_directory_service_directory["test"]["password"],
-            cache_attributes=aws.storagegateway.FileSystemAssociationCacheAttributesArgs(
+            cache_attributes=aws.storagegateway.FileSystemAssociationCacheAttributesArrgs(
                 cache_stale_timeout_in_seconds=400,
             ),
             audit_destination_arn=aws_cloudwatch_log_group["test"]["arn"])
@@ -374,7 +374,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
-        :param pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArrgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[str] password: The password of the user credential.
@@ -385,7 +385,7 @@ class FileSystemAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FileSystemAssociationArgs,
+                 args: FileSystemAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associate an Amazon FSx file system with the FSx File Gateway. After the association process is complete, the file shares on the Amazon FSx file system are available for access through the gateway. This operation only supports the FSx File Gateway type.
@@ -427,7 +427,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             gateway_name="test-sgw",
             gateway_timezone="GMT",
             gateway_type="FILE_FSX_SMB",
-            smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArgs(
+            smb_active_directory_settings=aws.storagegateway.GatewaySmbActiveDirectorySettingsArrgs(
                 domain_name=aws_directory_service_directory["test"]["name"],
                 password=aws_directory_service_directory["test"]["password"],
                 username="Admin",
@@ -444,7 +444,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             location_arn=test_windows_file_system.arn,
             username="Admin",
             password=aws_directory_service_directory["test"]["password"],
-            cache_attributes=aws.storagegateway.FileSystemAssociationCacheAttributesArgs(
+            cache_attributes=aws.storagegateway.FileSystemAssociationCacheAttributesArrgs(
                 cache_stale_timeout_in_seconds=400,
             ),
             audit_destination_arn=aws_cloudwatch_log_group["test"]["arn"])
@@ -459,12 +459,12 @@ class FileSystemAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FileSystemAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param FileSystemAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FileSystemAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FileSystemAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -474,7 +474,7 @@ class FileSystemAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
-                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArgs']]] = None,
+                 cache_attributes: Optional[pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArrgs']]] = None,
                  gateway_arn: Optional[pulumi.Input[str]] = None,
                  location_arn: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
@@ -487,7 +487,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FileSystemAssociationArgs.__new__(FileSystemAssociationArgs)
+            __props__ = FileSystemAssociationArrgs.__new__(FileSystemAssociationArrgs)
 
             __props__.__dict__["audit_destination_arn"] = audit_destination_arn
             __props__.__dict__["cache_attributes"] = cache_attributes
@@ -520,7 +520,7 @@ class FileSystemAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
-            cache_attributes: Optional[pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArgs']]] = None,
+            cache_attributes: Optional[pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArrgs']]] = None,
             gateway_arn: Optional[pulumi.Input[str]] = None,
             location_arn: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
@@ -536,7 +536,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the newly created file system association.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
-        :param pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
+        :param pulumi.Input[pulumi.InputType['FileSystemAssociationCacheAttributesArrgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
         :param pulumi.Input[str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[str] password: The password of the user credential.

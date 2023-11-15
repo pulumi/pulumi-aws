@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApiCacheArgs', 'ApiCache']
+__all__ = ['ApiCacheArrgs', 'ApiCache']
 
 @pulumi.input_type
-class ApiCacheArgs:
+calass ApiCacheArrgs:
     def __init__(__self__, *,
                  api_caching_behavior: pulumi.Input[str],
                  api_id: pulumi.Input[str],
@@ -112,7 +112,7 @@ class ApiCacheArgs:
 
 
 @pulumi.input_type
-class _ApiCacheState:
+calass _ApiCacheState:
     def __init__(__self__, *,
                  api_caching_behavior: Optional[pulumi.Input[str]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _ApiCacheState:
         pulumi.set(self, "type", value)
 
 
-class ApiCache(pulumi.CustomResource):
+calass ApiCache(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -265,7 +265,7 @@ class ApiCache(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApiCacheArgs,
+                 args: ApiCacheArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppSync API Cache.
@@ -293,12 +293,12 @@ class ApiCache(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApiCacheArgs args: The arguments to use to populate this resource's properties.
+        :param ApiCacheArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApiCacheArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApiCacheArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -320,7 +320,7 @@ class ApiCache(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApiCacheArgs.__new__(ApiCacheArgs)
+            __props__ = ApiCacheArrgs.__new__(ApiCacheArrgs)
 
             if api_caching_behavior is None and not opts.urn:
                 raise TypeError("Missing required property 'api_caching_behavior'")

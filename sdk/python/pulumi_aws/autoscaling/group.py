@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['GroupArgs', 'Group']
+__all__ = ['GroupArrgs', 'Group']
 
 @pulumi.input_type
-class GroupArgs:
+calass GroupArrgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[int],
                  min_size: pulumi.Input[int],
@@ -32,29 +32,29 @@ class GroupArgs:
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
-                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
-                 instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
+                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArrgs']]]] = None,
+                 instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArrgs']] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
-                 launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
+                 launch_template: Optional[pulumi.Input['GroupLaunchTemplateArrgs']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_instance_lifetime: Optional[pulumi.Input[int]] = None,
                  metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
                  min_elb_capacity: Optional[pulumi.Input[int]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']] = None,
+                 mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArrgs']]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]] = None,
+                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArrgs']]]] = None,
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None):
+                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArrgs']] = None):
         """
         The set of arguments for constructing a Group resource.
         :param pulumi.Input[int] max_size: Maximum size of the Auto Scaling Group.
@@ -78,18 +78,18 @@ class GroupArgs:
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]] initial_lifecycle_hooks: One or more
+        :param pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArrgs']]] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the Auto Scaling Group **before** instances are launched. The
                syntax is exactly the same as the separate
                `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
-        :param pulumi.Input['GroupInstanceRefreshArgs'] instance_refresh: If this block is configured, start an
+        :param pulumi.Input['GroupInstanceRefreshArrgs'] instance_refresh: If this block is configured, start an
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
         :param pulumi.Input[str] launch_configuration: Name of the launch configuration to use.
-        :param pulumi.Input['GroupLaunchTemplateArgs'] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+        :param pulumi.Input['GroupLaunchTemplateArrgs'] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: List of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         :param pulumi.Input[int] max_instance_lifetime: Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -98,7 +98,7 @@ class GroupArgs:
                this number of instances from this Auto Scaling Group to show up healthy in the
                ELB only on creation. Updates will not wait on ELB instance number changes.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input['GroupMixedInstancesPolicyArgs'] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+        :param pulumi.Input['GroupMixedInstancesPolicyArrgs'] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         :param pulumi.Input[str] name: Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
@@ -111,10 +111,10 @@ class GroupArgs:
         :param pulumi.Input[str] service_linked_role_arn: ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]] tags: Configuration block(s) containing resource tags. See Tag below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArrgs']]] tags: Configuration block(s) containing resource tags. See Tag below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]] traffic_sources: Attaches one or more traffic sources to the specified Auto Scaling group.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArrgs']]] traffic_sources: Attaches one or more traffic sources to the specified Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         :param pulumi.Input[str] wait_for_capacity_timeout: Maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
@@ -126,7 +126,7 @@ class GroupArgs:
                all attached load balancers on both create and update operations. (Takes
                precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
-        :param pulumi.Input['GroupWarmPoolArgs'] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        :param pulumi.Input['GroupWarmPoolArrgs'] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
                to the specified Auto Scaling group. Defined below
         """
         pulumi.set(__self__, "max_size", max_size)
@@ -390,7 +390,7 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="initialLifecycleHooks")
-    def initial_lifecycle_hooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]:
+    def initial_lifecycle_hooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArrgs']]]]:
         """
         One or more
         [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -403,12 +403,12 @@ class GroupArgs:
         return pulumi.get(self, "initial_lifecycle_hooks")
 
     @initial_lifecycle_hooks.setter
-    def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
+    def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArrgs']]]]):
         pulumi.set(self, "initial_lifecycle_hooks", value)
 
     @property
     @pulumi.getter(name="instanceRefresh")
-    def instance_refresh(self) -> Optional[pulumi.Input['GroupInstanceRefreshArgs']]:
+    def instance_refresh(self) -> Optional[pulumi.Input['GroupInstanceRefreshArrgs']]:
         """
         If this block is configured, start an
         [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
@@ -417,7 +417,7 @@ class GroupArgs:
         return pulumi.get(self, "instance_refresh")
 
     @instance_refresh.setter
-    def instance_refresh(self, value: Optional[pulumi.Input['GroupInstanceRefreshArgs']]):
+    def instance_refresh(self, value: Optional[pulumi.Input['GroupInstanceRefreshArrgs']]):
         pulumi.set(self, "instance_refresh", value)
 
     @property
@@ -434,14 +434,14 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArgs']]:
+    def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArrgs']]:
         """
         Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['GroupLaunchTemplateArgs']]):
+    def launch_template(self, value: Optional[pulumi.Input['GroupLaunchTemplateArrgs']]):
         pulumi.set(self, "launch_template", value)
 
     @property
@@ -498,14 +498,14 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="mixedInstancesPolicy")
-    def mixed_instances_policy(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]:
+    def mixed_instances_policy(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyArrgs']]:
         """
         Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         """
         return pulumi.get(self, "mixed_instances_policy")
 
     @mixed_instances_policy.setter
-    def mixed_instances_policy(self, value: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]):
+    def mixed_instances_policy(self, value: Optional[pulumi.Input['GroupMixedInstancesPolicyArrgs']]):
         pulumi.set(self, "mixed_instances_policy", value)
 
     @property
@@ -588,14 +588,14 @@ class GroupArgs:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArrgs']]]]:
         """
         Configuration block(s) containing resource tags. See Tag below for more details.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArrgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -624,14 +624,14 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="trafficSources")
-    def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]:
+    def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArrgs']]]]:
         """
         Attaches one or more traffic sources to the specified Auto Scaling group.
         """
         return pulumi.get(self, "traffic_sources")
 
     @traffic_sources.setter
-    def traffic_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]):
+    def traffic_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArrgs']]]]):
         pulumi.set(self, "traffic_sources", value)
 
     @property
@@ -680,7 +680,7 @@ class GroupArgs:
 
     @property
     @pulumi.getter(name="warmPool")
-    def warm_pool(self) -> Optional[pulumi.Input['GroupWarmPoolArgs']]:
+    def warm_pool(self) -> Optional[pulumi.Input['GroupWarmPoolArrgs']]:
         """
         If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
         to the specified Auto Scaling group. Defined below
@@ -688,12 +688,12 @@ class GroupArgs:
         return pulumi.get(self, "warm_pool")
 
     @warm_pool.setter
-    def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArgs']]):
+    def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArrgs']]):
         pulumi.set(self, "warm_pool", value)
 
 
 @pulumi.input_type
-class _GroupState:
+calass _GroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -709,17 +709,17 @@ class _GroupState:
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
-                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]] = None,
-                 instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArgs']] = None,
+                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArrgs']]]] = None,
+                 instance_refresh: Optional[pulumi.Input['GroupInstanceRefreshArrgs']] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
-                 launch_template: Optional[pulumi.Input['GroupLaunchTemplateArgs']] = None,
+                 launch_template: Optional[pulumi.Input['GroupLaunchTemplateArrgs']] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_instance_lifetime: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
                  min_elb_capacity: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']] = None,
+                 mixed_instances_policy: Optional[pulumi.Input['GroupMixedInstancesPolicyArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
@@ -727,14 +727,14 @@ class _GroupState:
                  protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArrgs']]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]] = None,
+                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArrgs']]]] = None,
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArgs']] = None,
+                 warm_pool: Optional[pulumi.Input['GroupWarmPoolArrgs']] = None,
                  warm_pool_size: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Group resources.
@@ -757,18 +757,18 @@ class _GroupState:
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]] initial_lifecycle_hooks: One or more
+        :param pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArrgs']]] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the Auto Scaling Group **before** instances are launched. The
                syntax is exactly the same as the separate
                `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
-        :param pulumi.Input['GroupInstanceRefreshArgs'] instance_refresh: If this block is configured, start an
+        :param pulumi.Input['GroupInstanceRefreshArrgs'] instance_refresh: If this block is configured, start an
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
         :param pulumi.Input[str] launch_configuration: Name of the launch configuration to use.
-        :param pulumi.Input['GroupLaunchTemplateArgs'] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+        :param pulumi.Input['GroupLaunchTemplateArrgs'] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: List of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         :param pulumi.Input[int] max_instance_lifetime: Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -780,7 +780,7 @@ class _GroupState:
                (See also Waiting for Capacity below.)
         :param pulumi.Input[int] min_size: Minimum size of the Auto Scaling Group.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input['GroupMixedInstancesPolicyArgs'] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+        :param pulumi.Input['GroupMixedInstancesPolicyArrgs'] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         :param pulumi.Input[str] name: Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
@@ -794,10 +794,10 @@ class _GroupState:
         :param pulumi.Input[str] service_linked_role_arn: ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]] tags: Configuration block(s) containing resource tags. See Tag below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupTagArrgs']]] tags: Configuration block(s) containing resource tags. See Tag below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]] traffic_sources: Attaches one or more traffic sources to the specified Auto Scaling group.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArrgs']]] traffic_sources: Attaches one or more traffic sources to the specified Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         :param pulumi.Input[str] wait_for_capacity_timeout: Maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
@@ -809,7 +809,7 @@ class _GroupState:
                all attached load balancers on both create and update operations. (Takes
                precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
-        :param pulumi.Input['GroupWarmPoolArgs'] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        :param pulumi.Input['GroupWarmPoolArrgs'] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
                to the specified Auto Scaling group. Defined below
         :param pulumi.Input[int] warm_pool_size: Current size of the warm pool.
         """
@@ -1069,7 +1069,7 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="initialLifecycleHooks")
-    def initial_lifecycle_hooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]:
+    def initial_lifecycle_hooks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArrgs']]]]:
         """
         One or more
         [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
@@ -1082,12 +1082,12 @@ class _GroupState:
         return pulumi.get(self, "initial_lifecycle_hooks")
 
     @initial_lifecycle_hooks.setter
-    def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArgs']]]]):
+    def initial_lifecycle_hooks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitialLifecycleHookArrgs']]]]):
         pulumi.set(self, "initial_lifecycle_hooks", value)
 
     @property
     @pulumi.getter(name="instanceRefresh")
-    def instance_refresh(self) -> Optional[pulumi.Input['GroupInstanceRefreshArgs']]:
+    def instance_refresh(self) -> Optional[pulumi.Input['GroupInstanceRefreshArrgs']]:
         """
         If this block is configured, start an
         [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
@@ -1096,7 +1096,7 @@ class _GroupState:
         return pulumi.get(self, "instance_refresh")
 
     @instance_refresh.setter
-    def instance_refresh(self, value: Optional[pulumi.Input['GroupInstanceRefreshArgs']]):
+    def instance_refresh(self, value: Optional[pulumi.Input['GroupInstanceRefreshArrgs']]):
         pulumi.set(self, "instance_refresh", value)
 
     @property
@@ -1113,14 +1113,14 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArgs']]:
+    def launch_template(self) -> Optional[pulumi.Input['GroupLaunchTemplateArrgs']]:
         """
         Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['GroupLaunchTemplateArgs']]):
+    def launch_template(self, value: Optional[pulumi.Input['GroupLaunchTemplateArrgs']]):
         pulumi.set(self, "launch_template", value)
 
     @property
@@ -1202,14 +1202,14 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="mixedInstancesPolicy")
-    def mixed_instances_policy(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]:
+    def mixed_instances_policy(self) -> Optional[pulumi.Input['GroupMixedInstancesPolicyArrgs']]:
         """
         Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         """
         return pulumi.get(self, "mixed_instances_policy")
 
     @mixed_instances_policy.setter
-    def mixed_instances_policy(self, value: Optional[pulumi.Input['GroupMixedInstancesPolicyArgs']]):
+    def mixed_instances_policy(self, value: Optional[pulumi.Input['GroupMixedInstancesPolicyArrgs']]):
         pulumi.set(self, "mixed_instances_policy", value)
 
     @property
@@ -1304,14 +1304,14 @@ class _GroupState:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArrgs']]]]:
         """
         Configuration block(s) containing resource tags. See Tag below for more details.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTagArrgs']]]]):
         pulumi.set(self, "tags", value)
 
     @property
@@ -1340,14 +1340,14 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="trafficSources")
-    def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]:
+    def traffic_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArrgs']]]]:
         """
         Attaches one or more traffic sources to the specified Auto Scaling group.
         """
         return pulumi.get(self, "traffic_sources")
 
     @traffic_sources.setter
-    def traffic_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArgs']]]]):
+    def traffic_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupTrafficSourceArrgs']]]]):
         pulumi.set(self, "traffic_sources", value)
 
     @property
@@ -1396,7 +1396,7 @@ class _GroupState:
 
     @property
     @pulumi.getter(name="warmPool")
-    def warm_pool(self) -> Optional[pulumi.Input['GroupWarmPoolArgs']]:
+    def warm_pool(self) -> Optional[pulumi.Input['GroupWarmPoolArrgs']]:
         """
         If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
         to the specified Auto Scaling group. Defined below
@@ -1404,7 +1404,7 @@ class _GroupState:
         return pulumi.get(self, "warm_pool")
 
     @warm_pool.setter
-    def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArgs']]):
+    def warm_pool(self, value: Optional[pulumi.Input['GroupWarmPoolArrgs']]):
         pulumi.set(self, "warm_pool", value)
 
     @property
@@ -1420,7 +1420,7 @@ class _GroupState:
         pulumi.set(self, "warm_pool_size", value)
 
 
-class Group(pulumi.CustomResource):
+calass Group(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1438,31 +1438,31 @@ class Group(pulumi.CustomResource):
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
-                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
-                 instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
+                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArrgs']]]]] = None,
+                 instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArrgs']]] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
-                 launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArrgs']]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_instance_lifetime: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
                  min_elb_capacity: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']]] = None,
+                 mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArrgs']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArgs']]]]] = None,
+                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArrgs']]]]] = None,
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-                 warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None,
+                 warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArrgs']]] = None,
                  __props__=None):
         """
         Provides an Auto Scaling Group resource.
@@ -1487,7 +1487,7 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
+            launch_template=aws.autoscaling.GroupLaunchTemplateArrgs(
                 id=foobar.id,
                 version="$Latest",
             ))
@@ -1507,17 +1507,17 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArrgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArrgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs(
                         launch_template_id=example_launch_template.id,
                     ),
                     overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c4.large",
                             weighted_capacity="3",
                         ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c3.large",
                             weighted_capacity="2",
                         ),
@@ -1544,22 +1544,22 @@ class Group(pulumi.CustomResource):
                 aws_subnet["example1"]["id"],
                 aws_subnet["example2"]["id"],
             ],
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                instances_distribution=aws.autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs(
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArrgs(
+                instances_distribution=aws.autoscaling.GroupMixedInstancesPolicyInstancesDistributionArrgs(
                     on_demand_base_capacity=0,
                     on_demand_percentage_above_base_capacity=25,
                     spot_allocation_strategy="capacity-optimized",
                 ),
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArrgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs(
                         launch_template_id=example_launch_template.id,
                     ),
                     overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c4.large",
                             weighted_capacity="3",
                         ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c3.large",
                             weighted_capacity="2",
                         ),
@@ -1587,19 +1587,19 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArrgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArrgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs(
                         launch_template_id=example_launch_template.id,
                     ),
                     overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c4.large",
                             weighted_capacity="3",
                         ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c6g.large",
-                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(
+                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrgs(
                                 launch_template_id=example2.id,
                             ),
                             weighted_capacity="2",
@@ -1625,17 +1625,17 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArrgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArrgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs(
                         launch_template_id=example_launch_template.id,
                     ),
-                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs(
-                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs(
+                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
+                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArrgs(
+                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArrgs(
                                 min=1000,
                             ),
-                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs(
+                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArrgs(
                                 min=4,
                             ),
                         ),
@@ -1651,7 +1651,7 @@ class Group(pulumi.CustomResource):
 
         example_ami = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
+            filters=[aws.ec2.GetAmiFilterArrgs(
                 name="name",
                 values=["amzn-ami-hvm-*-x86_64-gp2"],
             )])
@@ -1663,18 +1663,18 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=2,
             min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
+            launch_template=aws.autoscaling.GroupLaunchTemplateArrgs(
                 id=example_launch_template.id,
                 version=example_launch_template.latest_version,
             ),
-            tags=[aws.autoscaling.GroupTagArgs(
+            tags=[aws.autoscaling.GroupTagArrgs(
                 key="Key",
                 value="Value",
                 propagate_at_launch=True,
             )],
-            instance_refresh=aws.autoscaling.GroupInstanceRefreshArgs(
+            instance_refresh=aws.autoscaling.GroupInstanceRefreshArrgs(
                 strategy="Rolling",
-                preferences=aws.autoscaling.GroupInstanceRefreshPreferencesArgs(
+                preferences=aws.autoscaling.GroupInstanceRefreshPreferencesArrgs(
                     min_healthy_percentage=50,
                 ),
                 triggers=["tag"],
@@ -1695,11 +1695,11 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=5,
             min_size=1,
-            warm_pool=aws.autoscaling.GroupWarmPoolArgs(
+            warm_pool=aws.autoscaling.GroupWarmPoolArrgs(
                 pool_state="Hibernated",
                 min_size=1,
                 max_group_prepared_capacity=10,
-                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
+                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArrgs(
                     reuse_on_scale_in=True,
                 ),
             ))
@@ -1794,18 +1794,18 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]] initial_lifecycle_hooks: One or more
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArrgs']]]] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the Auto Scaling Group **before** instances are launched. The
                syntax is exactly the same as the separate
                `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
-        :param pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']] instance_refresh: If this block is configured, start an
+        :param pulumi.Input[pulumi.InputType['GroupInstanceRefreshArrgs']] instance_refresh: If this block is configured, start an
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
         :param pulumi.Input[str] launch_configuration: Name of the launch configuration to use.
-        :param pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+        :param pulumi.Input[pulumi.InputType['GroupLaunchTemplateArrgs']] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: List of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         :param pulumi.Input[int] max_instance_lifetime: Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -1817,7 +1817,7 @@ class Group(pulumi.CustomResource):
                (See also Waiting for Capacity below.)
         :param pulumi.Input[int] min_size: Minimum size of the Auto Scaling Group.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+        :param pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArrgs']] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         :param pulumi.Input[str] name: Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
@@ -1830,10 +1830,10 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] service_linked_role_arn: ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]] tags: Configuration block(s) containing resource tags. See Tag below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArrgs']]]] tags: Configuration block(s) containing resource tags. See Tag below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArgs']]]] traffic_sources: Attaches one or more traffic sources to the specified Auto Scaling group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArrgs']]]] traffic_sources: Attaches one or more traffic sources to the specified Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         :param pulumi.Input[str] wait_for_capacity_timeout: Maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
@@ -1845,14 +1845,14 @@ class Group(pulumi.CustomResource):
                all attached load balancers on both create and update operations. (Takes
                precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        :param pulumi.Input[pulumi.InputType['GroupWarmPoolArrgs']] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
                to the specified Auto Scaling group. Defined below
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupArgs,
+                 args: GroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Auto Scaling Group resource.
@@ -1877,7 +1877,7 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
+            launch_template=aws.autoscaling.GroupLaunchTemplateArrgs(
                 id=foobar.id,
                 version="$Latest",
             ))
@@ -1897,17 +1897,17 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArrgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArrgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs(
                         launch_template_id=example_launch_template.id,
                     ),
                     overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c4.large",
                             weighted_capacity="3",
                         ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c3.large",
                             weighted_capacity="2",
                         ),
@@ -1934,22 +1934,22 @@ class Group(pulumi.CustomResource):
                 aws_subnet["example1"]["id"],
                 aws_subnet["example2"]["id"],
             ],
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                instances_distribution=aws.autoscaling.GroupMixedInstancesPolicyInstancesDistributionArgs(
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArrgs(
+                instances_distribution=aws.autoscaling.GroupMixedInstancesPolicyInstancesDistributionArrgs(
                     on_demand_base_capacity=0,
                     on_demand_percentage_above_base_capacity=25,
                     spot_allocation_strategy="capacity-optimized",
                 ),
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArrgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs(
                         launch_template_id=example_launch_template.id,
                     ),
                     overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c4.large",
                             weighted_capacity="3",
                         ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c3.large",
                             weighted_capacity="2",
                         ),
@@ -1977,19 +1977,19 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArrgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArrgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs(
                         launch_template_id=example_launch_template.id,
                     ),
                     overrides=[
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c4.large",
                             weighted_capacity="3",
                         ),
-                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
                             instance_type="c6g.large",
-                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs(
+                            launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrgs(
                                 launch_template_id=example2.id,
                             ),
                             weighted_capacity="2",
@@ -2015,17 +2015,17 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=1,
             min_size=1,
-            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
-                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
-                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArrgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArrgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs(
                         launch_template_id=example_launch_template.id,
                     ),
-                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
-                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs(
-                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs(
+                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs(
+                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArrgs(
+                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArrgs(
                                 min=1000,
                             ),
-                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs(
+                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArrgs(
                                 min=4,
                             ),
                         ),
@@ -2041,7 +2041,7 @@ class Group(pulumi.CustomResource):
 
         example_ami = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
+            filters=[aws.ec2.GetAmiFilterArrgs(
                 name="name",
                 values=["amzn-ami-hvm-*-x86_64-gp2"],
             )])
@@ -2053,18 +2053,18 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=2,
             min_size=1,
-            launch_template=aws.autoscaling.GroupLaunchTemplateArgs(
+            launch_template=aws.autoscaling.GroupLaunchTemplateArrgs(
                 id=example_launch_template.id,
                 version=example_launch_template.latest_version,
             ),
-            tags=[aws.autoscaling.GroupTagArgs(
+            tags=[aws.autoscaling.GroupTagArrgs(
                 key="Key",
                 value="Value",
                 propagate_at_launch=True,
             )],
-            instance_refresh=aws.autoscaling.GroupInstanceRefreshArgs(
+            instance_refresh=aws.autoscaling.GroupInstanceRefreshArrgs(
                 strategy="Rolling",
-                preferences=aws.autoscaling.GroupInstanceRefreshPreferencesArgs(
+                preferences=aws.autoscaling.GroupInstanceRefreshPreferencesArrgs(
                     min_healthy_percentage=50,
                 ),
                 triggers=["tag"],
@@ -2085,11 +2085,11 @@ class Group(pulumi.CustomResource):
             desired_capacity=1,
             max_size=5,
             min_size=1,
-            warm_pool=aws.autoscaling.GroupWarmPoolArgs(
+            warm_pool=aws.autoscaling.GroupWarmPoolArrgs(
                 pool_state="Hibernated",
                 min_size=1,
                 max_group_prepared_capacity=10,
-                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
+                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArrgs(
                     reuse_on_scale_in=True,
                 ),
             ))
@@ -2165,12 +2165,12 @@ class Group(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GroupArgs args: The arguments to use to populate this resource's properties.
+        :param GroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -2192,31 +2192,31 @@ class Group(pulumi.CustomResource):
                  health_check_grace_period: Optional[pulumi.Input[int]] = None,
                  health_check_type: Optional[pulumi.Input[str]] = None,
                  ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
-                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
-                 instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
+                 initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArrgs']]]]] = None,
+                 instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArrgs']]] = None,
                  launch_configuration: Optional[pulumi.Input[str]] = None,
-                 launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArrgs']]] = None,
                  load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  max_instance_lifetime: Optional[pulumi.Input[int]] = None,
                  max_size: Optional[pulumi.Input[int]] = None,
                  metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
                  min_elb_capacity: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
-                 mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']]] = None,
+                 mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
                  service_linked_role_arn: Optional[pulumi.Input[str]] = None,
                  suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArrgs']]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArgs']]]]] = None,
+                 traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArrgs']]]]] = None,
                  vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
                  wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-                 warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None,
+                 warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -2224,7 +2224,7 @@ class Group(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GroupArgs.__new__(GroupArgs)
+            __props__ = GroupArrgs.__new__(GroupArrgs)
 
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
@@ -2295,17 +2295,17 @@ class Group(pulumi.CustomResource):
             health_check_grace_period: Optional[pulumi.Input[int]] = None,
             health_check_type: Optional[pulumi.Input[str]] = None,
             ignore_failed_scaling_activities: Optional[pulumi.Input[bool]] = None,
-            initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]]] = None,
-            instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']]] = None,
+            initial_lifecycle_hooks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArrgs']]]]] = None,
+            instance_refresh: Optional[pulumi.Input[pulumi.InputType['GroupInstanceRefreshArrgs']]] = None,
             launch_configuration: Optional[pulumi.Input[str]] = None,
-            launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']]] = None,
+            launch_template: Optional[pulumi.Input[pulumi.InputType['GroupLaunchTemplateArrgs']]] = None,
             load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             max_instance_lifetime: Optional[pulumi.Input[int]] = None,
             max_size: Optional[pulumi.Input[int]] = None,
             metrics_granularity: Optional[pulumi.Input[Union[str, 'MetricsGranularity']]] = None,
             min_elb_capacity: Optional[pulumi.Input[int]] = None,
             min_size: Optional[pulumi.Input[int]] = None,
-            mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']]] = None,
+            mixed_instances_policy: Optional[pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             placement_group: Optional[pulumi.Input[str]] = None,
@@ -2313,14 +2313,14 @@ class Group(pulumi.CustomResource):
             protect_from_scale_in: Optional[pulumi.Input[bool]] = None,
             service_linked_role_arn: Optional[pulumi.Input[str]] = None,
             suspended_processes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]]] = None,
+            tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArrgs']]]]] = None,
             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             termination_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArgs']]]]] = None,
+            traffic_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArrgs']]]]] = None,
             vpc_zone_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             wait_for_capacity_timeout: Optional[pulumi.Input[str]] = None,
             wait_for_elb_capacity: Optional[pulumi.Input[int]] = None,
-            warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']]] = None,
+            warm_pool: Optional[pulumi.Input[pulumi.InputType['GroupWarmPoolArrgs']]] = None,
             warm_pool_size: Optional[pulumi.Input[int]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
@@ -2348,18 +2348,18 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[int] health_check_grace_period: Time (in seconds) after instance comes into service before checking health.
         :param pulumi.Input[str] health_check_type: "EC2" or "ELB". Controls how health checking is done.
         :param pulumi.Input[bool] ignore_failed_scaling_activities: Whether to ignore failed [Auto Scaling scaling activities](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html) while waiting for capacity. The default is `false` -- failed scaling activities cause errors to be returned.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArgs']]]] initial_lifecycle_hooks: One or more
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupInitialLifecycleHookArrgs']]]] initial_lifecycle_hooks: One or more
                [Lifecycle Hooks](http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html)
                to attach to the Auto Scaling Group **before** instances are launched. The
                syntax is exactly the same as the separate
                `autoscaling.LifecycleHook`
                resource, without the `autoscaling_group_name` attribute. Please note that this will only work when creating
                a new Auto Scaling Group. For all other use-cases, please use `autoscaling.LifecycleHook` resource.
-        :param pulumi.Input[pulumi.InputType['GroupInstanceRefreshArgs']] instance_refresh: If this block is configured, start an
+        :param pulumi.Input[pulumi.InputType['GroupInstanceRefreshArrgs']] instance_refresh: If this block is configured, start an
                [Instance Refresh](https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-refresh.html)
                when this Auto Scaling Group is updated. Defined below.
         :param pulumi.Input[str] launch_configuration: Name of the launch configuration to use.
-        :param pulumi.Input[pulumi.InputType['GroupLaunchTemplateArgs']] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
+        :param pulumi.Input[pulumi.InputType['GroupLaunchTemplateArrgs']] launch_template: Nested argument with Launch template specification to use to launch instances. See Launch Template below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancers: List of elastic load balancer names to add to the autoscaling
                group names. Only valid for classic load balancers. For ALBs, use `target_group_arns` instead. To remove all load balancer attachments an empty list should be specified.
         :param pulumi.Input[int] max_instance_lifetime: Maximum amount of time, in seconds, that an instance can be in service, values must be either equal to 0 or between 86400 and 31536000 seconds.
@@ -2371,7 +2371,7 @@ class Group(pulumi.CustomResource):
                (See also Waiting for Capacity below.)
         :param pulumi.Input[int] min_size: Minimum size of the Auto Scaling Group.
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArgs']] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
+        :param pulumi.Input[pulumi.InputType['GroupMixedInstancesPolicyArrgs']] mixed_instances_policy: Configuration block containing settings to define launch targets for Auto Scaling groups. See Mixed Instances Policy below for more details.
         :param pulumi.Input[str] name: Name of the Auto Scaling Group. By default generated by Pulumi. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
@@ -2385,10 +2385,10 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] service_linked_role_arn: ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: List of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArgs']]]] tags: Configuration block(s) containing resource tags. See Tag below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTagArrgs']]]] tags: Configuration block(s) containing resource tags. See Tag below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] termination_policies: List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArgs']]]] traffic_sources: Attaches one or more traffic sources to the specified Auto Scaling group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GroupTrafficSourceArrgs']]]] traffic_sources: Attaches one or more traffic sources to the specified Auto Scaling group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_zone_identifiers: List of subnet IDs to launch resources in. Subnets automatically determine which availability zones the group will reside. Conflicts with `availability_zones`.
         :param pulumi.Input[str] wait_for_capacity_timeout: Maximum
                [duration](https://golang.org/pkg/time/#ParseDuration) that the provider should
@@ -2400,7 +2400,7 @@ class Group(pulumi.CustomResource):
                all attached load balancers on both create and update operations. (Takes
                precedence over `min_elb_capacity` behavior.)
                (See also Waiting for Capacity below.)
-        :param pulumi.Input[pulumi.InputType['GroupWarmPoolArgs']] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
+        :param pulumi.Input[pulumi.InputType['GroupWarmPoolArrgs']] warm_pool: If this block is configured, add a [Warm Pool](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-warm-pools.html)
                to the specified Auto Scaling group. Defined below
         :param pulumi.Input[int] warm_pool_size: Current size of the warm pool.
         """

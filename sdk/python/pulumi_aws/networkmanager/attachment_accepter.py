@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AttachmentAccepterArgs', 'AttachmentAccepter']
+__all__ = ['AttachmentAccepterArrgs', 'AttachmentAccepter']
 
 @pulumi.input_type
-class AttachmentAccepterArgs:
+calass AttachmentAccepterArrgs:
     def __init__(__self__, *,
                  attachment_id: pulumi.Input[str],
                  attachment_type: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class AttachmentAccepterArgs:
 
 
 @pulumi.input_type
-class _AttachmentAccepterState:
+calass _AttachmentAccepterState:
     def __init__(__self__, *,
                  attachment_id: Optional[pulumi.Input[str]] = None,
                  attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
@@ -217,7 +217,7 @@ class _AttachmentAccepterState:
         pulumi.set(self, "state", value)
 
 
-class AttachmentAccepter(pulumi.CustomResource):
+calass AttachmentAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -259,7 +259,7 @@ class AttachmentAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AttachmentAccepterArgs,
+                 args: AttachmentAccepterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS NetworkManager Attachment Accepter.
@@ -287,12 +287,12 @@ class AttachmentAccepter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AttachmentAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param AttachmentAccepterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AttachmentAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AttachmentAccepterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -310,7 +310,7 @@ class AttachmentAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AttachmentAccepterArgs.__new__(AttachmentAccepterArgs)
+            __props__ = AttachmentAccepterArrgs.__new__(AttachmentAccepterArrgs)
 
             if attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'attachment_id'")

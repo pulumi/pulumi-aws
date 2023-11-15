@@ -49,7 +49,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfo(dict):
+calass ClusterBrokerNodeGroupInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -89,8 +89,8 @@ class ClusterBrokerNodeGroupInfo(dict):
         :param str instance_type: Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         :param Sequence[str] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param str az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoArgs' connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        :param 'ClusterBrokerNodeGroupInfoStorageInfoArgs' storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoArrgs' connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        :param 'ClusterBrokerNodeGroupInfoStorageInfoArrgs' storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -152,7 +152,7 @@ class ClusterBrokerNodeGroupInfo(dict):
 
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
+calass ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -176,8 +176,8 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
                  public_access: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess'] = None,
                  vpc_connectivity: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity'] = None):
         """
-        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs' public_access: Access control settings for brokers. See below.
-        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs' vpc_connectivity: VPC connectivity access control for brokers. See below.
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArrgs' public_access: Access control settings for brokers. See below.
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArrgs' vpc_connectivity: VPC connectivity access control for brokers. See below.
         """
         if public_access is not None:
             pulumi.set(__self__, "public_access", public_access)
@@ -202,7 +202,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
 
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(dict):
+calass ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None):
         """
@@ -221,7 +221,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(dict):
 
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity(dict):
+calass ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -242,7 +242,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity(dict):
     def __init__(__self__, *,
                  client_authentication: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication'] = None):
         """
-        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs' client_authentication: Configuration block for specifying a client authentication. See below.
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArrgs' client_authentication: Configuration block for specifying a client authentication. See below.
         """
         if client_authentication is not None:
             pulumi.set(__self__, "client_authentication", client_authentication)
@@ -257,12 +257,12 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivity(dict):
 
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication(dict):
+calass ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthentication(dict):
     def __init__(__self__, *,
                  sasl: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl'] = None,
                  tls: Optional[bool] = None):
         """
-        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs' sasl: Configuration block for specifying SASL client authentication. See below.
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArrgs' sasl: Configuration block for specifying SASL client authentication. See below.
         :param bool tls: Configuration block for specifying TLS client authentication. See below.
         """
         if sasl is not None:
@@ -288,7 +288,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl(dict):
+calass ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSasl(dict):
     def __init__(__self__, *,
                  iam: Optional[bool] = None,
                  scram: Optional[bool] = None):
@@ -319,7 +319,7 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
 
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfoStorageInfo(dict):
+calass ClusterBrokerNodeGroupInfoStorageInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -340,7 +340,7 @@ class ClusterBrokerNodeGroupInfoStorageInfo(dict):
     def __init__(__self__, *,
                  ebs_storage_info: Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo'] = None):
         """
-        :param 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs' ebs_storage_info: A block that contains EBS volume information. See below.
+        :param 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArrgs' ebs_storage_info: A block that contains EBS volume information. See below.
         """
         if ebs_storage_info is not None:
             pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
@@ -355,7 +355,7 @@ class ClusterBrokerNodeGroupInfoStorageInfo(dict):
 
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo(dict):
+calass ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -379,7 +379,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo(dict):
                  provisioned_throughput: Optional['outputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput'] = None,
                  volume_size: Optional[int] = None):
         """
-        :param 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs' provisioned_throughput: A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+        :param 'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArrgs' provisioned_throughput: A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
         :param int volume_size: The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
         """
         if provisioned_throughput is not None:
@@ -405,7 +405,7 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo(dict):
 
 
 @pulumi.output_type
-class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput(dict):
+calass ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -453,14 +453,14 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput(d
 
 
 @pulumi.output_type
-class ClusterClientAuthentication(dict):
+calass ClusterClientAuthentication(dict):
     def __init__(__self__, *,
                  sasl: Optional['outputs.ClusterClientAuthenticationSasl'] = None,
                  tls: Optional['outputs.ClusterClientAuthenticationTls'] = None,
                  unauthenticated: Optional[bool] = None):
         """
-        :param 'ClusterClientAuthenticationSaslArgs' sasl: Configuration block for specifying SASL client authentication. See below.
-        :param 'ClusterClientAuthenticationTlsArgs' tls: Configuration block for specifying TLS client authentication. See below.
+        :param 'ClusterClientAuthenticationSaslArrgs' sasl: Configuration block for specifying SASL client authentication. See below.
+        :param 'ClusterClientAuthenticationTlsArrgs' tls: Configuration block for specifying TLS client authentication. See below.
         :param bool unauthenticated: Enables unauthenticated access.
         """
         if sasl is not None:
@@ -496,7 +496,7 @@ class ClusterClientAuthentication(dict):
 
 
 @pulumi.output_type
-class ClusterClientAuthenticationSasl(dict):
+calass ClusterClientAuthenticationSasl(dict):
     def __init__(__self__, *,
                  iam: Optional[bool] = None,
                  scram: Optional[bool] = None):
@@ -527,7 +527,7 @@ class ClusterClientAuthenticationSasl(dict):
 
 
 @pulumi.output_type
-class ClusterClientAuthenticationTls(dict):
+calass ClusterClientAuthenticationTls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -563,7 +563,7 @@ class ClusterClientAuthenticationTls(dict):
 
 
 @pulumi.output_type
-class ClusterConfigurationInfo(dict):
+calass ClusterConfigurationInfo(dict):
     def __init__(__self__, *,
                  arn: str,
                  revision: int):
@@ -592,7 +592,7 @@ class ClusterConfigurationInfo(dict):
 
 
 @pulumi.output_type
-class ClusterEncryptionInfo(dict):
+calass ClusterEncryptionInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -617,7 +617,7 @@ class ClusterEncryptionInfo(dict):
                  encryption_in_transit: Optional['outputs.ClusterEncryptionInfoEncryptionInTransit'] = None):
         """
         :param str encryption_at_rest_kms_key_arn: You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        :param 'ClusterEncryptionInfoEncryptionInTransitArgs' encryption_in_transit: Configuration block to specify encryption in transit. See below.
+        :param 'ClusterEncryptionInfoEncryptionInTransitArrgs' encryption_in_transit: Configuration block to specify encryption in transit. See below.
         """
         if encryption_at_rest_kms_key_arn is not None:
             pulumi.set(__self__, "encryption_at_rest_kms_key_arn", encryption_at_rest_kms_key_arn)
@@ -642,7 +642,7 @@ class ClusterEncryptionInfo(dict):
 
 
 @pulumi.output_type
-class ClusterEncryptionInfoEncryptionInTransit(dict):
+calass ClusterEncryptionInfoEncryptionInTransit(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -692,7 +692,7 @@ class ClusterEncryptionInfoEncryptionInTransit(dict):
 
 
 @pulumi.output_type
-class ClusterLoggingInfo(dict):
+calass ClusterLoggingInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -713,7 +713,7 @@ class ClusterLoggingInfo(dict):
     def __init__(__self__, *,
                  broker_logs: 'outputs.ClusterLoggingInfoBrokerLogs'):
         """
-        :param 'ClusterLoggingInfoBrokerLogsArgs' broker_logs: Configuration block for Broker Logs settings for logging info. See below.
+        :param 'ClusterLoggingInfoBrokerLogsArrgs' broker_logs: Configuration block for Broker Logs settings for logging info. See below.
         """
         pulumi.set(__self__, "broker_logs", broker_logs)
 
@@ -727,7 +727,7 @@ class ClusterLoggingInfo(dict):
 
 
 @pulumi.output_type
-class ClusterLoggingInfoBrokerLogs(dict):
+calass ClusterLoggingInfoBrokerLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -773,7 +773,7 @@ class ClusterLoggingInfoBrokerLogs(dict):
 
 
 @pulumi.output_type
-class ClusterLoggingInfoBrokerLogsCloudwatchLogs(dict):
+calass ClusterLoggingInfoBrokerLogsCloudwatchLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -820,7 +820,7 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogs(dict):
 
 
 @pulumi.output_type
-class ClusterLoggingInfoBrokerLogsFirehose(dict):
+calass ClusterLoggingInfoBrokerLogsFirehose(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -867,7 +867,7 @@ class ClusterLoggingInfoBrokerLogsFirehose(dict):
 
 
 @pulumi.output_type
-class ClusterLoggingInfoBrokerLogsS3(dict):
+calass ClusterLoggingInfoBrokerLogsS3(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  bucket: Optional[str] = None,
@@ -909,11 +909,11 @@ class ClusterLoggingInfoBrokerLogsS3(dict):
 
 
 @pulumi.output_type
-class ClusterOpenMonitoring(dict):
+calass ClusterOpenMonitoring(dict):
     def __init__(__self__, *,
                  prometheus: 'outputs.ClusterOpenMonitoringPrometheus'):
         """
-        :param 'ClusterOpenMonitoringPrometheusArgs' prometheus: Configuration block for Prometheus settings for open monitoring. See below.
+        :param 'ClusterOpenMonitoringPrometheusArrgs' prometheus: Configuration block for Prometheus settings for open monitoring. See below.
         """
         pulumi.set(__self__, "prometheus", prometheus)
 
@@ -927,7 +927,7 @@ class ClusterOpenMonitoring(dict):
 
 
 @pulumi.output_type
-class ClusterOpenMonitoringPrometheus(dict):
+calass ClusterOpenMonitoringPrometheus(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -951,8 +951,8 @@ class ClusterOpenMonitoringPrometheus(dict):
                  jmx_exporter: Optional['outputs.ClusterOpenMonitoringPrometheusJmxExporter'] = None,
                  node_exporter: Optional['outputs.ClusterOpenMonitoringPrometheusNodeExporter'] = None):
         """
-        :param 'ClusterOpenMonitoringPrometheusJmxExporterArgs' jmx_exporter: Configuration block for JMX Exporter. See below.
-        :param 'ClusterOpenMonitoringPrometheusNodeExporterArgs' node_exporter: Configuration block for Node Exporter. See below.
+        :param 'ClusterOpenMonitoringPrometheusJmxExporterArrgs' jmx_exporter: Configuration block for JMX Exporter. See below.
+        :param 'ClusterOpenMonitoringPrometheusNodeExporterArrgs' node_exporter: Configuration block for Node Exporter. See below.
         """
         if jmx_exporter is not None:
             pulumi.set(__self__, "jmx_exporter", jmx_exporter)
@@ -977,7 +977,7 @@ class ClusterOpenMonitoringPrometheus(dict):
 
 
 @pulumi.output_type
-class ClusterOpenMonitoringPrometheusJmxExporter(dict):
+calass ClusterOpenMonitoringPrometheusJmxExporter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1012,7 +1012,7 @@ class ClusterOpenMonitoringPrometheusJmxExporter(dict):
 
 
 @pulumi.output_type
-class ClusterOpenMonitoringPrometheusNodeExporter(dict):
+calass ClusterOpenMonitoringPrometheusNodeExporter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1047,7 +1047,7 @@ class ClusterOpenMonitoringPrometheusNodeExporter(dict):
 
 
 @pulumi.output_type
-class ReplicatorKafkaCluster(dict):
+calass ReplicatorKafkaCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1071,8 +1071,8 @@ class ReplicatorKafkaCluster(dict):
                  amazon_msk_cluster: 'outputs.ReplicatorKafkaClusterAmazonMskCluster',
                  vpc_config: 'outputs.ReplicatorKafkaClusterVpcConfig'):
         """
-        :param 'ReplicatorKafkaClusterAmazonMskClusterArgs' amazon_msk_cluster: Details of an Amazon MSK cluster.
-        :param 'ReplicatorKafkaClusterVpcConfigArgs' vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        :param 'ReplicatorKafkaClusterAmazonMskClusterArrgs' amazon_msk_cluster: Details of an Amazon MSK cluster.
+        :param 'ReplicatorKafkaClusterVpcConfigArrgs' vpc_config: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "amazon_msk_cluster", amazon_msk_cluster)
         pulumi.set(__self__, "vpc_config", vpc_config)
@@ -1095,7 +1095,7 @@ class ReplicatorKafkaCluster(dict):
 
 
 @pulumi.output_type
-class ReplicatorKafkaClusterAmazonMskCluster(dict):
+calass ReplicatorKafkaClusterAmazonMskCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1130,7 +1130,7 @@ class ReplicatorKafkaClusterAmazonMskCluster(dict):
 
 
 @pulumi.output_type
-class ReplicatorKafkaClusterVpcConfig(dict):
+calass ReplicatorKafkaClusterVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1179,7 +1179,7 @@ class ReplicatorKafkaClusterVpcConfig(dict):
 
 
 @pulumi.output_type
-class ReplicatorReplicationInfoList(dict):
+calass ReplicatorReplicationInfoList(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1218,11 +1218,11 @@ class ReplicatorReplicationInfoList(dict):
                  source_kafka_cluster_alias: Optional[str] = None,
                  target_kafka_cluster_alias: Optional[str] = None):
         """
-        :param Sequence['ReplicatorReplicationInfoListConsumerGroupReplicationArgs'] consumer_group_replications: Confguration relating to consumer group replication.
+        :param Sequence['ReplicatorReplicationInfoListConsumerGroupReplicationArrgs'] consumer_group_replications: Confguration relating to consumer group replication.
         :param str source_kafka_cluster_arn: The ARN of the source Kafka cluster.
         :param str target_compression_type: The type of compression to use writing records to target Kafka cluster.
         :param str target_kafka_cluster_arn: The ARN of the target Kafka cluster.
-        :param Sequence['ReplicatorReplicationInfoListTopicReplicationArgs'] topic_replications: Configuration relating to topic replication.
+        :param Sequence['ReplicatorReplicationInfoListTopicReplicationArrgs'] topic_replications: Configuration relating to topic replication.
         """
         pulumi.set(__self__, "consumer_group_replications", consumer_group_replications)
         pulumi.set(__self__, "source_kafka_cluster_arn", source_kafka_cluster_arn)
@@ -1286,7 +1286,7 @@ class ReplicatorReplicationInfoList(dict):
 
 
 @pulumi.output_type
-class ReplicatorReplicationInfoListConsumerGroupReplication(dict):
+calass ReplicatorReplicationInfoListConsumerGroupReplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1363,7 +1363,7 @@ class ReplicatorReplicationInfoListConsumerGroupReplication(dict):
 
 
 @pulumi.output_type
-class ReplicatorReplicationInfoListTopicReplication(dict):
+calass ReplicatorReplicationInfoListTopicReplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1454,11 +1454,11 @@ class ReplicatorReplicationInfoListTopicReplication(dict):
 
 
 @pulumi.output_type
-class ServerlessClusterClientAuthentication(dict):
+calass ServerlessClusterClientAuthentication(dict):
     def __init__(__self__, *,
                  sasl: 'outputs.ServerlessClusterClientAuthenticationSasl'):
         """
-        :param 'ServerlessClusterClientAuthenticationSaslArgs' sasl: Details for client authentication using SASL. See below.
+        :param 'ServerlessClusterClientAuthenticationSaslArrgs' sasl: Details for client authentication using SASL. See below.
         """
         pulumi.set(__self__, "sasl", sasl)
 
@@ -1472,11 +1472,11 @@ class ServerlessClusterClientAuthentication(dict):
 
 
 @pulumi.output_type
-class ServerlessClusterClientAuthenticationSasl(dict):
+calass ServerlessClusterClientAuthenticationSasl(dict):
     def __init__(__self__, *,
                  iam: 'outputs.ServerlessClusterClientAuthenticationSaslIam'):
         """
-        :param 'ServerlessClusterClientAuthenticationSaslIamArgs' iam: Details for client authentication using IAM. See below.
+        :param 'ServerlessClusterClientAuthenticationSaslIamArrgs' iam: Details for client authentication using IAM. See below.
         """
         pulumi.set(__self__, "iam", iam)
 
@@ -1490,7 +1490,7 @@ class ServerlessClusterClientAuthenticationSasl(dict):
 
 
 @pulumi.output_type
-class ServerlessClusterClientAuthenticationSaslIam(dict):
+calass ServerlessClusterClientAuthenticationSaslIam(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -1508,7 +1508,7 @@ class ServerlessClusterClientAuthenticationSaslIam(dict):
 
 
 @pulumi.output_type
-class ServerlessClusterVpcConfig(dict):
+calass ServerlessClusterVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1557,7 +1557,7 @@ class ServerlessClusterVpcConfig(dict):
 
 
 @pulumi.output_type
-class GetBrokerNodesNodeInfoListResult(dict):
+calass GetBrokerNodesNodeInfoListResult(dict):
     def __init__(__self__, *,
                  attached_eni_id: str,
                  broker_id: float,

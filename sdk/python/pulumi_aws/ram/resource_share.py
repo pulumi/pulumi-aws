@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResourceShareArgs', 'ResourceShare']
+__all__ = ['ResourceShareArrgs', 'ResourceShare']
 
 @pulumi.input_type
-class ResourceShareArgs:
+calass ResourceShareArrgs:
     def __init__(__self__, *,
                  allow_external_principals: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -84,7 +84,7 @@ class ResourceShareArgs:
 
 
 @pulumi.input_type
-class _ResourceShareState:
+calass _ResourceShareState:
     def __init__(__self__, *,
                  allow_external_principals: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -193,7 +193,7 @@ class _ResourceShareState:
         pulumi.set(self, "tags_all", value)
 
 
-class ResourceShare(pulumi.CustomResource):
+calass ResourceShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -238,7 +238,7 @@ class ResourceShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ResourceShareArgs] = None,
+                 args: Optional[ResourceShareArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Access Manager (RAM) Resource Share. To associate principals with the share, see the `ram.PrincipalAssociation` resource. To associate resources with the share, see the `ram.ResourceAssociation` resource.
@@ -265,12 +265,12 @@ class ResourceShare(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourceShareArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceShareArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceShareArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceShareArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -290,7 +290,7 @@ class ResourceShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceShareArgs.__new__(ResourceShareArgs)
+            __props__ = ResourceShareArrgs.__new__(ResourceShareArrgs)
 
             __props__.__dict__["allow_external_principals"] = allow_external_principals
             __props__.__dict__["name"] = name

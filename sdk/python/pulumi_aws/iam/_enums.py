@@ -9,7 +9,7 @@ __all__ = [
 ]
 
 
-class ManagedPolicy(str, Enum):
+calass ManagedPolicy(str, Enum):
     API_GATEWAY_SERVICE_ROLE_POLICY = "arn:aws:iam::aws:policy/aws-service-role/APIGatewayServiceRolePolicy"
     AWS_ACCOUNT_ACTIVITY_ACCESS = "arn:aws:iam::aws:policy/AWSAccountActivityAccess"
     AWS_ACCOUNT_MANAGEMENT_FULL_ACCESS = "arn:aws:iam::aws:policy/AWSAccountManagementFullAccess"

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSolutionStackResult:
+calass GetSolutionStackResult:
     """
     A collection of values returned by getSolutionStack.
     """
@@ -62,7 +62,7 @@ class GetSolutionStackResult:
         return pulumi.get(self, "name_regex")
 
 
-class AwaitableGetSolutionStackResult(GetSolutionStackResult):
+calass AwaitableGetSolutionStackResult(GetSolutionStackResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

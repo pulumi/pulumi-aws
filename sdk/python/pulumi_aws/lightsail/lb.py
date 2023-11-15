@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LbArgs', 'Lb']
+__all__ = ['LbArrgs', 'Lb']
 
 @pulumi.input_type
-class LbArgs:
+calass LbArrgs:
     def __init__(__self__, *,
                  instance_port: pulumi.Input[int],
                  health_check_path: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class LbArgs:
 
 
 @pulumi.input_type
-class _LbState:
+calass _LbState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
@@ -296,7 +296,7 @@ class _LbState:
         pulumi.set(self, "tags_all", value)
 
 
-class Lb(pulumi.CustomResource):
+calass Lb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -343,7 +343,7 @@ class Lb(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LbArgs,
+                 args: LbArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Lightsail load balancer resource.
@@ -371,12 +371,12 @@ class Lb(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LbArgs args: The arguments to use to populate this resource's properties.
+        :param LbArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LbArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LbArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -397,7 +397,7 @@ class Lb(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LbArgs.__new__(LbArgs)
+            __props__ = LbArrgs.__new__(LbArrgs)
 
             __props__.__dict__["health_check_path"] = health_check_path
             if instance_port is None and not opts.urn:

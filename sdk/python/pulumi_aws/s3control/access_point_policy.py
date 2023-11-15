@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccessPointPolicyArgs', 'AccessPointPolicy']
+__all__ = ['AccessPointPolicyArrgs', 'AccessPointPolicy']
 
 @pulumi.input_type
-class AccessPointPolicyArgs:
+calass AccessPointPolicyArrgs:
     def __init__(__self__, *,
                  access_point_arn: pulumi.Input[str],
                  policy: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class AccessPointPolicyArgs:
 
 
 @pulumi.input_type
-class _AccessPointPolicyState:
+calass _AccessPointPolicyState:
     def __init__(__self__, *,
                  access_point_arn: Optional[pulumi.Input[str]] = None,
                  has_public_access_policy: Optional[pulumi.Input[bool]] = None,
@@ -105,7 +105,7 @@ class _AccessPointPolicyState:
         pulumi.set(self, "policy", value)
 
 
-class AccessPointPolicy(pulumi.CustomResource):
+calass AccessPointPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -128,7 +128,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
             bucket=example_bucket_v2.id,
-            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
+            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArrgs(
                 block_public_acls=True,
                 block_public_policy=False,
                 ignore_public_acls=True,
@@ -166,7 +166,7 @@ class AccessPointPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccessPointPolicyArgs,
+                 args: AccessPointPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an S3 Access Point resource policy.
@@ -183,7 +183,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_access_point = aws.s3.AccessPoint("exampleAccessPoint",
             bucket=example_bucket_v2.id,
-            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArgs(
+            public_access_block_configuration=aws.s3.AccessPointPublicAccessBlockConfigurationArrgs(
                 block_public_acls=True,
                 block_public_policy=False,
                 ignore_public_acls=True,
@@ -213,12 +213,12 @@ class AccessPointPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccessPointPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param AccessPointPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccessPointPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccessPointPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -236,7 +236,7 @@ class AccessPointPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccessPointPolicyArgs.__new__(AccessPointPolicyArgs)
+            __props__ = AccessPointPolicyArrgs.__new__(AccessPointPolicyArrgs)
 
             if access_point_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'access_point_arn'")

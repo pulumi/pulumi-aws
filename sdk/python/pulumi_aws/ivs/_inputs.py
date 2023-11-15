@@ -10,35 +10,35 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'RecordingConfigurationDestinationConfigurationArgs',
-    'RecordingConfigurationDestinationConfigurationS3Args',
-    'RecordingConfigurationThumbnailConfigurationArgs',
+    'RecordingConfigurationDestinationConfigurationArrgs',
+    'RecordingConfigurationDestinationConfigurationS3Arrgs',
+    'RecordingConfigurationThumbnailConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class RecordingConfigurationDestinationConfigurationArgs:
+calass RecordingConfigurationDestinationConfigurationArrgs:
     def __init__(__self__, *,
-                 s3: pulumi.Input['RecordingConfigurationDestinationConfigurationS3Args']):
+                 s3: pulumi.Input['RecordingConfigurationDestinationConfigurationS3Arrgs']):
         """
-        :param pulumi.Input['RecordingConfigurationDestinationConfigurationS3Args'] s3: S3 destination configuration where recorded videos will be stored.
+        :param pulumi.Input['RecordingConfigurationDestinationConfigurationS3Arrgs'] s3: S3 destination configuration where recorded videos will be stored.
         """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
-    def s3(self) -> pulumi.Input['RecordingConfigurationDestinationConfigurationS3Args']:
+    def s3(self) -> pulumi.Input['RecordingConfigurationDestinationConfigurationS3Arrgs']:
         """
         S3 destination configuration where recorded videos will be stored.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: pulumi.Input['RecordingConfigurationDestinationConfigurationS3Args']):
+    def s3(self, value: pulumi.Input['RecordingConfigurationDestinationConfigurationS3Arrgs']):
         pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type
-class RecordingConfigurationDestinationConfigurationS3Args:
+calass RecordingConfigurationDestinationConfigurationS3Arrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str]):
         """
@@ -64,7 +64,7 @@ class RecordingConfigurationDestinationConfigurationS3Args:
 
 
 @pulumi.input_type
-class RecordingConfigurationThumbnailConfigurationArgs:
+calass RecordingConfigurationThumbnailConfigurationArrgs:
     def __init__(__self__, *,
                  recording_mode: Optional[pulumi.Input[str]] = None,
                  target_interval_seconds: Optional[pulumi.Input[int]] = None):

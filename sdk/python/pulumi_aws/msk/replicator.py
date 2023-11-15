@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ReplicatorArgs', 'Replicator']
+__all__ = ['ReplicatorArrgs', 'Replicator']
 
 @pulumi.input_type
-class ReplicatorArgs:
+calass ReplicatorArrgs:
     def __init__(__self__, *,
-                 kafka_clusters: pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]],
-                 replication_info_list: pulumi.Input['ReplicatorReplicationInfoListArgs'],
+                 kafka_clusters: pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArrgs']]],
+                 replication_info_list: pulumi.Input['ReplicatorReplicationInfoListArrgs'],
                  replicator_name: pulumi.Input[str],
                  service_execution_role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Replicator resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input['ReplicatorReplicationInfoListArgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArrgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input['ReplicatorReplicationInfoListArrgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         :param pulumi.Input[str] description: A summary description of the replicator.
@@ -41,26 +41,26 @@ class ReplicatorArgs:
 
     @property
     @pulumi.getter(name="kafkaClusters")
-    def kafka_clusters(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]:
+    def kafka_clusters(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArrgs']]]:
         """
         A list of Kafka clusters which are targets of the replicator.
         """
         return pulumi.get(self, "kafka_clusters")
 
     @kafka_clusters.setter
-    def kafka_clusters(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]):
+    def kafka_clusters(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArrgs']]]):
         pulumi.set(self, "kafka_clusters", value)
 
     @property
     @pulumi.getter(name="replicationInfoList")
-    def replication_info_list(self) -> pulumi.Input['ReplicatorReplicationInfoListArgs']:
+    def replication_info_list(self) -> pulumi.Input['ReplicatorReplicationInfoListArrgs']:
         """
         A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         """
         return pulumi.get(self, "replication_info_list")
 
     @replication_info_list.setter
-    def replication_info_list(self, value: pulumi.Input['ReplicatorReplicationInfoListArgs']):
+    def replication_info_list(self, value: pulumi.Input['ReplicatorReplicationInfoListArrgs']):
         pulumi.set(self, "replication_info_list", value)
 
     @property
@@ -110,13 +110,13 @@ class ReplicatorArgs:
 
 
 @pulumi.input_type
-class _ReplicatorState:
+calass _ReplicatorState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]] = None,
-                 replication_info_list: Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']] = None,
+                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArrgs']]]] = None,
+                 replication_info_list: Optional[pulumi.Input['ReplicatorReplicationInfoListArrgs']] = None,
                  replicator_name: Optional[pulumi.Input[str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -125,8 +125,8 @@ class _ReplicatorState:
         Input properties used for looking up and filtering Replicator resources.
         :param pulumi.Input[str] arn: ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         :param pulumi.Input[str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input['ReplicatorReplicationInfoListArgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArrgs']]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input['ReplicatorReplicationInfoListArrgs'] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         """
@@ -187,26 +187,26 @@ class _ReplicatorState:
 
     @property
     @pulumi.getter(name="kafkaClusters")
-    def kafka_clusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]]:
+    def kafka_clusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArrgs']]]]:
         """
         A list of Kafka clusters which are targets of the replicator.
         """
         return pulumi.get(self, "kafka_clusters")
 
     @kafka_clusters.setter
-    def kafka_clusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArgs']]]]):
+    def kafka_clusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicatorKafkaClusterArrgs']]]]):
         pulumi.set(self, "kafka_clusters", value)
 
     @property
     @pulumi.getter(name="replicationInfoList")
-    def replication_info_list(self) -> Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']]:
+    def replication_info_list(self) -> Optional[pulumi.Input['ReplicatorReplicationInfoListArrgs']]:
         """
         A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         """
         return pulumi.get(self, "replication_info_list")
 
     @replication_info_list.setter
-    def replication_info_list(self, value: Optional[pulumi.Input['ReplicatorReplicationInfoListArgs']]):
+    def replication_info_list(self, value: Optional[pulumi.Input['ReplicatorReplicationInfoListArrgs']]):
         pulumi.set(self, "replication_info_list", value)
 
     @property
@@ -255,14 +255,14 @@ class _ReplicatorState:
         pulumi.set(self, "tags_all", value)
 
 
-class Replicator(pulumi.CustomResource):
+calass Replicator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]]] = None,
-                 replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']]] = None,
+                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArrgs']]]]] = None,
+                 replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArrgs']]] = None,
                  replicator_name: Optional[pulumi.Input[str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -283,8 +283,8 @@ class Replicator(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArrgs']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArrgs']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         """
@@ -292,7 +292,7 @@ class Replicator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicatorArgs,
+                 args: ReplicatorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Managed Streaming for Kafka Replicator.
@@ -308,12 +308,12 @@ class Replicator(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReplicatorArgs args: The arguments to use to populate this resource's properties.
+        :param ReplicatorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReplicatorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicatorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -323,8 +323,8 @@ class Replicator(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]]] = None,
-                 replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']]] = None,
+                 kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArrgs']]]]] = None,
+                 replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArrgs']]] = None,
                  replicator_name: Optional[pulumi.Input[str]] = None,
                  service_execution_role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -335,7 +335,7 @@ class Replicator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReplicatorArgs.__new__(ReplicatorArgs)
+            __props__ = ReplicatorArrgs.__new__(ReplicatorArrgs)
 
             __props__.__dict__["description"] = description
             if kafka_clusters is None and not opts.urn:
@@ -369,8 +369,8 @@ class Replicator(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             current_version: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]]] = None,
-            replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']]] = None,
+            kafka_clusters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArrgs']]]]] = None,
+            replication_info_list: Optional[pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArrgs']]] = None,
             replicator_name: Optional[pulumi.Input[str]] = None,
             service_execution_role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -384,8 +384,8 @@ class Replicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Replicator. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         :param pulumi.Input[str] description: A summary description of the replicator.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArgs']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
-        :param pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArgs']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicatorKafkaClusterArrgs']]]] kafka_clusters: A list of Kafka clusters which are targets of the replicator.
+        :param pulumi.Input[pulumi.InputType['ReplicatorReplicationInfoListArrgs']] replication_info_list: A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.
         :param pulumi.Input[str] replicator_name: The name of the replicator.
         :param pulumi.Input[str] service_execution_role_arn: The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters).
         """

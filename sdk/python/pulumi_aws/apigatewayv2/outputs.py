@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApiCorsConfiguration(dict):
+calass ApiCorsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -130,7 +130,7 @@ class ApiCorsConfiguration(dict):
 
 
 @pulumi.output_type
-class AuthorizerJwtConfiguration(dict):
+calass AuthorizerJwtConfiguration(dict):
     def __init__(__self__, *,
                  audiences: Optional[Sequence[str]] = None,
                  issuer: Optional[str] = None):
@@ -161,7 +161,7 @@ class AuthorizerJwtConfiguration(dict):
 
 
 @pulumi.output_type
-class DomainNameDomainNameConfiguration(dict):
+calass DomainNameDomainNameConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -264,7 +264,7 @@ class DomainNameDomainNameConfiguration(dict):
 
 
 @pulumi.output_type
-class DomainNameMutualTlsAuthentication(dict):
+calass DomainNameMutualTlsAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -313,7 +313,7 @@ class DomainNameMutualTlsAuthentication(dict):
 
 
 @pulumi.output_type
-class IntegrationResponseParameter(dict):
+calass IntegrationResponseParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -361,7 +361,7 @@ class IntegrationResponseParameter(dict):
 
 
 @pulumi.output_type
-class IntegrationTlsConfig(dict):
+calass IntegrationTlsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -397,7 +397,7 @@ class IntegrationTlsConfig(dict):
 
 
 @pulumi.output_type
-class RouteRequestParameter(dict):
+calass RouteRequestParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -443,7 +443,7 @@ class RouteRequestParameter(dict):
 
 
 @pulumi.output_type
-class StageAccessLogSettings(dict):
+calass StageAccessLogSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -489,7 +489,7 @@ class StageAccessLogSettings(dict):
 
 
 @pulumi.output_type
-class StageDefaultRouteSettings(dict):
+calass StageDefaultRouteSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -585,7 +585,7 @@ class StageDefaultRouteSettings(dict):
 
 
 @pulumi.output_type
-class StageRouteSetting(dict):
+calass StageRouteSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -694,7 +694,7 @@ class StageRouteSetting(dict):
 
 
 @pulumi.output_type
-class GetApiCorsConfigurationResult(dict):
+calass GetApiCorsConfigurationResult(dict):
     def __init__(__self__, *,
                  allow_credentials: bool,
                  allow_headers: Sequence[str],

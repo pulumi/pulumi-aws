@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BrokerArgs', 'Broker']
+__all__ = ['BrokerArrgs', 'Broker']
 
 @pulumi.input_type
-class BrokerArgs:
+calass BrokerArrgs:
     def __init__(__self__, *,
                  engine_type: pulumi.Input[str],
                  engine_version: pulumi.Input[str],
                  host_instance_type: pulumi.Input[str],
-                 users: pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]],
+                 users: pulumi.Input[Sequence[pulumi.Input['BrokerUserArrgs']]],
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input['BrokerConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['BrokerConfigurationArrgs']] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
-                 encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']] = None,
-                 ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']] = None,
-                 logs: Optional[pulumi.Input['BrokerLogsArgs']] = None,
-                 maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']] = None,
+                 encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArrgs']] = None,
+                 ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArrgs']] = None,
+                 logs: Optional[pulumi.Input['BrokerLogsArrgs']] = None,
+                 maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArrgs']] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
@@ -40,19 +40,19 @@ class BrokerArgs:
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
-        :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArrgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[bool] apply_immediately: Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[str] authentication_strategy: Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         :param pulumi.Input[str] broker_name: Name of the broker.
-        :param pulumi.Input['BrokerConfigurationArgs'] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+        :param pulumi.Input['BrokerConfigurationArrgs'] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         :param pulumi.Input[str] deployment_mode: Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
-        :param pulumi.Input['BrokerEncryptionOptionsArgs'] encryption_options: Configuration block containing encryption options. Detailed below.
-        :param pulumi.Input['BrokerLdapServerMetadataArgs'] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
-        :param pulumi.Input['BrokerLogsArgs'] logs: Configuration block for the logging configuration of the broker. Detailed below.
-        :param pulumi.Input['BrokerMaintenanceWindowStartTimeArgs'] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
+        :param pulumi.Input['BrokerEncryptionOptionsArrgs'] encryption_options: Configuration block containing encryption options. Detailed below.
+        :param pulumi.Input['BrokerLdapServerMetadataArrgs'] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+        :param pulumi.Input['BrokerLogsArrgs'] logs: Configuration block for the logging configuration of the broker. Detailed below.
+        :param pulumi.Input['BrokerMaintenanceWindowStartTimeArrgs'] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs assigned to the broker.
         :param pulumi.Input[str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
@@ -132,7 +132,7 @@ class BrokerArgs:
 
     @property
     @pulumi.getter
-    def users(self) -> pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]:
+    def users(self) -> pulumi.Input[Sequence[pulumi.Input['BrokerUserArrgs']]]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 
@@ -141,7 +141,7 @@ class BrokerArgs:
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]):
+    def users(self, value: pulumi.Input[Sequence[pulumi.Input['BrokerUserArrgs']]]):
         pulumi.set(self, "users", value)
 
     @property
@@ -194,14 +194,14 @@ class BrokerArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['BrokerConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['BrokerConfigurationArrgs']]:
         """
         Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['BrokerConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['BrokerConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -218,50 +218,50 @@ class BrokerArgs:
 
     @property
     @pulumi.getter(name="encryptionOptions")
-    def encryption_options(self) -> Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]:
+    def encryption_options(self) -> Optional[pulumi.Input['BrokerEncryptionOptionsArrgs']]:
         """
         Configuration block containing encryption options. Detailed below.
         """
         return pulumi.get(self, "encryption_options")
 
     @encryption_options.setter
-    def encryption_options(self, value: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]):
+    def encryption_options(self, value: Optional[pulumi.Input['BrokerEncryptionOptionsArrgs']]):
         pulumi.set(self, "encryption_options", value)
 
     @property
     @pulumi.getter(name="ldapServerMetadata")
-    def ldap_server_metadata(self) -> Optional[pulumi.Input['BrokerLdapServerMetadataArgs']]:
+    def ldap_server_metadata(self) -> Optional[pulumi.Input['BrokerLdapServerMetadataArrgs']]:
         """
         Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
         """
         return pulumi.get(self, "ldap_server_metadata")
 
     @ldap_server_metadata.setter
-    def ldap_server_metadata(self, value: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']]):
+    def ldap_server_metadata(self, value: Optional[pulumi.Input['BrokerLdapServerMetadataArrgs']]):
         pulumi.set(self, "ldap_server_metadata", value)
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['BrokerLogsArgs']]:
+    def logs(self) -> Optional[pulumi.Input['BrokerLogsArrgs']]:
         """
         Configuration block for the logging configuration of the broker. Detailed below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['BrokerLogsArgs']]):
+    def logs(self, value: Optional[pulumi.Input['BrokerLogsArrgs']]):
         pulumi.set(self, "logs", value)
 
     @property
     @pulumi.getter(name="maintenanceWindowStartTime")
-    def maintenance_window_start_time(self) -> Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']]:
+    def maintenance_window_start_time(self) -> Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArrgs']]:
         """
         Configuration block for the maintenance window start time. Detailed below.
         """
         return pulumi.get(self, "maintenance_window_start_time")
 
     @maintenance_window_start_time.setter
-    def maintenance_window_start_time(self, value: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']]):
+    def maintenance_window_start_time(self, value: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArrgs']]):
         pulumi.set(self, "maintenance_window_start_time", value)
 
     @property
@@ -326,30 +326,30 @@ class BrokerArgs:
 
 
 @pulumi.input_type
-class _BrokerState:
+calass _BrokerState:
     def __init__(__self__, *,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input['BrokerConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['BrokerConfigurationArrgs']] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
-                 encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']] = None,
+                 encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArrgs']] = None,
                  engine_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  host_instance_type: Optional[pulumi.Input[str]] = None,
-                 instances: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]]] = None,
-                 ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']] = None,
-                 logs: Optional[pulumi.Input['BrokerLogsArgs']] = None,
-                 maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']] = None,
+                 instances: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArrgs']]]] = None,
+                 ldap_server_metadata: Optional[pulumi.Input['BrokerLdapServerMetadataArrgs']] = None,
+                 logs: Optional[pulumi.Input['BrokerLogsArrgs']] = None,
+                 maintenance_window_start_time: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArrgs']] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]] = None):
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArrgs']]]] = None):
         """
         Input properties used for looking up and filtering Broker resources.
         :param pulumi.Input[bool] apply_immediately: Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
@@ -357,13 +357,13 @@ class _BrokerState:
         :param pulumi.Input[str] authentication_strategy: Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         :param pulumi.Input[str] broker_name: Name of the broker.
-        :param pulumi.Input['BrokerConfigurationArgs'] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+        :param pulumi.Input['BrokerConfigurationArrgs'] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         :param pulumi.Input[str] deployment_mode: Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
-        :param pulumi.Input['BrokerEncryptionOptionsArgs'] encryption_options: Configuration block containing encryption options. Detailed below.
+        :param pulumi.Input['BrokerEncryptionOptionsArrgs'] encryption_options: Configuration block containing encryption options. Detailed below.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
-        :param pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]] instances: List of information about allocated brokers (both active & standby).
+        :param pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArrgs']]] instances: List of information about allocated brokers (both active & standby).
                * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
                * `instances.0.ip_address` - IP Address of the broker.
                * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
@@ -375,16 +375,16 @@ class _BrokerState:
                * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
                * For `RabbitMQ`:
                * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-        :param pulumi.Input['BrokerLdapServerMetadataArgs'] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
-        :param pulumi.Input['BrokerLogsArgs'] logs: Configuration block for the logging configuration of the broker. Detailed below.
-        :param pulumi.Input['BrokerMaintenanceWindowStartTimeArgs'] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
+        :param pulumi.Input['BrokerLdapServerMetadataArrgs'] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+        :param pulumi.Input['BrokerLogsArrgs'] logs: Configuration block for the logging configuration of the broker. Detailed below.
+        :param pulumi.Input['BrokerMaintenanceWindowStartTimeArrgs'] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs assigned to the broker.
         :param pulumi.Input[str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['BrokerUserArrgs']]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
                
                The following arguments are optional:
         """
@@ -498,14 +498,14 @@ class _BrokerState:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['BrokerConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['BrokerConfigurationArrgs']]:
         """
         Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['BrokerConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['BrokerConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -522,14 +522,14 @@ class _BrokerState:
 
     @property
     @pulumi.getter(name="encryptionOptions")
-    def encryption_options(self) -> Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]:
+    def encryption_options(self) -> Optional[pulumi.Input['BrokerEncryptionOptionsArrgs']]:
         """
         Configuration block containing encryption options. Detailed below.
         """
         return pulumi.get(self, "encryption_options")
 
     @encryption_options.setter
-    def encryption_options(self, value: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']]):
+    def encryption_options(self, value: Optional[pulumi.Input['BrokerEncryptionOptionsArrgs']]):
         pulumi.set(self, "encryption_options", value)
 
     @property
@@ -570,7 +570,7 @@ class _BrokerState:
 
     @property
     @pulumi.getter
-    def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]]]:
+    def instances(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArrgs']]]]:
         """
         List of information about allocated brokers (both active & standby).
         * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
@@ -588,43 +588,43 @@ class _BrokerState:
         return pulumi.get(self, "instances")
 
     @instances.setter
-    def instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArgs']]]]):
+    def instances(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerInstanceArrgs']]]]):
         pulumi.set(self, "instances", value)
 
     @property
     @pulumi.getter(name="ldapServerMetadata")
-    def ldap_server_metadata(self) -> Optional[pulumi.Input['BrokerLdapServerMetadataArgs']]:
+    def ldap_server_metadata(self) -> Optional[pulumi.Input['BrokerLdapServerMetadataArrgs']]:
         """
         Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
         """
         return pulumi.get(self, "ldap_server_metadata")
 
     @ldap_server_metadata.setter
-    def ldap_server_metadata(self, value: Optional[pulumi.Input['BrokerLdapServerMetadataArgs']]):
+    def ldap_server_metadata(self, value: Optional[pulumi.Input['BrokerLdapServerMetadataArrgs']]):
         pulumi.set(self, "ldap_server_metadata", value)
 
     @property
     @pulumi.getter
-    def logs(self) -> Optional[pulumi.Input['BrokerLogsArgs']]:
+    def logs(self) -> Optional[pulumi.Input['BrokerLogsArrgs']]:
         """
         Configuration block for the logging configuration of the broker. Detailed below.
         """
         return pulumi.get(self, "logs")
 
     @logs.setter
-    def logs(self, value: Optional[pulumi.Input['BrokerLogsArgs']]):
+    def logs(self, value: Optional[pulumi.Input['BrokerLogsArrgs']]):
         pulumi.set(self, "logs", value)
 
     @property
     @pulumi.getter(name="maintenanceWindowStartTime")
-    def maintenance_window_start_time(self) -> Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']]:
+    def maintenance_window_start_time(self) -> Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArrgs']]:
         """
         Configuration block for the maintenance window start time. Detailed below.
         """
         return pulumi.get(self, "maintenance_window_start_time")
 
     @maintenance_window_start_time.setter
-    def maintenance_window_start_time(self, value: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArgs']]):
+    def maintenance_window_start_time(self, value: Optional[pulumi.Input['BrokerMaintenanceWindowStartTimeArrgs']]):
         pulumi.set(self, "maintenance_window_start_time", value)
 
     @property
@@ -704,7 +704,7 @@ class _BrokerState:
 
     @property
     @pulumi.getter
-    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]:
+    def users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArrgs']]]]:
         """
         Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
 
@@ -713,11 +713,11 @@ class _BrokerState:
         return pulumi.get(self, "users")
 
     @users.setter
-    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArgs']]]]):
+    def users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BrokerUserArrgs']]]]):
         pulumi.set(self, "users", value)
 
 
-class Broker(pulumi.CustomResource):
+calass Broker(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -726,21 +726,21 @@ class Broker(pulumi.CustomResource):
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['BrokerConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['BrokerConfigurationArrgs']]] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
-                 encryption_options: Optional[pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']]] = None,
+                 encryption_options: Optional[pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArrgs']]] = None,
                  engine_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  host_instance_type: Optional[pulumi.Input[str]] = None,
-                 ldap_server_metadata: Optional[pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArgs']]] = None,
-                 logs: Optional[pulumi.Input[pulumi.InputType['BrokerLogsArgs']]] = None,
-                 maintenance_window_start_time: Optional[pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']]] = None,
+                 ldap_server_metadata: Optional[pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArrgs']]] = None,
+                 logs: Optional[pulumi.Input[pulumi.InputType['BrokerLogsArrgs']]] = None,
+                 maintenance_window_start_time: Optional[pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArrgs']]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArrgs']]]]] = None,
                  __props__=None):
         """
         Provides an Amazon MQ broker resource. This resources also manages users for the broker.
@@ -759,7 +759,7 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            configuration=aws.mq.BrokerConfigurationArgs(
+            configuration=aws.mq.BrokerConfigurationArrgs(
                 id=aws_mq_configuration["test"]["id"],
                 revision=aws_mq_configuration["test"]["latest_revision"],
             ),
@@ -767,7 +767,7 @@ class Broker(pulumi.CustomResource):
             engine_version="5.17.6",
             host_instance_type="mq.t2.micro",
             security_groups=[aws_security_group["test"]["id"]],
-            users=[aws.mq.BrokerUserArgs(
+            users=[aws.mq.BrokerUserArrgs(
                 username="ExampleUser",
                 password="MindTheGap",
             )])
@@ -781,7 +781,7 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            configuration=aws.mq.BrokerConfigurationArgs(
+            configuration=aws.mq.BrokerConfigurationArrgs(
                 id=aws_mq_configuration["test"]["id"],
                 revision=aws_mq_configuration["test"]["latest_revision"],
             ),
@@ -790,7 +790,7 @@ class Broker(pulumi.CustomResource):
             storage_type="ebs",
             host_instance_type="mq.m5.large",
             security_groups=[aws_security_group["test"]["id"]],
-            users=[aws.mq.BrokerUserArgs(
+            users=[aws.mq.BrokerUserArrgs(
                 username="ExampleUser",
                 password="MindTheGap",
             )])
@@ -810,21 +810,21 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[str] authentication_strategy: Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         :param pulumi.Input[str] broker_name: Name of the broker.
-        :param pulumi.Input[pulumi.InputType['BrokerConfigurationArgs']] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BrokerConfigurationArrgs']] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         :param pulumi.Input[str] deployment_mode: Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
-        :param pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']] encryption_options: Configuration block containing encryption options. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArrgs']] encryption_options: Configuration block containing encryption options. Detailed below.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
-        :param pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArgs']] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
-        :param pulumi.Input[pulumi.InputType['BrokerLogsArgs']] logs: Configuration block for the logging configuration of the broker. Detailed below.
-        :param pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArrgs']] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+        :param pulumi.Input[pulumi.InputType['BrokerLogsArrgs']] logs: Configuration block for the logging configuration of the broker. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArrgs']] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs assigned to the broker.
         :param pulumi.Input[str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArrgs']]]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
                
                The following arguments are optional:
         """
@@ -832,7 +832,7 @@ class Broker(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BrokerArgs,
+                 args: BrokerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon MQ broker resource. This resources also manages users for the broker.
@@ -851,7 +851,7 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            configuration=aws.mq.BrokerConfigurationArgs(
+            configuration=aws.mq.BrokerConfigurationArrgs(
                 id=aws_mq_configuration["test"]["id"],
                 revision=aws_mq_configuration["test"]["latest_revision"],
             ),
@@ -859,7 +859,7 @@ class Broker(pulumi.CustomResource):
             engine_version="5.17.6",
             host_instance_type="mq.t2.micro",
             security_groups=[aws_security_group["test"]["id"]],
-            users=[aws.mq.BrokerUserArgs(
+            users=[aws.mq.BrokerUserArrgs(
                 username="ExampleUser",
                 password="MindTheGap",
             )])
@@ -873,7 +873,7 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            configuration=aws.mq.BrokerConfigurationArgs(
+            configuration=aws.mq.BrokerConfigurationArrgs(
                 id=aws_mq_configuration["test"]["id"],
                 revision=aws_mq_configuration["test"]["latest_revision"],
             ),
@@ -882,7 +882,7 @@ class Broker(pulumi.CustomResource):
             storage_type="ebs",
             host_instance_type="mq.m5.large",
             security_groups=[aws_security_group["test"]["id"]],
-            users=[aws.mq.BrokerUserArgs(
+            users=[aws.mq.BrokerUserArrgs(
                 username="ExampleUser",
                 password="MindTheGap",
             )])
@@ -897,12 +897,12 @@ class Broker(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BrokerArgs args: The arguments to use to populate this resource's properties.
+        :param BrokerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BrokerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BrokerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -915,21 +915,21 @@ class Broker(pulumi.CustomResource):
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
                  broker_name: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['BrokerConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['BrokerConfigurationArrgs']]] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
-                 encryption_options: Optional[pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']]] = None,
+                 encryption_options: Optional[pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArrgs']]] = None,
                  engine_type: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  host_instance_type: Optional[pulumi.Input[str]] = None,
-                 ldap_server_metadata: Optional[pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArgs']]] = None,
-                 logs: Optional[pulumi.Input[pulumi.InputType['BrokerLogsArgs']]] = None,
-                 maintenance_window_start_time: Optional[pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']]] = None,
+                 ldap_server_metadata: Optional[pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArrgs']]] = None,
+                 logs: Optional[pulumi.Input[pulumi.InputType['BrokerLogsArrgs']]] = None,
+                 maintenance_window_start_time: Optional[pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArrgs']]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_type: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]]] = None,
+                 users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -937,7 +937,7 @@ class Broker(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BrokerArgs.__new__(BrokerArgs)
+            __props__ = BrokerArrgs.__new__(BrokerArrgs)
 
             __props__.__dict__["apply_immediately"] = apply_immediately
             __props__.__dict__["authentication_strategy"] = authentication_strategy
@@ -986,23 +986,23 @@ class Broker(pulumi.CustomResource):
             authentication_strategy: Optional[pulumi.Input[str]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
             broker_name: Optional[pulumi.Input[str]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['BrokerConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[pulumi.InputType['BrokerConfigurationArrgs']]] = None,
             deployment_mode: Optional[pulumi.Input[str]] = None,
-            encryption_options: Optional[pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']]] = None,
+            encryption_options: Optional[pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArrgs']]] = None,
             engine_type: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             host_instance_type: Optional[pulumi.Input[str]] = None,
-            instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerInstanceArgs']]]]] = None,
-            ldap_server_metadata: Optional[pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArgs']]] = None,
-            logs: Optional[pulumi.Input[pulumi.InputType['BrokerLogsArgs']]] = None,
-            maintenance_window_start_time: Optional[pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']]] = None,
+            instances: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerInstanceArrgs']]]]] = None,
+            ldap_server_metadata: Optional[pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArrgs']]] = None,
+            logs: Optional[pulumi.Input[pulumi.InputType['BrokerLogsArrgs']]] = None,
+            maintenance_window_start_time: Optional[pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArrgs']]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             storage_type: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]]] = None) -> 'Broker':
+            users: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArrgs']]]]] = None) -> 'Broker':
         """
         Get an existing Broker resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1015,13 +1015,13 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[str] authentication_strategy: Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
         :param pulumi.Input[str] broker_name: Name of the broker.
-        :param pulumi.Input[pulumi.InputType['BrokerConfigurationArgs']] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BrokerConfigurationArrgs']] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` and `RabbitMQ` only. Detailed below.
         :param pulumi.Input[str] deployment_mode: Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
-        :param pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArgs']] encryption_options: Configuration block containing encryption options. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BrokerEncryptionOptionsArrgs']] encryption_options: Configuration block containing encryption options. Detailed below.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.17.6`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerInstanceArgs']]]] instances: List of information about allocated brokers (both active & standby).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerInstanceArrgs']]]] instances: List of information about allocated brokers (both active & standby).
                * `instances.0.console_url` - The URL of the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) or the [RabbitMQ Management UI](https://www.rabbitmq.com/management.html#external-monitoring) depending on `engine_type`.
                * `instances.0.ip_address` - IP Address of the broker.
                * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
@@ -1033,16 +1033,16 @@ class Broker(pulumi.CustomResource):
                * `wss://broker-id.mq.us-west-2.amazonaws.com:61619`
                * For `RabbitMQ`:
                * `amqps://broker-id.mq.us-west-2.amazonaws.com:5671`
-        :param pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArgs']] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
-        :param pulumi.Input[pulumi.InputType['BrokerLogsArgs']] logs: Configuration block for the logging configuration of the broker. Detailed below.
-        :param pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArgs']] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BrokerLdapServerMetadataArrgs']] ldap_server_metadata: Configuration block for the LDAP server used to authenticate and authorize connections to the broker. Not supported for `engine_type` `RabbitMQ`. Detailed below. (Currently, AWS may not process changes to LDAP server metadata.)
+        :param pulumi.Input[pulumi.InputType['BrokerLogsArrgs']] logs: Configuration block for the logging configuration of the broker. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BrokerMaintenanceWindowStartTimeArrgs']] maintenance_window_start_time: Configuration block for the maintenance window start time. Detailed below.
         :param pulumi.Input[bool] publicly_accessible: Whether to enable connections from applications outside of the VPC that hosts the broker's subnets.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs assigned to the broker.
         :param pulumi.Input[str] storage_type: Storage type of the broker. For `engine_type` `ActiveMQ`, the valid values are `efs` and `ebs`, and the AWS-default is `efs`. For `engine_type` `RabbitMQ`, only `ebs` is supported. When using `ebs`, only the `mq.m5` broker instance type family is supported.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the broker. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArgs']]]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BrokerUserArrgs']]]] users: Configuration block for broker users. For `engine_type` of `RabbitMQ`, Amazon MQ does not return broker users preventing this resource from making user updates and drift detection. Detailed below.
                
                The following arguments are optional:
         """

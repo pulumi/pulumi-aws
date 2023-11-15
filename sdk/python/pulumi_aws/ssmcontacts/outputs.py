@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ContactChannelDeliveryAddress(dict):
+calass ContactChannelDeliveryAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -59,7 +59,7 @@ class ContactChannelDeliveryAddress(dict):
 
 
 @pulumi.output_type
-class PlanStage(dict):
+calass PlanStage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -96,7 +96,7 @@ class PlanStage(dict):
 
 
 @pulumi.output_type
-class PlanStageTarget(dict):
+calass PlanStageTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -136,7 +136,7 @@ class PlanStageTarget(dict):
 
 
 @pulumi.output_type
-class PlanStageTargetChannelTargetInfo(dict):
+calass PlanStageTargetChannelTargetInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -175,7 +175,7 @@ class PlanStageTargetChannelTargetInfo(dict):
 
 
 @pulumi.output_type
-class PlanStageTargetContactTargetInfo(dict):
+calass PlanStageTargetContactTargetInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -220,7 +220,7 @@ class PlanStageTargetContactTargetInfo(dict):
 
 
 @pulumi.output_type
-class GetContactChannelDeliveryAddressResult(dict):
+calass GetContactChannelDeliveryAddressResult(dict):
     def __init__(__self__, *,
                  simple_address: str):
         pulumi.set(__self__, "simple_address", simple_address)
@@ -232,7 +232,7 @@ class GetContactChannelDeliveryAddressResult(dict):
 
 
 @pulumi.output_type
-class GetPlanStageResult(dict):
+calass GetPlanStageResult(dict):
     def __init__(__self__, *,
                  duration_in_minutes: int,
                  targets: Sequence['outputs.GetPlanStageTargetResult']):
@@ -251,7 +251,7 @@ class GetPlanStageResult(dict):
 
 
 @pulumi.output_type
-class GetPlanStageTargetResult(dict):
+calass GetPlanStageTargetResult(dict):
     def __init__(__self__, *,
                  channel_target_infos: Sequence['outputs.GetPlanStageTargetChannelTargetInfoResult'],
                  contact_target_infos: Sequence['outputs.GetPlanStageTargetContactTargetInfoResult']):
@@ -270,7 +270,7 @@ class GetPlanStageTargetResult(dict):
 
 
 @pulumi.output_type
-class GetPlanStageTargetChannelTargetInfoResult(dict):
+calass GetPlanStageTargetChannelTargetInfoResult(dict):
     def __init__(__self__, *,
                  contact_channel_id: str,
                  retry_interval_in_minutes: int):
@@ -289,7 +289,7 @@ class GetPlanStageTargetChannelTargetInfoResult(dict):
 
 
 @pulumi.output_type
-class GetPlanStageTargetContactTargetInfoResult(dict):
+calass GetPlanStageTargetContactTargetInfoResult(dict):
     def __init__(__self__, *,
                  contact_id: str,
                  is_essential: bool):

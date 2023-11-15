@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OriginAccessControlArgs', 'OriginAccessControl']
+__all__ = ['OriginAccessControlArrgs', 'OriginAccessControl']
 
 @pulumi.input_type
-class OriginAccessControlArgs:
+calass OriginAccessControlArrgs:
     def __init__(__self__, *,
                  origin_access_control_origin_type: pulumi.Input[str],
                  signing_behavior: pulumi.Input[str],
@@ -97,7 +97,7 @@ class OriginAccessControlArgs:
 
 
 @pulumi.input_type
-class _OriginAccessControlState:
+calass _OriginAccessControlState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -200,7 +200,7 @@ class _OriginAccessControlState:
         pulumi.set(self, "signing_protocol", value)
 
 
-class OriginAccessControl(pulumi.CustomResource):
+calass OriginAccessControl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -250,7 +250,7 @@ class OriginAccessControl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OriginAccessControlArgs,
+                 args: OriginAccessControlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS CloudFront Origin Access Control, which is used by CloudFront Distributions with an Amazon S3 bucket as the origin.
@@ -280,12 +280,12 @@ class OriginAccessControl(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OriginAccessControlArgs args: The arguments to use to populate this resource's properties.
+        :param OriginAccessControlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OriginAccessControlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OriginAccessControlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -306,7 +306,7 @@ class OriginAccessControl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OriginAccessControlArgs.__new__(OriginAccessControlArgs)
+            __props__ = OriginAccessControlArrgs.__new__(OriginAccessControlArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

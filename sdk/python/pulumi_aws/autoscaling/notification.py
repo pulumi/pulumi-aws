@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NotificationArgs', 'Notification']
+__all__ = ['NotificationArrgs', 'Notification']
 
 @pulumi.input_type
-class NotificationArgs:
+calass NotificationArrgs:
     def __init__(__self__, *,
                  group_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  notifications: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -67,7 +67,7 @@ class NotificationArgs:
 
 
 @pulumi.input_type
-class _NotificationState:
+calass _NotificationState:
     def __init__(__self__, *,
                  group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -124,7 +124,7 @@ class _NotificationState:
         pulumi.set(self, "topic_arn", value)
 
 
-class Notification(pulumi.CustomResource):
+calass Notification(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,7 +177,7 @@ class Notification(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NotificationArgs,
+                 args: NotificationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AutoScaling Group with Notification support, via SNS Topics. Each of
@@ -213,12 +213,12 @@ class Notification(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NotificationArgs args: The arguments to use to populate this resource's properties.
+        :param NotificationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NotificationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NotificationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -237,7 +237,7 @@ class Notification(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NotificationArgs.__new__(NotificationArgs)
+            __props__ = NotificationArrgs.__new__(NotificationArrgs)
 
             if group_names is None and not opts.urn:
                 raise TypeError("Missing required property 'group_names'")

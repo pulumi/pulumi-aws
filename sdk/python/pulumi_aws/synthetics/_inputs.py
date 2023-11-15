@@ -10,39 +10,39 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CanaryArtifactConfigArgs',
-    'CanaryArtifactConfigS3EncryptionArgs',
-    'CanaryRunConfigArgs',
-    'CanaryScheduleArgs',
-    'CanaryTimelineArgs',
-    'CanaryVpcConfigArgs',
+    'CanaryArtifactConfigArrgs',
+    'CanaryArtifactConfigS3EncryptionArrgs',
+    'CanaryRunConfigArrgs',
+    'CanaryScheduleArrgs',
+    'CanaryTimelineArrgs',
+    'CanaryVpcConfigArrgs',
 ]
 
 @pulumi.input_type
-class CanaryArtifactConfigArgs:
+calass CanaryArtifactConfigArrgs:
     def __init__(__self__, *,
-                 s3_encryption: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']] = None):
+                 s3_encryption: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArrgs']] = None):
         """
-        :param pulumi.Input['CanaryArtifactConfigS3EncryptionArgs'] s3_encryption: Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+        :param pulumi.Input['CanaryArtifactConfigS3EncryptionArrgs'] s3_encryption: Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
         """
         if s3_encryption is not None:
             pulumi.set(__self__, "s3_encryption", s3_encryption)
 
     @property
     @pulumi.getter(name="s3Encryption")
-    def s3_encryption(self) -> Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']]:
+    def s3_encryption(self) -> Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArrgs']]:
         """
         Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
         """
         return pulumi.get(self, "s3_encryption")
 
     @s3_encryption.setter
-    def s3_encryption(self, value: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']]):
+    def s3_encryption(self, value: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArrgs']]):
         pulumi.set(self, "s3_encryption", value)
 
 
 @pulumi.input_type
-class CanaryArtifactConfigS3EncryptionArgs:
+calass CanaryArtifactConfigS3EncryptionArrgs:
     def __init__(__self__, *,
                  encryption_mode: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
@@ -81,7 +81,7 @@ class CanaryArtifactConfigS3EncryptionArgs:
 
 
 @pulumi.input_type
-class CanaryRunConfigArgs:
+calass CanaryRunConfigArrgs:
     def __init__(__self__, *,
                  active_tracing: Optional[pulumi.Input[bool]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -152,7 +152,7 @@ class CanaryRunConfigArgs:
 
 
 @pulumi.input_type
-class CanaryScheduleArgs:
+calass CanaryScheduleArrgs:
     def __init__(__self__, *,
                  expression: pulumi.Input[str],
                  duration_in_seconds: Optional[pulumi.Input[int]] = None):
@@ -190,7 +190,7 @@ class CanaryScheduleArgs:
 
 
 @pulumi.input_type
-class CanaryTimelineArgs:
+calass CanaryTimelineArrgs:
     def __init__(__self__, *,
                  created: Optional[pulumi.Input[str]] = None,
                  last_modified: Optional[pulumi.Input[str]] = None,
@@ -261,7 +261,7 @@ class CanaryTimelineArgs:
 
 
 @pulumi.input_type
-class CanaryVpcConfigArgs:
+calass CanaryVpcConfigArrgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

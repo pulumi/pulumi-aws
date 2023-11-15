@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['HumanTaskUIArgs', 'HumanTaskUI']
+__all__ = ['HumanTaskUIArrgs', 'HumanTaskUI']
 
 @pulumi.input_type
-class HumanTaskUIArgs:
+calass HumanTaskUIArrgs:
     def __init__(__self__, *,
                  human_task_ui_name: pulumi.Input[str],
-                 ui_template: pulumi.Input['HumanTaskUIUiTemplateArgs'],
+                 ui_template: pulumi.Input['HumanTaskUIUiTemplateArrgs'],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a HumanTaskUI resource.
         :param pulumi.Input[str] human_task_ui_name: The name of the Human Task UI.
-        :param pulumi.Input['HumanTaskUIUiTemplateArgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
+        :param pulumi.Input['HumanTaskUIUiTemplateArrgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "human_task_ui_name", human_task_ui_name)
@@ -44,14 +44,14 @@ class HumanTaskUIArgs:
 
     @property
     @pulumi.getter(name="uiTemplate")
-    def ui_template(self) -> pulumi.Input['HumanTaskUIUiTemplateArgs']:
+    def ui_template(self) -> pulumi.Input['HumanTaskUIUiTemplateArrgs']:
         """
         The Liquid template for the worker user interface. See UI Template below.
         """
         return pulumi.get(self, "ui_template")
 
     @ui_template.setter
-    def ui_template(self, value: pulumi.Input['HumanTaskUIUiTemplateArgs']):
+    def ui_template(self, value: pulumi.Input['HumanTaskUIUiTemplateArrgs']):
         pulumi.set(self, "ui_template", value)
 
     @property
@@ -68,20 +68,20 @@ class HumanTaskUIArgs:
 
 
 @pulumi.input_type
-class _HumanTaskUIState:
+calass _HumanTaskUIState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  human_task_ui_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_template: Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']] = None):
+                 ui_template: Optional[pulumi.Input['HumanTaskUIUiTemplateArrgs']] = None):
         """
         Input properties used for looking up and filtering HumanTaskUI resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
         :param pulumi.Input[str] human_task_ui_name: The name of the Human Task UI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['HumanTaskUIUiTemplateArgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
+        :param pulumi.Input['HumanTaskUIUiTemplateArrgs'] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -150,25 +150,25 @@ class _HumanTaskUIState:
 
     @property
     @pulumi.getter(name="uiTemplate")
-    def ui_template(self) -> Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']]:
+    def ui_template(self) -> Optional[pulumi.Input['HumanTaskUIUiTemplateArrgs']]:
         """
         The Liquid template for the worker user interface. See UI Template below.
         """
         return pulumi.get(self, "ui_template")
 
     @ui_template.setter
-    def ui_template(self, value: Optional[pulumi.Input['HumanTaskUIUiTemplateArgs']]):
+    def ui_template(self, value: Optional[pulumi.Input['HumanTaskUIUiTemplateArrgs']]):
         pulumi.set(self, "ui_template", value)
 
 
-class HumanTaskUI(pulumi.CustomResource):
+calass HumanTaskUI(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  human_task_ui_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_template: Optional[pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArgs']]] = None,
+                 ui_template: Optional[pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArrgs']]] = None,
                  __props__=None):
         """
         Provides a SageMaker Human Task UI resource.
@@ -181,7 +181,7 @@ class HumanTaskUI(pulumi.CustomResource):
 
         example = aws.sagemaker.HumanTaskUI("example",
             human_task_ui_name="example",
-            ui_template=aws.sagemaker.HumanTaskUIUiTemplateArgs(
+            ui_template=aws.sagemaker.HumanTaskUIUiTemplateArrgs(
                 content=(lambda path: open(path).read())("sagemaker-human-task-ui-template.html"),
             ))
         ```
@@ -198,13 +198,13 @@ class HumanTaskUI(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] human_task_ui_name: The name of the Human Task UI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArgs']] ui_template: The Liquid template for the worker user interface. See UI Template below.
+        :param pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArrgs']] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HumanTaskUIArgs,
+                 args: HumanTaskUIArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker Human Task UI resource.
@@ -217,7 +217,7 @@ class HumanTaskUI(pulumi.CustomResource):
 
         example = aws.sagemaker.HumanTaskUI("example",
             human_task_ui_name="example",
-            ui_template=aws.sagemaker.HumanTaskUIUiTemplateArgs(
+            ui_template=aws.sagemaker.HumanTaskUIUiTemplateArrgs(
                 content=(lambda path: open(path).read())("sagemaker-human-task-ui-template.html"),
             ))
         ```
@@ -231,12 +231,12 @@ class HumanTaskUI(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HumanTaskUIArgs args: The arguments to use to populate this resource's properties.
+        :param HumanTaskUIArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HumanTaskUIArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HumanTaskUIArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -247,7 +247,7 @@ class HumanTaskUI(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  human_task_ui_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 ui_template: Optional[pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArgs']]] = None,
+                 ui_template: Optional[pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -255,7 +255,7 @@ class HumanTaskUI(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HumanTaskUIArgs.__new__(HumanTaskUIArgs)
+            __props__ = HumanTaskUIArrgs.__new__(HumanTaskUIArrgs)
 
             if human_task_ui_name is None and not opts.urn:
                 raise TypeError("Missing required property 'human_task_ui_name'")
@@ -282,7 +282,7 @@ class HumanTaskUI(pulumi.CustomResource):
             human_task_ui_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            ui_template: Optional[pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArgs']]] = None) -> 'HumanTaskUI':
+            ui_template: Optional[pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArrgs']]] = None) -> 'HumanTaskUI':
         """
         Get an existing HumanTaskUI resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -294,7 +294,7 @@ class HumanTaskUI(pulumi.CustomResource):
         :param pulumi.Input[str] human_task_ui_name: The name of the Human Task UI.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArgs']] ui_template: The Liquid template for the worker user interface. See UI Template below.
+        :param pulumi.Input[pulumi.InputType['HumanTaskUIUiTemplateArrgs']] ui_template: The Liquid template for the worker user interface. See UI Template below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

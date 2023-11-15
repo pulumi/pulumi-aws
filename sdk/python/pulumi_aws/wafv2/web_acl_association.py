@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WebAclAssociationArgs', 'WebAclAssociation']
+__all__ = ['WebAclAssociationArrgs', 'WebAclAssociation']
 
 @pulumi.input_type
-class WebAclAssociationArgs:
+calass WebAclAssociationArrgs:
     def __init__(__self__, *,
                  resource_arn: pulumi.Input[str],
                  web_acl_arn: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class WebAclAssociationArgs:
 
 
 @pulumi.input_type
-class _WebAclAssociationState:
+calass _WebAclAssociationState:
     def __init__(__self__, *,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  web_acl_arn: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _WebAclAssociationState:
         pulumi.set(self, "web_acl_arn", value)
 
 
-class WebAclAssociation(pulumi.CustomResource):
+calass WebAclAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -142,10 +142,10 @@ class WebAclAssociation(pulumi.CustomResource):
             stage_name="example")
         example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
             scope="REGIONAL",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            default_action=aws.wafv2.WebAclDefaultActionArrgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArrgs(),
             ),
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArrgs(
                 cloudwatch_metrics_enabled=False,
                 metric_name="friendly-metric-name",
                 sampled_requests_enabled=False,
@@ -172,7 +172,7 @@ class WebAclAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebAclAssociationArgs,
+                 args: WebAclAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a WAFv2 Web ACL Association.
@@ -219,10 +219,10 @@ class WebAclAssociation(pulumi.CustomResource):
             stage_name="example")
         example_web_acl = aws.wafv2.WebAcl("exampleWebAcl",
             scope="REGIONAL",
-            default_action=aws.wafv2.WebAclDefaultActionArgs(
-                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
+            default_action=aws.wafv2.WebAclDefaultActionArrgs(
+                allow=aws.wafv2.WebAclDefaultActionAllowArrgs(),
             ),
-            visibility_config=aws.wafv2.WebAclVisibilityConfigArgs(
+            visibility_config=aws.wafv2.WebAclVisibilityConfigArrgs(
                 cloudwatch_metrics_enabled=False,
                 metric_name="friendly-metric-name",
                 sampled_requests_enabled=False,
@@ -241,12 +241,12 @@ class WebAclAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WebAclAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param WebAclAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebAclAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAclAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -264,7 +264,7 @@ class WebAclAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebAclAssociationArgs.__new__(WebAclAssociationArgs)
+            __props__ = WebAclAssociationArrgs.__new__(WebAclAssociationArrgs)
 
             if resource_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_arn'")

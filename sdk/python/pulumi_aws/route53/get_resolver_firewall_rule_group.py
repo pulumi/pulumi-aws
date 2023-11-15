@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResolverFirewallRuleGroupResult:
+calass GetResolverFirewallRuleGroupResult:
     """
     A collection of values returned by getResolverFirewallRuleGroup.
     """
@@ -123,7 +123,7 @@ class GetResolverFirewallRuleGroupResult:
         return pulumi.get(self, "status_message")
 
 
-class AwaitableGetResolverFirewallRuleGroupResult(GetResolverFirewallRuleGroupResult):
+calass AwaitableGetResolverFirewallRuleGroupResult(GetResolverFirewallRuleGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

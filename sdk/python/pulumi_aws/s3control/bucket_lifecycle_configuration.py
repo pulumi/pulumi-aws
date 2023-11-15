@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfiguration']
+__all__ = ['BucketLifecycleConfigurationArrgs', 'BucketLifecycleConfiguration']
 
 @pulumi.input_type
-class BucketLifecycleConfigurationArgs:
+calass BucketLifecycleConfigurationArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
-                 rules: pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]):
+                 rules: pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArrgs']]]):
         """
         The set of arguments for constructing a BucketLifecycleConfiguration resource.
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArrgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "rules", rules)
@@ -40,26 +40,26 @@ class BucketLifecycleConfigurationArgs:
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]:
+    def rules(self) -> pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArrgs']]]:
         """
         Configuration block(s) containing lifecycle rules for the bucket.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]):
+    def rules(self, value: pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArrgs']]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class _BucketLifecycleConfigurationState:
+calass _BucketLifecycleConfigurationState:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]] = None):
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArrgs']]]] = None):
         """
         Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArrgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -80,24 +80,24 @@ class _BucketLifecycleConfigurationState:
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArrgs']]]]:
         """
         Configuration block(s) containing lifecycle rules for the bucket.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
 
-class BucketLifecycleConfiguration(pulumi.CustomResource):
+calass BucketLifecycleConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArrgs']]]]] = None,
                  __props__=None):
         """
         Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
@@ -115,20 +115,20 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         example = aws.s3control.BucketLifecycleConfiguration("example",
             bucket=aws_s3control_bucket["example"]["arn"],
             rules=[
-                aws.s3control.BucketLifecycleConfigurationRuleArgs(
-                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
+                aws.s3control.BucketLifecycleConfigurationRuleArrgs(
+                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArrgs(
                         days=365,
                     ),
-                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
+                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArrgs(
                         prefix="logs/",
                     ),
                     id="logs",
                 ),
-                aws.s3control.BucketLifecycleConfigurationRuleArgs(
-                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
+                aws.s3control.BucketLifecycleConfigurationRuleArrgs(
+                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArrgs(
                         days=7,
                     ),
-                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
+                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArrgs(
                         prefix="temp/",
                     ),
                     id="temp",
@@ -147,13 +147,13 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArgs']]]] rules: Configuration block(s) containing lifecycle rules for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArrgs']]]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BucketLifecycleConfigurationArgs,
+                 args: BucketLifecycleConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an S3 Control Bucket Lifecycle Configuration.
@@ -171,20 +171,20 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         example = aws.s3control.BucketLifecycleConfiguration("example",
             bucket=aws_s3control_bucket["example"]["arn"],
             rules=[
-                aws.s3control.BucketLifecycleConfigurationRuleArgs(
-                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
+                aws.s3control.BucketLifecycleConfigurationRuleArrgs(
+                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArrgs(
                         days=365,
                     ),
-                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
+                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArrgs(
                         prefix="logs/",
                     ),
                     id="logs",
                 ),
-                aws.s3control.BucketLifecycleConfigurationRuleArgs(
-                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArgs(
+                aws.s3control.BucketLifecycleConfigurationRuleArrgs(
+                    expiration=aws.s3control.BucketLifecycleConfigurationRuleExpirationArrgs(
                         days=7,
                     ),
-                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArgs(
+                    filter=aws.s3control.BucketLifecycleConfigurationRuleFilterArrgs(
                         prefix="temp/",
                     ),
                     id="temp",
@@ -201,12 +201,12 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BucketLifecycleConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param BucketLifecycleConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BucketLifecycleConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BucketLifecycleConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,7 +216,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArgs']]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -224,7 +224,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BucketLifecycleConfigurationArgs.__new__(BucketLifecycleConfigurationArgs)
+            __props__ = BucketLifecycleConfigurationArrgs.__new__(BucketLifecycleConfigurationArrgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
@@ -243,7 +243,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bucket: Optional[pulumi.Input[str]] = None,
-            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArgs']]]]] = None) -> 'BucketLifecycleConfiguration':
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArrgs']]]]] = None) -> 'BucketLifecycleConfiguration':
         """
         Get an existing BucketLifecycleConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -252,7 +252,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: Amazon Resource Name (ARN) of the bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArgs']]]] rules: Configuration block(s) containing lifecycle rules for the bucket.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BucketLifecycleConfigurationRuleArrgs']]]] rules: Configuration block(s) containing lifecycle rules for the bucket.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

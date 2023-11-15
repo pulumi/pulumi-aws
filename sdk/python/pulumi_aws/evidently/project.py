@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ProjectArgs', 'Project']
+__all__ = ['ProjectArrgs', 'Project']
 
 @pulumi.input_type
-class ProjectArgs:
+calass ProjectArrgs:
     def __init__(__self__, *,
-                 data_delivery: Optional[pulumi.Input['ProjectDataDeliveryArgs']] = None,
+                 data_delivery: Optional[pulumi.Input['ProjectDataDeliveryArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input['ProjectDataDeliveryArgs'] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input['ProjectDataDeliveryArrgs'] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[str] description: Specifies the description of the project.
         :param pulumi.Input[str] name: A name for the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -38,14 +38,14 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="dataDelivery")
-    def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryArgs']]:
+    def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryArrgs']]:
         """
         A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         """
         return pulumi.get(self, "data_delivery")
 
     @data_delivery.setter
-    def data_delivery(self, value: Optional[pulumi.Input['ProjectDataDeliveryArgs']]):
+    def data_delivery(self, value: Optional[pulumi.Input['ProjectDataDeliveryArrgs']]):
         pulumi.set(self, "data_delivery", value)
 
     @property
@@ -86,13 +86,13 @@ class ProjectArgs:
 
 
 @pulumi.input_type
-class _ProjectState:
+calass _ProjectState:
     def __init__(__self__, *,
                  active_experiment_count: Optional[pulumi.Input[int]] = None,
                  active_launch_count: Optional[pulumi.Input[int]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
-                 data_delivery: Optional[pulumi.Input['ProjectDataDeliveryArgs']] = None,
+                 data_delivery: Optional[pulumi.Input['ProjectDataDeliveryArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  experiment_count: Optional[pulumi.Input[int]] = None,
                  feature_count: Optional[pulumi.Input[int]] = None,
@@ -108,7 +108,7 @@ class _ProjectState:
         :param pulumi.Input[int] active_launch_count: The number of ongoing launches currently in the project.
         :param pulumi.Input[str] arn: The ARN of the project.
         :param pulumi.Input[str] created_time: The date and time that the project is created.
-        :param pulumi.Input['ProjectDataDeliveryArgs'] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input['ProjectDataDeliveryArrgs'] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[str] description: Specifies the description of the project.
         :param pulumi.Input[int] experiment_count: The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
         :param pulumi.Input[int] feature_count: The number of features currently in the project.
@@ -201,14 +201,14 @@ class _ProjectState:
 
     @property
     @pulumi.getter(name="dataDelivery")
-    def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryArgs']]:
+    def data_delivery(self) -> Optional[pulumi.Input['ProjectDataDeliveryArrgs']]:
         """
         A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         """
         return pulumi.get(self, "data_delivery")
 
     @data_delivery.setter
-    def data_delivery(self, value: Optional[pulumi.Input['ProjectDataDeliveryArgs']]):
+    def data_delivery(self, value: Optional[pulumi.Input['ProjectDataDeliveryArrgs']]):
         pulumi.set(self, "data_delivery", value)
 
     @property
@@ -323,12 +323,12 @@ class _ProjectState:
         pulumi.set(self, "tags_all", value)
 
 
-class Project(pulumi.CustomResource):
+calass Project(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']]] = None,
+                 data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -356,8 +356,8 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
+            data_delivery=aws.evidently.ProjectDataDeliveryArrgs(
+                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArrgs(
                     log_group="example-log-group-name",
                 ),
             ),
@@ -373,8 +373,8 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
+            data_delivery=aws.evidently.ProjectDataDeliveryArrgs(
+                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArrgs(
                     bucket="example-bucket-name",
                     prefix="example",
                 ),
@@ -395,7 +395,7 @@ class Project(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryArrgs']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[str] description: Specifies the description of the project.
         :param pulumi.Input[str] name: A name for the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the project. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -404,7 +404,7 @@ class Project(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ProjectArgs] = None,
+                 args: Optional[ProjectArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Evidently Project resource.
@@ -429,8 +429,8 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArgs(
+            data_delivery=aws.evidently.ProjectDataDeliveryArrgs(
+                cloudwatch_logs=aws.evidently.ProjectDataDeliveryCloudwatchLogsArrgs(
                     log_group="example-log-group-name",
                 ),
             ),
@@ -446,8 +446,8 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
-            data_delivery=aws.evidently.ProjectDataDeliveryArgs(
-                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArgs(
+            data_delivery=aws.evidently.ProjectDataDeliveryArrgs(
+                s3_destination=aws.evidently.ProjectDataDeliveryS3DestinationArrgs(
                     bucket="example-bucket-name",
                     prefix="example",
                 ),
@@ -467,12 +467,12 @@ class Project(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProjectArgs args: The arguments to use to populate this resource's properties.
+        :param ProjectArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -481,7 +481,7 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']]] = None,
+                 data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -492,7 +492,7 @@ class Project(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProjectArgs.__new__(ProjectArgs)
+            __props__ = ProjectArrgs.__new__(ProjectArrgs)
 
             __props__.__dict__["data_delivery"] = data_delivery
             __props__.__dict__["description"] = description
@@ -524,7 +524,7 @@ class Project(pulumi.CustomResource):
             active_launch_count: Optional[pulumi.Input[int]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
-            data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']]] = None,
+            data_delivery: Optional[pulumi.Input[pulumi.InputType['ProjectDataDeliveryArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             experiment_count: Optional[pulumi.Input[int]] = None,
             feature_count: Optional[pulumi.Input[int]] = None,
@@ -545,7 +545,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[int] active_launch_count: The number of ongoing launches currently in the project.
         :param pulumi.Input[str] arn: The ARN of the project.
         :param pulumi.Input[str] created_time: The date and time that the project is created.
-        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryArgs']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
+        :param pulumi.Input[pulumi.InputType['ProjectDataDeliveryArrgs']] data_delivery: A block that contains information about where Evidently is to store evaluation events for longer term storage, if you choose to do so. If you choose not to store these events, Evidently deletes them after using them to produce metrics and other experiment results that you can view. See below.
         :param pulumi.Input[str] description: Specifies the description of the project.
         :param pulumi.Input[int] experiment_count: The number of experiments currently in the project. This includes all experiments that have been created and not deleted, whether they are ongoing or not.
         :param pulumi.Input[int] feature_count: The number of features currently in the project.

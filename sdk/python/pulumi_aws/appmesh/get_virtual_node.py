@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualNodeResult:
+calass GetVirtualNodeResult:
     """
     A collection of values returned by getVirtualNode.
     """
@@ -126,7 +126,7 @@ class GetVirtualNodeResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVirtualNodeResult(GetVirtualNodeResult):
+calass AwaitableGetVirtualNodeResult(GetVirtualNodeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

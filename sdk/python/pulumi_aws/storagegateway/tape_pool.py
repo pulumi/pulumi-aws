@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TapePoolArgs', 'TapePool']
+__all__ = ['TapePoolArrgs', 'TapePool']
 
 @pulumi.input_type
-class TapePoolArgs:
+calass TapePoolArrgs:
     def __init__(__self__, *,
                  pool_name: pulumi.Input[str],
                  storage_class: pulumi.Input[str],
@@ -98,7 +98,7 @@ class TapePoolArgs:
 
 
 @pulumi.input_type
-class _TapePoolState:
+calass _TapePoolState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
@@ -223,7 +223,7 @@ class _TapePoolState:
         pulumi.set(self, "tags_all", value)
 
 
-class TapePool(pulumi.CustomResource):
+calass TapePool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -268,7 +268,7 @@ class TapePool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TapePoolArgs,
+                 args: TapePoolArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Storage Gateway Tape Pool.
@@ -293,12 +293,12 @@ class TapePool(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TapePoolArgs args: The arguments to use to populate this resource's properties.
+        :param TapePoolArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TapePoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TapePoolArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -319,7 +319,7 @@ class TapePool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TapePoolArgs.__new__(TapePoolArgs)
+            __props__ = TapePoolArrgs.__new__(TapePoolArrgs)
 
             if pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_name'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServerlessSecurityPolicyArgs', 'ServerlessSecurityPolicy']
+__all__ = ['ServerlessSecurityPolicyArrgs', 'ServerlessSecurityPolicy']
 
 @pulumi.input_type
-class ServerlessSecurityPolicyArgs:
+calass ServerlessSecurityPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -86,7 +86,7 @@ class ServerlessSecurityPolicyArgs:
 
 
 @pulumi.input_type
-class _ServerlessSecurityPolicyState:
+calass _ServerlessSecurityPolicyState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -177,7 +177,7 @@ class _ServerlessSecurityPolicyState:
         pulumi.set(self, "type", value)
 
 
-class ServerlessSecurityPolicy(pulumi.CustomResource):
+calass ServerlessSecurityPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -358,7 +358,7 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerlessSecurityPolicyArgs,
+                 args: ServerlessSecurityPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS OpenSearch Serverless Security Policy. See AWS documentation for [encryption policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-encryption.html#serverless-encryption-policies) and [network policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-network.html#serverless-network-policies).
@@ -519,12 +519,12 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerlessSecurityPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ServerlessSecurityPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerlessSecurityPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerlessSecurityPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -544,7 +544,7 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerlessSecurityPolicyArgs.__new__(ServerlessSecurityPolicyArgs)
+            __props__ = ServerlessSecurityPolicyArrgs.__new__(ServerlessSecurityPolicyArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

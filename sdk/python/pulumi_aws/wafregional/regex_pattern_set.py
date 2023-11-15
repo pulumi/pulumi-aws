@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RegexPatternSetArgs', 'RegexPatternSet']
+__all__ = ['RegexPatternSetArrgs', 'RegexPatternSet']
 
 @pulumi.input_type
-class RegexPatternSetArgs:
+calass RegexPatternSetArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  regex_pattern_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -52,7 +52,7 @@ class RegexPatternSetArgs:
 
 
 @pulumi.input_type
-class _RegexPatternSetState:
+calass _RegexPatternSetState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  regex_pattern_strings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -91,7 +91,7 @@ class _RegexPatternSetState:
         pulumi.set(self, "regex_pattern_strings", value)
 
 
-class RegexPatternSet(pulumi.CustomResource):
+calass RegexPatternSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +131,7 @@ class RegexPatternSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[RegexPatternSetArgs] = None,
+                 args: Optional[RegexPatternSetArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a WAF Regional Regex Pattern Set Resource
@@ -157,12 +157,12 @@ class RegexPatternSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegexPatternSetArgs args: The arguments to use to populate this resource's properties.
+        :param RegexPatternSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegexPatternSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegexPatternSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -180,7 +180,7 @@ class RegexPatternSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegexPatternSetArgs.__new__(RegexPatternSetArgs)
+            __props__ = RegexPatternSetArrgs.__new__(RegexPatternSetArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["regex_pattern_strings"] = regex_pattern_strings

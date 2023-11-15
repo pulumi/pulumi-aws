@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['KeyPairArgs', 'KeyPair']
+__all__ = ['KeyPairArrgs', 'KeyPair']
 
 @pulumi.input_type
-class KeyPairArgs:
+calass KeyPairArrgs:
     def __init__(__self__, *,
                  public_key: pulumi.Input[str],
                  key_name: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class KeyPairArgs:
 
 
 @pulumi.input_type
-class _KeyPairState:
+calass _KeyPairState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  fingerprint: Optional[pulumi.Input[str]] = None,
@@ -240,7 +240,7 @@ class _KeyPairState:
         pulumi.set(self, "tags_all", value)
 
 
-class KeyPair(pulumi.CustomResource):
+calass KeyPair(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -290,7 +290,7 @@ class KeyPair(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KeyPairArgs,
+                 args: KeyPairArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an [EC2 key pair](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html) resource. A key pair is used to control login access to EC2 instances.
@@ -322,12 +322,12 @@ class KeyPair(pulumi.CustomResource):
          ~> __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
 
         :param str resource_name: The name of the resource.
-        :param KeyPairArgs args: The arguments to use to populate this resource's properties.
+        :param KeyPairArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KeyPairArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KeyPairArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -347,7 +347,7 @@ class KeyPair(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KeyPairArgs.__new__(KeyPairArgs)
+            __props__ = KeyPairArrgs.__new__(KeyPairArrgs)
 
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["key_name_prefix"] = key_name_prefix

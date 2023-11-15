@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IndexArgs', 'Index']
+__all__ = ['IndexArrgs', 'Index']
 
 @pulumi.input_type
-class IndexArgs:
+calass IndexArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['IndexTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['IndexTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a Index resource.
         :param pulumi.Input[str] type: The type of the index. Valid values: `AGGREGATOR`, `LOCAL`. To understand the difference between `LOCAL` and `AGGREGATOR`, see the [_AWS Resource Explorer User Guide_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html).
@@ -56,21 +56,21 @@ class IndexArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['IndexTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['IndexTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['IndexTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['IndexTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _IndexState:
+calass _IndexState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['IndexTimeoutsArgs']] = None,
+                 timeouts: Optional[pulumi.Input['IndexTimeoutsArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Index resources.
@@ -134,11 +134,11 @@ class _IndexState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['IndexTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['IndexTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['IndexTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['IndexTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
     @property
@@ -154,13 +154,13 @@ class _IndexState:
         pulumi.set(self, "type", value)
 
 
-class Index(pulumi.CustomResource):
+calass Index(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -192,7 +192,7 @@ class Index(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IndexArgs,
+                 args: IndexArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a Resource Explorer index in the current AWS Region.
@@ -215,12 +215,12 @@ class Index(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IndexArgs args: The arguments to use to populate this resource's properties.
+        :param IndexArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IndexArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IndexArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -230,7 +230,7 @@ class Index(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -239,7 +239,7 @@ class Index(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IndexArgs.__new__(IndexArgs)
+            __props__ = IndexArrgs.__new__(IndexArrgs)
 
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -263,7 +263,7 @@ class Index(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[pulumi.InputType['IndexTimeoutsArrgs']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Index':
         """
         Get an existing Index resource's state with the given name, id, and optional extra

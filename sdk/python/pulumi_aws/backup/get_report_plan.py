@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReportPlanResult:
+calass GetReportPlanResult:
     """
     A collection of values returned by getReportPlan.
     """
@@ -121,7 +121,7 @@ class GetReportPlanResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetReportPlanResult(GetReportPlanResult):
+calass AwaitableGetReportPlanResult(GetReportPlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

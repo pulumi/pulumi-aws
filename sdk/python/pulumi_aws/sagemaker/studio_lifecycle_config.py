@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StudioLifecycleConfigArgs', 'StudioLifecycleConfig']
+__all__ = ['StudioLifecycleConfigArrgs', 'StudioLifecycleConfig']
 
 @pulumi.input_type
-class StudioLifecycleConfigArgs:
+calass StudioLifecycleConfigArrgs:
     def __init__(__self__, *,
                  studio_lifecycle_config_app_type: pulumi.Input[str],
                  studio_lifecycle_config_content: pulumi.Input[str],
@@ -81,7 +81,7 @@ class StudioLifecycleConfigArgs:
 
 
 @pulumi.input_type
-class _StudioLifecycleConfigState:
+calass _StudioLifecycleConfigState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  studio_lifecycle_config_app_type: Optional[pulumi.Input[str]] = None,
@@ -190,7 +190,7 @@ class _StudioLifecycleConfigState:
         pulumi.set(self, "tags_all", value)
 
 
-class StudioLifecycleConfig(pulumi.CustomResource):
+calass StudioLifecycleConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -224,7 +224,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StudioLifecycleConfigArgs,
+                 args: StudioLifecycleConfigArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker Studio Lifecycle Config resource.
@@ -240,12 +240,12 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StudioLifecycleConfigArgs args: The arguments to use to populate this resource's properties.
+        :param StudioLifecycleConfigArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StudioLifecycleConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StudioLifecycleConfigArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -265,7 +265,7 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StudioLifecycleConfigArgs.__new__(StudioLifecycleConfigArgs)
+            __props__ = StudioLifecycleConfigArrgs.__new__(StudioLifecycleConfigArrgs)
 
             if studio_lifecycle_config_app_type is None and not opts.urn:
                 raise TypeError("Missing required property 'studio_lifecycle_config_app_type'")

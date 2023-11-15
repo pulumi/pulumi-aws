@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BgpPeerArgs', 'BgpPeer']
+__all__ = ['BgpPeerArrgs', 'BgpPeer']
 
 @pulumi.input_type
-class BgpPeerArgs:
+calass BgpPeerArrgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[str],
                  bgp_asn: pulumi.Input[int],
@@ -117,7 +117,7 @@ class BgpPeerArgs:
 
 
 @pulumi.input_type
-class _BgpPeerState:
+calass _BgpPeerState:
     def __init__(__self__, *,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
@@ -272,7 +272,7 @@ class _BgpPeerState:
         pulumi.set(self, "virtual_interface_id", value)
 
 
-class BgpPeer(pulumi.CustomResource):
+calass BgpPeer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -314,7 +314,7 @@ class BgpPeer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BgpPeerArgs,
+                 args: BgpPeerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Direct Connect BGP peer resource.
@@ -332,12 +332,12 @@ class BgpPeer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BgpPeerArgs args: The arguments to use to populate this resource's properties.
+        :param BgpPeerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BgpPeerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BgpPeerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -359,7 +359,7 @@ class BgpPeer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BgpPeerArgs.__new__(BgpPeerArgs)
+            __props__ = BgpPeerArrgs.__new__(BgpPeerArrgs)
 
             if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")

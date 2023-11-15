@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EipArgs', 'Eip']
+__all__ = ['EipArrgs', 'Eip']
 
 @pulumi.input_type
-class EipArgs:
+calass EipArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  associate_with_private_ip: Optional[pulumi.Input[str]] = None,
@@ -200,7 +200,7 @@ class EipArgs:
 
 
 @pulumi.input_type
-class _EipState:
+calass _EipState:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  allocation_id: Optional[pulumi.Input[str]] = None,
@@ -537,7 +537,7 @@ class _EipState:
         pulumi.set(self, "vpc", value)
 
 
-class Eip(pulumi.CustomResource):
+calass Eip(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -661,7 +661,7 @@ class Eip(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[EipArgs] = None,
+                 args: Optional[EipArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic IP resource.
@@ -748,12 +748,12 @@ class Eip(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EipArgs args: The arguments to use to populate this resource's properties.
+        :param EipArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EipArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EipArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -779,7 +779,7 @@ class Eip(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EipArgs.__new__(EipArgs)
+            __props__ = EipArrgs.__new__(EipArrgs)
 
             __props__.__dict__["address"] = address
             __props__.__dict__["associate_with_private_ip"] = associate_with_private_ip

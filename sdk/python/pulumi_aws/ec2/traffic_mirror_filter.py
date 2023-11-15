@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TrafficMirrorFilterArgs', 'TrafficMirrorFilter']
+__all__ = ['TrafficMirrorFilterArrgs', 'TrafficMirrorFilter']
 
 @pulumi.input_type
-class TrafficMirrorFilterArgs:
+calass TrafficMirrorFilterArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  network_services: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -68,7 +68,7 @@ class TrafficMirrorFilterArgs:
 
 
 @pulumi.input_type
-class _TrafficMirrorFilterState:
+calass _TrafficMirrorFilterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -161,7 +161,7 @@ class _TrafficMirrorFilterState:
         pulumi.set(self, "tags_all", value)
 
 
-class TrafficMirrorFilter(pulumi.CustomResource):
+calass TrafficMirrorFilter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -205,7 +205,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TrafficMirrorFilterArgs] = None,
+                 args: Optional[TrafficMirrorFilterArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Traffic mirror filter.\\
@@ -233,12 +233,12 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TrafficMirrorFilterArgs args: The arguments to use to populate this resource's properties.
+        :param TrafficMirrorFilterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrafficMirrorFilterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrafficMirrorFilterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -257,7 +257,7 @@ class TrafficMirrorFilter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrafficMirrorFilterArgs.__new__(TrafficMirrorFilterArgs)
+            __props__ = TrafficMirrorFilterArrgs.__new__(TrafficMirrorFilterArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["network_services"] = network_services

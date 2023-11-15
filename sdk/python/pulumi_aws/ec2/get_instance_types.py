@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstanceTypesResult:
+calass GetInstanceTypesResult:
     """
     A collection of values returned by getInstanceTypes.
     """
@@ -56,7 +56,7 @@ class GetInstanceTypesResult:
         return pulumi.get(self, "instance_types")
 
 
-class AwaitableGetInstanceTypesResult(GetInstanceTypesResult):
+calass AwaitableGetInstanceTypesResult(GetInstanceTypesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -67,7 +67,7 @@ class AwaitableGetInstanceTypesResult(GetInstanceTypesResult):
             instance_types=self.instance_types)
 
 
-def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceTypesFilterArgs']]] = None,
+def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceTypesFilterArrgs']]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceTypesResult:
     """
     Information about EC2 Instance Types.
@@ -79,19 +79,19 @@ def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceT
     import pulumi_aws as aws
 
     test = aws.ec2.get_instance_types(filters=[
-        aws.ec2.GetInstanceTypesFilterArgs(
+        aws.ec2.GetInstanceTypesFilterArrgs(
             name="auto-recovery-supported",
             values=["true"],
         ),
-        aws.ec2.GetInstanceTypesFilterArgs(
+        aws.ec2.GetInstanceTypesFilterArrgs(
             name="network-info.encryption-in-transit-supported",
             values=["true"],
         ),
-        aws.ec2.GetInstanceTypesFilterArgs(
+        aws.ec2.GetInstanceTypesFilterArrgs(
             name="instance-storage-supported",
             values=["true"],
         ),
-        aws.ec2.GetInstanceTypesFilterArgs(
+        aws.ec2.GetInstanceTypesFilterArrgs(
             name="instance-type",
             values=[
                 "g5.2xlarge",
@@ -102,7 +102,7 @@ def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceT
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstanceTypesFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstanceTypesFilterArrgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -116,7 +116,7 @@ def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceT
 
 
 @_utilities.lift_output_func(get_instance_types)
-def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypesFilterArgs']]]]] = None,
+def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceTypesFilterArrgs']]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceTypesResult]:
     """
     Information about EC2 Instance Types.
@@ -128,19 +128,19 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi_aws as aws
 
     test = aws.ec2.get_instance_types(filters=[
-        aws.ec2.GetInstanceTypesFilterArgs(
+        aws.ec2.GetInstanceTypesFilterArrgs(
             name="auto-recovery-supported",
             values=["true"],
         ),
-        aws.ec2.GetInstanceTypesFilterArgs(
+        aws.ec2.GetInstanceTypesFilterArrgs(
             name="network-info.encryption-in-transit-supported",
             values=["true"],
         ),
-        aws.ec2.GetInstanceTypesFilterArgs(
+        aws.ec2.GetInstanceTypesFilterArrgs(
             name="instance-storage-supported",
             values=["true"],
         ),
-        aws.ec2.GetInstanceTypesFilterArgs(
+        aws.ec2.GetInstanceTypesFilterArrgs(
             name="instance-type",
             values=[
                 "g5.2xlarge",
@@ -151,6 +151,6 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstanceTypesFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstanceTypesFilterArrgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
     """
     ...

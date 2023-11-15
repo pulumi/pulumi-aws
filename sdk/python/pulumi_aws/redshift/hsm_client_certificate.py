@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HsmClientCertificateArgs', 'HsmClientCertificate']
+__all__ = ['HsmClientCertificateArrgs', 'HsmClientCertificate']
 
 @pulumi.input_type
-class HsmClientCertificateArgs:
+calass HsmClientCertificateArrgs:
     def __init__(__self__, *,
                  hsm_client_certificate_identifier: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -51,7 +51,7 @@ class HsmClientCertificateArgs:
 
 
 @pulumi.input_type
-class _HsmClientCertificateState:
+calass _HsmClientCertificateState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  hsm_client_certificate_identifier: Optional[pulumi.Input[str]] = None,
@@ -144,7 +144,7 @@ class _HsmClientCertificateState:
         pulumi.set(self, "tags_all", value)
 
 
-class HsmClientCertificate(pulumi.CustomResource):
+calass HsmClientCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -181,7 +181,7 @@ class HsmClientCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HsmClientCertificateArgs,
+                 args: HsmClientCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an HSM client certificate that an Amazon Redshift cluster will use to connect to the client's HSM in order to store and retrieve the keys used to encrypt the cluster databases.
@@ -204,12 +204,12 @@ class HsmClientCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HsmClientCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param HsmClientCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HsmClientCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HsmClientCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -227,7 +227,7 @@ class HsmClientCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HsmClientCertificateArgs.__new__(HsmClientCertificateArgs)
+            __props__ = HsmClientCertificateArrgs.__new__(HsmClientCertificateArrgs)
 
             if hsm_client_certificate_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'hsm_client_certificate_identifier'")

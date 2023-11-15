@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSamlProviderResult:
+calass GetSamlProviderResult:
     """
     A collection of values returned by getSamlProvider.
     """
@@ -98,7 +98,7 @@ class GetSamlProviderResult:
         return pulumi.get(self, "valid_until")
 
 
-class AwaitableGetSamlProviderResult(GetSamlProviderResult):
+calass AwaitableGetSamlProviderResult(GetSamlProviderResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

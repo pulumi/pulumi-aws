@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['InstanceStateArgs', 'InstanceState']
+__all__ = ['InstanceStateArrgs', 'InstanceState']
 
 @pulumi.input_type
-class InstanceStateArgs:
+calass InstanceStateArrgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[str],
                  state: pulumi.Input[str],
@@ -70,7 +70,7 @@ class InstanceStateArgs:
 
 
 @pulumi.input_type
-class _InstanceStateState:
+calass _InstanceStateState:
     def __init__(__self__, *,
                  force: Optional[pulumi.Input[bool]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class _InstanceStateState:
         pulumi.set(self, "state", value)
 
 
-class InstanceState(pulumi.CustomResource):
+calass InstanceState(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -151,11 +151,11 @@ class InstanceState(pulumi.CustomResource):
 
         ubuntu = aws.ec2.get_ami(most_recent=True,
             filters=[
-                aws.ec2.GetAmiFilterArgs(
+                aws.ec2.GetAmiFilterArrgs(
                     name="name",
                     values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
                 ),
-                aws.ec2.GetAmiFilterArgs(
+                aws.ec2.GetAmiFilterArrgs(
                     name="virtualization-type",
                     values=["hvm"],
                 ),
@@ -192,7 +192,7 @@ class InstanceState(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InstanceStateArgs,
+                 args: InstanceStateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EC2 instance state resource. This allows managing an instance power state.
@@ -207,11 +207,11 @@ class InstanceState(pulumi.CustomResource):
 
         ubuntu = aws.ec2.get_ami(most_recent=True,
             filters=[
-                aws.ec2.GetAmiFilterArgs(
+                aws.ec2.GetAmiFilterArrgs(
                     name="name",
                     values=["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"],
                 ),
-                aws.ec2.GetAmiFilterArgs(
+                aws.ec2.GetAmiFilterArrgs(
                     name="virtualization-type",
                     values=["hvm"],
                 ),
@@ -237,12 +237,12 @@ class InstanceState(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InstanceStateArgs args: The arguments to use to populate this resource's properties.
+        :param InstanceStateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InstanceStateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceStateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -261,7 +261,7 @@ class InstanceState(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InstanceStateArgs.__new__(InstanceStateArgs)
+            __props__ = InstanceStateArrgs.__new__(InstanceStateArrgs)
 
             __props__.__dict__["force"] = force
             if instance_id is None and not opts.urn:

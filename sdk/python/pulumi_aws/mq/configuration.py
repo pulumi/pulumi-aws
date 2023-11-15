@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConfigurationArgs', 'Configuration']
+__all__ = ['ConfigurationArrgs', 'Configuration']
 
 @pulumi.input_type
-class ConfigurationArgs:
+calass ConfigurationArrgs:
     def __init__(__self__, *,
                  data: pulumi.Input[str],
                  engine_type: pulumi.Input[str],
@@ -133,7 +133,7 @@ class ConfigurationArgs:
 
 
 @pulumi.input_type
-class _ConfigurationState:
+calass _ConfigurationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
@@ -310,7 +310,7 @@ class _ConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
-class Configuration(pulumi.CustomResource):
+calass Configuration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -390,7 +390,7 @@ class Configuration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationArgs,
+                 args: ConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an MQ Configuration Resource.
@@ -444,12 +444,12 @@ class Configuration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param ConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -472,7 +472,7 @@ class Configuration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
+            __props__ = ConfigurationArrgs.__new__(ConfigurationArrgs)
 
             __props__.__dict__["authentication_strategy"] = authentication_strategy
             if data is None and not opts.urn:

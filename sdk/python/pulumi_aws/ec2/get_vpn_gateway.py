@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpnGatewayResult:
+calass GetVpnGatewayResult:
     """
     A collection of values returned by getVpnGateway.
     """
@@ -90,7 +90,7 @@ class GetVpnGatewayResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
+calass AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -109,7 +109,7 @@ class AwaitableGetVpnGatewayResult(GetVpnGatewayResult):
 def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
                     attached_vpc_id: Optional[str] = None,
                     availability_zone: Optional[str] = None,
-                    filters: Optional[Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']]] = None,
+                    filters: Optional[Sequence[pulumi.InputType['GetVpnGatewayFilterArrgs']]] = None,
                     id: Optional[str] = None,
                     state: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
@@ -124,7 +124,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
+    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArrgs(
         name="tag:Name",
         values=["vpn-gw"],
     )])
@@ -138,7 +138,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
            which take the following arguments:
     :param str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArrgs']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPN Gateway to retrieve.
     :param str state: State of the specific VPN Gateway to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
@@ -170,7 +170,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
 def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]] = None,
                            attached_vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                            availability_zone: Optional[pulumi.Input[Optional[str]]] = None,
-                           filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']]]]] = None,
+                           filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpnGatewayFilterArrgs']]]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            state: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -185,7 +185,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
     import pulumi
     import pulumi_aws as aws
 
-    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArgs(
+    selected = aws.ec2.get_vpn_gateway(filters=[aws.ec2.GetVpnGatewayFilterArrgs(
         name="tag:Name",
         values=["vpn-gw"],
     )])
@@ -199,7 +199,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
            which take the following arguments:
     :param str attached_vpc_id: ID of a VPC attached to the specific VPN Gateway to retrieve.
     :param str availability_zone: Availability Zone of the specific VPN Gateway to retrieve.
-    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpnGatewayFilterArrgs']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPN Gateway to retrieve.
     :param str state: State of the specific VPN Gateway to retrieve.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match

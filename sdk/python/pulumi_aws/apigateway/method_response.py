@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MethodResponseArgs', 'MethodResponse']
+__all__ = ['MethodResponseArrgs', 'MethodResponse']
 
 @pulumi.input_type
-class MethodResponseArgs:
+calass MethodResponseArrgs:
     def __init__(__self__, *,
                  http_method: pulumi.Input[str],
                  resource_id: pulumi.Input[str],
@@ -116,7 +116,7 @@ class MethodResponseArgs:
 
 
 @pulumi.input_type
-class _MethodResponseState:
+calass _MethodResponseState:
     def __init__(__self__, *,
                  http_method: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -223,7 +223,7 @@ class _MethodResponseState:
         pulumi.set(self, "status_code", value)
 
 
-class MethodResponse(pulumi.CustomResource):
+calass MethodResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -289,7 +289,7 @@ class MethodResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MethodResponseArgs,
+                 args: MethodResponseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an HTTP Method Response for an API Gateway Resource.
@@ -331,12 +331,12 @@ class MethodResponse(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MethodResponseArgs args: The arguments to use to populate this resource's properties.
+        :param MethodResponseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MethodResponseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MethodResponseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -358,7 +358,7 @@ class MethodResponse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MethodResponseArgs.__new__(MethodResponseArgs)
+            __props__ = MethodResponseArrgs.__new__(MethodResponseArrgs)
 
             if http_method is None and not opts.urn:
                 raise TypeError("Missing required property 'http_method'")

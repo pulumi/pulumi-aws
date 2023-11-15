@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EndpointLoadBalancerOptionsArgs',
-    'EndpointNetworkInterfaceOptionsArgs',
-    'EndpointSseSpecificationArgs',
-    'InstanceLoggingConfigurationAccessLogsArgs',
-    'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs',
-    'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs',
-    'InstanceLoggingConfigurationAccessLogsS3Args',
-    'InstanceVerifiedAccessTrustProviderArgs',
-    'TrustProviderDeviceOptionsArgs',
-    'TrustProviderOidcOptionsArgs',
+    'EndpointLoadBalancerOptionsArrgs',
+    'EndpointNetworkInterfaceOptionsArrgs',
+    'EndpointSseSpecificationArrgs',
+    'InstanceLoggingConfigurationAccessLogsArrgs',
+    'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs',
+    'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs',
+    'InstanceLoggingConfigurationAccessLogsS3Arrgs',
+    'InstanceVerifiedAccessTrustProviderArrgs',
+    'TrustProviderDeviceOptionsArrgs',
+    'TrustProviderOidcOptionsArrgs',
 ]
 
 @pulumi.input_type
-class EndpointLoadBalancerOptionsArgs:
+calass EndpointLoadBalancerOptionsArrgs:
     def __init__(__self__, *,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -76,7 +76,7 @@ class EndpointLoadBalancerOptionsArgs:
 
 
 @pulumi.input_type
-class EndpointNetworkInterfaceOptionsArgs:
+calass EndpointNetworkInterfaceOptionsArrgs:
     def __init__(__self__, *,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -117,7 +117,7 @@ class EndpointNetworkInterfaceOptionsArgs:
 
 
 @pulumi.input_type
-class EndpointSseSpecificationArgs:
+calass EndpointSseSpecificationArrgs:
     def __init__(__self__, *,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
@@ -146,19 +146,19 @@ class EndpointSseSpecificationArgs:
 
 
 @pulumi.input_type
-class InstanceLoggingConfigurationAccessLogsArgs:
+calass InstanceLoggingConfigurationAccessLogsArrgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']] = None,
+                 cloudwatch_logs: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs']] = None,
                  include_trust_context: Optional[pulumi.Input[bool]] = None,
-                 kinesis_data_firehose: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']] = None,
+                 kinesis_data_firehose: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs']] = None,
                  log_version: Optional[pulumi.Input[str]] = None,
-                 s3: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']] = None):
+                 s3: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Arrgs']] = None):
         """
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs'] cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs'] cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
         :param pulumi.Input[bool] include_trust_context: Include trust data sent by trust providers into the logs.
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs'] kinesis_data_firehose: A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs'] kinesis_data_firehose: A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
         :param pulumi.Input[str] log_version: The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args'] s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        :param pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Arrgs'] s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -173,14 +173,14 @@ class InstanceLoggingConfigurationAccessLogsArgs:
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs']]:
         """
         A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @property
@@ -197,14 +197,14 @@ class InstanceLoggingConfigurationAccessLogsArgs:
 
     @property
     @pulumi.getter(name="kinesisDataFirehose")
-    def kinesis_data_firehose(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]:
+    def kinesis_data_firehose(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs']]:
         """
         A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
         """
         return pulumi.get(self, "kinesis_data_firehose")
 
     @kinesis_data_firehose.setter
-    def kinesis_data_firehose(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs']]):
+    def kinesis_data_firehose(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs']]):
         pulumi.set(self, "kinesis_data_firehose", value)
 
     @property
@@ -221,19 +221,19 @@ class InstanceLoggingConfigurationAccessLogsArgs:
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']]:
+    def s3(self) -> Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Arrgs']]:
         """
         A block that specifies configures sending Verified Access logs to S3. Detailed below.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Args']]):
+    def s3(self, value: Optional[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3Arrgs']]):
         pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type
-class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs:
+calass InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  log_group: Optional[pulumi.Input[str]] = None):
@@ -271,7 +271,7 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs:
 
 
 @pulumi.input_type
-class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs:
+calass InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  delivery_stream: Optional[pulumi.Input[str]] = None):
@@ -309,7 +309,7 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs:
 
 
 @pulumi.input_type
-class InstanceLoggingConfigurationAccessLogsS3Args:
+calass InstanceLoggingConfigurationAccessLogsS3Arrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  bucket_name: Optional[pulumi.Input[str]] = None,
@@ -379,7 +379,7 @@ class InstanceLoggingConfigurationAccessLogsS3Args:
 
 
 @pulumi.input_type
-class InstanceVerifiedAccessTrustProviderArgs:
+calass InstanceVerifiedAccessTrustProviderArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
@@ -466,7 +466,7 @@ class InstanceVerifiedAccessTrustProviderArgs:
 
 
 @pulumi.input_type
-class TrustProviderDeviceOptionsArgs:
+calass TrustProviderDeviceOptionsArrgs:
     def __init__(__self__, *,
                  tenant_id: Optional[pulumi.Input[str]] = None):
         if tenant_id is not None:
@@ -483,7 +483,7 @@ class TrustProviderDeviceOptionsArgs:
 
 
 @pulumi.input_type
-class TrustProviderOidcOptionsArgs:
+calass TrustProviderOidcOptionsArrgs:
     def __init__(__self__, *,
                  client_secret: pulumi.Input[str],
                  authorization_endpoint: Optional[pulumi.Input[str]] = None,

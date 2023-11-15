@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountPasswordPolicyArgs', 'AccountPasswordPolicy']
+__all__ = ['AccountPasswordPolicyArrgs', 'AccountPasswordPolicy']
 
 @pulumi.input_type
-class AccountPasswordPolicyArgs:
+calass AccountPasswordPolicyArrgs:
     def __init__(__self__, *,
                  allow_users_to_change_password: Optional[pulumi.Input[bool]] = None,
                  hard_expiry: Optional[pulumi.Input[bool]] = None,
@@ -164,7 +164,7 @@ class AccountPasswordPolicyArgs:
 
 
 @pulumi.input_type
-class _AccountPasswordPolicyState:
+calass _AccountPasswordPolicyState:
     def __init__(__self__, *,
                  allow_users_to_change_password: Optional[pulumi.Input[bool]] = None,
                  expire_passwords: Optional[pulumi.Input[bool]] = None,
@@ -331,7 +331,7 @@ class _AccountPasswordPolicyState:
         pulumi.set(self, "require_uppercase_characters", value)
 
 
-class AccountPasswordPolicy(pulumi.CustomResource):
+calass AccountPasswordPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -392,7 +392,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AccountPasswordPolicyArgs] = None,
+                 args: Optional[AccountPasswordPolicyArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note:** There is only a single policy allowed per AWS account. An existing policy will be lost when using this resource as an effect of this limitation.
@@ -425,12 +425,12 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountPasswordPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param AccountPasswordPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountPasswordPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountPasswordPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -455,7 +455,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountPasswordPolicyArgs.__new__(AccountPasswordPolicyArgs)
+            __props__ = AccountPasswordPolicyArrgs.__new__(AccountPasswordPolicyArrgs)
 
             __props__.__dict__["allow_users_to_change_password"] = allow_users_to_change_password
             __props__.__dict__["hard_expiry"] = hard_expiry

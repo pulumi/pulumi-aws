@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OntapStorageVirtualMachineArgs', 'OntapStorageVirtualMachine']
+__all__ = ['OntapStorageVirtualMachineArrgs', 'OntapStorageVirtualMachine']
 
 @pulumi.input_type
-class OntapStorageVirtualMachineArgs:
+calass OntapStorageVirtualMachineArrgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
-                 active_directory_configuration: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']] = None,
+                 active_directory_configuration: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
                  svm_admin_password: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class OntapStorageVirtualMachineArgs:
         """
         The set of arguments for constructing a OntapStorageVirtualMachine resource.
         :param pulumi.Input[str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
-        :param pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs'] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
+        :param pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs'] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         :param pulumi.Input[str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the storage virtual machine. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -56,14 +56,14 @@ class OntapStorageVirtualMachineArgs:
 
     @property
     @pulumi.getter(name="activeDirectoryConfiguration")
-    def active_directory_configuration(self) -> Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']]:
+    def active_directory_configuration(self) -> Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']]:
         """
         Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         """
         return pulumi.get(self, "active_directory_configuration")
 
     @active_directory_configuration.setter
-    def active_directory_configuration(self, value: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']]):
+    def active_directory_configuration(self, value: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']]):
         pulumi.set(self, "active_directory_configuration", value)
 
     @property
@@ -113,11 +113,11 @@ class OntapStorageVirtualMachineArgs:
 
 
 @pulumi.input_type
-class _OntapStorageVirtualMachineState:
+calass _OntapStorageVirtualMachineState:
     def __init__(__self__, *,
-                 active_directory_configuration: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']] = None,
+                 active_directory_configuration: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']] = None,
                  arn: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArrgs']]]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
@@ -128,9 +128,9 @@ class _OntapStorageVirtualMachineState:
                  uuid: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering OntapStorageVirtualMachine resources.
-        :param pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs'] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
+        :param pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs'] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         :param pulumi.Input[str] arn: Amazon Resource Name of the storage virtual machine.
-        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArgs']]] endpoints: The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArrgs']]] endpoints: The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         :param pulumi.Input[str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         :param pulumi.Input[str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
@@ -167,14 +167,14 @@ class _OntapStorageVirtualMachineState:
 
     @property
     @pulumi.getter(name="activeDirectoryConfiguration")
-    def active_directory_configuration(self) -> Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']]:
+    def active_directory_configuration(self) -> Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']]:
         """
         Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         """
         return pulumi.get(self, "active_directory_configuration")
 
     @active_directory_configuration.setter
-    def active_directory_configuration(self, value: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']]):
+    def active_directory_configuration(self, value: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']]):
         pulumi.set(self, "active_directory_configuration", value)
 
     @property
@@ -191,14 +191,14 @@ class _OntapStorageVirtualMachineState:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArrgs']]]]:
         """
         The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         """
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointArrgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -298,12 +298,12 @@ class _OntapStorageVirtualMachineState:
         pulumi.set(self, "uuid", value)
 
 
-class OntapStorageVirtualMachine(pulumi.CustomResource):
+calass OntapStorageVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_configuration: Optional[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']]] = None,
+                 active_directory_configuration: Optional[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
@@ -333,9 +333,9 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
         test = aws.fsx.OntapStorageVirtualMachine("test",
             file_system_id=aws_fsx_ontap_file_system["test"]["id"],
-            active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs(
+            active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs(
                 netbios_name="mysvm",
-                self_managed_active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs(
+                self_managed_active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrgs(
                     dns_ips=[
                         "10.0.0.111",
                         "10.0.0.222",
@@ -358,7 +358,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
+        :param pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         :param pulumi.Input[str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         :param pulumi.Input[str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
@@ -368,7 +368,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OntapStorageVirtualMachineArgs,
+                 args: OntapStorageVirtualMachineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a FSx Storage Virtual Machine.
@@ -393,9 +393,9 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
 
         test = aws.fsx.OntapStorageVirtualMachine("test",
             file_system_id=aws_fsx_ontap_file_system["test"]["id"],
-            active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs(
+            active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs(
                 netbios_name="mysvm",
-                self_managed_active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs(
+                self_managed_active_directory_configuration=aws.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrgs(
                     dns_ips=[
                         "10.0.0.111",
                         "10.0.0.222",
@@ -417,12 +417,12 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
          Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
-        :param OntapStorageVirtualMachineArgs args: The arguments to use to populate this resource's properties.
+        :param OntapStorageVirtualMachineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OntapStorageVirtualMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OntapStorageVirtualMachineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -431,7 +431,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory_configuration: Optional[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']]] = None,
+                 active_directory_configuration: Optional[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  root_volume_security_style: Optional[pulumi.Input[str]] = None,
@@ -444,7 +444,7 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OntapStorageVirtualMachineArgs.__new__(OntapStorageVirtualMachineArgs)
+            __props__ = OntapStorageVirtualMachineArrgs.__new__(OntapStorageVirtualMachineArrgs)
 
             __props__.__dict__["active_directory_configuration"] = active_directory_configuration
             if file_system_id is None and not opts.urn:
@@ -471,9 +471,9 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active_directory_configuration: Optional[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']]] = None,
+            active_directory_configuration: Optional[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineEndpointArgs']]]]] = None,
+            endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineEndpointArrgs']]]]] = None,
             file_system_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             root_volume_security_style: Optional[pulumi.Input[str]] = None,
@@ -489,9 +489,9 @@ class OntapStorageVirtualMachine(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArgs']] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
+        :param pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs']] active_directory_configuration: Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
         :param pulumi.Input[str] arn: Amazon Resource Name of the storage virtual machine.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineEndpointArgs']]]] endpoints: The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OntapStorageVirtualMachineEndpointArrgs']]]] endpoints: The endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See Endpoints below.
         :param pulumi.Input[str] file_system_id: The ID of the Amazon FSx ONTAP File System that this SVM will be created on.
         :param pulumi.Input[str] name: The name of the SVM. You can use a maximum of 47 alphanumeric characters, plus the underscore (_) special character.
         :param pulumi.Input[str] root_volume_security_style: Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.

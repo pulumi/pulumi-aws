@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ObservabilityConfigurationArgs', 'ObservabilityConfiguration']
+__all__ = ['ObservabilityConfigurationArrgs', 'ObservabilityConfiguration']
 
 @pulumi.input_type
-class ObservabilityConfigurationArgs:
+calass ObservabilityConfigurationArrgs:
     def __init__(__self__, *,
                  observability_configuration_name: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
+                 trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArrgs']] = None):
         """
         The set of arguments for constructing a ObservabilityConfiguration resource.
         :param pulumi.Input[str] observability_configuration_name: Name of the observability configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArrgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         pulumi.set(__self__, "observability_configuration_name", observability_configuration_name)
         if tags is not None:
@@ -57,19 +57,19 @@ class ObservabilityConfigurationArgs:
 
     @property
     @pulumi.getter(name="traceConfiguration")
-    def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]:
+    def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArrgs']]:
         """
         Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         return pulumi.get(self, "trace_configuration")
 
     @trace_configuration.setter
-    def trace_configuration(self, value: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]):
+    def trace_configuration(self, value: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArrgs']]):
         pulumi.set(self, "trace_configuration", value)
 
 
 @pulumi.input_type
-class _ObservabilityConfigurationState:
+calass _ObservabilityConfigurationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  latest: Optional[pulumi.Input[bool]] = None,
@@ -78,7 +78,7 @@ class _ObservabilityConfigurationState:
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']] = None):
+                 trace_configuration: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArrgs']] = None):
         """
         Input properties used for looking up and filtering ObservabilityConfiguration resources.
         :param pulumi.Input[str] arn: ARN of this observability configuration.
@@ -88,7 +88,7 @@ class _ObservabilityConfigurationState:
         :param pulumi.Input[str] status: Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        :param pulumi.Input['ObservabilityConfigurationTraceConfigurationArrgs'] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -199,25 +199,25 @@ class _ObservabilityConfigurationState:
 
     @property
     @pulumi.getter(name="traceConfiguration")
-    def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]:
+    def trace_configuration(self) -> Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArrgs']]:
         """
         Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         return pulumi.get(self, "trace_configuration")
 
     @trace_configuration.setter
-    def trace_configuration(self, value: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArgs']]):
+    def trace_configuration(self, value: Optional[pulumi.Input['ObservabilityConfigurationTraceConfigurationArrgs']]):
         pulumi.set(self, "trace_configuration", value)
 
 
-class ObservabilityConfiguration(pulumi.CustomResource):
+calass ObservabilityConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  observability_configuration_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace_configuration: Optional[pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArgs']]] = None,
+                 trace_configuration: Optional[pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArrgs']]] = None,
                  __props__=None):
         """
         Manages an App Runner Observability Configuration.
@@ -233,7 +233,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
             tags={
                 "Name": "example-apprunner-observability-configuration",
             },
-            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
+            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArrgs(
                 vendor="AWSXRAY",
             ))
         ```
@@ -250,13 +250,13 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] observability_configuration_name: Name of the observability configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArgs']] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArrgs']] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ObservabilityConfigurationArgs,
+                 args: ObservabilityConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Runner Observability Configuration.
@@ -272,7 +272,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
             tags={
                 "Name": "example-apprunner-observability-configuration",
             },
-            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
+            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArrgs(
                 vendor="AWSXRAY",
             ))
         ```
@@ -286,12 +286,12 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ObservabilityConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param ObservabilityConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ObservabilityConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ObservabilityConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -302,7 +302,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  observability_configuration_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace_configuration: Optional[pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArgs']]] = None,
+                 trace_configuration: Optional[pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -310,7 +310,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ObservabilityConfigurationArgs.__new__(ObservabilityConfigurationArgs)
+            __props__ = ObservabilityConfigurationArrgs.__new__(ObservabilityConfigurationArrgs)
 
             if observability_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'observability_configuration_name'")
@@ -341,7 +341,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trace_configuration: Optional[pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArgs']]] = None) -> 'ObservabilityConfiguration':
+            trace_configuration: Optional[pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArrgs']]] = None) -> 'ObservabilityConfiguration':
         """
         Get an existing ObservabilityConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -356,7 +356,7 @@ class ObservabilityConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] status: Current state of the observability configuration. An INACTIVE configuration revision has been deleted and can't be used. It is permanently removed some time after deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArgs']] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ObservabilityConfigurationTraceConfigurationArrgs']] trace_configuration: Configuration of the tracing feature within this observability configuration. If you don't specify it, App Runner doesn't enable tracing. See Trace Configuration below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

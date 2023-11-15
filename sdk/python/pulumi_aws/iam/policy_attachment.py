@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
+__all__ = ['PolicyAttachmentArrgs', 'PolicyAttachment']
 
 @pulumi.input_type
-class PolicyAttachmentArgs:
+calass PolicyAttachmentArrgs:
     def __init__(__self__, *,
                  policy_arn: pulumi.Input[str],
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -99,7 +99,7 @@ class PolicyAttachmentArgs:
 
 
 @pulumi.input_type
-class _PolicyAttachmentState:
+calass _PolicyAttachmentState:
     def __init__(__self__, *,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class _PolicyAttachmentState:
         pulumi.set(self, "users", value)
 
 
-class PolicyAttachment(pulumi.CustomResource):
+calass PolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -213,9 +213,9 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user = aws.iam.User("user")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["ec2.amazonaws.com"],
             )],
@@ -223,7 +223,7 @@ class PolicyAttachment(pulumi.CustomResource):
         )])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         group = aws.iam.Group("group")
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
@@ -250,7 +250,7 @@ class PolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PolicyAttachmentArgs,
+                 args: PolicyAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a Managed IAM Policy to user(s), role(s), and/or group(s)
@@ -268,9 +268,9 @@ class PolicyAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         user = aws.iam.User("user")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["ec2.amazonaws.com"],
             )],
@@ -278,7 +278,7 @@ class PolicyAttachment(pulumi.CustomResource):
         )])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         group = aws.iam.Group("group")
-        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
@@ -294,12 +294,12 @@ class PolicyAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param PolicyAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -320,7 +320,7 @@ class PolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PolicyAttachmentArgs.__new__(PolicyAttachmentArgs)
+            __props__ = PolicyAttachmentArrgs.__new__(PolicyAttachmentArrgs)
 
             __props__.__dict__["groups"] = groups
             __props__.__dict__["name"] = name

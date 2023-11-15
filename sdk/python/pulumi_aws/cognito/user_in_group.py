@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserInGroupArgs', 'UserInGroup']
+__all__ = ['UserInGroupArrgs', 'UserInGroup']
 
 @pulumi.input_type
-class UserInGroupArgs:
+calass UserInGroupArrgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[str],
                  user_pool_id: pulumi.Input[str],
@@ -65,7 +65,7 @@ class UserInGroupArgs:
 
 
 @pulumi.input_type
-class _UserInGroupState:
+calass _UserInGroupState:
     def __init__(__self__, *,
                  group_name: Optional[pulumi.Input[str]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _UserInGroupState:
         pulumi.set(self, "username", value)
 
 
-class UserInGroup(pulumi.CustomResource):
+calass UserInGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -138,7 +138,7 @@ class UserInGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", password_policy=aws.cognito.UserPoolPasswordPolicyArgs(
+        example_user_pool = aws.cognito.UserPool("exampleUserPool", password_policy=aws.cognito.UserPoolPasswordPolicyArrgs(
             temporary_password_validity_days=7,
             minimum_length=6,
             require_uppercase=False,
@@ -165,7 +165,7 @@ class UserInGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserInGroupArgs,
+                 args: UserInGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Adds the specified user to the specified group.
@@ -176,7 +176,7 @@ class UserInGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_user_pool = aws.cognito.UserPool("exampleUserPool", password_policy=aws.cognito.UserPoolPasswordPolicyArgs(
+        example_user_pool = aws.cognito.UserPool("exampleUserPool", password_policy=aws.cognito.UserPoolPasswordPolicyArrgs(
             temporary_password_validity_days=7,
             minimum_length=6,
             require_uppercase=False,
@@ -194,12 +194,12 @@ class UserInGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserInGroupArgs args: The arguments to use to populate this resource's properties.
+        :param UserInGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserInGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserInGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -218,7 +218,7 @@ class UserInGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserInGroupArgs.__new__(UserInGroupArgs)
+            __props__ = UserInGroupArrgs.__new__(UserInGroupArrgs)
 
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")

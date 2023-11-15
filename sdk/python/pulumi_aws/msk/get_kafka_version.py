@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetKafkaVersionResult:
+calass GetKafkaVersionResult:
     """
     A collection of values returned by getKafkaVersion.
     """
@@ -62,7 +62,7 @@ class GetKafkaVersionResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetKafkaVersionResult(GetKafkaVersionResult):
+calass AwaitableGetKafkaVersionResult(GetKafkaVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

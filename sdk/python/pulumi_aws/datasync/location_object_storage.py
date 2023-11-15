@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocationObjectStorageArgs', 'LocationObjectStorage']
+__all__ = ['LocationObjectStorageArrgs', 'LocationObjectStorage']
 
 @pulumi.input_type
-class LocationObjectStorageArgs:
+calass LocationObjectStorageArrgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  bucket_name: pulumi.Input[str],
@@ -177,7 +177,7 @@ class LocationObjectStorageArgs:
 
 
 @pulumi.input_type
-class _LocationObjectStorageState:
+calass _LocationObjectStorageState:
     def __init__(__self__, *,
                  access_key: Optional[pulumi.Input[str]] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -398,7 +398,7 @@ class _LocationObjectStorageState:
         pulumi.set(self, "uri", value)
 
 
-class LocationObjectStorage(pulumi.CustomResource):
+calass LocationObjectStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -456,7 +456,7 @@ class LocationObjectStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationObjectStorageArgs,
+                 args: LocationObjectStorageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Object Storage Location within AWS DataSync.
@@ -484,12 +484,12 @@ class LocationObjectStorage(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocationObjectStorageArgs args: The arguments to use to populate this resource's properties.
+        :param LocationObjectStorageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationObjectStorageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationObjectStorageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -515,7 +515,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationObjectStorageArgs.__new__(LocationObjectStorageArgs)
+            __props__ = LocationObjectStorageArrgs.__new__(LocationObjectStorageArrgs)
 
             __props__.__dict__["access_key"] = access_key
             if agent_arns is None and not opts.urn:

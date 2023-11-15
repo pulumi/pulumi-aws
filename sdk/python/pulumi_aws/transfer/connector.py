@@ -11,24 +11,24 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectorArgs', 'Connector']
+__all__ = ['ConnectorArrgs', 'Connector']
 
 @pulumi.input_type
-class ConnectorArgs:
+calass ConnectorArrgs:
     def __init__(__self__, *,
                  access_role: pulumi.Input[str],
                  url: pulumi.Input[str],
-                 as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArgs']] = None,
+                 as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArrgs']] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
-                 sftp_config: Optional[pulumi.Input['ConnectorSftpConfigArgs']] = None,
+                 sftp_config: Optional[pulumi.Input['ConnectorSftpConfigArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
         :param pulumi.Input[str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         :param pulumi.Input[str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
-        :param pulumi.Input['ConnectorAs2ConfigArgs'] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input['ConnectorAs2ConfigArrgs'] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-        :param pulumi.Input['ConnectorSftpConfigArgs'] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input['ConnectorSftpConfigArrgs'] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_role", access_role)
@@ -68,14 +68,14 @@ class ConnectorArgs:
 
     @property
     @pulumi.getter(name="as2Config")
-    def as2_config(self) -> Optional[pulumi.Input['ConnectorAs2ConfigArgs']]:
+    def as2_config(self) -> Optional[pulumi.Input['ConnectorAs2ConfigArrgs']]:
         """
         Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         """
         return pulumi.get(self, "as2_config")
 
     @as2_config.setter
-    def as2_config(self, value: Optional[pulumi.Input['ConnectorAs2ConfigArgs']]):
+    def as2_config(self, value: Optional[pulumi.Input['ConnectorAs2ConfigArrgs']]):
         pulumi.set(self, "as2_config", value)
 
     @property
@@ -92,14 +92,14 @@ class ConnectorArgs:
 
     @property
     @pulumi.getter(name="sftpConfig")
-    def sftp_config(self) -> Optional[pulumi.Input['ConnectorSftpConfigArgs']]:
+    def sftp_config(self) -> Optional[pulumi.Input['ConnectorSftpConfigArrgs']]:
         """
         Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         """
         return pulumi.get(self, "sftp_config")
 
     @sftp_config.setter
-    def sftp_config(self, value: Optional[pulumi.Input['ConnectorSftpConfigArgs']]):
+    def sftp_config(self, value: Optional[pulumi.Input['ConnectorSftpConfigArrgs']]):
         pulumi.set(self, "sftp_config", value)
 
     @property
@@ -116,14 +116,14 @@ class ConnectorArgs:
 
 
 @pulumi.input_type
-class _ConnectorState:
+calass _ConnectorState:
     def __init__(__self__, *,
                  access_role: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
-                 as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArgs']] = None,
+                 as2_config: Optional[pulumi.Input['ConnectorAs2ConfigArrgs']] = None,
                  connector_id: Optional[pulumi.Input[str]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
-                 sftp_config: Optional[pulumi.Input['ConnectorSftpConfigArgs']] = None,
+                 sftp_config: Optional[pulumi.Input['ConnectorSftpConfigArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None):
@@ -131,10 +131,10 @@ class _ConnectorState:
         Input properties used for looking up and filtering Connector resources.
         :param pulumi.Input[str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         :param pulumi.Input[str] arn: The ARN of the connector.
-        :param pulumi.Input['ConnectorAs2ConfigArgs'] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input['ConnectorAs2ConfigArrgs'] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[str] connector_id: The unique identifier for the AS2 profile or SFTP Profile.
         :param pulumi.Input[str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-        :param pulumi.Input['ConnectorSftpConfigArgs'] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input['ConnectorSftpConfigArrgs'] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
         """
@@ -186,14 +186,14 @@ class _ConnectorState:
 
     @property
     @pulumi.getter(name="as2Config")
-    def as2_config(self) -> Optional[pulumi.Input['ConnectorAs2ConfigArgs']]:
+    def as2_config(self) -> Optional[pulumi.Input['ConnectorAs2ConfigArrgs']]:
         """
         Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         """
         return pulumi.get(self, "as2_config")
 
     @as2_config.setter
-    def as2_config(self, value: Optional[pulumi.Input['ConnectorAs2ConfigArgs']]):
+    def as2_config(self, value: Optional[pulumi.Input['ConnectorAs2ConfigArrgs']]):
         pulumi.set(self, "as2_config", value)
 
     @property
@@ -222,14 +222,14 @@ class _ConnectorState:
 
     @property
     @pulumi.getter(name="sftpConfig")
-    def sftp_config(self) -> Optional[pulumi.Input['ConnectorSftpConfigArgs']]:
+    def sftp_config(self) -> Optional[pulumi.Input['ConnectorSftpConfigArrgs']]:
         """
         Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         """
         return pulumi.get(self, "sftp_config")
 
     @sftp_config.setter
-    def sftp_config(self, value: Optional[pulumi.Input['ConnectorSftpConfigArgs']]):
+    def sftp_config(self, value: Optional[pulumi.Input['ConnectorSftpConfigArrgs']]):
         pulumi.set(self, "sftp_config", value)
 
     @property
@@ -269,15 +269,15 @@ class _ConnectorState:
         pulumi.set(self, "url", value)
 
 
-class Connector(pulumi.CustomResource):
+calass Connector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[str]] = None,
-                 as2_config: Optional[pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArgs']]] = None,
+                 as2_config: Optional[pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArrgs']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
-                 sftp_config: Optional[pulumi.Input[pulumi.InputType['ConnectorSftpConfigArgs']]] = None,
+                 sftp_config: Optional[pulumi.Input[pulumi.InputType['ConnectorSftpConfigArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -293,7 +293,7 @@ class Connector(pulumi.CustomResource):
 
         example = aws.transfer.Connector("example",
             access_role=aws_iam_role["test"]["arn"],
-            as2_config=aws.transfer.ConnectorAs2ConfigArgs(
+            as2_config=aws.transfer.ConnectorAs2ConfigArrgs(
                 compression="DISABLED",
                 encryption_algorithm="AWS128_CBC",
                 message_subject="For Connector",
@@ -313,7 +313,7 @@ class Connector(pulumi.CustomResource):
 
         example = aws.transfer.Connector("example",
             access_role=aws_iam_role["test"]["arn"],
-            sftp_config=aws.transfer.ConnectorSftpConfigArgs(
+            sftp_config=aws.transfer.ConnectorSftpConfigArrgs(
                 trusted_host_keys=["ssh-rsa AAAAB3NYourKeysHere"],
                 user_secret_id=aws_secretsmanager_secret["example"]["id"],
             ),
@@ -331,9 +331,9 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
-        :param pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArgs']] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArrgs']] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-        :param pulumi.Input[pulumi.InputType['ConnectorSftpConfigArgs']] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input[pulumi.InputType['ConnectorSftpConfigArrgs']] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
         """
@@ -341,7 +341,7 @@ class Connector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectorArgs,
+                 args: ConnectorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a AWS Transfer AS2 Connector resource.
@@ -355,7 +355,7 @@ class Connector(pulumi.CustomResource):
 
         example = aws.transfer.Connector("example",
             access_role=aws_iam_role["test"]["arn"],
-            as2_config=aws.transfer.ConnectorAs2ConfigArgs(
+            as2_config=aws.transfer.ConnectorAs2ConfigArrgs(
                 compression="DISABLED",
                 encryption_algorithm="AWS128_CBC",
                 message_subject="For Connector",
@@ -375,7 +375,7 @@ class Connector(pulumi.CustomResource):
 
         example = aws.transfer.Connector("example",
             access_role=aws_iam_role["test"]["arn"],
-            sftp_config=aws.transfer.ConnectorSftpConfigArgs(
+            sftp_config=aws.transfer.ConnectorSftpConfigArrgs(
                 trusted_host_keys=["ssh-rsa AAAAB3NYourKeysHere"],
                 user_secret_id=aws_secretsmanager_secret["example"]["id"],
             ),
@@ -391,12 +391,12 @@ class Connector(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectorArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -406,9 +406,9 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: Optional[pulumi.Input[str]] = None,
-                 as2_config: Optional[pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArgs']]] = None,
+                 as2_config: Optional[pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArrgs']]] = None,
                  logging_role: Optional[pulumi.Input[str]] = None,
-                 sftp_config: Optional[pulumi.Input[pulumi.InputType['ConnectorSftpConfigArgs']]] = None,
+                 sftp_config: Optional[pulumi.Input[pulumi.InputType['ConnectorSftpConfigArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -418,7 +418,7 @@ class Connector(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectorArgs.__new__(ConnectorArgs)
+            __props__ = ConnectorArrgs.__new__(ConnectorArrgs)
 
             if access_role is None and not opts.urn:
                 raise TypeError("Missing required property 'access_role'")
@@ -447,10 +447,10 @@ class Connector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             access_role: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            as2_config: Optional[pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArgs']]] = None,
+            as2_config: Optional[pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArrgs']]] = None,
             connector_id: Optional[pulumi.Input[str]] = None,
             logging_role: Optional[pulumi.Input[str]] = None,
-            sftp_config: Optional[pulumi.Input[pulumi.InputType['ConnectorSftpConfigArgs']]] = None,
+            sftp_config: Optional[pulumi.Input[pulumi.InputType['ConnectorSftpConfigArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'Connector':
@@ -463,10 +463,10 @@ class Connector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_role: The IAM Role which provides read and write access to the parent directory of the file location mentioned in the StartFileTransfer request.
         :param pulumi.Input[str] arn: The ARN of the connector.
-        :param pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArgs']] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input[pulumi.InputType['ConnectorAs2ConfigArrgs']] as2_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[str] connector_id: The unique identifier for the AS2 profile or SFTP Profile.
         :param pulumi.Input[str] logging_role: The IAM Role which is required for allowing the connector to turn on CloudWatch logging for Amazon S3 events.
-        :param pulumi.Input[pulumi.InputType['ConnectorSftpConfigArgs']] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
+        :param pulumi.Input[pulumi.InputType['ConnectorSftpConfigArrgs']] sftp_config: Either SFTP or AS2 is configured.The parameters to configure for the connector object. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: The URL of the partners AS2 endpoint or SFTP endpoint.
         """

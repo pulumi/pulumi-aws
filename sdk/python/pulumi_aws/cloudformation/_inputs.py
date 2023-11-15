@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CloudFormationTypeLoggingConfigArgs',
-    'StackSetAutoDeploymentArgs',
-    'StackSetInstanceDeploymentTargetsArgs',
-    'StackSetInstanceOperationPreferencesArgs',
-    'StackSetInstanceStackInstanceSummaryArgs',
-    'StackSetManagedExecutionArgs',
-    'StackSetOperationPreferencesArgs',
+    'CloudFormationTypeLoggingConfigArrgs',
+    'StackSetAutoDeploymentArrgs',
+    'StackSetInstanceDeploymentTargetsArrgs',
+    'StackSetInstanceOperationPreferencesArrgs',
+    'StackSetInstanceStackInstanceSummaryArrgs',
+    'StackSetManagedExecutionArrgs',
+    'StackSetOperationPreferencesArrgs',
 ]
 
 @pulumi.input_type
-class CloudFormationTypeLoggingConfigArgs:
+calass CloudFormationTypeLoggingConfigArrgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str],
                  log_role_arn: pulumi.Input[str]):
@@ -57,7 +57,7 @@ class CloudFormationTypeLoggingConfigArgs:
 
 
 @pulumi.input_type
-class StackSetAutoDeploymentArgs:
+calass StackSetAutoDeploymentArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  retain_stacks_on_account_removal: Optional[pulumi.Input[bool]] = None):
@@ -96,7 +96,7 @@ class StackSetAutoDeploymentArgs:
 
 
 @pulumi.input_type
-class StackSetInstanceDeploymentTargetsArgs:
+calass StackSetInstanceDeploymentTargetsArrgs:
     def __init__(__self__, *,
                  organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -119,7 +119,7 @@ class StackSetInstanceDeploymentTargetsArgs:
 
 
 @pulumi.input_type
-class StackSetInstanceOperationPreferencesArgs:
+calass StackSetInstanceOperationPreferencesArrgs:
     def __init__(__self__, *,
                  failure_tolerance_count: Optional[pulumi.Input[int]] = None,
                  failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
@@ -222,7 +222,7 @@ class StackSetInstanceOperationPreferencesArgs:
 
 
 @pulumi.input_type
-class StackSetInstanceStackInstanceSummaryArgs:
+calass StackSetInstanceStackInstanceSummaryArrgs:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  organizational_unit_id: Optional[pulumi.Input[str]] = None,
@@ -277,7 +277,7 @@ class StackSetInstanceStackInstanceSummaryArgs:
 
 
 @pulumi.input_type
-class StackSetManagedExecutionArgs:
+calass StackSetManagedExecutionArrgs:
     def __init__(__self__, *,
                  active: Optional[pulumi.Input[bool]] = None):
         """
@@ -300,7 +300,7 @@ class StackSetManagedExecutionArgs:
 
 
 @pulumi.input_type
-class StackSetOperationPreferencesArgs:
+calass StackSetOperationPreferencesArrgs:
     def __init__(__self__, *,
                  failure_tolerance_count: Optional[pulumi.Input[int]] = None,
                  failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,

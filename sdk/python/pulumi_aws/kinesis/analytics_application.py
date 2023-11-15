@@ -11,30 +11,30 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AnalyticsApplicationArgs', 'AnalyticsApplication']
+__all__ = ['AnalyticsApplicationArrgs', 'AnalyticsApplication']
 
 @pulumi.input_type
-class AnalyticsApplicationArgs:
+calass AnalyticsApplicationArrgs:
     def __init__(__self__, *,
-                 cloudwatch_logging_options: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']] = None,
+                 cloudwatch_logging_options: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']] = None,
                  code: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 inputs: Optional[pulumi.Input['AnalyticsApplicationInputsArgs']] = None,
+                 inputs: Optional[pulumi.Input['AnalyticsApplicationInputsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]] = None,
-                 reference_data_sources: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArrgs']]]] = None,
+                 reference_data_sources: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArrgs']] = None,
                  start_application: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AnalyticsApplication resource.
-        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
+        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArrgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
                See CloudWatch Logging Options below for more details.
         :param pulumi.Input[str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[str] description: Description of the application.
-        :param pulumi.Input['AnalyticsApplicationInputsArgs'] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input['AnalyticsApplicationInputsArrgs'] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs'] reference_data_sources: An S3 Reference Data Source for the application.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArrgs']]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArrgs'] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
@@ -61,7 +61,7 @@ class AnalyticsApplicationArgs:
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
-    def cloudwatch_logging_options(self) -> Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]:
+    def cloudwatch_logging_options(self) -> Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']]:
         """
         The CloudWatch log stream options to monitor application errors.
         See CloudWatch Logging Options below for more details.
@@ -69,7 +69,7 @@ class AnalyticsApplicationArgs:
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @cloudwatch_logging_options.setter
-    def cloudwatch_logging_options(self, value: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]):
+    def cloudwatch_logging_options(self, value: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']]):
         pulumi.set(self, "cloudwatch_logging_options", value)
 
     @property
@@ -98,14 +98,14 @@ class AnalyticsApplicationArgs:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input['AnalyticsApplicationInputsArgs']]:
+    def inputs(self) -> Optional[pulumi.Input['AnalyticsApplicationInputsArrgs']]:
         """
         Input configuration of the application. See Inputs below for more details.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input['AnalyticsApplicationInputsArgs']]):
+    def inputs(self, value: Optional[pulumi.Input['AnalyticsApplicationInputsArrgs']]):
         pulumi.set(self, "inputs", value)
 
     @property
@@ -122,19 +122,19 @@ class AnalyticsApplicationArgs:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]]:
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArrgs']]]]:
         """
         Output destination configuration of the application. See Outputs below for more details.
         """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
-    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]]):
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArrgs']]]]):
         pulumi.set(self, "outputs", value)
 
     @property
     @pulumi.getter(name="referenceDataSources")
-    def reference_data_sources(self) -> Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']]:
+    def reference_data_sources(self) -> Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArrgs']]:
         """
         An S3 Reference Data Source for the application.
         See Reference Data Sources below for more details.
@@ -142,7 +142,7 @@ class AnalyticsApplicationArgs:
         return pulumi.get(self, "reference_data_sources")
 
     @reference_data_sources.setter
-    def reference_data_sources(self, value: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']]):
+    def reference_data_sources(self, value: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArrgs']]):
         pulumi.set(self, "reference_data_sources", value)
 
     @property
@@ -172,18 +172,18 @@ class AnalyticsApplicationArgs:
 
 
 @pulumi.input_type
-class _AnalyticsApplicationState:
+calass _AnalyticsApplicationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 cloudwatch_logging_options: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']] = None,
+                 cloudwatch_logging_options: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']] = None,
                  code: Optional[pulumi.Input[str]] = None,
                  create_timestamp: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 inputs: Optional[pulumi.Input['AnalyticsApplicationInputsArgs']] = None,
+                 inputs: Optional[pulumi.Input['AnalyticsApplicationInputsArrgs']] = None,
                  last_update_timestamp: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]] = None,
-                 reference_data_sources: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArrgs']]]] = None,
+                 reference_data_sources: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArrgs']] = None,
                  start_application: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -192,16 +192,16 @@ class _AnalyticsApplicationState:
         """
         Input properties used for looking up and filtering AnalyticsApplication resources.
         :param pulumi.Input[str] arn: The ARN of the Kinesis Analytics Appliation.
-        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
+        :param pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArrgs'] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
                See CloudWatch Logging Options below for more details.
         :param pulumi.Input[str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[str] create_timestamp: The Timestamp when the application version was created.
         :param pulumi.Input[str] description: Description of the application.
-        :param pulumi.Input['AnalyticsApplicationInputsArgs'] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input['AnalyticsApplicationInputsArrgs'] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[str] last_update_timestamp: The Timestamp when the application was last updated.
         :param pulumi.Input[str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs'] reference_data_sources: An S3 Reference Data Source for the application.
+        :param pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArrgs']]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input['AnalyticsApplicationReferenceDataSourcesArrgs'] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
@@ -258,7 +258,7 @@ class _AnalyticsApplicationState:
 
     @property
     @pulumi.getter(name="cloudwatchLoggingOptions")
-    def cloudwatch_logging_options(self) -> Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]:
+    def cloudwatch_logging_options(self) -> Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']]:
         """
         The CloudWatch log stream options to monitor application errors.
         See CloudWatch Logging Options below for more details.
@@ -266,7 +266,7 @@ class _AnalyticsApplicationState:
         return pulumi.get(self, "cloudwatch_logging_options")
 
     @cloudwatch_logging_options.setter
-    def cloudwatch_logging_options(self, value: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]):
+    def cloudwatch_logging_options(self, value: Optional[pulumi.Input['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']]):
         pulumi.set(self, "cloudwatch_logging_options", value)
 
     @property
@@ -307,14 +307,14 @@ class _AnalyticsApplicationState:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input['AnalyticsApplicationInputsArgs']]:
+    def inputs(self) -> Optional[pulumi.Input['AnalyticsApplicationInputsArrgs']]:
         """
         Input configuration of the application. See Inputs below for more details.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input['AnalyticsApplicationInputsArgs']]):
+    def inputs(self, value: Optional[pulumi.Input['AnalyticsApplicationInputsArrgs']]):
         pulumi.set(self, "inputs", value)
 
     @property
@@ -343,19 +343,19 @@ class _AnalyticsApplicationState:
 
     @property
     @pulumi.getter
-    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]]:
+    def outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArrgs']]]]:
         """
         Output destination configuration of the application. See Outputs below for more details.
         """
         return pulumi.get(self, "outputs")
 
     @outputs.setter
-    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArgs']]]]):
+    def outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnalyticsApplicationOutputArrgs']]]]):
         pulumi.set(self, "outputs", value)
 
     @property
     @pulumi.getter(name="referenceDataSources")
-    def reference_data_sources(self) -> Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']]:
+    def reference_data_sources(self) -> Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArrgs']]:
         """
         An S3 Reference Data Source for the application.
         See Reference Data Sources below for more details.
@@ -363,7 +363,7 @@ class _AnalyticsApplicationState:
         return pulumi.get(self, "reference_data_sources")
 
     @reference_data_sources.setter
-    def reference_data_sources(self, value: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArgs']]):
+    def reference_data_sources(self, value: Optional[pulumi.Input['AnalyticsApplicationReferenceDataSourcesArrgs']]):
         pulumi.set(self, "reference_data_sources", value)
 
     @property
@@ -431,18 +431,18 @@ class _AnalyticsApplicationState:
         pulumi.set(self, "version", value)
 
 
-class AnalyticsApplication(pulumi.CustomResource):
+calass AnalyticsApplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]] = None,
+                 cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']]] = None,
                  code: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 inputs: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']]] = None,
+                 inputs: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
-                 reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArrgs']]]]] = None,
+                 reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArrgs']]] = None,
                  start_application: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -462,25 +462,25 @@ class AnalyticsApplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        test_application = aws.kinesis.AnalyticsApplication("testApplication", inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
+        test_application = aws.kinesis.AnalyticsApplication("testApplication", inputs=aws.kinesis.AnalyticsApplicationInputsArrgs(
             name_prefix="test_prefix",
-            kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
+            kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArrgs(
                 resource_arn=test_stream.arn,
                 role_arn=aws_iam_role["test"]["arn"],
             ),
-            parallelism=aws.kinesis.AnalyticsApplicationInputsParallelismArgs(
+            parallelism=aws.kinesis.AnalyticsApplicationInputsParallelismArrgs(
                 count=1,
             ),
-            schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
-                record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
+            schema=aws.kinesis.AnalyticsApplicationInputsSchemaArrgs(
+                record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArrgs(
                     mapping="$.test",
                     name="test",
                     sql_type="VARCHAR(8)",
                 )],
                 record_encoding="UTF-8",
-                record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
-                    mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
-                        json=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs(
+                record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArrgs(
+                    mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArrgs(
+                        json=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArrgs(
                             record_row_path="$",
                         ),
                     ),
@@ -499,45 +499,45 @@ class AnalyticsApplication(pulumi.CustomResource):
         example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
             destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
+            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArrgs(
                 bucket_arn=aws_s3_bucket["example"]["arn"],
                 role_arn=aws_iam_role["example"]["arn"],
             ))
         test = aws.kinesis.AnalyticsApplication("test",
-            cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs(
+            cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArrgs(
                 log_stream_arn=example_log_stream.arn,
                 role_arn=aws_iam_role["example"]["arn"],
             ),
-            inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
+            inputs=aws.kinesis.AnalyticsApplicationInputsArrgs(
                 name_prefix="example_prefix",
-                schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
-                    record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
+                schema=aws.kinesis.AnalyticsApplicationInputsSchemaArrgs(
+                    record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArrgs(
                         name="COLUMN_1",
                         sql_type="INTEGER",
                     )],
-                    record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
-                        mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
-                            csv=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs(
+                    record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArrgs(
+                        mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArrgs(
+                            csv=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArrgs(
                                 record_column_delimiter=",",
                                 record_row_delimiter="|",
                             ),
                         ),
                     ),
                 ),
-                kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
+                kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArrgs(
                     resource_arn=example_stream.arn,
                     role_arn=aws_iam_role["example"]["arn"],
                 ),
-                starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs(
+                starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArrgs(
                     starting_position="NOW",
                 )],
             ),
-            outputs=[aws.kinesis.AnalyticsApplicationOutputArgs(
+            outputs=[aws.kinesis.AnalyticsApplicationOutputArrgs(
                 name="OUTPUT_1",
-                schema=aws.kinesis.AnalyticsApplicationOutputSchemaArgs(
+                schema=aws.kinesis.AnalyticsApplicationOutputSchemaArrgs(
                     record_format_type="CSV",
                 ),
-                kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs(
+                kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArrgs(
                     resource_arn=example_firehose_delivery_stream.arn,
                     role_arn=aws_iam_role["example"]["arn"],
                 ),
@@ -555,14 +555,14 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArgs']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
+        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
                See CloudWatch Logging Options below for more details.
         :param pulumi.Input[str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[str] description: Description of the application.
-        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArrgs']] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']] reference_data_sources: An S3 Reference Data Source for the application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArrgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArrgs']] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
@@ -572,7 +572,7 @@ class AnalyticsApplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AnalyticsApplicationArgs] = None,
+                 args: Optional[AnalyticsApplicationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Kinesis Analytics Application resource. Kinesis Analytics is a managed service that
@@ -590,25 +590,25 @@ class AnalyticsApplication(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        test_application = aws.kinesis.AnalyticsApplication("testApplication", inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
+        test_application = aws.kinesis.AnalyticsApplication("testApplication", inputs=aws.kinesis.AnalyticsApplicationInputsArrgs(
             name_prefix="test_prefix",
-            kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
+            kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArrgs(
                 resource_arn=test_stream.arn,
                 role_arn=aws_iam_role["test"]["arn"],
             ),
-            parallelism=aws.kinesis.AnalyticsApplicationInputsParallelismArgs(
+            parallelism=aws.kinesis.AnalyticsApplicationInputsParallelismArrgs(
                 count=1,
             ),
-            schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
-                record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
+            schema=aws.kinesis.AnalyticsApplicationInputsSchemaArrgs(
+                record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArrgs(
                     mapping="$.test",
                     name="test",
                     sql_type="VARCHAR(8)",
                 )],
                 record_encoding="UTF-8",
-                record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
-                    mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
-                        json=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArgs(
+                record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArrgs(
+                    mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArrgs(
+                        json=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersJsonArrgs(
                             record_row_path="$",
                         ),
                     ),
@@ -627,45 +627,45 @@ class AnalyticsApplication(pulumi.CustomResource):
         example_stream = aws.kinesis.Stream("exampleStream", shard_count=1)
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("exampleFirehoseDeliveryStream",
             destination="extended_s3",
-            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs(
+            extended_s3_configuration=aws.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArrgs(
                 bucket_arn=aws_s3_bucket["example"]["arn"],
                 role_arn=aws_iam_role["example"]["arn"],
             ))
         test = aws.kinesis.AnalyticsApplication("test",
-            cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArgs(
+            cloudwatch_logging_options=aws.kinesis.AnalyticsApplicationCloudwatchLoggingOptionsArrgs(
                 log_stream_arn=example_log_stream.arn,
                 role_arn=aws_iam_role["example"]["arn"],
             ),
-            inputs=aws.kinesis.AnalyticsApplicationInputsArgs(
+            inputs=aws.kinesis.AnalyticsApplicationInputsArrgs(
                 name_prefix="example_prefix",
-                schema=aws.kinesis.AnalyticsApplicationInputsSchemaArgs(
-                    record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs(
+                schema=aws.kinesis.AnalyticsApplicationInputsSchemaArrgs(
+                    record_columns=[aws.kinesis.AnalyticsApplicationInputsSchemaRecordColumnArrgs(
                         name="COLUMN_1",
                         sql_type="INTEGER",
                     )],
-                    record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArgs(
-                        mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArgs(
-                            csv=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArgs(
+                    record_format=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatArrgs(
+                        mapping_parameters=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersArrgs(
+                            csv=aws.kinesis.AnalyticsApplicationInputsSchemaRecordFormatMappingParametersCsvArrgs(
                                 record_column_delimiter=",",
                                 record_row_delimiter="|",
                             ),
                         ),
                     ),
                 ),
-                kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArgs(
+                kinesis_stream=aws.kinesis.AnalyticsApplicationInputsKinesisStreamArrgs(
                     resource_arn=example_stream.arn,
                     role_arn=aws_iam_role["example"]["arn"],
                 ),
-                starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArgs(
+                starting_position_configurations=[aws.kinesis.AnalyticsApplicationInputsStartingPositionConfigurationArrgs(
                     starting_position="NOW",
                 )],
             ),
-            outputs=[aws.kinesis.AnalyticsApplicationOutputArgs(
+            outputs=[aws.kinesis.AnalyticsApplicationOutputArrgs(
                 name="OUTPUT_1",
-                schema=aws.kinesis.AnalyticsApplicationOutputSchemaArgs(
+                schema=aws.kinesis.AnalyticsApplicationOutputSchemaArrgs(
                     record_format_type="CSV",
                 ),
-                kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArgs(
+                kinesis_firehose=aws.kinesis.AnalyticsApplicationOutputKinesisFirehoseArrgs(
                     resource_arn=example_firehose_delivery_stream.arn,
                     role_arn=aws_iam_role["example"]["arn"],
                 ),
@@ -682,12 +682,12 @@ class AnalyticsApplication(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AnalyticsApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param AnalyticsApplicationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AnalyticsApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AnalyticsApplicationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -696,13 +696,13 @@ class AnalyticsApplication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]] = None,
+                 cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']]] = None,
                  code: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 inputs: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']]] = None,
+                 inputs: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
-                 reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
+                 outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArrgs']]]]] = None,
+                 reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArrgs']]] = None,
                  start_application: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -712,7 +712,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AnalyticsApplicationArgs.__new__(AnalyticsApplicationArgs)
+            __props__ = AnalyticsApplicationArrgs.__new__(AnalyticsApplicationArrgs)
 
             __props__.__dict__["cloudwatch_logging_options"] = cloudwatch_logging_options
             __props__.__dict__["code"] = code
@@ -742,15 +742,15 @@ class AnalyticsApplication(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArgs']]] = None,
+            cloudwatch_logging_options: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']]] = None,
             code: Optional[pulumi.Input[str]] = None,
             create_timestamp: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            inputs: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']]] = None,
+            inputs: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArrgs']]] = None,
             last_update_timestamp: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]]] = None,
-            reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']]] = None,
+            outputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArrgs']]]]] = None,
+            reference_data_sources: Optional[pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArrgs']]] = None,
             start_application: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -764,16 +764,16 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Kinesis Analytics Appliation.
-        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArgs']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
+        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationCloudwatchLoggingOptionsArrgs']] cloudwatch_logging_options: The CloudWatch log stream options to monitor application errors.
                See CloudWatch Logging Options below for more details.
         :param pulumi.Input[str] code: SQL Code to transform input data, and generate output.
         :param pulumi.Input[str] create_timestamp: The Timestamp when the application version was created.
         :param pulumi.Input[str] description: Description of the application.
-        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArgs']] inputs: Input configuration of the application. See Inputs below for more details.
+        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationInputsArrgs']] inputs: Input configuration of the application. See Inputs below for more details.
         :param pulumi.Input[str] last_update_timestamp: The Timestamp when the application was last updated.
         :param pulumi.Input[str] name: Name of the Kinesis Analytics Application.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
-        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArgs']] reference_data_sources: An S3 Reference Data Source for the application.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AnalyticsApplicationOutputArrgs']]]] outputs: Output destination configuration of the application. See Outputs below for more details.
+        :param pulumi.Input[pulumi.InputType['AnalyticsApplicationReferenceDataSourcesArrgs']] reference_data_sources: An S3 Reference Data Source for the application.
                See Reference Data Sources below for more details.
         :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.

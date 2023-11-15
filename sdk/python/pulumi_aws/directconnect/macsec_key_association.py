@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MacsecKeyAssociationArgs', 'MacsecKeyAssociation']
+__all__ = ['MacsecKeyAssociationArrgs', 'MacsecKeyAssociation']
 
 @pulumi.input_type
-class MacsecKeyAssociationArgs:
+calass MacsecKeyAssociationArrgs:
     def __init__(__self__, *,
                  connection_id: pulumi.Input[str],
                  cak: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class MacsecKeyAssociationArgs:
 
 
 @pulumi.input_type
-class _MacsecKeyAssociationState:
+calass _MacsecKeyAssociationState:
     def __init__(__self__, *,
                  cak: Optional[pulumi.Input[str]] = None,
                  ckn: Optional[pulumi.Input[str]] = None,
@@ -194,7 +194,7 @@ class _MacsecKeyAssociationState:
         pulumi.set(self, "state", value)
 
 
-class MacsecKeyAssociation(pulumi.CustomResource):
+calass MacsecKeyAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -251,7 +251,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MacsecKeyAssociationArgs,
+                 args: MacsecKeyAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a MAC Security (MACSec) secret key resource for use with Direct Connect. See [MACsec prerequisites](https://docs.aws.amazon.com/directconnect/latest/UserGuide/direct-connect-mac-sec-getting-started.html#mac-sec-prerequisites) for information about MAC Security (MACsec) prerequisites.
@@ -288,12 +288,12 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MacsecKeyAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param MacsecKeyAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MacsecKeyAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MacsecKeyAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -313,7 +313,7 @@ class MacsecKeyAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MacsecKeyAssociationArgs.__new__(MacsecKeyAssociationArgs)
+            __props__ = MacsecKeyAssociationArrgs.__new__(MacsecKeyAssociationArrgs)
 
             __props__.__dict__["cak"] = cak
             __props__.__dict__["ckn"] = ckn

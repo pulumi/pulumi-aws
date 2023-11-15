@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'RepositoryCatalogDataArgs',
+    'RepositoryCatalogDataArrgs',
 ]
 
 @pulumi.input_type
-class RepositoryCatalogDataArgs:
+calass RepositoryCatalogDataArrgs:
     def __init__(__self__, *,
                  about_text: Optional[pulumi.Input[str]] = None,
                  architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

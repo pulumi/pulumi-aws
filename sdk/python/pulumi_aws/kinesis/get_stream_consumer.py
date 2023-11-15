@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetStreamConsumerResult:
+calass GetStreamConsumerResult:
     """
     A collection of values returned by getStreamConsumer.
     """
@@ -81,7 +81,7 @@ class GetStreamConsumerResult:
         return pulumi.get(self, "stream_arn")
 
 
-class AwaitableGetStreamConsumerResult(GetStreamConsumerResult):
+calass AwaitableGetStreamConsumerResult(GetStreamConsumerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

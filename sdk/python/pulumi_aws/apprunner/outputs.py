@@ -32,7 +32,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CustomDomainAssociationCertificateValidationRecord(dict):
+calass CustomDomainAssociationCertificateValidationRecord(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  status: Optional[str] = None,
@@ -87,7 +87,7 @@ class CustomDomainAssociationCertificateValidationRecord(dict):
 
 
 @pulumi.output_type
-class ObservabilityConfigurationTraceConfiguration(dict):
+calass ObservabilityConfigurationTraceConfiguration(dict):
     def __init__(__self__, *,
                  vendor: Optional[str] = None):
         """
@@ -106,7 +106,7 @@ class ObservabilityConfigurationTraceConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceEncryptionConfiguration(dict):
+calass ServiceEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -141,7 +141,7 @@ class ServiceEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceHealthCheckConfiguration(dict):
+calass ServiceHealthCheckConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -239,7 +239,7 @@ class ServiceHealthCheckConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceInstanceConfiguration(dict):
+calass ServiceInstanceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -299,7 +299,7 @@ class ServiceInstanceConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceNetworkConfiguration(dict):
+calass ServiceNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -323,8 +323,8 @@ class ServiceNetworkConfiguration(dict):
                  egress_configuration: Optional['outputs.ServiceNetworkConfigurationEgressConfiguration'] = None,
                  ingress_configuration: Optional['outputs.ServiceNetworkConfigurationIngressConfiguration'] = None):
         """
-        :param 'ServiceNetworkConfigurationEgressConfigurationArgs' egress_configuration: Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-        :param 'ServiceNetworkConfigurationIngressConfigurationArgs' ingress_configuration: Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+        :param 'ServiceNetworkConfigurationEgressConfigurationArrgs' egress_configuration: Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+        :param 'ServiceNetworkConfigurationIngressConfigurationArrgs' ingress_configuration: Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
         """
         if egress_configuration is not None:
             pulumi.set(__self__, "egress_configuration", egress_configuration)
@@ -349,7 +349,7 @@ class ServiceNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceNetworkConfigurationEgressConfiguration(dict):
+calass ServiceNetworkConfigurationEgressConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -399,7 +399,7 @@ class ServiceNetworkConfigurationEgressConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceNetworkConfigurationIngressConfiguration(dict):
+calass ServiceNetworkConfigurationIngressConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -435,7 +435,7 @@ class ServiceNetworkConfigurationIngressConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceObservabilityConfiguration(dict):
+calass ServiceObservabilityConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -484,7 +484,7 @@ class ServiceObservabilityConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceSourceConfiguration(dict):
+calass ServiceSourceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -514,10 +514,10 @@ class ServiceSourceConfiguration(dict):
                  code_repository: Optional['outputs.ServiceSourceConfigurationCodeRepository'] = None,
                  image_repository: Optional['outputs.ServiceSourceConfigurationImageRepository'] = None):
         """
-        :param 'ServiceSourceConfigurationAuthenticationConfigurationArgs' authentication_configuration: Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+        :param 'ServiceSourceConfigurationAuthenticationConfigurationArrgs' authentication_configuration: Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
         :param bool auto_deployments_enabled: Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
-        :param 'ServiceSourceConfigurationCodeRepositoryArgs' code_repository: Description of a source code repository. See Code Repository below for more details.
-        :param 'ServiceSourceConfigurationImageRepositoryArgs' image_repository: Description of a source image repository. See Image Repository below for more details.
+        :param 'ServiceSourceConfigurationCodeRepositoryArrgs' code_repository: Description of a source code repository. See Code Repository below for more details.
+        :param 'ServiceSourceConfigurationImageRepositoryArrgs' image_repository: Description of a source image repository. See Image Repository below for more details.
         """
         if authentication_configuration is not None:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
@@ -562,7 +562,7 @@ class ServiceSourceConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceSourceConfigurationAuthenticationConfiguration(dict):
+calass ServiceSourceConfigurationAuthenticationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -612,7 +612,7 @@ class ServiceSourceConfigurationAuthenticationConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceSourceConfigurationCodeRepository(dict):
+calass ServiceSourceConfigurationCodeRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -640,8 +640,8 @@ class ServiceSourceConfigurationCodeRepository(dict):
                  code_configuration: Optional['outputs.ServiceSourceConfigurationCodeRepositoryCodeConfiguration'] = None):
         """
         :param str repository_url: Location of the repository that contains the source code.
-        :param 'ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs' source_code_version: Version that should be used within the source code repository. See Source Code Version below for more details.
-        :param 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs' code_configuration: Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+        :param 'ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs' source_code_version: Version that should be used within the source code repository. See Source Code Version below for more details.
+        :param 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs' code_configuration: Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_code_version", source_code_version)
@@ -674,7 +674,7 @@ class ServiceSourceConfigurationCodeRepository(dict):
 
 
 @pulumi.output_type
-class ServiceSourceConfigurationCodeRepositoryCodeConfiguration(dict):
+calass ServiceSourceConfigurationCodeRepositoryCodeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -699,7 +699,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfiguration(dict):
                  code_configuration_values: Optional['outputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues'] = None):
         """
         :param str configuration_source: Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-        :param 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs' code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+        :param 'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs' code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
         if code_configuration_values is not None:
@@ -723,7 +723,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues(dict):
+calass ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValues(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -824,7 +824,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
 
 
 @pulumi.output_type
-class ServiceSourceConfigurationCodeRepositorySourceCodeVersion(dict):
+calass ServiceSourceConfigurationCodeRepositorySourceCodeVersion(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -853,7 +853,7 @@ class ServiceSourceConfigurationCodeRepositorySourceCodeVersion(dict):
 
 
 @pulumi.output_type
-class ServiceSourceConfigurationImageRepository(dict):
+calass ServiceSourceConfigurationImageRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -883,7 +883,7 @@ class ServiceSourceConfigurationImageRepository(dict):
         :param str image_identifier: Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
                image name format, see Pulling an image in the Amazon ECR User Guide.
         :param str image_repository_type: Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-        :param 'ServiceSourceConfigurationImageRepositoryImageConfigurationArgs' image_configuration: Configuration for running the identified image. See Image Configuration below for more details.
+        :param 'ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs' image_configuration: Configuration for running the identified image. See Image Configuration below for more details.
         """
         pulumi.set(__self__, "image_identifier", image_identifier)
         pulumi.set(__self__, "image_repository_type", image_repository_type)
@@ -917,7 +917,7 @@ class ServiceSourceConfigurationImageRepository(dict):
 
 
 @pulumi.output_type
-class ServiceSourceConfigurationImageRepositoryImageConfiguration(dict):
+calass ServiceSourceConfigurationImageRepositoryImageConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -993,7 +993,7 @@ class ServiceSourceConfigurationImageRepositoryImageConfiguration(dict):
 
 
 @pulumi.output_type
-class VpcIngressConnectionIngressVpcConfiguration(dict):
+calass VpcIngressConnectionIngressVpcConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

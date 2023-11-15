@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ReplicationSetArgs', 'ReplicationSet']
+__all__ = ['ReplicationSetArrgs', 'ReplicationSet']
 
 @pulumi.input_type
-class ReplicationSetArgs:
+calass ReplicationSetArrgs:
     def __init__(__self__, *,
-                 regions: pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]],
+                 regions: pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArrgs']]],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicationSet resource.
@@ -30,11 +30,11 @@ class ReplicationSetArgs:
 
     @property
     @pulumi.getter
-    def regions(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]:
+    def regions(self) -> pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArrgs']]]:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]):
+    def regions(self, value: pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArrgs']]]):
         pulumi.set(self, "regions", value)
 
     @property
@@ -53,13 +53,13 @@ class ReplicationSetArgs:
 
 
 @pulumi.input_type
-class _ReplicationSetState:
+calass _ReplicationSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
                  deletion_protected: Optional[pulumi.Input[bool]] = None,
                  last_modified_by: Optional[pulumi.Input[str]] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArrgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -146,11 +146,11 @@ class _ReplicationSetState:
 
     @property
     @pulumi.getter
-    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]:
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArrgs']]]]:
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArgs']]]]):
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationSetRegionArrgs']]]]):
         pulumi.set(self, "regions", value)
 
     @property
@@ -196,12 +196,12 @@ class _ReplicationSetState:
         pulumi.set(self, "tags_all", value)
 
 
-class ReplicationSet(pulumi.CustomResource):
+calass ReplicationSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArgs']]]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -219,7 +219,7 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
+            regions=[aws.ssmincidents.ReplicationSetRegionArrgs(
                 name="us-west-2",
             )],
             tags={
@@ -234,10 +234,10 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[
-            aws.ssmincidents.ReplicationSetRegionArgs(
+            aws.ssmincidents.ReplicationSetRegionArrgs(
                 name="us-west-2",
             ),
-            aws.ssmincidents.ReplicationSetRegionArgs(
+            aws.ssmincidents.ReplicationSetRegionArrgs(
                 name="ap-southeast-2",
             ),
         ])
@@ -249,7 +249,7 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[aws.ssmincidents.ReplicationSetRegionArgs(
+        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[aws.ssmincidents.ReplicationSetRegionArrgs(
             name="us-west-2",
         )])
         ```
@@ -263,7 +263,7 @@ class ReplicationSet(pulumi.CustomResource):
 
         example_key = aws.kms.Key("exampleKey")
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
+            regions=[aws.ssmincidents.ReplicationSetRegionArrgs(
                 name="us-west-2",
                 kms_key_arn=example_key.arn,
             )],
@@ -290,7 +290,7 @@ class ReplicationSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicationSetArgs,
+                 args: ReplicationSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource for managing a replication set in AWS Systems Manager Incident Manager.
@@ -307,7 +307,7 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
+            regions=[aws.ssmincidents.ReplicationSetRegionArrgs(
                 name="us-west-2",
             )],
             tags={
@@ -322,10 +322,10 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[
-            aws.ssmincidents.ReplicationSetRegionArgs(
+            aws.ssmincidents.ReplicationSetRegionArrgs(
                 name="us-west-2",
             ),
-            aws.ssmincidents.ReplicationSetRegionArgs(
+            aws.ssmincidents.ReplicationSetRegionArrgs(
                 name="ap-southeast-2",
             ),
         ])
@@ -337,7 +337,7 @@ class ReplicationSet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[aws.ssmincidents.ReplicationSetRegionArgs(
+        replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName", regions=[aws.ssmincidents.ReplicationSetRegionArrgs(
             name="us-west-2",
         )])
         ```
@@ -351,7 +351,7 @@ class ReplicationSet(pulumi.CustomResource):
 
         example_key = aws.kms.Key("exampleKey")
         replication_set_name = aws.ssmincidents.ReplicationSet("replicationSetName",
-            regions=[aws.ssmincidents.ReplicationSetRegionArgs(
+            regions=[aws.ssmincidents.ReplicationSetRegionArrgs(
                 name="us-west-2",
                 kms_key_arn=example_key.arn,
             )],
@@ -369,12 +369,12 @@ class ReplicationSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReplicationSetArgs args: The arguments to use to populate this resource's properties.
+        :param ReplicationSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReplicationSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -383,7 +383,7 @@ class ReplicationSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArgs']]]]] = None,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -392,7 +392,7 @@ class ReplicationSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReplicationSetArgs.__new__(ReplicationSetArgs)
+            __props__ = ReplicationSetArrgs.__new__(ReplicationSetArrgs)
 
             if regions is None and not opts.urn:
                 raise TypeError("Missing required property 'regions'")
@@ -420,7 +420,7 @@ class ReplicationSet(pulumi.CustomResource):
             created_by: Optional[pulumi.Input[str]] = None,
             deletion_protected: Optional[pulumi.Input[bool]] = None,
             last_modified_by: Optional[pulumi.Input[str]] = None,
-            regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArgs']]]]] = None,
+            regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReplicationSetRegionArrgs']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ReplicationSet':

@@ -11,7 +11,7 @@ __all__ = [
 ]
 
 
-class Metric(str, Enum):
+calass Metric(str, Enum):
     """
     See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
     """
@@ -30,14 +30,14 @@ class Metric(str, Enum):
     GROUP_TOTAL_CAPACITY = "GroupTotalCapacity"
 
 
-class MetricsGranularity(str, Enum):
+calass MetricsGranularity(str, Enum):
     """
     See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html
     """
     ONE_MINUTE = "1Minute"
 
 
-class NotificationType(str, Enum):
+calass NotificationType(str, Enum):
     """
     See https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_NotificationConfiguration.html
     """

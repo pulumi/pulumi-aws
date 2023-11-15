@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAmiResult:
+calass GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
@@ -450,7 +450,7 @@ class GetAmiResult:
         return pulumi.get(self, "virtualization_type")
 
 
-class AwaitableGetAmiResult(GetAmiResult):
+calass AwaitableGetAmiResult(GetAmiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -498,7 +498,7 @@ class AwaitableGetAmiResult(GetAmiResult):
 
 
 def get_ami(executable_users: Optional[Sequence[str]] = None,
-            filters: Optional[Sequence[pulumi.InputType['GetAmiFilterArgs']]] = None,
+            filters: Optional[Sequence[pulumi.InputType['GetAmiFilterArrgs']]] = None,
             include_deprecated: Optional[bool] = None,
             most_recent: Optional[bool] = None,
             name_regex: Optional[str] = None,
@@ -517,15 +517,15 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
 
     example = aws.ec2.get_ami(executable_users=["self"],
         filters=[
-            aws.ec2.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArrgs(
                 name="name",
                 values=["myami-*"],
             ),
-            aws.ec2.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArrgs(
                 name="root-device-type",
                 values=["ebs"],
             ),
-            aws.ec2.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArrgs(
                 name="virtualization-type",
                 values=["hvm"],
             ),
@@ -538,7 +538,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[pulumi.InputType['GetAmiFilterArrgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
     :param bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
@@ -614,7 +614,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
 
 @_utilities.lift_output_func(get_ami)
 def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                   filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiFilterArgs']]]]] = None,
+                   filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiFilterArrgs']]]]] = None,
                    include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                    most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                    name_regex: Optional[pulumi.Input[Optional[str]]] = None,
@@ -633,15 +633,15 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
 
     example = aws.ec2.get_ami(executable_users=["self"],
         filters=[
-            aws.ec2.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArrgs(
                 name="name",
                 values=["myami-*"],
             ),
-            aws.ec2.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArrgs(
                 name="root-device-type",
                 values=["ebs"],
             ),
-            aws.ec2.GetAmiFilterArgs(
+            aws.ec2.GetAmiFilterArrgs(
                 name="virtualization-type",
                 values=["hvm"],
             ),
@@ -654,7 +654,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch permission on
            the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[pulumi.InputType['GetAmiFilterArrgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
     :param bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.

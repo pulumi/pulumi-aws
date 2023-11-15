@@ -10,64 +10,64 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CapacityProviderAutoScalingGroupProviderArgs',
-    'CapacityProviderAutoScalingGroupProviderManagedScalingArgs',
-    'ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs',
-    'ClusterConfigurationArgs',
-    'ClusterConfigurationExecuteCommandConfigurationArgs',
-    'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs',
-    'ClusterServiceConnectDefaultsArgs',
-    'ClusterSettingArgs',
-    'ServiceAlarmsArgs',
-    'ServiceCapacityProviderStrategyArgs',
-    'ServiceDeploymentCircuitBreakerArgs',
-    'ServiceDeploymentControllerArgs',
-    'ServiceLoadBalancerArgs',
-    'ServiceNetworkConfigurationArgs',
-    'ServiceOrderedPlacementStrategyArgs',
-    'ServicePlacementConstraintArgs',
-    'ServiceServiceConnectConfigurationArgs',
-    'ServiceServiceConnectConfigurationLogConfigurationArgs',
-    'ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs',
-    'ServiceServiceConnectConfigurationServiceArgs',
-    'ServiceServiceConnectConfigurationServiceClientAliasArgs',
-    'ServiceServiceRegistriesArgs',
-    'TaskDefinitionEphemeralStorageArgs',
-    'TaskDefinitionInferenceAcceleratorArgs',
-    'TaskDefinitionPlacementConstraintArgs',
-    'TaskDefinitionProxyConfigurationArgs',
-    'TaskDefinitionRuntimePlatformArgs',
-    'TaskDefinitionVolumeArgs',
-    'TaskDefinitionVolumeDockerVolumeConfigurationArgs',
-    'TaskDefinitionVolumeEfsVolumeConfigurationArgs',
-    'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs',
-    'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs',
-    'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs',
-    'TaskSetCapacityProviderStrategyArgs',
-    'TaskSetLoadBalancerArgs',
-    'TaskSetNetworkConfigurationArgs',
-    'TaskSetScaleArgs',
-    'TaskSetServiceRegistriesArgs',
-    'GetTaskExecutionCapacityProviderStrategyArgs',
-    'GetTaskExecutionNetworkConfigurationArgs',
-    'GetTaskExecutionOverridesArgs',
-    'GetTaskExecutionOverridesContainerOverrideArgs',
-    'GetTaskExecutionOverridesContainerOverrideEnvironmentArgs',
-    'GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs',
-    'GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs',
-    'GetTaskExecutionPlacementConstraintArgs',
-    'GetTaskExecutionPlacementStrategyArgs',
+    'CapacityProviderAutoScalingGroupProviderArrgs',
+    'CapacityProviderAutoScalingGroupProviderManagedScalingArrgs',
+    'ClusterCapacityProvidersDefaultCapacityProviderStrategyArrgs',
+    'ClusterConfigurationArrgs',
+    'ClusterConfigurationExecuteCommandConfigurationArrgs',
+    'ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs',
+    'ClusterServiceConnectDefaultsArrgs',
+    'ClusterSettingArrgs',
+    'ServiceAlarmsArrgs',
+    'ServiceCapacityProviderStrategyArrgs',
+    'ServiceDeploymentCircuitBreakerArrgs',
+    'ServiceDeploymentControllerArrgs',
+    'ServiceLoadBalancerArrgs',
+    'ServiceNetworkConfigurationArrgs',
+    'ServiceOrderedPlacementStrategyArrgs',
+    'ServicePlacementConstraintArrgs',
+    'ServiceServiceConnectConfigurationArrgs',
+    'ServiceServiceConnectConfigurationLogConfigurationArrgs',
+    'ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrgs',
+    'ServiceServiceConnectConfigurationServiceArrgs',
+    'ServiceServiceConnectConfigurationServiceClientAliasArrgs',
+    'ServiceServiceRegistriesArrgs',
+    'TaskDefinitionEphemeralStorageArrgs',
+    'TaskDefinitionInferenceAcceleratorArrgs',
+    'TaskDefinitionPlacementConstraintArrgs',
+    'TaskDefinitionProxyConfigurationArrgs',
+    'TaskDefinitionRuntimePlatformArrgs',
+    'TaskDefinitionVolumeArrgs',
+    'TaskDefinitionVolumeDockerVolumeConfigurationArrgs',
+    'TaskDefinitionVolumeEfsVolumeConfigurationArrgs',
+    'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrgs',
+    'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrgs',
+    'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrgs',
+    'TaskSetCapacityProviderStrategyArrgs',
+    'TaskSetLoadBalancerArrgs',
+    'TaskSetNetworkConfigurationArrgs',
+    'TaskSetScaleArrgs',
+    'TaskSetServiceRegistriesArrgs',
+    'GetTaskExecutionCapacityProviderStrategyArrgs',
+    'GetTaskExecutionNetworkConfigurationArrgs',
+    'GetTaskExecutionOverridesArrgs',
+    'GetTaskExecutionOverridesContainerOverrideArrgs',
+    'GetTaskExecutionOverridesContainerOverrideEnvironmentArrgs',
+    'GetTaskExecutionOverridesContainerOverrideResourceRequirementArrgs',
+    'GetTaskExecutionOverridesInferenceAcceleratorOverrideArrgs',
+    'GetTaskExecutionPlacementConstraintArrgs',
+    'GetTaskExecutionPlacementStrategyArrgs',
 ]
 
 @pulumi.input_type
-class CapacityProviderAutoScalingGroupProviderArgs:
+calass CapacityProviderAutoScalingGroupProviderArrgs:
     def __init__(__self__, *,
                  auto_scaling_group_arn: pulumi.Input[str],
-                 managed_scaling: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArgs']] = None,
+                 managed_scaling: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArrgs']] = None,
                  managed_termination_protection: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] auto_scaling_group_arn: ARN of the associated auto scaling group.
-        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArgs'] managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
+        :param pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArrgs'] managed_scaling: Configuration block defining the parameters of the auto scaling. Detailed below.
         :param pulumi.Input[str] managed_termination_protection: Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
         """
         pulumi.set(__self__, "auto_scaling_group_arn", auto_scaling_group_arn)
@@ -90,14 +90,14 @@ class CapacityProviderAutoScalingGroupProviderArgs:
 
     @property
     @pulumi.getter(name="managedScaling")
-    def managed_scaling(self) -> Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArgs']]:
+    def managed_scaling(self) -> Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArrgs']]:
         """
         Configuration block defining the parameters of the auto scaling. Detailed below.
         """
         return pulumi.get(self, "managed_scaling")
 
     @managed_scaling.setter
-    def managed_scaling(self, value: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArgs']]):
+    def managed_scaling(self, value: Optional[pulumi.Input['CapacityProviderAutoScalingGroupProviderManagedScalingArrgs']]):
         pulumi.set(self, "managed_scaling", value)
 
     @property
@@ -114,7 +114,7 @@ class CapacityProviderAutoScalingGroupProviderArgs:
 
 
 @pulumi.input_type
-class CapacityProviderAutoScalingGroupProviderManagedScalingArgs:
+calass CapacityProviderAutoScalingGroupProviderManagedScalingArrgs:
     def __init__(__self__, *,
                  instance_warmup_period: Optional[pulumi.Input[int]] = None,
                  maximum_scaling_step_size: Optional[pulumi.Input[int]] = None,
@@ -201,7 +201,7 @@ class CapacityProviderAutoScalingGroupProviderManagedScalingArgs:
 
 
 @pulumi.input_type
-class ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs:
+calass ClusterCapacityProvidersDefaultCapacityProviderStrategyArrgs:
     def __init__(__self__, *,
                  capacity_provider: pulumi.Input[str],
                  base: Optional[pulumi.Input[int]] = None,
@@ -255,37 +255,37 @@ class ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs:
 
 
 @pulumi.input_type
-class ClusterConfigurationArgs:
+calass ClusterConfigurationArrgs:
     def __init__(__self__, *,
-                 execute_command_configuration: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArgs']] = None):
+                 execute_command_configuration: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArgs'] execute_command_configuration: The details of the execute command configuration. Detailed below.
+        :param pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArrgs'] execute_command_configuration: The details of the execute command configuration. Detailed below.
         """
         if execute_command_configuration is not None:
             pulumi.set(__self__, "execute_command_configuration", execute_command_configuration)
 
     @property
     @pulumi.getter(name="executeCommandConfiguration")
-    def execute_command_configuration(self) -> Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArgs']]:
+    def execute_command_configuration(self) -> Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArrgs']]:
         """
         The details of the execute command configuration. Detailed below.
         """
         return pulumi.get(self, "execute_command_configuration")
 
     @execute_command_configuration.setter
-    def execute_command_configuration(self, value: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArgs']]):
+    def execute_command_configuration(self, value: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationArrgs']]):
         pulumi.set(self, "execute_command_configuration", value)
 
 
 @pulumi.input_type
-class ClusterConfigurationExecuteCommandConfigurationArgs:
+calass ClusterConfigurationExecuteCommandConfigurationArrgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
-                 log_configuration: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs']] = None,
+                 log_configuration: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs']] = None,
                  logging: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service key ID to encrypt the data between the local client and the container.
-        :param pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs'] log_configuration: The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
+        :param pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs'] log_configuration: The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
         :param pulumi.Input[str] logging: The log setting to use for redirecting logs for your execute command results. Valid values are `NONE`, `DEFAULT`, and `OVERRIDE`.
         """
         if kms_key_id is not None:
@@ -309,14 +309,14 @@ class ClusterConfigurationExecuteCommandConfigurationArgs:
 
     @property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs']]:
+    def log_configuration(self) -> Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs']]:
         """
         The log configuration for the results of the execute command actions Required when `logging` is `OVERRIDE`. Detailed below.
         """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs']]):
+    def log_configuration(self, value: Optional[pulumi.Input['ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs']]):
         pulumi.set(self, "log_configuration", value)
 
     @property
@@ -333,7 +333,7 @@ class ClusterConfigurationExecuteCommandConfigurationArgs:
 
 
 @pulumi.input_type
-class ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs:
+calass ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs:
     def __init__(__self__, *,
                  cloud_watch_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  cloud_watch_log_group_name: Optional[pulumi.Input[str]] = None,
@@ -420,7 +420,7 @@ class ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs:
 
 
 @pulumi.input_type
-class ClusterServiceConnectDefaultsArgs:
+calass ClusterServiceConnectDefaultsArrgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
         """
@@ -442,7 +442,7 @@ class ClusterServiceConnectDefaultsArgs:
 
 
 @pulumi.input_type
-class ClusterSettingArgs:
+calass ClusterSettingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -479,7 +479,7 @@ class ClusterSettingArgs:
 
 
 @pulumi.input_type
-class ServiceAlarmsArgs:
+calass ServiceAlarmsArrgs:
     def __init__(__self__, *,
                  alarm_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  enable: pulumi.Input[bool],
@@ -531,7 +531,7 @@ class ServiceAlarmsArgs:
 
 
 @pulumi.input_type
-class ServiceCapacityProviderStrategyArgs:
+calass ServiceCapacityProviderStrategyArrgs:
     def __init__(__self__, *,
                  capacity_provider: pulumi.Input[str],
                  base: Optional[pulumi.Input[int]] = None,
@@ -585,7 +585,7 @@ class ServiceCapacityProviderStrategyArgs:
 
 
 @pulumi.input_type
-class ServiceDeploymentCircuitBreakerArgs:
+calass ServiceDeploymentCircuitBreakerArrgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
                  rollback: pulumi.Input[bool]):
@@ -622,7 +622,7 @@ class ServiceDeploymentCircuitBreakerArgs:
 
 
 @pulumi.input_type
-class ServiceDeploymentControllerArgs:
+calass ServiceDeploymentControllerArrgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None):
         """
@@ -645,7 +645,7 @@ class ServiceDeploymentControllerArgs:
 
 
 @pulumi.input_type
-class ServiceLoadBalancerArgs:
+calass ServiceLoadBalancerArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  container_port: pulumi.Input[int],
@@ -718,7 +718,7 @@ class ServiceLoadBalancerArgs:
 
 
 @pulumi.input_type
-class ServiceNetworkConfigurationArgs:
+calass ServiceNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  assign_public_ip: Optional[pulumi.Input[bool]] = None,
@@ -776,7 +776,7 @@ class ServiceNetworkConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceOrderedPlacementStrategyArgs:
+calass ServiceOrderedPlacementStrategyArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  field: Optional[pulumi.Input[str]] = None):
@@ -824,7 +824,7 @@ class ServiceOrderedPlacementStrategyArgs:
 
 
 @pulumi.input_type
-class ServicePlacementConstraintArgs:
+calass ServicePlacementConstraintArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  expression: Optional[pulumi.Input[str]] = None):
@@ -862,17 +862,17 @@ class ServicePlacementConstraintArgs:
 
 
 @pulumi.input_type
-class ServiceServiceConnectConfigurationArgs:
+calass ServiceServiceConnectConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
-                 log_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs']] = None,
+                 log_configuration: Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArrgs']] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]]] = None):
+                 services: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArrgs']]]] = None):
         """
         :param pulumi.Input[bool] enabled: Specifies whether to use Service Connect with this service.
-        :param pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs'] log_configuration: The log configuration for the container. See below.
+        :param pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArrgs'] log_configuration: The log configuration for the container. See below.
         :param pulumi.Input[str] namespace: The namespace name or ARN of the `servicediscovery.HttpNamespace` for use with Service Connect.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]] services: The list of Service Connect service objects. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArrgs']]] services: The list of Service Connect service objects. See below.
         """
         pulumi.set(__self__, "enabled", enabled)
         if log_configuration is not None:
@@ -896,14 +896,14 @@ class ServiceServiceConnectConfigurationArgs:
 
     @property
     @pulumi.getter(name="logConfiguration")
-    def log_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs']]:
+    def log_configuration(self) -> Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArrgs']]:
         """
         The log configuration for the container. See below.
         """
         return pulumi.get(self, "log_configuration")
 
     @log_configuration.setter
-    def log_configuration(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArgs']]):
+    def log_configuration(self, value: Optional[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationArrgs']]):
         pulumi.set(self, "log_configuration", value)
 
     @property
@@ -920,27 +920,27 @@ class ServiceServiceConnectConfigurationArgs:
 
     @property
     @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]]]:
+    def services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArrgs']]]]:
         """
         The list of Service Connect service objects. See below.
         """
         return pulumi.get(self, "services")
 
     @services.setter
-    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArgs']]]]):
+    def services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceArrgs']]]]):
         pulumi.set(self, "services", value)
 
 
 @pulumi.input_type
-class ServiceServiceConnectConfigurationLogConfigurationArgs:
+calass ServiceServiceConnectConfigurationLogConfigurationArrgs:
     def __init__(__self__, *,
                  log_driver: pulumi.Input[str],
                  options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 secret_options: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]]] = None):
+                 secret_options: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrgs']]]] = None):
         """
         :param pulumi.Input[str] log_driver: The log driver to use for the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: The configuration options to send to the log driver.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]] secret_options: The secrets to pass to the log configuration. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrgs']]] secret_options: The secrets to pass to the log configuration. See below.
         """
         pulumi.set(__self__, "log_driver", log_driver)
         if options is not None:
@@ -974,19 +974,19 @@ class ServiceServiceConnectConfigurationLogConfigurationArgs:
 
     @property
     @pulumi.getter(name="secretOptions")
-    def secret_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]]]:
+    def secret_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrgs']]]]:
         """
         The secrets to pass to the log configuration. See below.
         """
         return pulumi.get(self, "secret_options")
 
     @secret_options.setter
-    def secret_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs']]]]):
+    def secret_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrgs']]]]):
         pulumi.set(self, "secret_options", value)
 
 
 @pulumi.input_type
-class ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs:
+calass ServiceServiceConnectConfigurationLogConfigurationSecretOptionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value_from: pulumi.Input[str]):
@@ -1023,15 +1023,15 @@ class ServiceServiceConnectConfigurationLogConfigurationSecretOptionArgs:
 
 
 @pulumi.input_type
-class ServiceServiceConnectConfigurationServiceArgs:
+calass ServiceServiceConnectConfigurationServiceArrgs:
     def __init__(__self__, *,
                  port_name: pulumi.Input[str],
-                 client_alias: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]]] = None,
+                 client_alias: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArrgs']]]] = None,
                  discovery_name: Optional[pulumi.Input[str]] = None,
                  ingress_port_override: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] port_name: The name of one of the `portMappings` from all the containers in the task definition of this Amazon ECS service.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArrgs']]] client_alias: The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         :param pulumi.Input[str] discovery_name: The name of the new AWS Cloud Map service that Amazon ECS creates for this Amazon ECS service.
         :param pulumi.Input[int] ingress_port_override: The port number for the Service Connect proxy to listen on.
         """
@@ -1057,14 +1057,14 @@ class ServiceServiceConnectConfigurationServiceArgs:
 
     @property
     @pulumi.getter(name="clientAlias")
-    def client_alias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]]]:
+    def client_alias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArrgs']]]]:
         """
         The list of client aliases for this Service Connect service. You use these to assign names that can be used by client applications. The maximum number of client aliases that you can have in this list is 1. See below.
         """
         return pulumi.get(self, "client_alias")
 
     @client_alias.setter
-    def client_alias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArgs']]]]):
+    def client_alias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceServiceConnectConfigurationServiceClientAliasArrgs']]]]):
         pulumi.set(self, "client_alias", value)
 
     @property
@@ -1093,7 +1093,7 @@ class ServiceServiceConnectConfigurationServiceArgs:
 
 
 @pulumi.input_type
-class ServiceServiceConnectConfigurationServiceClientAliasArgs:
+calass ServiceServiceConnectConfigurationServiceClientAliasArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  dns_name: Optional[pulumi.Input[str]] = None):
@@ -1131,7 +1131,7 @@ class ServiceServiceConnectConfigurationServiceClientAliasArgs:
 
 
 @pulumi.input_type
-class ServiceServiceRegistriesArgs:
+calass ServiceServiceRegistriesArrgs:
     def __init__(__self__, *,
                  registry_arn: pulumi.Input[str],
                  container_name: Optional[pulumi.Input[str]] = None,
@@ -1201,7 +1201,7 @@ class ServiceServiceRegistriesArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionEphemeralStorageArgs:
+calass TaskDefinitionEphemeralStorageArrgs:
     def __init__(__self__, *,
                  size_in_gib: pulumi.Input[int]):
         """
@@ -1223,7 +1223,7 @@ class TaskDefinitionEphemeralStorageArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionInferenceAcceleratorArgs:
+calass TaskDefinitionInferenceAcceleratorArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  device_type: pulumi.Input[str]):
@@ -1260,7 +1260,7 @@ class TaskDefinitionInferenceAcceleratorArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionPlacementConstraintArgs:
+calass TaskDefinitionPlacementConstraintArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  expression: Optional[pulumi.Input[str]] = None):
@@ -1298,7 +1298,7 @@ class TaskDefinitionPlacementConstraintArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionProxyConfigurationArgs:
+calass TaskDefinitionProxyConfigurationArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1352,7 +1352,7 @@ class TaskDefinitionProxyConfigurationArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionRuntimePlatformArgs:
+calass TaskDefinitionRuntimePlatformArrgs:
     def __init__(__self__, *,
                  cpu_architecture: Optional[pulumi.Input[str]] = None,
                  operating_system_family: Optional[pulumi.Input[str]] = None):
@@ -1391,19 +1391,19 @@ class TaskDefinitionRuntimePlatformArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionVolumeArgs:
+calass TaskDefinitionVolumeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs']] = None,
-                 efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs']] = None,
-                 fsx_windows_file_server_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']] = None,
+                 docker_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArrgs']] = None,
+                 efs_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArrgs']] = None,
+                 fsx_windows_file_server_volume_configuration: Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrgs']] = None,
                  host_path: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the volume. This name is referenced in the `sourceVolume`
                parameter of container definition in the `mountPoints` section.
-        :param pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs'] docker_volume_configuration: Configuration block to configure a docker volume. Detailed below.
-        :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs'] efs_volume_configuration: Configuration block for an EFS volume. Detailed below.
-        :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs'] fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
+        :param pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArrgs'] docker_volume_configuration: Configuration block to configure a docker volume. Detailed below.
+        :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArrgs'] efs_volume_configuration: Configuration block for an EFS volume. Detailed below.
+        :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrgs'] fsx_windows_file_server_volume_configuration: Configuration block for an FSX Windows File Server volume. Detailed below.
         :param pulumi.Input[str] host_path: Path on the host container instance that is presented to the container. If not set, ECS will create a nonpersistent data volume that starts empty and is deleted after the task has finished.
         """
         pulumi.set(__self__, "name", name)
@@ -1431,38 +1431,38 @@ class TaskDefinitionVolumeArgs:
 
     @property
     @pulumi.getter(name="dockerVolumeConfiguration")
-    def docker_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs']]:
+    def docker_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArrgs']]:
         """
         Configuration block to configure a docker volume. Detailed below.
         """
         return pulumi.get(self, "docker_volume_configuration")
 
     @docker_volume_configuration.setter
-    def docker_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArgs']]):
+    def docker_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeDockerVolumeConfigurationArrgs']]):
         pulumi.set(self, "docker_volume_configuration", value)
 
     @property
     @pulumi.getter(name="efsVolumeConfiguration")
-    def efs_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs']]:
+    def efs_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArrgs']]:
         """
         Configuration block for an EFS volume. Detailed below.
         """
         return pulumi.get(self, "efs_volume_configuration")
 
     @efs_volume_configuration.setter
-    def efs_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArgs']]):
+    def efs_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationArrgs']]):
         pulumi.set(self, "efs_volume_configuration", value)
 
     @property
     @pulumi.getter(name="fsxWindowsFileServerVolumeConfiguration")
-    def fsx_windows_file_server_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']]:
+    def fsx_windows_file_server_volume_configuration(self) -> Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrgs']]:
         """
         Configuration block for an FSX Windows File Server volume. Detailed below.
         """
         return pulumi.get(self, "fsx_windows_file_server_volume_configuration")
 
     @fsx_windows_file_server_volume_configuration.setter
-    def fsx_windows_file_server_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs']]):
+    def fsx_windows_file_server_volume_configuration(self, value: Optional[pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrgs']]):
         pulumi.set(self, "fsx_windows_file_server_volume_configuration", value)
 
     @property
@@ -1479,7 +1479,7 @@ class TaskDefinitionVolumeArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionVolumeDockerVolumeConfigurationArgs:
+calass TaskDefinitionVolumeDockerVolumeConfigurationArrgs:
     def __init__(__self__, *,
                  autoprovision: Optional[pulumi.Input[bool]] = None,
                  driver: Optional[pulumi.Input[str]] = None,
@@ -1566,16 +1566,16 @@ class TaskDefinitionVolumeDockerVolumeConfigurationArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionVolumeEfsVolumeConfigurationArgs:
+calass TaskDefinitionVolumeEfsVolumeConfigurationArrgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
-                 authorization_config: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs']] = None,
+                 authorization_config: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrgs']] = None,
                  root_directory: Optional[pulumi.Input[str]] = None,
                  transit_encryption: Optional[pulumi.Input[str]] = None,
                  transit_encryption_port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] file_system_id: ID of the EFS File System.
-        :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs'] authorization_config: Configuration block for authorization for the Amazon EFS file system. Detailed below.
+        :param pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrgs'] authorization_config: Configuration block for authorization for the Amazon EFS file system. Detailed below.
         :param pulumi.Input[str] root_directory: Directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume will be used. Specifying / will have the same effect as omitting this parameter. This argument is ignored when using `authorization_config`.
         :param pulumi.Input[str] transit_encryption: Whether or not to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. Transit encryption must be enabled if Amazon EFS IAM authorization is used. Valid values: `ENABLED`, `DISABLED`. If this parameter is omitted, the default value of `DISABLED` is used.
         :param pulumi.Input[int] transit_encryption_port: Port to use for transit encryption. If you do not specify a transit encryption port, it will use the port selection strategy that the Amazon EFS mount helper uses.
@@ -1604,14 +1604,14 @@ class TaskDefinitionVolumeEfsVolumeConfigurationArgs:
 
     @property
     @pulumi.getter(name="authorizationConfig")
-    def authorization_config(self) -> Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs']]:
+    def authorization_config(self) -> Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrgs']]:
         """
         Configuration block for authorization for the Amazon EFS file system. Detailed below.
         """
         return pulumi.get(self, "authorization_config")
 
     @authorization_config.setter
-    def authorization_config(self, value: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs']]):
+    def authorization_config(self, value: Optional[pulumi.Input['TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrgs']]):
         pulumi.set(self, "authorization_config", value)
 
     @property
@@ -1652,7 +1652,7 @@ class TaskDefinitionVolumeEfsVolumeConfigurationArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs:
+calass TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArrgs:
     def __init__(__self__, *,
                  access_point_id: Optional[pulumi.Input[str]] = None,
                  iam: Optional[pulumi.Input[str]] = None):
@@ -1691,13 +1691,13 @@ class TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs:
+calass TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArrgs:
     def __init__(__self__, *,
-                 authorization_config: pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs'],
+                 authorization_config: pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrgs'],
                  file_system_id: pulumi.Input[str],
                  root_directory: pulumi.Input[str]):
         """
-        :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs'] authorization_config: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
+        :param pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrgs'] authorization_config: Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
         :param pulumi.Input[str] file_system_id: The Amazon FSx for Windows File Server file system ID to use.
         :param pulumi.Input[str] root_directory: The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
         """
@@ -1707,14 +1707,14 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs:
 
     @property
     @pulumi.getter(name="authorizationConfig")
-    def authorization_config(self) -> pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs']:
+    def authorization_config(self) -> pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrgs']:
         """
         Configuration block for authorization for the Amazon FSx for Windows File Server file system detailed below.
         """
         return pulumi.get(self, "authorization_config")
 
     @authorization_config.setter
-    def authorization_config(self, value: pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs']):
+    def authorization_config(self, value: pulumi.Input['TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrgs']):
         pulumi.set(self, "authorization_config", value)
 
     @property
@@ -1743,7 +1743,7 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs:
 
 
 @pulumi.input_type
-class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs:
+calass TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArrgs:
     def __init__(__self__, *,
                  credentials_parameter: pulumi.Input[str],
                  domain: pulumi.Input[str]):
@@ -1780,7 +1780,7 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCo
 
 
 @pulumi.input_type
-class TaskSetCapacityProviderStrategyArgs:
+calass TaskSetCapacityProviderStrategyArrgs:
     def __init__(__self__, *,
                  capacity_provider: pulumi.Input[str],
                  weight: pulumi.Input[int],
@@ -1833,7 +1833,7 @@ class TaskSetCapacityProviderStrategyArgs:
 
 
 @pulumi.input_type
-class TaskSetLoadBalancerArgs:
+calass TaskSetLoadBalancerArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  container_port: Optional[pulumi.Input[int]] = None,
@@ -1907,7 +1907,7 @@ class TaskSetLoadBalancerArgs:
 
 
 @pulumi.input_type
-class TaskSetNetworkConfigurationArgs:
+calass TaskSetNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
                  assign_public_ip: Optional[pulumi.Input[bool]] = None,
@@ -1965,7 +1965,7 @@ class TaskSetNetworkConfigurationArgs:
 
 
 @pulumi.input_type
-class TaskSetScaleArgs:
+calass TaskSetScaleArrgs:
     def __init__(__self__, *,
                  unit: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[float]] = None):
@@ -2004,7 +2004,7 @@ class TaskSetScaleArgs:
 
 
 @pulumi.input_type
-class TaskSetServiceRegistriesArgs:
+calass TaskSetServiceRegistriesArrgs:
     def __init__(__self__, *,
                  registry_arn: pulumi.Input[str],
                  container_name: Optional[pulumi.Input[str]] = None,
@@ -2074,7 +2074,7 @@ class TaskSetServiceRegistriesArgs:
 
 
 @pulumi.input_type
-class GetTaskExecutionCapacityProviderStrategyArgs:
+calass GetTaskExecutionCapacityProviderStrategyArrgs:
     def __init__(__self__, *,
                  capacity_provider: str,
                  base: Optional[int] = None,
@@ -2128,7 +2128,7 @@ class GetTaskExecutionCapacityProviderStrategyArgs:
 
 
 @pulumi.input_type
-class GetTaskExecutionNetworkConfigurationArgs:
+calass GetTaskExecutionNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  subnets: Sequence[str],
                  assign_public_ip: Optional[bool] = None,
@@ -2186,19 +2186,19 @@ class GetTaskExecutionNetworkConfigurationArgs:
 
 
 @pulumi.input_type
-class GetTaskExecutionOverridesArgs:
+calass GetTaskExecutionOverridesArrgs:
     def __init__(__self__, *,
-                 container_overrides: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideArgs']] = None,
+                 container_overrides: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideArrgs']] = None,
                  cpu: Optional[str] = None,
                  execution_role_arn: Optional[str] = None,
-                 inference_accelerator_overrides: Optional[Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs']] = None,
+                 inference_accelerator_overrides: Optional[Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArrgs']] = None,
                  memory: Optional[str] = None,
                  task_role_arn: Optional[str] = None):
         """
-        :param Sequence['GetTaskExecutionOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. See below.
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideArrgs'] container_overrides: One or more container overrides that are sent to a task. See below.
         :param str cpu: The CPU override for the task.
         :param str execution_role_arn: Amazon Resource Name (ARN) of the task execution role override for the task.
-        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: Elastic Inference accelerator override for the task. See below.
+        :param Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArrgs'] inference_accelerator_overrides: Elastic Inference accelerator override for the task. See below.
         :param str memory: The memory override for the task.
         :param str task_role_arn: Amazon Resource Name (ARN) of the role that containers in this task can assume.
         """
@@ -2217,14 +2217,14 @@ class GetTaskExecutionOverridesArgs:
 
     @property
     @pulumi.getter(name="containerOverrides")
-    def container_overrides(self) -> Optional[Sequence['GetTaskExecutionOverridesContainerOverrideArgs']]:
+    def container_overrides(self) -> Optional[Sequence['GetTaskExecutionOverridesContainerOverrideArrgs']]:
         """
         One or more container overrides that are sent to a task. See below.
         """
         return pulumi.get(self, "container_overrides")
 
     @container_overrides.setter
-    def container_overrides(self, value: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideArgs']]):
+    def container_overrides(self, value: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideArrgs']]):
         pulumi.set(self, "container_overrides", value)
 
     @property
@@ -2253,14 +2253,14 @@ class GetTaskExecutionOverridesArgs:
 
     @property
     @pulumi.getter(name="inferenceAcceleratorOverrides")
-    def inference_accelerator_overrides(self) -> Optional[Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs']]:
+    def inference_accelerator_overrides(self) -> Optional[Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArrgs']]:
         """
         Elastic Inference accelerator override for the task. See below.
         """
         return pulumi.get(self, "inference_accelerator_overrides")
 
     @inference_accelerator_overrides.setter
-    def inference_accelerator_overrides(self, value: Optional[Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs']]):
+    def inference_accelerator_overrides(self, value: Optional[Sequence['GetTaskExecutionOverridesInferenceAcceleratorOverrideArrgs']]):
         pulumi.set(self, "inference_accelerator_overrides", value)
 
     @property
@@ -2289,23 +2289,23 @@ class GetTaskExecutionOverridesArgs:
 
 
 @pulumi.input_type
-class GetTaskExecutionOverridesContainerOverrideArgs:
+calass GetTaskExecutionOverridesContainerOverrideArrgs:
     def __init__(__self__, *,
                  name: str,
                  commands: Optional[Sequence[str]] = None,
                  cpu: Optional[int] = None,
-                 environments: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArgs']] = None,
+                 environments: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArrgs']] = None,
                  memory: Optional[int] = None,
                  memory_reservation: Optional[int] = None,
-                 resource_requirements: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs']] = None):
+                 resource_requirements: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArrgs']] = None):
         """
         :param str name: The name of the container that receives the override. This parameter is required if any override is specified.
         :param Sequence[str] commands: The command to send to the container that overrides the default command from the Docker image or the task definition.
         :param int cpu: The number of cpu units reserved for the container, instead of the default value from the task definition.
-        :param Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArrgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
         :param int memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed.
         :param int memory_reservation: The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition.
-        :param Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
+        :param Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArrgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
         """
         pulumi.set(__self__, "name", name)
         if commands is not None:
@@ -2359,14 +2359,14 @@ class GetTaskExecutionOverridesContainerOverrideArgs:
 
     @property
     @pulumi.getter
-    def environments(self) -> Optional[Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArgs']]:
+    def environments(self) -> Optional[Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArrgs']]:
         """
         The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. See below.
         """
         return pulumi.get(self, "environments")
 
     @environments.setter
-    def environments(self, value: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArgs']]):
+    def environments(self, value: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideEnvironmentArrgs']]):
         pulumi.set(self, "environments", value)
 
     @property
@@ -2395,19 +2395,19 @@ class GetTaskExecutionOverridesContainerOverrideArgs:
 
     @property
     @pulumi.getter(name="resourceRequirements")
-    def resource_requirements(self) -> Optional[Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs']]:
+    def resource_requirements(self) -> Optional[Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArrgs']]:
         """
         The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. See below.
         """
         return pulumi.get(self, "resource_requirements")
 
     @resource_requirements.setter
-    def resource_requirements(self, value: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs']]):
+    def resource_requirements(self, value: Optional[Sequence['GetTaskExecutionOverridesContainerOverrideResourceRequirementArrgs']]):
         pulumi.set(self, "resource_requirements", value)
 
 
 @pulumi.input_type
-class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs:
+calass GetTaskExecutionOverridesContainerOverrideEnvironmentArrgs:
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -2444,7 +2444,7 @@ class GetTaskExecutionOverridesContainerOverrideEnvironmentArgs:
 
 
 @pulumi.input_type
-class GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs:
+calass GetTaskExecutionOverridesContainerOverrideResourceRequirementArrgs:
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -2481,7 +2481,7 @@ class GetTaskExecutionOverridesContainerOverrideResourceRequirementArgs:
 
 
 @pulumi.input_type
-class GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs:
+calass GetTaskExecutionOverridesInferenceAcceleratorOverrideArrgs:
     def __init__(__self__, *,
                  device_name: Optional[str] = None,
                  device_type: Optional[str] = None):
@@ -2520,7 +2520,7 @@ class GetTaskExecutionOverridesInferenceAcceleratorOverrideArgs:
 
 
 @pulumi.input_type
-class GetTaskExecutionPlacementConstraintArgs:
+calass GetTaskExecutionPlacementConstraintArrgs:
     def __init__(__self__, *,
                  type: str,
                  expression: Optional[str] = None):
@@ -2558,7 +2558,7 @@ class GetTaskExecutionPlacementConstraintArgs:
 
 
 @pulumi.input_type
-class GetTaskExecutionPlacementStrategyArgs:
+calass GetTaskExecutionPlacementStrategyArrgs:
     def __init__(__self__, *,
                  type: str,
                  field: Optional[str] = None):

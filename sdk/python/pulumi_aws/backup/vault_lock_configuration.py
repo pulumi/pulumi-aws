@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VaultLockConfigurationArgs', 'VaultLockConfiguration']
+__all__ = ['VaultLockConfigurationArrgs', 'VaultLockConfiguration']
 
 @pulumi.input_type
-class VaultLockConfigurationArgs:
+calass VaultLockConfigurationArrgs:
     def __init__(__self__, *,
                  backup_vault_name: pulumi.Input[str],
                  changeable_for_days: Optional[pulumi.Input[int]] = None,
@@ -83,7 +83,7 @@ class VaultLockConfigurationArgs:
 
 
 @pulumi.input_type
-class _VaultLockConfigurationState:
+calass _VaultLockConfigurationState:
     def __init__(__self__, *,
                  backup_vault_arn: Optional[pulumi.Input[str]] = None,
                  backup_vault_name: Optional[pulumi.Input[str]] = None,
@@ -170,7 +170,7 @@ class _VaultLockConfigurationState:
         pulumi.set(self, "min_retention_days", value)
 
 
-class VaultLockConfiguration(pulumi.CustomResource):
+calass VaultLockConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -215,7 +215,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VaultLockConfigurationArgs,
+                 args: VaultLockConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Backup vault lock configuration resource.
@@ -242,12 +242,12 @@ class VaultLockConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VaultLockConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param VaultLockConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VaultLockConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VaultLockConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -267,7 +267,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VaultLockConfigurationArgs.__new__(VaultLockConfigurationArgs)
+            __props__ = VaultLockConfigurationArrgs.__new__(VaultLockConfigurationArrgs)
 
             if backup_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_vault_name'")

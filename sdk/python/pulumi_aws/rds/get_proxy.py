@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetProxyResult:
+calass GetProxyResult:
     """
     A collection of values returned by getProxy.
     """
@@ -165,7 +165,7 @@ class GetProxyResult:
         return pulumi.get(self, "vpc_subnet_ids")
 
 
-class AwaitableGetProxyResult(GetProxyResult):
+calass AwaitableGetProxyResult(GetProxyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

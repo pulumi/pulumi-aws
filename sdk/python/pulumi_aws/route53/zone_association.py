@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ZoneAssociationArgs', 'ZoneAssociation']
+__all__ = ['ZoneAssociationArrgs', 'ZoneAssociation']
 
 @pulumi.input_type
-class ZoneAssociationArgs:
+calass ZoneAssociationArrgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[str],
                  zone_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ZoneAssociationArgs:
 
 
 @pulumi.input_type
-class _ZoneAssociationState:
+calass _ZoneAssociationState:
     def __init__(__self__, *,
                  owning_account: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _ZoneAssociationState:
         pulumi.set(self, "zone_id", value)
 
 
-class ZoneAssociation(pulumi.CustomResource):
+calass ZoneAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,7 +167,7 @@ class ZoneAssociation(pulumi.CustomResource):
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example = aws.route53.Zone("example", vpcs=[aws.route53.ZoneVpcArgs(
+        example = aws.route53.Zone("example", vpcs=[aws.route53.ZoneVpcArrgs(
             vpc_id=primary.id,
         )])
         secondary_zone_association = aws.route53.ZoneAssociation("secondaryZoneAssociation",
@@ -202,7 +202,7 @@ class ZoneAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ZoneAssociationArgs,
+                 args: ZoneAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Route53 Hosted Zone VPC association. VPC associations can only be made on private zones. See the `route53.VpcAssociationAuthorization` resource for setting up cross-account associations.
@@ -225,7 +225,7 @@ class ZoneAssociation(pulumi.CustomResource):
             cidr_block="10.7.0.0/16",
             enable_dns_hostnames=True,
             enable_dns_support=True)
-        example = aws.route53.Zone("example", vpcs=[aws.route53.ZoneVpcArgs(
+        example = aws.route53.Zone("example", vpcs=[aws.route53.ZoneVpcArrgs(
             vpc_id=primary.id,
         )])
         secondary_zone_association = aws.route53.ZoneAssociation("secondaryZoneAssociation",
@@ -251,12 +251,12 @@ class ZoneAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ZoneAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ZoneAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ZoneAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ZoneAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -275,7 +275,7 @@ class ZoneAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ZoneAssociationArgs.__new__(ZoneAssociationArgs)
+            __props__ = ZoneAssociationArrgs.__new__(ZoneAssociationArrgs)
 
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")

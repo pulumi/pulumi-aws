@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SerialConsoleAccessArgs', 'SerialConsoleAccess']
+__all__ = ['SerialConsoleAccessArrgs', 'SerialConsoleAccess']
 
 @pulumi.input_type
-class SerialConsoleAccessArgs:
+calass SerialConsoleAccessArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -36,7 +36,7 @@ class SerialConsoleAccessArgs:
 
 
 @pulumi.input_type
-class _SerialConsoleAccessState:
+calass _SerialConsoleAccessState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -59,7 +59,7 @@ class _SerialConsoleAccessState:
         pulumi.set(self, "enabled", value)
 
 
-class SerialConsoleAccess(pulumi.CustomResource):
+calass SerialConsoleAccess(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -96,7 +96,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SerialConsoleAccessArgs] = None,
+                 args: Optional[SerialConsoleAccessArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage whether serial console access is enabled for your AWS account in the current AWS region.
@@ -121,12 +121,12 @@ class SerialConsoleAccess(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SerialConsoleAccessArgs args: The arguments to use to populate this resource's properties.
+        :param SerialConsoleAccessArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SerialConsoleAccessArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SerialConsoleAccessArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -143,7 +143,7 @@ class SerialConsoleAccess(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SerialConsoleAccessArgs.__new__(SerialConsoleAccessArgs)
+            __props__ = SerialConsoleAccessArrgs.__new__(SerialConsoleAccessArrgs)
 
             __props__.__dict__["enabled"] = enabled
         super(SerialConsoleAccess, __self__).__init__(

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OpenZfsSnapshotArgs', 'OpenZfsSnapshot']
+__all__ = ['OpenZfsSnapshotArrgs', 'OpenZfsSnapshot']
 
 @pulumi.input_type
-class OpenZfsSnapshotArgs:
+calass OpenZfsSnapshotArrgs:
     def __init__(__self__, *,
                  volume_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class OpenZfsSnapshotArgs:
 
 
 @pulumi.input_type
-class _OpenZfsSnapshotState:
+calass _OpenZfsSnapshotState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class _OpenZfsSnapshotState:
         pulumi.set(self, "volume_id", value)
 
 
-class OpenZfsSnapshot(pulumi.CustomResource):
+calass OpenZfsSnapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -232,7 +232,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OpenZfsSnapshotArgs,
+                 args: OpenZfsSnapshotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Amazon FSx for OpenZFS volume.
@@ -276,12 +276,12 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OpenZfsSnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param OpenZfsSnapshotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OpenZfsSnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OpenZfsSnapshotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -300,7 +300,7 @@ class OpenZfsSnapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OpenZfsSnapshotArgs.__new__(OpenZfsSnapshotArgs)
+            __props__ = OpenZfsSnapshotArrgs.__new__(OpenZfsSnapshotArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

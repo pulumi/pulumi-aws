@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountArgs', 'Account']
+__all__ = ['AccountArrgs', 'Account']
 
 @pulumi.input_type
-class AccountArgs:
+calass AccountArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  close_on_deletion: Optional[pulumi.Input[bool]] = None,
@@ -151,7 +151,7 @@ class AccountArgs:
 
 
 @pulumi.input_type
-class _AccountState:
+calass _AccountState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  close_on_deletion: Optional[pulumi.Input[bool]] = None,
@@ -380,7 +380,7 @@ class _AccountState:
         pulumi.set(self, "tags_all", value)
 
 
-class Account(pulumi.CustomResource):
+calass Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -436,7 +436,7 @@ class Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountArgs,
+                 args: AccountArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create a member account in the current organization.
@@ -464,12 +464,12 @@ class Account(pulumi.CustomResource):
          Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
-        :param AccountArgs args: The arguments to use to populate this resource's properties.
+        :param AccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -493,7 +493,7 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountArgs.__new__(AccountArgs)
+            __props__ = AccountArrgs.__new__(AccountArrgs)
 
             __props__.__dict__["close_on_deletion"] = close_on_deletion
             __props__.__dict__["create_govcloud"] = create_govcloud

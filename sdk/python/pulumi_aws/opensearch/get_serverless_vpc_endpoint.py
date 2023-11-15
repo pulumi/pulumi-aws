@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServerlessVpcEndpointResult:
+calass GetServerlessVpcEndpointResult:
     """
     A collection of values returned by getServerlessVpcEndpoint.
     """
@@ -98,7 +98,7 @@ class GetServerlessVpcEndpointResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetServerlessVpcEndpointResult(GetServerlessVpcEndpointResult):
+calass AwaitableGetServerlessVpcEndpointResult(GetServerlessVpcEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

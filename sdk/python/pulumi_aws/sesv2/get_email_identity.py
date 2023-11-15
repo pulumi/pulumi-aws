@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEmailIdentityResult:
+calass GetEmailIdentityResult:
     """
     A collection of values returned by getEmailIdentity.
     """
@@ -107,7 +107,7 @@ class GetEmailIdentityResult:
         return pulumi.get(self, "verified_for_sending_status")
 
 
-class AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
+calass AwaitableGetEmailIdentityResult(GetEmailIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

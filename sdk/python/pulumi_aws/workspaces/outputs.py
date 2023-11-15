@@ -26,7 +26,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConnectionAliasTimeouts(dict):
+calass ConnectionAliasTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
@@ -55,7 +55,7 @@ class ConnectionAliasTimeouts(dict):
 
 
 @pulumi.output_type
-class DirectorySelfServicePermissions(dict):
+calass DirectorySelfServicePermissions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -147,7 +147,7 @@ class DirectorySelfServicePermissions(dict):
 
 
 @pulumi.output_type
-class DirectoryWorkspaceAccessProperties(dict):
+calass DirectoryWorkspaceAccessProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -281,7 +281,7 @@ class DirectoryWorkspaceAccessProperties(dict):
 
 
 @pulumi.output_type
-class DirectoryWorkspaceCreationProperties(dict):
+calass DirectoryWorkspaceCreationProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -373,7 +373,7 @@ class DirectoryWorkspaceCreationProperties(dict):
 
 
 @pulumi.output_type
-class IpGroupRule(dict):
+calass IpGroupRule(dict):
     def __init__(__self__, *,
                  source: str,
                  description: Optional[str] = None):
@@ -403,7 +403,7 @@ class IpGroupRule(dict):
 
 
 @pulumi.output_type
-class WorkspaceWorkspaceProperties(dict):
+calass WorkspaceWorkspaceProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -495,7 +495,7 @@ class WorkspaceWorkspaceProperties(dict):
 
 
 @pulumi.output_type
-class GetBundleComputeTypeResult(dict):
+calass GetBundleComputeTypeResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -513,7 +513,7 @@ class GetBundleComputeTypeResult(dict):
 
 
 @pulumi.output_type
-class GetBundleRootStorageResult(dict):
+calass GetBundleRootStorageResult(dict):
     def __init__(__self__, *,
                  capacity: str):
         """
@@ -531,7 +531,7 @@ class GetBundleRootStorageResult(dict):
 
 
 @pulumi.output_type
-class GetBundleUserStorageResult(dict):
+calass GetBundleUserStorageResult(dict):
     def __init__(__self__, *,
                  capacity: str):
         """
@@ -549,7 +549,7 @@ class GetBundleUserStorageResult(dict):
 
 
 @pulumi.output_type
-class GetDirectorySelfServicePermissionResult(dict):
+calass GetDirectorySelfServicePermissionResult(dict):
     def __init__(__self__, *,
                  change_compute_type: bool,
                  increase_volume_size: bool,
@@ -611,7 +611,7 @@ class GetDirectorySelfServicePermissionResult(dict):
 
 
 @pulumi.output_type
-class GetDirectoryWorkspaceAccessPropertyResult(dict):
+calass GetDirectoryWorkspaceAccessPropertyResult(dict):
     def __init__(__self__, *,
                  device_type_android: str,
                  device_type_chromeos: str,
@@ -706,7 +706,7 @@ class GetDirectoryWorkspaceAccessPropertyResult(dict):
 
 
 @pulumi.output_type
-class GetDirectoryWorkspaceCreationPropertyResult(dict):
+calass GetDirectoryWorkspaceCreationPropertyResult(dict):
     def __init__(__self__, *,
                  custom_security_group_id: str,
                  default_ou: str,
@@ -768,7 +768,7 @@ class GetDirectoryWorkspaceCreationPropertyResult(dict):
 
 
 @pulumi.output_type
-class GetWorkspaceWorkspacePropertyResult(dict):
+calass GetWorkspaceWorkspacePropertyResult(dict):
     def __init__(__self__, *,
                  compute_type_name: str,
                  root_volume_size_gib: int,

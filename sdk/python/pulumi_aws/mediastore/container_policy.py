@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ContainerPolicyArgs', 'ContainerPolicy']
+__all__ = ['ContainerPolicyArrgs', 'ContainerPolicy']
 
 @pulumi.input_type
-class ContainerPolicyArgs:
+calass ContainerPolicyArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  policy: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ContainerPolicyArgs:
 
 
 @pulumi.input_type
-class _ContainerPolicyState:
+calass _ContainerPolicyState:
     def __init__(__self__, *,
                  container_name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ContainerPolicyState:
         pulumi.set(self, "policy", value)
 
 
-class ContainerPolicy(pulumi.CustomResource):
+calass ContainerPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -109,16 +109,16 @@ class ContainerPolicy(pulumi.CustomResource):
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
         example_container = aws.mediastore.Container("exampleContainer")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="MediaStoreFullAccess",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
             )],
             actions=["mediastore:*"],
             resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current_region.name}:{current_caller_identity.account_id}:container/{name}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="Bool",
                 variable="aws:SecureTransport",
                 values=["true"],
@@ -146,7 +146,7 @@ class ContainerPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContainerPolicyArgs,
+                 args: ContainerPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a MediaStore Container Policy.
@@ -160,16 +160,16 @@ class ContainerPolicy(pulumi.CustomResource):
         current_region = aws.get_region()
         current_caller_identity = aws.get_caller_identity()
         example_container = aws.mediastore.Container("exampleContainer")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="MediaStoreFullAccess",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
             )],
             actions=["mediastore:*"],
             resources=[example_container.name.apply(lambda name: f"arn:aws:mediastore:{current_region.name}:{current_caller_identity.account_id}:container/{name}/*")],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="Bool",
                 variable="aws:SecureTransport",
                 values=["true"],
@@ -189,12 +189,12 @@ class ContainerPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContainerPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ContainerPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContainerPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -212,7 +212,7 @@ class ContainerPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContainerPolicyArgs.__new__(ContainerPolicyArgs)
+            __props__ = ContainerPolicyArrgs.__new__(ContainerPolicyArrgs)
 
             if container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_name'")

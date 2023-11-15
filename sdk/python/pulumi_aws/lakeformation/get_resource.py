@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResourceResult:
+calass GetResourceResult:
     """
     A collection of values returned by getResource.
     """
@@ -65,7 +65,7 @@ class GetResourceResult:
         return pulumi.get(self, "role_arn")
 
 
-class AwaitableGetResourceResult(GetResourceResult):
+calass AwaitableGetResourceResult(GetResourceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

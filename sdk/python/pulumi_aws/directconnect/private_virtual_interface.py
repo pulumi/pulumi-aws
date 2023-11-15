@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PrivateVirtualInterfaceArgs', 'PrivateVirtualInterface']
+__all__ = ['PrivateVirtualInterfaceArrgs', 'PrivateVirtualInterface']
 
 @pulumi.input_type
-class PrivateVirtualInterfaceArgs:
+calass PrivateVirtualInterfaceArrgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[str],
                  bgp_asn: pulumi.Input[int],
@@ -226,7 +226,7 @@ class PrivateVirtualInterfaceArgs:
 
 
 @pulumi.input_type
-class _PrivateVirtualInterfaceState:
+calass _PrivateVirtualInterfaceState:
     def __init__(__self__, *,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
@@ -525,7 +525,7 @@ class _PrivateVirtualInterfaceState:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
-class PrivateVirtualInterface(pulumi.CustomResource):
+calass PrivateVirtualInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -589,7 +589,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateVirtualInterfaceArgs,
+                 args: PrivateVirtualInterfaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Direct Connect private virtual interface resource.
@@ -616,12 +616,12 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrivateVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateVirtualInterfaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateVirtualInterfaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateVirtualInterfaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -650,7 +650,7 @@ class PrivateVirtualInterface(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateVirtualInterfaceArgs.__new__(PrivateVirtualInterfaceArgs)
+            __props__ = PrivateVirtualInterfaceArrgs.__new__(PrivateVirtualInterfaceArrgs)
 
             if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")

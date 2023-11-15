@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CustomDbEngineVersionArgs', 'CustomDbEngineVersion']
+__all__ = ['CustomDbEngineVersionArrgs', 'CustomDbEngineVersion']
 
 @pulumi.input_type
-class CustomDbEngineVersionArgs:
+calass CustomDbEngineVersionArrgs:
     def __init__(__self__, *,
                  engine: pulumi.Input[str],
                  engine_version: pulumi.Input[str],
@@ -210,7 +210,7 @@ class CustomDbEngineVersionArgs:
 
 
 @pulumi.input_type
-class _CustomDbEngineVersionState:
+calass _CustomDbEngineVersionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  create_time: Optional[pulumi.Input[str]] = None,
@@ -527,7 +527,7 @@ class _CustomDbEngineVersionState:
         pulumi.set(self, "tags_all", value)
 
 
-class CustomDbEngineVersion(pulumi.CustomResource):
+calass CustomDbEngineVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -654,7 +654,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomDbEngineVersionArgs,
+                 args: CustomDbEngineVersionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
@@ -747,12 +747,12 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomDbEngineVersionArgs args: The arguments to use to populate this resource's properties.
+        :param CustomDbEngineVersionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomDbEngineVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomDbEngineVersionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -780,7 +780,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomDbEngineVersionArgs.__new__(CustomDbEngineVersionArgs)
+            __props__ = CustomDbEngineVersionArrgs.__new__(CustomDbEngineVersionArrgs)
 
             __props__.__dict__["database_installation_files_s3_bucket_name"] = database_installation_files_s3_bucket_name
             __props__.__dict__["database_installation_files_s3_prefix"] = database_installation_files_s3_prefix

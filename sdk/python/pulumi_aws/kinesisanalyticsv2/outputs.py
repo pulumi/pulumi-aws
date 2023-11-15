@@ -57,7 +57,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationApplicationConfiguration(dict):
+calass ApplicationApplicationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -96,13 +96,13 @@ class ApplicationApplicationConfiguration(dict):
                  sql_application_configuration: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfiguration'] = None,
                  vpc_configuration: Optional['outputs.ApplicationApplicationConfigurationVpcConfiguration'] = None):
         """
-        :param 'ApplicationApplicationConfigurationApplicationCodeConfigurationArgs' application_code_configuration: The code location and type parameters for the application.
-        :param 'ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs' application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based application.
-        :param 'ApplicationApplicationConfigurationEnvironmentPropertiesArgs' environment_properties: Describes execution properties for a Flink-based application.
-        :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs' flink_application_configuration: The configuration of a Flink-based application.
-        :param 'ApplicationApplicationConfigurationRunConfigurationArgs' run_configuration: Describes the starting properties for a Flink-based application.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationArgs' sql_application_configuration: The configuration of a SQL-based application.
-        :param 'ApplicationApplicationConfigurationVpcConfigurationArgs' vpc_configuration: The VPC configuration of a Flink-based application.
+        :param 'ApplicationApplicationConfigurationApplicationCodeConfigurationArrgs' application_code_configuration: The code location and type parameters for the application.
+        :param 'ApplicationApplicationConfigurationApplicationSnapshotConfigurationArrgs' application_snapshot_configuration: Describes whether snapshots are enabled for a Flink-based application.
+        :param 'ApplicationApplicationConfigurationEnvironmentPropertiesArrgs' environment_properties: Describes execution properties for a Flink-based application.
+        :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationArrgs' flink_application_configuration: The configuration of a Flink-based application.
+        :param 'ApplicationApplicationConfigurationRunConfigurationArrgs' run_configuration: Describes the starting properties for a Flink-based application.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationArrgs' sql_application_configuration: The configuration of a SQL-based application.
+        :param 'ApplicationApplicationConfigurationVpcConfigurationArrgs' vpc_configuration: The VPC configuration of a Flink-based application.
         """
         pulumi.set(__self__, "application_code_configuration", application_code_configuration)
         if application_snapshot_configuration is not None:
@@ -176,7 +176,7 @@ class ApplicationApplicationConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationApplicationCodeConfiguration(dict):
+calass ApplicationApplicationConfigurationApplicationCodeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -201,7 +201,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfiguration(dict):
                  code_content: Optional['outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent'] = None):
         """
         :param str code_content_type: Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-        :param 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs' code_content: The location and type of the application code.
+        :param 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArrgs' code_content: The location and type of the application code.
         """
         pulumi.set(__self__, "code_content_type", code_content_type)
         if code_content is not None:
@@ -225,7 +225,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent(dict):
+calass ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -249,7 +249,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
                  s3_content_location: Optional['outputs.ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation'] = None,
                  text_content: Optional[str] = None):
         """
-        :param 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs' s3_content_location: Information about the Amazon S3 bucket containing the application code.
+        :param 'ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArrgs' s3_content_location: Information about the Amazon S3 bucket containing the application code.
         :param str text_content: The text-format code for the application.
                
                The `s3_content_location` object supports the following:
@@ -279,7 +279,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation(dict):
+calass ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -341,7 +341,7 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationApplicationSnapshotConfiguration(dict):
+calass ApplicationApplicationConfigurationApplicationSnapshotConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -376,7 +376,7 @@ class ApplicationApplicationConfigurationApplicationSnapshotConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationEnvironmentProperties(dict):
+calass ApplicationApplicationConfigurationEnvironmentProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -397,7 +397,7 @@ class ApplicationApplicationConfigurationEnvironmentProperties(dict):
     def __init__(__self__, *,
                  property_groups: Sequence['outputs.ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup']):
         """
-        :param Sequence['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs'] property_groups: Describes the execution property groups.
+        :param Sequence['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArrgs'] property_groups: Describes the execution property groups.
         """
         pulumi.set(__self__, "property_groups", property_groups)
 
@@ -411,7 +411,7 @@ class ApplicationApplicationConfigurationEnvironmentProperties(dict):
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup(dict):
+calass ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -459,7 +459,7 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroup(dict
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationFlinkApplicationConfiguration(dict):
+calass ApplicationApplicationConfigurationFlinkApplicationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -486,9 +486,9 @@ class ApplicationApplicationConfigurationFlinkApplicationConfiguration(dict):
                  monitoring_configuration: Optional['outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration'] = None,
                  parallelism_configuration: Optional['outputs.ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration'] = None):
         """
-        :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs' checkpoint_configuration: Describes an application's checkpointing configuration.
-        :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs' monitoring_configuration: Describes configuration parameters for CloudWatch logging for an application.
-        :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs' parallelism_configuration: Describes parameters for how an application executes multiple tasks simultaneously.
+        :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArrgs' checkpoint_configuration: Describes an application's checkpointing configuration.
+        :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArrgs' monitoring_configuration: Describes configuration parameters for CloudWatch logging for an application.
+        :param 'ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArrgs' parallelism_configuration: Describes parameters for how an application executes multiple tasks simultaneously.
         """
         if checkpoint_configuration is not None:
             pulumi.set(__self__, "checkpoint_configuration", checkpoint_configuration)
@@ -523,7 +523,7 @@ class ApplicationApplicationConfigurationFlinkApplicationConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration(dict):
+calass ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -606,7 +606,7 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration(dict):
+calass ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -669,7 +669,7 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration(dict):
+calass ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -744,7 +744,7 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationRunConfiguration(dict):
+calass ApplicationApplicationConfigurationRunConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -768,8 +768,8 @@ class ApplicationApplicationConfigurationRunConfiguration(dict):
                  application_restore_configuration: Optional['outputs.ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration'] = None,
                  flink_run_configuration: Optional['outputs.ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration'] = None):
         """
-        :param 'ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs' application_restore_configuration: The restore behavior of a restarting application.
-        :param 'ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs' flink_run_configuration: The starting parameters for a Flink-based Kinesis Data Analytics application.
+        :param 'ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArrgs' application_restore_configuration: The restore behavior of a restarting application.
+        :param 'ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArrgs' flink_run_configuration: The starting parameters for a Flink-based Kinesis Data Analytics application.
         """
         if application_restore_configuration is not None:
             pulumi.set(__self__, "application_restore_configuration", application_restore_configuration)
@@ -794,7 +794,7 @@ class ApplicationApplicationConfigurationRunConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration(dict):
+calass ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -844,7 +844,7 @@ class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfi
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration(dict):
+calass ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -880,7 +880,7 @@ class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfiguration(d
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfiguration(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -903,9 +903,9 @@ class ApplicationApplicationConfigurationSqlApplicationConfiguration(dict):
                  outputs: Optional[Sequence['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutput']] = None,
                  reference_data_source: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource'] = None):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs' input: The input stream used by the application.
-        :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs'] outputs: The destination streams used by the application.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs' reference_data_source: The reference data source used by the application.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputArrgs' input: The input stream used by the application.
+        :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArrgs'] outputs: The destination streams used by the application.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArrgs' reference_data_source: The reference data source used by the application.
         """
         if input is not None:
             pulumi.set(__self__, "input", input)
@@ -940,7 +940,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -985,14 +985,14 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
                  kinesis_firehose_input: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput'] = None,
                  kinesis_streams_input: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput'] = None):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs' input_schema: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArrgs' input_schema: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
         :param str name_prefix: The name prefix to use when creating an in-application stream.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs' input_parallelism: Describes the number of in-application streams to create.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs' input_processing_configuration: The input processing configuration for the input.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArrgs' input_parallelism: Describes the number of in-application streams to create.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArrgs' input_processing_configuration: The input processing configuration for the input.
                An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-        :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs'] input_starting_position_configurations: The point at which the application starts processing records from the streaming source.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs' kinesis_firehose_input: If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs' kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+        :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrgs'] input_starting_position_configurations: The point at which the application starts processing records from the streaming source.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArrgs' kinesis_firehose_input: If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArrgs' kinesis_streams_input: If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
         """
         pulumi.set(__self__, "input_schema", input_schema)
         pulumi.set(__self__, "name_prefix", name_prefix)
@@ -1080,7 +1080,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInput(dict):
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelism(dict):
     def __init__(__self__, *,
                  count: Optional[int] = None):
         """
@@ -1099,7 +1099,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPa
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1120,7 +1120,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
     def __init__(__self__, *,
                  input_lambda_processor: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor'):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs' input_lambda_processor: Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArrgs' input_lambda_processor: Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
         """
         pulumi.set(__self__, "input_lambda_processor", input_lambda_processor)
 
@@ -1134,7 +1134,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1169,7 +1169,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchema(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1196,8 +1196,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
                  record_format: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat',
                  record_encoding: Optional[str] = None):
         """
-        :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs'] record_columns: Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs' record_format: Specifies the format of the records on the streaming source.
+        :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArrgs'] record_columns: Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArrgs' record_format: Specifies the format of the records on the streaming source.
         :param str record_encoding: Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
         """
         pulumi.set(__self__, "record_columns", record_columns)
@@ -1231,7 +1231,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1289,7 +1289,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1313,7 +1313,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
                  mapping_parameters: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters',
                  record_format_type: str):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs' mapping_parameters: Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArrgs' mapping_parameters: Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
         :param str record_format_type: The type of record format. Valid values: `CSV`, `JSON`.
         """
         pulumi.set(__self__, "mapping_parameters", mapping_parameters)
@@ -1337,7 +1337,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1361,8 +1361,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
                  csv_mapping_parameters: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters'] = None,
                  json_mapping_parameters: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters'] = None):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs' csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs' json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArrgs' csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArrgs' json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
         """
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
@@ -1387,7 +1387,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1435,7 +1435,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1470,7 +1470,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1506,7 +1506,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSt
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1541,7 +1541,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1576,7 +1576,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1610,11 +1610,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict)
                  lambda_output: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput'] = None,
                  output_id: Optional[str] = None):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs' destination_schema: Describes the data format when records are written to the destination.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArrgs' destination_schema: Describes the data format when records are written to the destination.
         :param str name: The name of the in-application stream.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs' kinesis_firehose_output: Identifies a Kinesis Data Firehose delivery stream as the destination.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs' kinesis_streams_output: Identifies a Kinesis data stream as the destination.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs' lambda_output: Identifies a Lambda function as the destination.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArrgs' kinesis_firehose_output: Identifies a Kinesis Data Firehose delivery stream as the destination.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArrgs' kinesis_streams_output: Identifies a Kinesis data stream as the destination.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArrgs' lambda_output: Identifies a Lambda function as the destination.
         """
         pulumi.set(__self__, "destination_schema", destination_schema)
         pulumi.set(__self__, "name", name)
@@ -1674,7 +1674,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutput(dict)
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchema(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1709,7 +1709,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestin
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1744,7 +1744,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1779,7 +1779,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1814,7 +1814,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambda
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1844,8 +1844,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
                  table_name: str,
                  reference_id: Optional[str] = None):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs' reference_schema: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs' s3_reference_data_source: Identifies the S3 bucket and object that contains the reference data.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArrgs' reference_schema: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArrgs' s3_reference_data_source: Identifies the S3 bucket and object that contains the reference data.
         :param str table_name: The name of the in-application table to create.
         """
         pulumi.set(__self__, "reference_schema", reference_schema)
@@ -1885,7 +1885,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchema(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1912,8 +1912,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
                  record_format: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat',
                  record_encoding: Optional[str] = None):
         """
-        :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs'] record_columns: Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs' record_format: Specifies the format of the records on the streaming source.
+        :param Sequence['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArrgs'] record_columns: Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArrgs' record_format: Specifies the format of the records on the streaming source.
         :param str record_encoding: Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
                
                The `s3_reference_data_source` object supports the following:
@@ -1951,7 +1951,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2009,7 +2009,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormat(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2033,7 +2033,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
                  mapping_parameters: 'outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters',
                  record_format_type: str):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs' mapping_parameters: Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArrgs' mapping_parameters: Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
         :param str record_format_type: The type of record format. Valid values: `CSV`, `JSON`.
         """
         pulumi.set(__self__, "mapping_parameters", mapping_parameters)
@@ -2057,7 +2057,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2081,8 +2081,8 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
                  csv_mapping_parameters: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters'] = None,
                  json_mapping_parameters: Optional['outputs.ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters'] = None):
         """
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs' csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs' json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArrgs' csv_mapping_parameters: Provides additional mapping information when the record format uses delimiters (for example, CSV).
+        :param 'ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArrgs' json_mapping_parameters: Provides additional mapping information when JSON is the record format on the streaming source.
         """
         if csv_mapping_parameters is not None:
             pulumi.set(__self__, "csv_mapping_parameters", csv_mapping_parameters)
@@ -2107,7 +2107,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2155,7 +2155,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2190,7 +2190,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource(dict):
+calass ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2238,7 +2238,7 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
 
 
 @pulumi.output_type
-class ApplicationApplicationConfigurationVpcConfiguration(dict):
+calass ApplicationApplicationConfigurationVpcConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2306,7 +2306,7 @@ class ApplicationApplicationConfigurationVpcConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationCloudwatchLoggingOptions(dict):
+calass ApplicationCloudwatchLoggingOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

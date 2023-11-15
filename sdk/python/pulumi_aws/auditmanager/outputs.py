@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AssessmentAssessmentReportsDestination(dict):
+calass AssessmentAssessmentReportsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -74,7 +74,7 @@ class AssessmentAssessmentReportsDestination(dict):
 
 
 @pulumi.output_type
-class AssessmentRole(dict):
+calass AssessmentRole(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -122,7 +122,7 @@ class AssessmentRole(dict):
 
 
 @pulumi.output_type
-class AssessmentRolesAll(dict):
+calass AssessmentRolesAll(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -170,7 +170,7 @@ class AssessmentRolesAll(dict):
 
 
 @pulumi.output_type
-class AssessmentScope(dict):
+calass AssessmentScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -194,8 +194,8 @@ class AssessmentScope(dict):
                  aws_accounts: Optional[Sequence['outputs.AssessmentScopeAwsAccount']] = None,
                  aws_services: Optional[Sequence['outputs.AssessmentScopeAwsService']] = None):
         """
-        :param Sequence['AssessmentScopeAwsAccountArgs'] aws_accounts: Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
-        :param Sequence['AssessmentScopeAwsServiceArgs'] aws_services: Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
+        :param Sequence['AssessmentScopeAwsAccountArrgs'] aws_accounts: Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
+        :param Sequence['AssessmentScopeAwsServiceArrgs'] aws_services: Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
         """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
@@ -220,7 +220,7 @@ class AssessmentScope(dict):
 
 
 @pulumi.output_type
-class AssessmentScopeAwsAccount(dict):
+calass AssessmentScopeAwsAccount(dict):
     def __init__(__self__, *,
                  id: str):
         """
@@ -238,7 +238,7 @@ class AssessmentScopeAwsAccount(dict):
 
 
 @pulumi.output_type
-class AssessmentScopeAwsService(dict):
+calass AssessmentScopeAwsService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -273,7 +273,7 @@ class AssessmentScopeAwsService(dict):
 
 
 @pulumi.output_type
-class ControlControlMappingSource(dict):
+calass ControlControlMappingSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -322,7 +322,7 @@ class ControlControlMappingSource(dict):
                The following arguments are optional:
         :param str source_description: Description of the source.
         :param str source_frequency: Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-        :param 'ControlControlMappingSourceSourceKeywordArgs' source_keyword: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+        :param 'ControlControlMappingSourceSourceKeywordArrgs' source_keyword: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         :param str troubleshooting_text: Instructions for troubleshooting the control.
         """
         pulumi.set(__self__, "source_name", source_name)
@@ -404,7 +404,7 @@ class ControlControlMappingSource(dict):
 
 
 @pulumi.output_type
-class ControlControlMappingSourceSourceKeyword(dict):
+calass ControlControlMappingSourceSourceKeyword(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -452,14 +452,14 @@ class ControlControlMappingSourceSourceKeyword(dict):
 
 
 @pulumi.output_type
-class FrameworkControlSet(dict):
+calass FrameworkControlSet(dict):
     def __init__(__self__, *,
                  name: str,
                  controls: Optional[Sequence['outputs.FrameworkControlSetControl']] = None,
                  id: Optional[str] = None):
         """
         :param str name: Name of the control set.
-        :param Sequence['FrameworkControlSetControlArgs'] controls: List of controls within the control set. See `controls` below.
+        :param Sequence['FrameworkControlSetControlArrgs'] controls: List of controls within the control set. See `controls` below.
         :param str id: Unique identifier of the control.
         """
         pulumi.set(__self__, "name", name)
@@ -494,7 +494,7 @@ class FrameworkControlSet(dict):
 
 
 @pulumi.output_type
-class FrameworkControlSetControl(dict):
+calass FrameworkControlSetControl(dict):
     def __init__(__self__, *,
                  id: str):
         """
@@ -512,7 +512,7 @@ class FrameworkControlSetControl(dict):
 
 
 @pulumi.output_type
-class GetControlControlMappingSourceResult(dict):
+calass GetControlControlMappingSourceResult(dict):
     def __init__(__self__, *,
                  source_description: str,
                  source_frequency: str,
@@ -574,7 +574,7 @@ class GetControlControlMappingSourceResult(dict):
 
 
 @pulumi.output_type
-class GetControlControlMappingSourceSourceKeywordResult(dict):
+calass GetControlControlMappingSourceSourceKeywordResult(dict):
     def __init__(__self__, *,
                  keyword_input_type: str,
                  keyword_value: str):
@@ -593,7 +593,7 @@ class GetControlControlMappingSourceSourceKeywordResult(dict):
 
 
 @pulumi.output_type
-class GetFrameworkControlSetResult(dict):
+calass GetFrameworkControlSetResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -626,7 +626,7 @@ class GetFrameworkControlSetResult(dict):
 
 
 @pulumi.output_type
-class GetFrameworkControlSetControlResult(dict):
+calass GetFrameworkControlSetControlResult(dict):
     def __init__(__self__, *,
                  id: str):
         pulumi.set(__self__, "id", id)

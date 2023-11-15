@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DedicatedHostArgs', 'DedicatedHost']
+__all__ = ['DedicatedHostArrgs', 'DedicatedHost']
 
 @pulumi.input_type
-class DedicatedHostArgs:
+calass DedicatedHostArrgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  asset_id: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class DedicatedHostArgs:
 
 
 @pulumi.input_type
-class _DedicatedHostState:
+calass _DedicatedHostState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  asset_id: Optional[pulumi.Input[str]] = None,
@@ -336,7 +336,7 @@ class _DedicatedHostState:
         pulumi.set(self, "tags_all", value)
 
 
-class DedicatedHost(pulumi.CustomResource):
+calass DedicatedHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -391,7 +391,7 @@ class DedicatedHost(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DedicatedHostArgs,
+                 args: DedicatedHostArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
@@ -420,12 +420,12 @@ class DedicatedHost(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
+        :param DedicatedHostArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DedicatedHostArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DedicatedHostArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -449,7 +449,7 @@ class DedicatedHost(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DedicatedHostArgs.__new__(DedicatedHostArgs)
+            __props__ = DedicatedHostArrgs.__new__(DedicatedHostArrgs)
 
             __props__.__dict__["asset_id"] = asset_id
             __props__.__dict__["auto_placement"] = auto_placement

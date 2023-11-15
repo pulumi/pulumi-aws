@@ -36,7 +36,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConnectAttachmentOptions(dict):
+calass ConnectAttachmentOptions(dict):
     def __init__(__self__, *,
                  protocol: Optional[str] = None):
         """
@@ -55,7 +55,7 @@ class ConnectAttachmentOptions(dict):
 
 
 @pulumi.output_type
-class ConnectPeerBgpOptions(dict):
+calass ConnectPeerBgpOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -85,7 +85,7 @@ class ConnectPeerBgpOptions(dict):
 
 
 @pulumi.output_type
-class ConnectPeerConfiguration(dict):
+calass ConnectPeerConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -171,7 +171,7 @@ class ConnectPeerConfiguration(dict):
 
 
 @pulumi.output_type
-class ConnectPeerConfigurationBgpConfiguration(dict):
+calass ConnectPeerConfigurationBgpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -245,7 +245,7 @@ class ConnectPeerConfigurationBgpConfiguration(dict):
 
 
 @pulumi.output_type
-class CoreNetworkEdge(dict):
+calass CoreNetworkEdge(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -307,7 +307,7 @@ class CoreNetworkEdge(dict):
 
 
 @pulumi.output_type
-class CoreNetworkSegment(dict):
+calass CoreNetworkSegment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -369,7 +369,7 @@ class CoreNetworkSegment(dict):
 
 
 @pulumi.output_type
-class DeviceAwsLocation(dict):
+calass DeviceAwsLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -417,7 +417,7 @@ class DeviceAwsLocation(dict):
 
 
 @pulumi.output_type
-class DeviceLocation(dict):
+calass DeviceLocation(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  latitude: Optional[str] = None,
@@ -460,7 +460,7 @@ class DeviceLocation(dict):
 
 
 @pulumi.output_type
-class LinkBandwidth(dict):
+calass LinkBandwidth(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -510,7 +510,7 @@ class LinkBandwidth(dict):
 
 
 @pulumi.output_type
-class SiteLocation(dict):
+calass SiteLocation(dict):
     def __init__(__self__, *,
                  address: Optional[str] = None,
                  latitude: Optional[str] = None,
@@ -553,7 +553,7 @@ class SiteLocation(dict):
 
 
 @pulumi.output_type
-class VpcAttachmentOptions(dict):
+calass VpcAttachmentOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -603,7 +603,7 @@ class VpcAttachmentOptions(dict):
 
 
 @pulumi.output_type
-class GetCoreNetworkPolicyDocumentAttachmentPolicyResult(dict):
+calass GetCoreNetworkPolicyDocumentAttachmentPolicyResult(dict):
     def __init__(__self__, *,
                  action: 'outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult',
                  conditions: Sequence['outputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult'],
@@ -611,8 +611,8 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyResult(dict):
                  condition_logic: Optional[str] = None,
                  description: Optional[str] = None):
         """
-        :param 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs' action: Action to take when a condition is true. Detailed Below.
-        :param Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs'] conditions: A block argument. Detailed Below.
+        :param 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArrgs' action: Action to take when a condition is true. Detailed Below.
+        :param Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrgs'] conditions: A block argument. Detailed Below.
         :param int rule_number: An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
         :param str condition_logic: Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
         :param str description: A user-defined description that further helps identify the rule.
@@ -667,7 +667,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult(dict):
+calass GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult(dict):
     def __init__(__self__, *,
                  association_method: str,
                  require_acceptance: Optional[bool] = None,
@@ -721,7 +721,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionResult(dict):
 
 
 @pulumi.output_type
-class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult(dict):
+calass GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult(dict):
     def __init__(__self__, *,
                  type: str,
                  key: Optional[str] = None,
@@ -775,7 +775,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionResult(dict):
 
 
 @pulumi.output_type
-class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult(dict):
+calass GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult(dict):
     def __init__(__self__, *,
                  asn_ranges: Sequence[str],
                  edge_locations: Sequence['outputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult'],
@@ -783,7 +783,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult(dict):
                  vpn_ecmp_support: Optional[bool] = None):
         """
         :param Sequence[str] asn_ranges: List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
-        :param Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs'] edge_locations: A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
+        :param Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrgs'] edge_locations: A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
         :param Sequence[str] inside_cidr_blocks: The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
         :param bool vpn_ecmp_support: Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
         """
@@ -828,7 +828,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult(dict):
+calass GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult(dict):
     def __init__(__self__, *,
                  location: str,
                  asn: Optional[str] = None,
@@ -866,7 +866,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationResult(dic
 
 
 @pulumi.output_type
-class GetCoreNetworkPolicyDocumentSegmentResult(dict):
+calass GetCoreNetworkPolicyDocumentSegmentResult(dict):
     def __init__(__self__, *,
                  name: str,
                  allow_filters: Optional[Sequence[str]] = None,
@@ -956,7 +956,7 @@ class GetCoreNetworkPolicyDocumentSegmentResult(dict):
 
 
 @pulumi.output_type
-class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
+calass GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
     def __init__(__self__, *,
                  action: str,
                  segment: str,
@@ -1057,7 +1057,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
 
 
 @pulumi.output_type
-class GetDeviceAwsLocationResult(dict):
+calass GetDeviceAwsLocationResult(dict):
     def __init__(__self__, *,
                  subnet_arn: str,
                  zone: str):
@@ -1086,7 +1086,7 @@ class GetDeviceAwsLocationResult(dict):
 
 
 @pulumi.output_type
-class GetDeviceLocationResult(dict):
+calass GetDeviceLocationResult(dict):
     def __init__(__self__, *,
                  address: str,
                  latitude: str,
@@ -1126,7 +1126,7 @@ class GetDeviceLocationResult(dict):
 
 
 @pulumi.output_type
-class GetLinkBandwidthResult(dict):
+calass GetLinkBandwidthResult(dict):
     def __init__(__self__, *,
                  download_speed: int,
                  upload_speed: int):
@@ -1155,7 +1155,7 @@ class GetLinkBandwidthResult(dict):
 
 
 @pulumi.output_type
-class GetSiteLocationResult(dict):
+calass GetSiteLocationResult(dict):
     def __init__(__self__, *,
                  address: str,
                  latitude: str,

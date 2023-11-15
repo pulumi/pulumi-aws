@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'MapConfigurationArgs',
-    'PlaceIndexDataSourceConfigurationArgs',
+    'MapConfigurationArrgs',
+    'PlaceIndexDataSourceConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class MapConfigurationArgs:
+calass MapConfigurationArrgs:
     def __init__(__self__, *,
                  style: pulumi.Input[str]):
         """
@@ -37,7 +37,7 @@ class MapConfigurationArgs:
 
 
 @pulumi.input_type
-class PlaceIndexDataSourceConfigurationArgs:
+calass PlaceIndexDataSourceConfigurationArrgs:
     def __init__(__self__, *,
                  intended_use: Optional[pulumi.Input[str]] = None):
         """

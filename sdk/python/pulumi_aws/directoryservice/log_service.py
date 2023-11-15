@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LogServiceArgs', 'LogService']
+__all__ = ['LogServiceArrgs', 'LogService']
 
 @pulumi.input_type
-class LogServiceArgs:
+calass LogServiceArrgs:
     def __init__(__self__, *,
                  directory_id: pulumi.Input[str],
                  log_group_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class LogServiceArgs:
 
 
 @pulumi.input_type
-class _LogServiceState:
+calass _LogServiceState:
     def __init__(__self__, *,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _LogServiceState:
         pulumi.set(self, "log_group_name", value)
 
 
-class LogService(pulumi.CustomResource):
+calass LogService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -107,12 +107,12 @@ class LogService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        ad_log_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        ad_log_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["ds.amazonaws.com"],
                 type="Service",
             )],
@@ -144,7 +144,7 @@ class LogService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LogServiceArgs,
+                 args: LogServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
@@ -156,12 +156,12 @@ class LogService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=14)
-        ad_log_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        ad_log_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["ds.amazonaws.com"],
                 type="Service",
             )],
@@ -185,12 +185,12 @@ class LogService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogServiceArgs args: The arguments to use to populate this resource's properties.
+        :param LogServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -208,7 +208,7 @@ class LogService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogServiceArgs.__new__(LogServiceArgs)
+            __props__ = LogServiceArrgs.__new__(LogServiceArrgs)
 
             if directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'directory_id'")

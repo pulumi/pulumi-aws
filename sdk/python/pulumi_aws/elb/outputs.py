@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LoadBalancerAccessLogs(dict):
+calass LoadBalancerAccessLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -92,7 +92,7 @@ class LoadBalancerAccessLogs(dict):
 
 
 @pulumi.output_type
-class LoadBalancerHealthCheck(dict):
+calass LoadBalancerHealthCheck(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -175,7 +175,7 @@ class LoadBalancerHealthCheck(dict):
 
 
 @pulumi.output_type
-class LoadBalancerListener(dict):
+calass LoadBalancerListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -269,7 +269,7 @@ class LoadBalancerListener(dict):
 
 
 @pulumi.output_type
-class LoadBalancerPolicyPolicyAttribute(dict):
+calass LoadBalancerPolicyPolicyAttribute(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
@@ -290,7 +290,7 @@ class LoadBalancerPolicyPolicyAttribute(dict):
 
 
 @pulumi.output_type
-class SslNegotiationPolicyAttribute(dict):
+calass SslNegotiationPolicyAttribute(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -319,7 +319,7 @@ class SslNegotiationPolicyAttribute(dict):
 
 
 @pulumi.output_type
-class GetLoadBalancerAccessLogsResult(dict):
+calass GetLoadBalancerAccessLogsResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  bucket_prefix: str,
@@ -352,7 +352,7 @@ class GetLoadBalancerAccessLogsResult(dict):
 
 
 @pulumi.output_type
-class GetLoadBalancerHealthCheckResult(dict):
+calass GetLoadBalancerHealthCheckResult(dict):
     def __init__(__self__, *,
                  healthy_threshold: int,
                  interval: int,
@@ -392,7 +392,7 @@ class GetLoadBalancerHealthCheckResult(dict):
 
 
 @pulumi.output_type
-class GetLoadBalancerListenerResult(dict):
+calass GetLoadBalancerListenerResult(dict):
     def __init__(__self__, *,
                  instance_port: int,
                  instance_protocol: str,

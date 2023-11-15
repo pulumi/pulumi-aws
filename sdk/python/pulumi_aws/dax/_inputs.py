@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterNodeArgs',
-    'ClusterServerSideEncryptionArgs',
-    'ParameterGroupParameterArgs',
+    'ClusterNodeArrgs',
+    'ClusterServerSideEncryptionArrgs',
+    'ParameterGroupParameterArrgs',
 ]
 
 @pulumi.input_type
-class ClusterNodeArgs:
+calass ClusterNodeArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -75,7 +75,7 @@ class ClusterNodeArgs:
 
 
 @pulumi.input_type
-class ClusterServerSideEncryptionArgs:
+calass ClusterServerSideEncryptionArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -98,7 +98,7 @@ class ClusterServerSideEncryptionArgs:
 
 
 @pulumi.input_type
-class ParameterGroupParameterArgs:
+calass ParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):

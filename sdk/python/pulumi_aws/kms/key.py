@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['KeyArgs', 'Key']
+__all__ = ['KeyArrgs', 'Key']
 
 @pulumi.input_type
-class KeyArgs:
+calass KeyArrgs:
     def __init__(__self__, *,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  custom_key_store_id: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class KeyArgs:
 
 
 @pulumi.input_type
-class _KeyState:
+calass _KeyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
@@ -469,7 +469,7 @@ class _KeyState:
         pulumi.set(self, "tags_all", value)
 
 
-class Key(pulumi.CustomResource):
+calass Key(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -539,7 +539,7 @@ class Key(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[KeyArgs] = None,
+                 args: Optional[KeyArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a single-Region or multi-Region primary KMS key.
@@ -568,12 +568,12 @@ class Key(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KeyArgs args: The arguments to use to populate this resource's properties.
+        :param KeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -600,7 +600,7 @@ class Key(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KeyArgs.__new__(KeyArgs)
+            __props__ = KeyArrgs.__new__(KeyArrgs)
 
             __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["custom_key_store_id"] = custom_key_store_id

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetListenerResult:
+calass GetListenerResult:
     """
     A collection of values returned by getListener.
     """
@@ -108,7 +108,7 @@ class GetListenerResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetListenerResult(GetListenerResult):
+calass AwaitableGetListenerResult(GetListenerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EntityRecognizerArgs', 'EntityRecognizer']
+__all__ = ['EntityRecognizerArrgs', 'EntityRecognizer']
 
 @pulumi.input_type
-class EntityRecognizerArgs:
+calass EntityRecognizerArrgs:
     def __init__(__self__, *,
                  data_access_role_arn: pulumi.Input[str],
-                 input_data_config: pulumi.Input['EntityRecognizerInputDataConfigArgs'],
+                 input_data_config: pulumi.Input['EntityRecognizerInputDataConfigArrgs'],
                  language_code: pulumi.Input[str],
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,11 +25,11 @@ class EntityRecognizerArgs:
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArrgs']] = None):
         """
         The set of arguments for constructing a EntityRecognizer resource.
         :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        :param pulumi.Input['EntityRecognizerInputDataConfigArgs'] input_data_config: Configuration for the training and testing data.
+        :param pulumi.Input['EntityRecognizerInputDataConfigArrgs'] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
         :param pulumi.Input[str] language_code: Two-letter language code for the language.
                One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -52,7 +52,7 @@ class EntityRecognizerArgs:
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
                Conflicts with `version_name`.
         :param pulumi.Input[str] volume_kms_key_id: ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
-        :param pulumi.Input['EntityRecognizerVpcConfigArgs'] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
+        :param pulumi.Input['EntityRecognizerVpcConfigArrgs'] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
                See the `vpc_config` Configuration Block section below.
         """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
@@ -87,7 +87,7 @@ class EntityRecognizerArgs:
 
     @property
     @pulumi.getter(name="inputDataConfig")
-    def input_data_config(self) -> pulumi.Input['EntityRecognizerInputDataConfigArgs']:
+    def input_data_config(self) -> pulumi.Input['EntityRecognizerInputDataConfigArrgs']:
         """
         Configuration for the training and testing data.
         See the `input_data_config` Configuration Block section below.
@@ -95,7 +95,7 @@ class EntityRecognizerArgs:
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
-    def input_data_config(self, value: pulumi.Input['EntityRecognizerInputDataConfigArgs']):
+    def input_data_config(self, value: pulumi.Input['EntityRecognizerInputDataConfigArrgs']):
         pulumi.set(self, "input_data_config", value)
 
     @property
@@ -198,7 +198,7 @@ class EntityRecognizerArgs:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['EntityRecognizerVpcConfigArrgs']]:
         """
         Configuration parameters for VPC to contain Entity Recognizer resources.
         See the `vpc_config` Configuration Block section below.
@@ -206,16 +206,16 @@ class EntityRecognizerArgs:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['EntityRecognizerVpcConfigArrgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
-class _EntityRecognizerState:
+calass _EntityRecognizerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  data_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input['EntityRecognizerInputDataConfigArgs']] = None,
+                 input_data_config: Optional[pulumi.Input['EntityRecognizerInputDataConfigArrgs']] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -224,12 +224,12 @@ class _EntityRecognizerState:
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['EntityRecognizerVpcConfigArrgs']] = None):
         """
         Input properties used for looking up and filtering EntityRecognizer resources.
         :param pulumi.Input[str] arn: ARN of the Entity Recognizer version.
         :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        :param pulumi.Input['EntityRecognizerInputDataConfigArgs'] input_data_config: Configuration for the training and testing data.
+        :param pulumi.Input['EntityRecognizerInputDataConfigArrgs'] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
         :param pulumi.Input[str] language_code: Two-letter language code for the language.
                One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -253,7 +253,7 @@ class _EntityRecognizerState:
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
                Conflicts with `version_name`.
         :param pulumi.Input[str] volume_kms_key_id: ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
-        :param pulumi.Input['EntityRecognizerVpcConfigArgs'] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
+        :param pulumi.Input['EntityRecognizerVpcConfigArrgs'] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
                See the `vpc_config` Configuration Block section below.
         """
         if arn is not None:
@@ -310,7 +310,7 @@ class _EntityRecognizerState:
 
     @property
     @pulumi.getter(name="inputDataConfig")
-    def input_data_config(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigArgs']]:
+    def input_data_config(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigArrgs']]:
         """
         Configuration for the training and testing data.
         See the `input_data_config` Configuration Block section below.
@@ -318,7 +318,7 @@ class _EntityRecognizerState:
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
-    def input_data_config(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigArgs']]):
+    def input_data_config(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigArrgs']]):
         pulumi.set(self, "input_data_config", value)
 
     @property
@@ -436,7 +436,7 @@ class _EntityRecognizerState:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['EntityRecognizerVpcConfigArrgs']]:
         """
         Configuration parameters for VPC to contain Entity Recognizer resources.
         See the `vpc_config` Configuration Block section below.
@@ -444,17 +444,17 @@ class _EntityRecognizerState:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['EntityRecognizerVpcConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['EntityRecognizerVpcConfigArrgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
-class EntityRecognizer(pulumi.CustomResource):
+calass EntityRecognizer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArgs']]] = None,
+                 input_data_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArrgs']]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -462,7 +462,7 @@ class EntityRecognizer(pulumi.CustomResource):
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArrgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Comprehend Entity Recognizer.
@@ -481,19 +481,19 @@ class EntityRecognizer(pulumi.CustomResource):
         example = aws.comprehend.EntityRecognizer("example",
             data_access_role_arn=aws_iam_role["example"]["arn"],
             language_code="en",
-            input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArgs(
+            input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArrgs(
                 entity_types=[
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
+                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArrgs(
                         type="ENTITY_1",
                     ),
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
+                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArrgs(
                         type="ENTITY_2",
                     ),
                 ],
-                documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArgs(
+                documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArrgs(
                     s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['documents']['bucket']}/{id}"),
                 ),
-                entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
+                entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArrgs(
                     s3_uri=entities.id.apply(lambda id: f"s3://{aws_s3_bucket['entities']['bucket']}/{id}"),
                 ),
             ),
@@ -511,7 +511,7 @@ class EntityRecognizer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        :param pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArgs']] input_data_config: Configuration for the training and testing data.
+        :param pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArrgs']] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
         :param pulumi.Input[str] language_code: Two-letter language code for the language.
                One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -534,14 +534,14 @@ class EntityRecognizer(pulumi.CustomResource):
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
                Conflicts with `version_name`.
         :param pulumi.Input[str] volume_kms_key_id: ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
-        :param pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArgs']] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
+        :param pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArrgs']] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
                See the `vpc_config` Configuration Block section below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EntityRecognizerArgs,
+                 args: EntityRecognizerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Comprehend Entity Recognizer.
@@ -560,19 +560,19 @@ class EntityRecognizer(pulumi.CustomResource):
         example = aws.comprehend.EntityRecognizer("example",
             data_access_role_arn=aws_iam_role["example"]["arn"],
             language_code="en",
-            input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArgs(
+            input_data_config=aws.comprehend.EntityRecognizerInputDataConfigArrgs(
                 entity_types=[
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
+                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArrgs(
                         type="ENTITY_1",
                     ),
-                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArgs(
+                    aws.comprehend.EntityRecognizerInputDataConfigEntityTypeArrgs(
                         type="ENTITY_2",
                     ),
                 ],
-                documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArgs(
+                documents=aws.comprehend.EntityRecognizerInputDataConfigDocumentsArrgs(
                     s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['documents']['bucket']}/{id}"),
                 ),
-                entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArgs(
+                entity_list=aws.comprehend.EntityRecognizerInputDataConfigEntityListArrgs(
                     s3_uri=entities.id.apply(lambda id: f"s3://{aws_s3_bucket['entities']['bucket']}/{id}"),
                 ),
             ),
@@ -588,12 +588,12 @@ class EntityRecognizer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EntityRecognizerArgs args: The arguments to use to populate this resource's properties.
+        :param EntityRecognizerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EntityRecognizerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EntityRecognizerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -603,7 +603,7 @@ class EntityRecognizer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArgs']]] = None,
+                 input_data_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArrgs']]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -611,7 +611,7 @@ class EntityRecognizer(pulumi.CustomResource):
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -619,7 +619,7 @@ class EntityRecognizer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EntityRecognizerArgs.__new__(EntityRecognizerArgs)
+            __props__ = EntityRecognizerArrgs.__new__(EntityRecognizerArrgs)
 
             if data_access_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'data_access_role_arn'")
@@ -653,7 +653,7 @@ class EntityRecognizer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             data_access_role_arn: Optional[pulumi.Input[str]] = None,
-            input_data_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArgs']]] = None,
+            input_data_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArrgs']]] = None,
             language_code: Optional[pulumi.Input[str]] = None,
             model_kms_key_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -662,7 +662,7 @@ class EntityRecognizer(pulumi.CustomResource):
             version_name: Optional[pulumi.Input[str]] = None,
             version_name_prefix: Optional[pulumi.Input[str]] = None,
             volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-            vpc_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArgs']]] = None) -> 'EntityRecognizer':
+            vpc_config: Optional[pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArrgs']]] = None) -> 'EntityRecognizer':
         """
         Get an existing EntityRecognizer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -672,7 +672,7 @@ class EntityRecognizer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Entity Recognizer version.
         :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        :param pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArgs']] input_data_config: Configuration for the training and testing data.
+        :param pulumi.Input[pulumi.InputType['EntityRecognizerInputDataConfigArrgs']] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
         :param pulumi.Input[str] language_code: Two-letter language code for the language.
                One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -696,7 +696,7 @@ class EntityRecognizer(pulumi.CustomResource):
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
                Conflicts with `version_name`.
         :param pulumi.Input[str] volume_kms_key_id: ID or ARN of a KMS Key used to encrypt storage volumes during job processing.
-        :param pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArgs']] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
+        :param pulumi.Input[pulumi.InputType['EntityRecognizerVpcConfigArrgs']] vpc_config: Configuration parameters for VPC to contain Entity Recognizer resources.
                See the `vpc_config` Configuration Block section below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMountTargetResult:
+calass GetMountTargetResult:
     """
     A collection of values returned by getMountTarget.
     """
@@ -169,7 +169,7 @@ class GetMountTargetResult:
         return pulumi.get(self, "subnet_id")
 
 
-class AwaitableGetMountTargetResult(GetMountTargetResult):
+calass AwaitableGetMountTargetResult(GetMountTargetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -51,7 +51,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccessHomeDirectoryMapping(dict):
+calass AccessHomeDirectoryMapping(dict):
     def __init__(__self__, *,
                  entry: str,
                  target: str):
@@ -80,7 +80,7 @@ class AccessHomeDirectoryMapping(dict):
 
 
 @pulumi.output_type
-class AccessPosixProfile(dict):
+calass AccessPosixProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -138,7 +138,7 @@ class AccessPosixProfile(dict):
 
 
 @pulumi.output_type
-class ConnectorAs2Config(dict):
+calass ConnectorAs2Config(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -264,7 +264,7 @@ class ConnectorAs2Config(dict):
 
 
 @pulumi.output_type
-class ConnectorSftpConfig(dict):
+calass ConnectorSftpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -314,7 +314,7 @@ class ConnectorSftpConfig(dict):
 
 
 @pulumi.output_type
-class ServerEndpointDetails(dict):
+calass ServerEndpointDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -406,7 +406,7 @@ class ServerEndpointDetails(dict):
 
 
 @pulumi.output_type
-class ServerProtocolDetails(dict):
+calass ServerProtocolDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -484,7 +484,7 @@ class ServerProtocolDetails(dict):
 
 
 @pulumi.output_type
-class ServerWorkflowDetails(dict):
+calass ServerWorkflowDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -508,8 +508,8 @@ class ServerWorkflowDetails(dict):
                  on_partial_upload: Optional['outputs.ServerWorkflowDetailsOnPartialUpload'] = None,
                  on_upload: Optional['outputs.ServerWorkflowDetailsOnUpload'] = None):
         """
-        :param 'ServerWorkflowDetailsOnPartialUploadArgs' on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
-        :param 'ServerWorkflowDetailsOnUploadArgs' on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+        :param 'ServerWorkflowDetailsOnPartialUploadArrgs' on_partial_upload: A trigger that starts a workflow if a file is only partially uploaded. See Workflow Detail below.
+        :param 'ServerWorkflowDetailsOnUploadArrgs' on_upload: A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
         """
         if on_partial_upload is not None:
             pulumi.set(__self__, "on_partial_upload", on_partial_upload)
@@ -534,7 +534,7 @@ class ServerWorkflowDetails(dict):
 
 
 @pulumi.output_type
-class ServerWorkflowDetailsOnPartialUpload(dict):
+calass ServerWorkflowDetailsOnPartialUpload(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -582,7 +582,7 @@ class ServerWorkflowDetailsOnPartialUpload(dict):
 
 
 @pulumi.output_type
-class ServerWorkflowDetailsOnUpload(dict):
+calass ServerWorkflowDetailsOnUpload(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -630,7 +630,7 @@ class ServerWorkflowDetailsOnUpload(dict):
 
 
 @pulumi.output_type
-class UserHomeDirectoryMapping(dict):
+calass UserHomeDirectoryMapping(dict):
     def __init__(__self__, *,
                  entry: str,
                  target: str):
@@ -671,7 +671,7 @@ class UserHomeDirectoryMapping(dict):
 
 
 @pulumi.output_type
-class UserPosixProfile(dict):
+calass UserPosixProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -729,7 +729,7 @@ class UserPosixProfile(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStep(dict):
+calass WorkflowOnExceptionStep(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -764,11 +764,11 @@ class WorkflowOnExceptionStep(dict):
                  tag_step_details: Optional['outputs.WorkflowOnExceptionStepTagStepDetails'] = None):
         """
         :param str type: The type of encryption used. Currently, this value must be `"PGP"`.
-        :param 'WorkflowOnExceptionStepCopyStepDetailsArgs' copy_step_details: Details for a step that performs a file copy. See Copy Step Details below.
-        :param 'WorkflowOnExceptionStepCustomStepDetailsArgs' custom_step_details: Details for a step that invokes a lambda function.
-        :param 'WorkflowOnExceptionStepDecryptStepDetailsArgs' decrypt_step_details: Details for a step that decrypts the file.
-        :param 'WorkflowOnExceptionStepDeleteStepDetailsArgs' delete_step_details: Details for a step that deletes the file.
-        :param 'WorkflowOnExceptionStepTagStepDetailsArgs' tag_step_details: Details for a step that creates one or more tags.
+        :param 'WorkflowOnExceptionStepCopyStepDetailsArrgs' copy_step_details: Details for a step that performs a file copy. See Copy Step Details below.
+        :param 'WorkflowOnExceptionStepCustomStepDetailsArrgs' custom_step_details: Details for a step that invokes a lambda function.
+        :param 'WorkflowOnExceptionStepDecryptStepDetailsArrgs' decrypt_step_details: Details for a step that decrypts the file.
+        :param 'WorkflowOnExceptionStepDeleteStepDetailsArrgs' delete_step_details: Details for a step that deletes the file.
+        :param 'WorkflowOnExceptionStepTagStepDetailsArrgs' tag_step_details: Details for a step that creates one or more tags.
         """
         pulumi.set(__self__, "type", type)
         if copy_step_details is not None:
@@ -832,7 +832,7 @@ class WorkflowOnExceptionStep(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepCopyStepDetails(dict):
+calass WorkflowOnExceptionStepCopyStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -860,7 +860,7 @@ class WorkflowOnExceptionStepCopyStepDetails(dict):
                  overwrite_existing: Optional[str] = None,
                  source_file_location: Optional[str] = None):
         """
-        :param 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArgs' destination_file_location: Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+        :param 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationArrgs' destination_file_location: Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
         :param str name: The name of the step, used as an identifier.
         :param str overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
         :param str source_file_location: Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
@@ -908,7 +908,7 @@ class WorkflowOnExceptionStepCopyStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation(dict):
+calass WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -932,8 +932,8 @@ class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation(dict):
                  efs_file_location: Optional['outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation'] = None,
                  s3_file_location: Optional['outputs.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation'] = None):
         """
-        :param 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs' efs_file_location: Specifies the details for the EFS file being copied.
-        :param 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs' s3_file_location: Specifies the details for the S3 file being copied.
+        :param 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocationArrgs' efs_file_location: Specifies the details for the EFS file being copied.
+        :param 'WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocationArrgs' s3_file_location: Specifies the details for the S3 file being copied.
         """
         if efs_file_location is not None:
             pulumi.set(__self__, "efs_file_location", efs_file_location)
@@ -958,7 +958,7 @@ class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation(dict):
+calass WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1006,7 +1006,7 @@ class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocati
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation(dict):
+calass WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  key: Optional[str] = None):
@@ -1037,7 +1037,7 @@ class WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocatio
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepCustomStepDetails(dict):
+calass WorkflowOnExceptionStepCustomStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1111,7 +1111,7 @@ class WorkflowOnExceptionStepCustomStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepDecryptStepDetails(dict):
+calass WorkflowOnExceptionStepDecryptStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1141,7 +1141,7 @@ class WorkflowOnExceptionStepDecryptStepDetails(dict):
                  source_file_location: Optional[str] = None):
         """
         :param str type: The type of encryption used. Currently, this value must be `"PGP"`.
-        :param 'WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArgs' destination_file_location: Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+        :param 'WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationArrgs' destination_file_location: Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
         :param str name: The name of the step, used as an identifier.
         :param str overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
         :param str source_file_location: Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
@@ -1198,7 +1198,7 @@ class WorkflowOnExceptionStepDecryptStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation(dict):
+calass WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1222,8 +1222,8 @@ class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation(dict):
                  efs_file_location: Optional['outputs.WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation'] = None,
                  s3_file_location: Optional['outputs.WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation'] = None):
         """
-        :param 'WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs' efs_file_location: Specifies the details for the EFS file being copied.
-        :param 'WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs' s3_file_location: Specifies the details for the S3 file being copied.
+        :param 'WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArrgs' efs_file_location: Specifies the details for the EFS file being copied.
+        :param 'WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocationArrgs' s3_file_location: Specifies the details for the S3 file being copied.
         """
         if efs_file_location is not None:
             pulumi.set(__self__, "efs_file_location", efs_file_location)
@@ -1248,7 +1248,7 @@ class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocation(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation(dict):
+calass WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1296,7 +1296,7 @@ class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationEfsFileLoc
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation(dict):
+calass WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLocation(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  key: Optional[str] = None):
@@ -1327,7 +1327,7 @@ class WorkflowOnExceptionStepDecryptStepDetailsDestinationFileLocationS3FileLoca
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepDeleteStepDetails(dict):
+calass WorkflowOnExceptionStepDeleteStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1375,7 +1375,7 @@ class WorkflowOnExceptionStepDeleteStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepTagStepDetails(dict):
+calass WorkflowOnExceptionStepTagStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1400,7 +1400,7 @@ class WorkflowOnExceptionStepTagStepDetails(dict):
         """
         :param str name: The name of the step, used as an identifier.
         :param str source_file_location: Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-        :param Sequence['WorkflowOnExceptionStepTagStepDetailsTagArgs'] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        :param Sequence['WorkflowOnExceptionStepTagStepDetailsTagArrgs'] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1435,7 +1435,7 @@ class WorkflowOnExceptionStepTagStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowOnExceptionStepTagStepDetailsTag(dict):
+calass WorkflowOnExceptionStepTagStepDetailsTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -1464,7 +1464,7 @@ class WorkflowOnExceptionStepTagStepDetailsTag(dict):
 
 
 @pulumi.output_type
-class WorkflowStep(dict):
+calass WorkflowStep(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1499,11 +1499,11 @@ class WorkflowStep(dict):
                  tag_step_details: Optional['outputs.WorkflowStepTagStepDetails'] = None):
         """
         :param str type: The type of encryption used. Currently, this value must be `"PGP"`.
-        :param 'WorkflowStepCopyStepDetailsArgs' copy_step_details: Details for a step that performs a file copy. See Copy Step Details below.
-        :param 'WorkflowStepCustomStepDetailsArgs' custom_step_details: Details for a step that invokes a lambda function.
-        :param 'WorkflowStepDecryptStepDetailsArgs' decrypt_step_details: Details for a step that decrypts the file.
-        :param 'WorkflowStepDeleteStepDetailsArgs' delete_step_details: Details for a step that deletes the file.
-        :param 'WorkflowStepTagStepDetailsArgs' tag_step_details: Details for a step that creates one or more tags.
+        :param 'WorkflowStepCopyStepDetailsArrgs' copy_step_details: Details for a step that performs a file copy. See Copy Step Details below.
+        :param 'WorkflowStepCustomStepDetailsArrgs' custom_step_details: Details for a step that invokes a lambda function.
+        :param 'WorkflowStepDecryptStepDetailsArrgs' decrypt_step_details: Details for a step that decrypts the file.
+        :param 'WorkflowStepDeleteStepDetailsArrgs' delete_step_details: Details for a step that deletes the file.
+        :param 'WorkflowStepTagStepDetailsArrgs' tag_step_details: Details for a step that creates one or more tags.
         """
         pulumi.set(__self__, "type", type)
         if copy_step_details is not None:
@@ -1567,7 +1567,7 @@ class WorkflowStep(dict):
 
 
 @pulumi.output_type
-class WorkflowStepCopyStepDetails(dict):
+calass WorkflowStepCopyStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1595,7 +1595,7 @@ class WorkflowStepCopyStepDetails(dict):
                  overwrite_existing: Optional[str] = None,
                  source_file_location: Optional[str] = None):
         """
-        :param 'WorkflowStepCopyStepDetailsDestinationFileLocationArgs' destination_file_location: Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+        :param 'WorkflowStepCopyStepDetailsDestinationFileLocationArrgs' destination_file_location: Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
         :param str name: The name of the step, used as an identifier.
         :param str overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
         :param str source_file_location: Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
@@ -1643,7 +1643,7 @@ class WorkflowStepCopyStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowStepCopyStepDetailsDestinationFileLocation(dict):
+calass WorkflowStepCopyStepDetailsDestinationFileLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1667,8 +1667,8 @@ class WorkflowStepCopyStepDetailsDestinationFileLocation(dict):
                  efs_file_location: Optional['outputs.WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation'] = None,
                  s3_file_location: Optional['outputs.WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation'] = None):
         """
-        :param 'WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArgs' efs_file_location: Specifies the details for the EFS file being copied.
-        :param 'WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArgs' s3_file_location: Specifies the details for the S3 file being copied.
+        :param 'WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocationArrgs' efs_file_location: Specifies the details for the EFS file being copied.
+        :param 'WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocationArrgs' s3_file_location: Specifies the details for the S3 file being copied.
         """
         if efs_file_location is not None:
             pulumi.set(__self__, "efs_file_location", efs_file_location)
@@ -1693,7 +1693,7 @@ class WorkflowStepCopyStepDetailsDestinationFileLocation(dict):
 
 
 @pulumi.output_type
-class WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation(dict):
+calass WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1741,7 +1741,7 @@ class WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation(dict):
 
 
 @pulumi.output_type
-class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation(dict):
+calass WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  key: Optional[str] = None):
@@ -1772,7 +1772,7 @@ class WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation(dict):
 
 
 @pulumi.output_type
-class WorkflowStepCustomStepDetails(dict):
+calass WorkflowStepCustomStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1846,7 +1846,7 @@ class WorkflowStepCustomStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowStepDecryptStepDetails(dict):
+calass WorkflowStepDecryptStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1876,7 +1876,7 @@ class WorkflowStepDecryptStepDetails(dict):
                  source_file_location: Optional[str] = None):
         """
         :param str type: The type of encryption used. Currently, this value must be `"PGP"`.
-        :param 'WorkflowStepDecryptStepDetailsDestinationFileLocationArgs' destination_file_location: Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+        :param 'WorkflowStepDecryptStepDetailsDestinationFileLocationArrgs' destination_file_location: Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
         :param str name: The name of the step, used as an identifier.
         :param str overwrite_existing: A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
         :param str source_file_location: Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
@@ -1933,7 +1933,7 @@ class WorkflowStepDecryptStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowStepDecryptStepDetailsDestinationFileLocation(dict):
+calass WorkflowStepDecryptStepDetailsDestinationFileLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1957,8 +1957,8 @@ class WorkflowStepDecryptStepDetailsDestinationFileLocation(dict):
                  efs_file_location: Optional['outputs.WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation'] = None,
                  s3_file_location: Optional['outputs.WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation'] = None):
         """
-        :param 'WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArgs' efs_file_location: Specifies the details for the EFS file being copied.
-        :param 'WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArgs' s3_file_location: Specifies the details for the S3 file being copied.
+        :param 'WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocationArrgs' efs_file_location: Specifies the details for the EFS file being copied.
+        :param 'WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocationArrgs' s3_file_location: Specifies the details for the S3 file being copied.
         """
         if efs_file_location is not None:
             pulumi.set(__self__, "efs_file_location", efs_file_location)
@@ -1983,7 +1983,7 @@ class WorkflowStepDecryptStepDetailsDestinationFileLocation(dict):
 
 
 @pulumi.output_type
-class WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation(dict):
+calass WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2031,7 +2031,7 @@ class WorkflowStepDecryptStepDetailsDestinationFileLocationEfsFileLocation(dict)
 
 
 @pulumi.output_type
-class WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation(dict):
+calass WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  key: Optional[str] = None):
@@ -2062,7 +2062,7 @@ class WorkflowStepDecryptStepDetailsDestinationFileLocationS3FileLocation(dict):
 
 
 @pulumi.output_type
-class WorkflowStepDeleteStepDetails(dict):
+calass WorkflowStepDeleteStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2110,7 +2110,7 @@ class WorkflowStepDeleteStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowStepTagStepDetails(dict):
+calass WorkflowStepTagStepDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2135,7 +2135,7 @@ class WorkflowStepTagStepDetails(dict):
         """
         :param str name: The name of the step, used as an identifier.
         :param str source_file_location: Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
-        :param Sequence['WorkflowStepTagStepDetailsTagArgs'] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+        :param Sequence['WorkflowStepTagStepDetailsTagArrgs'] tags: Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -2170,7 +2170,7 @@ class WorkflowStepTagStepDetails(dict):
 
 
 @pulumi.output_type
-class WorkflowStepTagStepDetailsTag(dict):
+calass WorkflowStepTagStepDetailsTag(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):

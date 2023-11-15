@@ -10,28 +10,28 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountVdmAttributesDashboardAttributesArgs',
-    'AccountVdmAttributesGuardianAttributesArgs',
-    'ConfigurationSetDeliveryOptionsArgs',
-    'ConfigurationSetEventDestinationEventDestinationArgs',
-    'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs',
-    'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs',
-    'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs',
-    'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs',
-    'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs',
-    'ConfigurationSetReputationOptionsArgs',
-    'ConfigurationSetSendingOptionsArgs',
-    'ConfigurationSetSuppressionOptionsArgs',
-    'ConfigurationSetTrackingOptionsArgs',
-    'ConfigurationSetVdmOptionsArgs',
-    'ConfigurationSetVdmOptionsDashboardOptionsArgs',
-    'ConfigurationSetVdmOptionsGuardianOptionsArgs',
-    'ContactListTopicArgs',
-    'EmailIdentityDkimSigningAttributesArgs',
+    'AccountVdmAttributesDashboardAttributesArrgs',
+    'AccountVdmAttributesGuardianAttributesArrgs',
+    'ConfigurationSetDeliveryOptionsArrgs',
+    'ConfigurationSetEventDestinationEventDestinationArrgs',
+    'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArrgs',
+    'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrgs',
+    'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArrgs',
+    'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArrgs',
+    'ConfigurationSetEventDestinationEventDestinationSnsDestinationArrgs',
+    'ConfigurationSetReputationOptionsArrgs',
+    'ConfigurationSetSendingOptionsArrgs',
+    'ConfigurationSetSuppressionOptionsArrgs',
+    'ConfigurationSetTrackingOptionsArrgs',
+    'ConfigurationSetVdmOptionsArrgs',
+    'ConfigurationSetVdmOptionsDashboardOptionsArrgs',
+    'ConfigurationSetVdmOptionsGuardianOptionsArrgs',
+    'ContactListTopicArrgs',
+    'EmailIdentityDkimSigningAttributesArrgs',
 ]
 
 @pulumi.input_type
-class AccountVdmAttributesDashboardAttributesArgs:
+calass AccountVdmAttributesDashboardAttributesArrgs:
     def __init__(__self__, *,
                  engagement_metrics: Optional[pulumi.Input[str]] = None):
         """
@@ -54,7 +54,7 @@ class AccountVdmAttributesDashboardAttributesArgs:
 
 
 @pulumi.input_type
-class AccountVdmAttributesGuardianAttributesArgs:
+calass AccountVdmAttributesGuardianAttributesArrgs:
     def __init__(__self__, *,
                  optimized_shared_delivery: Optional[pulumi.Input[str]] = None):
         """
@@ -77,7 +77,7 @@ class AccountVdmAttributesGuardianAttributesArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetDeliveryOptionsArgs:
+calass ConfigurationSetDeliveryOptionsArrgs:
     def __init__(__self__, *,
                  sending_pool_name: Optional[pulumi.Input[str]] = None,
                  tls_policy: Optional[pulumi.Input[str]] = None):
@@ -116,23 +116,23 @@ class ConfigurationSetDeliveryOptionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetEventDestinationEventDestinationArgs:
+calass ConfigurationSetEventDestinationEventDestinationArrgs:
     def __init__(__self__, *,
                  matching_event_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs']] = None,
+                 cloud_watch_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArrgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs']] = None,
-                 pinpoint_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']] = None,
-                 sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs']] = None):
+                 kinesis_firehose_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArrgs']] = None,
+                 pinpoint_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArrgs']] = None,
+                 sns_destination: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArrgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
                
                The following arguments are optional:
-        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs'] cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArrgs'] cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
         :param pulumi.Input[bool] enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs'] kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
-        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs'] pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
-        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs'] sns_destination: An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArrgs'] kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArrgs'] pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        :param pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArrgs'] sns_destination: An object that defines an Amazon SNS destination for email events. See sns_destination below.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
@@ -162,14 +162,14 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
 
     @property
     @pulumi.getter(name="cloudWatchDestination")
-    def cloud_watch_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs']]:
+    def cloud_watch_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArrgs']]:
         """
         An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
         """
         return pulumi.get(self, "cloud_watch_destination")
 
     @cloud_watch_destination.setter
-    def cloud_watch_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs']]):
+    def cloud_watch_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArrgs']]):
         pulumi.set(self, "cloud_watch_destination", value)
 
     @property
@@ -186,65 +186,65 @@ class ConfigurationSetEventDestinationEventDestinationArgs:
 
     @property
     @pulumi.getter(name="kinesisFirehoseDestination")
-    def kinesis_firehose_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs']]:
+    def kinesis_firehose_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArrgs']]:
         """
         An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
         """
         return pulumi.get(self, "kinesis_firehose_destination")
 
     @kinesis_firehose_destination.setter
-    def kinesis_firehose_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs']]):
+    def kinesis_firehose_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArrgs']]):
         pulumi.set(self, "kinesis_firehose_destination", value)
 
     @property
     @pulumi.getter(name="pinpointDestination")
-    def pinpoint_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']]:
+    def pinpoint_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArrgs']]:
         """
         An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
         """
         return pulumi.get(self, "pinpoint_destination")
 
     @pinpoint_destination.setter
-    def pinpoint_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs']]):
+    def pinpoint_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationPinpointDestinationArrgs']]):
         pulumi.set(self, "pinpoint_destination", value)
 
     @property
     @pulumi.getter(name="snsDestination")
-    def sns_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs']]:
+    def sns_destination(self) -> Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArrgs']]:
         """
         An object that defines an Amazon SNS destination for email events. See sns_destination below.
         """
         return pulumi.get(self, "sns_destination")
 
     @sns_destination.setter
-    def sns_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs']]):
+    def sns_destination(self, value: Optional[pulumi.Input['ConfigurationSetEventDestinationEventDestinationSnsDestinationArrgs']]):
         pulumi.set(self, "sns_destination", value)
 
 
 @pulumi.input_type
-class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs:
+calass ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArrgs:
     def __init__(__self__, *,
-                 dimension_configurations: pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]]):
+                 dimension_configurations: pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrgs']]] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
         """
         pulumi.set(__self__, "dimension_configurations", dimension_configurations)
 
     @property
     @pulumi.getter(name="dimensionConfigurations")
-    def dimension_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]]:
+    def dimension_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrgs']]]:
         """
         An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
         """
         return pulumi.get(self, "dimension_configurations")
 
     @dimension_configurations.setter
-    def dimension_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs']]]):
+    def dimension_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrgs']]]):
         pulumi.set(self, "dimension_configurations", value)
 
 
 @pulumi.input_type
-class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs:
+calass ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrgs:
     def __init__(__self__, *,
                  default_dimension_value: pulumi.Input[str],
                  dimension_name: pulumi.Input[str],
@@ -296,7 +296,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
 
 
 @pulumi.input_type
-class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs:
+calass ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArrgs:
     def __init__(__self__, *,
                  delivery_stream_arn: pulumi.Input[str],
                  iam_role_arn: pulumi.Input[str]):
@@ -333,7 +333,7 @@ class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
 
 
 @pulumi.input_type
-class ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs:
+calass ConfigurationSetEventDestinationEventDestinationPinpointDestinationArrgs:
     def __init__(__self__, *,
                  application_arn: pulumi.Input[str]):
         pulumi.set(__self__, "application_arn", application_arn)
@@ -349,7 +349,7 @@ class ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs:
+calass ConfigurationSetEventDestinationEventDestinationSnsDestinationArrgs:
     def __init__(__self__, *,
                  topic_arn: pulumi.Input[str]):
         """
@@ -371,7 +371,7 @@ class ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetReputationOptionsArgs:
+calass ConfigurationSetReputationOptionsArrgs:
     def __init__(__self__, *,
                  last_fresh_start: Optional[pulumi.Input[str]] = None,
                  reputation_metrics_enabled: Optional[pulumi.Input[bool]] = None):
@@ -410,7 +410,7 @@ class ConfigurationSetReputationOptionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetSendingOptionsArgs:
+calass ConfigurationSetSendingOptionsArrgs:
     def __init__(__self__, *,
                  sending_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -433,7 +433,7 @@ class ConfigurationSetSendingOptionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetSuppressionOptionsArgs:
+calass ConfigurationSetSuppressionOptionsArrgs:
     def __init__(__self__, *,
                  suppressed_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -456,7 +456,7 @@ class ConfigurationSetSuppressionOptionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetTrackingOptionsArgs:
+calass ConfigurationSetTrackingOptionsArrgs:
     def __init__(__self__, *,
                  custom_redirect_domain: pulumi.Input[str]):
         """
@@ -478,13 +478,13 @@ class ConfigurationSetTrackingOptionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetVdmOptionsArgs:
+calass ConfigurationSetVdmOptionsArrgs:
     def __init__(__self__, *,
-                 dashboard_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']] = None,
-                 guardian_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']] = None):
+                 dashboard_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArrgs']] = None,
+                 guardian_options: Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArrgs']] = None):
         """
-        :param pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArrgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArrgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         if dashboard_options is not None:
             pulumi.set(__self__, "dashboard_options", dashboard_options)
@@ -493,31 +493,31 @@ class ConfigurationSetVdmOptionsArgs:
 
     @property
     @pulumi.getter(name="dashboardOptions")
-    def dashboard_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']]:
+    def dashboard_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArrgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_options")
 
     @dashboard_options.setter
-    def dashboard_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArgs']]):
+    def dashboard_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsDashboardOptionsArrgs']]):
         pulumi.set(self, "dashboard_options", value)
 
     @property
     @pulumi.getter(name="guardianOptions")
-    def guardian_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']]:
+    def guardian_options(self) -> Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArrgs']]:
         """
         Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_options")
 
     @guardian_options.setter
-    def guardian_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArgs']]):
+    def guardian_options(self, value: Optional[pulumi.Input['ConfigurationSetVdmOptionsGuardianOptionsArrgs']]):
         pulumi.set(self, "guardian_options", value)
 
 
 @pulumi.input_type
-class ConfigurationSetVdmOptionsDashboardOptionsArgs:
+calass ConfigurationSetVdmOptionsDashboardOptionsArrgs:
     def __init__(__self__, *,
                  engagement_metrics: Optional[pulumi.Input[str]] = None):
         """
@@ -540,7 +540,7 @@ class ConfigurationSetVdmOptionsDashboardOptionsArgs:
 
 
 @pulumi.input_type
-class ConfigurationSetVdmOptionsGuardianOptionsArgs:
+calass ConfigurationSetVdmOptionsGuardianOptionsArrgs:
     def __init__(__self__, *,
                  optimized_shared_delivery: Optional[pulumi.Input[str]] = None):
         """
@@ -563,7 +563,7 @@ class ConfigurationSetVdmOptionsGuardianOptionsArgs:
 
 
 @pulumi.input_type
-class ContactListTopicArgs:
+calass ContactListTopicArrgs:
     def __init__(__self__, *,
                  default_subscription_status: pulumi.Input[str],
                  display_name: pulumi.Input[str],
@@ -635,7 +635,7 @@ class ContactListTopicArgs:
 
 
 @pulumi.input_type
-class EmailIdentityDkimSigningAttributesArgs:
+calass EmailIdentityDkimSigningAttributesArrgs:
     def __init__(__self__, *,
                  current_signing_key_length: Optional[pulumi.Input[str]] = None,
                  domain_signing_private_key: Optional[pulumi.Input[str]] = None,

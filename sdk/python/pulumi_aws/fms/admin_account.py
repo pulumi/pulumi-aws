@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AdminAccountArgs', 'AdminAccount']
+__all__ = ['AdminAccountArrgs', 'AdminAccount']
 
 @pulumi.input_type
-class AdminAccountArgs:
+calass AdminAccountArrgs:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None):
         """
@@ -36,7 +36,7 @@ class AdminAccountArgs:
 
 
 @pulumi.input_type
-class _AdminAccountState:
+calass _AdminAccountState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None):
         """
@@ -59,7 +59,7 @@ class _AdminAccountState:
         pulumi.set(self, "account_id", value)
 
 
-class AdminAccount(pulumi.CustomResource):
+calass AdminAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -94,7 +94,7 @@ class AdminAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AdminAccountArgs] = None,
+                 args: Optional[AdminAccountArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to associate/disassociate an AWS Firewall Manager administrator account. This operation must be performed in the `us-east-1` region.
@@ -117,12 +117,12 @@ class AdminAccount(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AdminAccountArgs args: The arguments to use to populate this resource's properties.
+        :param AdminAccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AdminAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AdminAccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -139,7 +139,7 @@ class AdminAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AdminAccountArgs.__new__(AdminAccountArgs)
+            __props__ = AdminAccountArrgs.__new__(AdminAccountArrgs)
 
             __props__.__dict__["account_id"] = account_id
         super(AdminAccount, __self__).__init__(

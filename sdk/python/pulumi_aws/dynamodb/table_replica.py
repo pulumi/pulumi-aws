@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TableReplicaInitArgs', 'TableReplica']
+__all__ = ['TableReplicaInitArrgs', 'TableReplica']
 
 @pulumi.input_type
-class TableReplicaInitArgs:
+calass TableReplicaInitArrgs:
     def __init__(__self__, *,
                  global_table_arn: pulumi.Input[str],
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class TableReplicaInitArgs:
 
 
 @pulumi.input_type
-class _TableReplicaState:
+calass _TableReplicaState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  global_table_arn: Optional[pulumi.Input[str]] = None,
@@ -232,7 +232,7 @@ class _TableReplicaState:
         pulumi.set(self, "tags_all", value)
 
 
-class TableReplica(pulumi.CustomResource):
+calass TableReplica(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -264,7 +264,7 @@ class TableReplica(pulumi.CustomResource):
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[aws.dynamodb.TableAttributeArgs(
+            attributes=[aws.dynamodb.TableAttributeArrgs(
                 name="BrodoBaggins",
                 type="S",
             )],
@@ -302,7 +302,7 @@ class TableReplica(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TableReplicaInitArgs,
+                 args: TableReplicaInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DynamoDB table replica resource for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html).
@@ -325,7 +325,7 @@ class TableReplica(pulumi.CustomResource):
             billing_mode="PAY_PER_REQUEST",
             stream_enabled=True,
             stream_view_type="NEW_AND_OLD_IMAGES",
-            attributes=[aws.dynamodb.TableAttributeArgs(
+            attributes=[aws.dynamodb.TableAttributeArrgs(
                 name="BrodoBaggins",
                 type="S",
             )],
@@ -350,12 +350,12 @@ class TableReplica(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TableReplicaInitArgs args: The arguments to use to populate this resource's properties.
+        :param TableReplicaInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TableReplicaInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TableReplicaInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -376,7 +376,7 @@ class TableReplica(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TableReplicaInitArgs.__new__(TableReplicaInitArgs)
+            __props__ = TableReplicaInitArrgs.__new__(TableReplicaInitArrgs)
 
             if global_table_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'global_table_arn'")

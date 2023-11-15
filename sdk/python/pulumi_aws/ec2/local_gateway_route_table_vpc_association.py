@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocalGatewayRouteTableVpcAssociationArgs', 'LocalGatewayRouteTableVpcAssociation']
+__all__ = ['LocalGatewayRouteTableVpcAssociationArrgs', 'LocalGatewayRouteTableVpcAssociation']
 
 @pulumi.input_type
-class LocalGatewayRouteTableVpcAssociationArgs:
+calass LocalGatewayRouteTableVpcAssociationArrgs:
     def __init__(__self__, *,
                  local_gateway_route_table_id: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
@@ -70,7 +70,7 @@ class LocalGatewayRouteTableVpcAssociationArgs:
 
 
 @pulumi.input_type
-class _LocalGatewayRouteTableVpcAssociationState:
+calass _LocalGatewayRouteTableVpcAssociationState:
     def __init__(__self__, *,
                  local_gateway_id: Optional[pulumi.Input[str]] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
@@ -163,7 +163,7 @@ class _LocalGatewayRouteTableVpcAssociationState:
         pulumi.set(self, "vpc_id", value)
 
 
-class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
+calass LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,7 +208,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalGatewayRouteTableVpcAssociationArgs,
+                 args: LocalGatewayRouteTableVpcAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Local Gateway Route Table VPC Association. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-local-gateways.html#vpc-associations).
@@ -235,12 +235,12 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocalGatewayRouteTableVpcAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param LocalGatewayRouteTableVpcAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalGatewayRouteTableVpcAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalGatewayRouteTableVpcAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -259,7 +259,7 @@ class LocalGatewayRouteTableVpcAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalGatewayRouteTableVpcAssociationArgs.__new__(LocalGatewayRouteTableVpcAssociationArgs)
+            __props__ = LocalGatewayRouteTableVpcAssociationArrgs.__new__(LocalGatewayRouteTableVpcAssociationArrgs)
 
             if local_gateway_route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'local_gateway_route_table_id'")

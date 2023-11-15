@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DefaultSubnetArgs', 'DefaultSubnet']
+__all__ = ['DefaultSubnetArrgs', 'DefaultSubnet']
 
 @pulumi.input_type
-class DefaultSubnetArgs:
+calass DefaultSubnetArrgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
@@ -191,7 +191,7 @@ class DefaultSubnetArgs:
 
 
 @pulumi.input_type
-class _DefaultSubnetState:
+calass _DefaultSubnetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  assign_ipv6_address_on_creation: Optional[pulumi.Input[bool]] = None,
@@ -508,7 +508,7 @@ class _DefaultSubnetState:
         pulumi.set(self, "vpc_id", value)
 
 
-class DefaultSubnet(pulumi.CustomResource):
+calass DefaultSubnet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -571,7 +571,7 @@ class DefaultSubnet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DefaultSubnetArgs,
+                 args: DefaultSubnetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a [default subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#default-vpc-basics) in the current region.
@@ -605,12 +605,12 @@ class DefaultSubnet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DefaultSubnetArgs args: The arguments to use to populate this resource's properties.
+        :param DefaultSubnetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DefaultSubnetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DefaultSubnetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -639,7 +639,7 @@ class DefaultSubnet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DefaultSubnetArgs.__new__(DefaultSubnetArgs)
+            __props__ = DefaultSubnetArrgs.__new__(DefaultSubnetArrgs)
 
             __props__.__dict__["assign_ipv6_address_on_creation"] = assign_ipv6_address_on_creation
             if availability_zone is None and not opts.urn:

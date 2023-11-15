@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EmailIdentityArgs', 'EmailIdentity']
+__all__ = ['EmailIdentityArrgs', 'EmailIdentity']
 
 @pulumi.input_type
-class EmailIdentityArgs:
+calass EmailIdentityArrgs:
     def __init__(__self__, *,
                  email_identity: pulumi.Input[str],
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
-                 dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
+                 dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EmailIdentity resource.
@@ -26,7 +26,7 @@ class EmailIdentityArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-        :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input['EmailIdentityDkimSigningAttributesArrgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "email_identity", email_identity)
@@ -65,14 +65,14 @@ class EmailIdentityArgs:
 
     @property
     @pulumi.getter(name="dkimSigningAttributes")
-    def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]:
+    def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArrgs']]:
         """
         The configuration of the DKIM authentication settings for an email domain identity.
         """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @dkim_signing_attributes.setter
-    def dkim_signing_attributes(self, value: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]):
+    def dkim_signing_attributes(self, value: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArrgs']]):
         pulumi.set(self, "dkim_signing_attributes", value)
 
     @property
@@ -89,11 +89,11 @@ class EmailIdentityArgs:
 
 
 @pulumi.input_type
-class _EmailIdentityState:
+calass _EmailIdentityState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
-                 dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']] = None,
+                 dkim_signing_attributes: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArrgs']] = None,
                  email_identity: Optional[pulumi.Input[str]] = None,
                  identity_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -103,7 +103,7 @@ class _EmailIdentityState:
         Input properties used for looking up and filtering EmailIdentity resources.
         :param pulumi.Input[str] arn: ARN of the Email Identity.
         :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-        :param pulumi.Input['EmailIdentityDkimSigningAttributesArgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input['EmailIdentityDkimSigningAttributesArrgs'] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
         :param pulumi.Input[str] email_identity: The email address or domain to verify.
                
                The following arguments are optional:
@@ -158,14 +158,14 @@ class _EmailIdentityState:
 
     @property
     @pulumi.getter(name="dkimSigningAttributes")
-    def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]:
+    def dkim_signing_attributes(self) -> Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArrgs']]:
         """
         The configuration of the DKIM authentication settings for an email domain identity.
         """
         return pulumi.get(self, "dkim_signing_attributes")
 
     @dkim_signing_attributes.setter
-    def dkim_signing_attributes(self, value: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArgs']]):
+    def dkim_signing_attributes(self, value: Optional[pulumi.Input['EmailIdentityDkimSigningAttributesArrgs']]):
         pulumi.set(self, "dkim_signing_attributes", value)
 
     @property
@@ -234,13 +234,13 @@ class _EmailIdentityState:
         pulumi.set(self, "verified_for_sending_status", value)
 
 
-class EmailIdentity(pulumi.CustomResource):
+calass EmailIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
-                 dkim_signing_attributes: Optional[pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']]] = None,
+                 dkim_signing_attributes: Optional[pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArrgs']]] = None,
                  email_identity: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -284,7 +284,7 @@ class EmailIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example",
-            dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArgs(
+            dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArrgs(
                 domain_signing_private_key="MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
                 domain_signing_selector="example",
             ),
@@ -302,7 +302,7 @@ class EmailIdentity(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArrgs']] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
         :param pulumi.Input[str] email_identity: The email address or domain to verify.
                
                The following arguments are optional:
@@ -312,7 +312,7 @@ class EmailIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EmailIdentityArgs,
+                 args: EmailIdentityArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity.
@@ -354,7 +354,7 @@ class EmailIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.EmailIdentity("example",
-            dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArgs(
+            dkim_signing_attributes=aws.sesv2.EmailIdentityDkimSigningAttributesArrgs(
                 domain_signing_private_key="MIIJKAIBAAKCAgEA2Se7p8zvnI4yh+Gh9j2rG5e2aRXjg03Y8saiupLnadPH9xvM...",
                 domain_signing_selector="example",
             ),
@@ -370,12 +370,12 @@ class EmailIdentity(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EmailIdentityArgs args: The arguments to use to populate this resource's properties.
+        :param EmailIdentityArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -385,7 +385,7 @@ class EmailIdentity(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration_set_name: Optional[pulumi.Input[str]] = None,
-                 dkim_signing_attributes: Optional[pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']]] = None,
+                 dkim_signing_attributes: Optional[pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArrgs']]] = None,
                  email_identity: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -395,7 +395,7 @@ class EmailIdentity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EmailIdentityArgs.__new__(EmailIdentityArgs)
+            __props__ = EmailIdentityArrgs.__new__(EmailIdentityArrgs)
 
             __props__.__dict__["configuration_set_name"] = configuration_set_name
             __props__.__dict__["dkim_signing_attributes"] = dkim_signing_attributes
@@ -421,7 +421,7 @@ class EmailIdentity(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             configuration_set_name: Optional[pulumi.Input[str]] = None,
-            dkim_signing_attributes: Optional[pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']]] = None,
+            dkim_signing_attributes: Optional[pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArrgs']]] = None,
             email_identity: Optional[pulumi.Input[str]] = None,
             identity_type: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -436,7 +436,7 @@ class EmailIdentity(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Email Identity.
         :param pulumi.Input[str] configuration_set_name: The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
-        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArgs']] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
+        :param pulumi.Input[pulumi.InputType['EmailIdentityDkimSigningAttributesArrgs']] dkim_signing_attributes: The configuration of the DKIM authentication settings for an email domain identity.
         :param pulumi.Input[str] email_identity: The email address or domain to verify.
                
                The following arguments are optional:

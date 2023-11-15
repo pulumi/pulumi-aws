@@ -30,7 +30,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ReplicationSetRegion(dict):
+calass ReplicationSetRegion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -109,7 +109,7 @@ class ReplicationSetRegion(dict):
 
 
 @pulumi.output_type
-class ResponsePlanAction(dict):
+calass ResponsePlanAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -130,7 +130,7 @@ class ResponsePlanAction(dict):
     def __init__(__self__, *,
                  ssm_automations: Optional[Sequence['outputs.ResponsePlanActionSsmAutomation']] = None):
         """
-        :param Sequence['ResponsePlanActionSsmAutomationArgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+        :param Sequence['ResponsePlanActionSsmAutomationArrgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
         if ssm_automations is not None:
             pulumi.set(__self__, "ssm_automations", ssm_automations)
@@ -145,7 +145,7 @@ class ResponsePlanAction(dict):
 
 
 @pulumi.output_type
-class ResponsePlanActionSsmAutomation(dict):
+calass ResponsePlanActionSsmAutomation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -183,7 +183,7 @@ class ResponsePlanActionSsmAutomation(dict):
         :param str role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
         :param str document_version: The version of the automation document to use at runtime.
         :param Mapping[str, str] dynamic_parameters: The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        :param Sequence['ResponsePlanActionSsmAutomationParameterArgs'] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
+        :param Sequence['ResponsePlanActionSsmAutomationParameterArrgs'] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
         :param str target_account: The account that the automation document runs in. This can be in either the management account or an application account.
         """
         pulumi.set(__self__, "document_name", document_name)
@@ -247,7 +247,7 @@ class ResponsePlanActionSsmAutomation(dict):
 
 
 @pulumi.output_type
-class ResponsePlanActionSsmAutomationParameter(dict):
+calass ResponsePlanActionSsmAutomationParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -276,7 +276,7 @@ class ResponsePlanActionSsmAutomationParameter(dict):
 
 
 @pulumi.output_type
-class ResponsePlanIncidentTemplate(dict):
+calass ResponsePlanIncidentTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -310,7 +310,7 @@ class ResponsePlanIncidentTemplate(dict):
         :param str title: The title of a generated incident.
         :param str dedupe_string: A string used to stop Incident Manager from creating multiple incident records for the same incident.
         :param Mapping[str, str] incident_tags: The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        :param Sequence['ResponsePlanIncidentTemplateNotificationTargetArgs'] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+        :param Sequence['ResponsePlanIncidentTemplateNotificationTargetArrgs'] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         :param str summary: The summary of an incident.
         """
         pulumi.set(__self__, "impact", impact)
@@ -374,7 +374,7 @@ class ResponsePlanIncidentTemplate(dict):
 
 
 @pulumi.output_type
-class ResponsePlanIncidentTemplateNotificationTarget(dict):
+calass ResponsePlanIncidentTemplateNotificationTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -413,11 +413,11 @@ class ResponsePlanIncidentTemplateNotificationTarget(dict):
 
 
 @pulumi.output_type
-class ResponsePlanIntegration(dict):
+calass ResponsePlanIntegration(dict):
     def __init__(__self__, *,
                  pagerduties: Optional[Sequence['outputs.ResponsePlanIntegrationPagerduty']] = None):
         """
-        :param Sequence['ResponsePlanIntegrationPagerdutyArgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
+        :param Sequence['ResponsePlanIntegrationPagerdutyArrgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
         if pagerduties is not None:
             pulumi.set(__self__, "pagerduties", pagerduties)
@@ -432,7 +432,7 @@ class ResponsePlanIntegration(dict):
 
 
 @pulumi.output_type
-class ResponsePlanIntegrationPagerduty(dict):
+calass ResponsePlanIntegrationPagerduty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -495,7 +495,7 @@ class ResponsePlanIntegrationPagerduty(dict):
 
 
 @pulumi.output_type
-class GetReplicationSetRegionResult(dict):
+calass GetReplicationSetRegionResult(dict):
     def __init__(__self__, *,
                  kms_key_arn: str,
                  name: str,
@@ -548,11 +548,11 @@ class GetReplicationSetRegionResult(dict):
 
 
 @pulumi.output_type
-class GetResponsePlanActionResult(dict):
+calass GetResponsePlanActionResult(dict):
     def __init__(__self__, *,
                  ssm_automations: Sequence['outputs.GetResponsePlanActionSsmAutomationResult']):
         """
-        :param Sequence['GetResponsePlanActionSsmAutomationArgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+        :param Sequence['GetResponsePlanActionSsmAutomationArrgs'] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
         pulumi.set(__self__, "ssm_automations", ssm_automations)
 
@@ -566,7 +566,7 @@ class GetResponsePlanActionResult(dict):
 
 
 @pulumi.output_type
-class GetResponsePlanActionSsmAutomationResult(dict):
+calass GetResponsePlanActionSsmAutomationResult(dict):
     def __init__(__self__, *,
                  document_name: str,
                  document_version: str,
@@ -578,7 +578,7 @@ class GetResponsePlanActionSsmAutomationResult(dict):
         :param str document_name: The automation document's name.
         :param str document_version: The version of the automation document to use at runtime.
         :param Mapping[str, str] dynamic_parameters: The key-value pair used to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        :param Sequence['GetResponsePlanActionSsmAutomationParameterArgs'] parameters: The key-value pair parameters used when the automation document runs. The following values are supported:
+        :param Sequence['GetResponsePlanActionSsmAutomationParameterArrgs'] parameters: The key-value pair parameters used when the automation document runs. The following values are supported:
         :param str role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
         :param str target_account: The account that runs the automation document. This can be in either the management account or an application account.
         """
@@ -639,7 +639,7 @@ class GetResponsePlanActionSsmAutomationResult(dict):
 
 
 @pulumi.output_type
-class GetResponsePlanActionSsmAutomationParameterResult(dict):
+calass GetResponsePlanActionSsmAutomationParameterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -668,7 +668,7 @@ class GetResponsePlanActionSsmAutomationParameterResult(dict):
 
 
 @pulumi.output_type
-class GetResponsePlanIncidentTemplateResult(dict):
+calass GetResponsePlanIncidentTemplateResult(dict):
     def __init__(__self__, *,
                  dedupe_string: str,
                  impact: int,
@@ -680,7 +680,7 @@ class GetResponsePlanIncidentTemplateResult(dict):
         :param str dedupe_string: A string used to stop Incident Manager from creating multiple incident records for the same incident.
         :param int impact: The impact value of a generated incident. The following values are supported:
         :param Mapping[str, str] incident_tags: The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        :param Sequence['GetResponsePlanIncidentTemplateNotificationTargetArgs'] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+        :param Sequence['GetResponsePlanIncidentTemplateNotificationTargetArrgs'] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         :param str summary: The summary of an incident.
         :param str title: The title of a generated incident.
         """
@@ -741,7 +741,7 @@ class GetResponsePlanIncidentTemplateResult(dict):
 
 
 @pulumi.output_type
-class GetResponsePlanIncidentTemplateNotificationTargetResult(dict):
+calass GetResponsePlanIncidentTemplateNotificationTargetResult(dict):
     def __init__(__self__, *,
                  sns_topic_arn: str):
         """
@@ -759,11 +759,11 @@ class GetResponsePlanIncidentTemplateNotificationTargetResult(dict):
 
 
 @pulumi.output_type
-class GetResponsePlanIntegrationResult(dict):
+calass GetResponsePlanIntegrationResult(dict):
     def __init__(__self__, *,
                  pagerduties: Sequence['outputs.GetResponsePlanIntegrationPagerdutyResult']):
         """
-        :param Sequence['GetResponsePlanIntegrationPagerdutyArgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
+        :param Sequence['GetResponsePlanIntegrationPagerdutyArrgs'] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
         pulumi.set(__self__, "pagerduties", pagerduties)
 
@@ -777,7 +777,7 @@ class GetResponsePlanIntegrationResult(dict):
 
 
 @pulumi.output_type
-class GetResponsePlanIntegrationPagerdutyResult(dict):
+calass GetResponsePlanIntegrationPagerdutyResult(dict):
     def __init__(__self__, *,
                  name: str,
                  secret_id: str,

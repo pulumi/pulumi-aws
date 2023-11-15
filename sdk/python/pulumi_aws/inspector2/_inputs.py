@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'OrganizationConfigurationAutoEnableArgs',
+    'OrganizationConfigurationAutoEnableArrgs',
 ]
 
 @pulumi.input_type
-class OrganizationConfigurationAutoEnableArgs:
+calass OrganizationConfigurationAutoEnableArrgs:
     def __init__(__self__, *,
                  ec2: pulumi.Input[bool],
                  ecr: pulumi.Input[bool],

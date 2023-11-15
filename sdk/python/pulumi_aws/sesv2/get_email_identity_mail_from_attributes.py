@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEmailIdentityMailFromAttributesResult:
+calass GetEmailIdentityMailFromAttributesResult:
     """
     A collection of values returned by getEmailIdentityMailFromAttributes.
     """
@@ -65,7 +65,7 @@ class GetEmailIdentityMailFromAttributesResult:
         return pulumi.get(self, "mail_from_domain")
 
 
-class AwaitableGetEmailIdentityMailFromAttributesResult(GetEmailIdentityMailFromAttributesResult):
+calass AwaitableGetEmailIdentityMailFromAttributesResult(GetEmailIdentityMailFromAttributesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

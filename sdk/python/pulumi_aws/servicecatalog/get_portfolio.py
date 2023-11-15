@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPortfolioResult:
+calass GetPortfolioResult:
     """
     A collection of values returned by getPortfolio.
     """
@@ -106,7 +106,7 @@ class GetPortfolioResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetPortfolioResult(GetPortfolioResult):
+calass AwaitableGetPortfolioResult(GetPortfolioResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

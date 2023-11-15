@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSinkResult:
+calass GetSinkResult:
     """
     A collection of values returned by getSink.
     """
@@ -87,7 +87,7 @@ class GetSinkResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetSinkResult(GetSinkResult):
+calass AwaitableGetSinkResult(GetSinkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

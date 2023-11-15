@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RepositoryArgs', 'Repository']
+__all__ = ['RepositoryArrgs', 'Repository']
 
 @pulumi.input_type
-class RepositoryArgs:
+calass RepositoryArrgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[str],
-                 catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
+                 catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArrgs']] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[str] repository_name: Name of the repository.
-        :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input['RepositoryCatalogDataArrgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "repository_name", repository_name)
@@ -48,14 +48,14 @@ class RepositoryArgs:
 
     @property
     @pulumi.getter(name="catalogData")
-    def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArgs']]:
+    def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArrgs']]:
         """
         Catalog data configuration for the repository. See below for schema.
         """
         return pulumi.get(self, "catalog_data")
 
     @catalog_data.setter
-    def catalog_data(self, value: Optional[pulumi.Input['RepositoryCatalogDataArgs']]):
+    def catalog_data(self, value: Optional[pulumi.Input['RepositoryCatalogDataArrgs']]):
         pulumi.set(self, "catalog_data", value)
 
     @property
@@ -81,10 +81,10 @@ class RepositoryArgs:
 
 
 @pulumi.input_type
-class _RepositoryState:
+calass _RepositoryState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArgs']] = None,
+                 catalog_data: Optional[pulumi.Input['RepositoryCatalogDataArrgs']] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  registry_id: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class _RepositoryState:
         """
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[str] arn: Full ARN of the repository.
-        :param pulumi.Input['RepositoryCatalogDataArgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input['RepositoryCatalogDataArrgs'] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_name: Name of the repository.
         :param pulumi.Input[str] repository_uri: The URI of the repository.
@@ -135,14 +135,14 @@ class _RepositoryState:
 
     @property
     @pulumi.getter(name="catalogData")
-    def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArgs']]:
+    def catalog_data(self) -> Optional[pulumi.Input['RepositoryCatalogDataArrgs']]:
         """
         Catalog data configuration for the repository. See below for schema.
         """
         return pulumi.get(self, "catalog_data")
 
     @catalog_data.setter
-    def catalog_data(self, value: Optional[pulumi.Input['RepositoryCatalogDataArgs']]):
+    def catalog_data(self, value: Optional[pulumi.Input['RepositoryCatalogDataArrgs']]):
         pulumi.set(self, "catalog_data", value)
 
     @property
@@ -218,12 +218,12 @@ class _RepositoryState:
         pulumi.set(self, "tags_all", value)
 
 
-class Repository(pulumi.CustomResource):
+calass Repository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
+                 catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArrgs']]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -243,7 +243,7 @@ class Repository(pulumi.CustomResource):
         us_east1 = aws.Provider("usEast1", region="us-east-1")
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
-            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
+            catalog_data=aws.ecrpublic.RepositoryCatalogDataArrgs(
                 about_text="About Text",
                 architectures=["ARM"],
                 description="Description",
@@ -267,7 +267,7 @@ class Repository(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArrgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[str] repository_name: Name of the repository.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -275,7 +275,7 @@ class Repository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RepositoryArgs,
+                 args: RepositoryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Public Elastic Container Registry Repository.
@@ -292,7 +292,7 @@ class Repository(pulumi.CustomResource):
         us_east1 = aws.Provider("usEast1", region="us-east-1")
         foo = aws.ecrpublic.Repository("foo",
             repository_name="bar",
-            catalog_data=aws.ecrpublic.RepositoryCatalogDataArgs(
+            catalog_data=aws.ecrpublic.RepositoryCatalogDataArrgs(
                 about_text="About Text",
                 architectures=["ARM"],
                 description="Description",
@@ -315,12 +315,12 @@ class Repository(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param RepositoryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -329,7 +329,7 @@ class Repository(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
+                 catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArrgs']]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -340,7 +340,7 @@ class Repository(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RepositoryArgs.__new__(RepositoryArgs)
+            __props__ = RepositoryArrgs.__new__(RepositoryArrgs)
 
             __props__.__dict__["catalog_data"] = catalog_data
             __props__.__dict__["force_destroy"] = force_destroy
@@ -365,7 +365,7 @@ class Repository(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']]] = None,
+            catalog_data: Optional[pulumi.Input[pulumi.InputType['RepositoryCatalogDataArrgs']]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             registry_id: Optional[pulumi.Input[str]] = None,
             repository_name: Optional[pulumi.Input[str]] = None,
@@ -380,7 +380,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Full ARN of the repository.
-        :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
+        :param pulumi.Input[pulumi.InputType['RepositoryCatalogDataArrgs']] catalog_data: Catalog data configuration for the repository. See below for schema.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_name: Name of the repository.
         :param pulumi.Input[str] repository_uri: The URI of the repository.

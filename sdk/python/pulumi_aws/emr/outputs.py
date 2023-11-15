@@ -49,7 +49,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange(dict):
+calass BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -97,7 +97,7 @@ class BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRange(dict):
 
 
 @pulumi.output_type
-class ClusterAutoTerminationPolicy(dict):
+calass ClusterAutoTerminationPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -133,7 +133,7 @@ class ClusterAutoTerminationPolicy(dict):
 
 
 @pulumi.output_type
-class ClusterBootstrapAction(dict):
+calass ClusterBootstrapAction(dict):
     def __init__(__self__, *,
                  name: str,
                  path: str,
@@ -174,7 +174,7 @@ class ClusterBootstrapAction(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceFleet(dict):
+calass ClusterCoreInstanceFleet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -213,8 +213,8 @@ class ClusterCoreInstanceFleet(dict):
                  target_spot_capacity: Optional[int] = None):
         """
         :param str id: ID of the cluster.
-        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigArgs'] instance_type_configs: Configuration block for instance fleet.
-        :param 'ClusterCoreInstanceFleetLaunchSpecificationsArgs' launch_specifications: Configuration block for launch specification.
+        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigArrgs'] instance_type_configs: Configuration block for instance fleet.
+        :param 'ClusterCoreInstanceFleetLaunchSpecificationsArrgs' launch_specifications: Configuration block for launch specification.
         :param str name: Friendly name given to the instance fleet.
         :param int target_on_demand_capacity: The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param int target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -296,7 +296,7 @@ class ClusterCoreInstanceFleet(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
+calass ClusterCoreInstanceFleetInstanceTypeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -333,8 +333,8 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
         :param str instance_type: EC2 instance type, such as m4.xlarge.
         :param str bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param float bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArrgs'] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param Sequence['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArrgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param int weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -399,7 +399,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfig(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
+calass ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
     def __init__(__self__, *,
                  classification: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None):
@@ -430,7 +430,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig(dict):
+calass ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -500,7 +500,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceFleetLaunchSpecifications(dict):
+calass ClusterCoreInstanceFleetLaunchSpecifications(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -524,8 +524,8 @@ class ClusterCoreInstanceFleetLaunchSpecifications(dict):
                  on_demand_specifications: Optional[Sequence['outputs.ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
                  spot_specifications: Optional[Sequence['outputs.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification']] = None):
         """
-        :param Sequence['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs'] on_demand_specifications: Configuration block for on demand instances launch specifications.
-        :param Sequence['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArgs'] spot_specifications: Configuration block for spot instances launch specifications.
+        :param Sequence['ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs'] on_demand_specifications: Configuration block for on demand instances launch specifications.
+        :param Sequence['ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecificationArrgs'] spot_specifications: Configuration block for spot instances launch specifications.
         """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
@@ -550,7 +550,7 @@ class ClusterCoreInstanceFleetLaunchSpecifications(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+calass ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -585,7 +585,7 @@ class ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification(dict):
+calass ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -660,7 +660,7 @@ class ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceGroup(dict):
+calass ClusterCoreInstanceGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -698,7 +698,7 @@ class ClusterCoreInstanceGroup(dict):
         :param str instance_type: EC2 instance type for all instances in the instance group.
         :param str autoscaling_policy: String containing the [EMR Auto Scaling Policy](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-automatic-scaling.html) JSON.
         :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param Sequence['ClusterCoreInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param Sequence['ClusterCoreInstanceGroupEbsConfigArrgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param str id: ID of the cluster.
         :param int instance_count: Target number of instances for the instance group. Must be at least 1. Defaults to 1.
         :param str name: Friendly name given to the instance group.
@@ -775,7 +775,7 @@ class ClusterCoreInstanceGroup(dict):
 
 
 @pulumi.output_type
-class ClusterCoreInstanceGroupEbsConfig(dict):
+calass ClusterCoreInstanceGroupEbsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -857,7 +857,7 @@ class ClusterCoreInstanceGroupEbsConfig(dict):
 
 
 @pulumi.output_type
-class ClusterEc2Attributes(dict):
+calass ClusterEc2Attributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1008,7 +1008,7 @@ class ClusterEc2Attributes(dict):
 
 
 @pulumi.output_type
-class ClusterKerberosAttributes(dict):
+calass ClusterKerberosAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1096,7 +1096,7 @@ class ClusterKerberosAttributes(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceFleet(dict):
+calass ClusterMasterInstanceFleet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1135,8 +1135,8 @@ class ClusterMasterInstanceFleet(dict):
                  target_spot_capacity: Optional[int] = None):
         """
         :param str id: ID of the cluster.
-        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigArgs'] instance_type_configs: Configuration block for instance fleet.
-        :param 'ClusterMasterInstanceFleetLaunchSpecificationsArgs' launch_specifications: Configuration block for launch specification.
+        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigArrgs'] instance_type_configs: Configuration block for instance fleet.
+        :param 'ClusterMasterInstanceFleetLaunchSpecificationsArrgs' launch_specifications: Configuration block for launch specification.
         :param str name: Friendly name given to the instance fleet.
         :param int target_on_demand_capacity: Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         :param int target_spot_capacity: Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
@@ -1218,7 +1218,7 @@ class ClusterMasterInstanceFleet(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
+calass ClusterMasterInstanceFleetInstanceTypeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1255,8 +1255,8 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
         :param str instance_type: EC2 instance type, such as m4.xlarge.
         :param str bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param float bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArrgs'] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param Sequence['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArrgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param int weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -1321,7 +1321,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfig(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
+calass ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
     def __init__(__self__, *,
                  classification: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None):
@@ -1352,7 +1352,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigConfiguration(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig(dict):
+calass ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1422,7 +1422,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceFleetLaunchSpecifications(dict):
+calass ClusterMasterInstanceFleetLaunchSpecifications(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1446,8 +1446,8 @@ class ClusterMasterInstanceFleetLaunchSpecifications(dict):
                  on_demand_specifications: Optional[Sequence['outputs.ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
                  spot_specifications: Optional[Sequence['outputs.ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification']] = None):
         """
-        :param Sequence['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArgs'] on_demand_specifications: Configuration block for on demand instances launch specifications.
-        :param Sequence['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArgs'] spot_specifications: Configuration block for spot instances launch specifications.
+        :param Sequence['ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs'] on_demand_specifications: Configuration block for on demand instances launch specifications.
+        :param Sequence['ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecificationArrgs'] spot_specifications: Configuration block for spot instances launch specifications.
         """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
@@ -1472,7 +1472,7 @@ class ClusterMasterInstanceFleetLaunchSpecifications(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+calass ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1507,7 +1507,7 @@ class ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification(dict):
+calass ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1582,7 +1582,7 @@ class ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceGroup(dict):
+calass ClusterMasterInstanceGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1616,7 +1616,7 @@ class ClusterMasterInstanceGroup(dict):
         """
         :param str instance_type: EC2 instance type for all instances in the instance group.
         :param str bid_price: Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
-        :param Sequence['ClusterMasterInstanceGroupEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param Sequence['ClusterMasterInstanceGroupEbsConfigArrgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param str id: ID of the cluster.
         :param int instance_count: Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `core_instance_group` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `termination_protection = false` configuration applied before destroying this resource.
         :param str name: Friendly name given to the instance group.
@@ -1683,7 +1683,7 @@ class ClusterMasterInstanceGroup(dict):
 
 
 @pulumi.output_type
-class ClusterMasterInstanceGroupEbsConfig(dict):
+calass ClusterMasterInstanceGroupEbsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1765,7 +1765,7 @@ class ClusterMasterInstanceGroupEbsConfig(dict):
 
 
 @pulumi.output_type
-class ClusterPlacementGroupConfig(dict):
+calass ClusterPlacementGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1814,7 +1814,7 @@ class ClusterPlacementGroupConfig(dict):
 
 
 @pulumi.output_type
-class ClusterStep(dict):
+calass ClusterStep(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1840,7 +1840,7 @@ class ClusterStep(dict):
                  name: str):
         """
         :param str action_on_failure: Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
-        :param 'ClusterStepHadoopJarStepArgs' hadoop_jar_step: JAR file used for the step. See below.
+        :param 'ClusterStepHadoopJarStepArrgs' hadoop_jar_step: JAR file used for the step. See below.
         :param str name: Name of the step.
         """
         pulumi.set(__self__, "action_on_failure", action_on_failure)
@@ -1873,7 +1873,7 @@ class ClusterStep(dict):
 
 
 @pulumi.output_type
-class ClusterStepHadoopJarStep(dict):
+calass ClusterStepHadoopJarStep(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1944,7 +1944,7 @@ class ClusterStepHadoopJarStep(dict):
 
 
 @pulumi.output_type
-class InstanceFleetInstanceTypeConfig(dict):
+calass InstanceFleetInstanceTypeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1981,8 +1981,8 @@ class InstanceFleetInstanceTypeConfig(dict):
         :param str instance_type: An EC2 instance type, such as m4.xlarge.
         :param str bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         :param float bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param Sequence['InstanceFleetInstanceTypeConfigConfigurationArgs'] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
-        :param Sequence['InstanceFleetInstanceTypeConfigEbsConfigArgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
+        :param Sequence['InstanceFleetInstanceTypeConfigConfigurationArrgs'] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        :param Sequence['InstanceFleetInstanceTypeConfigEbsConfigArrgs'] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param int weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
         """
         pulumi.set(__self__, "instance_type", instance_type)
@@ -2047,7 +2047,7 @@ class InstanceFleetInstanceTypeConfig(dict):
 
 
 @pulumi.output_type
-class InstanceFleetInstanceTypeConfigConfiguration(dict):
+calass InstanceFleetInstanceTypeConfigConfiguration(dict):
     def __init__(__self__, *,
                  classification: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None):
@@ -2078,7 +2078,7 @@ class InstanceFleetInstanceTypeConfigConfiguration(dict):
 
 
 @pulumi.output_type
-class InstanceFleetInstanceTypeConfigEbsConfig(dict):
+calass InstanceFleetInstanceTypeConfigEbsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2148,7 +2148,7 @@ class InstanceFleetInstanceTypeConfigEbsConfig(dict):
 
 
 @pulumi.output_type
-class InstanceFleetLaunchSpecifications(dict):
+calass InstanceFleetLaunchSpecifications(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2172,8 +2172,8 @@ class InstanceFleetLaunchSpecifications(dict):
                  on_demand_specifications: Optional[Sequence['outputs.InstanceFleetLaunchSpecificationsOnDemandSpecification']] = None,
                  spot_specifications: Optional[Sequence['outputs.InstanceFleetLaunchSpecificationsSpotSpecification']] = None):
         """
-        :param Sequence['InstanceFleetLaunchSpecificationsOnDemandSpecificationArgs'] on_demand_specifications: Configuration block for on demand instances launch specifications
-        :param Sequence['InstanceFleetLaunchSpecificationsSpotSpecificationArgs'] spot_specifications: Configuration block for spot instances launch specifications
+        :param Sequence['InstanceFleetLaunchSpecificationsOnDemandSpecificationArrgs'] on_demand_specifications: Configuration block for on demand instances launch specifications
+        :param Sequence['InstanceFleetLaunchSpecificationsSpotSpecificationArrgs'] spot_specifications: Configuration block for spot instances launch specifications
         """
         if on_demand_specifications is not None:
             pulumi.set(__self__, "on_demand_specifications", on_demand_specifications)
@@ -2198,7 +2198,7 @@ class InstanceFleetLaunchSpecifications(dict):
 
 
 @pulumi.output_type
-class InstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
+calass InstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2233,7 +2233,7 @@ class InstanceFleetLaunchSpecificationsOnDemandSpecification(dict):
 
 
 @pulumi.output_type
-class InstanceFleetLaunchSpecificationsSpotSpecification(dict):
+calass InstanceFleetLaunchSpecificationsSpotSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2308,7 +2308,7 @@ class InstanceFleetLaunchSpecificationsSpotSpecification(dict):
 
 
 @pulumi.output_type
-class InstanceGroupEbsConfig(dict):
+calass InstanceGroupEbsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2378,7 +2378,7 @@ class InstanceGroupEbsConfig(dict):
 
 
 @pulumi.output_type
-class ManagedScalingPolicyComputeLimit(dict):
+calass ManagedScalingPolicyComputeLimit(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2467,7 +2467,7 @@ class ManagedScalingPolicyComputeLimit(dict):
 
 
 @pulumi.output_type
-class GetReleaseLabelsFiltersResult(dict):
+calass GetReleaseLabelsFiltersResult(dict):
     def __init__(__self__, *,
                  application: Optional[str] = None,
                  prefix: Optional[str] = None):

@@ -10,43 +10,43 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BotAbortStatementArgs',
-    'BotAbortStatementMessageArgs',
-    'BotAliasConversationLogsArgs',
-    'BotAliasConversationLogsLogSettingArgs',
-    'BotClarificationPromptArgs',
-    'BotClarificationPromptMessageArgs',
-    'BotIntentArgs',
-    'IntentConclusionStatementArgs',
-    'IntentConclusionStatementMessageArgs',
-    'IntentConfirmationPromptArgs',
-    'IntentConfirmationPromptMessageArgs',
-    'IntentDialogCodeHookArgs',
-    'IntentFollowUpPromptArgs',
-    'IntentFollowUpPromptPromptArgs',
-    'IntentFollowUpPromptPromptMessageArgs',
-    'IntentFollowUpPromptRejectionStatementArgs',
-    'IntentFollowUpPromptRejectionStatementMessageArgs',
-    'IntentFulfillmentActivityArgs',
-    'IntentFulfillmentActivityCodeHookArgs',
-    'IntentRejectionStatementArgs',
-    'IntentRejectionStatementMessageArgs',
-    'IntentSlotArgs',
-    'IntentSlotValueElicitationPromptArgs',
-    'IntentSlotValueElicitationPromptMessageArgs',
-    'SlotTypeEnumerationValueArgs',
-    'V2modelsBotDataPrivacyArgs',
-    'V2modelsBotMemberArgs',
-    'V2modelsBotTimeoutsArgs',
+    'BotAbortStatementArrgs',
+    'BotAbortStatementMessageArrgs',
+    'BotAliasConversationLogsArrgs',
+    'BotAliasConversationLogsLogSettingArrgs',
+    'BotClarificationPromptArrgs',
+    'BotClarificationPromptMessageArrgs',
+    'BotIntentArrgs',
+    'IntentConclusionStatementArrgs',
+    'IntentConclusionStatementMessageArrgs',
+    'IntentConfirmationPromptArrgs',
+    'IntentConfirmationPromptMessageArrgs',
+    'IntentDialogCodeHookArrgs',
+    'IntentFollowUpPromptArrgs',
+    'IntentFollowUpPromptPromptArrgs',
+    'IntentFollowUpPromptPromptMessageArrgs',
+    'IntentFollowUpPromptRejectionStatementArrgs',
+    'IntentFollowUpPromptRejectionStatementMessageArrgs',
+    'IntentFulfillmentActivityArrgs',
+    'IntentFulfillmentActivityCodeHookArrgs',
+    'IntentRejectionStatementArrgs',
+    'IntentRejectionStatementMessageArrgs',
+    'IntentSlotArrgs',
+    'IntentSlotValueElicitationPromptArrgs',
+    'IntentSlotValueElicitationPromptMessageArrgs',
+    'SlotTypeEnumerationValueArrgs',
+    'V2modelsBotDataPrivacyArrgs',
+    'V2modelsBotMemberArrgs',
+    'V2modelsBotTimeoutsArrgs',
 ]
 
 @pulumi.input_type
-class BotAbortStatementArgs:
+calass BotAbortStatementArrgs:
     def __init__(__self__, *,
-                 messages: pulumi.Input[Sequence[pulumi.Input['BotAbortStatementMessageArgs']]],
+                 messages: pulumi.Input[Sequence[pulumi.Input['BotAbortStatementMessageArrgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BotAbortStatementMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
+        :param pulumi.Input[Sequence[pulumi.Input['BotAbortStatementMessageArrgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
@@ -59,7 +59,7 @@ class BotAbortStatementArgs:
 
     @property
     @pulumi.getter
-    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['BotAbortStatementMessageArgs']]]:
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['BotAbortStatementMessageArrgs']]]:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -68,7 +68,7 @@ class BotAbortStatementArgs:
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['BotAbortStatementMessageArgs']]]):
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['BotAbortStatementMessageArrgs']]]):
         pulumi.set(self, "messages", value)
 
     @property
@@ -87,7 +87,7 @@ class BotAbortStatementArgs:
 
 
 @pulumi.input_type
-class BotAbortStatementMessageArgs:
+calass BotAbortStatementMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
@@ -142,13 +142,13 @@ class BotAbortStatementMessageArgs:
 
 
 @pulumi.input_type
-class BotAliasConversationLogsArgs:
+calass BotAliasConversationLogsArrgs:
     def __init__(__self__, *,
                  iam_role_arn: pulumi.Input[str],
-                 log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]]] = None):
+                 log_settings: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArrgs']]]] = None):
         """
         :param pulumi.Input[str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]] log_settings: The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
+        :param pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArrgs']]] log_settings: The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         if log_settings is not None:
@@ -168,19 +168,19 @@ class BotAliasConversationLogsArgs:
 
     @property
     @pulumi.getter(name="logSettings")
-    def log_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]]]:
+    def log_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArrgs']]]]:
         """
         The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
         """
         return pulumi.get(self, "log_settings")
 
     @log_settings.setter
-    def log_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]]]):
+    def log_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArrgs']]]]):
         pulumi.set(self, "log_settings", value)
 
 
 @pulumi.input_type
-class BotAliasConversationLogsLogSettingArgs:
+calass BotAliasConversationLogsLogSettingArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  log_type: pulumi.Input[str],
@@ -264,14 +264,14 @@ class BotAliasConversationLogsLogSettingArgs:
 
 
 @pulumi.input_type
-class BotClarificationPromptArgs:
+calass BotClarificationPromptArrgs:
     def __init__(__self__, *,
                  max_attempts: pulumi.Input[int],
-                 messages: pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArgs']]],
+                 messages: pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArrgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information.
-        :param pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
+        :param pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArrgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
@@ -297,7 +297,7 @@ class BotClarificationPromptArgs:
 
     @property
     @pulumi.getter
-    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArgs']]]:
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArrgs']]]:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -306,7 +306,7 @@ class BotClarificationPromptArgs:
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArgs']]]):
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['BotClarificationPromptMessageArrgs']]]):
         pulumi.set(self, "messages", value)
 
     @property
@@ -325,7 +325,7 @@ class BotClarificationPromptArgs:
 
 
 @pulumi.input_type
-class BotClarificationPromptMessageArgs:
+calass BotClarificationPromptMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
@@ -380,7 +380,7 @@ class BotClarificationPromptMessageArgs:
 
 
 @pulumi.input_type
-class BotIntentArgs:
+calass BotIntentArrgs:
     def __init__(__self__, *,
                  intent_name: pulumi.Input[str],
                  intent_version: pulumi.Input[str]):
@@ -417,12 +417,12 @@ class BotIntentArgs:
 
 
 @pulumi.input_type
-class IntentConclusionStatementArgs:
+calass IntentConclusionStatementArrgs:
     def __init__(__self__, *,
-                 messages: pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArgs']]],
+                 messages: pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArrgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
+        :param pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArrgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
@@ -435,7 +435,7 @@ class IntentConclusionStatementArgs:
 
     @property
     @pulumi.getter
-    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArgs']]]:
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArrgs']]]:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -444,7 +444,7 @@ class IntentConclusionStatementArgs:
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArgs']]]):
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentConclusionStatementMessageArrgs']]]):
         pulumi.set(self, "messages", value)
 
     @property
@@ -463,7 +463,7 @@ class IntentConclusionStatementArgs:
 
 
 @pulumi.input_type
-class IntentConclusionStatementMessageArgs:
+calass IntentConclusionStatementMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
@@ -518,14 +518,14 @@ class IntentConclusionStatementMessageArgs:
 
 
 @pulumi.input_type
-class IntentConfirmationPromptArgs:
+calass IntentConfirmationPromptArrgs:
     def __init__(__self__, *,
                  max_attempts: pulumi.Input[int],
-                 messages: pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArgs']]],
+                 messages: pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArrgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
+        :param pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArrgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
@@ -551,7 +551,7 @@ class IntentConfirmationPromptArgs:
 
     @property
     @pulumi.getter
-    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArgs']]]:
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArrgs']]]:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -560,7 +560,7 @@ class IntentConfirmationPromptArgs:
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArgs']]]):
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentConfirmationPromptMessageArrgs']]]):
         pulumi.set(self, "messages", value)
 
     @property
@@ -579,7 +579,7 @@ class IntentConfirmationPromptArgs:
 
 
 @pulumi.input_type
-class IntentConfirmationPromptMessageArgs:
+calass IntentConfirmationPromptMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
@@ -634,7 +634,7 @@ class IntentConfirmationPromptMessageArgs:
 
 
 @pulumi.input_type
-class IntentDialogCodeHookArgs:
+calass IntentDialogCodeHookArrgs:
     def __init__(__self__, *,
                  message_version: pulumi.Input[str],
                  uri: pulumi.Input[str]):
@@ -675,13 +675,13 @@ class IntentDialogCodeHookArgs:
 
 
 @pulumi.input_type
-class IntentFollowUpPromptArgs:
+calass IntentFollowUpPromptArrgs:
     def __init__(__self__, *,
-                 prompt: pulumi.Input['IntentFollowUpPromptPromptArgs'],
-                 rejection_statement: pulumi.Input['IntentFollowUpPromptRejectionStatementArgs']):
+                 prompt: pulumi.Input['IntentFollowUpPromptPromptArrgs'],
+                 rejection_statement: pulumi.Input['IntentFollowUpPromptRejectionStatementArrgs']):
         """
-        :param pulumi.Input['IntentFollowUpPromptPromptArgs'] prompt: Prompts for information from the user. Attributes are documented under prompt.
-        :param pulumi.Input['IntentFollowUpPromptRejectionStatementArgs'] rejection_statement: If the user answers "no" to the question defined in the prompt field,
+        :param pulumi.Input['IntentFollowUpPromptPromptArrgs'] prompt: Prompts for information from the user. Attributes are documented under prompt.
+        :param pulumi.Input['IntentFollowUpPromptRejectionStatementArrgs'] rejection_statement: If the user answers "no" to the question defined in the prompt field,
                Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
                documented below under statement.
         """
@@ -690,19 +690,19 @@ class IntentFollowUpPromptArgs:
 
     @property
     @pulumi.getter
-    def prompt(self) -> pulumi.Input['IntentFollowUpPromptPromptArgs']:
+    def prompt(self) -> pulumi.Input['IntentFollowUpPromptPromptArrgs']:
         """
         Prompts for information from the user. Attributes are documented under prompt.
         """
         return pulumi.get(self, "prompt")
 
     @prompt.setter
-    def prompt(self, value: pulumi.Input['IntentFollowUpPromptPromptArgs']):
+    def prompt(self, value: pulumi.Input['IntentFollowUpPromptPromptArrgs']):
         pulumi.set(self, "prompt", value)
 
     @property
     @pulumi.getter(name="rejectionStatement")
-    def rejection_statement(self) -> pulumi.Input['IntentFollowUpPromptRejectionStatementArgs']:
+    def rejection_statement(self) -> pulumi.Input['IntentFollowUpPromptRejectionStatementArrgs']:
         """
         If the user answers "no" to the question defined in the prompt field,
         Amazon Lex responds with this statement to acknowledge that the intent was canceled. Attributes are
@@ -711,19 +711,19 @@ class IntentFollowUpPromptArgs:
         return pulumi.get(self, "rejection_statement")
 
     @rejection_statement.setter
-    def rejection_statement(self, value: pulumi.Input['IntentFollowUpPromptRejectionStatementArgs']):
+    def rejection_statement(self, value: pulumi.Input['IntentFollowUpPromptRejectionStatementArrgs']):
         pulumi.set(self, "rejection_statement", value)
 
 
 @pulumi.input_type
-class IntentFollowUpPromptPromptArgs:
+calass IntentFollowUpPromptPromptArrgs:
     def __init__(__self__, *,
                  max_attempts: pulumi.Input[int],
-                 messages: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArgs']]],
+                 messages: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArrgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
+        :param pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArrgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
@@ -749,7 +749,7 @@ class IntentFollowUpPromptPromptArgs:
 
     @property
     @pulumi.getter
-    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArgs']]]:
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArrgs']]]:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -758,7 +758,7 @@ class IntentFollowUpPromptPromptArgs:
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArgs']]]):
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptPromptMessageArrgs']]]):
         pulumi.set(self, "messages", value)
 
     @property
@@ -777,7 +777,7 @@ class IntentFollowUpPromptPromptArgs:
 
 
 @pulumi.input_type
-class IntentFollowUpPromptPromptMessageArgs:
+calass IntentFollowUpPromptPromptMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
@@ -832,12 +832,12 @@ class IntentFollowUpPromptPromptMessageArgs:
 
 
 @pulumi.input_type
-class IntentFollowUpPromptRejectionStatementArgs:
+calass IntentFollowUpPromptRejectionStatementArrgs:
     def __init__(__self__, *,
-                 messages: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArgs']]],
+                 messages: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArrgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
+        :param pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArrgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
@@ -850,7 +850,7 @@ class IntentFollowUpPromptRejectionStatementArgs:
 
     @property
     @pulumi.getter
-    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArgs']]]:
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArrgs']]]:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -859,7 +859,7 @@ class IntentFollowUpPromptRejectionStatementArgs:
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArgs']]]):
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentFollowUpPromptRejectionStatementMessageArrgs']]]):
         pulumi.set(self, "messages", value)
 
     @property
@@ -878,7 +878,7 @@ class IntentFollowUpPromptRejectionStatementArgs:
 
 
 @pulumi.input_type
-class IntentFollowUpPromptRejectionStatementMessageArgs:
+calass IntentFollowUpPromptRejectionStatementMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
@@ -933,14 +933,14 @@ class IntentFollowUpPromptRejectionStatementMessageArgs:
 
 
 @pulumi.input_type
-class IntentFulfillmentActivityArgs:
+calass IntentFulfillmentActivityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 code_hook: Optional[pulumi.Input['IntentFulfillmentActivityCodeHookArgs']] = None):
+                 code_hook: Optional[pulumi.Input['IntentFulfillmentActivityCodeHookArrgs']] = None):
         """
         :param pulumi.Input[str] type: How the intent should be fulfilled, either by running a Lambda function or by
                returning the slot data to the client application. Type can be either `ReturnIntent` or `CodeHook`, as documented [here](https://docs.aws.amazon.com/lex/latest/dg/API_FulfillmentActivity.html).
-        :param pulumi.Input['IntentFulfillmentActivityCodeHookArgs'] code_hook: A description of the Lambda function that is run to fulfill the intent.
+        :param pulumi.Input['IntentFulfillmentActivityCodeHookArrgs'] code_hook: A description of the Lambda function that is run to fulfill the intent.
                Required if type is CodeHook. Attributes are documented under code_hook.
         """
         pulumi.set(__self__, "type", type)
@@ -962,7 +962,7 @@ class IntentFulfillmentActivityArgs:
 
     @property
     @pulumi.getter(name="codeHook")
-    def code_hook(self) -> Optional[pulumi.Input['IntentFulfillmentActivityCodeHookArgs']]:
+    def code_hook(self) -> Optional[pulumi.Input['IntentFulfillmentActivityCodeHookArrgs']]:
         """
         A description of the Lambda function that is run to fulfill the intent.
         Required if type is CodeHook. Attributes are documented under code_hook.
@@ -970,12 +970,12 @@ class IntentFulfillmentActivityArgs:
         return pulumi.get(self, "code_hook")
 
     @code_hook.setter
-    def code_hook(self, value: Optional[pulumi.Input['IntentFulfillmentActivityCodeHookArgs']]):
+    def code_hook(self, value: Optional[pulumi.Input['IntentFulfillmentActivityCodeHookArrgs']]):
         pulumi.set(self, "code_hook", value)
 
 
 @pulumi.input_type
-class IntentFulfillmentActivityCodeHookArgs:
+calass IntentFulfillmentActivityCodeHookArrgs:
     def __init__(__self__, *,
                  message_version: pulumi.Input[str],
                  uri: pulumi.Input[str]):
@@ -1016,12 +1016,12 @@ class IntentFulfillmentActivityCodeHookArgs:
 
 
 @pulumi.input_type
-class IntentRejectionStatementArgs:
+calass IntentRejectionStatementArrgs:
     def __init__(__self__, *,
-                 messages: pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArgs']]],
+                 messages: pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArrgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
+        :param pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArrgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
@@ -1034,7 +1034,7 @@ class IntentRejectionStatementArgs:
 
     @property
     @pulumi.getter
-    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArgs']]]:
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArrgs']]]:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -1043,7 +1043,7 @@ class IntentRejectionStatementArgs:
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArgs']]]):
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentRejectionStatementMessageArrgs']]]):
         pulumi.set(self, "messages", value)
 
     @property
@@ -1062,7 +1062,7 @@ class IntentRejectionStatementArgs:
 
 
 @pulumi.input_type
-class IntentRejectionStatementMessageArgs:
+calass IntentRejectionStatementMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
@@ -1117,7 +1117,7 @@ class IntentRejectionStatementMessageArgs:
 
 
 @pulumi.input_type
-class IntentSlotArgs:
+calass IntentSlotArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  slot_constraint: pulumi.Input[str],
@@ -1127,7 +1127,7 @@ class IntentSlotArgs:
                  response_card: Optional[pulumi.Input[str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  slot_type_version: Optional[pulumi.Input[str]] = None,
-                 value_elicitation_prompt: Optional[pulumi.Input['IntentSlotValueElicitationPromptArgs']] = None):
+                 value_elicitation_prompt: Optional[pulumi.Input['IntentSlotValueElicitationPromptArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name of the intent slot that you want to create. The name is case sensitive. Must be less than or equal to 100 characters in length.
         :param pulumi.Input[str] slot_constraint: Specifies whether the slot is required or optional.
@@ -1145,7 +1145,7 @@ class IntentSlotArgs:
                an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This
                is optional. In most cases, Amazon Lex is capable of understanding user utterances. Must have between 1 and 10 items in the list, and each item must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] slot_type_version: The version of the slot type. Must be less than or equal to 64 characters in length.
-        :param pulumi.Input['IntentSlotValueElicitationPromptArgs'] value_elicitation_prompt: The prompt that Amazon Lex uses to elicit the slot value
+        :param pulumi.Input['IntentSlotValueElicitationPromptArrgs'] value_elicitation_prompt: The prompt that Amazon Lex uses to elicit the slot value
                from the user. Attributes are documented under prompt.
         """
         pulumi.set(__self__, "name", name)
@@ -1270,7 +1270,7 @@ class IntentSlotArgs:
 
     @property
     @pulumi.getter(name="valueElicitationPrompt")
-    def value_elicitation_prompt(self) -> Optional[pulumi.Input['IntentSlotValueElicitationPromptArgs']]:
+    def value_elicitation_prompt(self) -> Optional[pulumi.Input['IntentSlotValueElicitationPromptArrgs']]:
         """
         The prompt that Amazon Lex uses to elicit the slot value
         from the user. Attributes are documented under prompt.
@@ -1278,19 +1278,19 @@ class IntentSlotArgs:
         return pulumi.get(self, "value_elicitation_prompt")
 
     @value_elicitation_prompt.setter
-    def value_elicitation_prompt(self, value: Optional[pulumi.Input['IntentSlotValueElicitationPromptArgs']]):
+    def value_elicitation_prompt(self, value: Optional[pulumi.Input['IntentSlotValueElicitationPromptArrgs']]):
         pulumi.set(self, "value_elicitation_prompt", value)
 
 
 @pulumi.input_type
-class IntentSlotValueElicitationPromptArgs:
+calass IntentSlotValueElicitationPromptArrgs:
     def __init__(__self__, *,
                  max_attempts: pulumi.Input[int],
-                 messages: pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArgs']]],
+                 messages: pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArrgs']]],
                  response_card: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] max_attempts: The number of times to prompt the user for information. Must be a number between 1 and 5 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArgs']]] messages: A set of messages, each of which provides a message string and its type.
+        :param pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArrgs']]] messages: A set of messages, each of which provides a message string and its type.
                You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
                Attributes are documented under message. Must contain between 1 and 15 messages.
         :param pulumi.Input[str] response_card: The response card. Amazon Lex will substitute session attributes and
@@ -1316,7 +1316,7 @@ class IntentSlotValueElicitationPromptArgs:
 
     @property
     @pulumi.getter
-    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArgs']]]:
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArrgs']]]:
         """
         A set of messages, each of which provides a message string and its type.
         You can specify the message string in plain text or in Speech Synthesis Markup Language (SSML).
@@ -1325,7 +1325,7 @@ class IntentSlotValueElicitationPromptArgs:
         return pulumi.get(self, "messages")
 
     @messages.setter
-    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArgs']]]):
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['IntentSlotValueElicitationPromptMessageArrgs']]]):
         pulumi.set(self, "messages", value)
 
     @property
@@ -1344,7 +1344,7 @@ class IntentSlotValueElicitationPromptArgs:
 
 
 @pulumi.input_type
-class IntentSlotValueElicitationPromptMessageArgs:
+calass IntentSlotValueElicitationPromptMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  content_type: pulumi.Input[str],
@@ -1399,7 +1399,7 @@ class IntentSlotValueElicitationPromptMessageArgs:
 
 
 @pulumi.input_type
-class SlotTypeEnumerationValueArgs:
+calass SlotTypeEnumerationValueArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
                  synonyms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1437,7 +1437,7 @@ class SlotTypeEnumerationValueArgs:
 
 
 @pulumi.input_type
-class V2modelsBotDataPrivacyArgs:
+calass V2modelsBotDataPrivacyArrgs:
     def __init__(__self__, *,
                  child_directed: pulumi.Input[bool]):
         """
@@ -1459,7 +1459,7 @@ class V2modelsBotDataPrivacyArgs:
 
 
 @pulumi.input_type
-class V2modelsBotMemberArgs:
+calass V2modelsBotMemberArrgs:
     def __init__(__self__, *,
                  alias_id: pulumi.Input[str],
                  alias_name: pulumi.Input[str],
@@ -1541,7 +1541,7 @@ class V2modelsBotMemberArgs:
 
 
 @pulumi.input_type
-class V2modelsBotTimeoutsArgs:
+calass V2modelsBotTimeoutsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,

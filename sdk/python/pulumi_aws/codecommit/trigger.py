@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TriggerArgs', 'Trigger']
+__all__ = ['TriggerArrgs', 'Trigger']
 
 @pulumi.input_type
-class TriggerArgs:
+calass TriggerArrgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[str],
-                 triggers: pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]):
+                 triggers: pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArrgs']]]):
         """
         The set of arguments for constructing a Trigger resource.
         :param pulumi.Input[str] repository_name: The name for the repository. This needs to be less than 100 characters.
@@ -39,20 +39,20 @@ class TriggerArgs:
 
     @property
     @pulumi.getter
-    def triggers(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]:
+    def triggers(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArrgs']]]:
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]):
+    def triggers(self, value: pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArrgs']]]):
         pulumi.set(self, "triggers", value)
 
 
 @pulumi.input_type
-class _TriggerState:
+calass _TriggerState:
     def __init__(__self__, *,
                  configuration_id: Optional[pulumi.Input[str]] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]] = None):
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArrgs']]]] = None):
         """
         Input properties used for looking up and filtering Trigger resources.
         :param pulumi.Input[str] configuration_id: System-generated unique identifier.
@@ -91,21 +91,21 @@ class _TriggerState:
 
     @property
     @pulumi.getter
-    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]]:
+    def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArrgs']]]]:
         return pulumi.get(self, "triggers")
 
     @triggers.setter
-    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArgs']]]]):
+    def triggers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerTriggerArrgs']]]]):
         pulumi.set(self, "triggers", value)
 
 
-class Trigger(pulumi.CustomResource):
+calass Trigger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArrgs']]]]] = None,
                  __props__=None):
         """
         Provides a CodeCommit Trigger Resource.
@@ -119,7 +119,7 @@ class Trigger(pulumi.CustomResource):
         test_repository = aws.codecommit.Repository("testRepository", repository_name="test")
         test_trigger = aws.codecommit.Trigger("testTrigger",
             repository_name=test_repository.repository_name,
-            triggers=[aws.codecommit.TriggerTriggerArgs(
+            triggers=[aws.codecommit.TriggerTriggerArrgs(
                 name="all",
                 events=["all"],
                 destination_arn=aws_sns_topic["test"]["arn"],
@@ -134,7 +134,7 @@ class Trigger(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TriggerArgs,
+                 args: TriggerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeCommit Trigger Resource.
@@ -148,7 +148,7 @@ class Trigger(pulumi.CustomResource):
         test_repository = aws.codecommit.Repository("testRepository", repository_name="test")
         test_trigger = aws.codecommit.Trigger("testTrigger",
             repository_name=test_repository.repository_name,
-            triggers=[aws.codecommit.TriggerTriggerArgs(
+            triggers=[aws.codecommit.TriggerTriggerArrgs(
                 name="all",
                 events=["all"],
                 destination_arn=aws_sns_topic["test"]["arn"],
@@ -156,12 +156,12 @@ class Trigger(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TriggerArgs args: The arguments to use to populate this resource's properties.
+        :param TriggerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TriggerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TriggerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -171,7 +171,7 @@ class Trigger(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  repository_name: Optional[pulumi.Input[str]] = None,
-                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None,
+                 triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -179,7 +179,7 @@ class Trigger(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TriggerArgs.__new__(TriggerArgs)
+            __props__ = TriggerArrgs.__new__(TriggerArrgs)
 
             if repository_name is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_name'")
@@ -200,7 +200,7 @@ class Trigger(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             configuration_id: Optional[pulumi.Input[str]] = None,
             repository_name: Optional[pulumi.Input[str]] = None,
-            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArgs']]]]] = None) -> 'Trigger':
+            triggers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerTriggerArrgs']]]]] = None) -> 'Trigger':
         """
         Get an existing Trigger resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

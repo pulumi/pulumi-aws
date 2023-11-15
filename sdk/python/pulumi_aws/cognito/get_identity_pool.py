@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIdentityPoolResult:
+calass GetIdentityPoolResult:
     """
     A collection of values returned by getIdentityPool.
     """
@@ -143,7 +143,7 @@ class GetIdentityPoolResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetIdentityPoolResult(GetIdentityPoolResult):
+calass AwaitableGetIdentityPoolResult(GetIdentityPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

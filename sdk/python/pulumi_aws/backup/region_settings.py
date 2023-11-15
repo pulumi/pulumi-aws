@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RegionSettingsArgs', 'RegionSettings']
+__all__ = ['RegionSettingsArrgs', 'RegionSettings']
 
 @pulumi.input_type
-class RegionSettingsArgs:
+calass RegionSettingsArrgs:
     def __init__(__self__, *,
                  resource_type_opt_in_preference: pulumi.Input[Mapping[str, pulumi.Input[bool]]],
                  resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None):
@@ -51,7 +51,7 @@ class RegionSettingsArgs:
 
 
 @pulumi.input_type
-class _RegionSettingsState:
+calass _RegionSettingsState:
     def __init__(__self__, *,
                  resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
                  resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None):
@@ -90,7 +90,7 @@ class _RegionSettingsState:
         pulumi.set(self, "resource_type_opt_in_preference", value)
 
 
-class RegionSettings(pulumi.CustomResource):
+calass RegionSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -144,7 +144,7 @@ class RegionSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RegionSettingsArgs,
+                 args: RegionSettingsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Backup Region Settings resource.
@@ -184,12 +184,12 @@ class RegionSettings(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegionSettingsArgs args: The arguments to use to populate this resource's properties.
+        :param RegionSettingsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegionSettingsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegionSettingsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -207,7 +207,7 @@ class RegionSettings(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegionSettingsArgs.__new__(RegionSettingsArgs)
+            __props__ = RegionSettingsArrgs.__new__(RegionSettingsArrgs)
 
             __props__.__dict__["resource_type_management_preference"] = resource_type_management_preference
             if resource_type_opt_in_preference is None and not opts.urn:

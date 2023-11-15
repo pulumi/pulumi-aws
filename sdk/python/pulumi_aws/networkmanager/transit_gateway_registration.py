@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TransitGatewayRegistrationArgs', 'TransitGatewayRegistration']
+__all__ = ['TransitGatewayRegistrationArrgs', 'TransitGatewayRegistration']
 
 @pulumi.input_type
-class TransitGatewayRegistrationArgs:
+calass TransitGatewayRegistrationArrgs:
     def __init__(__self__, *,
                  global_network_id: pulumi.Input[str],
                  transit_gateway_arn: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class TransitGatewayRegistrationArgs:
 
 
 @pulumi.input_type
-class _TransitGatewayRegistrationState:
+calass _TransitGatewayRegistrationState:
     def __init__(__self__, *,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_arn: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _TransitGatewayRegistrationState:
         pulumi.set(self, "transit_gateway_arn", value)
 
 
-class TransitGatewayRegistration(pulumi.CustomResource):
+calass TransitGatewayRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,7 +132,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TransitGatewayRegistrationArgs,
+                 args: TransitGatewayRegistrationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registers a transit gateway to a global network. The transit gateway can be in any AWS Region,
@@ -161,12 +161,12 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TransitGatewayRegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param TransitGatewayRegistrationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayRegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayRegistrationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -184,7 +184,7 @@ class TransitGatewayRegistration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TransitGatewayRegistrationArgs.__new__(TransitGatewayRegistrationArgs)
+            __props__ = TransitGatewayRegistrationArrgs.__new__(TransitGatewayRegistrationArrgs)
 
             if global_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'global_network_id'")

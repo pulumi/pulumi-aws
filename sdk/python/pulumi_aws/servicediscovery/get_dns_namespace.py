@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDnsNamespaceResult:
+calass GetDnsNamespaceResult:
     """
     A collection of values returned by getDnsNamespace.
     """
@@ -95,7 +95,7 @@ class GetDnsNamespaceResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetDnsNamespaceResult(GetDnsNamespaceResult):
+calass AwaitableGetDnsNamespaceResult(GetDnsNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

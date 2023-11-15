@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountPublicAccessBlockArgs', 'AccountPublicAccessBlock']
+__all__ = ['AccountPublicAccessBlockArrgs', 'AccountPublicAccessBlock']
 
 @pulumi.input_type
-class AccountPublicAccessBlockArgs:
+calass AccountPublicAccessBlockArrgs:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  block_public_acls: Optional[pulumi.Input[bool]] = None,
@@ -110,7 +110,7 @@ class AccountPublicAccessBlockArgs:
 
 
 @pulumi.input_type
-class _AccountPublicAccessBlockState:
+calass _AccountPublicAccessBlockState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  block_public_acls: Optional[pulumi.Input[bool]] = None,
@@ -207,7 +207,7 @@ class _AccountPublicAccessBlockState:
         pulumi.set(self, "restrict_public_buckets", value)
 
 
-class AccountPublicAccessBlock(pulumi.CustomResource):
+calass AccountPublicAccessBlock(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -261,7 +261,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AccountPublicAccessBlockArgs] = None,
+                 args: Optional[AccountPublicAccessBlockArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages S3 account-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
@@ -290,12 +290,12 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountPublicAccessBlockArgs args: The arguments to use to populate this resource's properties.
+        :param AccountPublicAccessBlockArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountPublicAccessBlockArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountPublicAccessBlockArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -316,7 +316,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountPublicAccessBlockArgs.__new__(AccountPublicAccessBlockArgs)
+            __props__ = AccountPublicAccessBlockArrgs.__new__(AccountPublicAccessBlockArrgs)
 
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["block_public_acls"] = block_public_acls

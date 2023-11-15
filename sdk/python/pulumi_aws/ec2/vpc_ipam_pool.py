@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcIpamPoolArgs', 'VpcIpamPool']
+__all__ = ['VpcIpamPoolArrgs', 'VpcIpamPool']
 
 @pulumi.input_type
-class VpcIpamPoolArgs:
+calass VpcIpamPoolArrgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[str],
                  ipam_scope_id: pulumi.Input[str],
@@ -244,7 +244,7 @@ class VpcIpamPoolArgs:
 
 
 @pulumi.input_type
-class _VpcIpamPoolState:
+calass _VpcIpamPoolState:
     def __init__(__self__, *,
                  address_family: Optional[pulumi.Input[str]] = None,
                  allocation_default_netmask_length: Optional[pulumi.Input[int]] = None,
@@ -555,7 +555,7 @@ class _VpcIpamPoolState:
         pulumi.set(self, "tags_all", value)
 
 
-class VpcIpamPool(pulumi.CustomResource):
+calass VpcIpamPool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -587,7 +587,7 @@ class VpcIpamPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
@@ -603,7 +603,7 @@ class VpcIpamPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         parent = aws.ec2.VpcIpamPool("parent",
@@ -652,7 +652,7 @@ class VpcIpamPool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcIpamPoolArgs,
+                 args: VpcIpamPoolArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IP address pool resource for IPAM.
@@ -666,7 +666,7 @@ class VpcIpamPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
@@ -682,7 +682,7 @@ class VpcIpamPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example = aws.ec2.VpcIpam("example", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         parent = aws.ec2.VpcIpamPool("parent",
@@ -710,12 +710,12 @@ class VpcIpamPool(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcIpamPoolArgs args: The arguments to use to populate this resource's properties.
+        :param VpcIpamPoolArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamPoolArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -745,7 +745,7 @@ class VpcIpamPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcIpamPoolArgs.__new__(VpcIpamPoolArgs)
+            __props__ = VpcIpamPoolArrgs.__new__(VpcIpamPoolArrgs)
 
             if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")

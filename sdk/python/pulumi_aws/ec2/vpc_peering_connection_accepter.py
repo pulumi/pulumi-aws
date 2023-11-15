@@ -11,23 +11,23 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpcPeeringConnectionAccepterInitArgs', 'VpcPeeringConnectionAccepter']
+__all__ = ['VpcPeeringConnectionAccepterInitArrgs', 'VpcPeeringConnectionAccepter']
 
 @pulumi.input_type
-class VpcPeeringConnectionAccepterInitArgs:
+calass VpcPeeringConnectionAccepterInitArrgs:
     def __init__(__self__, *,
                  vpc_peering_connection_id: pulumi.Input[str],
-                 accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']] = None,
+                 accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArrgs']] = None,
                  auto_accept: Optional[pulumi.Input[bool]] = None,
-                 requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']] = None,
+                 requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcPeeringConnectionAccepter resource.
         :param pulumi.Input[str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
-        :param pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs'] accepter: A configuration block that describes [VPC Peering Connection]
+        :param pulumi.Input['VpcPeeringConnectionAccepterAccepterArrgs'] accepter: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         :param pulumi.Input[bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
-        :param pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs'] requester: A configuration block that describes [VPC Peering Connection]
+        :param pulumi.Input['VpcPeeringConnectionAccepterRequesterArrgs'] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -55,7 +55,7 @@ class VpcPeeringConnectionAccepterInitArgs:
 
     @property
     @pulumi.getter
-    def accepter(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']]:
+    def accepter(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArrgs']]:
         """
         A configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
@@ -63,7 +63,7 @@ class VpcPeeringConnectionAccepterInitArgs:
         return pulumi.get(self, "accepter")
 
     @accepter.setter
-    def accepter(self, value: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']]):
+    def accepter(self, value: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArrgs']]):
         pulumi.set(self, "accepter", value)
 
     @property
@@ -80,7 +80,7 @@ class VpcPeeringConnectionAccepterInitArgs:
 
     @property
     @pulumi.getter
-    def requester(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']]:
+    def requester(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArrgs']]:
         """
         A configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
@@ -88,7 +88,7 @@ class VpcPeeringConnectionAccepterInitArgs:
         return pulumi.get(self, "requester")
 
     @requester.setter
-    def requester(self, value: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']]):
+    def requester(self, value: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArrgs']]):
         pulumi.set(self, "requester", value)
 
     @property
@@ -105,15 +105,15 @@ class VpcPeeringConnectionAccepterInitArgs:
 
 
 @pulumi.input_type
-class _VpcPeeringConnectionAccepterState:
+calass _VpcPeeringConnectionAccepterState:
     def __init__(__self__, *,
                  accept_status: Optional[pulumi.Input[str]] = None,
-                 accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']] = None,
+                 accepter: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArrgs']] = None,
                  auto_accept: Optional[pulumi.Input[bool]] = None,
                  peer_owner_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
                  peer_vpc_id: Optional[pulumi.Input[str]] = None,
-                 requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']] = None,
+                 requester: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -121,13 +121,13 @@ class _VpcPeeringConnectionAccepterState:
         """
         Input properties used for looking up and filtering VpcPeeringConnectionAccepter resources.
         :param pulumi.Input[str] accept_status: The status of the VPC Peering Connection request.
-        :param pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs'] accepter: A configuration block that describes [VPC Peering Connection]
+        :param pulumi.Input['VpcPeeringConnectionAccepterAccepterArrgs'] accepter: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         :param pulumi.Input[bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the requester VPC.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC.
         :param pulumi.Input[str] peer_vpc_id: The ID of the requester VPC.
-        :param pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs'] requester: A configuration block that describes [VPC Peering Connection]
+        :param pulumi.Input['VpcPeeringConnectionAccepterRequesterArrgs'] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -174,7 +174,7 @@ class _VpcPeeringConnectionAccepterState:
 
     @property
     @pulumi.getter
-    def accepter(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']]:
+    def accepter(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArrgs']]:
         """
         A configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
@@ -182,7 +182,7 @@ class _VpcPeeringConnectionAccepterState:
         return pulumi.get(self, "accepter")
 
     @accepter.setter
-    def accepter(self, value: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArgs']]):
+    def accepter(self, value: Optional[pulumi.Input['VpcPeeringConnectionAccepterAccepterArrgs']]):
         pulumi.set(self, "accepter", value)
 
     @property
@@ -235,7 +235,7 @@ class _VpcPeeringConnectionAccepterState:
 
     @property
     @pulumi.getter
-    def requester(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']]:
+    def requester(self) -> Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArrgs']]:
         """
         A configuration block that describes [VPC Peering Connection]
         (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
@@ -243,7 +243,7 @@ class _VpcPeeringConnectionAccepterState:
         return pulumi.get(self, "requester")
 
     @requester.setter
-    def requester(self, value: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArgs']]):
+    def requester(self, value: Optional[pulumi.Input['VpcPeeringConnectionAccepterRequesterArrgs']]):
         pulumi.set(self, "requester", value)
 
     @property
@@ -298,14 +298,14 @@ class _VpcPeeringConnectionAccepterState:
         pulumi.set(self, "vpc_peering_connection_id", value)
 
 
-class VpcPeeringConnectionAccepter(pulumi.CustomResource):
+calass VpcPeeringConnectionAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accepter: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArgs']]] = None,
+                 accepter: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArrgs']]] = None,
                  auto_accept: Optional[pulumi.Input[bool]] = None,
-                 requester: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArgs']]] = None,
+                 requester: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -362,10 +362,10 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArgs']] accepter: A configuration block that describes [VPC Peering Connection]
+        :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArrgs']] accepter: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         :param pulumi.Input[bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArgs']] requester: A configuration block that describes [VPC Peering Connection]
+        :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArrgs']] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_peering_connection_id: The VPC Peering Connection ID to manage.
@@ -374,7 +374,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcPeeringConnectionAccepterInitArgs,
+                 args: VpcPeeringConnectionAccepterInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage the accepter's side of a VPC Peering Connection.
@@ -428,12 +428,12 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
          Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
-        :param VpcPeeringConnectionAccepterInitArgs args: The arguments to use to populate this resource's properties.
+        :param VpcPeeringConnectionAccepterInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcPeeringConnectionAccepterInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcPeeringConnectionAccepterInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -442,9 +442,9 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 accepter: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArgs']]] = None,
+                 accepter: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArrgs']]] = None,
                  auto_accept: Optional[pulumi.Input[bool]] = None,
-                 requester: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArgs']]] = None,
+                 requester: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -454,7 +454,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcPeeringConnectionAccepterInitArgs.__new__(VpcPeeringConnectionAccepterInitArgs)
+            __props__ = VpcPeeringConnectionAccepterInitArrgs.__new__(VpcPeeringConnectionAccepterInitArrgs)
 
             __props__.__dict__["accepter"] = accepter
             __props__.__dict__["auto_accept"] = auto_accept
@@ -482,12 +482,12 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accept_status: Optional[pulumi.Input[str]] = None,
-            accepter: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArgs']]] = None,
+            accepter: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArrgs']]] = None,
             auto_accept: Optional[pulumi.Input[bool]] = None,
             peer_owner_id: Optional[pulumi.Input[str]] = None,
             peer_region: Optional[pulumi.Input[str]] = None,
             peer_vpc_id: Optional[pulumi.Input[str]] = None,
-            requester: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArgs']]] = None,
+            requester: Optional[pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None,
@@ -500,13 +500,13 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accept_status: The status of the VPC Peering Connection request.
-        :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArgs']] accepter: A configuration block that describes [VPC Peering Connection]
+        :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterAccepterArrgs']] accepter: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the accepter VPC.
         :param pulumi.Input[bool] auto_accept: Whether or not to accept the peering request. Defaults to `false`.
         :param pulumi.Input[str] peer_owner_id: The AWS account ID of the owner of the requester VPC.
         :param pulumi.Input[str] peer_region: The region of the accepter VPC.
         :param pulumi.Input[str] peer_vpc_id: The ID of the requester VPC.
-        :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArgs']] requester: A configuration block that describes [VPC Peering Connection]
+        :param pulumi.Input[pulumi.InputType['VpcPeeringConnectionAccepterRequesterArrgs']] requester: A configuration block that describes [VPC Peering Connection]
                (https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) options set for the requester VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

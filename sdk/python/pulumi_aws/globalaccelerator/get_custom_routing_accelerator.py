@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCustomRoutingAcceleratorResult:
+calass GetCustomRoutingAcceleratorResult:
     """
     A collection of values returned by getCustomRoutingAccelerator.
     """
@@ -108,7 +108,7 @@ class GetCustomRoutingAcceleratorResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetCustomRoutingAcceleratorResult(GetCustomRoutingAcceleratorResult):
+calass AwaitableGetCustomRoutingAcceleratorResult(GetCustomRoutingAcceleratorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

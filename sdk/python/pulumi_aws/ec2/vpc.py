@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcArgs', 'Vpc']
+__all__ = ['VpcArrgs', 'Vpc']
 
 @pulumi.input_type
-class VpcArgs:
+calass VpcArrgs:
     def __init__(__self__, *,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
@@ -228,7 +228,7 @@ class VpcArgs:
 
 
 @pulumi.input_type
-class _VpcState:
+calass _VpcState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
@@ -593,7 +593,7 @@ class _VpcState:
         pulumi.set(self, "tags_all", value)
 
 
-class Vpc(pulumi.CustomResource):
+calass Vpc(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -647,7 +647,7 @@ class Vpc(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         test_vpc_ipam_pool = aws.ec2.VpcIpamPool("testVpcIpamPool",
@@ -691,7 +691,7 @@ class Vpc(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VpcArgs] = None,
+                 args: Optional[VpcArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC resource.
@@ -728,7 +728,7 @@ class Vpc(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        test_vpc_ipam = aws.ec2.VpcIpam("testVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         test_vpc_ipam_pool = aws.ec2.VpcIpamPool("testVpcIpamPool",
@@ -753,12 +753,12 @@ class Vpc(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcArgs args: The arguments to use to populate this resource's properties.
+        :param VpcArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -787,7 +787,7 @@ class Vpc(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcArgs.__new__(VpcArgs)
+            __props__ = VpcArrgs.__new__(VpcArrgs)
 
             __props__.__dict__["assign_generated_ipv6_cidr_block"] = assign_generated_ipv6_cidr_block
             __props__.__dict__["cidr_block"] = cidr_block

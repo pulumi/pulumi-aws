@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CustomerGatewayArgs', 'CustomerGateway']
+__all__ = ['CustomerGatewayArrgs', 'CustomerGateway']
 
 @pulumi.input_type
-class CustomerGatewayArgs:
+calass CustomerGatewayArrgs:
     def __init__(__self__, *,
                  bgp_asn: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -116,7 +116,7 @@ class CustomerGatewayArgs:
 
 
 @pulumi.input_type
-class _CustomerGatewayState:
+calass _CustomerGatewayState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  bgp_asn: Optional[pulumi.Input[str]] = None,
@@ -259,7 +259,7 @@ class _CustomerGatewayState:
         pulumi.set(self, "type", value)
 
 
-class CustomerGateway(pulumi.CustomResource):
+calass CustomerGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -311,7 +311,7 @@ class CustomerGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomerGatewayArgs,
+                 args: CustomerGatewayArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
@@ -340,12 +340,12 @@ class CustomerGateway(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomerGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param CustomerGatewayArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomerGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomerGatewayArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -367,7 +367,7 @@ class CustomerGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomerGatewayArgs.__new__(CustomerGatewayArgs)
+            __props__ = CustomerGatewayArrgs.__new__(CustomerGatewayArrgs)
 
             if bgp_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'bgp_asn'")

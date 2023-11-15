@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccountArgs', 'Account']
+__all__ = ['AccountArrgs', 'Account']
 
 @pulumi.input_type
-class AccountArgs:
+calass AccountArrgs:
     def __init__(__self__, *,
                  cloudwatch_role_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -38,18 +38,18 @@ class AccountArgs:
 
 
 @pulumi.input_type
-class _AccountState:
+calass _AccountState:
     def __init__(__self__, *,
                  api_key_version: Optional[pulumi.Input[str]] = None,
                  cloudwatch_role_arn: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]] = None):
+                 throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArrgs']]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] api_key_version: The version of the API keys used for the account.
         :param pulumi.Input[str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: A list of features supported for the account.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArrgs']]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         if api_key_version is not None:
             pulumi.set(__self__, "api_key_version", api_key_version)
@@ -98,18 +98,18 @@ class _AccountState:
 
     @property
     @pulumi.getter(name="throttleSettings")
-    def throttle_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]]:
+    def throttle_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArrgs']]]]:
         """
         Account-Level throttle settings. See exported fields below.
         """
         return pulumi.get(self, "throttle_settings")
 
     @throttle_settings.setter
-    def throttle_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArgs']]]]):
+    def throttle_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountThrottleSettingArrgs']]]]):
         pulumi.set(self, "throttle_settings", value)
 
 
-class Account(pulumi.CustomResource):
+calass Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -127,9 +127,9 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["apigateway.amazonaws.com"],
             )],
@@ -137,7 +137,7 @@ class Account(pulumi.CustomResource):
         )])
         cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=assume_role.json)
         demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
-        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -171,7 +171,7 @@ class Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AccountArgs] = None,
+                 args: Optional[AccountArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a settings of an API Gateway Account. Settings is applied region-wide per `provider` block.
@@ -184,9 +184,9 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["apigateway.amazonaws.com"],
             )],
@@ -194,7 +194,7 @@ class Account(pulumi.CustomResource):
         )])
         cloudwatch_role = aws.iam.Role("cloudwatchRole", assume_role_policy=assume_role.json)
         demo = aws.apigateway.Account("demo", cloudwatch_role_arn=cloudwatch_role.arn)
-        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        cloudwatch_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -221,12 +221,12 @@ class Account(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountArgs args: The arguments to use to populate this resource's properties.
+        :param AccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -243,7 +243,7 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountArgs.__new__(AccountArgs)
+            __props__ = AccountArrgs.__new__(AccountArrgs)
 
             __props__.__dict__["cloudwatch_role_arn"] = cloudwatch_role_arn
             __props__.__dict__["api_key_version"] = None
@@ -262,7 +262,7 @@ class Account(pulumi.CustomResource):
             api_key_version: Optional[pulumi.Input[str]] = None,
             cloudwatch_role_arn: Optional[pulumi.Input[str]] = None,
             features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountThrottleSettingArgs']]]]] = None) -> 'Account':
+            throttle_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountThrottleSettingArrgs']]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -273,7 +273,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] api_key_version: The version of the API keys used for the account.
         :param pulumi.Input[str] cloudwatch_role_arn: ARN of an IAM role for CloudWatch (to allow logging & monitoring). See more [in AWS Docs](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-stage-settings.html#how-to-stage-settings-console). Logging & monitoring can be enabled/disabled and otherwise tuned on the API Gateway Stage level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] features: A list of features supported for the account.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountThrottleSettingArgs']]]] throttle_settings: Account-Level throttle settings. See exported fields below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountThrottleSettingArrgs']]]] throttle_settings: Account-Level throttle settings. See exported fields below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

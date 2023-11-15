@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetContactChannelResult:
+calass GetContactChannelResult:
     """
     A collection of values returned by getContactChannel.
     """
@@ -99,7 +99,7 @@ class GetContactChannelResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetContactChannelResult(GetContactChannelResult):
+calass AwaitableGetContactChannelResult(GetContactChannelResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DiskArgs', 'Disk']
+__all__ = ['DiskArrgs', 'Disk']
 
 @pulumi.input_type
-class DiskArgs:
+calass DiskArrgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  size_in_gb: pulumi.Input[int],
@@ -82,7 +82,7 @@ class DiskArgs:
 
 
 @pulumi.input_type
-class _DiskState:
+calass _DiskState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -223,7 +223,7 @@ class _DiskState:
         pulumi.set(self, "tags_all", value)
 
 
-class Disk(pulumi.CustomResource):
+calass Disk(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -243,7 +243,7 @@ class Disk(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
+            filters=[aws.GetAvailabilityZonesFilterArrgs(
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
@@ -271,7 +271,7 @@ class Disk(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DiskArgs,
+                 args: DiskArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Lightsail Disk resource.
@@ -283,7 +283,7 @@ class Disk(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
+            filters=[aws.GetAvailabilityZonesFilterArrgs(
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
@@ -301,12 +301,12 @@ class Disk(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DiskArgs args: The arguments to use to populate this resource's properties.
+        :param DiskArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DiskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DiskArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -326,7 +326,7 @@ class Disk(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DiskArgs.__new__(DiskArgs)
+            __props__ = DiskArrgs.__new__(DiskArrgs)
 
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")

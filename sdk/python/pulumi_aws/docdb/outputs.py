@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterParameterGroupParameter(dict):
+calass ClusterParameterGroupParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -73,7 +73,7 @@ class ClusterParameterGroupParameter(dict):
 
 
 @pulumi.output_type
-class GlobalClusterGlobalClusterMember(dict):
+calass GlobalClusterGlobalClusterMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

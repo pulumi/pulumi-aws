@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpotDatafeedSubscriptionArgs', 'SpotDatafeedSubscription']
+__all__ = ['SpotDatafeedSubscriptionArrgs', 'SpotDatafeedSubscription']
 
 @pulumi.input_type
-class SpotDatafeedSubscriptionArgs:
+calass SpotDatafeedSubscriptionArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  prefix: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class SpotDatafeedSubscriptionArgs:
 
 
 @pulumi.input_type
-class _SpotDatafeedSubscriptionState:
+calass _SpotDatafeedSubscriptionState:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _SpotDatafeedSubscriptionState:
         pulumi.set(self, "prefix", value)
 
 
-class SpotDatafeedSubscription(pulumi.CustomResource):
+calass SpotDatafeedSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,7 +133,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpotDatafeedSubscriptionArgs,
+                 args: SpotDatafeedSubscriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note:** There is only a single subscription allowed per account.
@@ -162,12 +162,12 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpotDatafeedSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param SpotDatafeedSubscriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpotDatafeedSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpotDatafeedSubscriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -185,7 +185,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpotDatafeedSubscriptionArgs.__new__(SpotDatafeedSubscriptionArgs)
+            __props__ = SpotDatafeedSubscriptionArrgs.__new__(SpotDatafeedSubscriptionArrgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")

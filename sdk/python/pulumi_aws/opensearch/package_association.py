@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PackageAssociationArgs', 'PackageAssociation']
+__all__ = ['PackageAssociationArrgs', 'PackageAssociation']
 
 @pulumi.input_type
-class PackageAssociationArgs:
+calass PackageAssociationArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  package_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class PackageAssociationArgs:
 
 
 @pulumi.input_type
-class _PackageAssociationState:
+calass _PackageAssociationState:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  package_id: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class _PackageAssociationState:
         pulumi.set(self, "reference_path", value)
 
 
-class PackageAssociation(pulumi.CustomResource):
+calass PackageAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -121,12 +121,12 @@ class PackageAssociation(pulumi.CustomResource):
 
         my_domain = aws.opensearch.Domain("myDomain",
             engine_version="Elasticsearch_7.10",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
+            cluster_config=aws.opensearch.DomainClusterConfigArrgs(
                 instance_type="r4.large.search",
             ))
         example_package = aws.opensearch.Package("examplePackage",
             package_name="example-txt",
-            package_source=aws.opensearch.PackagePackageSourceArgs(
+            package_source=aws.opensearch.PackagePackageSourceArrgs(
                 s3_bucket_name=aws_s3_bucket["my_opensearch_packages"]["bucket"],
                 s3_key=aws_s3_object["example"]["key"],
             ),
@@ -145,7 +145,7 @@ class PackageAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PackageAssociationArgs,
+                 args: PackageAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Opensearch Package Association.
@@ -159,12 +159,12 @@ class PackageAssociation(pulumi.CustomResource):
 
         my_domain = aws.opensearch.Domain("myDomain",
             engine_version="Elasticsearch_7.10",
-            cluster_config=aws.opensearch.DomainClusterConfigArgs(
+            cluster_config=aws.opensearch.DomainClusterConfigArrgs(
                 instance_type="r4.large.search",
             ))
         example_package = aws.opensearch.Package("examplePackage",
             package_name="example-txt",
-            package_source=aws.opensearch.PackagePackageSourceArgs(
+            package_source=aws.opensearch.PackagePackageSourceArrgs(
                 s3_bucket_name=aws_s3_bucket["my_opensearch_packages"]["bucket"],
                 s3_key=aws_s3_object["example"]["key"],
             ),
@@ -175,12 +175,12 @@ class PackageAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PackageAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param PackageAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PackageAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PackageAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -198,7 +198,7 @@ class PackageAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PackageAssociationArgs.__new__(PackageAssociationArgs)
+            __props__ = PackageAssociationArrgs.__new__(PackageAssociationArrgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")

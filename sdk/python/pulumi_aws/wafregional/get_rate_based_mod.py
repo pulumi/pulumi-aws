@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRateBasedModResult:
+calass GetRateBasedModResult:
     """
     A collection of values returned by getRateBasedMod.
     """
@@ -43,7 +43,7 @@ class GetRateBasedModResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetRateBasedModResult(GetRateBasedModResult):
+calass AwaitableGetRateBasedModResult(GetRateBasedModResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LbCertificateArgs', 'LbCertificate']
+__all__ = ['LbCertificateArrgs', 'LbCertificate']
 
 @pulumi.input_type
-class LbCertificateArgs:
+calass LbCertificateArrgs:
     def __init__(__self__, *,
                  lb_name: pulumi.Input[str],
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -85,12 +85,12 @@ class LbCertificateArgs:
 
 
 @pulumi.input_type
-class _LbCertificateState:
+calass _LbCertificateState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArgs']]]] = None,
+                 domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArrgs']]]] = None,
                  lb_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -159,11 +159,11 @@ class _LbCertificateState:
 
     @property
     @pulumi.getter(name="domainValidationRecords")
-    def domain_validation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArgs']]]]:
+    def domain_validation_records(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArrgs']]]]:
         return pulumi.get(self, "domain_validation_records")
 
     @domain_validation_records.setter
-    def domain_validation_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArgs']]]]):
+    def domain_validation_records(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LbCertificateDomainValidationRecordArrgs']]]]):
         pulumi.set(self, "domain_validation_records", value)
 
     @property
@@ -212,7 +212,7 @@ class _LbCertificateState:
         pulumi.set(self, "support_code", value)
 
 
-class LbCertificate(pulumi.CustomResource):
+calass LbCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -261,7 +261,7 @@ class LbCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LbCertificateArgs,
+                 args: LbCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Lightsail load balancer Certificate resource.
@@ -292,12 +292,12 @@ class LbCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LbCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param LbCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LbCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LbCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -317,7 +317,7 @@ class LbCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LbCertificateArgs.__new__(LbCertificateArgs)
+            __props__ = LbCertificateArrgs.__new__(LbCertificateArrgs)
 
             __props__.__dict__["domain_name"] = domain_name
             if lb_name is None and not opts.urn:
@@ -342,7 +342,7 @@ class LbCertificate(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LbCertificateDomainValidationRecordArgs']]]]] = None,
+            domain_validation_records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LbCertificateDomainValidationRecordArrgs']]]]] = None,
             lb_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

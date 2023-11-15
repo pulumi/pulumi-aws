@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AliasRoutingStrategy(dict):
+calass AliasRoutingStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -87,7 +87,7 @@ class AliasRoutingStrategy(dict):
 
 
 @pulumi.output_type
-class BuildStorageLocation(dict):
+calass BuildStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -158,7 +158,7 @@ class BuildStorageLocation(dict):
 
 
 @pulumi.output_type
-class FleetCertificateConfiguration(dict):
+calass FleetCertificateConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -194,7 +194,7 @@ class FleetCertificateConfiguration(dict):
 
 
 @pulumi.output_type
-class FleetEc2InboundPermission(dict):
+calass FleetEc2InboundPermission(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -266,7 +266,7 @@ class FleetEc2InboundPermission(dict):
 
 
 @pulumi.output_type
-class FleetResourceCreationLimitPolicy(dict):
+calass FleetResourceCreationLimitPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -316,7 +316,7 @@ class FleetResourceCreationLimitPolicy(dict):
 
 
 @pulumi.output_type
-class FleetRuntimeConfiguration(dict):
+calass FleetRuntimeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -345,7 +345,7 @@ class FleetRuntimeConfiguration(dict):
         """
         :param int game_session_activation_timeout_seconds: Maximum amount of time (in seconds) that a game session can remain in status `ACTIVATING`.
         :param int max_concurrent_game_session_activations: Maximum number of game sessions with status `ACTIVATING` to allow on an instance simultaneously.
-        :param Sequence['FleetRuntimeConfigurationServerProcessArgs'] server_processes: Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
+        :param Sequence['FleetRuntimeConfigurationServerProcessArrgs'] server_processes: Collection of server process configurations that describe which server processes to run on each instance in a fleet. See below.
         """
         if game_session_activation_timeout_seconds is not None:
             pulumi.set(__self__, "game_session_activation_timeout_seconds", game_session_activation_timeout_seconds)
@@ -380,7 +380,7 @@ class FleetRuntimeConfiguration(dict):
 
 
 @pulumi.output_type
-class FleetRuntimeConfigurationServerProcess(dict):
+calass FleetRuntimeConfigurationServerProcess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -440,7 +440,7 @@ class FleetRuntimeConfigurationServerProcess(dict):
 
 
 @pulumi.output_type
-class GameServerGroupAutoScalingPolicy(dict):
+calass GameServerGroupAutoScalingPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -491,7 +491,7 @@ class GameServerGroupAutoScalingPolicy(dict):
 
 
 @pulumi.output_type
-class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration(dict):
+calass GameServerGroupAutoScalingPolicyTargetTrackingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -526,7 +526,7 @@ class GameServerGroupAutoScalingPolicyTargetTrackingConfiguration(dict):
 
 
 @pulumi.output_type
-class GameServerGroupInstanceDefinition(dict):
+calass GameServerGroupInstanceDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -581,7 +581,7 @@ class GameServerGroupInstanceDefinition(dict):
 
 
 @pulumi.output_type
-class GameServerGroupLaunchTemplate(dict):
+calass GameServerGroupLaunchTemplate(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -624,7 +624,7 @@ class GameServerGroupLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class GameSessionQueuePlayerLatencyPolicy(dict):
+calass GameSessionQueuePlayerLatencyPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -673,7 +673,7 @@ class GameSessionQueuePlayerLatencyPolicy(dict):
 
 
 @pulumi.output_type
-class MatchmakingConfigurationGameProperty(dict):
+calass MatchmakingConfigurationGameProperty(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -702,7 +702,7 @@ class MatchmakingConfigurationGameProperty(dict):
 
 
 @pulumi.output_type
-class ScriptStorageLocation(dict):
+calass ScriptStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

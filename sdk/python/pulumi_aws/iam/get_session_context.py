@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSessionContextResult:
+calass GetSessionContextResult:
     """
     A collection of values returned by getSessionContext.
     """
@@ -87,7 +87,7 @@ class GetSessionContextResult:
         return pulumi.get(self, "session_name")
 
 
-class AwaitableGetSessionContextResult(GetSessionContextResult):
+calass AwaitableGetSessionContextResult(GetSessionContextResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

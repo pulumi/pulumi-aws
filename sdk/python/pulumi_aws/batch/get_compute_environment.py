@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetComputeEnvironmentResult:
+calass GetComputeEnvironmentResult:
     """
     A collection of values returned by getComputeEnvironment.
     """
@@ -131,7 +131,7 @@ class GetComputeEnvironmentResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
+calass AwaitableGetComputeEnvironmentResult(GetComputeEnvironmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

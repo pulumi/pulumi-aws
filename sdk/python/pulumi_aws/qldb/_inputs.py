@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'StreamKinesisConfigurationArgs',
+    'StreamKinesisConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class StreamKinesisConfigurationArgs:
+calass StreamKinesisConfigurationArrgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str],
                  aggregation_enabled: Optional[pulumi.Input[bool]] = None):

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResponseArgs', 'Response']
+__all__ = ['ResponseArrgs', 'Response']
 
 @pulumi.input_type
-class ResponseArgs:
+calass ResponseArrgs:
     def __init__(__self__, *,
                  response_type: pulumi.Input[str],
                  rest_api_id: pulumi.Input[str],
@@ -98,7 +98,7 @@ class ResponseArgs:
 
 
 @pulumi.input_type
-class _ResponseState:
+calass _ResponseState:
     def __init__(__self__, *,
                  response_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  response_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -185,7 +185,7 @@ class _ResponseState:
         pulumi.set(self, "status_code", value)
 
 
-class Response(pulumi.CustomResource):
+calass Response(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -238,7 +238,7 @@ class Response(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResponseArgs,
+                 args: ResponseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an API Gateway Gateway Response for a REST API Gateway.
@@ -271,12 +271,12 @@ class Response(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResponseArgs args: The arguments to use to populate this resource's properties.
+        :param ResponseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResponseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResponseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -297,7 +297,7 @@ class Response(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResponseArgs.__new__(ResponseArgs)
+            __props__ = ResponseArrgs.__new__(ResponseArrgs)
 
             __props__.__dict__["response_parameters"] = response_parameters
             __props__.__dict__["response_templates"] = response_templates

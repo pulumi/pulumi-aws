@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DomainEntryArgs', 'DomainEntry']
+__all__ = ['DomainEntryArrgs', 'DomainEntry']
 
 @pulumi.input_type
-class DomainEntryArgs:
+calass DomainEntryArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  target: pulumi.Input[str],
@@ -97,7 +97,7 @@ class DomainEntryArgs:
 
 
 @pulumi.input_type
-class _DomainEntryState:
+calass _DomainEntryState:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  is_alias: Optional[pulumi.Input[bool]] = None,
@@ -184,7 +184,7 @@ class _DomainEntryState:
         pulumi.set(self, "type", value)
 
 
-class DomainEntry(pulumi.CustomResource):
+calass DomainEntry(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -233,7 +233,7 @@ class DomainEntry(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainEntryArgs,
+                 args: DomainEntryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a domain entry resource
@@ -262,12 +262,12 @@ class DomainEntry(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DomainEntryArgs args: The arguments to use to populate this resource's properties.
+        :param DomainEntryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DomainEntryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DomainEntryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -288,7 +288,7 @@ class DomainEntry(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DomainEntryArgs.__new__(DomainEntryArgs)
+            __props__ = DomainEntryArrgs.__new__(DomainEntryArrgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")

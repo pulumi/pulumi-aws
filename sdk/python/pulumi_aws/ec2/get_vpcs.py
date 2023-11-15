@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcsResult:
+calass GetVpcsResult:
     """
     A collection of values returned by getVpcs.
     """
@@ -64,7 +64,7 @@ class GetVpcsResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVpcsResult(GetVpcsResult):
+calass AwaitableGetVpcsResult(GetVpcsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -76,7 +76,7 @@ class AwaitableGetVpcsResult(GetVpcsResult):
             tags=self.tags)
 
 
-def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] = None,
+def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArrgs']]] = None,
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcsResult:
     """
@@ -85,7 +85,7 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
     The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 
 
-    :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcsFilterArrgs']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -106,7 +106,7 @@ def get_vpcs(filters: Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]] 
 
 
 @_utilities.lift_output_func(get_vpcs)
-def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcsFilterArgs']]]]] = None,
+def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcsFilterArrgs']]]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcsResult]:
     """
@@ -115,7 +115,7 @@ def get_vpcs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
     The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
 
 
-    :param Sequence[pulumi.InputType['GetVpcsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcsFilterArrgs']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

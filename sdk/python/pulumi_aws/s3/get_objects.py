@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetObjectsResult:
+calass GetObjectsResult:
     """
     A collection of values returned by getObjects.
     """
@@ -143,7 +143,7 @@ class GetObjectsResult:
         return pulumi.get(self, "start_after")
 
 
-class AwaitableGetObjectsResult(GetObjectsResult):
+calass AwaitableGetObjectsResult(GetObjectsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

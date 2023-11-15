@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TemplateAssociationArgs', 'TemplateAssociation']
+__all__ = ['TemplateAssociationArrgs', 'TemplateAssociation']
 
 @pulumi.input_type
-class TemplateAssociationArgs:
+calass TemplateAssociationArrgs:
     def __init__(__self__, *,
                  skip_destroy: Optional[pulumi.Input[bool]] = None):
         """
@@ -32,7 +32,7 @@ class TemplateAssociationArgs:
 
 
 @pulumi.input_type
-class _TemplateAssociationState:
+calass _TemplateAssociationState:
     def __init__(__self__, *,
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None):
@@ -67,7 +67,7 @@ class _TemplateAssociationState:
         pulumi.set(self, "status", value)
 
 
-class TemplateAssociation(pulumi.CustomResource):
+calass TemplateAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -104,7 +104,7 @@ class TemplateAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TemplateAssociationArgs] = None,
+                 args: Optional[TemplateAssociationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Service Quotas Template Association.
@@ -130,12 +130,12 @@ class TemplateAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TemplateAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param TemplateAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TemplateAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TemplateAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -152,7 +152,7 @@ class TemplateAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TemplateAssociationArgs.__new__(TemplateAssociationArgs)
+            __props__ = TemplateAssociationArrgs.__new__(TemplateAssociationArrgs)
 
             __props__.__dict__["skip_destroy"] = skip_destroy
             __props__.__dict__["status"] = None

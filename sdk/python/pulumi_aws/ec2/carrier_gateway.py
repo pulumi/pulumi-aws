@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CarrierGatewayArgs', 'CarrierGateway']
+__all__ = ['CarrierGatewayArrgs', 'CarrierGateway']
 
 @pulumi.input_type
-class CarrierGatewayArgs:
+calass CarrierGatewayArrgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -51,7 +51,7 @@ class CarrierGatewayArgs:
 
 
 @pulumi.input_type
-class _CarrierGatewayState:
+calass _CarrierGatewayState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
@@ -144,7 +144,7 @@ class _CarrierGatewayState:
         pulumi.set(self, "vpc_id", value)
 
 
-class CarrierGateway(pulumi.CustomResource):
+calass CarrierGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -185,7 +185,7 @@ class CarrierGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CarrierGatewayArgs,
+                 args: CarrierGatewayArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
@@ -212,12 +212,12 @@ class CarrierGateway(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CarrierGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param CarrierGatewayArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CarrierGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CarrierGatewayArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -235,7 +235,7 @@ class CarrierGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CarrierGatewayArgs.__new__(CarrierGatewayArgs)
+            __props__ = CarrierGatewayArrgs.__new__(CarrierGatewayArrgs)
 
             __props__.__dict__["tags"] = tags
             if vpc_id is None and not opts.urn:

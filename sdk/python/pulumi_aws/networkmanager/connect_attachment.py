@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectAttachmentArgs', 'ConnectAttachment']
+__all__ = ['ConnectAttachmentArrgs', 'ConnectAttachment']
 
 @pulumi.input_type
-class ConnectAttachmentArgs:
+calass ConnectAttachmentArrgs:
     def __init__(__self__, *,
                  core_network_id: pulumi.Input[str],
                  edge_location: pulumi.Input[str],
-                 options: pulumi.Input['ConnectAttachmentOptionsArgs'],
+                 options: pulumi.Input['ConnectAttachmentOptionsArrgs'],
                  transport_attachment_id: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ConnectAttachment resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options block. See options for more information.
+        :param pulumi.Input['ConnectAttachmentOptionsArrgs'] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[str] transport_attachment_id: The ID of the attachment between the two connections.
@@ -64,7 +64,7 @@ class ConnectAttachmentArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> pulumi.Input['ConnectAttachmentOptionsArgs']:
+    def options(self) -> pulumi.Input['ConnectAttachmentOptionsArrgs']:
         """
         Options block. See options for more information.
 
@@ -73,7 +73,7 @@ class ConnectAttachmentArgs:
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: pulumi.Input['ConnectAttachmentOptionsArgs']):
+    def options(self, value: pulumi.Input['ConnectAttachmentOptionsArrgs']):
         pulumi.set(self, "options", value)
 
     @property
@@ -102,7 +102,7 @@ class ConnectAttachmentArgs:
 
 
 @pulumi.input_type
-class _ConnectAttachmentState:
+calass _ConnectAttachmentState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  attachment_id: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,7 @@ class _ConnectAttachmentState:
                  core_network_arn: Optional[pulumi.Input[str]] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input['ConnectAttachmentOptionsArgs']] = None,
+                 options: Optional[pulumi.Input['ConnectAttachmentOptionsArrgs']] = None,
                  owner_account_id: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  segment_name: Optional[pulumi.Input[str]] = None,
@@ -127,7 +127,7 @@ class _ConnectAttachmentState:
         :param pulumi.Input[str] core_network_arn: The ARN of a core network.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input['ConnectAttachmentOptionsArgs'] options: Options block. See options for more information.
+        :param pulumi.Input['ConnectAttachmentOptionsArrgs'] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.
@@ -255,7 +255,7 @@ class _ConnectAttachmentState:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['ConnectAttachmentOptionsArgs']]:
+    def options(self) -> Optional[pulumi.Input['ConnectAttachmentOptionsArrgs']]:
         """
         Options block. See options for more information.
 
@@ -264,7 +264,7 @@ class _ConnectAttachmentState:
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['ConnectAttachmentOptionsArgs']]):
+    def options(self, value: Optional[pulumi.Input['ConnectAttachmentOptionsArrgs']]):
         pulumi.set(self, "options", value)
 
     @property
@@ -355,14 +355,14 @@ class _ConnectAttachmentState:
         pulumi.set(self, "transport_attachment_id", value)
 
 
-class ConnectAttachment(pulumi.CustomResource):
+calass ConnectAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -383,7 +383,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options block. See options for more information.
+        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArrgs']] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -393,7 +393,7 @@ class ConnectAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectAttachmentArgs,
+                 args: ConnectAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS NetworkManager ConnectAttachment.
@@ -409,12 +409,12 @@ class ConnectAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -425,7 +425,7 @@ class ConnectAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  core_network_id: Optional[pulumi.Input[str]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transport_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -435,7 +435,7 @@ class ConnectAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectAttachmentArgs.__new__(ConnectAttachmentArgs)
+            __props__ = ConnectAttachmentArrgs.__new__(ConnectAttachmentArrgs)
 
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")
@@ -479,7 +479,7 @@ class ConnectAttachment(pulumi.CustomResource):
             core_network_arn: Optional[pulumi.Input[str]] = None,
             core_network_id: Optional[pulumi.Input[str]] = None,
             edge_location: Optional[pulumi.Input[str]] = None,
-            options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']]] = None,
+            options: Optional[pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArrgs']]] = None,
             owner_account_id: Optional[pulumi.Input[str]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None,
             segment_name: Optional[pulumi.Input[str]] = None,
@@ -500,7 +500,7 @@ class ConnectAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] core_network_arn: The ARN of a core network.
         :param pulumi.Input[str] core_network_id: The ID of a core network where you want to create the attachment.
         :param pulumi.Input[str] edge_location: The Region where the edge is located.
-        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArgs']] options: Options block. See options for more information.
+        :param pulumi.Input[pulumi.InputType['ConnectAttachmentOptionsArrgs']] options: Options block. See options for more information.
                
                The following arguments are optional:
         :param pulumi.Input[str] owner_account_id: The ID of the attachment account owner.

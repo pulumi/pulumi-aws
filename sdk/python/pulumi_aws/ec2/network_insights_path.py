@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkInsightsPathArgs', 'NetworkInsightsPath']
+__all__ = ['NetworkInsightsPathArrgs', 'NetworkInsightsPath']
 
 @pulumi.input_type
-class NetworkInsightsPathArgs:
+calass NetworkInsightsPathArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  protocol: pulumi.Input[str],
@@ -133,7 +133,7 @@ class NetworkInsightsPathArgs:
 
 
 @pulumi.input_type
-class _NetworkInsightsPathState:
+calass _NetworkInsightsPathState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
@@ -326,7 +326,7 @@ class _NetworkInsightsPathState:
         pulumi.set(self, "tags_all", value)
 
 
-class NetworkInsightsPath(pulumi.CustomResource):
+calass NetworkInsightsPath(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -378,7 +378,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkInsightsPathArgs,
+                 args: NetworkInsightsPathArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Network Insights Path resource. Part of the "Reachability Analyzer" service in the AWS VPC console.
@@ -404,12 +404,12 @@ class NetworkInsightsPath(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkInsightsPathArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkInsightsPathArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkInsightsPathArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkInsightsPathArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -432,7 +432,7 @@ class NetworkInsightsPath(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkInsightsPathArgs.__new__(NetworkInsightsPathArgs)
+            __props__ = NetworkInsightsPathArrgs.__new__(NetworkInsightsPathArrgs)
 
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")

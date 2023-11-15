@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CustomActionTypeConfigurationPropertyArgs',
-    'CustomActionTypeInputArtifactDetailsArgs',
-    'CustomActionTypeOutputArtifactDetailsArgs',
-    'CustomActionTypeSettingsArgs',
-    'PipelineArtifactStoreArgs',
-    'PipelineArtifactStoreEncryptionKeyArgs',
-    'PipelineStageArgs',
-    'PipelineStageActionArgs',
-    'WebhookAuthenticationConfigurationArgs',
-    'WebhookFilterArgs',
+    'CustomActionTypeConfigurationPropertyArrgs',
+    'CustomActionTypeInputArtifactDetailsArrgs',
+    'CustomActionTypeOutputArtifactDetailsArrgs',
+    'CustomActionTypeSettingsArrgs',
+    'PipelineArtifactStoreArrgs',
+    'PipelineArtifactStoreEncryptionKeyArrgs',
+    'PipelineStageArrgs',
+    'PipelineStageActionArrgs',
+    'WebhookAuthenticationConfigurationArrgs',
+    'WebhookFilterArrgs',
 ]
 
 @pulumi.input_type
-class CustomActionTypeConfigurationPropertyArgs:
+calass CustomActionTypeConfigurationPropertyArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[bool],
                  name: pulumi.Input[str],
@@ -138,7 +138,7 @@ class CustomActionTypeConfigurationPropertyArgs:
 
 
 @pulumi.input_type
-class CustomActionTypeInputArtifactDetailsArgs:
+calass CustomActionTypeInputArtifactDetailsArrgs:
     def __init__(__self__, *,
                  maximum_count: pulumi.Input[int],
                  minimum_count: pulumi.Input[int]):
@@ -175,7 +175,7 @@ class CustomActionTypeInputArtifactDetailsArgs:
 
 
 @pulumi.input_type
-class CustomActionTypeOutputArtifactDetailsArgs:
+calass CustomActionTypeOutputArtifactDetailsArrgs:
     def __init__(__self__, *,
                  maximum_count: pulumi.Input[int],
                  minimum_count: pulumi.Input[int]):
@@ -212,7 +212,7 @@ class CustomActionTypeOutputArtifactDetailsArgs:
 
 
 @pulumi.input_type
-class CustomActionTypeSettingsArgs:
+calass CustomActionTypeSettingsArrgs:
     def __init__(__self__, *,
                  entity_url_template: Optional[pulumi.Input[str]] = None,
                  execution_url_template: Optional[pulumi.Input[str]] = None,
@@ -283,16 +283,16 @@ class CustomActionTypeSettingsArgs:
 
 
 @pulumi.input_type
-class PipelineArtifactStoreArgs:
+calass PipelineArtifactStoreArrgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 encryption_key: Optional[pulumi.Input['PipelineArtifactStoreEncryptionKeyArgs']] = None,
+                 encryption_key: Optional[pulumi.Input['PipelineArtifactStoreEncryptionKeyArrgs']] = None,
                  region: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] location: The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
         :param pulumi.Input[str] type: The type of the artifact store, such as Amazon S3
-        :param pulumi.Input['PipelineArtifactStoreEncryptionKeyArgs'] encryption_key: The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
+        :param pulumi.Input['PipelineArtifactStoreEncryptionKeyArrgs'] encryption_key: The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
         :param pulumi.Input[str] region: The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
         """
         pulumi.set(__self__, "location", location)
@@ -328,14 +328,14 @@ class PipelineArtifactStoreArgs:
 
     @property
     @pulumi.getter(name="encryptionKey")
-    def encryption_key(self) -> Optional[pulumi.Input['PipelineArtifactStoreEncryptionKeyArgs']]:
+    def encryption_key(self) -> Optional[pulumi.Input['PipelineArtifactStoreEncryptionKeyArrgs']]:
         """
         The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
         """
         return pulumi.get(self, "encryption_key")
 
     @encryption_key.setter
-    def encryption_key(self, value: Optional[pulumi.Input['PipelineArtifactStoreEncryptionKeyArgs']]):
+    def encryption_key(self, value: Optional[pulumi.Input['PipelineArtifactStoreEncryptionKeyArrgs']]):
         pulumi.set(self, "encryption_key", value)
 
     @property
@@ -352,7 +352,7 @@ class PipelineArtifactStoreArgs:
 
 
 @pulumi.input_type
-class PipelineArtifactStoreEncryptionKeyArgs:
+calass PipelineArtifactStoreEncryptionKeyArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -389,12 +389,12 @@ class PipelineArtifactStoreEncryptionKeyArgs:
 
 
 @pulumi.input_type
-class PipelineStageArgs:
+calass PipelineStageArrgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]],
+                 actions: pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArrgs']]],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]] actions: The action(s) to include in the stage. Defined as an `action` block below
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArrgs']]] actions: The action(s) to include in the stage. Defined as an `action` block below
         :param pulumi.Input[str] name: The name of the stage.
         """
         pulumi.set(__self__, "actions", actions)
@@ -402,14 +402,14 @@ class PipelineStageArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArrgs']]]:
         """
         The action(s) to include in the stage. Defined as an `action` block below
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArgs']]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['PipelineStageActionArrgs']]]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -426,7 +426,7 @@ class PipelineStageArgs:
 
 
 @pulumi.input_type
-class PipelineStageActionArgs:
+calass PipelineStageActionArrgs:
     def __init__(__self__, *,
                  category: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -624,7 +624,7 @@ class PipelineStageActionArgs:
 
 
 @pulumi.input_type
-class WebhookAuthenticationConfigurationArgs:
+calass WebhookAuthenticationConfigurationArrgs:
     def __init__(__self__, *,
                  allowed_ip_range: Optional[pulumi.Input[str]] = None,
                  secret_token: Optional[pulumi.Input[str]] = None):
@@ -663,7 +663,7 @@ class WebhookAuthenticationConfigurationArgs:
 
 
 @pulumi.input_type
-class WebhookFilterArgs:
+calass WebhookFilterArrgs:
     def __init__(__self__, *,
                  json_path: pulumi.Input[str],
                  match_equals: pulumi.Input[str]):

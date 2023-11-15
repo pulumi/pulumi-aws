@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCipherTextResult:
+calass GetCipherTextResult:
     """
     A collection of values returned by getCipherText.
     """
@@ -70,7 +70,7 @@ class GetCipherTextResult:
         return pulumi.get(self, "plaintext")
 
 
-class AwaitableGetCipherTextResult(GetCipherTextResult):
+calass AwaitableGetCipherTextResult(GetCipherTextResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

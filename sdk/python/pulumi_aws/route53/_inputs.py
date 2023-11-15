@@ -11,29 +11,29 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'RecordAliasArgs',
-    'RecordCidrRoutingPolicyArgs',
-    'RecordFailoverRoutingPolicyArgs',
-    'RecordGeolocationRoutingPolicyArgs',
-    'RecordLatencyRoutingPolicyArgs',
-    'RecordWeightedRoutingPolicyArgs',
-    'ResolverEndpointIpAddressArgs',
-    'ResolverRuleTargetIpArgs',
-    'ZoneVpcArgs',
-    'GetQueryLogConfigFilterArgs',
-    'GetResolverEndpointFilterArgs',
-    'GetTrafficPolicyDocumentEndpointArgs',
-    'GetTrafficPolicyDocumentRuleArgs',
-    'GetTrafficPolicyDocumentRuleGeoProximityLocationArgs',
-    'GetTrafficPolicyDocumentRuleItemArgs',
-    'GetTrafficPolicyDocumentRuleLocationArgs',
-    'GetTrafficPolicyDocumentRulePrimaryArgs',
-    'GetTrafficPolicyDocumentRuleRegionArgs',
-    'GetTrafficPolicyDocumentRuleSecondaryArgs',
+    'RecordAliasArrgs',
+    'RecordCidrRoutingPolicyArrgs',
+    'RecordFailoverRoutingPolicyArrgs',
+    'RecordGeolocationRoutingPolicyArrgs',
+    'RecordLatencyRoutingPolicyArrgs',
+    'RecordWeightedRoutingPolicyArrgs',
+    'ResolverEndpointIpAddressArrgs',
+    'ResolverRuleTargetIpArrgs',
+    'ZoneVpcArrgs',
+    'GetQueryLogConfigFilterArrgs',
+    'GetResolverEndpointFilterArrgs',
+    'GetTrafficPolicyDocumentEndpointArrgs',
+    'GetTrafficPolicyDocumentRuleArrgs',
+    'GetTrafficPolicyDocumentRuleGeoProximityLocationArrgs',
+    'GetTrafficPolicyDocumentRuleItemArrgs',
+    'GetTrafficPolicyDocumentRuleLocationArrgs',
+    'GetTrafficPolicyDocumentRulePrimaryArrgs',
+    'GetTrafficPolicyDocumentRuleRegionArrgs',
+    'GetTrafficPolicyDocumentRuleSecondaryArrgs',
 ]
 
 @pulumi.input_type
-class RecordAliasArgs:
+calass RecordAliasArrgs:
     def __init__(__self__, *,
                  evaluate_target_health: pulumi.Input[bool],
                  name: pulumi.Input[str],
@@ -85,7 +85,7 @@ class RecordAliasArgs:
 
 
 @pulumi.input_type
-class RecordCidrRoutingPolicyArgs:
+calass RecordCidrRoutingPolicyArrgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[str],
                  location_name: pulumi.Input[str]):
@@ -122,7 +122,7 @@ class RecordCidrRoutingPolicyArgs:
 
 
 @pulumi.input_type
-class RecordFailoverRoutingPolicyArgs:
+calass RecordFailoverRoutingPolicyArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -144,7 +144,7 @@ class RecordFailoverRoutingPolicyArgs:
 
 
 @pulumi.input_type
-class RecordGeolocationRoutingPolicyArgs:
+calass RecordGeolocationRoutingPolicyArrgs:
     def __init__(__self__, *,
                  continent: Optional[pulumi.Input[str]] = None,
                  country: Optional[pulumi.Input[str]] = None,
@@ -199,7 +199,7 @@ class RecordGeolocationRoutingPolicyArgs:
 
 
 @pulumi.input_type
-class RecordLatencyRoutingPolicyArgs:
+calass RecordLatencyRoutingPolicyArrgs:
     def __init__(__self__, *,
                  region: pulumi.Input[str]):
         """
@@ -221,7 +221,7 @@ class RecordLatencyRoutingPolicyArgs:
 
 
 @pulumi.input_type
-class RecordWeightedRoutingPolicyArgs:
+calass RecordWeightedRoutingPolicyArrgs:
     def __init__(__self__, *,
                  weight: pulumi.Input[int]):
         """
@@ -243,7 +243,7 @@ class RecordWeightedRoutingPolicyArgs:
 
 
 @pulumi.input_type
-class ResolverEndpointIpAddressArgs:
+calass ResolverEndpointIpAddressArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  ip: Optional[pulumi.Input[str]] = None,
@@ -293,7 +293,7 @@ class ResolverEndpointIpAddressArgs:
 
 
 @pulumi.input_type
-class ResolverRuleTargetIpArgs:
+calass ResolverRuleTargetIpArrgs:
     def __init__(__self__, *,
                  ip: pulumi.Input[str],
                  port: Optional[pulumi.Input[int]] = None):
@@ -331,7 +331,7 @@ class ResolverRuleTargetIpArgs:
 
 
 @pulumi.input_type
-class ZoneVpcArgs:
+calass ZoneVpcArrgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[str],
                  vpc_region: Optional[pulumi.Input[str]] = None):
@@ -369,7 +369,7 @@ class ZoneVpcArgs:
 
 
 @pulumi.input_type
-class GetQueryLogConfigFilterArgs:
+calass GetQueryLogConfigFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -402,7 +402,7 @@ class GetQueryLogConfigFilterArgs:
 
 
 @pulumi.input_type
-class GetResolverEndpointFilterArgs:
+calass GetResolverEndpointFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -429,7 +429,7 @@ class GetResolverEndpointFilterArgs:
 
 
 @pulumi.input_type
-class GetTrafficPolicyDocumentEndpointArgs:
+calass GetTrafficPolicyDocumentEndpointArrgs:
     def __init__(__self__, *,
                  id: str,
                  region: Optional[str] = None,
@@ -499,24 +499,24 @@ class GetTrafficPolicyDocumentEndpointArgs:
 
 
 @pulumi.input_type
-class GetTrafficPolicyDocumentRuleArgs:
+calass GetTrafficPolicyDocumentRuleArrgs:
     def __init__(__self__, *,
                  id: str,
-                 geo_proximity_locations: Optional[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgs']] = None,
-                 items: Optional[Sequence['GetTrafficPolicyDocumentRuleItemArgs']] = None,
-                 locations: Optional[Sequence['GetTrafficPolicyDocumentRuleLocationArgs']] = None,
-                 primary: Optional['GetTrafficPolicyDocumentRulePrimaryArgs'] = None,
-                 regions: Optional[Sequence['GetTrafficPolicyDocumentRuleRegionArgs']] = None,
-                 secondary: Optional['GetTrafficPolicyDocumentRuleSecondaryArgs'] = None,
+                 geo_proximity_locations: Optional[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArrgs']] = None,
+                 items: Optional[Sequence['GetTrafficPolicyDocumentRuleItemArrgs']] = None,
+                 locations: Optional[Sequence['GetTrafficPolicyDocumentRuleLocationArrgs']] = None,
+                 primary: Optional['GetTrafficPolicyDocumentRulePrimaryArrgs'] = None,
+                 regions: Optional[Sequence['GetTrafficPolicyDocumentRuleRegionArrgs']] = None,
+                 secondary: Optional['GetTrafficPolicyDocumentRuleSecondaryArrgs'] = None,
                  type: Optional[str] = None):
         """
         :param str id: ID of a rule you want to assign.
-        :param Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgs'] geo_proximity_locations: Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleItemArgs'] items: Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleLocationArgs'] locations: Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-        :param 'GetTrafficPolicyDocumentRulePrimaryArgs' primary: Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleRegionArgs'] regions: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        :param 'GetTrafficPolicyDocumentRuleSecondaryArgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+        :param Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArrgs'] geo_proximity_locations: Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+        :param Sequence['GetTrafficPolicyDocumentRuleItemArrgs'] items: Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+        :param Sequence['GetTrafficPolicyDocumentRuleLocationArrgs'] locations: Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+        :param 'GetTrafficPolicyDocumentRulePrimaryArrgs' primary: Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+        :param Sequence['GetTrafficPolicyDocumentRuleRegionArrgs'] regions: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+        :param 'GetTrafficPolicyDocumentRuleSecondaryArrgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
         :param str type: Type of the rule.
         """
         pulumi.set(__self__, "id", id)
@@ -549,74 +549,74 @@ class GetTrafficPolicyDocumentRuleArgs:
 
     @property
     @pulumi.getter(name="geoProximityLocations")
-    def geo_proximity_locations(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgs']]:
+    def geo_proximity_locations(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArrgs']]:
         """
         Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
         """
         return pulumi.get(self, "geo_proximity_locations")
 
     @geo_proximity_locations.setter
-    def geo_proximity_locations(self, value: Optional[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgs']]):
+    def geo_proximity_locations(self, value: Optional[Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArrgs']]):
         pulumi.set(self, "geo_proximity_locations", value)
 
     @property
     @pulumi.getter
-    def items(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleItemArgs']]:
+    def items(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleItemArrgs']]:
         """
         Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
         """
         return pulumi.get(self, "items")
 
     @items.setter
-    def items(self, value: Optional[Sequence['GetTrafficPolicyDocumentRuleItemArgs']]):
+    def items(self, value: Optional[Sequence['GetTrafficPolicyDocumentRuleItemArrgs']]):
         pulumi.set(self, "items", value)
 
     @property
     @pulumi.getter
-    def locations(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleLocationArgs']]:
+    def locations(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleLocationArrgs']]:
         """
         Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
         """
         return pulumi.get(self, "locations")
 
     @locations.setter
-    def locations(self, value: Optional[Sequence['GetTrafficPolicyDocumentRuleLocationArgs']]):
+    def locations(self, value: Optional[Sequence['GetTrafficPolicyDocumentRuleLocationArrgs']]):
         pulumi.set(self, "locations", value)
 
     @property
     @pulumi.getter
-    def primary(self) -> Optional['GetTrafficPolicyDocumentRulePrimaryArgs']:
+    def primary(self) -> Optional['GetTrafficPolicyDocumentRulePrimaryArrgs']:
         """
         Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
         """
         return pulumi.get(self, "primary")
 
     @primary.setter
-    def primary(self, value: Optional['GetTrafficPolicyDocumentRulePrimaryArgs']):
+    def primary(self, value: Optional['GetTrafficPolicyDocumentRulePrimaryArrgs']):
         pulumi.set(self, "primary", value)
 
     @property
     @pulumi.getter
-    def regions(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleRegionArgs']]:
+    def regions(self) -> Optional[Sequence['GetTrafficPolicyDocumentRuleRegionArrgs']]:
         """
         To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
         """
         return pulumi.get(self, "regions")
 
     @regions.setter
-    def regions(self, value: Optional[Sequence['GetTrafficPolicyDocumentRuleRegionArgs']]):
+    def regions(self, value: Optional[Sequence['GetTrafficPolicyDocumentRuleRegionArrgs']]):
         pulumi.set(self, "regions", value)
 
     @property
     @pulumi.getter
-    def secondary(self) -> Optional['GetTrafficPolicyDocumentRuleSecondaryArgs']:
+    def secondary(self) -> Optional['GetTrafficPolicyDocumentRuleSecondaryArrgs']:
         """
         Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
         """
         return pulumi.get(self, "secondary")
 
     @secondary.setter
-    def secondary(self, value: Optional['GetTrafficPolicyDocumentRuleSecondaryArgs']):
+    def secondary(self, value: Optional['GetTrafficPolicyDocumentRuleSecondaryArrgs']):
         pulumi.set(self, "secondary", value)
 
     @property
@@ -633,7 +633,7 @@ class GetTrafficPolicyDocumentRuleArgs:
 
 
 @pulumi.input_type
-class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
+calass GetTrafficPolicyDocumentRuleGeoProximityLocationArrgs:
     def __init__(__self__, *,
                  bias: Optional[str] = None,
                  endpoint_reference: Optional[str] = None,
@@ -768,7 +768,7 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationArgs:
 
 
 @pulumi.input_type
-class GetTrafficPolicyDocumentRuleItemArgs:
+calass GetTrafficPolicyDocumentRuleItemArrgs:
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  health_check: Optional[str] = None):
@@ -807,7 +807,7 @@ class GetTrafficPolicyDocumentRuleItemArgs:
 
 
 @pulumi.input_type
-class GetTrafficPolicyDocumentRuleLocationArgs:
+calass GetTrafficPolicyDocumentRuleLocationArrgs:
     def __init__(__self__, *,
                  continent: Optional[str] = None,
                  country: Optional[str] = None,
@@ -942,7 +942,7 @@ class GetTrafficPolicyDocumentRuleLocationArgs:
 
 
 @pulumi.input_type
-class GetTrafficPolicyDocumentRulePrimaryArgs:
+calass GetTrafficPolicyDocumentRulePrimaryArrgs:
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  evaluate_target_health: Optional[bool] = None,
@@ -1013,7 +1013,7 @@ class GetTrafficPolicyDocumentRulePrimaryArgs:
 
 
 @pulumi.input_type
-class GetTrafficPolicyDocumentRuleRegionArgs:
+calass GetTrafficPolicyDocumentRuleRegionArrgs:
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  evaluate_target_health: Optional[bool] = None,
@@ -1100,7 +1100,7 @@ class GetTrafficPolicyDocumentRuleRegionArgs:
 
 
 @pulumi.input_type
-class GetTrafficPolicyDocumentRuleSecondaryArgs:
+calass GetTrafficPolicyDocumentRuleSecondaryArrgs:
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  evaluate_target_health: Optional[bool] = None,

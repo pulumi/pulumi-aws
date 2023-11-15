@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RoutingControlArgs', 'RoutingControl']
+__all__ = ['RoutingControlArrgs', 'RoutingControl']
 
 @pulumi.input_type
-class RoutingControlArgs:
+calass RoutingControlArrgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[str],
                  control_panel_arn: Optional[pulumi.Input[str]] = None,
@@ -71,7 +71,7 @@ class RoutingControlArgs:
 
 
 @pulumi.input_type
-class _RoutingControlState:
+calass _RoutingControlState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cluster_arn: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class _RoutingControlState:
         pulumi.set(self, "status", value)
 
 
-class RoutingControl(pulumi.CustomResource):
+calass RoutingControl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -212,7 +212,7 @@ class RoutingControl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RoutingControlArgs,
+                 args: RoutingControlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Route 53 Recovery Control Config Routing Control.
@@ -244,12 +244,12 @@ class RoutingControl(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RoutingControlArgs args: The arguments to use to populate this resource's properties.
+        :param RoutingControlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RoutingControlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RoutingControlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -268,7 +268,7 @@ class RoutingControl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RoutingControlArgs.__new__(RoutingControlArgs)
+            __props__ = RoutingControlArrgs.__new__(RoutingControlArrgs)
 
             if cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_arn'")

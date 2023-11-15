@@ -10,16 +10,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'PolicyExcludeMapArgs',
-    'PolicyIncludeMapArgs',
-    'PolicySecurityServicePolicyDataArgs',
-    'PolicySecurityServicePolicyDataPolicyOptionArgs',
-    'PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs',
-    'PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs',
+    'PolicyExcludeMapArrgs',
+    'PolicyIncludeMapArrgs',
+    'PolicySecurityServicePolicyDataArrgs',
+    'PolicySecurityServicePolicyDataPolicyOptionArrgs',
+    'PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArrgs',
+    'PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArrgs',
 ]
 
 @pulumi.input_type
-class PolicyExcludeMapArgs:
+calass PolicyExcludeMapArrgs:
     def __init__(__self__, *,
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orgunits: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -62,7 +62,7 @@ class PolicyExcludeMapArgs:
 
 
 @pulumi.input_type
-class PolicyIncludeMapArgs:
+calass PolicyIncludeMapArrgs:
     def __init__(__self__, *,
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orgunits: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -105,15 +105,15 @@ class PolicyIncludeMapArgs:
 
 
 @pulumi.input_type
-class PolicySecurityServicePolicyDataArgs:
+calass PolicySecurityServicePolicyDataArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  managed_service_data: Optional[pulumi.Input[str]] = None,
-                 policy_option: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']] = None):
+                 policy_option: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArrgs']] = None):
         """
         :param pulumi.Input[str] type: The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
         :param pulumi.Input[str] managed_service_data: Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-        :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs'] policy_option: Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
+        :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArrgs'] policy_option: Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
         """
         pulumi.set(__self__, "type", type)
         if managed_service_data is not None:
@@ -147,24 +147,24 @@ class PolicySecurityServicePolicyDataArgs:
 
     @property
     @pulumi.getter(name="policyOption")
-    def policy_option(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']]:
+    def policy_option(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArrgs']]:
         """
         Contains the Network Firewall firewall policy options to configure a centralized deployment model. Documented below.
         """
         return pulumi.get(self, "policy_option")
 
     @policy_option.setter
-    def policy_option(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgs']]):
+    def policy_option(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArrgs']]):
         pulumi.set(self, "policy_option", value)
 
 
 @pulumi.input_type
-class PolicySecurityServicePolicyDataPolicyOptionArgs:
+calass PolicySecurityServicePolicyDataPolicyOptionArrgs:
     def __init__(__self__, *,
-                 network_firewall_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']] = None,
-                 third_party_firewall_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']] = None):
+                 network_firewall_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArrgs']] = None,
+                 third_party_firewall_policy: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArrgs']] = None):
         """
-        :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs'] network_firewall_policy: Defines the deployment model to use for the firewall policy. Documented below.
+        :param pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArrgs'] network_firewall_policy: Defines the deployment model to use for the firewall policy. Documented below.
         """
         if network_firewall_policy is not None:
             pulumi.set(__self__, "network_firewall_policy", network_firewall_policy)
@@ -173,28 +173,28 @@ class PolicySecurityServicePolicyDataPolicyOptionArgs:
 
     @property
     @pulumi.getter(name="networkFirewallPolicy")
-    def network_firewall_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]:
+    def network_firewall_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArrgs']]:
         """
         Defines the deployment model to use for the firewall policy. Documented below.
         """
         return pulumi.get(self, "network_firewall_policy")
 
     @network_firewall_policy.setter
-    def network_firewall_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs']]):
+    def network_firewall_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArrgs']]):
         pulumi.set(self, "network_firewall_policy", value)
 
     @property
     @pulumi.getter(name="thirdPartyFirewallPolicy")
-    def third_party_firewall_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]:
+    def third_party_firewall_policy(self) -> Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArrgs']]:
         return pulumi.get(self, "third_party_firewall_policy")
 
     @third_party_firewall_policy.setter
-    def third_party_firewall_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs']]):
+    def third_party_firewall_policy(self, value: Optional[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArrgs']]):
         pulumi.set(self, "third_party_firewall_policy", value)
 
 
 @pulumi.input_type
-class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
+calass PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArrgs:
     def __init__(__self__, *,
                  firewall_deployment_model: Optional[pulumi.Input[str]] = None):
         """
@@ -217,7 +217,7 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
 
 
 @pulumi.input_type
-class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs:
+calass PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArrgs:
     def __init__(__self__, *,
                  firewall_deployment_model: Optional[pulumi.Input[str]] = None):
         """

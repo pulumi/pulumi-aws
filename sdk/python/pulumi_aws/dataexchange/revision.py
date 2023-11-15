@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RevisionArgs', 'Revision']
+__all__ = ['RevisionArrgs', 'Revision']
 
 @pulumi.input_type
-class RevisionArgs:
+calass RevisionArrgs:
     def __init__(__self__, *,
                  data_set_id: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class RevisionArgs:
 
 
 @pulumi.input_type
-class _RevisionState:
+calass _RevisionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
@@ -176,7 +176,7 @@ class _RevisionState:
         pulumi.set(self, "tags_all", value)
 
 
-class Revision(pulumi.CustomResource):
+calass Revision(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -215,7 +215,7 @@ class Revision(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RevisionArgs,
+                 args: RevisionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage AWS Data Exchange Revisions.
@@ -238,12 +238,12 @@ class Revision(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RevisionArgs args: The arguments to use to populate this resource's properties.
+        :param RevisionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RevisionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RevisionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -262,7 +262,7 @@ class Revision(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RevisionArgs.__new__(RevisionArgs)
+            __props__ = RevisionArrgs.__new__(RevisionArrgs)
 
             __props__.__dict__["comment"] = comment
             if data_set_id is None and not opts.urn:

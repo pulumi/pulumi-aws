@@ -64,7 +64,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DomainAdvancedSecurityOptions(dict):
+calass DomainAdvancedSecurityOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -95,7 +95,7 @@ class DomainAdvancedSecurityOptions(dict):
         :param bool enabled: Whether advanced security is enabled.
         :param bool anonymous_auth_enabled: Whether Anonymous auth is enabled. Enables fine-grained access control on an existing domain. Ignored unless `advanced_security_options` are enabled. _Can only be enabled on an existing domain._
         :param bool internal_user_database_enabled: Whether the internal user database is enabled. Default is `false`.
-        :param 'DomainAdvancedSecurityOptionsMasterUserOptionsArgs' master_user_options: Configuration block for the main user. Detailed below.
+        :param 'DomainAdvancedSecurityOptionsMasterUserOptionsArrgs' master_user_options: Configuration block for the main user. Detailed below.
         """
         pulumi.set(__self__, "enabled", enabled)
         if anonymous_auth_enabled is not None:
@@ -139,7 +139,7 @@ class DomainAdvancedSecurityOptions(dict):
 
 
 @pulumi.output_type
-class DomainAdvancedSecurityOptionsMasterUserOptions(dict):
+calass DomainAdvancedSecurityOptionsMasterUserOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -203,7 +203,7 @@ class DomainAdvancedSecurityOptionsMasterUserOptions(dict):
 
 
 @pulumi.output_type
-class DomainAutoTuneOptions(dict):
+calass DomainAutoTuneOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -231,7 +231,7 @@ class DomainAutoTuneOptions(dict):
                  rollback_on_disable: Optional[str] = None):
         """
         :param str desired_state: Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-        :param Sequence['DomainAutoTuneOptionsMaintenanceScheduleArgs'] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+        :param Sequence['DomainAutoTuneOptionsMaintenanceScheduleArrgs'] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
         :param str rollback_on_disable: Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
         """
         pulumi.set(__self__, "desired_state", desired_state)
@@ -266,7 +266,7 @@ class DomainAutoTuneOptions(dict):
 
 
 @pulumi.output_type
-class DomainAutoTuneOptionsMaintenanceSchedule(dict):
+calass DomainAutoTuneOptionsMaintenanceSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -292,7 +292,7 @@ class DomainAutoTuneOptionsMaintenanceSchedule(dict):
                  start_at: str):
         """
         :param str cron_expression_for_recurrence: A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
-        :param 'DomainAutoTuneOptionsMaintenanceScheduleDurationArgs' duration: Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+        :param 'DomainAutoTuneOptionsMaintenanceScheduleDurationArrgs' duration: Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
         :param str start_at: Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
@@ -325,7 +325,7 @@ class DomainAutoTuneOptionsMaintenanceSchedule(dict):
 
 
 @pulumi.output_type
-class DomainAutoTuneOptionsMaintenanceScheduleDuration(dict):
+calass DomainAutoTuneOptionsMaintenanceScheduleDuration(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -354,7 +354,7 @@ class DomainAutoTuneOptionsMaintenanceScheduleDuration(dict):
 
 
 @pulumi.output_type
-class DomainClusterConfig(dict):
+calass DomainClusterConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -408,7 +408,7 @@ class DomainClusterConfig(dict):
                  zone_awareness_config: Optional['outputs.DomainClusterConfigZoneAwarenessConfig'] = None,
                  zone_awareness_enabled: Optional[bool] = None):
         """
-        :param 'DomainClusterConfigColdStorageOptionsArgs' cold_storage_options: Configuration block containing cold storage configuration. Detailed below.
+        :param 'DomainClusterConfigColdStorageOptionsArrgs' cold_storage_options: Configuration block containing cold storage configuration. Detailed below.
         :param int dedicated_master_count: Number of dedicated main nodes in the cluster.
         :param bool dedicated_master_enabled: Whether dedicated main nodes are enabled for the cluster.
         :param str dedicated_master_type: Instance type of the dedicated main nodes in the cluster.
@@ -417,7 +417,7 @@ class DomainClusterConfig(dict):
         :param int warm_count: Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         :param bool warm_enabled: Whether to enable warm storage.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
-        :param 'DomainClusterConfigZoneAwarenessConfigArgs' zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
+        :param 'DomainClusterConfigZoneAwarenessConfigArrgs' zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
         :param bool zone_awareness_enabled: Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         """
         if cold_storage_options is not None:
@@ -540,7 +540,7 @@ class DomainClusterConfig(dict):
 
 
 @pulumi.output_type
-class DomainClusterConfigColdStorageOptions(dict):
+calass DomainClusterConfigColdStorageOptions(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -559,7 +559,7 @@ class DomainClusterConfigColdStorageOptions(dict):
 
 
 @pulumi.output_type
-class DomainClusterConfigZoneAwarenessConfig(dict):
+calass DomainClusterConfigZoneAwarenessConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -595,7 +595,7 @@ class DomainClusterConfigZoneAwarenessConfig(dict):
 
 
 @pulumi.output_type
-class DomainCognitoOptions(dict):
+calass DomainCognitoOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -668,7 +668,7 @@ class DomainCognitoOptions(dict):
 
 
 @pulumi.output_type
-class DomainDomainEndpointOptions(dict):
+calass DomainDomainEndpointOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -760,7 +760,7 @@ class DomainDomainEndpointOptions(dict):
 
 
 @pulumi.output_type
-class DomainEbsOptions(dict):
+calass DomainEbsOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -847,7 +847,7 @@ class DomainEbsOptions(dict):
 
 
 @pulumi.output_type
-class DomainEncryptAtRest(dict):
+calass DomainEncryptAtRest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -894,7 +894,7 @@ class DomainEncryptAtRest(dict):
 
 
 @pulumi.output_type
-class DomainLogPublishingOption(dict):
+calass DomainLogPublishingOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -954,7 +954,7 @@ class DomainLogPublishingOption(dict):
 
 
 @pulumi.output_type
-class DomainNodeToNodeEncryption(dict):
+calass DomainNodeToNodeEncryption(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -972,7 +972,7 @@ class DomainNodeToNodeEncryption(dict):
 
 
 @pulumi.output_type
-class DomainOffPeakWindowOptions(dict):
+calass DomainOffPeakWindowOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1016,7 +1016,7 @@ class DomainOffPeakWindowOptions(dict):
 
 
 @pulumi.output_type
-class DomainOffPeakWindowOptionsOffPeakWindow(dict):
+calass DomainOffPeakWindowOptionsOffPeakWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1037,7 +1037,7 @@ class DomainOffPeakWindowOptionsOffPeakWindow(dict):
     def __init__(__self__, *,
                  window_start_time: Optional['outputs.DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime'] = None):
         """
-        :param 'DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs' window_start_time: 10h window for updates
+        :param 'DomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrgs' window_start_time: 10h window for updates
         """
         if window_start_time is not None:
             pulumi.set(__self__, "window_start_time", window_start_time)
@@ -1052,7 +1052,7 @@ class DomainOffPeakWindowOptionsOffPeakWindow(dict):
 
 
 @pulumi.output_type
-class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime(dict):
+calass DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime(dict):
     def __init__(__self__, *,
                  hours: Optional[int] = None,
                  minutes: Optional[int] = None):
@@ -1083,7 +1083,7 @@ class DomainOffPeakWindowOptionsOffPeakWindowWindowStartTime(dict):
 
 
 @pulumi.output_type
-class DomainSamlOptionsSamlOptions(dict):
+calass DomainSamlOptionsSamlOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1119,7 +1119,7 @@ class DomainSamlOptionsSamlOptions(dict):
                  subject_key: Optional[str] = None):
         """
         :param bool enabled: Whether SAML authentication is enabled.
-        :param 'DomainSamlOptionsSamlOptionsIdpArgs' idp: Information from your identity provider.
+        :param 'DomainSamlOptionsSamlOptionsIdpArrgs' idp: Information from your identity provider.
         :param str master_backend_role: This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         :param str master_user_name: This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         :param str roles_key: Element of the SAML assertion to use for backend roles. Default is roles.
@@ -1199,7 +1199,7 @@ class DomainSamlOptionsSamlOptions(dict):
 
 
 @pulumi.output_type
-class DomainSamlOptionsSamlOptionsIdp(dict):
+calass DomainSamlOptionsSamlOptionsIdp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1247,7 +1247,7 @@ class DomainSamlOptionsSamlOptionsIdp(dict):
 
 
 @pulumi.output_type
-class DomainSnapshotOptions(dict):
+calass DomainSnapshotOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1282,7 +1282,7 @@ class DomainSnapshotOptions(dict):
 
 
 @pulumi.output_type
-class DomainSoftwareUpdateOptions(dict):
+calass DomainSoftwareUpdateOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1318,7 +1318,7 @@ class DomainSoftwareUpdateOptions(dict):
 
 
 @pulumi.output_type
-class DomainVpcOptions(dict):
+calass DomainVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1388,7 +1388,7 @@ class DomainVpcOptions(dict):
 
 
 @pulumi.output_type
-class OutboundConnectionConnectionProperties(dict):
+calass OutboundConnectionConnectionProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1410,7 +1410,7 @@ class OutboundConnectionConnectionProperties(dict):
                  cross_cluster_search: Optional['outputs.OutboundConnectionConnectionPropertiesCrossClusterSearch'] = None,
                  endpoint: Optional[str] = None):
         """
-        :param 'OutboundConnectionConnectionPropertiesCrossClusterSearchArgs' cross_cluster_search: Configuration block for cross cluster search.
+        :param 'OutboundConnectionConnectionPropertiesCrossClusterSearchArrgs' cross_cluster_search: Configuration block for cross cluster search.
         :param str endpoint: The endpoint of the remote domain, is only set when `connection_mode` is `VPC_ENDPOINT` and `accept_connection` is `TRUE`.
         """
         if cross_cluster_search is not None:
@@ -1436,7 +1436,7 @@ class OutboundConnectionConnectionProperties(dict):
 
 
 @pulumi.output_type
-class OutboundConnectionConnectionPropertiesCrossClusterSearch(dict):
+calass OutboundConnectionConnectionPropertiesCrossClusterSearch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1472,7 +1472,7 @@ class OutboundConnectionConnectionPropertiesCrossClusterSearch(dict):
 
 
 @pulumi.output_type
-class OutboundConnectionLocalDomainInfo(dict):
+calass OutboundConnectionLocalDomainInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1531,7 +1531,7 @@ class OutboundConnectionLocalDomainInfo(dict):
 
 
 @pulumi.output_type
-class OutboundConnectionRemoteDomainInfo(dict):
+calass OutboundConnectionRemoteDomainInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1590,7 +1590,7 @@ class OutboundConnectionRemoteDomainInfo(dict):
 
 
 @pulumi.output_type
-class PackagePackageSource(dict):
+calass PackagePackageSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1638,7 +1638,7 @@ class PackagePackageSource(dict):
 
 
 @pulumi.output_type
-class ServerlessCollectionTimeouts(dict):
+calass ServerlessCollectionTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None):
@@ -1659,7 +1659,7 @@ class ServerlessCollectionTimeouts(dict):
 
 
 @pulumi.output_type
-class ServerlessSecurityConfigSamlOptions(dict):
+calass ServerlessSecurityConfigSamlOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1734,7 +1734,7 @@ class ServerlessSecurityConfigSamlOptions(dict):
 
 
 @pulumi.output_type
-class ServerlessVpcEndpointTimeouts(dict):
+calass ServerlessVpcEndpointTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
@@ -1763,7 +1763,7 @@ class ServerlessVpcEndpointTimeouts(dict):
 
 
 @pulumi.output_type
-class VpcEndpointVpcOptions(dict):
+calass VpcEndpointVpcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1832,7 +1832,7 @@ class VpcEndpointVpcOptions(dict):
 
 
 @pulumi.output_type
-class GetDomainAdvancedSecurityOptionResult(dict):
+calass GetDomainAdvancedSecurityOptionResult(dict):
     def __init__(__self__, *,
                  anonymous_auth_enabled: bool,
                  enabled: bool,
@@ -1868,14 +1868,14 @@ class GetDomainAdvancedSecurityOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainAutoTuneOptionResult(dict):
+calass GetDomainAutoTuneOptionResult(dict):
     def __init__(__self__, *,
                  desired_state: str,
                  maintenance_schedules: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult'],
                  rollback_on_disable: str):
         """
         :param str desired_state: Auto-Tune desired state for the domain.
-        :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleArgs'] maintenance_schedules: A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
+        :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleArrgs'] maintenance_schedules: A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
         :param str rollback_on_disable: Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         """
         pulumi.set(__self__, "desired_state", desired_state)
@@ -1908,14 +1908,14 @@ class GetDomainAutoTuneOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
+calass GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
     def __init__(__self__, *,
                  cron_expression_for_recurrence: str,
                  durations: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult'],
                  start_at: str):
         """
         :param str cron_expression_for_recurrence: Cron expression for an Auto-Tune maintenance schedule.
-        :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs'] durations: Configuration block for the duration of the Auto-Tune maintenance window.
+        :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleDurationArrgs'] durations: Configuration block for the duration of the Auto-Tune maintenance window.
         :param str start_at: Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
@@ -1948,7 +1948,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
+calass GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -1977,7 +1977,7 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
 
 
 @pulumi.output_type
-class GetDomainClusterConfigResult(dict):
+calass GetDomainClusterConfigResult(dict):
     def __init__(__self__, *,
                  cold_storage_options: Sequence['outputs.GetDomainClusterConfigColdStorageOptionResult'],
                  dedicated_master_count: int,
@@ -1992,7 +1992,7 @@ class GetDomainClusterConfigResult(dict):
                  zone_awareness_enabled: bool,
                  warm_enabled: Optional[bool] = None):
         """
-        :param Sequence['GetDomainClusterConfigColdStorageOptionArgs'] cold_storage_options: Configuration block containing cold storage configuration.
+        :param Sequence['GetDomainClusterConfigColdStorageOptionArrgs'] cold_storage_options: Configuration block containing cold storage configuration.
         :param int dedicated_master_count: Number of dedicated master nodes in the cluster.
         :param bool dedicated_master_enabled: Indicates whether dedicated master nodes are enabled for the cluster.
         :param str dedicated_master_type: Instance type of the dedicated master nodes in the cluster.
@@ -2000,7 +2000,7 @@ class GetDomainClusterConfigResult(dict):
         :param str instance_type: Instance type of data nodes in the cluster.
         :param int warm_count: Number of warm nodes in the cluster.
         :param str warm_type: Instance type for the OpenSearch cluster's warm nodes.
-        :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
+        :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArrgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
         :param bool zone_awareness_enabled: Indicates whether zone awareness is enabled.
         :param bool warm_enabled: Warm storage is enabled.
         """
@@ -2113,7 +2113,7 @@ class GetDomainClusterConfigResult(dict):
 
 
 @pulumi.output_type
-class GetDomainClusterConfigColdStorageOptionResult(dict):
+calass GetDomainClusterConfigColdStorageOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -2131,7 +2131,7 @@ class GetDomainClusterConfigColdStorageOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainClusterConfigZoneAwarenessConfigResult(dict):
+calass GetDomainClusterConfigZoneAwarenessConfigResult(dict):
     def __init__(__self__, *,
                  availability_zone_count: int):
         """
@@ -2149,7 +2149,7 @@ class GetDomainClusterConfigZoneAwarenessConfigResult(dict):
 
 
 @pulumi.output_type
-class GetDomainCognitoOptionResult(dict):
+calass GetDomainCognitoOptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  identity_pool_id: str,
@@ -2200,7 +2200,7 @@ class GetDomainCognitoOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainEbsOptionResult(dict):
+calass GetDomainEbsOptionResult(dict):
     def __init__(__self__, *,
                  ebs_enabled: bool,
                  iops: int,
@@ -2262,7 +2262,7 @@ class GetDomainEbsOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainEncryptionAtRestResult(dict):
+calass GetDomainEncryptionAtRestResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  kms_key_id: str):
@@ -2291,7 +2291,7 @@ class GetDomainEncryptionAtRestResult(dict):
 
 
 @pulumi.output_type
-class GetDomainLogPublishingOptionResult(dict):
+calass GetDomainLogPublishingOptionResult(dict):
     def __init__(__self__, *,
                  cloudwatch_log_group_arn: str,
                  enabled: bool,
@@ -2331,7 +2331,7 @@ class GetDomainLogPublishingOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainNodeToNodeEncryptionResult(dict):
+calass GetDomainNodeToNodeEncryptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -2349,7 +2349,7 @@ class GetDomainNodeToNodeEncryptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainOffPeakWindowOptionsResult(dict):
+calass GetDomainOffPeakWindowOptionsResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  off_peak_windows: Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowResult']):
@@ -2374,11 +2374,11 @@ class GetDomainOffPeakWindowOptionsResult(dict):
 
 
 @pulumi.output_type
-class GetDomainOffPeakWindowOptionsOffPeakWindowResult(dict):
+calass GetDomainOffPeakWindowOptionsOffPeakWindowResult(dict):
     def __init__(__self__, *,
                  window_start_times: Sequence['outputs.GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult']):
         """
-        :param Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArgs'] window_start_times: 10h window for updates
+        :param Sequence['GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeArrgs'] window_start_times: 10h window for updates
         """
         pulumi.set(__self__, "window_start_times", window_start_times)
 
@@ -2392,7 +2392,7 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowResult(dict):
 
 
 @pulumi.output_type
-class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(dict):
+calass GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(dict):
     def __init__(__self__, *,
                  hours: int,
                  minutes: int):
@@ -2421,7 +2421,7 @@ class GetDomainOffPeakWindowOptionsOffPeakWindowWindowStartTimeResult(dict):
 
 
 @pulumi.output_type
-class GetDomainSnapshotOptionResult(dict):
+calass GetDomainSnapshotOptionResult(dict):
     def __init__(__self__, *,
                  automated_snapshot_start_hour: int):
         """
@@ -2439,7 +2439,7 @@ class GetDomainSnapshotOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainSoftwareUpdateOptionResult(dict):
+calass GetDomainSoftwareUpdateOptionResult(dict):
     def __init__(__self__, *,
                  auto_software_update_enabled: bool):
         """
@@ -2457,7 +2457,7 @@ class GetDomainSoftwareUpdateOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDomainVpcOptionResult(dict):
+calass GetDomainVpcOptionResult(dict):
     def __init__(__self__, *,
                  availability_zones: Sequence[str],
                  security_group_ids: Sequence[str],
@@ -2508,7 +2508,7 @@ class GetDomainVpcOptionResult(dict):
 
 
 @pulumi.output_type
-class GetServerlessSecurityConfigSamlOptionsResult(dict):
+calass GetServerlessSecurityConfigSamlOptionsResult(dict):
     def __init__(__self__, *,
                  group_attribute: str,
                  metadata: str,

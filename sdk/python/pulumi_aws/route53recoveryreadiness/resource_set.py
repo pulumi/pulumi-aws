@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResourceSetArgs', 'ResourceSet']
+__all__ = ['ResourceSetArrgs', 'ResourceSet']
 
 @pulumi.input_type
-class ResourceSetArgs:
+calass ResourceSetArrgs:
     def __init__(__self__, *,
                  resource_set_name: pulumi.Input[str],
                  resource_set_type: pulumi.Input[str],
-                 resources: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]],
+                 resources: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArrgs']]],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]] resources: List of resources to add to this resource set. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArrgs']]] resources: List of resources to add to this resource set. See below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -61,7 +61,7 @@ class ResourceSetArgs:
 
     @property
     @pulumi.getter
-    def resources(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]:
+    def resources(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArrgs']]]:
         """
         List of resources to add to this resource set. See below.
 
@@ -70,7 +70,7 @@ class ResourceSetArgs:
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]):
+    def resources(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArrgs']]]):
         pulumi.set(self, "resources", value)
 
     @property
@@ -87,12 +87,12 @@ class ResourceSetArgs:
 
 
 @pulumi.input_type
-class _ResourceSetState:
+calass _ResourceSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
                  resource_set_type: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -100,7 +100,7 @@ class _ResourceSetState:
         :param pulumi.Input[str] arn: NLB resource ARN.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]] resources: List of resources to add to this resource set. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArrgs']]] resources: List of resources to add to this resource set. See below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -160,7 +160,7 @@ class _ResourceSetState:
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]]:
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArrgs']]]]:
         """
         List of resources to add to this resource set. See below.
 
@@ -169,7 +169,7 @@ class _ResourceSetState:
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]]]):
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArrgs']]]]):
         pulumi.set(self, "resources", value)
 
     @property
@@ -200,14 +200,14 @@ class _ResourceSetState:
         pulumi.set(self, "tags_all", value)
 
 
-class ResourceSet(pulumi.CustomResource):
+calass ResourceSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
                  resource_set_type: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -222,7 +222,7 @@ class ResourceSet(pulumi.CustomResource):
         example = aws.route53recoveryreadiness.ResourceSet("example",
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
-            resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
+            resources=[aws.route53recoveryreadiness.ResourceSetResourceArrgs(
                 resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
             )])
         ```
@@ -239,7 +239,7 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: List of resources to add to this resource set. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArrgs']]]] resources: List of resources to add to this resource set. See below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level
@@ -248,7 +248,7 @@ class ResourceSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceSetArgs,
+                 args: ResourceSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Route 53 Recovery Readiness Resource Set.
@@ -262,7 +262,7 @@ class ResourceSet(pulumi.CustomResource):
         example = aws.route53recoveryreadiness.ResourceSet("example",
             resource_set_name=my_cw_alarm_set,
             resource_set_type="AWS::CloudWatch::Alarm",
-            resources=[aws.route53recoveryreadiness.ResourceSetResourceArgs(
+            resources=[aws.route53recoveryreadiness.ResourceSetResourceArrgs(
                 resource_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
             )])
         ```
@@ -276,12 +276,12 @@ class ResourceSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourceSetArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -292,7 +292,7 @@ class ResourceSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  resource_set_name: Optional[pulumi.Input[str]] = None,
                  resource_set_type: Optional[pulumi.Input[str]] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -301,7 +301,7 @@ class ResourceSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceSetArgs.__new__(ResourceSetArgs)
+            __props__ = ResourceSetArrgs.__new__(ResourceSetArrgs)
 
             if resource_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_set_name'")
@@ -330,7 +330,7 @@ class ResourceSet(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             resource_set_name: Optional[pulumi.Input[str]] = None,
             resource_set_type: Optional[pulumi.Input[str]] = None,
-            resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
+            resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ResourceSet':
         """
@@ -343,7 +343,7 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[str] arn: NLB resource ARN.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: List of resources to add to this resource set. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArrgs']]]] resources: List of resources to add to this resource set. See below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level

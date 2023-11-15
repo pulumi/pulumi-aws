@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LbAttachmentArgs', 'LbAttachment']
+__all__ = ['LbAttachmentArrgs', 'LbAttachment']
 
 @pulumi.input_type
-class LbAttachmentArgs:
+calass LbAttachmentArrgs:
     def __init__(__self__, *,
                  instance_name: pulumi.Input[str],
                  lb_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class LbAttachmentArgs:
 
 
 @pulumi.input_type
-class _LbAttachmentState:
+calass _LbAttachmentState:
     def __init__(__self__, *,
                  instance_name: Optional[pulumi.Input[str]] = None,
                  lb_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _LbAttachmentState:
         pulumi.set(self, "lb_name", value)
 
 
-class LbAttachment(pulumi.CustomResource):
+calass LbAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -107,7 +107,7 @@ class LbAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
+            filters=[aws.GetAvailabilityZonesFilterArrgs(
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
@@ -143,7 +143,7 @@ class LbAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LbAttachmentArgs,
+                 args: LbAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a Lightsail Instance to a Lightsail Load Balancer.
@@ -155,7 +155,7 @@ class LbAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
+            filters=[aws.GetAvailabilityZonesFilterArrgs(
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
@@ -183,12 +183,12 @@ class LbAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LbAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param LbAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LbAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LbAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -206,7 +206,7 @@ class LbAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LbAttachmentArgs.__new__(LbAttachmentArgs)
+            __props__ = LbAttachmentArrgs.__new__(LbAttachmentArrgs)
 
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")

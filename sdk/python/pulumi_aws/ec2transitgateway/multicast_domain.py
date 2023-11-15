@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MulticastDomainArgs', 'MulticastDomain']
+__all__ = ['MulticastDomainArrgs', 'MulticastDomain']
 
 @pulumi.input_type
-class MulticastDomainArgs:
+calass MulticastDomainArrgs:
     def __init__(__self__, *,
                  transit_gateway_id: pulumi.Input[str],
                  auto_accept_shared_associations: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class MulticastDomainArgs:
 
 
 @pulumi.input_type
-class _MulticastDomainState:
+calass _MulticastDomainState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_accept_shared_associations: Optional[pulumi.Input[str]] = None,
@@ -240,7 +240,7 @@ class _MulticastDomainState:
         pulumi.set(self, "transit_gateway_id", value)
 
 
-class MulticastDomain(pulumi.CustomResource):
+calass MulticastDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -264,11 +264,11 @@ class MulticastDomain(pulumi.CustomResource):
         amazon_linux = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
-                aws.ec2.GetAmiFilterArgs(
+                aws.ec2.GetAmiFilterArrgs(
                     name="name",
                     values=["amzn-ami-hvm-*-x86_64-gp2"],
                 ),
-                aws.ec2.GetAmiFilterArgs(
+                aws.ec2.GetAmiFilterArrgs(
                     name="owner-alias",
                     values=["amazon"],
                 ),
@@ -363,7 +363,7 @@ class MulticastDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MulticastDomainArgs,
+                 args: MulticastDomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Transit Gateway Multicast Domain.
@@ -378,11 +378,11 @@ class MulticastDomain(pulumi.CustomResource):
         amazon_linux = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
             filters=[
-                aws.ec2.GetAmiFilterArgs(
+                aws.ec2.GetAmiFilterArrgs(
                     name="name",
                     values=["amzn-ami-hvm-*-x86_64-gp2"],
                 ),
-                aws.ec2.GetAmiFilterArgs(
+                aws.ec2.GetAmiFilterArrgs(
                     name="owner-alias",
                     values=["amazon"],
                 ),
@@ -466,12 +466,12 @@ class MulticastDomain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MulticastDomainArgs args: The arguments to use to populate this resource's properties.
+        :param MulticastDomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MulticastDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MulticastDomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -492,7 +492,7 @@ class MulticastDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MulticastDomainArgs.__new__(MulticastDomainArgs)
+            __props__ = MulticastDomainArrgs.__new__(MulticastDomainArrgs)
 
             __props__.__dict__["auto_accept_shared_associations"] = auto_accept_shared_associations
             __props__.__dict__["igmpv2_support"] = igmpv2_support

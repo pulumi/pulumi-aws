@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIndexResult:
+calass GetIndexResult:
     """
     A collection of values returned by getIndex.
     """
@@ -223,7 +223,7 @@ class GetIndexResult:
         return pulumi.get(self, "user_token_configurations")
 
 
-class AwaitableGetIndexResult(GetIndexResult):
+calass AwaitableGetIndexResult(GetIndexResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

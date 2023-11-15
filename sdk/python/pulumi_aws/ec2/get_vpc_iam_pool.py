@@ -21,7 +21,7 @@ __all__ = [
 warnings.warn("""aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool""", DeprecationWarning)
 
 @pulumi.output_type
-class GetVpcIamPoolResult:
+calass GetVpcIamPoolResult:
     """
     A collection of values returned by getVpcIamPool.
     """
@@ -233,7 +233,7 @@ class GetVpcIamPoolResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVpcIamPoolResult(GetVpcIamPoolResult):
+calass AwaitableGetVpcIamPoolResult(GetVpcIamPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -262,7 +262,7 @@ class AwaitableGetVpcIamPoolResult(GetVpcIamPoolResult):
 
 
 def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = None,
-                     filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']]] = None,
+                     filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolFilterArrgs']]] = None,
                      id: Optional[str] = None,
                      ipam_pool_id: Optional[str] = None,
                      tags: Optional[Mapping[str, str]] = None,
@@ -285,11 +285,11 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
     import pulumi_aws as aws
 
     test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
-        aws.ec2.GetVpcIpamPoolFilterArgs(
+        aws.ec2.GetVpcIpamPoolFilterArrgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIpamPoolFilterArgs(
+        aws.ec2.GetVpcIpamPoolFilterArrgs(
             name="address-family",
             values=["ipv4"],
         ),
@@ -301,7 +301,7 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
 
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
-    :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArrgs']] filters: Custom filter block as described below.
     :param str id: ID of the IPAM pool.
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.
@@ -341,7 +341,7 @@ def get_vpc_iam_pool(allocation_resource_tags: Optional[Mapping[str, str]] = Non
 
 @_utilities.lift_output_func(get_vpc_iam_pool)
 def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
-                            filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']]]]] = None,
+                            filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolFilterArrgs']]]]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
                             ipam_pool_id: Optional[pulumi.Input[Optional[str]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -364,11 +364,11 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
     import pulumi_aws as aws
 
     test_vpc_ipam_pool = aws.ec2.get_vpc_ipam_pool(filters=[
-        aws.ec2.GetVpcIpamPoolFilterArgs(
+        aws.ec2.GetVpcIpamPoolFilterArrgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIpamPoolFilterArgs(
+        aws.ec2.GetVpcIpamPoolFilterArrgs(
             name="address-family",
             values=["ipv4"],
         ),
@@ -380,7 +380,7 @@ def get_vpc_iam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opti
 
 
     :param Mapping[str, str] allocation_resource_tags: Tags that are required to create resources in using this pool.
-    :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIamPoolFilterArrgs']] filters: Custom filter block as described below.
     :param str id: ID of the IPAM pool.
     :param str ipam_pool_id: ID of the IPAM pool you would like information on.
     :param Mapping[str, str] tags: Map of tags to assigned to the resource.

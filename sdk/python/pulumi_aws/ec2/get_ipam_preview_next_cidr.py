@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIpamPreviewNextCidrResult:
+calass GetIpamPreviewNextCidrResult:
     """
     A collection of values returned by getIpamPreviewNextCidr.
     """
@@ -70,7 +70,7 @@ class GetIpamPreviewNextCidrResult:
         return pulumi.get(self, "netmask_length")
 
 
-class AwaitableGetIpamPreviewNextCidrResult(GetIpamPreviewNextCidrResult):
+calass AwaitableGetIpamPreviewNextCidrResult(GetIpamPreviewNextCidrResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

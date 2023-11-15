@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetSecurityGroupRuleFilterArgs',
-    'GetSecurityGroupRulesFilterArgs',
+    'GetSecurityGroupRuleFilterArrgs',
+    'GetSecurityGroupRulesFilterArrgs',
 ]
 
 @pulumi.input_type
-class GetSecurityGroupRuleFilterArgs:
+calass GetSecurityGroupRuleFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -52,7 +52,7 @@ class GetSecurityGroupRuleFilterArgs:
 
 
 @pulumi.input_type
-class GetSecurityGroupRulesFilterArgs:
+calass GetSecurityGroupRulesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

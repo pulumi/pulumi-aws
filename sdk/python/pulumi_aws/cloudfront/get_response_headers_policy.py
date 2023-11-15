@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResponseHeadersPolicyResult:
+calass GetResponseHeadersPolicyResult:
     """
     A collection of values returned by getResponseHeadersPolicy.
     """
@@ -118,7 +118,7 @@ class GetResponseHeadersPolicyResult:
         return pulumi.get(self, "server_timing_headers_configs")
 
 
-class AwaitableGetResponseHeadersPolicyResult(GetResponseHeadersPolicyResult):
+calass AwaitableGetResponseHeadersPolicyResult(GetResponseHeadersPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

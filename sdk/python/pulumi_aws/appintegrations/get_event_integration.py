@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEventIntegrationResult:
+calass GetEventIntegrationResult:
     """
     A collection of values returned by getEventIntegration.
     """
@@ -99,7 +99,7 @@ class GetEventIntegrationResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetEventIntegrationResult(GetEventIntegrationResult):
+calass AwaitableGetEventIntegrationResult(GetEventIntegrationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

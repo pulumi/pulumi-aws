@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOntapFileSystemResult:
+calass GetOntapFileSystemResult:
     """
     A collection of values returned by getOntapFileSystem.
     """
@@ -256,7 +256,7 @@ class GetOntapFileSystemResult:
         return pulumi.get(self, "weekly_maintenance_start_time")
 
 
-class AwaitableGetOntapFileSystemResult(GetOntapFileSystemResult):
+calass AwaitableGetOntapFileSystemResult(GetOntapFileSystemResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

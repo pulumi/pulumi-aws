@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReceivedLicenseResult:
+calass GetReceivedLicenseResult:
     """
     A collection of values returned by getReceivedLicense.
     """
@@ -199,7 +199,7 @@ class GetReceivedLicenseResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetReceivedLicenseResult(GetReceivedLicenseResult):
+calass AwaitableGetReceivedLicenseResult(GetReceivedLicenseResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
