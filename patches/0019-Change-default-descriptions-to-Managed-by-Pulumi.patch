@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Tue, 28 Feb 2023 15:19:24 +0000
-Subject: [PATCH 22/30] Change default descriptions to "Managed by Pulumi"
+Subject: [PATCH 19/29] Change default descriptions to "Managed by Pulumi"
 
 
 diff --git a/internal/service/apigateway/api_key.go b/internal/service/apigateway/api_key.go
@@ -1030,10 +1030,10 @@ index 0299067dea..b47d987426 100644
  			"name": {
  				Type:     schema.TypeString,
 diff --git a/internal/service/route53/record.go b/internal/service/route53/record.go
-index 4f2eb6d5ef..0b7eee84ce 100644
+index 2e9ca234f9..598808d204 100644
 --- a/internal/service/route53/record.go
 +++ b/internal/service/route53/record.go
-@@ -305,7 +305,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -307,7 +307,7 @@ func resourceRecordCreate(ctx context.Context, d *schema.ResourceData, meta inte
  	// retry for us since Route53 sometimes returns errors about another
  	// operation happening at the same time.
  	changeBatch := &route53.ChangeBatch{
@@ -1042,7 +1042,7 @@ index 4f2eb6d5ef..0b7eee84ce 100644
  		Changes: []*route53.Change{
  			{
  				Action:            aws.String(action),
-@@ -581,7 +581,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -583,7 +583,7 @@ func resourceRecordUpdate(ctx context.Context, d *schema.ResourceData, meta inte
  	// StateChangeConf for this to retry for us since Route53 sometimes returns
  	// errors about another operation happening at the same time.
  	changeBatch := &route53.ChangeBatch{
@@ -1051,7 +1051,7 @@ index 4f2eb6d5ef..0b7eee84ce 100644
  		Changes: []*route53.Change{
  			{
  				Action:            aws.String(route53.ChangeActionDelete),
-@@ -652,7 +652,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta inte
+@@ -654,7 +654,7 @@ func resourceRecordDelete(ctx context.Context, d *schema.ResourceData, meta inte
  
  	// Change batch for deleting
  	changeBatch := &route53.ChangeBatch{
