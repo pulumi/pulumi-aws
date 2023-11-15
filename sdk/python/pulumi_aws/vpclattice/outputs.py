@@ -39,7 +39,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ListenerDefaultAction(dict):
+calass ListenerDefaultAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -61,7 +61,7 @@ class ListenerDefaultAction(dict):
                  fixed_response: Optional['outputs.ListenerDefaultActionFixedResponse'] = None,
                  forwards: Optional[Sequence['outputs.ListenerDefaultActionForward']] = None):
         """
-        :param Sequence['ListenerDefaultActionForwardArgs'] forwards: Route requests to one or more target groups. See Forward blocks below.
+        :param Sequence['ListenerDefaultActionForwardArrgs'] forwards: Route requests to one or more target groups. See Forward blocks below.
                
                > **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
         """
@@ -87,7 +87,7 @@ class ListenerDefaultAction(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionFixedResponse(dict):
+calass ListenerDefaultActionFixedResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -122,7 +122,7 @@ class ListenerDefaultActionFixedResponse(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionForward(dict):
+calass ListenerDefaultActionForward(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -143,7 +143,7 @@ class ListenerDefaultActionForward(dict):
     def __init__(__self__, *,
                  target_groups: Optional[Sequence['outputs.ListenerDefaultActionForwardTargetGroup']] = None):
         """
-        :param Sequence['ListenerDefaultActionForwardTargetGroupArgs'] target_groups: One or more target group blocks.
+        :param Sequence['ListenerDefaultActionForwardTargetGroupArrgs'] target_groups: One or more target group blocks.
         """
         if target_groups is not None:
             pulumi.set(__self__, "target_groups", target_groups)
@@ -158,7 +158,7 @@ class ListenerDefaultActionForward(dict):
 
 
 @pulumi.output_type
-class ListenerDefaultActionForwardTargetGroup(dict):
+calass ListenerDefaultActionForwardTargetGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -208,7 +208,7 @@ class ListenerDefaultActionForwardTargetGroup(dict):
 
 
 @pulumi.output_type
-class ListenerRuleAction(dict):
+calass ListenerRuleAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -230,8 +230,8 @@ class ListenerRuleAction(dict):
                  fixed_response: Optional['outputs.ListenerRuleActionFixedResponse'] = None,
                  forward: Optional['outputs.ListenerRuleActionForward'] = None):
         """
-        :param 'ListenerRuleActionFixedResponseArgs' fixed_response: Describes the rule action that returns a custom HTTP response.
-        :param 'ListenerRuleActionForwardArgs' forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        :param 'ListenerRuleActionFixedResponseArrgs' fixed_response: Describes the rule action that returns a custom HTTP response.
+        :param 'ListenerRuleActionForwardArrgs' forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
         """
         if fixed_response is not None:
             pulumi.set(__self__, "fixed_response", fixed_response)
@@ -256,7 +256,7 @@ class ListenerRuleAction(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionFixedResponse(dict):
+calass ListenerRuleActionFixedResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -291,7 +291,7 @@ class ListenerRuleActionFixedResponse(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionForward(dict):
+calass ListenerRuleActionForward(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -312,7 +312,7 @@ class ListenerRuleActionForward(dict):
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.ListenerRuleActionForwardTargetGroup']):
         """
-        :param Sequence['ListenerRuleActionForwardTargetGroupArgs'] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+        :param Sequence['ListenerRuleActionForwardTargetGroupArrgs'] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
                
                The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
         """
@@ -330,7 +330,7 @@ class ListenerRuleActionForward(dict):
 
 
 @pulumi.output_type
-class ListenerRuleActionForwardTargetGroup(dict):
+calass ListenerRuleActionForwardTargetGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -367,7 +367,7 @@ class ListenerRuleActionForwardTargetGroup(dict):
 
 
 @pulumi.output_type
-class ListenerRuleMatch(dict):
+calass ListenerRuleMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -388,7 +388,7 @@ class ListenerRuleMatch(dict):
     def __init__(__self__, *,
                  http_match: Optional['outputs.ListenerRuleMatchHttpMatch'] = None):
         """
-        :param 'ListenerRuleMatchHttpMatchArgs' http_match: The HTTP criteria that a rule must match.
+        :param 'ListenerRuleMatchHttpMatchArrgs' http_match: The HTTP criteria that a rule must match.
         """
         if http_match is not None:
             pulumi.set(__self__, "http_match", http_match)
@@ -403,7 +403,7 @@ class ListenerRuleMatch(dict):
 
 
 @pulumi.output_type
-class ListenerRuleMatchHttpMatch(dict):
+calass ListenerRuleMatchHttpMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -428,9 +428,9 @@ class ListenerRuleMatchHttpMatch(dict):
                  method: Optional[str] = None,
                  path_match: Optional['outputs.ListenerRuleMatchHttpMatchPathMatch'] = None):
         """
-        :param Sequence['ListenerRuleMatchHttpMatchHeaderMatchArgs'] header_matches: The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        :param Sequence['ListenerRuleMatchHttpMatchHeaderMatchArrgs'] header_matches: The header matches. Matches incoming requests with rule based on request header value before applying rule action.
         :param str method: The HTTP method type.
-        :param 'ListenerRuleMatchHttpMatchPathMatchArgs' path_match: The path match.
+        :param 'ListenerRuleMatchHttpMatchPathMatchArrgs' path_match: The path match.
         """
         if header_matches is not None:
             pulumi.set(__self__, "header_matches", header_matches)
@@ -465,7 +465,7 @@ class ListenerRuleMatchHttpMatch(dict):
 
 
 @pulumi.output_type
-class ListenerRuleMatchHttpMatchHeaderMatch(dict):
+calass ListenerRuleMatchHttpMatchHeaderMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -488,7 +488,7 @@ class ListenerRuleMatchHttpMatchHeaderMatch(dict):
                  name: str,
                  case_sensitive: Optional[bool] = None):
         """
-        :param 'ListenerRuleMatchHttpMatchHeaderMatchMatchArgs' match: The header match type.
+        :param 'ListenerRuleMatchHttpMatchHeaderMatchMatchArrgs' match: The header match type.
         :param str name: The name of the header.
         :param bool case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
         """
@@ -523,7 +523,7 @@ class ListenerRuleMatchHttpMatchHeaderMatch(dict):
 
 
 @pulumi.output_type
-class ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
+calass ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
     def __init__(__self__, *,
                  contains: Optional[str] = None,
                  exact: Optional[str] = None,
@@ -566,7 +566,7 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatch(dict):
 
 
 @pulumi.output_type
-class ListenerRuleMatchHttpMatchPathMatch(dict):
+calass ListenerRuleMatchHttpMatchPathMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -588,7 +588,7 @@ class ListenerRuleMatchHttpMatchPathMatch(dict):
                  match: 'outputs.ListenerRuleMatchHttpMatchPathMatchMatch',
                  case_sensitive: Optional[bool] = None):
         """
-        :param 'ListenerRuleMatchHttpMatchPathMatchMatchArgs' match: The header match type.
+        :param 'ListenerRuleMatchHttpMatchPathMatchMatchArrgs' match: The header match type.
         :param bool case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
         """
         pulumi.set(__self__, "match", match)
@@ -613,7 +613,7 @@ class ListenerRuleMatchHttpMatchPathMatch(dict):
 
 
 @pulumi.output_type
-class ListenerRuleMatchHttpMatchPathMatchMatch(dict):
+calass ListenerRuleMatchHttpMatchPathMatchMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None):
@@ -644,7 +644,7 @@ class ListenerRuleMatchHttpMatchPathMatchMatch(dict):
 
 
 @pulumi.output_type
-class ServiceDnsEntry(dict):
+calass ServiceDnsEntry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -684,7 +684,7 @@ class ServiceDnsEntry(dict):
 
 
 @pulumi.output_type
-class ServiceNetworkServiceAssociationDnsEntry(dict):
+calass ServiceNetworkServiceAssociationDnsEntry(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -734,7 +734,7 @@ class ServiceNetworkServiceAssociationDnsEntry(dict):
 
 
 @pulumi.output_type
-class TargetGroupAttachmentTarget(dict):
+calass TargetGroupAttachmentTarget(dict):
     def __init__(__self__, *,
                  id: str,
                  port: Optional[int] = None):
@@ -764,7 +764,7 @@ class TargetGroupAttachmentTarget(dict):
 
 
 @pulumi.output_type
-class TargetGroupConfig(dict):
+calass TargetGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -799,7 +799,7 @@ class TargetGroupConfig(dict):
                  protocol_version: Optional[str] = None,
                  vpc_identifier: Optional[str] = None):
         """
-        :param 'TargetGroupConfigHealthCheckArgs' health_check: The health check configuration.
+        :param 'TargetGroupConfigHealthCheckArrgs' health_check: The health check configuration.
         :param str ip_address_type: The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
         :param str lambda_event_structure_version: The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
         :param int port: The port on which the targets are listening.
@@ -880,7 +880,7 @@ class TargetGroupConfig(dict):
 
 
 @pulumi.output_type
-class TargetGroupConfigHealthCheck(dict):
+calass TargetGroupConfigHealthCheck(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -922,7 +922,7 @@ class TargetGroupConfigHealthCheck(dict):
         :param int health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
         :param int health_check_timeout_seconds: The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
                * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
-        :param 'TargetGroupConfigHealthCheckMatcherArgs' matcher: The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+        :param 'TargetGroupConfigHealthCheckMatcherArrgs' matcher: The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
         :param str path: The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
         :param int port: The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
         :param str protocol: The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
@@ -1030,7 +1030,7 @@ class TargetGroupConfigHealthCheck(dict):
 
 
 @pulumi.output_type
-class TargetGroupConfigHealthCheckMatcher(dict):
+calass TargetGroupConfigHealthCheckMatcher(dict):
     def __init__(__self__, *,
                  value: Optional[str] = None):
         """
@@ -1049,7 +1049,7 @@ class TargetGroupConfigHealthCheckMatcher(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionResult(dict):
+calass GetListenerDefaultActionResult(dict):
     def __init__(__self__, *,
                  fixed_responses: Sequence['outputs.GetListenerDefaultActionFixedResponseResult'],
                  forwards: Sequence['outputs.GetListenerDefaultActionForwardResult']):
@@ -1068,7 +1068,7 @@ class GetListenerDefaultActionResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionFixedResponseResult(dict):
+calass GetListenerDefaultActionFixedResponseResult(dict):
     def __init__(__self__, *,
                  status_code: int):
         pulumi.set(__self__, "status_code", status_code)
@@ -1080,7 +1080,7 @@ class GetListenerDefaultActionFixedResponseResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionForwardResult(dict):
+calass GetListenerDefaultActionForwardResult(dict):
     def __init__(__self__, *,
                  target_groups: Sequence['outputs.GetListenerDefaultActionForwardTargetGroupResult']):
         pulumi.set(__self__, "target_groups", target_groups)
@@ -1092,7 +1092,7 @@ class GetListenerDefaultActionForwardResult(dict):
 
 
 @pulumi.output_type
-class GetListenerDefaultActionForwardTargetGroupResult(dict):
+calass GetListenerDefaultActionForwardTargetGroupResult(dict):
     def __init__(__self__, *,
                  target_group_identifier: str,
                  weight: int):
@@ -1111,7 +1111,7 @@ class GetListenerDefaultActionForwardTargetGroupResult(dict):
 
 
 @pulumi.output_type
-class GetServiceDnsEntryResult(dict):
+calass GetServiceDnsEntryResult(dict):
     def __init__(__self__, *,
                  domain_name: str,
                  hosted_zone_id: str):

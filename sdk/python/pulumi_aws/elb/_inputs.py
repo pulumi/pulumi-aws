@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LoadBalancerAccessLogsArgs',
-    'LoadBalancerHealthCheckArgs',
-    'LoadBalancerListenerArgs',
-    'LoadBalancerPolicyPolicyAttributeArgs',
-    'SslNegotiationPolicyAttributeArgs',
+    'LoadBalancerAccessLogsArrgs',
+    'LoadBalancerHealthCheckArrgs',
+    'LoadBalancerListenerArrgs',
+    'LoadBalancerPolicyPolicyAttributeArrgs',
+    'SslNegotiationPolicyAttributeArrgs',
 ]
 
 @pulumi.input_type
-class LoadBalancerAccessLogsArgs:
+calass LoadBalancerAccessLogsArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  bucket_prefix: Optional[pulumi.Input[str]] = None,
@@ -88,7 +88,7 @@ class LoadBalancerAccessLogsArgs:
 
 
 @pulumi.input_type
-class LoadBalancerHealthCheckArgs:
+calass LoadBalancerHealthCheckArrgs:
     def __init__(__self__, *,
                  healthy_threshold: pulumi.Input[int],
                  interval: pulumi.Input[int],
@@ -172,7 +172,7 @@ class LoadBalancerHealthCheckArgs:
 
 
 @pulumi.input_type
-class LoadBalancerListenerArgs:
+calass LoadBalancerListenerArrgs:
     def __init__(__self__, *,
                  instance_port: pulumi.Input[int],
                  instance_protocol: pulumi.Input[str],
@@ -261,7 +261,7 @@ class LoadBalancerListenerArgs:
 
 
 @pulumi.input_type
-class LoadBalancerPolicyPolicyAttributeArgs:
+calass LoadBalancerPolicyPolicyAttributeArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -290,7 +290,7 @@ class LoadBalancerPolicyPolicyAttributeArgs:
 
 
 @pulumi.input_type
-class SslNegotiationPolicyAttributeArgs:
+calass SslNegotiationPolicyAttributeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):

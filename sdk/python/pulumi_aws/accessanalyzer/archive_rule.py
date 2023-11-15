@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ArchiveRuleArgs', 'ArchiveRule']
+__all__ = ['ArchiveRuleArrgs', 'ArchiveRule']
 
 @pulumi.input_type
-class ArchiveRuleArgs:
+calass ArchiveRuleArrgs:
     def __init__(__self__, *,
                  analyzer_name: pulumi.Input[str],
-                 filters: pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]],
+                 filters: pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArrgs']]],
                  rule_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a ArchiveRule resource.
         :param pulumi.Input[str] analyzer_name: Analyzer name.
-        :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArrgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[str] rule_name: Rule name.
         """
         pulumi.set(__self__, "analyzer_name", analyzer_name)
@@ -43,14 +43,14 @@ class ArchiveRuleArgs:
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]]:
+    def filters(self) -> pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArrgs']]]:
         """
         Filter criteria for the archive rule. See Filter for more details.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]]):
+    def filters(self, value: pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArrgs']]]):
         pulumi.set(self, "filters", value)
 
     @property
@@ -67,15 +67,15 @@ class ArchiveRuleArgs:
 
 
 @pulumi.input_type
-class _ArchiveRuleState:
+calass _ArchiveRuleState:
     def __init__(__self__, *,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArrgs']]]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ArchiveRule resources.
         :param pulumi.Input[str] analyzer_name: Analyzer name.
-        :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArrgs']]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[str] rule_name: Rule name.
         """
         if analyzer_name is not None:
@@ -99,14 +99,14 @@ class _ArchiveRuleState:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]]]:
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArrgs']]]]:
         """
         Filter criteria for the archive rule. See Filter for more details.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArgs']]]]):
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ArchiveRuleFilterArrgs']]]]):
         pulumi.set(self, "filters", value)
 
     @property
@@ -122,13 +122,13 @@ class _ArchiveRuleState:
         pulumi.set(self, "rule_name", value)
 
 
-class ArchiveRule(pulumi.CustomResource):
+calass ArchiveRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArrgs']]]]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -144,15 +144,15 @@ class ArchiveRule(pulumi.CustomResource):
         example = aws.accessanalyzer.ArchiveRule("example",
             analyzer_name="example-analyzer",
             filters=[
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                aws.accessanalyzer.ArchiveRuleFilterArrgs(
                     criteria="condition.aws:UserId",
                     eqs=["userid"],
                 ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                aws.accessanalyzer.ArchiveRuleFilterArrgs(
                     criteria="error",
                     exists="true",
                 ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                aws.accessanalyzer.ArchiveRuleFilterArrgs(
                     criteria="isPublic",
                     eqs=["false"],
                 ),
@@ -171,14 +171,14 @@ class ArchiveRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Analyzer name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArrgs']]]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[str] rule_name: Rule name.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ArchiveRuleArgs,
+                 args: ArchiveRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS AccessAnalyzer Archive Rule.
@@ -193,15 +193,15 @@ class ArchiveRule(pulumi.CustomResource):
         example = aws.accessanalyzer.ArchiveRule("example",
             analyzer_name="example-analyzer",
             filters=[
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                aws.accessanalyzer.ArchiveRuleFilterArrgs(
                     criteria="condition.aws:UserId",
                     eqs=["userid"],
                 ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                aws.accessanalyzer.ArchiveRuleFilterArrgs(
                     criteria="error",
                     exists="true",
                 ),
-                aws.accessanalyzer.ArchiveRuleFilterArgs(
+                aws.accessanalyzer.ArchiveRuleFilterArrgs(
                     criteria="isPublic",
                     eqs=["false"],
                 ),
@@ -218,12 +218,12 @@ class ArchiveRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ArchiveRuleArgs args: The arguments to use to populate this resource's properties.
+        :param ArchiveRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ArchiveRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ArchiveRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -233,7 +233,7 @@ class ArchiveRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArrgs']]]]] = None,
                  rule_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -242,7 +242,7 @@ class ArchiveRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ArchiveRuleArgs.__new__(ArchiveRuleArgs)
+            __props__ = ArchiveRuleArrgs.__new__(ArchiveRuleArrgs)
 
             if analyzer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'analyzer_name'")
@@ -264,7 +264,7 @@ class ArchiveRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             analyzer_name: Optional[pulumi.Input[str]] = None,
-            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]]] = None,
+            filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArrgs']]]]] = None,
             rule_name: Optional[pulumi.Input[str]] = None) -> 'ArchiveRule':
         """
         Get an existing ArchiveRule resource's state with the given name, id, and optional extra
@@ -274,7 +274,7 @@ class ArchiveRule(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analyzer_name: Analyzer name.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArgs']]]] filters: Filter criteria for the archive rule. See Filter for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ArchiveRuleFilterArrgs']]]] filters: Filter criteria for the archive rule. See Filter for more details.
         :param pulumi.Input[str] rule_name: Rule name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

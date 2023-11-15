@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserArgs', 'User']
+__all__ = ['UserArrgs', 'User']
 
 @pulumi.input_type
-class UserArgs:
+calass UserArrgs:
     def __init__(__self__, *,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class UserArgs:
 
 
 @pulumi.input_type
-class _UserState:
+calass _UserState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
@@ -249,7 +249,7 @@ class _UserState:
         pulumi.set(self, "unique_id", value)
 
 
-class User(pulumi.CustomResource):
+calass User(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -277,7 +277,7 @@ class User(pulumi.CustomResource):
                 "tag-key": "tag-value",
             })
         lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
@@ -309,7 +309,7 @@ class User(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[UserArgs] = None,
+                 args: Optional[UserArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM user.
@@ -328,7 +328,7 @@ class User(pulumi.CustomResource):
                 "tag-key": "tag-value",
             })
         lb_access_key = aws.iam.AccessKey("lbAccessKey", user=lb_user.name)
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
@@ -347,12 +347,12 @@ class User(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserArgs args: The arguments to use to populate this resource's properties.
+        :param UserArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -373,7 +373,7 @@ class User(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserArgs.__new__(UserArgs)
+            __props__ = UserArrgs.__new__(UserArrgs)
 
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["name"] = name

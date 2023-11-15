@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ModelPackageGroupPolicyArgs', 'ModelPackageGroupPolicy']
+__all__ = ['ModelPackageGroupPolicyArrgs', 'ModelPackageGroupPolicy']
 
 @pulumi.input_type
-class ModelPackageGroupPolicyArgs:
+calass ModelPackageGroupPolicyArrgs:
     def __init__(__self__, *,
                  model_package_group_name: pulumi.Input[str],
                  resource_policy: pulumi.Input[str]):
@@ -46,7 +46,7 @@ class ModelPackageGroupPolicyArgs:
 
 
 @pulumi.input_type
-class _ModelPackageGroupPolicyState:
+calass _ModelPackageGroupPolicyState:
     def __init__(__self__, *,
                  model_package_group_name: Optional[pulumi.Input[str]] = None,
                  resource_policy: Optional[pulumi.Input[str]] = None):
@@ -81,7 +81,7 @@ class _ModelPackageGroupPolicyState:
         pulumi.set(self, "resource_policy", value)
 
 
-class ModelPackageGroupPolicy(pulumi.CustomResource):
+calass ModelPackageGroupPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -110,7 +110,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ModelPackageGroupPolicyArgs,
+                 args: ModelPackageGroupPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker Model Package Group Policy resource.
@@ -126,12 +126,12 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ModelPackageGroupPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ModelPackageGroupPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ModelPackageGroupPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ModelPackageGroupPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -149,7 +149,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ModelPackageGroupPolicyArgs.__new__(ModelPackageGroupPolicyArgs)
+            __props__ = ModelPackageGroupPolicyArrgs.__new__(ModelPackageGroupPolicyArrgs)
 
             if model_package_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'model_package_group_name'")

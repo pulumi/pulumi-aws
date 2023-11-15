@@ -85,7 +85,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ContainerRecipeComponent(dict):
+calass ContainerRecipeComponent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -108,7 +108,7 @@ class ContainerRecipeComponent(dict):
                  parameters: Optional[Sequence['outputs.ContainerRecipeComponentParameter']] = None):
         """
         :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
-        :param Sequence['ContainerRecipeComponentParameterArgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
+        :param Sequence['ContainerRecipeComponentParameterArrgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
         """
         pulumi.set(__self__, "component_arn", component_arn)
         if parameters is not None:
@@ -132,7 +132,7 @@ class ContainerRecipeComponent(dict):
 
 
 @pulumi.output_type
-class ContainerRecipeComponentParameter(dict):
+calass ContainerRecipeComponentParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -161,7 +161,7 @@ class ContainerRecipeComponentParameter(dict):
 
 
 @pulumi.output_type
-class ContainerRecipeInstanceConfiguration(dict):
+calass ContainerRecipeInstanceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -183,7 +183,7 @@ class ContainerRecipeInstanceConfiguration(dict):
                  block_device_mappings: Optional[Sequence['outputs.ContainerRecipeInstanceConfigurationBlockDeviceMapping']] = None,
                  image: Optional[str] = None):
         """
-        :param Sequence['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs'] block_device_mappings: Configuration block(s) with block device mappings for the container recipe. Detailed below.
+        :param Sequence['ContainerRecipeInstanceConfigurationBlockDeviceMappingArrgs'] block_device_mappings: Configuration block(s) with block device mappings for the container recipe. Detailed below.
         :param str image: The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
         """
         if block_device_mappings is not None:
@@ -209,7 +209,7 @@ class ContainerRecipeInstanceConfiguration(dict):
 
 
 @pulumi.output_type
-class ContainerRecipeInstanceConfigurationBlockDeviceMapping(dict):
+calass ContainerRecipeInstanceConfigurationBlockDeviceMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -238,7 +238,7 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMapping(dict):
                  virtual_name: Optional[str] = None):
         """
         :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-        :param 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs' ebs: Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        :param 'ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArrgs' ebs: Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
         :param bool no_device: Set to `true` to remove a mapping from the parent image.
         :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         """
@@ -285,7 +285,7 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMapping(dict):
 
 
 @pulumi.output_type
-class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(dict):
+calass ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -413,7 +413,7 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(dict):
 
 
 @pulumi.output_type
-class ContainerRecipeTargetRepository(dict):
+calass ContainerRecipeTargetRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -459,7 +459,7 @@ class ContainerRecipeTargetRepository(dict):
 
 
 @pulumi.output_type
-class DistributionConfigurationDistribution(dict):
+calass DistributionConfigurationDistribution(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -496,10 +496,10 @@ class DistributionConfigurationDistribution(dict):
         :param str region: AWS Region for the distribution.
                
                The following arguments are optional:
-        :param 'DistributionConfigurationDistributionAmiDistributionConfigurationArgs' ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs' container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
-        :param Sequence['DistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-        :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
+        :param 'DistributionConfigurationDistributionAmiDistributionConfigurationArrgs' ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationArrgs' container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
+        :param Sequence['DistributionConfigurationDistributionFastLaunchConfigurationArrgs'] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+        :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArrgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         """
         pulumi.set(__self__, "region", region)
@@ -566,7 +566,7 @@ class DistributionConfigurationDistribution(dict):
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
+calass DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -601,7 +601,7 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
         :param Mapping[str, str] ami_tags: Key-value map of tags to apply to the distributed AMI.
         :param str description: Description to apply to the distributed AMI.
         :param str kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
-        :param 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs' launch_permission: Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
+        :param 'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrgs' launch_permission: Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
         :param str name: Name to apply to the distributed AMI.
         :param Sequence[str] target_account_ids: Set of AWS Account identifiers to distribute the AMI.
         """
@@ -668,7 +668,7 @@ class DistributionConfigurationDistributionAmiDistributionConfiguration(dict):
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission(dict):
+calass DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -746,7 +746,7 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionContainerDistributionConfiguration(dict):
+calass DistributionConfigurationDistributionContainerDistributionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -771,7 +771,7 @@ class DistributionConfigurationDistributionContainerDistributionConfiguration(di
                  container_tags: Optional[Sequence[str]] = None,
                  description: Optional[str] = None):
         """
-        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs' target_repository: Configuration block with the destination repository for the container distribution configuration.
+        :param 'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrgs' target_repository: Configuration block with the destination repository for the container distribution configuration.
         :param Sequence[str] container_tags: Set of tags that are attached to the container distribution configuration.
         :param str description: Description of the container distribution configuration.
         """
@@ -807,7 +807,7 @@ class DistributionConfigurationDistributionContainerDistributionConfiguration(di
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository(dict):
+calass DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -853,7 +853,7 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationTar
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
+calass DistributionConfigurationDistributionFastLaunchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -886,9 +886,9 @@ class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
         """
         :param str account_id: The owner account ID for the fast-launch enabled Windows AMI.
         :param bool enabled: A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
-        :param 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs' launch_template: Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+        :param 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrgs' launch_template: Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
         :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
-        :param 'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs' snapshot_configuration: Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+        :param 'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrgs' snapshot_configuration: Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "enabled", enabled)
@@ -941,7 +941,7 @@ class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate(dict):
+calass DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1005,7 +1005,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration(dict):
+calass DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1041,7 +1041,7 @@ class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfig
 
 
 @pulumi.output_type
-class DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
+calass DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1102,7 +1102,7 @@ class DistributionConfigurationDistributionLaunchTemplateConfiguration(dict):
 
 
 @pulumi.output_type
-class ImageImageScanningConfiguration(dict):
+calass ImageImageScanningConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1126,7 +1126,7 @@ class ImageImageScanningConfiguration(dict):
                  ecr_configuration: Optional['outputs.ImageImageScanningConfigurationEcrConfiguration'] = None,
                  image_scanning_enabled: Optional[bool] = None):
         """
-        :param 'ImageImageScanningConfigurationEcrConfigurationArgs' ecr_configuration: Configuration block with ECR configuration. Detailed below.
+        :param 'ImageImageScanningConfigurationEcrConfigurationArrgs' ecr_configuration: Configuration block with ECR configuration. Detailed below.
         :param bool image_scanning_enabled: Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
         """
         if ecr_configuration is not None:
@@ -1152,7 +1152,7 @@ class ImageImageScanningConfiguration(dict):
 
 
 @pulumi.output_type
-class ImageImageScanningConfigurationEcrConfiguration(dict):
+calass ImageImageScanningConfigurationEcrConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1202,7 +1202,7 @@ class ImageImageScanningConfigurationEcrConfiguration(dict):
 
 
 @pulumi.output_type
-class ImageImageTestsConfiguration(dict):
+calass ImageImageTestsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1252,13 +1252,13 @@ class ImageImageTestsConfiguration(dict):
 
 
 @pulumi.output_type
-class ImageOutputResource(dict):
+calass ImageOutputResource(dict):
     def __init__(__self__, *,
                  amis: Optional[Sequence['outputs.ImageOutputResourceAmi']] = None,
                  containers: Optional[Sequence['outputs.ImageOutputResourceContainer']] = None):
         """
-        :param Sequence['ImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
-        :param Sequence['ImageOutputResourceContainerArgs'] containers: Set of objects with each container image created and stored in the output repository.
+        :param Sequence['ImageOutputResourceAmiArrgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        :param Sequence['ImageOutputResourceContainerArrgs'] containers: Set of objects with each container image created and stored in the output repository.
         """
         if amis is not None:
             pulumi.set(__self__, "amis", amis)
@@ -1283,7 +1283,7 @@ class ImageOutputResource(dict):
 
 
 @pulumi.output_type
-class ImageOutputResourceAmi(dict):
+calass ImageOutputResourceAmi(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1367,7 +1367,7 @@ class ImageOutputResourceAmi(dict):
 
 
 @pulumi.output_type
-class ImageOutputResourceContainer(dict):
+calass ImageOutputResourceContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1415,7 +1415,7 @@ class ImageOutputResourceContainer(dict):
 
 
 @pulumi.output_type
-class ImagePipelineImageScanningConfiguration(dict):
+calass ImagePipelineImageScanningConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1439,7 +1439,7 @@ class ImagePipelineImageScanningConfiguration(dict):
                  ecr_configuration: Optional['outputs.ImagePipelineImageScanningConfigurationEcrConfiguration'] = None,
                  image_scanning_enabled: Optional[bool] = None):
         """
-        :param 'ImagePipelineImageScanningConfigurationEcrConfigurationArgs' ecr_configuration: Configuration block with ECR configuration for image scanning. Detailed below.
+        :param 'ImagePipelineImageScanningConfigurationEcrConfigurationArrgs' ecr_configuration: Configuration block with ECR configuration for image scanning. Detailed below.
         :param bool image_scanning_enabled: Whether image scans are enabled. Defaults to `false`.
         """
         if ecr_configuration is not None:
@@ -1465,7 +1465,7 @@ class ImagePipelineImageScanningConfiguration(dict):
 
 
 @pulumi.output_type
-class ImagePipelineImageScanningConfigurationEcrConfiguration(dict):
+calass ImagePipelineImageScanningConfigurationEcrConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1511,7 +1511,7 @@ class ImagePipelineImageScanningConfigurationEcrConfiguration(dict):
 
 
 @pulumi.output_type
-class ImagePipelineImageTestsConfiguration(dict):
+calass ImagePipelineImageTestsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1561,7 +1561,7 @@ class ImagePipelineImageTestsConfiguration(dict):
 
 
 @pulumi.output_type
-class ImagePipelineSchedule(dict):
+calass ImagePipelineSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1626,7 +1626,7 @@ class ImagePipelineSchedule(dict):
 
 
 @pulumi.output_type
-class ImageRecipeBlockDeviceMapping(dict):
+calass ImageRecipeBlockDeviceMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1655,7 +1655,7 @@ class ImageRecipeBlockDeviceMapping(dict):
                  virtual_name: Optional[str] = None):
         """
         :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-        :param 'ImageRecipeBlockDeviceMappingEbsArgs' ebs: Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+        :param 'ImageRecipeBlockDeviceMappingEbsArrgs' ebs: Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
         :param bool no_device: Set to `true` to remove a mapping from the parent image.
         :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         """
@@ -1702,7 +1702,7 @@ class ImageRecipeBlockDeviceMapping(dict):
 
 
 @pulumi.output_type
-class ImageRecipeBlockDeviceMappingEbs(dict):
+calass ImageRecipeBlockDeviceMappingEbs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1830,7 +1830,7 @@ class ImageRecipeBlockDeviceMappingEbs(dict):
 
 
 @pulumi.output_type
-class ImageRecipeComponent(dict):
+calass ImageRecipeComponent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1853,7 +1853,7 @@ class ImageRecipeComponent(dict):
                  parameters: Optional[Sequence['outputs.ImageRecipeComponentParameter']] = None):
         """
         :param str component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
-        :param Sequence['ImageRecipeComponentParameterArgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
+        :param Sequence['ImageRecipeComponentParameterArrgs'] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
         """
         pulumi.set(__self__, "component_arn", component_arn)
         if parameters is not None:
@@ -1877,7 +1877,7 @@ class ImageRecipeComponent(dict):
 
 
 @pulumi.output_type
-class ImageRecipeComponentParameter(dict):
+calass ImageRecipeComponentParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1906,7 +1906,7 @@ class ImageRecipeComponentParameter(dict):
 
 
 @pulumi.output_type
-class ImageRecipeSystemsManagerAgent(dict):
+calass ImageRecipeSystemsManagerAgent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1941,7 +1941,7 @@ class ImageRecipeSystemsManagerAgent(dict):
 
 
 @pulumi.output_type
-class InfrastructureConfigurationInstanceMetadataOptions(dict):
+calass InfrastructureConfigurationInstanceMetadataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1991,7 +1991,7 @@ class InfrastructureConfigurationInstanceMetadataOptions(dict):
 
 
 @pulumi.output_type
-class InfrastructureConfigurationLogging(dict):
+calass InfrastructureConfigurationLogging(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2012,7 +2012,7 @@ class InfrastructureConfigurationLogging(dict):
     def __init__(__self__, *,
                  s3_logs: 'outputs.InfrastructureConfigurationLoggingS3Logs'):
         """
-        :param 'InfrastructureConfigurationLoggingS3LogsArgs' s3_logs: Configuration block with S3 logging settings. Detailed below.
+        :param 'InfrastructureConfigurationLoggingS3LogsArrgs' s3_logs: Configuration block with S3 logging settings. Detailed below.
         """
         pulumi.set(__self__, "s3_logs", s3_logs)
 
@@ -2026,7 +2026,7 @@ class InfrastructureConfigurationLogging(dict):
 
 
 @pulumi.output_type
-class InfrastructureConfigurationLoggingS3Logs(dict):
+calass InfrastructureConfigurationLoggingS3Logs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2079,7 +2079,7 @@ class InfrastructureConfigurationLoggingS3Logs(dict):
 
 
 @pulumi.output_type
-class GetComponentsFilterResult(dict):
+calass GetComponentsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -2108,13 +2108,13 @@ class GetComponentsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetContainerRecipeComponentResult(dict):
+calass GetContainerRecipeComponentResult(dict):
     def __init__(__self__, *,
                  component_arn: str,
                  parameters: Sequence['outputs.GetContainerRecipeComponentParameterResult']):
         """
         :param str component_arn: ARN of the Image Builder Component.
-        :param Sequence['GetContainerRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
+        :param Sequence['GetContainerRecipeComponentParameterArrgs'] parameters: Set of parameters that are used to configure the component.
         """
         pulumi.set(__self__, "component_arn", component_arn)
         pulumi.set(__self__, "parameters", parameters)
@@ -2137,7 +2137,7 @@ class GetContainerRecipeComponentResult(dict):
 
 
 @pulumi.output_type
-class GetContainerRecipeComponentParameterResult(dict):
+calass GetContainerRecipeComponentParameterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2166,12 +2166,12 @@ class GetContainerRecipeComponentParameterResult(dict):
 
 
 @pulumi.output_type
-class GetContainerRecipeInstanceConfigurationResult(dict):
+calass GetContainerRecipeInstanceConfigurationResult(dict):
     def __init__(__self__, *,
                  block_device_mappings: Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult'],
                  image: str):
         """
-        :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingArgs'] block_device_mappings: Set of objects with block device mappings for the instance configuration.
+        :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingArrgs'] block_device_mappings: Set of objects with block device mappings for the instance configuration.
         :param str image: AMI ID of the base image for container build and test instance.
         """
         pulumi.set(__self__, "block_device_mappings", block_device_mappings)
@@ -2195,7 +2195,7 @@ class GetContainerRecipeInstanceConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(dict):
+calass GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(dict):
     def __init__(__self__, *,
                  device_name: str,
                  ebs: Sequence['outputs.GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult'],
@@ -2203,7 +2203,7 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(dict):
                  virtual_name: str):
         """
         :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-        :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArgs'] ebs: Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        :param Sequence['GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbArrgs'] ebs: Single list of object with Elastic Block Storage (EBS) block device mapping settings.
         :param str no_device: Whether to remove a mapping from the parent image.
         :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         """
@@ -2246,7 +2246,7 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingResult(dict):
 
 
 @pulumi.output_type
-class GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult(dict):
+calass GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult(dict):
     def __init__(__self__, *,
                  delete_on_termination: bool,
                  encrypted: bool,
@@ -2341,7 +2341,7 @@ class GetContainerRecipeInstanceConfigurationBlockDeviceMappingEbResult(dict):
 
 
 @pulumi.output_type
-class GetContainerRecipeTargetRepositoryResult(dict):
+calass GetContainerRecipeTargetRepositoryResult(dict):
     def __init__(__self__, *,
                  repository_name: str,
                  service: str):
@@ -2370,7 +2370,7 @@ class GetContainerRecipeTargetRepositoryResult(dict):
 
 
 @pulumi.output_type
-class GetContainerRecipesFilterResult(dict):
+calass GetContainerRecipesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -2399,7 +2399,7 @@ class GetContainerRecipesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionResult(dict):
+calass GetDistributionConfigurationDistributionResult(dict):
     def __init__(__self__, *,
                  ami_distribution_configurations: Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult'],
                  container_distribution_configurations: Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult'],
@@ -2408,10 +2408,10 @@ class GetDistributionConfigurationDistributionResult(dict):
                  license_configuration_arns: Sequence[str],
                  region: str):
         """
-        :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configurations: Nested list of AMI distribution configuration.
-        :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configurations: Nested list of container distribution configurations.
-        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Nested list of Windows faster-launching configurations to use for AMI distribution.
-        :param Sequence['GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Nested list of launch template configurations.
+        :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationArrgs'] ami_distribution_configurations: Nested list of AMI distribution configuration.
+        :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationArrgs'] container_distribution_configurations: Nested list of container distribution configurations.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationArrgs'] fast_launch_configurations: Nested list of Windows faster-launching configurations to use for AMI distribution.
+        :param Sequence['GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrgs'] launch_template_configurations: Nested list of launch template configurations.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         :param str region: AWS Region of distribution.
         """
@@ -2472,7 +2472,7 @@ class GetDistributionConfigurationDistributionResult(dict):
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult(dict):
+calass GetDistributionConfigurationDistributionAmiDistributionConfigurationResult(dict):
     def __init__(__self__, *,
                  ami_tags: Mapping[str, str],
                  description: str,
@@ -2484,7 +2484,7 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
         :param Mapping[str, str] ami_tags: Key-value map of tags to apply to distributed AMI.
         :param str description: Description of the container distribution configuration.
         :param str kms_key_id: ARN of Key Management Service (KMS) Key to encrypt AMI.
-        :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs'] launch_permissions: Nested list of EC2 launch permissions.
+        :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrgs'] launch_permissions: Nested list of EC2 launch permissions.
         :param str name: Name of the distribution configuration.
         :param Sequence[str] target_account_ids: Set of target AWS Account identifiers.
         """
@@ -2545,7 +2545,7 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationResult
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult(dict):
+calass GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult(dict):
     def __init__(__self__, *,
                  organization_arns: Sequence[str],
                  organizational_unit_arns: Sequence[str],
@@ -2596,7 +2596,7 @@ class GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunch
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionContainerDistributionConfigurationResult(dict):
+calass GetDistributionConfigurationDistributionContainerDistributionConfigurationResult(dict):
     def __init__(__self__, *,
                  container_tags: Sequence[str],
                  description: str,
@@ -2604,7 +2604,7 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
         """
         :param Sequence[str] container_tags: Set of tags that are attached to the container distribution configuration.
         :param str description: Description of the container distribution configuration.
-        :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs'] target_repositories: Set of destination repositories for the container distribution configuration.
+        :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrgs'] target_repositories: Set of destination repositories for the container distribution configuration.
         """
         pulumi.set(__self__, "container_tags", container_tags)
         pulumi.set(__self__, "description", description)
@@ -2636,7 +2636,7 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult(dict):
+calass GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult(dict):
     def __init__(__self__, *,
                  repository_name: str,
                  service: str):
@@ -2665,7 +2665,7 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionFastLaunchConfigurationResult(dict):
+calass GetDistributionConfigurationDistributionFastLaunchConfigurationResult(dict):
     def __init__(__self__, *,
                  account_id: str,
                  enabled: bool,
@@ -2675,9 +2675,9 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationResult(dict
         """
         :param str account_id: The account ID that this configuration applies to.
         :param bool enabled: A Boolean that represents the current state of faster launching for the Windows AMI.
-        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs'] launch_templates: Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrgs'] launch_templates: Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
         :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
-        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs'] snapshot_configurations: Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrgs'] snapshot_configurations: Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
         """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "enabled", enabled)
@@ -2727,7 +2727,7 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationResult(dict
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult(dict):
+calass GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult(dict):
     def __init__(__self__, *,
                  launch_template_id: str,
                  launch_template_name: str,
@@ -2767,7 +2767,7 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTempl
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult(dict):
+calass GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult(dict):
     def __init__(__self__, *,
                  target_resource_count: int):
         """
@@ -2785,7 +2785,7 @@ class GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotCon
 
 
 @pulumi.output_type
-class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(dict):
+calass GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(dict):
     def __init__(__self__, *,
                  account_id: str,
                  default: bool,
@@ -2825,7 +2825,7 @@ class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(
 
 
 @pulumi.output_type
-class GetDistributionConfigurationsFilterResult(dict):
+calass GetDistributionConfigurationsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -2854,12 +2854,12 @@ class GetDistributionConfigurationsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetImageImageScanningConfigurationResult(dict):
+calass GetImageImageScanningConfigurationResult(dict):
     def __init__(__self__, *,
                  ecr_configurations: Sequence['outputs.GetImageImageScanningConfigurationEcrConfigurationResult'],
                  image_scanning_enabled: bool):
         """
-        :param Sequence['GetImageImageScanningConfigurationEcrConfigurationArgs'] ecr_configurations: Configuration block with ECR configuration.
+        :param Sequence['GetImageImageScanningConfigurationEcrConfigurationArrgs'] ecr_configurations: Configuration block with ECR configuration.
         :param bool image_scanning_enabled: Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image.
         """
         pulumi.set(__self__, "ecr_configurations", ecr_configurations)
@@ -2883,7 +2883,7 @@ class GetImageImageScanningConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetImageImageScanningConfigurationEcrConfigurationResult(dict):
+calass GetImageImageScanningConfigurationEcrConfigurationResult(dict):
     def __init__(__self__, *,
                  container_tags: Sequence[str],
                  repository_name: str):
@@ -2912,7 +2912,7 @@ class GetImageImageScanningConfigurationEcrConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetImageImageTestsConfigurationResult(dict):
+calass GetImageImageTestsConfigurationResult(dict):
     def __init__(__self__, *,
                  image_tests_enabled: bool,
                  timeout_minutes: int):
@@ -2941,13 +2941,13 @@ class GetImageImageTestsConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetImageOutputResourceResult(dict):
+calass GetImageOutputResourceResult(dict):
     def __init__(__self__, *,
                  amis: Sequence['outputs.GetImageOutputResourceAmiResult'],
                  containers: Sequence['outputs.GetImageOutputResourceContainerResult']):
         """
-        :param Sequence['GetImageOutputResourceAmiArgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
-        :param Sequence['GetImageOutputResourceContainerArgs'] containers: Set of objects with each container image created and stored in the output repository.
+        :param Sequence['GetImageOutputResourceAmiArrgs'] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        :param Sequence['GetImageOutputResourceContainerArrgs'] containers: Set of objects with each container image created and stored in the output repository.
         """
         pulumi.set(__self__, "amis", amis)
         pulumi.set(__self__, "containers", containers)
@@ -2970,7 +2970,7 @@ class GetImageOutputResourceResult(dict):
 
 
 @pulumi.output_type
-class GetImageOutputResourceAmiResult(dict):
+calass GetImageOutputResourceAmiResult(dict):
     def __init__(__self__, *,
                  account_id: str,
                  description: str,
@@ -3032,7 +3032,7 @@ class GetImageOutputResourceAmiResult(dict):
 
 
 @pulumi.output_type
-class GetImageOutputResourceContainerResult(dict):
+calass GetImageOutputResourceContainerResult(dict):
     def __init__(__self__, *,
                  image_uris: Sequence[str],
                  region: str):
@@ -3061,12 +3061,12 @@ class GetImageOutputResourceContainerResult(dict):
 
 
 @pulumi.output_type
-class GetImagePipelineImageScanningConfigurationResult(dict):
+calass GetImagePipelineImageScanningConfigurationResult(dict):
     def __init__(__self__, *,
                  ecr_configurations: Sequence['outputs.GetImagePipelineImageScanningConfigurationEcrConfigurationResult'],
                  image_scanning_enabled: bool):
         """
-        :param Sequence['GetImagePipelineImageScanningConfigurationEcrConfigurationArgs'] ecr_configurations: List if an object with ecr configuration for image scanning
+        :param Sequence['GetImagePipelineImageScanningConfigurationEcrConfigurationArrgs'] ecr_configurations: List if an object with ecr configuration for image scanning
         :param bool image_scanning_enabled: Whether image scanning is enabled.
         """
         pulumi.set(__self__, "ecr_configurations", ecr_configurations)
@@ -3090,7 +3090,7 @@ class GetImagePipelineImageScanningConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetImagePipelineImageScanningConfigurationEcrConfigurationResult(dict):
+calass GetImagePipelineImageScanningConfigurationEcrConfigurationResult(dict):
     def __init__(__self__, *,
                  container_tags: Sequence[str],
                  repository_name: str):
@@ -3119,7 +3119,7 @@ class GetImagePipelineImageScanningConfigurationEcrConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetImagePipelineImageTestsConfigurationResult(dict):
+calass GetImagePipelineImageTestsConfigurationResult(dict):
     def __init__(__self__, *,
                  image_tests_enabled: bool,
                  timeout_minutes: int):
@@ -3148,7 +3148,7 @@ class GetImagePipelineImageTestsConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetImagePipelineScheduleResult(dict):
+calass GetImagePipelineScheduleResult(dict):
     def __init__(__self__, *,
                  pipeline_execution_start_condition: str,
                  schedule_expression: str):
@@ -3177,7 +3177,7 @@ class GetImagePipelineScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetImagePipelinesFilterResult(dict):
+calass GetImagePipelinesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -3206,7 +3206,7 @@ class GetImagePipelinesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetImageRecipeBlockDeviceMappingResult(dict):
+calass GetImageRecipeBlockDeviceMappingResult(dict):
     def __init__(__self__, *,
                  device_name: str,
                  ebs: Sequence['outputs.GetImageRecipeBlockDeviceMappingEbResult'],
@@ -3214,7 +3214,7 @@ class GetImageRecipeBlockDeviceMappingResult(dict):
                  virtual_name: str):
         """
         :param str device_name: Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-        :param Sequence['GetImageRecipeBlockDeviceMappingEbArgs'] ebs: Single list of object with Elastic Block Storage (EBS) block device mapping settings.
+        :param Sequence['GetImageRecipeBlockDeviceMappingEbArrgs'] ebs: Single list of object with Elastic Block Storage (EBS) block device mapping settings.
         :param str no_device: Whether to remove a mapping from the parent image.
         :param str virtual_name: Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
         """
@@ -3257,7 +3257,7 @@ class GetImageRecipeBlockDeviceMappingResult(dict):
 
 
 @pulumi.output_type
-class GetImageRecipeBlockDeviceMappingEbResult(dict):
+calass GetImageRecipeBlockDeviceMappingEbResult(dict):
     def __init__(__self__, *,
                  delete_on_termination: bool,
                  encrypted: bool,
@@ -3352,13 +3352,13 @@ class GetImageRecipeBlockDeviceMappingEbResult(dict):
 
 
 @pulumi.output_type
-class GetImageRecipeComponentResult(dict):
+calass GetImageRecipeComponentResult(dict):
     def __init__(__self__, *,
                  component_arn: str,
                  parameters: Sequence['outputs.GetImageRecipeComponentParameterResult']):
         """
         :param str component_arn: ARN of the Image Builder Component.
-        :param Sequence['GetImageRecipeComponentParameterArgs'] parameters: Set of parameters that are used to configure the component.
+        :param Sequence['GetImageRecipeComponentParameterArrgs'] parameters: Set of parameters that are used to configure the component.
         """
         pulumi.set(__self__, "component_arn", component_arn)
         pulumi.set(__self__, "parameters", parameters)
@@ -3381,7 +3381,7 @@ class GetImageRecipeComponentResult(dict):
 
 
 @pulumi.output_type
-class GetImageRecipeComponentParameterResult(dict):
+calass GetImageRecipeComponentParameterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3410,7 +3410,7 @@ class GetImageRecipeComponentParameterResult(dict):
 
 
 @pulumi.output_type
-class GetImageRecipesFilterResult(dict):
+calass GetImageRecipesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -3439,7 +3439,7 @@ class GetImageRecipesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetInfrastructureConfigurationInstanceMetadataOptionResult(dict):
+calass GetInfrastructureConfigurationInstanceMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_put_response_hop_limit: int,
                  http_tokens: str):
@@ -3468,11 +3468,11 @@ class GetInfrastructureConfigurationInstanceMetadataOptionResult(dict):
 
 
 @pulumi.output_type
-class GetInfrastructureConfigurationLoggingResult(dict):
+calass GetInfrastructureConfigurationLoggingResult(dict):
     def __init__(__self__, *,
                  s3_logs: Sequence['outputs.GetInfrastructureConfigurationLoggingS3LogResult']):
         """
-        :param Sequence['GetInfrastructureConfigurationLoggingS3LogArgs'] s3_logs: Nested list of S3 logs settings.
+        :param Sequence['GetInfrastructureConfigurationLoggingS3LogArrgs'] s3_logs: Nested list of S3 logs settings.
         """
         pulumi.set(__self__, "s3_logs", s3_logs)
 
@@ -3486,7 +3486,7 @@ class GetInfrastructureConfigurationLoggingResult(dict):
 
 
 @pulumi.output_type
-class GetInfrastructureConfigurationLoggingS3LogResult(dict):
+calass GetInfrastructureConfigurationLoggingS3LogResult(dict):
     def __init__(__self__, *,
                  s3_bucket_name: str,
                  s3_key_prefix: str):
@@ -3515,7 +3515,7 @@ class GetInfrastructureConfigurationLoggingS3LogResult(dict):
 
 
 @pulumi.output_type
-class GetInfrastructureConfigurationsFilterResult(dict):
+calass GetInfrastructureConfigurationsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

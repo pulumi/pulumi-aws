@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetUserPoolsResult:
+calass GetUserPoolsResult:
     """
     A collection of values returned by getUserPools.
     """
@@ -65,7 +65,7 @@ class GetUserPoolsResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetUserPoolsResult(GetUserPoolsResult):
+calass AwaitableGetUserPoolsResult(GetUserPoolsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

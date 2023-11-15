@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ControlTowerControlArgs', 'ControlTowerControl']
+__all__ = ['ControlTowerControlArrgs', 'ControlTowerControl']
 
 @pulumi.input_type
-class ControlTowerControlArgs:
+calass ControlTowerControlArrgs:
     def __init__(__self__, *,
                  control_identifier: pulumi.Input[str],
                  target_identifier: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ControlTowerControlArgs:
 
 
 @pulumi.input_type
-class _ControlTowerControlState:
+calass _ControlTowerControlState:
     def __init__(__self__, *,
                  control_identifier: Optional[pulumi.Input[str]] = None,
                  target_identifier: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ControlTowerControlState:
         pulumi.set(self, "target_identifier", value)
 
 
-class ControlTowerControl(pulumi.CustomResource):
+calass ControlTowerControl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -132,7 +132,7 @@ class ControlTowerControl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ControlTowerControlArgs,
+                 args: ControlTowerControlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows the application of pre-defined controls to organizational units. For more information on usage, please see the
@@ -161,12 +161,12 @@ class ControlTowerControl(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ControlTowerControlArgs args: The arguments to use to populate this resource's properties.
+        :param ControlTowerControlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ControlTowerControlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ControlTowerControlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -184,7 +184,7 @@ class ControlTowerControl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ControlTowerControlArgs.__new__(ControlTowerControlArgs)
+            __props__ = ControlTowerControlArrgs.__new__(ControlTowerControlArrgs)
 
             if control_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'control_identifier'")

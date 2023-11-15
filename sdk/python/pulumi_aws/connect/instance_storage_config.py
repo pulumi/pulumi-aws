@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['InstanceStorageConfigArgs', 'InstanceStorageConfig']
+__all__ = ['InstanceStorageConfigArrgs', 'InstanceStorageConfig']
 
 @pulumi.input_type
-class InstanceStorageConfigArgs:
+calass InstanceStorageConfigArrgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[str],
                  resource_type: pulumi.Input[str],
-                 storage_config: pulumi.Input['InstanceStorageConfigStorageConfigArgs']):
+                 storage_config: pulumi.Input['InstanceStorageConfigStorageConfigArrgs']):
         """
         The set of arguments for constructing a InstanceStorageConfig resource.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-        :param pulumi.Input['InstanceStorageConfigStorageConfigArgs'] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
+        :param pulumi.Input['InstanceStorageConfigStorageConfigArrgs'] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "resource_type", resource_type)
@@ -55,30 +55,30 @@ class InstanceStorageConfigArgs:
 
     @property
     @pulumi.getter(name="storageConfig")
-    def storage_config(self) -> pulumi.Input['InstanceStorageConfigStorageConfigArgs']:
+    def storage_config(self) -> pulumi.Input['InstanceStorageConfigStorageConfigArrgs']:
         """
         Specifies the storage configuration options for the Connect Instance. Documented below.
         """
         return pulumi.get(self, "storage_config")
 
     @storage_config.setter
-    def storage_config(self, value: pulumi.Input['InstanceStorageConfigStorageConfigArgs']):
+    def storage_config(self, value: pulumi.Input['InstanceStorageConfigStorageConfigArrgs']):
         pulumi.set(self, "storage_config", value)
 
 
 @pulumi.input_type
-class _InstanceStorageConfigState:
+calass _InstanceStorageConfigState:
     def __init__(__self__, *,
                  association_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
-                 storage_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigArgs']] = None):
+                 storage_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigArrgs']] = None):
         """
         Input properties used for looking up and filtering InstanceStorageConfig resources.
         :param pulumi.Input[str] association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-        :param pulumi.Input['InstanceStorageConfigStorageConfigArgs'] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
+        :param pulumi.Input['InstanceStorageConfigStorageConfigArrgs'] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
         """
         if association_id is not None:
             pulumi.set(__self__, "association_id", association_id)
@@ -127,25 +127,25 @@ class _InstanceStorageConfigState:
 
     @property
     @pulumi.getter(name="storageConfig")
-    def storage_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigArgs']]:
+    def storage_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigArrgs']]:
         """
         Specifies the storage configuration options for the Connect Instance. Documented below.
         """
         return pulumi.get(self, "storage_config")
 
     @storage_config.setter
-    def storage_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigArgs']]):
+    def storage_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigArrgs']]):
         pulumi.set(self, "storage_config", value)
 
 
-class InstanceStorageConfig(pulumi.CustomResource):
+calass InstanceStorageConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
-                 storage_config: Optional[pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArgs']]] = None,
+                 storage_config: Optional[pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArrgs']]] = None,
                  __props__=None):
         """
         Provides an Amazon Connect Instance Storage Config resource. For more information see
@@ -161,8 +161,8 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="CONTACT_TRACE_RECORDS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                kinesis_firehose_config=aws.connect.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                kinesis_firehose_config=aws.connect.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs(
                     firehose_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
                 ),
                 storage_type="KINESIS_FIREHOSE",
@@ -177,8 +177,8 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="CONTACT_TRACE_RECORDS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                kinesis_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                kinesis_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs(
                     stream_arn=aws_kinesis_stream["example"]["arn"],
                 ),
                 storage_type="KINESIS_STREAM",
@@ -193,11 +193,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="MEDIA_STREAMS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                kinesis_video_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                kinesis_video_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs(
                     prefix="example",
                     retention_period_hours=3,
-                    encryption_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs(
+                    encryption_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs(
                         encryption_type="KMS",
                         key_id=aws_kms_key["example"]["arn"],
                     ),
@@ -214,8 +214,8 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="CHAT_TRANSCRIPTS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArrgs(
                     bucket_name=aws_s3_bucket["example"]["id"],
                     bucket_prefix="example",
                 ),
@@ -231,11 +231,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="CHAT_TRANSCRIPTS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArrgs(
                     bucket_name=aws_s3_bucket["example"]["id"],
                     bucket_prefix="example",
-                    encryption_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs(
+                    encryption_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs(
                         encryption_type="KMS",
                         key_id=aws_kms_key["example"]["arn"],
                     ),
@@ -256,13 +256,13 @@ class InstanceStorageConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArgs']] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
+        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArrgs']] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InstanceStorageConfigArgs,
+                 args: InstanceStorageConfigArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Connect Instance Storage Config resource. For more information see
@@ -278,8 +278,8 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="CONTACT_TRACE_RECORDS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                kinesis_firehose_config=aws.connect.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                kinesis_firehose_config=aws.connect.InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs(
                     firehose_arn=aws_kinesis_firehose_delivery_stream["example"]["arn"],
                 ),
                 storage_type="KINESIS_FIREHOSE",
@@ -294,8 +294,8 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="CONTACT_TRACE_RECORDS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                kinesis_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisStreamConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                kinesis_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs(
                     stream_arn=aws_kinesis_stream["example"]["arn"],
                 ),
                 storage_type="KINESIS_STREAM",
@@ -310,11 +310,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="MEDIA_STREAMS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                kinesis_video_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                kinesis_video_stream_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs(
                     prefix="example",
                     retention_period_hours=3,
-                    encryption_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs(
+                    encryption_config=aws.connect.InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs(
                         encryption_type="KMS",
                         key_id=aws_kms_key["example"]["arn"],
                     ),
@@ -331,8 +331,8 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="CHAT_TRANSCRIPTS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArrgs(
                     bucket_name=aws_s3_bucket["example"]["id"],
                     bucket_prefix="example",
                 ),
@@ -348,11 +348,11 @@ class InstanceStorageConfig(pulumi.CustomResource):
         example = aws.connect.InstanceStorageConfig("example",
             instance_id=aws_connect_instance["example"]["id"],
             resource_type="CHAT_TRANSCRIPTS",
-            storage_config=aws.connect.InstanceStorageConfigStorageConfigArgs(
-                s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArgs(
+            storage_config=aws.connect.InstanceStorageConfigStorageConfigArrgs(
+                s3_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigArrgs(
                     bucket_name=aws_s3_bucket["example"]["id"],
                     bucket_prefix="example",
-                    encryption_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs(
+                    encryption_config=aws.connect.InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs(
                         encryption_type="KMS",
                         key_id=aws_kms_key["example"]["arn"],
                     ),
@@ -370,12 +370,12 @@ class InstanceStorageConfig(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InstanceStorageConfigArgs args: The arguments to use to populate this resource's properties.
+        :param InstanceStorageConfigArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InstanceStorageConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceStorageConfigArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -386,7 +386,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
-                 storage_config: Optional[pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArgs']]] = None,
+                 storage_config: Optional[pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -394,7 +394,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InstanceStorageConfigArgs.__new__(InstanceStorageConfigArgs)
+            __props__ = InstanceStorageConfigArrgs.__new__(InstanceStorageConfigArrgs)
 
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
@@ -419,7 +419,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
             association_id: Optional[pulumi.Input[str]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
             resource_type: Optional[pulumi.Input[str]] = None,
-            storage_config: Optional[pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArgs']]] = None) -> 'InstanceStorageConfig':
+            storage_config: Optional[pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArrgs']]] = None) -> 'InstanceStorageConfig':
         """
         Get an existing InstanceStorageConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -430,7 +430,7 @@ class InstanceStorageConfig(pulumi.CustomResource):
         :param pulumi.Input[str] association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] resource_type: A valid resource type. Valid Values: `AGENT_EVENTS` | `ATTACHMENTS` | `CALL_RECORDINGS` | `CHAT_TRANSCRIPTS` | `CONTACT_EVALUATIONS` | `CONTACT_TRACE_RECORDS` | `MEDIA_STREAMS` | `REAL_TIME_CONTACT_ANALYSIS_SEGMENTS` | `SCHEDULED_REPORTS` | `SCREEN_RECORDINGS`.
-        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArgs']] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
+        :param pulumi.Input[pulumi.InputType['InstanceStorageConfigStorageConfigArrgs']] storage_config: Specifies the storage configuration options for the Connect Instance. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

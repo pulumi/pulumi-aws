@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VaultNotificationsArgs', 'VaultNotifications']
+__all__ = ['VaultNotificationsArrgs', 'VaultNotifications']
 
 @pulumi.input_type
-class VaultNotificationsArgs:
+calass VaultNotificationsArrgs:
     def __init__(__self__, *,
                  backup_vault_events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  backup_vault_name: pulumi.Input[str],
@@ -65,7 +65,7 @@ class VaultNotificationsArgs:
 
 
 @pulumi.input_type
-class _VaultNotificationsState:
+calass _VaultNotificationsState:
     def __init__(__self__, *,
                  backup_vault_arn: Optional[pulumi.Input[str]] = None,
                  backup_vault_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -136,7 +136,7 @@ class _VaultNotificationsState:
         pulumi.set(self, "sns_topic_arn", value)
 
 
-class VaultNotifications(pulumi.CustomResource):
+calass VaultNotifications(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -156,10 +156,10 @@ class VaultNotifications(pulumi.CustomResource):
 
         test_topic = aws.sns.Topic("testTopic")
         test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            statements=[aws.iam.GetPolicyDocumentStatementArrgs(
                 actions=["SNS:Publish"],
                 effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="Service",
                     identifiers=["backup.amazonaws.com"],
                 )],
@@ -196,7 +196,7 @@ class VaultNotifications(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VaultNotificationsArgs,
+                 args: VaultNotificationsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Backup vault notifications resource.
@@ -209,10 +209,10 @@ class VaultNotifications(pulumi.CustomResource):
 
         test_topic = aws.sns.Topic("testTopic")
         test_policy_document = test_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            statements=[aws.iam.GetPolicyDocumentStatementArrgs(
                 actions=["SNS:Publish"],
                 effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="Service",
                     identifiers=["backup.amazonaws.com"],
                 )],
@@ -240,12 +240,12 @@ class VaultNotifications(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VaultNotificationsArgs args: The arguments to use to populate this resource's properties.
+        :param VaultNotificationsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VaultNotificationsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VaultNotificationsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -264,7 +264,7 @@ class VaultNotifications(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VaultNotificationsArgs.__new__(VaultNotificationsArgs)
+            __props__ = VaultNotificationsArrgs.__new__(VaultNotificationsArrgs)
 
             if backup_vault_events is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_vault_events'")

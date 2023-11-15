@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LogGroupArgs', 'LogGroup']
+__all__ = ['LogGroupArrgs', 'LogGroup']
 
 @pulumi.input_type
-class LogGroupArgs:
+calass LogGroupArrgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class LogGroupArgs:
 
 
 @pulumi.input_type
-class _LogGroupState:
+calass _LogGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -273,7 +273,7 @@ class _LogGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class LogGroup(pulumi.CustomResource):
+calass LogGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -325,7 +325,7 @@ class LogGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[LogGroupArgs] = None,
+                 args: Optional[LogGroupArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Log Group resource.
@@ -351,12 +351,12 @@ class LogGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogGroupArgs args: The arguments to use to populate this resource's properties.
+        :param LogGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -378,7 +378,7 @@ class LogGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogGroupArgs.__new__(LogGroupArgs)
+            __props__ = LogGroupArrgs.__new__(LogGroupArrgs)
 
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name

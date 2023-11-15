@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['HoursOfOperationArgs', 'HoursOfOperation']
+__all__ = ['HoursOfOperationArrgs', 'HoursOfOperation']
 
 @pulumi.input_type
-class HoursOfOperationArgs:
+calass HoursOfOperationArrgs:
     def __init__(__self__, *,
-                 configs: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]],
+                 configs: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArrgs']]],
                  instance_id: pulumi.Input[str],
                  time_zone: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class HoursOfOperationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a HoursOfOperation resource.
-        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArrgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] time_zone: Specifies the time zone of the Hours of Operation.
         :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
@@ -43,14 +43,14 @@ class HoursOfOperationArgs:
 
     @property
     @pulumi.getter
-    def configs(self) -> pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]:
+    def configs(self) -> pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArrgs']]]:
         """
         One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         """
         return pulumi.get(self, "configs")
 
     @configs.setter
-    def configs(self, value: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]):
+    def configs(self, value: pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArrgs']]]):
         pulumi.set(self, "configs", value)
 
     @property
@@ -115,10 +115,10 @@ class HoursOfOperationArgs:
 
 
 @pulumi.input_type
-class _HoursOfOperationState:
+calass _HoursOfOperationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 configs: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]] = None,
+                 configs: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  hours_of_operation_id: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class _HoursOfOperationState:
         """
         Input properties used for looking up and filtering HoursOfOperation resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
-        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArrgs']]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
@@ -174,14 +174,14 @@ class _HoursOfOperationState:
 
     @property
     @pulumi.getter
-    def configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]]:
+    def configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArrgs']]]]:
         """
         One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         """
         return pulumi.get(self, "configs")
 
     @configs.setter
-    def configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArgs']]]]):
+    def configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HoursOfOperationConfigArrgs']]]]):
         pulumi.set(self, "configs", value)
 
     @property
@@ -272,12 +272,12 @@ class _HoursOfOperationState:
         pulumi.set(self, "time_zone", value)
 
 
-class HoursOfOperation(pulumi.CustomResource):
+calass HoursOfOperation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]]] = None,
+                 configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -296,24 +296,24 @@ class HoursOfOperation(pulumi.CustomResource):
 
         test = aws.connect.HoursOfOperation("test",
             configs=[
-                aws.connect.HoursOfOperationConfigArgs(
+                aws.connect.HoursOfOperationConfigArrgs(
                     day="MONDAY",
-                    end_time=aws.connect.HoursOfOperationConfigEndTimeArgs(
+                    end_time=aws.connect.HoursOfOperationConfigEndTimeArrgs(
                         hours=23,
                         minutes=8,
                     ),
-                    start_time=aws.connect.HoursOfOperationConfigStartTimeArgs(
+                    start_time=aws.connect.HoursOfOperationConfigStartTimeArrgs(
                         hours=8,
                         minutes=0,
                     ),
                 ),
-                aws.connect.HoursOfOperationConfigArgs(
+                aws.connect.HoursOfOperationConfigArrgs(
                     day="TUESDAY",
-                    end_time=aws.connect.HoursOfOperationConfigEndTimeArgs(
+                    end_time=aws.connect.HoursOfOperationConfigEndTimeArrgs(
                         hours=21,
                         minutes=0,
                     ),
-                    start_time=aws.connect.HoursOfOperationConfigStartTimeArgs(
+                    start_time=aws.connect.HoursOfOperationConfigStartTimeArrgs(
                         hours=9,
                         minutes=0,
                     ),
@@ -337,7 +337,7 @@ class HoursOfOperation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArrgs']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Hours of Operation.
@@ -348,7 +348,7 @@ class HoursOfOperation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HoursOfOperationArgs,
+                 args: HoursOfOperationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Connect Hours of Operation resource. For more information see
@@ -362,24 +362,24 @@ class HoursOfOperation(pulumi.CustomResource):
 
         test = aws.connect.HoursOfOperation("test",
             configs=[
-                aws.connect.HoursOfOperationConfigArgs(
+                aws.connect.HoursOfOperationConfigArrgs(
                     day="MONDAY",
-                    end_time=aws.connect.HoursOfOperationConfigEndTimeArgs(
+                    end_time=aws.connect.HoursOfOperationConfigEndTimeArrgs(
                         hours=23,
                         minutes=8,
                     ),
-                    start_time=aws.connect.HoursOfOperationConfigStartTimeArgs(
+                    start_time=aws.connect.HoursOfOperationConfigStartTimeArrgs(
                         hours=8,
                         minutes=0,
                     ),
                 ),
-                aws.connect.HoursOfOperationConfigArgs(
+                aws.connect.HoursOfOperationConfigArrgs(
                     day="TUESDAY",
-                    end_time=aws.connect.HoursOfOperationConfigEndTimeArgs(
+                    end_time=aws.connect.HoursOfOperationConfigEndTimeArrgs(
                         hours=21,
                         minutes=0,
                     ),
-                    start_time=aws.connect.HoursOfOperationConfigStartTimeArgs(
+                    start_time=aws.connect.HoursOfOperationConfigStartTimeArrgs(
                         hours=9,
                         minutes=0,
                     ),
@@ -402,12 +402,12 @@ class HoursOfOperation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HoursOfOperationArgs args: The arguments to use to populate this resource's properties.
+        :param HoursOfOperationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HoursOfOperationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HoursOfOperationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -416,7 +416,7 @@ class HoursOfOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]]] = None,
+                 configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -429,7 +429,7 @@ class HoursOfOperation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HoursOfOperationArgs.__new__(HoursOfOperationArgs)
+            __props__ = HoursOfOperationArrgs.__new__(HoursOfOperationArrgs)
 
             if configs is None and not opts.urn:
                 raise TypeError("Missing required property 'configs'")
@@ -459,7 +459,7 @@ class HoursOfOperation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]]] = None,
+            configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArrgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             hours_of_operation_id: Optional[pulumi.Input[str]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
@@ -475,7 +475,7 @@ class HoursOfOperation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Hours of Operation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArgs']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HoursOfOperationConfigArrgs']]]] configs: One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
         :param pulumi.Input[str] description: Specifies the description of the Hours of Operation.
         :param pulumi.Input[str] hours_of_operation_id: The identifier for the hours of operation.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.

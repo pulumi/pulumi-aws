@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataProtectionPolicyArgs', 'DataProtectionPolicy']
+__all__ = ['DataProtectionPolicyArrgs', 'DataProtectionPolicy']
 
 @pulumi.input_type
-class DataProtectionPolicyArgs:
+calass DataProtectionPolicyArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  policy: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class DataProtectionPolicyArgs:
 
 
 @pulumi.input_type
-class _DataProtectionPolicyState:
+calass _DataProtectionPolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _DataProtectionPolicyState:
         pulumi.set(self, "policy", value)
 
 
-class DataProtectionPolicy(pulumi.CustomResource):
+calass DataProtectionPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -143,7 +143,7 @@ class DataProtectionPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataProtectionPolicyArgs,
+                 args: DataProtectionPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SNS data protection topic policy resource
@@ -183,12 +183,12 @@ class DataProtectionPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataProtectionPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param DataProtectionPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataProtectionPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataProtectionPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -206,7 +206,7 @@ class DataProtectionPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataProtectionPolicyArgs.__new__(DataProtectionPolicyArgs)
+            __props__ = DataProtectionPolicyArrgs.__new__(DataProtectionPolicyArrgs)
 
             if arn is None and not opts.urn:
                 raise TypeError("Missing required property 'arn'")

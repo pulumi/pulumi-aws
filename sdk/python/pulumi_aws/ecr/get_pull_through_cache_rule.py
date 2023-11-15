@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPullThroughCacheRuleResult:
+calass GetPullThroughCacheRuleResult:
     """
     A collection of values returned by getPullThroughCacheRule.
     """
@@ -65,7 +65,7 @@ class GetPullThroughCacheRuleResult:
         return pulumi.get(self, "upstream_registry_url")
 
 
-class AwaitableGetPullThroughCacheRuleResult(GetPullThroughCacheRuleResult):
+calass AwaitableGetPullThroughCacheRuleResult(GetPullThroughCacheRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

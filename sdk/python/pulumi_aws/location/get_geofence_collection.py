@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetGeofenceCollectionResult:
+calass GetGeofenceCollectionResult:
     """
     A collection of values returned by getGeofenceCollection.
     """
@@ -109,7 +109,7 @@ class GetGeofenceCollectionResult:
         return pulumi.get(self, "update_time")
 
 
-class AwaitableGetGeofenceCollectionResult(GetGeofenceCollectionResult):
+calass AwaitableGetGeofenceCollectionResult(GetGeofenceCollectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

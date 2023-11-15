@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ListenerArgs', 'Listener']
+__all__ = ['ListenerArrgs', 'Listener']
 
 @pulumi.input_type
-class ListenerArgs:
+calass ListenerArrgs:
     def __init__(__self__, *,
-                 default_actions: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]],
+                 default_actions: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArrgs']]],
                  load_balancer_arn: pulumi.Input[str],
                  alpn_policy: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
@@ -26,7 +26,7 @@ class ListenerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Listener resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArrgs']]] default_actions: Configuration block for default actions. Detailed below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
@@ -56,14 +56,14 @@ class ListenerArgs:
 
     @property
     @pulumi.getter(name="defaultActions")
-    def default_actions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]:
+    def default_actions(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArrgs']]]:
         """
         Configuration block for default actions. Detailed below.
         """
         return pulumi.get(self, "default_actions")
 
     @default_actions.setter
-    def default_actions(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]):
+    def default_actions(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArrgs']]]):
         pulumi.set(self, "default_actions", value)
 
     @property
@@ -156,12 +156,12 @@ class ListenerArgs:
 
 
 @pulumi.input_type
-class _ListenerState:
+calass _ListenerState:
     def __init__(__self__, *,
                  alpn_policy: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
-                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]] = None,
+                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArrgs']]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -175,7 +175,7 @@ class _ListenerState:
                
                The following arguments are optional:
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArrgs']]] default_actions: Configuration block for default actions. Detailed below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
@@ -251,14 +251,14 @@ class _ListenerState:
 
     @property
     @pulumi.getter(name="defaultActions")
-    def default_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]:
+    def default_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArrgs']]]]:
         """
         Configuration block for default actions. Detailed below.
         """
         return pulumi.get(self, "default_actions")
 
     @default_actions.setter
-    def default_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArgs']]]]):
+    def default_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionArrgs']]]]):
         pulumi.set(self, "default_actions", value)
 
     @property
@@ -341,14 +341,14 @@ class _ListenerState:
         pulumi.set(self, "tags_all", value)
 
 
-class Listener(pulumi.CustomResource):
+calass Listener(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alpn_policy: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
-                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]]] = None,
+                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -377,7 +377,7 @@ class Listener(pulumi.CustomResource):
             protocol="HTTPS",
             ssl_policy="ELBSecurityPolicy-2016-08",
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 type="forward",
                 target_group_arn=front_end_target_group.arn,
             )])
@@ -395,7 +395,7 @@ class Listener(pulumi.CustomResource):
             protocol="TLS",
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
             alpn_policy="HTTP2Preferred",
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 type="forward",
                 target_group_arn=aws_lb_target_group["front_end"]["arn"],
             )])
@@ -412,9 +412,9 @@ class Listener(pulumi.CustomResource):
             load_balancer_arn=front_end_load_balancer.arn,
             port=80,
             protocol="HTTP",
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 type="redirect",
-                redirect=aws.lb.ListenerDefaultActionRedirectArgs(
+                redirect=aws.lb.ListenerDefaultActionRedirectArrgs(
                     port="443",
                     protocol="HTTPS",
                     status_code="HTTP_301",
@@ -433,9 +433,9 @@ class Listener(pulumi.CustomResource):
             load_balancer_arn=front_end_load_balancer.arn,
             port=80,
             protocol="HTTP",
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 type="fixed-response",
-                fixed_response=aws.lb.ListenerDefaultActionFixedResponseArgs(
+                fixed_response=aws.lb.ListenerDefaultActionFixedResponseArrgs(
                     content_type="text/plain",
                     message_body="Fixed response content",
                     status_code="200",
@@ -463,15 +463,15 @@ class Listener(pulumi.CustomResource):
             port=80,
             protocol="HTTP",
             default_actions=[
-                aws.lb.ListenerDefaultActionArgs(
+                aws.lb.ListenerDefaultActionArrgs(
                     type="authenticate-cognito",
-                    authenticate_cognito=aws.lb.ListenerDefaultActionAuthenticateCognitoArgs(
+                    authenticate_cognito=aws.lb.ListenerDefaultActionAuthenticateCognitoArrgs(
                         user_pool_arn=pool.arn,
                         user_pool_client_id=client.id,
                         user_pool_domain=domain.domain,
                     ),
                 ),
-                aws.lb.ListenerDefaultActionArgs(
+                aws.lb.ListenerDefaultActionArrgs(
                     type="forward",
                     target_group_arn=front_end_target_group.arn,
                 ),
@@ -492,9 +492,9 @@ class Listener(pulumi.CustomResource):
             port=80,
             protocol="HTTP",
             default_actions=[
-                aws.lb.ListenerDefaultActionArgs(
+                aws.lb.ListenerDefaultActionArrgs(
                     type="authenticate-oidc",
-                    authenticate_oidc=aws.lb.ListenerDefaultActionAuthenticateOidcArgs(
+                    authenticate_oidc=aws.lb.ListenerDefaultActionAuthenticateOidcArrgs(
                         authorization_endpoint="https://example.com/authorization_endpoint",
                         client_id="client_id",
                         client_secret="client_secret",
@@ -503,7 +503,7 @@ class Listener(pulumi.CustomResource):
                         user_info_endpoint="https://example.com/user_info_endpoint",
                     ),
                 ),
-                aws.lb.ListenerDefaultActionArgs(
+                aws.lb.ListenerDefaultActionArrgs(
                     type="forward",
                     target_group_arn=front_end_target_group.arn,
                 ),
@@ -517,20 +517,20 @@ class Listener(pulumi.CustomResource):
 
         example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
             load_balancer_type="gateway",
-            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
+            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArrgs(
                 subnet_id=aws_subnet["example"]["id"],
             )])
         example_target_group = aws.lb.TargetGroup("exampleTargetGroup",
             port=6081,
             protocol="GENEVE",
             vpc_id=aws_vpc["example"]["id"],
-            health_check=aws.lb.TargetGroupHealthCheckArgs(
+            health_check=aws.lb.TargetGroupHealthCheckArrgs(
                 port="80",
                 protocol="HTTP",
             ))
         example_listener = aws.lb.Listener("exampleListener",
             load_balancer_arn=example_load_balancer.id,
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 target_group_arn=example_target_group.id,
                 type="forward",
             )])
@@ -548,7 +548,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alpn_policy: Name of the Application-Layer Protocol Negotiation (ALPN) policy. Can be set if `protocol` is `TLS`. Valid values are `HTTP1Only`, `HTTP2Only`, `HTTP2Optional`, `HTTP2Preferred`, and `None`.
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']]]] default_actions: Configuration block for default actions. Detailed below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:
@@ -563,7 +563,7 @@ class Listener(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ListenerArgs,
+                 args: ListenerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Load Balancer Listener resource.
@@ -587,7 +587,7 @@ class Listener(pulumi.CustomResource):
             protocol="HTTPS",
             ssl_policy="ELBSecurityPolicy-2016-08",
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 type="forward",
                 target_group_arn=front_end_target_group.arn,
             )])
@@ -605,7 +605,7 @@ class Listener(pulumi.CustomResource):
             protocol="TLS",
             certificate_arn="arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
             alpn_policy="HTTP2Preferred",
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 type="forward",
                 target_group_arn=aws_lb_target_group["front_end"]["arn"],
             )])
@@ -622,9 +622,9 @@ class Listener(pulumi.CustomResource):
             load_balancer_arn=front_end_load_balancer.arn,
             port=80,
             protocol="HTTP",
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 type="redirect",
-                redirect=aws.lb.ListenerDefaultActionRedirectArgs(
+                redirect=aws.lb.ListenerDefaultActionRedirectArrgs(
                     port="443",
                     protocol="HTTPS",
                     status_code="HTTP_301",
@@ -643,9 +643,9 @@ class Listener(pulumi.CustomResource):
             load_balancer_arn=front_end_load_balancer.arn,
             port=80,
             protocol="HTTP",
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 type="fixed-response",
-                fixed_response=aws.lb.ListenerDefaultActionFixedResponseArgs(
+                fixed_response=aws.lb.ListenerDefaultActionFixedResponseArrgs(
                     content_type="text/plain",
                     message_body="Fixed response content",
                     status_code="200",
@@ -673,15 +673,15 @@ class Listener(pulumi.CustomResource):
             port=80,
             protocol="HTTP",
             default_actions=[
-                aws.lb.ListenerDefaultActionArgs(
+                aws.lb.ListenerDefaultActionArrgs(
                     type="authenticate-cognito",
-                    authenticate_cognito=aws.lb.ListenerDefaultActionAuthenticateCognitoArgs(
+                    authenticate_cognito=aws.lb.ListenerDefaultActionAuthenticateCognitoArrgs(
                         user_pool_arn=pool.arn,
                         user_pool_client_id=client.id,
                         user_pool_domain=domain.domain,
                     ),
                 ),
-                aws.lb.ListenerDefaultActionArgs(
+                aws.lb.ListenerDefaultActionArrgs(
                     type="forward",
                     target_group_arn=front_end_target_group.arn,
                 ),
@@ -702,9 +702,9 @@ class Listener(pulumi.CustomResource):
             port=80,
             protocol="HTTP",
             default_actions=[
-                aws.lb.ListenerDefaultActionArgs(
+                aws.lb.ListenerDefaultActionArrgs(
                     type="authenticate-oidc",
-                    authenticate_oidc=aws.lb.ListenerDefaultActionAuthenticateOidcArgs(
+                    authenticate_oidc=aws.lb.ListenerDefaultActionAuthenticateOidcArrgs(
                         authorization_endpoint="https://example.com/authorization_endpoint",
                         client_id="client_id",
                         client_secret="client_secret",
@@ -713,7 +713,7 @@ class Listener(pulumi.CustomResource):
                         user_info_endpoint="https://example.com/user_info_endpoint",
                     ),
                 ),
-                aws.lb.ListenerDefaultActionArgs(
+                aws.lb.ListenerDefaultActionArrgs(
                     type="forward",
                     target_group_arn=front_end_target_group.arn,
                 ),
@@ -727,20 +727,20 @@ class Listener(pulumi.CustomResource):
 
         example_load_balancer = aws.lb.LoadBalancer("exampleLoadBalancer",
             load_balancer_type="gateway",
-            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArgs(
+            subnet_mappings=[aws.lb.LoadBalancerSubnetMappingArrgs(
                 subnet_id=aws_subnet["example"]["id"],
             )])
         example_target_group = aws.lb.TargetGroup("exampleTargetGroup",
             port=6081,
             protocol="GENEVE",
             vpc_id=aws_vpc["example"]["id"],
-            health_check=aws.lb.TargetGroupHealthCheckArgs(
+            health_check=aws.lb.TargetGroupHealthCheckArrgs(
                 port="80",
                 protocol="HTTP",
             ))
         example_listener = aws.lb.Listener("exampleListener",
             load_balancer_arn=example_load_balancer.id,
-            default_actions=[aws.lb.ListenerDefaultActionArgs(
+            default_actions=[aws.lb.ListenerDefaultActionArrgs(
                 target_group_arn=example_target_group.id,
                 type="forward",
             )])
@@ -755,12 +755,12 @@ class Listener(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ListenerArgs args: The arguments to use to populate this resource's properties.
+        :param ListenerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ListenerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ListenerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -771,7 +771,7 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alpn_policy: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
-                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]]] = None,
+                 default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']]]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -784,7 +784,7 @@ class Listener(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ListenerArgs.__new__(ListenerArgs)
+            __props__ = ListenerArrgs.__new__(ListenerArrgs)
 
             __props__.__dict__["alpn_policy"] = alpn_policy
             __props__.__dict__["certificate_arn"] = certificate_arn
@@ -817,7 +817,7 @@ class Listener(pulumi.CustomResource):
             alpn_policy: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             certificate_arn: Optional[pulumi.Input[str]] = None,
-            default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]]] = None,
+            default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']]]]] = None,
             load_balancer_arn: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             protocol: Optional[pulumi.Input[str]] = None,
@@ -836,7 +836,7 @@ class Listener(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] certificate_arn: ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the `lb.ListenerCertificate` resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]]] default_actions: Configuration block for default actions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']]]] default_actions: Configuration block for default actions. Detailed below.
         :param pulumi.Input[str] load_balancer_arn: ARN of the load balancer.
                
                The following arguments are optional:

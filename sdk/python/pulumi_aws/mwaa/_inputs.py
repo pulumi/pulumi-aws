@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EnvironmentLastUpdatedArgs',
-    'EnvironmentLastUpdatedErrorArgs',
-    'EnvironmentLoggingConfigurationArgs',
-    'EnvironmentLoggingConfigurationDagProcessingLogsArgs',
-    'EnvironmentLoggingConfigurationSchedulerLogsArgs',
-    'EnvironmentLoggingConfigurationTaskLogsArgs',
-    'EnvironmentLoggingConfigurationWebserverLogsArgs',
-    'EnvironmentLoggingConfigurationWorkerLogsArgs',
-    'EnvironmentNetworkConfigurationArgs',
+    'EnvironmentLastUpdatedArrgs',
+    'EnvironmentLastUpdatedErrorArrgs',
+    'EnvironmentLoggingConfigurationArrgs',
+    'EnvironmentLoggingConfigurationDagProcessingLogsArrgs',
+    'EnvironmentLoggingConfigurationSchedulerLogsArrgs',
+    'EnvironmentLoggingConfigurationTaskLogsArrgs',
+    'EnvironmentLoggingConfigurationWebserverLogsArrgs',
+    'EnvironmentLoggingConfigurationWorkerLogsArrgs',
+    'EnvironmentNetworkConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class EnvironmentLastUpdatedArgs:
+calass EnvironmentLastUpdatedArrgs:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[str]] = None,
-                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgs']]]] = None,
+                 errors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArrgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] created_at: The Created At date of the MWAA Environment
@@ -54,11 +54,11 @@ class EnvironmentLastUpdatedArgs:
 
     @property
     @pulumi.getter
-    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgs']]]]:
+    def errors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArrgs']]]]:
         return pulumi.get(self, "errors")
 
     @errors.setter
-    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArgs']]]]):
+    def errors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentLastUpdatedErrorArrgs']]]]):
         pulumi.set(self, "errors", value)
 
     @property
@@ -75,7 +75,7 @@ class EnvironmentLastUpdatedArgs:
 
 
 @pulumi.input_type
-class EnvironmentLastUpdatedErrorArgs:
+calass EnvironmentLastUpdatedErrorArrgs:
     def __init__(__self__, *,
                  error_code: Optional[pulumi.Input[str]] = None,
                  error_message: Optional[pulumi.Input[str]] = None):
@@ -104,19 +104,19 @@ class EnvironmentLastUpdatedErrorArgs:
 
 
 @pulumi.input_type
-class EnvironmentLoggingConfigurationArgs:
+calass EnvironmentLoggingConfigurationArrgs:
     def __init__(__self__, *,
-                 dag_processing_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgs']] = None,
-                 scheduler_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgs']] = None,
-                 task_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs']] = None,
-                 webserver_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs']] = None,
-                 worker_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs']] = None):
+                 dag_processing_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArrgs']] = None,
+                 scheduler_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArrgs']] = None,
+                 task_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArrgs']] = None,
+                 webserver_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArrgs']] = None,
+                 worker_logs: Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArrgs']] = None):
         """
-        :param pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgs'] dag_processing_logs: (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-        :param pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgs'] scheduler_logs: Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-        :param pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs'] task_logs: Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-        :param pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs'] webserver_logs: Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-        :param pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs'] worker_logs: Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+        :param pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArrgs'] dag_processing_logs: (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+        :param pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArrgs'] scheduler_logs: Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+        :param pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArrgs'] task_logs: Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+        :param pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArrgs'] webserver_logs: Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+        :param pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArrgs'] worker_logs: Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
         """
         if dag_processing_logs is not None:
             pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
@@ -131,67 +131,67 @@ class EnvironmentLoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="dagProcessingLogs")
-    def dag_processing_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgs']]:
+    def dag_processing_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArrgs']]:
         """
         (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
         """
         return pulumi.get(self, "dag_processing_logs")
 
     @dag_processing_logs.setter
-    def dag_processing_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArgs']]):
+    def dag_processing_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationDagProcessingLogsArrgs']]):
         pulumi.set(self, "dag_processing_logs", value)
 
     @property
     @pulumi.getter(name="schedulerLogs")
-    def scheduler_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgs']]:
+    def scheduler_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArrgs']]:
         """
         Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
         """
         return pulumi.get(self, "scheduler_logs")
 
     @scheduler_logs.setter
-    def scheduler_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArgs']]):
+    def scheduler_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationSchedulerLogsArrgs']]):
         pulumi.set(self, "scheduler_logs", value)
 
     @property
     @pulumi.getter(name="taskLogs")
-    def task_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs']]:
+    def task_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArrgs']]:
         """
         Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
         """
         return pulumi.get(self, "task_logs")
 
     @task_logs.setter
-    def task_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArgs']]):
+    def task_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationTaskLogsArrgs']]):
         pulumi.set(self, "task_logs", value)
 
     @property
     @pulumi.getter(name="webserverLogs")
-    def webserver_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs']]:
+    def webserver_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArrgs']]:
         """
         Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
         """
         return pulumi.get(self, "webserver_logs")
 
     @webserver_logs.setter
-    def webserver_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArgs']]):
+    def webserver_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationWebserverLogsArrgs']]):
         pulumi.set(self, "webserver_logs", value)
 
     @property
     @pulumi.getter(name="workerLogs")
-    def worker_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs']]:
+    def worker_logs(self) -> Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArrgs']]:
         """
         Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
         """
         return pulumi.get(self, "worker_logs")
 
     @worker_logs.setter
-    def worker_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArgs']]):
+    def worker_logs(self, value: Optional[pulumi.Input['EnvironmentLoggingConfigurationWorkerLogsArrgs']]):
         pulumi.set(self, "worker_logs", value)
 
 
 @pulumi.input_type
-class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
+calass EnvironmentLoggingConfigurationDagProcessingLogsArrgs:
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -242,7 +242,7 @@ class EnvironmentLoggingConfigurationDagProcessingLogsArgs:
 
 
 @pulumi.input_type
-class EnvironmentLoggingConfigurationSchedulerLogsArgs:
+calass EnvironmentLoggingConfigurationSchedulerLogsArrgs:
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -293,7 +293,7 @@ class EnvironmentLoggingConfigurationSchedulerLogsArgs:
 
 
 @pulumi.input_type
-class EnvironmentLoggingConfigurationTaskLogsArgs:
+calass EnvironmentLoggingConfigurationTaskLogsArrgs:
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -344,7 +344,7 @@ class EnvironmentLoggingConfigurationTaskLogsArgs:
 
 
 @pulumi.input_type
-class EnvironmentLoggingConfigurationWebserverLogsArgs:
+calass EnvironmentLoggingConfigurationWebserverLogsArrgs:
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -395,7 +395,7 @@ class EnvironmentLoggingConfigurationWebserverLogsArgs:
 
 
 @pulumi.input_type
-class EnvironmentLoggingConfigurationWorkerLogsArgs:
+calass EnvironmentLoggingConfigurationWorkerLogsArrgs:
     def __init__(__self__, *,
                  cloud_watch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -446,7 +446,7 @@ class EnvironmentLoggingConfigurationWorkerLogsArgs:
 
 
 @pulumi.input_type
-class EnvironmentNetworkConfigurationArgs:
+calass EnvironmentNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):

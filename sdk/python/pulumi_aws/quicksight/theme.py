@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ThemeArgs', 'Theme']
+__all__ = ['ThemeArrgs', 'Theme']
 
 @pulumi.input_type
-class ThemeArgs:
+calass ThemeArrgs:
     def __init__(__self__, *,
                  base_theme_id: pulumi.Input[str],
                  theme_id: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input['ThemeConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['ThemeConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
@@ -29,11 +29,11 @@ class ThemeArgs:
         :param pulumi.Input[str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input[str] theme_id: Identifier of the theme.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
-        :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
+        :param pulumi.Input['ThemeConfigurationArrgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArrgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version_description: A description of the current theme version being created/updated.
         """
@@ -90,7 +90,7 @@ class ThemeArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArrgs']]:
         """
         The theme configuration, which contains the theme display properties. See configuration.
 
@@ -99,7 +99,7 @@ class ThemeArgs:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ThemeConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['ThemeConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -116,14 +116,14 @@ class ThemeArgs:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]]:
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArrgs']]]]:
         """
         A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]]):
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArrgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @property
@@ -152,16 +152,16 @@ class ThemeArgs:
 
 
 @pulumi.input_type
-class _ThemeState:
+calass _ThemeState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input['ThemeConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['ThemeConfigurationArrgs']] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArrgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -173,13 +173,13 @@ class _ThemeState:
         :param pulumi.Input[str] arn: ARN of the theme.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
+        :param pulumi.Input['ThemeConfigurationArrgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
                
                The following arguments are optional:
         :param pulumi.Input[str] created_time: The time that the theme was created.
         :param pulumi.Input[str] last_updated_time: The time that the theme was last updated.
         :param pulumi.Input[str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArrgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[str] status: The theme creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -257,7 +257,7 @@ class _ThemeState:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['ThemeConfigurationArrgs']]:
         """
         The theme configuration, which contains the theme display properties. See configuration.
 
@@ -266,7 +266,7 @@ class _ThemeState:
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ThemeConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['ThemeConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -307,14 +307,14 @@ class _ThemeState:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]]:
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArrgs']]]]:
         """
         A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]]]):
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThemePermissionArrgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @property
@@ -393,16 +393,16 @@ class _ThemeState:
         pulumi.set(self, "version_number", value)
 
 
-class Theme(pulumi.CustomResource):
+calass Theme(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -424,11 +424,11 @@ class Theme(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']] configuration: The theme configuration, which contains the theme display properties. See configuration.
+        :param pulumi.Input[pulumi.InputType['ThemeConfigurationArrgs']] configuration: The theme configuration, which contains the theme display properties. See configuration.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArgs']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArrgs']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] theme_id: Identifier of the theme.
         :param pulumi.Input[str] version_description: A description of the current theme version being created/updated.
@@ -437,7 +437,7 @@ class Theme(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ThemeArgs,
+                 args: ThemeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing a QuickSight Theme.
@@ -453,12 +453,12 @@ class Theme(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ThemeArgs args: The arguments to use to populate this resource's properties.
+        :param ThemeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ThemeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ThemeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -469,9 +469,9 @@ class Theme(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  base_theme_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  theme_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -482,7 +482,7 @@ class Theme(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ThemeArgs.__new__(ThemeArgs)
+            __props__ = ThemeArrgs.__new__(ThemeArrgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             if base_theme_id is None and not opts.urn:
@@ -517,11 +517,11 @@ class Theme(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             aws_account_id: Optional[pulumi.Input[str]] = None,
             base_theme_id: Optional[pulumi.Input[str]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[pulumi.InputType['ThemeConfigurationArrgs']]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArgs']]]]] = None,
+            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArrgs']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -538,13 +538,13 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the theme.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
-        :param pulumi.Input[pulumi.InputType['ThemeConfigurationArgs']] configuration: The theme configuration, which contains the theme display properties. See configuration.
+        :param pulumi.Input[pulumi.InputType['ThemeConfigurationArrgs']] configuration: The theme configuration, which contains the theme display properties. See configuration.
                
                The following arguments are optional:
         :param pulumi.Input[str] created_time: The time that the theme was created.
         :param pulumi.Input[str] last_updated_time: The time that the theme was last updated.
         :param pulumi.Input[str] name: Display name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArgs']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ThemePermissionArrgs']]]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
         :param pulumi.Input[str] status: The theme creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

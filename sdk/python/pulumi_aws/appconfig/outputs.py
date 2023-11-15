@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConfigurationProfileValidator(dict):
+calass ConfigurationProfileValidator(dict):
     def __init__(__self__, *,
                  type: str,
                  content: Optional[str] = None):
@@ -52,7 +52,7 @@ class ConfigurationProfileValidator(dict):
 
 
 @pulumi.output_type
-class EnvironmentMonitor(dict):
+calass EnvironmentMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -101,7 +101,7 @@ class EnvironmentMonitor(dict):
 
 
 @pulumi.output_type
-class EventIntegrationEventFilter(dict):
+calass EventIntegrationEventFilter(dict):
     def __init__(__self__, *,
                  source: str):
         """
@@ -119,12 +119,12 @@ class EventIntegrationEventFilter(dict):
 
 
 @pulumi.output_type
-class ExtensionActionPoint(dict):
+calass ExtensionActionPoint(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.ExtensionActionPointAction'],
                  point: str):
         """
-        :param Sequence['ExtensionActionPointActionArgs'] actions: An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+        :param Sequence['ExtensionActionPointActionArrgs'] actions: An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
         :param str point: The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
         """
         pulumi.set(__self__, "actions", actions)
@@ -148,7 +148,7 @@ class ExtensionActionPoint(dict):
 
 
 @pulumi.output_type
-class ExtensionActionPointAction(dict):
+calass ExtensionActionPointAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -217,7 +217,7 @@ class ExtensionActionPointAction(dict):
 
 
 @pulumi.output_type
-class ExtensionParameter(dict):
+calass ExtensionParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
@@ -259,7 +259,7 @@ class ExtensionParameter(dict):
 
 
 @pulumi.output_type
-class GetConfigurationProfileValidatorResult(dict):
+calass GetConfigurationProfileValidatorResult(dict):
     def __init__(__self__, *,
                  content: str,
                  type: str):
@@ -288,7 +288,7 @@ class GetConfigurationProfileValidatorResult(dict):
 
 
 @pulumi.output_type
-class GetEnvironmentMonitorResult(dict):
+calass GetEnvironmentMonitorResult(dict):
     def __init__(__self__, *,
                  alarm_arn: str,
                  alarm_role_arn: str):

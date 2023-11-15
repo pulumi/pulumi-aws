@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EndpointElasticsearchSettings(dict):
+calass EndpointElasticsearchSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -104,7 +104,7 @@ class EndpointElasticsearchSettings(dict):
 
 
 @pulumi.output_type
-class EndpointKafkaSettings(dict):
+calass EndpointKafkaSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -373,7 +373,7 @@ class EndpointKafkaSettings(dict):
 
 
 @pulumi.output_type
-class EndpointKinesisSettings(dict):
+calass EndpointKinesisSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -521,7 +521,7 @@ class EndpointKinesisSettings(dict):
 
 
 @pulumi.output_type
-class EndpointMongodbSettings(dict):
+calass EndpointMongodbSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -627,7 +627,7 @@ class EndpointMongodbSettings(dict):
 
 
 @pulumi.output_type
-class EndpointRedisSettings(dict):
+calass EndpointRedisSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -742,7 +742,7 @@ class EndpointRedisSettings(dict):
 
 
 @pulumi.output_type
-class EndpointRedshiftSettings(dict):
+calass EndpointRedshiftSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -834,7 +834,7 @@ class EndpointRedshiftSettings(dict):
 
 
 @pulumi.output_type
-class EndpointS3Settings(dict):
+calass EndpointS3Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1386,7 +1386,7 @@ class EndpointS3Settings(dict):
 
 
 @pulumi.output_type
-class ReplicationConfigComputeConfig(dict):
+calass ReplicationConfigComputeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1543,7 +1543,7 @@ class ReplicationConfigComputeConfig(dict):
 
 
 @pulumi.output_type
-class GetEndpointElasticsearchSettingResult(dict):
+calass GetEndpointElasticsearchSettingResult(dict):
     def __init__(__self__, *,
                  endpoint_uri: str,
                  error_retry_duration: int,
@@ -1576,7 +1576,7 @@ class GetEndpointElasticsearchSettingResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointKafkaSettingResult(dict):
+calass GetEndpointKafkaSettingResult(dict):
     def __init__(__self__, *,
                  broker: str,
                  include_control_details: bool,
@@ -1707,7 +1707,7 @@ class GetEndpointKafkaSettingResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointKinesisSettingResult(dict):
+calass GetEndpointKinesisSettingResult(dict):
     def __init__(__self__, *,
                  include_control_details: bool,
                  include_null_and_empty: bool,
@@ -1775,7 +1775,7 @@ class GetEndpointKinesisSettingResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointMongodbSettingResult(dict):
+calass GetEndpointMongodbSettingResult(dict):
     def __init__(__self__, *,
                  auth_mechanism: str,
                  auth_source: str,
@@ -1822,7 +1822,7 @@ class GetEndpointMongodbSettingResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointRedisSettingResult(dict):
+calass GetEndpointRedisSettingResult(dict):
     def __init__(__self__, *,
                  auth_password: str,
                  auth_type: str,
@@ -1876,7 +1876,7 @@ class GetEndpointRedisSettingResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointRedshiftSettingResult(dict):
+calass GetEndpointRedshiftSettingResult(dict):
     def __init__(__self__, *,
                  bucket_folder: str,
                  bucket_name: str,
@@ -1916,7 +1916,7 @@ class GetEndpointRedshiftSettingResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointS3SettingResult(dict):
+calass GetEndpointS3SettingResult(dict):
     def __init__(__self__, *,
                  add_column_name: bool,
                  bucket_folder: str,

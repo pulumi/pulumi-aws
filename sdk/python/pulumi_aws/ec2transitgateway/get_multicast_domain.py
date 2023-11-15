@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMulticastDomainResult:
+calass GetMulticastDomainResult:
     """
     A collection of values returned by getMulticastDomain.
     """
@@ -182,7 +182,7 @@ class GetMulticastDomainResult:
         return pulumi.get(self, "transit_gateway_multicast_domain_id")
 
 
-class AwaitableGetMulticastDomainResult(GetMulticastDomainResult):
+calass AwaitableGetMulticastDomainResult(GetMulticastDomainResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -205,7 +205,7 @@ class AwaitableGetMulticastDomainResult(GetMulticastDomainResult):
             transit_gateway_multicast_domain_id=self.transit_gateway_multicast_domain_id)
 
 
-def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMulticastDomainFilterArgs']]] = None,
+def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMulticastDomainFilterArrgs']]] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          transit_gateway_multicast_domain_id: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMulticastDomainResult:
@@ -219,7 +219,7 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_multicast_domain(filters=[aws.ec2transitgateway.GetMulticastDomainFilterArgs(
+    example = aws.ec2transitgateway.get_multicast_domain(filters=[aws.ec2transitgateway.GetMulticastDomainFilterArrgs(
         name="transit-gateway-multicast-domain-id",
         values=["tgw-mcast-domain-12345678"],
     )])
@@ -234,7 +234,7 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
     ```
 
 
-    :param Sequence[pulumi.InputType['GetMulticastDomainFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetMulticastDomainFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
     :param str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
     """
@@ -264,7 +264,7 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
 
 
 @_utilities.lift_output_func(get_multicast_domain)
-def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetMulticastDomainFilterArgs']]]]] = None,
+def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetMulticastDomainFilterArrgs']]]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 transit_gateway_multicast_domain_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMulticastDomainResult]:
@@ -278,7 +278,7 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2transitgateway.get_multicast_domain(filters=[aws.ec2transitgateway.GetMulticastDomainFilterArgs(
+    example = aws.ec2transitgateway.get_multicast_domain(filters=[aws.ec2transitgateway.GetMulticastDomainFilterArrgs(
         name="transit-gateway-multicast-domain-id",
         values=["tgw-mcast-domain-12345678"],
     )])
@@ -293,7 +293,7 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
     ```
 
 
-    :param Sequence[pulumi.InputType['GetMulticastDomainFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetMulticastDomainFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Multicast Domain.
     :param str transit_gateway_multicast_domain_id: Identifier of the EC2 Transit Gateway Multicast Domain.
     """

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LicenseGrantArgs', 'LicenseGrant']
+__all__ = ['LicenseGrantArrgs', 'LicenseGrant']
 
 @pulumi.input_type
-class LicenseGrantArgs:
+calass LicenseGrantArrgs:
     def __init__(__self__, *,
                  allowed_operations: pulumi.Input[Sequence[pulumi.Input[str]]],
                  license_arn: pulumi.Input[str],
@@ -81,7 +81,7 @@ class LicenseGrantArgs:
 
 
 @pulumi.input_type
-class _LicenseGrantState:
+calass _LicenseGrantState:
     def __init__(__self__, *,
                  allowed_operations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -232,7 +232,7 @@ class _LicenseGrantState:
         pulumi.set(self, "version", value)
 
 
-class LicenseGrant(pulumi.CustomResource):
+calass LicenseGrant(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -264,7 +264,7 @@ class LicenseGrant(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LicenseGrantArgs,
+                 args: LicenseGrantArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a License Manager grant. This allows for sharing licenses with other AWS accounts.
@@ -278,12 +278,12 @@ class LicenseGrant(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LicenseGrantArgs args: The arguments to use to populate this resource's properties.
+        :param LicenseGrantArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LicenseGrantArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LicenseGrantArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -303,7 +303,7 @@ class LicenseGrant(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LicenseGrantArgs.__new__(LicenseGrantArgs)
+            __props__ = LicenseGrantArrgs.__new__(LicenseGrantArrgs)
 
             if allowed_operations is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_operations'")

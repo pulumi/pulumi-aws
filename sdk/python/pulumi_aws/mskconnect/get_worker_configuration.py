@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetWorkerConfigurationResult:
+calass GetWorkerConfigurationResult:
     """
     A collection of values returned by getWorkerConfiguration.
     """
@@ -87,7 +87,7 @@ class GetWorkerConfigurationResult:
         return pulumi.get(self, "properties_file_content")
 
 
-class AwaitableGetWorkerConfigurationResult(GetWorkerConfigurationResult):
+calass AwaitableGetWorkerConfigurationResult(GetWorkerConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

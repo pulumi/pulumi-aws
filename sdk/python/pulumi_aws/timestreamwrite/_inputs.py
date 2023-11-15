@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'TableMagneticStoreWritePropertiesArgs',
-    'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs',
-    'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs',
-    'TableRetentionPropertiesArgs',
-    'TableSchemaArgs',
-    'TableSchemaCompositePartitionKeyArgs',
+    'TableMagneticStoreWritePropertiesArrgs',
+    'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArrgs',
+    'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArrgs',
+    'TableRetentionPropertiesArrgs',
+    'TableSchemaArrgs',
+    'TableSchemaCompositePartitionKeyArrgs',
 ]
 
 @pulumi.input_type
-class TableMagneticStoreWritePropertiesArgs:
+calass TableMagneticStoreWritePropertiesArrgs:
     def __init__(__self__, *,
                  enable_magnetic_store_writes: Optional[pulumi.Input[bool]] = None,
-                 magnetic_store_rejected_data_location: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']] = None):
+                 magnetic_store_rejected_data_location: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArrgs']] = None):
         """
         :param pulumi.Input[bool] enable_magnetic_store_writes: A flag to enable magnetic store writes.
-        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs'] magnetic_store_rejected_data_location: The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArrgs'] magnetic_store_rejected_data_location: The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
         """
         if enable_magnetic_store_writes is not None:
             pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
@@ -46,42 +46,42 @@ class TableMagneticStoreWritePropertiesArgs:
 
     @property
     @pulumi.getter(name="magneticStoreRejectedDataLocation")
-    def magnetic_store_rejected_data_location(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]:
+    def magnetic_store_rejected_data_location(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArrgs']]:
         """
         The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
         """
         return pulumi.get(self, "magnetic_store_rejected_data_location")
 
     @magnetic_store_rejected_data_location.setter
-    def magnetic_store_rejected_data_location(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs']]):
+    def magnetic_store_rejected_data_location(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArrgs']]):
         pulumi.set(self, "magnetic_store_rejected_data_location", value)
 
 
 @pulumi.input_type
-class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs:
+calass TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArrgs:
     def __init__(__self__, *,
-                 s3_configuration: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']] = None):
+                 s3_configuration: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs'] s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+        :param pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArrgs'] s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
         """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
 
     @property
     @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]:
+    def s3_configuration(self) -> Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArrgs']]:
         """
         Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
         """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs']]):
+    def s3_configuration(self, value: Optional[pulumi.Input['TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArrgs']]):
         pulumi.set(self, "s3_configuration", value)
 
 
 @pulumi.input_type
-class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs:
+calass TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArrgs:
     def __init__(__self__, *,
                  bucket_name: Optional[pulumi.Input[str]] = None,
                  encryption_option: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
 
 
 @pulumi.input_type
-class TableRetentionPropertiesArgs:
+calass TableRetentionPropertiesArrgs:
     def __init__(__self__, *,
                  magnetic_store_retention_period_in_days: pulumi.Input[int],
                  memory_store_retention_period_in_hours: pulumi.Input[int]):
@@ -189,30 +189,30 @@ class TableRetentionPropertiesArgs:
 
 
 @pulumi.input_type
-class TableSchemaArgs:
+calass TableSchemaArrgs:
     def __init__(__self__, *,
-                 composite_partition_key: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']] = None):
+                 composite_partition_key: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArrgs']] = None):
         """
-        :param pulumi.Input['TableSchemaCompositePartitionKeyArgs'] composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        :param pulumi.Input['TableSchemaCompositePartitionKeyArrgs'] composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
         """
         if composite_partition_key is not None:
             pulumi.set(__self__, "composite_partition_key", composite_partition_key)
 
     @property
     @pulumi.getter(name="compositePartitionKey")
-    def composite_partition_key(self) -> Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']]:
+    def composite_partition_key(self) -> Optional[pulumi.Input['TableSchemaCompositePartitionKeyArrgs']]:
         """
         A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
         """
         return pulumi.get(self, "composite_partition_key")
 
     @composite_partition_key.setter
-    def composite_partition_key(self, value: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArgs']]):
+    def composite_partition_key(self, value: Optional[pulumi.Input['TableSchemaCompositePartitionKeyArrgs']]):
         pulumi.set(self, "composite_partition_key", value)
 
 
 @pulumi.input_type
-class TableSchemaCompositePartitionKeyArgs:
+calass TableSchemaCompositePartitionKeyArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  enforcement_in_record: Optional[pulumi.Input[str]] = None,

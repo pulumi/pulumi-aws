@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['QueryLogArgs', 'QueryLog']
+__all__ = ['QueryLogArrgs', 'QueryLog']
 
 @pulumi.input_type
-class QueryLogArgs:
+calass QueryLogArrgs:
     def __init__(__self__, *,
                  cloudwatch_log_group_arn: pulumi.Input[str],
                  zone_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class QueryLogArgs:
 
 
 @pulumi.input_type
-class _QueryLogState:
+calass _QueryLogState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class _QueryLogState:
         pulumi.set(self, "zone_id", value)
 
 
-class QueryLog(pulumi.CustomResource):
+calass QueryLog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -134,13 +134,13 @@ class QueryLog(pulumi.CustomResource):
         opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
         # Example CloudWatch log resource policy to allow Route53 to write logs
         # to any log group under /aws/route53/*
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
             resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["route53.amazonaws.com"],
                 type="Service",
             )],
@@ -174,7 +174,7 @@ class QueryLog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: QueryLogArgs,
+                 args: QueryLogArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Route53 query logging configuration resource.
@@ -197,13 +197,13 @@ class QueryLog(pulumi.CustomResource):
         opts=pulumi.ResourceOptions(provider=aws["us-east-1"]))
         # Example CloudWatch log resource policy to allow Route53 to write logs
         # to any log group under /aws/route53/*
-        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        route53_query_logging_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=[
                 "logs:CreateLogStream",
                 "logs:PutLogEvents",
             ],
             resources=["arn:aws:logs:*:*:log-group:/aws/route53/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 identifiers=["route53.amazonaws.com"],
                 type="Service",
             )],
@@ -229,12 +229,12 @@ class QueryLog(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param QueryLogArgs args: The arguments to use to populate this resource's properties.
+        :param QueryLogArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(QueryLogArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(QueryLogArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -252,7 +252,7 @@ class QueryLog(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = QueryLogArgs.__new__(QueryLogArgs)
+            __props__ = QueryLogArrgs.__new__(QueryLogArrgs)
 
             if cloudwatch_log_group_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cloudwatch_log_group_arn'")

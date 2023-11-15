@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EnvironmentArgs', 'Environment']
+__all__ = ['EnvironmentArrgs', 'Environment']
 
 @pulumi.input_type
-class EnvironmentArgs:
+calass EnvironmentArrgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
+                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArrgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -65,14 +65,14 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
-    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
+    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArrgs']]]]:
         """
         Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
-    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]):
+    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArrgs']]]]):
         pulumi.set(self, "monitors", value)
 
     @property
@@ -101,13 +101,13 @@ class EnvironmentArgs:
 
 
 @pulumi.input_type
-class _EnvironmentState:
+calass _EnvironmentState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
+                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -118,7 +118,7 @@ class _EnvironmentState:
         :param pulumi.Input[str] arn: ARN of the AppConfig Environment.
         :param pulumi.Input[str] description: Description of the environment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: AppConfig environment ID.
-        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArrgs']]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
         :param pulumi.Input[str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
                or `ROLLED_BACK`.
@@ -197,14 +197,14 @@ class _EnvironmentState:
 
     @property
     @pulumi.getter
-    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]:
+    def monitors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArrgs']]]]:
         """
         Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         """
         return pulumi.get(self, "monitors")
 
     @monitors.setter
-    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]]):
+    def monitors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArrgs']]]]):
         pulumi.set(self, "monitors", value)
 
     @property
@@ -260,14 +260,14 @@ class _EnvironmentState:
         pulumi.set(self, "tags_all", value)
 
 
-class Environment(pulumi.CustomResource):
+calass Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]]] = None,
+                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -288,7 +288,7 @@ class Environment(pulumi.CustomResource):
         example_environment = aws.appconfig.Environment("exampleEnvironment",
             description="Example AppConfig Environment",
             application_id=example_application.id,
-            monitors=[aws.appconfig.EnvironmentMonitorArgs(
+            monitors=[aws.appconfig.EnvironmentMonitorArrgs(
                 alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
                 alarm_role_arn=aws_iam_role["example"]["arn"],
             )],
@@ -309,7 +309,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: AppConfig application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[str] description: Description of the environment. Can be at most 1024 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArrgs']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -317,7 +317,7 @@ class Environment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentArgs,
+                 args: EnvironmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppConfig Environment resource for an `appconfig.Application` resource. One or more environments can be defined for an application.
@@ -336,7 +336,7 @@ class Environment(pulumi.CustomResource):
         example_environment = aws.appconfig.Environment("exampleEnvironment",
             description="Example AppConfig Environment",
             application_id=example_application.id,
-            monitors=[aws.appconfig.EnvironmentMonitorArgs(
+            monitors=[aws.appconfig.EnvironmentMonitorArrgs(
                 alarm_arn=aws_cloudwatch_metric_alarm["example"]["arn"],
                 alarm_role_arn=aws_iam_role["example"]["arn"],
             )],
@@ -354,12 +354,12 @@ class Environment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EnvironmentArgs args: The arguments to use to populate this resource's properties.
+        :param EnvironmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -370,7 +370,7 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]]] = None,
+                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -380,7 +380,7 @@ class Environment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
+            __props__ = EnvironmentArrgs.__new__(EnvironmentArrgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
@@ -409,7 +409,7 @@ class Environment(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
-            monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]]] = None,
+            monitors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -425,7 +425,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the AppConfig Environment.
         :param pulumi.Input[str] description: Description of the environment. Can be at most 1024 characters.
         :param pulumi.Input[str] environment_id: AppConfig environment ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArgs']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EnvironmentMonitorArrgs']]]] monitors: Set of Amazon CloudWatch alarms to monitor during the deployment process. Maximum of 5. See Monitor below for more details.
         :param pulumi.Input[str] name: Name for the environment. Must be between 1 and 64 characters in length.
         :param pulumi.Input[str] state: State of the environment. Possible values are `READY_FOR_DEPLOYMENT`, `DEPLOYING`, `ROLLING_BACK`
                or `ROLLED_BACK`.

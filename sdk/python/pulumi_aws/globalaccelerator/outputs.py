@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AcceleratorAttributes(dict):
+calass AcceleratorAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -91,7 +91,7 @@ class AcceleratorAttributes(dict):
 
 
 @pulumi.output_type
-class AcceleratorIpSet(dict):
+calass AcceleratorIpSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -141,7 +141,7 @@ class AcceleratorIpSet(dict):
 
 
 @pulumi.output_type
-class CustomRoutingAcceleratorAttributes(dict):
+calass CustomRoutingAcceleratorAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -205,7 +205,7 @@ class CustomRoutingAcceleratorAttributes(dict):
 
 
 @pulumi.output_type
-class CustomRoutingAcceleratorIpSet(dict):
+calass CustomRoutingAcceleratorIpSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -255,7 +255,7 @@ class CustomRoutingAcceleratorIpSet(dict):
 
 
 @pulumi.output_type
-class CustomRoutingEndpointGroupDestinationConfiguration(dict):
+calass CustomRoutingEndpointGroupDestinationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -314,7 +314,7 @@ class CustomRoutingEndpointGroupDestinationConfiguration(dict):
 
 
 @pulumi.output_type
-class CustomRoutingEndpointGroupEndpointConfiguration(dict):
+calass CustomRoutingEndpointGroupEndpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -350,7 +350,7 @@ class CustomRoutingEndpointGroupEndpointConfiguration(dict):
 
 
 @pulumi.output_type
-class CustomRoutingListenerPortRange(dict):
+calass CustomRoutingListenerPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -400,7 +400,7 @@ class CustomRoutingListenerPortRange(dict):
 
 
 @pulumi.output_type
-class EndpointGroupEndpointConfiguration(dict):
+calass EndpointGroupEndpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -464,7 +464,7 @@ class EndpointGroupEndpointConfiguration(dict):
 
 
 @pulumi.output_type
-class EndpointGroupPortOverride(dict):
+calass EndpointGroupPortOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -512,7 +512,7 @@ class EndpointGroupPortOverride(dict):
 
 
 @pulumi.output_type
-class ListenerPortRange(dict):
+calass ListenerPortRange(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -562,7 +562,7 @@ class ListenerPortRange(dict):
 
 
 @pulumi.output_type
-class GetAcceleratorAttributeResult(dict):
+calass GetAcceleratorAttributeResult(dict):
     def __init__(__self__, *,
                  flow_logs_enabled: bool,
                  flow_logs_s3_bucket: str,
@@ -588,7 +588,7 @@ class GetAcceleratorAttributeResult(dict):
 
 
 @pulumi.output_type
-class GetAcceleratorIpSetResult(dict):
+calass GetAcceleratorIpSetResult(dict):
     def __init__(__self__, *,
                  ip_addresses: Sequence[str],
                  ip_family: str):
@@ -607,7 +607,7 @@ class GetAcceleratorIpSetResult(dict):
 
 
 @pulumi.output_type
-class GetCustomRoutingAcceleratorAttributeResult(dict):
+calass GetCustomRoutingAcceleratorAttributeResult(dict):
     def __init__(__self__, *,
                  flow_logs_enabled: bool,
                  flow_logs_s3_bucket: str,
@@ -633,7 +633,7 @@ class GetCustomRoutingAcceleratorAttributeResult(dict):
 
 
 @pulumi.output_type
-class GetCustomRoutingAcceleratorIpSetResult(dict):
+calass GetCustomRoutingAcceleratorIpSetResult(dict):
     def __init__(__self__, *,
                  ip_addresses: Sequence[str],
                  ip_family: str):

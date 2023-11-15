@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetComponentsResult:
+calass GetComponentsResult:
     """
     A collection of values returned by getComponents.
     """
@@ -75,7 +75,7 @@ class GetComponentsResult:
         return pulumi.get(self, "owner")
 
 
-class AwaitableGetComponentsResult(GetComponentsResult):
+calass AwaitableGetComponentsResult(GetComponentsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -88,7 +88,7 @@ class AwaitableGetComponentsResult(GetComponentsResult):
             owner=self.owner)
 
 
-def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFilterArgs']]] = None,
+def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFilterArrgs']]] = None,
                    owner: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetComponentsResult:
     """
@@ -100,7 +100,7 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_components(filters=[aws.imagebuilder.GetComponentsFilterArgs(
+    example = aws.imagebuilder.get_components(filters=[aws.imagebuilder.GetComponentsFilterArrgs(
             name="platform",
             values=["Linux"],
         )],
@@ -108,7 +108,7 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
     ```
 
 
-    :param Sequence[pulumi.InputType['GetComponentsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetComponentsFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
     """
     __args__ = dict()
@@ -126,7 +126,7 @@ def get_components(filters: Optional[Sequence[pulumi.InputType['GetComponentsFil
 
 
 @_utilities.lift_output_func(get_components)
-def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetComponentsFilterArgs']]]]] = None,
+def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetComponentsFilterArrgs']]]]] = None,
                           owner: Optional[pulumi.Input[Optional[str]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentsResult]:
     """
@@ -138,7 +138,7 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_components(filters=[aws.imagebuilder.GetComponentsFilterArgs(
+    example = aws.imagebuilder.get_components(filters=[aws.imagebuilder.GetComponentsFilterArrgs(
             name="platform",
             values=["Linux"],
         )],
@@ -146,7 +146,7 @@ def get_components_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     ```
 
 
-    :param Sequence[pulumi.InputType['GetComponentsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetComponentsFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str owner: Owner of the image recipes. Valid values are `Self`, `Shared` and `Amazon`. Defaults to `Self`.
     """
     ...

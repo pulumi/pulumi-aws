@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetControlsResult:
+calass GetControlsResult:
     """
     A collection of values returned by getControls.
     """
@@ -54,7 +54,7 @@ class GetControlsResult:
         return pulumi.get(self, "target_identifier")
 
 
-class AwaitableGetControlsResult(GetControlsResult):
+calass AwaitableGetControlsResult(GetControlsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

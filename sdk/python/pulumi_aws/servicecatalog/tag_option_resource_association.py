@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TagOptionResourceAssociationArgs', 'TagOptionResourceAssociation']
+__all__ = ['TagOptionResourceAssociationArrgs', 'TagOptionResourceAssociation']
 
 @pulumi.input_type
-class TagOptionResourceAssociationArgs:
+calass TagOptionResourceAssociationArrgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
                  tag_option_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class TagOptionResourceAssociationArgs:
 
 
 @pulumi.input_type
-class _TagOptionResourceAssociationState:
+calass _TagOptionResourceAssociationState:
     def __init__(__self__, *,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  resource_created_time: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _TagOptionResourceAssociationState:
         pulumi.set(self, "tag_option_id", value)
 
 
-class TagOptionResourceAssociation(pulumi.CustomResource):
+calass TagOptionResourceAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -195,7 +195,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TagOptionResourceAssociationArgs,
+                 args: TagOptionResourceAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog Tag Option Resource Association.
@@ -223,12 +223,12 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TagOptionResourceAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param TagOptionResourceAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TagOptionResourceAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TagOptionResourceAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -246,7 +246,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TagOptionResourceAssociationArgs.__new__(TagOptionResourceAssociationArgs)
+            __props__ = TagOptionResourceAssociationArrgs.__new__(TagOptionResourceAssociationArrgs)
 
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")

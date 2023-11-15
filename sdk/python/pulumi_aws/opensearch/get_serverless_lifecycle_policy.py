@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServerlessLifecyclePolicyResult:
+calass GetServerlessLifecyclePolicyResult:
     """
     A collection of values returned by getServerlessLifecyclePolicy.
     """
@@ -103,7 +103,7 @@ class GetServerlessLifecyclePolicyResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetServerlessLifecyclePolicyResult(GetServerlessLifecyclePolicyResult):
+calass AwaitableGetServerlessLifecyclePolicyResult(GetServerlessLifecyclePolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

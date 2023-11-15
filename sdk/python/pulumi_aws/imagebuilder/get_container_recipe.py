@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetContainerRecipeResult:
+calass GetContainerRecipeResult:
     """
     A collection of values returned by getContainerRecipe.
     """
@@ -220,7 +220,7 @@ class GetContainerRecipeResult:
         return pulumi.get(self, "working_directory")
 
 
-class AwaitableGetContainerRecipeResult(GetContainerRecipeResult):
+calass AwaitableGetContainerRecipeResult(GetContainerRecipeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

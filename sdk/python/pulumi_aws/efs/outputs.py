@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccessPointPosixUser(dict):
+calass AccessPointPosixUser(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -83,7 +83,7 @@ class AccessPointPosixUser(dict):
 
 
 @pulumi.output_type
-class AccessPointRootDirectory(dict):
+calass AccessPointRootDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -105,7 +105,7 @@ class AccessPointRootDirectory(dict):
                  creation_info: Optional['outputs.AccessPointRootDirectoryCreationInfo'] = None,
                  path: Optional[str] = None):
         """
-        :param 'AccessPointRootDirectoryCreationInfoArgs' creation_info: POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
+        :param 'AccessPointRootDirectoryCreationInfoArrgs' creation_info: POSIX IDs and permissions to apply to the access point's Root Directory. See Creation Info below.
         :param str path: Path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system. A path can have up to four subdirectories. If the specified path does not exist, you are required to provide `creation_info`.
         """
         if creation_info is not None:
@@ -131,7 +131,7 @@ class AccessPointRootDirectory(dict):
 
 
 @pulumi.output_type
-class AccessPointRootDirectoryCreationInfo(dict):
+calass AccessPointRootDirectoryCreationInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -190,7 +190,7 @@ class AccessPointRootDirectoryCreationInfo(dict):
 
 
 @pulumi.output_type
-class BackupPolicyBackupPolicy(dict):
+calass BackupPolicyBackupPolicy(dict):
     def __init__(__self__, *,
                  status: str):
         """
@@ -208,7 +208,7 @@ class BackupPolicyBackupPolicy(dict):
 
 
 @pulumi.output_type
-class FileSystemLifecyclePolicy(dict):
+calass FileSystemLifecyclePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -258,7 +258,7 @@ class FileSystemLifecyclePolicy(dict):
 
 
 @pulumi.output_type
-class FileSystemSizeInByte(dict):
+calass FileSystemSizeInByte(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -320,7 +320,7 @@ class FileSystemSizeInByte(dict):
 
 
 @pulumi.output_type
-class ReplicationConfigurationDestination(dict):
+calass ReplicationConfigurationDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -400,7 +400,7 @@ class ReplicationConfigurationDestination(dict):
 
 
 @pulumi.output_type
-class GetAccessPointPosixUserResult(dict):
+calass GetAccessPointPosixUserResult(dict):
     def __init__(__self__, *,
                  gid: int,
                  secondary_gids: Sequence[int],
@@ -440,12 +440,12 @@ class GetAccessPointPosixUserResult(dict):
 
 
 @pulumi.output_type
-class GetAccessPointRootDirectoryResult(dict):
+calass GetAccessPointRootDirectoryResult(dict):
     def __init__(__self__, *,
                  creation_infos: Sequence['outputs.GetAccessPointRootDirectoryCreationInfoResult'],
                  path: str):
         """
-        :param Sequence['GetAccessPointRootDirectoryCreationInfoArgs'] creation_infos: Single element list containing information on the creation permissions of the directory
+        :param Sequence['GetAccessPointRootDirectoryCreationInfoArrgs'] creation_infos: Single element list containing information on the creation permissions of the directory
         :param str path: Path exposed as the root directory
         """
         pulumi.set(__self__, "creation_infos", creation_infos)
@@ -469,7 +469,7 @@ class GetAccessPointRootDirectoryResult(dict):
 
 
 @pulumi.output_type
-class GetAccessPointRootDirectoryCreationInfoResult(dict):
+calass GetAccessPointRootDirectoryCreationInfoResult(dict):
     def __init__(__self__, *,
                  owner_gid: int,
                  owner_uid: int,
@@ -509,7 +509,7 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
 
 
 @pulumi.output_type
-class GetFileSystemLifecyclePolicyResult(dict):
+calass GetFileSystemLifecyclePolicyResult(dict):
     def __init__(__self__, *,
                  transition_to_ia: str,
                  transition_to_primary_storage_class: str):

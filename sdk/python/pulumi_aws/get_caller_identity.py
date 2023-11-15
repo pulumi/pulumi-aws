@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCallerIdentityResult:
+calass GetCallerIdentityResult:
     """
     A collection of values returned by getCallerIdentity.
     """
@@ -68,7 +68,7 @@ class GetCallerIdentityResult:
         return pulumi.get(self, "user_id")
 
 
-class AwaitableGetCallerIdentityResult(GetCallerIdentityResult):
+calass AwaitableGetCallerIdentityResult(GetCallerIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

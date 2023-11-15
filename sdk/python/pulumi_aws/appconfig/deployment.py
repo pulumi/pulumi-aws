@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DeploymentArgs', 'Deployment']
+__all__ = ['DeploymentArrgs', 'Deployment']
 
 @pulumi.input_type
-class DeploymentArgs:
+calass DeploymentArrgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  configuration_profile_id: pulumi.Input[str],
@@ -127,7 +127,7 @@ class DeploymentArgs:
 
 
 @pulumi.input_type
-class _DeploymentState:
+calass _DeploymentState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -316,7 +316,7 @@ class _DeploymentState:
         pulumi.set(self, "tags_all", value)
 
 
-class Deployment(pulumi.CustomResource):
+calass Deployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -372,7 +372,7 @@ class Deployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DeploymentArgs,
+                 args: DeploymentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppConfig Deployment resource for an `appconfig.Application` resource.
@@ -404,12 +404,12 @@ class Deployment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param DeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -432,7 +432,7 @@ class Deployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DeploymentArgs.__new__(DeploymentArgs)
+            __props__ = DeploymentArrgs.__new__(DeploymentArrgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")

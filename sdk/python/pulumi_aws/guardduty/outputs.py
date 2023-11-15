@@ -34,7 +34,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DetectorDatasources(dict):
+calass DetectorDatasources(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -59,13 +59,13 @@ class DetectorDatasources(dict):
                  malware_protection: Optional['outputs.DetectorDatasourcesMalwareProtection'] = None,
                  s3_logs: Optional['outputs.DetectorDatasourcesS3Logs'] = None):
         """
-        :param 'DetectorDatasourcesKubernetesArgs' kubernetes: Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        :param 'DetectorDatasourcesKubernetesArrgs' kubernetes: Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes and Kubernetes Audit Logs below for more details.
-        :param 'DetectorDatasourcesMalwareProtectionArgs' malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+        :param 'DetectorDatasourcesMalwareProtectionArrgs' malware_protection: Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
                See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
                
                The `datasources` block is deprecated since March 2023. Use the `features` block instead and [map each `datasources` block to the corresponding `features` block](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html#guardduty-feature-enablement-datasource-relation).
-        :param 'DetectorDatasourcesS3LogsArgs' s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        :param 'DetectorDatasourcesS3LogsArrgs' s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
                See S3 Logs below for more details.
         """
         if kubernetes is not None:
@@ -106,7 +106,7 @@ class DetectorDatasources(dict):
 
 
 @pulumi.output_type
-class DetectorDatasourcesKubernetes(dict):
+calass DetectorDatasourcesKubernetes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -127,7 +127,7 @@ class DetectorDatasourcesKubernetes(dict):
     def __init__(__self__, *,
                  audit_logs: 'outputs.DetectorDatasourcesKubernetesAuditLogs'):
         """
-        :param 'DetectorDatasourcesKubernetesAuditLogsArgs' audit_logs: Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        :param 'DetectorDatasourcesKubernetesAuditLogsArrgs' audit_logs: Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes Audit Logs below for more details.
         """
         pulumi.set(__self__, "audit_logs", audit_logs)
@@ -143,7 +143,7 @@ class DetectorDatasourcesKubernetes(dict):
 
 
 @pulumi.output_type
-class DetectorDatasourcesKubernetesAuditLogs(dict):
+calass DetectorDatasourcesKubernetesAuditLogs(dict):
     def __init__(__self__, *,
                  enable: bool):
         """
@@ -163,7 +163,7 @@ class DetectorDatasourcesKubernetesAuditLogs(dict):
 
 
 @pulumi.output_type
-class DetectorDatasourcesMalwareProtection(dict):
+calass DetectorDatasourcesMalwareProtection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -184,7 +184,7 @@ class DetectorDatasourcesMalwareProtection(dict):
     def __init__(__self__, *,
                  scan_ec2_instance_with_findings: 'outputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings'):
         """
-        :param 'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs' scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+        :param 'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs' scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
                See Scan EC2 instance with findings below for more details.
         """
         pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
@@ -200,7 +200,7 @@ class DetectorDatasourcesMalwareProtection(dict):
 
 
 @pulumi.output_type
-class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings(dict):
+calass DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -221,7 +221,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings(dict):
     def __init__(__self__, *,
                  ebs_volumes: 'outputs.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes'):
         """
-        :param 'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs' ebs_volumes: Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+        :param 'DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs' ebs_volumes: Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
                See EBS volumes below for more details.
         """
         pulumi.set(__self__, "ebs_volumes", ebs_volumes)
@@ -237,7 +237,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindings(dict):
 
 
 @pulumi.output_type
-class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes(dict):
+calass DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes(dict):
     def __init__(__self__, *,
                  enable: bool):
         """
@@ -257,7 +257,7 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes(
 
 
 @pulumi.output_type
-class DetectorDatasourcesS3Logs(dict):
+calass DetectorDatasourcesS3Logs(dict):
     def __init__(__self__, *,
                  enable: bool):
         """
@@ -275,7 +275,7 @@ class DetectorDatasourcesS3Logs(dict):
 
 
 @pulumi.output_type
-class DetectorFeatureAdditionalConfiguration(dict):
+calass DetectorFeatureAdditionalConfiguration(dict):
     def __init__(__self__, *,
                  name: str,
                  status: str):
@@ -304,7 +304,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
 
 
 @pulumi.output_type
-class FilterFindingCriteria(dict):
+calass FilterFindingCriteria(dict):
     def __init__(__self__, *,
                  criterions: Sequence['outputs.FilterFindingCriteriaCriterion']):
         pulumi.set(__self__, "criterions", criterions)
@@ -316,7 +316,7 @@ class FilterFindingCriteria(dict):
 
 
 @pulumi.output_type
-class FilterFindingCriteriaCriterion(dict):
+calass FilterFindingCriteriaCriterion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -431,7 +431,7 @@ class FilterFindingCriteriaCriterion(dict):
 
 
 @pulumi.output_type
-class OrganizationConfigurationDatasources(dict):
+calass OrganizationConfigurationDatasources(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -456,9 +456,9 @@ class OrganizationConfigurationDatasources(dict):
                  malware_protection: Optional['outputs.OrganizationConfigurationDatasourcesMalwareProtection'] = None,
                  s3_logs: Optional['outputs.OrganizationConfigurationDatasourcesS3Logs'] = None):
         """
-        :param 'OrganizationConfigurationDatasourcesKubernetesArgs' kubernetes: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-        :param 'OrganizationConfigurationDatasourcesMalwareProtectionArgs' malware_protection: Enable Malware Protection automatically for new member accounts.
-        :param 'OrganizationConfigurationDatasourcesS3LogsArgs' s3_logs: Enable S3 Protection automatically for new member accounts.
+        :param 'OrganizationConfigurationDatasourcesKubernetesArrgs' kubernetes: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+        :param 'OrganizationConfigurationDatasourcesMalwareProtectionArrgs' malware_protection: Enable Malware Protection automatically for new member accounts.
+        :param 'OrganizationConfigurationDatasourcesS3LogsArrgs' s3_logs: Enable S3 Protection automatically for new member accounts.
         """
         if kubernetes is not None:
             pulumi.set(__self__, "kubernetes", kubernetes)
@@ -493,7 +493,7 @@ class OrganizationConfigurationDatasources(dict):
 
 
 @pulumi.output_type
-class OrganizationConfigurationDatasourcesKubernetes(dict):
+calass OrganizationConfigurationDatasourcesKubernetes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -514,7 +514,7 @@ class OrganizationConfigurationDatasourcesKubernetes(dict):
     def __init__(__self__, *,
                  audit_logs: 'outputs.OrganizationConfigurationDatasourcesKubernetesAuditLogs'):
         """
-        :param 'OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs' audit_logs: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        :param 'OrganizationConfigurationDatasourcesKubernetesAuditLogsArrgs' audit_logs: Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
                See Kubernetes Audit Logs below for more details.
         """
         pulumi.set(__self__, "audit_logs", audit_logs)
@@ -530,7 +530,7 @@ class OrganizationConfigurationDatasourcesKubernetes(dict):
 
 
 @pulumi.output_type
-class OrganizationConfigurationDatasourcesKubernetesAuditLogs(dict):
+calass OrganizationConfigurationDatasourcesKubernetesAuditLogs(dict):
     def __init__(__self__, *,
                  enable: bool):
         """
@@ -550,7 +550,7 @@ class OrganizationConfigurationDatasourcesKubernetesAuditLogs(dict):
 
 
 @pulumi.output_type
-class OrganizationConfigurationDatasourcesMalwareProtection(dict):
+calass OrganizationConfigurationDatasourcesMalwareProtection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -571,7 +571,7 @@ class OrganizationConfigurationDatasourcesMalwareProtection(dict):
     def __init__(__self__, *,
                  scan_ec2_instance_with_findings: 'outputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings'):
         """
-        :param 'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs' scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+        :param 'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs' scan_ec2_instance_with_findings: Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
                See Scan EC2 instance with findings below for more details.
         """
         pulumi.set(__self__, "scan_ec2_instance_with_findings", scan_ec2_instance_with_findings)
@@ -587,7 +587,7 @@ class OrganizationConfigurationDatasourcesMalwareProtection(dict):
 
 
 @pulumi.output_type
-class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings(dict):
+calass OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -608,7 +608,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
     def __init__(__self__, *,
                  ebs_volumes: 'outputs.OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes'):
         """
-        :param 'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs' ebs_volumes: Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+        :param 'OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs' ebs_volumes: Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
                See EBS volumes below for more details.
         """
         pulumi.set(__self__, "ebs_volumes", ebs_volumes)
@@ -624,7 +624,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
 
 
 @pulumi.output_type
-class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes(dict):
+calass OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -661,7 +661,7 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
 
 
 @pulumi.output_type
-class OrganizationConfigurationDatasourcesS3Logs(dict):
+calass OrganizationConfigurationDatasourcesS3Logs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -696,7 +696,7 @@ class OrganizationConfigurationDatasourcesS3Logs(dict):
 
 
 @pulumi.output_type
-class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
+calass OrganizationConfigurationFeatureAdditionalConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -742,13 +742,13 @@ class OrganizationConfigurationFeatureAdditionalConfiguration(dict):
 
 
 @pulumi.output_type
-class GetDetectorFeatureResult(dict):
+calass GetDetectorFeatureResult(dict):
     def __init__(__self__, *,
                  additional_configurations: Sequence['outputs.GetDetectorFeatureAdditionalConfigurationResult'],
                  name: str,
                  status: str):
         """
-        :param Sequence['GetDetectorFeatureAdditionalConfigurationArgs'] additional_configurations: Additional feature configuration.
+        :param Sequence['GetDetectorFeatureAdditionalConfigurationArrgs'] additional_configurations: Additional feature configuration.
         :param str name: The name of the detector feature.
         :param str status: Current status of the detector.
         """
@@ -782,7 +782,7 @@ class GetDetectorFeatureResult(dict):
 
 
 @pulumi.output_type
-class GetDetectorFeatureAdditionalConfigurationResult(dict):
+calass GetDetectorFeatureAdditionalConfigurationResult(dict):
     def __init__(__self__, *,
                  name: str,
                  status: str):

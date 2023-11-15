@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSinksResult:
+calass GetSinksResult:
     """
     A collection of values returned by getSinks.
     """
@@ -46,7 +46,7 @@ class GetSinksResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetSinksResult(GetSinksResult):
+calass AwaitableGetSinksResult(GetSinksResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

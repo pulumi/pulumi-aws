@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OriginAccessIdentityArgs', 'OriginAccessIdentity']
+__all__ = ['OriginAccessIdentityArrgs', 'OriginAccessIdentity']
 
 @pulumi.input_type
-class OriginAccessIdentityArgs:
+calass OriginAccessIdentityArrgs:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None):
         """
@@ -36,7 +36,7 @@ class OriginAccessIdentityArgs:
 
 
 @pulumi.input_type
-class _OriginAccessIdentityState:
+calass _OriginAccessIdentityState:
     def __init__(__self__, *,
                  caller_reference: Optional[pulumi.Input[str]] = None,
                  cloudfront_access_identity_path: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _OriginAccessIdentityState:
         pulumi.set(self, "s3_canonical_user_id", value)
 
 
-class OriginAccessIdentity(pulumi.CustomResource):
+calass OriginAccessIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,8 +191,8 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
-            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
+        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArrgs(
+            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArrgs(
                 origin_access_identity=aws_cloudfront_origin_access_identity["example"]["cloudfront_access_identity_path"],
             ),
         )])
@@ -209,10 +209,10 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["s3:GetObject"],
             resources=[f"{aws_s3_bucket['example']['arn']}/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[aws_cloudfront_origin_access_identity["example"]["iam_arn"]],
             )],
@@ -241,7 +241,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[OriginAccessIdentityArgs] = None,
+                 args: Optional[OriginAccessIdentityArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an Amazon CloudFront origin access identity.
@@ -274,8 +274,8 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configuration ...
-        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArgs(
-            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArgs(
+        example = aws.cloudfront.Distribution("example", origins=[aws.cloudfront.DistributionOriginArrgs(
+            s3_origin_config=aws.cloudfront.DistributionOriginS3OriginConfigArrgs(
                 origin_access_identity=aws_cloudfront_origin_access_identity["example"]["cloudfront_access_identity_path"],
             ),
         )])
@@ -292,10 +292,10 @@ class OriginAccessIdentity(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["s3:GetObject"],
             resources=[f"{aws_s3_bucket['example']['arn']}/*"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[aws_cloudfront_origin_access_identity["example"]["iam_arn"]],
             )],
@@ -317,12 +317,12 @@ class OriginAccessIdentity(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OriginAccessIdentityArgs args: The arguments to use to populate this resource's properties.
+        :param OriginAccessIdentityArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OriginAccessIdentityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OriginAccessIdentityArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -339,7 +339,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OriginAccessIdentityArgs.__new__(OriginAccessIdentityArgs)
+            __props__ = OriginAccessIdentityArrgs.__new__(OriginAccessIdentityArrgs)
 
             __props__.__dict__["comment"] = comment
             __props__.__dict__["caller_reference"] = None

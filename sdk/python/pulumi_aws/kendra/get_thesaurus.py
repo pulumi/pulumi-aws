@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetThesaurusResult:
+calass GetThesaurusResult:
     """
     A collection of values returned by getThesaurus.
     """
@@ -195,7 +195,7 @@ class GetThesaurusResult:
         return pulumi.get(self, "updated_at")
 
 
-class AwaitableGetThesaurusResult(GetThesaurusResult):
+calass AwaitableGetThesaurusResult(GetThesaurusResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

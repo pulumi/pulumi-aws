@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FindingAggregatorArgs', 'FindingAggregator']
+__all__ = ['FindingAggregatorArrgs', 'FindingAggregator']
 
 @pulumi.input_type
-class FindingAggregatorArgs:
+calass FindingAggregatorArrgs:
     def __init__(__self__, *,
                  linking_mode: pulumi.Input[str],
                  specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -51,7 +51,7 @@ class FindingAggregatorArgs:
 
 
 @pulumi.input_type
-class _FindingAggregatorState:
+calass _FindingAggregatorState:
     def __init__(__self__, *,
                  linking_mode: Optional[pulumi.Input[str]] = None,
                  specified_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -90,7 +90,7 @@ class _FindingAggregatorState:
         pulumi.set(self, "specified_regions", value)
 
 
-class FindingAggregator(pulumi.CustomResource):
+calass FindingAggregator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -166,7 +166,7 @@ class FindingAggregator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FindingAggregatorArgs,
+                 args: FindingAggregatorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
@@ -228,12 +228,12 @@ class FindingAggregator(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FindingAggregatorArgs args: The arguments to use to populate this resource's properties.
+        :param FindingAggregatorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FindingAggregatorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FindingAggregatorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -251,7 +251,7 @@ class FindingAggregator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FindingAggregatorArgs.__new__(FindingAggregatorArgs)
+            __props__ = FindingAggregatorArrgs.__new__(FindingAggregatorArrgs)
 
             if linking_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'linking_mode'")

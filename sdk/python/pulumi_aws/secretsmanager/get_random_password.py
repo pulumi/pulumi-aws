@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRandomPasswordResult:
+calass GetRandomPasswordResult:
     """
     A collection of values returned by getRandomPassword.
     """
@@ -110,7 +110,7 @@ class GetRandomPasswordResult:
         return pulumi.get(self, "require_each_included_type")
 
 
-class AwaitableGetRandomPasswordResult(GetRandomPasswordResult):
+calass AwaitableGetRandomPasswordResult(GetRandomPasswordResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

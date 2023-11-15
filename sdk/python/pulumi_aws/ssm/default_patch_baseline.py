@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DefaultPatchBaselineArgs', 'DefaultPatchBaseline']
+__all__ = ['DefaultPatchBaselineArrgs', 'DefaultPatchBaseline']
 
 @pulumi.input_type
-class DefaultPatchBaselineArgs:
+calass DefaultPatchBaselineArrgs:
     def __init__(__self__, *,
                  baseline_id: pulumi.Input[str],
                  operating_system: pulumi.Input[str]):
@@ -82,7 +82,7 @@ class DefaultPatchBaselineArgs:
 
 
 @pulumi.input_type
-class _DefaultPatchBaselineState:
+calass _DefaultPatchBaselineState:
     def __init__(__self__, *,
                  baseline_id: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input[str]] = None):
@@ -153,7 +153,7 @@ class _DefaultPatchBaselineState:
         pulumi.set(self, "operating_system", value)
 
 
-class DefaultPatchBaseline(pulumi.CustomResource):
+calass DefaultPatchBaseline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,7 +226,7 @@ class DefaultPatchBaseline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DefaultPatchBaselineArgs,
+                 args: DefaultPatchBaselineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for registering an AWS Systems Manager Default Patch Baseline.
@@ -269,12 +269,12 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DefaultPatchBaselineArgs args: The arguments to use to populate this resource's properties.
+        :param DefaultPatchBaselineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DefaultPatchBaselineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DefaultPatchBaselineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -292,7 +292,7 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DefaultPatchBaselineArgs.__new__(DefaultPatchBaselineArgs)
+            __props__ = DefaultPatchBaselineArrgs.__new__(DefaultPatchBaselineArrgs)
 
             if baseline_id is None and not opts.urn:
                 raise TypeError("Missing required property 'baseline_id'")

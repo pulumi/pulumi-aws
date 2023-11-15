@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DelegatedAdministratorArgs', 'DelegatedAdministrator']
+__all__ = ['DelegatedAdministratorArrgs', 'DelegatedAdministrator']
 
 @pulumi.input_type
-class DelegatedAdministratorArgs:
+calass DelegatedAdministratorArrgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
                  service_principal: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class DelegatedAdministratorArgs:
 
 
 @pulumi.input_type
-class _DelegatedAdministratorState:
+calass _DelegatedAdministratorState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -201,7 +201,7 @@ class _DelegatedAdministratorState:
         pulumi.set(self, "status", value)
 
 
-class DelegatedAdministrator(pulumi.CustomResource):
+calass DelegatedAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,7 +240,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DelegatedAdministratorArgs,
+                 args: DelegatedAdministratorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an [AWS Organizations Delegated Administrator](https://docs.aws.amazon.com/organizations/latest/APIReference/API_RegisterDelegatedAdministrator.html).
@@ -265,12 +265,12 @@ class DelegatedAdministrator(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DelegatedAdministratorArgs args: The arguments to use to populate this resource's properties.
+        :param DelegatedAdministratorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DelegatedAdministratorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DelegatedAdministratorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -288,7 +288,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DelegatedAdministratorArgs.__new__(DelegatedAdministratorArgs)
+            __props__ = DelegatedAdministratorArrgs.__new__(DelegatedAdministratorArrgs)
 
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")

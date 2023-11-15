@@ -11,27 +11,27 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DocumentClassifierArgs', 'DocumentClassifier']
+__all__ = ['DocumentClassifierArrgs', 'DocumentClassifier']
 
 @pulumi.input_type
-class DocumentClassifierArgs:
+calass DocumentClassifierArrgs:
     def __init__(__self__, *,
                  data_access_role_arn: pulumi.Input[str],
-                 input_data_config: pulumi.Input['DocumentClassifierInputDataConfigArgs'],
+                 input_data_config: pulumi.Input['DocumentClassifierInputDataConfigArrgs'],
                  language_code: pulumi.Input[str],
                  mode: Optional[pulumi.Input[str]] = None,
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_data_config: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']] = None,
+                 output_data_config: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArrgs']] = None):
         """
         The set of arguments for constructing a DocumentClassifier resource.
         :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        :param pulumi.Input['DocumentClassifierInputDataConfigArgs'] input_data_config: Configuration for the training and testing data.
+        :param pulumi.Input['DocumentClassifierInputDataConfigArrgs'] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
         :param pulumi.Input[str] language_code: Two-letter language code for the language.
                One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -45,7 +45,7 @@ class DocumentClassifierArgs:
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
                
                The following arguments are optional:
-        :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
+        :param pulumi.Input['DocumentClassifierOutputDataConfigArrgs'] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
@@ -61,7 +61,7 @@ class DocumentClassifierArgs:
                Conflicts with `version_name`.
         :param pulumi.Input[str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
                Can be a KMS Key ID or a KMS Key ARN.
-        :param pulumi.Input['DocumentClassifierVpcConfigArgs'] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
+        :param pulumi.Input['DocumentClassifierVpcConfigArrgs'] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
                See the `vpc_config` Configuration Block section below.
         """
         pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
@@ -100,7 +100,7 @@ class DocumentClassifierArgs:
 
     @property
     @pulumi.getter(name="inputDataConfig")
-    def input_data_config(self) -> pulumi.Input['DocumentClassifierInputDataConfigArgs']:
+    def input_data_config(self) -> pulumi.Input['DocumentClassifierInputDataConfigArrgs']:
         """
         Configuration for the training and testing data.
         See the `input_data_config` Configuration Block section below.
@@ -108,7 +108,7 @@ class DocumentClassifierArgs:
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
-    def input_data_config(self, value: pulumi.Input['DocumentClassifierInputDataConfigArgs']):
+    def input_data_config(self, value: pulumi.Input['DocumentClassifierInputDataConfigArrgs']):
         pulumi.set(self, "input_data_config", value)
 
     @property
@@ -169,7 +169,7 @@ class DocumentClassifierArgs:
 
     @property
     @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]:
+    def output_data_config(self) -> Optional[pulumi.Input['DocumentClassifierOutputDataConfigArrgs']]:
         """
         Configuration for the output results of training.
         See the `output_data_config` Configuration Block section below.
@@ -177,7 +177,7 @@ class DocumentClassifierArgs:
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
-    def output_data_config(self, value: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]):
+    def output_data_config(self, value: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArrgs']]):
         pulumi.set(self, "output_data_config", value)
 
     @property
@@ -240,7 +240,7 @@ class DocumentClassifierArgs:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['DocumentClassifierVpcConfigArrgs']]:
         """
         Configuration parameters for VPC to contain Document Classifier resources.
         See the `vpc_config` Configuration Block section below.
@@ -248,32 +248,32 @@ class DocumentClassifierArgs:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['DocumentClassifierVpcConfigArrgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
-class _DocumentClassifierState:
+calass _DocumentClassifierState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  data_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input['DocumentClassifierInputDataConfigArgs']] = None,
+                 input_data_config: Optional[pulumi.Input['DocumentClassifierInputDataConfigArrgs']] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_data_config: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']] = None,
+                 output_data_config: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['DocumentClassifierVpcConfigArrgs']] = None):
         """
         Input properties used for looking up and filtering DocumentClassifier resources.
         :param pulumi.Input[str] arn: ARN of the Document Classifier version.
         :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        :param pulumi.Input['DocumentClassifierInputDataConfigArgs'] input_data_config: Configuration for the training and testing data.
+        :param pulumi.Input['DocumentClassifierInputDataConfigArrgs'] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
         :param pulumi.Input[str] language_code: Two-letter language code for the language.
                One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -287,7 +287,7 @@ class _DocumentClassifierState:
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
                
                The following arguments are optional:
-        :param pulumi.Input['DocumentClassifierOutputDataConfigArgs'] output_data_config: Configuration for the output results of training.
+        :param pulumi.Input['DocumentClassifierOutputDataConfigArrgs'] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -304,7 +304,7 @@ class _DocumentClassifierState:
                Conflicts with `version_name`.
         :param pulumi.Input[str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
                Can be a KMS Key ID or a KMS Key ARN.
-        :param pulumi.Input['DocumentClassifierVpcConfigArgs'] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
+        :param pulumi.Input['DocumentClassifierVpcConfigArrgs'] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
                See the `vpc_config` Configuration Block section below.
         """
         if arn is not None:
@@ -365,7 +365,7 @@ class _DocumentClassifierState:
 
     @property
     @pulumi.getter(name="inputDataConfig")
-    def input_data_config(self) -> Optional[pulumi.Input['DocumentClassifierInputDataConfigArgs']]:
+    def input_data_config(self) -> Optional[pulumi.Input['DocumentClassifierInputDataConfigArrgs']]:
         """
         Configuration for the training and testing data.
         See the `input_data_config` Configuration Block section below.
@@ -373,7 +373,7 @@ class _DocumentClassifierState:
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
-    def input_data_config(self, value: Optional[pulumi.Input['DocumentClassifierInputDataConfigArgs']]):
+    def input_data_config(self, value: Optional[pulumi.Input['DocumentClassifierInputDataConfigArrgs']]):
         pulumi.set(self, "input_data_config", value)
 
     @property
@@ -434,7 +434,7 @@ class _DocumentClassifierState:
 
     @property
     @pulumi.getter(name="outputDataConfig")
-    def output_data_config(self) -> Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]:
+    def output_data_config(self) -> Optional[pulumi.Input['DocumentClassifierOutputDataConfigArrgs']]:
         """
         Configuration for the output results of training.
         See the `output_data_config` Configuration Block section below.
@@ -442,7 +442,7 @@ class _DocumentClassifierState:
         return pulumi.get(self, "output_data_config")
 
     @output_data_config.setter
-    def output_data_config(self, value: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArgs']]):
+    def output_data_config(self, value: Optional[pulumi.Input['DocumentClassifierOutputDataConfigArrgs']]):
         pulumi.set(self, "output_data_config", value)
 
     @property
@@ -520,7 +520,7 @@ class _DocumentClassifierState:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['DocumentClassifierVpcConfigArrgs']]:
         """
         Configuration parameters for VPC to contain Document Classifier resources.
         See the `vpc_config` Configuration Block section below.
@@ -528,27 +528,27 @@ class _DocumentClassifierState:
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['DocumentClassifierVpcConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['DocumentClassifierVpcConfigArrgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
-class DocumentClassifier(pulumi.CustomResource):
+calass DocumentClassifier(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArgs']]] = None,
+                 input_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArrgs']]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']]] = None,
+                 output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArrgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Comprehend Document Classifier.
@@ -565,7 +565,7 @@ class DocumentClassifier(pulumi.CustomResource):
         example = aws.comprehend.DocumentClassifier("example",
             data_access_role_arn=aws_iam_role["example"]["arn"],
             language_code="en",
-            input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
+            input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArrgs(
                 s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['test']['bucket']}/{id}"),
             ),
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
@@ -584,7 +584,7 @@ class DocumentClassifier(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        :param pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArgs']] input_data_config: Configuration for the training and testing data.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArrgs']] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
         :param pulumi.Input[str] language_code: Two-letter language code for the language.
                One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -598,7 +598,7 @@ class DocumentClassifier(pulumi.CustomResource):
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Configuration for the output results of training.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArrgs']] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version_name: Name for the version of the Document Classifier.
@@ -614,14 +614,14 @@ class DocumentClassifier(pulumi.CustomResource):
                Conflicts with `version_name`.
         :param pulumi.Input[str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
                Can be a KMS Key ID or a KMS Key ARN.
-        :param pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArrgs']] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
                See the `vpc_config` Configuration Block section below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DocumentClassifierArgs,
+                 args: DocumentClassifierArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Comprehend Document Classifier.
@@ -638,7 +638,7 @@ class DocumentClassifier(pulumi.CustomResource):
         example = aws.comprehend.DocumentClassifier("example",
             data_access_role_arn=aws_iam_role["example"]["arn"],
             language_code="en",
-            input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArgs(
+            input_data_config=aws.comprehend.DocumentClassifierInputDataConfigArrgs(
                 s3_uri=documents.id.apply(lambda id: f"s3://{aws_s3_bucket['test']['bucket']}/{id}"),
             ),
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy["example"]]))
@@ -655,12 +655,12 @@ class DocumentClassifier(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DocumentClassifierArgs args: The arguments to use to populate this resource's properties.
+        :param DocumentClassifierArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DocumentClassifierArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DocumentClassifierArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -670,17 +670,17 @@ class DocumentClassifier(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_access_role_arn: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArgs']]] = None,
+                 input_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArrgs']]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  model_kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']]] = None,
+                 output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version_name: Optional[pulumi.Input[str]] = None,
                  version_name_prefix: Optional[pulumi.Input[str]] = None,
                  volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -688,7 +688,7 @@ class DocumentClassifier(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DocumentClassifierArgs.__new__(DocumentClassifierArgs)
+            __props__ = DocumentClassifierArrgs.__new__(DocumentClassifierArrgs)
 
             if data_access_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'data_access_role_arn'")
@@ -724,18 +724,18 @@ class DocumentClassifier(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             data_access_role_arn: Optional[pulumi.Input[str]] = None,
-            input_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArgs']]] = None,
+            input_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArrgs']]] = None,
             language_code: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             model_kms_key_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']]] = None,
+            output_data_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version_name: Optional[pulumi.Input[str]] = None,
             version_name_prefix: Optional[pulumi.Input[str]] = None,
             volume_kms_key_id: Optional[pulumi.Input[str]] = None,
-            vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']]] = None) -> 'DocumentClassifier':
+            vpc_config: Optional[pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArrgs']]] = None) -> 'DocumentClassifier':
         """
         Get an existing DocumentClassifier resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -745,7 +745,7 @@ class DocumentClassifier(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Document Classifier version.
         :param pulumi.Input[str] data_access_role_arn: The ARN for an IAM Role which allows Comprehend to read the training and testing data.
-        :param pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArgs']] input_data_config: Configuration for the training and testing data.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierInputDataConfigArrgs']] input_data_config: Configuration for the training and testing data.
                See the `input_data_config` Configuration Block section below.
         :param pulumi.Input[str] language_code: Two-letter language code for the language.
                One of `en`, `es`, `fr`, `it`, `de`, or `pt`.
@@ -759,7 +759,7 @@ class DocumentClassifier(pulumi.CustomResource):
                Can contain upper- and lower-case letters, numbers, and hypen (`-`).
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArgs']] output_data_config: Configuration for the output results of training.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierOutputDataConfigArrgs']] output_data_config: Configuration for the output results of training.
                See the `output_data_config` Configuration Block section below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` Configuration Block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -776,7 +776,7 @@ class DocumentClassifier(pulumi.CustomResource):
                Conflicts with `version_name`.
         :param pulumi.Input[str] volume_kms_key_id: KMS Key used to encrypt storage volumes during job processing.
                Can be a KMS Key ID or a KMS Key ARN.
-        :param pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArgs']] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
+        :param pulumi.Input[pulumi.InputType['DocumentClassifierVpcConfigArrgs']] vpc_config: Configuration parameters for VPC to contain Document Classifier resources.
                See the `vpc_config` Configuration Block section below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResolverFirewallRuleGroupArgs', 'ResolverFirewallRuleGroup']
+__all__ = ['ResolverFirewallRuleGroupArrgs', 'ResolverFirewallRuleGroup']
 
 @pulumi.input_type
-class ResolverFirewallRuleGroupArgs:
+calass ResolverFirewallRuleGroupArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -52,7 +52,7 @@ class ResolverFirewallRuleGroupArgs:
 
 
 @pulumi.input_type
-class _ResolverFirewallRuleGroupState:
+calass _ResolverFirewallRuleGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -161,7 +161,7 @@ class _ResolverFirewallRuleGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class ResolverFirewallRuleGroup(pulumi.CustomResource):
+calass ResolverFirewallRuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -200,7 +200,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ResolverFirewallRuleGroupArgs] = None,
+                 args: Optional[ResolverFirewallRuleGroupArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Route 53 Resolver DNS Firewall rule group resource.
@@ -225,12 +225,12 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResolverFirewallRuleGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ResolverFirewallRuleGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResolverFirewallRuleGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverFirewallRuleGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -248,7 +248,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResolverFirewallRuleGroupArgs.__new__(ResolverFirewallRuleGroupArgs)
+            __props__ = ResolverFirewallRuleGroupArrgs.__new__(ResolverFirewallRuleGroupArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

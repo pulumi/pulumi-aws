@@ -10,59 +10,59 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DataRepositoryAssociationS3Args',
-    'DataRepositoryAssociationS3AutoExportPolicyArgs',
-    'DataRepositoryAssociationS3AutoImportPolicyArgs',
-    'FileCacheDataRepositoryAssociationArgs',
-    'FileCacheDataRepositoryAssociationNfArgs',
-    'FileCacheLustreConfigurationArgs',
-    'FileCacheLustreConfigurationLogConfigurationArgs',
-    'FileCacheLustreConfigurationMetadataConfigurationArgs',
-    'LustreFileSystemLogConfigurationArgs',
-    'LustreFileSystemRootSquashConfigurationArgs',
-    'OntapFileSystemDiskIopsConfigurationArgs',
-    'OntapFileSystemEndpointArgs',
-    'OntapFileSystemEndpointInterclusterArgs',
-    'OntapFileSystemEndpointManagementArgs',
-    'OntapStorageVirtualMachineActiveDirectoryConfigurationArgs',
-    'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs',
-    'OntapStorageVirtualMachineEndpointArgs',
-    'OntapStorageVirtualMachineEndpointIscsiArgs',
-    'OntapStorageVirtualMachineEndpointManagementArgs',
-    'OntapStorageVirtualMachineEndpointNfArgs',
-    'OntapStorageVirtualMachineEndpointSmbArgs',
-    'OntapVolumeSnaplockConfigurationArgs',
-    'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs',
-    'OntapVolumeSnaplockConfigurationRetentionPeriodArgs',
-    'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs',
-    'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs',
-    'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs',
-    'OntapVolumeTieringPolicyArgs',
-    'OpenZfsFileSystemDiskIopsConfigurationArgs',
-    'OpenZfsFileSystemRootVolumeConfigurationArgs',
-    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs',
-    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs',
-    'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs',
-    'OpenZfsVolumeNfsExportsArgs',
-    'OpenZfsVolumeNfsExportsClientConfigurationArgs',
-    'OpenZfsVolumeOriginSnapshotArgs',
-    'OpenZfsVolumeUserAndGroupQuotaArgs',
-    'WindowsFileSystemAuditLogConfigurationArgs',
-    'WindowsFileSystemDiskIopsConfigurationArgs',
-    'WindowsFileSystemSelfManagedActiveDirectoryArgs',
-    'GetOntapStorageVirtualMachineFilterArgs',
-    'GetOntapStorageVirtualMachinesFilterArgs',
-    'GetOpenZfsSnapshotFilterArgs',
+    'DataRepositoryAssociationS3Arrgs',
+    'DataRepositoryAssociationS3AutoExportPolicyArrgs',
+    'DataRepositoryAssociationS3AutoImportPolicyArrgs',
+    'FileCacheDataRepositoryAssociationArrgs',
+    'FileCacheDataRepositoryAssociationNfArrgs',
+    'FileCacheLustreConfigurationArrgs',
+    'FileCacheLustreConfigurationLogConfigurationArrgs',
+    'FileCacheLustreConfigurationMetadataConfigurationArrgs',
+    'LustreFileSystemLogConfigurationArrgs',
+    'LustreFileSystemRootSquashConfigurationArrgs',
+    'OntapFileSystemDiskIopsConfigurationArrgs',
+    'OntapFileSystemEndpointArrgs',
+    'OntapFileSystemEndpointInterclusterArrgs',
+    'OntapFileSystemEndpointManagementArrgs',
+    'OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs',
+    'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrgs',
+    'OntapStorageVirtualMachineEndpointArrgs',
+    'OntapStorageVirtualMachineEndpointIscsiArrgs',
+    'OntapStorageVirtualMachineEndpointManagementArrgs',
+    'OntapStorageVirtualMachineEndpointNfArrgs',
+    'OntapStorageVirtualMachineEndpointSmbArrgs',
+    'OntapVolumeSnaplockConfigurationArrgs',
+    'OntapVolumeSnaplockConfigurationAutocommitPeriodArrgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodArrgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArrgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArrgs',
+    'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArrgs',
+    'OntapVolumeTieringPolicyArrgs',
+    'OpenZfsFileSystemDiskIopsConfigurationArrgs',
+    'OpenZfsFileSystemRootVolumeConfigurationArrgs',
+    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArrgs',
+    'OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrgs',
+    'OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrgs',
+    'OpenZfsVolumeNfsExportsArrgs',
+    'OpenZfsVolumeNfsExportsClientConfigurationArrgs',
+    'OpenZfsVolumeOriginSnapshotArrgs',
+    'OpenZfsVolumeUserAndGroupQuotaArrgs',
+    'WindowsFileSystemAuditLogConfigurationArrgs',
+    'WindowsFileSystemDiskIopsConfigurationArrgs',
+    'WindowsFileSystemSelfManagedActiveDirectoryArrgs',
+    'GetOntapStorageVirtualMachineFilterArrgs',
+    'GetOntapStorageVirtualMachinesFilterArrgs',
+    'GetOpenZfsSnapshotFilterArrgs',
 ]
 
 @pulumi.input_type
-class DataRepositoryAssociationS3Args:
+calass DataRepositoryAssociationS3Arrgs:
     def __init__(__self__, *,
-                 auto_export_policy: Optional[pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArgs']] = None,
-                 auto_import_policy: Optional[pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArgs']] = None):
+                 auto_export_policy: Optional[pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArrgs']] = None,
+                 auto_import_policy: Optional[pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArrgs']] = None):
         """
-        :param pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArgs'] auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
-        :param pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArgs'] auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        :param pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArrgs'] auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+        :param pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArrgs'] auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
         """
         if auto_export_policy is not None:
             pulumi.set(__self__, "auto_export_policy", auto_export_policy)
@@ -71,31 +71,31 @@ class DataRepositoryAssociationS3Args:
 
     @property
     @pulumi.getter(name="autoExportPolicy")
-    def auto_export_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArgs']]:
+    def auto_export_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArrgs']]:
         """
         Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
         """
         return pulumi.get(self, "auto_export_policy")
 
     @auto_export_policy.setter
-    def auto_export_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArgs']]):
+    def auto_export_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationS3AutoExportPolicyArrgs']]):
         pulumi.set(self, "auto_export_policy", value)
 
     @property
     @pulumi.getter(name="autoImportPolicy")
-    def auto_import_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArgs']]:
+    def auto_import_policy(self) -> Optional[pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArrgs']]:
         """
         Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
         """
         return pulumi.get(self, "auto_import_policy")
 
     @auto_import_policy.setter
-    def auto_import_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArgs']]):
+    def auto_import_policy(self, value: Optional[pulumi.Input['DataRepositoryAssociationS3AutoImportPolicyArrgs']]):
         pulumi.set(self, "auto_import_policy", value)
 
 
 @pulumi.input_type
-class DataRepositoryAssociationS3AutoExportPolicyArgs:
+calass DataRepositoryAssociationS3AutoExportPolicyArrgs:
     def __init__(__self__, *,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -118,7 +118,7 @@ class DataRepositoryAssociationS3AutoExportPolicyArgs:
 
 
 @pulumi.input_type
-class DataRepositoryAssociationS3AutoImportPolicyArgs:
+calass DataRepositoryAssociationS3AutoImportPolicyArrgs:
     def __init__(__self__, *,
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -141,7 +141,7 @@ class DataRepositoryAssociationS3AutoImportPolicyArgs:
 
 
 @pulumi.input_type
-class FileCacheDataRepositoryAssociationArgs:
+calass FileCacheDataRepositoryAssociationArrgs:
     def __init__(__self__, *,
                  data_repository_path: pulumi.Input[str],
                  file_cache_path: pulumi.Input[str],
@@ -151,7 +151,7 @@ class FileCacheDataRepositoryAssociationArgs:
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  file_system_path: Optional[pulumi.Input[str]] = None,
                  imported_file_chunk_size: Optional[pulumi.Input[int]] = None,
-                 nfs: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]]] = None,
+                 nfs: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArrgs']]]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -159,7 +159,7 @@ class FileCacheDataRepositoryAssociationArgs:
         :param pulumi.Input[str] file_cache_path: A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] data_repository_subdirectories: A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
         :param pulumi.Input[str] file_cache_id: The system-generated, unique ID of the cache.
-        :param pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]] nfs: (Optional) See the `nfs` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArrgs']]] nfs: (Optional) See the `nfs` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data_repository_path", data_repository_path)
@@ -269,14 +269,14 @@ class FileCacheDataRepositoryAssociationArgs:
 
     @property
     @pulumi.getter
-    def nfs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]]]:
+    def nfs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArrgs']]]]:
         """
         (Optional) See the `nfs` configuration block.
         """
         return pulumi.get(self, "nfs")
 
     @nfs.setter
-    def nfs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArgs']]]]):
+    def nfs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheDataRepositoryAssociationNfArrgs']]]]):
         pulumi.set(self, "nfs", value)
 
     @property
@@ -302,7 +302,7 @@ class FileCacheDataRepositoryAssociationArgs:
 
 
 @pulumi.input_type
-class FileCacheDataRepositoryAssociationNfArgs:
+calass FileCacheDataRepositoryAssociationNfArrgs:
     def __init__(__self__, *,
                  version: pulumi.Input[str],
                  dns_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -340,17 +340,17 @@ class FileCacheDataRepositoryAssociationNfArgs:
 
 
 @pulumi.input_type
-class FileCacheLustreConfigurationArgs:
+calass FileCacheLustreConfigurationArrgs:
     def __init__(__self__, *,
                  deployment_type: pulumi.Input[str],
-                 metadata_configurations: pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]],
+                 metadata_configurations: pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArrgs']]],
                  per_unit_storage_throughput: pulumi.Input[int],
-                 log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]]] = None,
+                 log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArrgs']]]] = None,
                  mount_name: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_start_time: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] deployment_type: Specifies the cache deployment type. The only supported value is `CACHE_1`.
-        :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]] metadata_configurations: The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        :param pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArrgs']]] metadata_configurations: The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
         :param pulumi.Input[int] per_unit_storage_throughput: Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
         :param pulumi.Input[str] weekly_maintenance_start_time: A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
         """
@@ -378,14 +378,14 @@ class FileCacheLustreConfigurationArgs:
 
     @property
     @pulumi.getter(name="metadataConfigurations")
-    def metadata_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]]:
+    def metadata_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArrgs']]]:
         """
         The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
         """
         return pulumi.get(self, "metadata_configurations")
 
     @metadata_configurations.setter
-    def metadata_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArgs']]]):
+    def metadata_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationMetadataConfigurationArrgs']]]):
         pulumi.set(self, "metadata_configurations", value)
 
     @property
@@ -402,11 +402,11 @@ class FileCacheLustreConfigurationArgs:
 
     @property
     @pulumi.getter(name="logConfigurations")
-    def log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]]]:
+    def log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArrgs']]]]:
         return pulumi.get(self, "log_configurations")
 
     @log_configurations.setter
-    def log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArgs']]]]):
+    def log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileCacheLustreConfigurationLogConfigurationArrgs']]]]):
         pulumi.set(self, "log_configurations", value)
 
     @property
@@ -432,7 +432,7 @@ class FileCacheLustreConfigurationArgs:
 
 
 @pulumi.input_type
-class FileCacheLustreConfigurationLogConfigurationArgs:
+calass FileCacheLustreConfigurationLogConfigurationArrgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None,
                  level: Optional[pulumi.Input[str]] = None):
@@ -461,7 +461,7 @@ class FileCacheLustreConfigurationLogConfigurationArgs:
 
 
 @pulumi.input_type
-class FileCacheLustreConfigurationMetadataConfigurationArgs:
+calass FileCacheLustreConfigurationMetadataConfigurationArrgs:
     def __init__(__self__, *,
                  storage_capacity: pulumi.Input[int]):
         """
@@ -483,7 +483,7 @@ class FileCacheLustreConfigurationMetadataConfigurationArgs:
 
 
 @pulumi.input_type
-class LustreFileSystemLogConfigurationArgs:
+calass LustreFileSystemLogConfigurationArrgs:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None,
                  level: Optional[pulumi.Input[str]] = None):
@@ -522,7 +522,7 @@ class LustreFileSystemLogConfigurationArgs:
 
 
 @pulumi.input_type
-class LustreFileSystemRootSquashConfigurationArgs:
+calass LustreFileSystemRootSquashConfigurationArrgs:
     def __init__(__self__, *,
                  no_squash_nids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  root_squash: Optional[pulumi.Input[str]] = None):
@@ -561,7 +561,7 @@ class LustreFileSystemRootSquashConfigurationArgs:
 
 
 @pulumi.input_type
-class OntapFileSystemDiskIopsConfigurationArgs:
+calass OntapFileSystemDiskIopsConfigurationArrgs:
     def __init__(__self__, *,
                  iops: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None):
@@ -600,13 +600,13 @@ class OntapFileSystemDiskIopsConfigurationArgs:
 
 
 @pulumi.input_type
-class OntapFileSystemEndpointArgs:
+calass OntapFileSystemEndpointArrgs:
     def __init__(__self__, *,
-                 interclusters: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArgs']]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArgs']]]] = None):
+                 interclusters: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArrgs']]]] = None,
+                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArgs']]] interclusters: An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArgs']]] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArrgs']]] interclusters: An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArrgs']]] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         """
         if interclusters is not None:
             pulumi.set(__self__, "interclusters", interclusters)
@@ -615,31 +615,31 @@ class OntapFileSystemEndpointArgs:
 
     @property
     @pulumi.getter
-    def interclusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArgs']]]]:
+    def interclusters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArrgs']]]]:
         """
         An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
         """
         return pulumi.get(self, "interclusters")
 
     @interclusters.setter
-    def interclusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArgs']]]]):
+    def interclusters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointInterclusterArrgs']]]]):
         pulumi.set(self, "interclusters", value)
 
     @property
     @pulumi.getter
-    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArgs']]]]:
+    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArrgs']]]]:
         """
         An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         """
         return pulumi.get(self, "managements")
 
     @managements.setter
-    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArgs']]]]):
+    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapFileSystemEndpointManagementArrgs']]]]):
         pulumi.set(self, "managements", value)
 
 
 @pulumi.input_type
-class OntapFileSystemEndpointInterclusterArgs:
+calass OntapFileSystemEndpointInterclusterArrgs:
     def __init__(__self__, *,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -678,7 +678,7 @@ class OntapFileSystemEndpointInterclusterArgs:
 
 
 @pulumi.input_type
-class OntapFileSystemEndpointManagementArgs:
+calass OntapFileSystemEndpointManagementArrgs:
     def __init__(__self__, *,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -717,10 +717,10 @@ class OntapFileSystemEndpointManagementArgs:
 
 
 @pulumi.input_type
-class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs:
+calass OntapStorageVirtualMachineActiveDirectoryConfigurationArrgs:
     def __init__(__self__, *,
                  netbios_name: Optional[pulumi.Input[str]] = None,
-                 self_managed_active_directory_configuration: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs']] = None):
+                 self_managed_active_directory_configuration: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrgs']] = None):
         """
         :param pulumi.Input[str] netbios_name: The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
         """
@@ -743,16 +743,16 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs:
 
     @property
     @pulumi.getter(name="selfManagedActiveDirectoryConfiguration")
-    def self_managed_active_directory_configuration(self) -> Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs']]:
+    def self_managed_active_directory_configuration(self) -> Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrgs']]:
         return pulumi.get(self, "self_managed_active_directory_configuration")
 
     @self_managed_active_directory_configuration.setter
-    def self_managed_active_directory_configuration(self, value: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs']]):
+    def self_managed_active_directory_configuration(self, value: Optional[pulumi.Input['OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrgs']]):
         pulumi.set(self, "self_managed_active_directory_configuration", value)
 
 
 @pulumi.input_type
-class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs:
+calass OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArrgs:
     def __init__(__self__, *,
                  dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
                  domain_name: pulumi.Input[str],
@@ -851,17 +851,17 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
 
 
 @pulumi.input_type
-class OntapStorageVirtualMachineEndpointArgs:
+calass OntapStorageVirtualMachineEndpointArrgs:
     def __init__(__self__, *,
-                 iscsis: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]]] = None,
-                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgs']]]] = None,
-                 nfs: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgs']]]] = None,
-                 smbs: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgs']]]] = None):
+                 iscsis: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArrgs']]]] = None,
+                 managements: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArrgs']]]] = None,
+                 nfs: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArrgs']]]] = None,
+                 smbs: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]] iscsis: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgs']]] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgs']]] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgs']]] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArrgs']]] iscsis: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArrgs']]] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArrgs']]] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArrgs']]] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         """
         if iscsis is not None:
             pulumi.set(__self__, "iscsis", iscsis)
@@ -874,55 +874,55 @@ class OntapStorageVirtualMachineEndpointArgs:
 
     @property
     @pulumi.getter
-    def iscsis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]]]:
+    def iscsis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArrgs']]]]:
         """
         An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
         """
         return pulumi.get(self, "iscsis")
 
     @iscsis.setter
-    def iscsis(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArgs']]]]):
+    def iscsis(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointIscsiArrgs']]]]):
         pulumi.set(self, "iscsis", value)
 
     @property
     @pulumi.getter
-    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgs']]]]:
+    def managements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArrgs']]]]:
         """
         An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         """
         return pulumi.get(self, "managements")
 
     @managements.setter
-    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArgs']]]]):
+    def managements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointManagementArrgs']]]]):
         pulumi.set(self, "managements", value)
 
     @property
     @pulumi.getter
-    def nfs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgs']]]]:
+    def nfs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArrgs']]]]:
         """
         An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
         """
         return pulumi.get(self, "nfs")
 
     @nfs.setter
-    def nfs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArgs']]]]):
+    def nfs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointNfArrgs']]]]):
         pulumi.set(self, "nfs", value)
 
     @property
     @pulumi.getter
-    def smbs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgs']]]]:
+    def smbs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArrgs']]]]:
         """
         An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         """
         return pulumi.get(self, "smbs")
 
     @smbs.setter
-    def smbs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArgs']]]]):
+    def smbs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OntapStorageVirtualMachineEndpointSmbArrgs']]]]):
         pulumi.set(self, "smbs", value)
 
 
 @pulumi.input_type
-class OntapStorageVirtualMachineEndpointIscsiArgs:
+calass OntapStorageVirtualMachineEndpointIscsiArrgs:
     def __init__(__self__, *,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -961,7 +961,7 @@ class OntapStorageVirtualMachineEndpointIscsiArgs:
 
 
 @pulumi.input_type
-class OntapStorageVirtualMachineEndpointManagementArgs:
+calass OntapStorageVirtualMachineEndpointManagementArrgs:
     def __init__(__self__, *,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1000,7 +1000,7 @@ class OntapStorageVirtualMachineEndpointManagementArgs:
 
 
 @pulumi.input_type
-class OntapStorageVirtualMachineEndpointNfArgs:
+calass OntapStorageVirtualMachineEndpointNfArrgs:
     def __init__(__self__, *,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1039,7 +1039,7 @@ class OntapStorageVirtualMachineEndpointNfArgs:
 
 
 @pulumi.input_type
-class OntapStorageVirtualMachineEndpointSmbArgs:
+calass OntapStorageVirtualMachineEndpointSmbArrgs:
     def __init__(__self__, *,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1078,20 +1078,20 @@ class OntapStorageVirtualMachineEndpointSmbArgs:
 
 
 @pulumi.input_type
-class OntapVolumeSnaplockConfigurationArgs:
+calass OntapVolumeSnaplockConfigurationArrgs:
     def __init__(__self__, *,
                  snaplock_type: pulumi.Input[str],
                  audit_log_volume: Optional[pulumi.Input[bool]] = None,
-                 autocommit_period: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs']] = None,
+                 autocommit_period: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArrgs']] = None,
                  privileged_delete: Optional[pulumi.Input[str]] = None,
-                 retention_period: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs']] = None,
+                 retention_period: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArrgs']] = None,
                  volume_append_mode_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] snaplock_type: Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
         :param pulumi.Input[bool] audit_log_volume: Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs'] autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArrgs'] autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
         :param pulumi.Input[str] privileged_delete: Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs'] retention_period: The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArrgs'] retention_period: The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
         :param pulumi.Input[bool] volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
         """
         pulumi.set(__self__, "snaplock_type", snaplock_type)
@@ -1132,14 +1132,14 @@ class OntapVolumeSnaplockConfigurationArgs:
 
     @property
     @pulumi.getter(name="autocommitPeriod")
-    def autocommit_period(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs']]:
+    def autocommit_period(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArrgs']]:
         """
         The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
         """
         return pulumi.get(self, "autocommit_period")
 
     @autocommit_period.setter
-    def autocommit_period(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArgs']]):
+    def autocommit_period(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationAutocommitPeriodArrgs']]):
         pulumi.set(self, "autocommit_period", value)
 
     @property
@@ -1156,14 +1156,14 @@ class OntapVolumeSnaplockConfigurationArgs:
 
     @property
     @pulumi.getter(name="retentionPeriod")
-    def retention_period(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs']]:
+    def retention_period(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArrgs']]:
         """
         The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
         """
         return pulumi.get(self, "retention_period")
 
     @retention_period.setter
-    def retention_period(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArgs']]):
+    def retention_period(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodArrgs']]):
         pulumi.set(self, "retention_period", value)
 
     @property
@@ -1180,7 +1180,7 @@ class OntapVolumeSnaplockConfigurationArgs:
 
 
 @pulumi.input_type
-class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs:
+calass OntapVolumeSnaplockConfigurationAutocommitPeriodArrgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[int]] = None):
@@ -1219,15 +1219,15 @@ class OntapVolumeSnaplockConfigurationAutocommitPeriodArgs:
 
 
 @pulumi.input_type
-class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
+calass OntapVolumeSnaplockConfigurationRetentionPeriodArrgs:
     def __init__(__self__, *,
-                 default_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs']] = None,
-                 maximum_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']] = None,
-                 minimum_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']] = None):
+                 default_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArrgs']] = None,
+                 maximum_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArrgs']] = None,
+                 minimum_retention: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArrgs']] = None):
         """
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs'] default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs'] maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs'] minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArrgs'] default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArrgs'] maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        :param pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArrgs'] minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
         """
         if default_retention is not None:
             pulumi.set(__self__, "default_retention", default_retention)
@@ -1238,43 +1238,43 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodArgs:
 
     @property
     @pulumi.getter(name="defaultRetention")
-    def default_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs']]:
+    def default_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArrgs']]:
         """
         The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
         """
         return pulumi.get(self, "default_retention")
 
     @default_retention.setter
-    def default_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs']]):
+    def default_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArrgs']]):
         pulumi.set(self, "default_retention", value)
 
     @property
     @pulumi.getter(name="maximumRetention")
-    def maximum_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']]:
+    def maximum_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArrgs']]:
         """
         The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
         """
         return pulumi.get(self, "maximum_retention")
 
     @maximum_retention.setter
-    def maximum_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs']]):
+    def maximum_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArrgs']]):
         pulumi.set(self, "maximum_retention", value)
 
     @property
     @pulumi.getter(name="minimumRetention")
-    def minimum_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']]:
+    def minimum_retention(self) -> Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArrgs']]:
         """
         The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
         """
         return pulumi.get(self, "minimum_retention")
 
     @minimum_retention.setter
-    def minimum_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs']]):
+    def minimum_retention(self, value: Optional[pulumi.Input['OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArrgs']]):
         pulumi.set(self, "minimum_retention", value)
 
 
 @pulumi.input_type
-class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
+calass OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArrgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[int]] = None):
@@ -1313,7 +1313,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs:
 
 
 @pulumi.input_type
-class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
+calass OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArrgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[int]] = None):
@@ -1352,7 +1352,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs:
 
 
 @pulumi.input_type
-class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs:
+calass OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArrgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[int]] = None):
@@ -1391,7 +1391,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs:
 
 
 @pulumi.input_type
-class OntapVolumeTieringPolicyArgs:
+calass OntapVolumeTieringPolicyArrgs:
     def __init__(__self__, *,
                  cooling_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -1430,7 +1430,7 @@ class OntapVolumeTieringPolicyArgs:
 
 
 @pulumi.input_type
-class OpenZfsFileSystemDiskIopsConfigurationArgs:
+calass OpenZfsFileSystemDiskIopsConfigurationArrgs:
     def __init__(__self__, *,
                  iops: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None):
@@ -1469,21 +1469,21 @@ class OpenZfsFileSystemDiskIopsConfigurationArgs:
 
 
 @pulumi.input_type
-class OpenZfsFileSystemRootVolumeConfigurationArgs:
+calass OpenZfsFileSystemRootVolumeConfigurationArrgs:
     def __init__(__self__, *,
                  copy_tags_to_snapshots: Optional[pulumi.Input[bool]] = None,
                  data_compression_type: Optional[pulumi.Input[str]] = None,
-                 nfs_exports: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']] = None,
+                 nfs_exports: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArrgs']] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  record_size_kib: Optional[pulumi.Input[int]] = None,
-                 user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]] = None):
+                 user_and_group_quotas: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrgs']]]] = None):
         """
         :param pulumi.Input[bool] copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] data_compression_type: Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArrgs'] nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param pulumi.Input[bool] read_only: specifies whether the volume is read-only. Default is false.
         :param pulumi.Input[int] record_size_kib: Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrgs']]] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         if copy_tags_to_snapshots is not None:
             pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
@@ -1524,14 +1524,14 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
 
     @property
     @pulumi.getter(name="nfsExports")
-    def nfs_exports(self) -> Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']]:
+    def nfs_exports(self) -> Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArrgs']]:
         """
         NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         """
         return pulumi.get(self, "nfs_exports")
 
     @nfs_exports.setter
-    def nfs_exports(self, value: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs']]):
+    def nfs_exports(self, value: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsArrgs']]):
         pulumi.set(self, "nfs_exports", value)
 
     @property
@@ -1560,41 +1560,41 @@ class OpenZfsFileSystemRootVolumeConfigurationArgs:
 
     @property
     @pulumi.getter(name="userAndGroupQuotas")
-    def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]]:
+    def user_and_group_quotas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrgs']]]]:
         """
         Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         return pulumi.get(self, "user_and_group_quotas")
 
     @user_and_group_quotas.setter
-    def user_and_group_quotas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs']]]]):
+    def user_and_group_quotas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrgs']]]]):
         pulumi.set(self, "user_and_group_quotas", value)
 
 
 @pulumi.input_type
-class OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs:
+calass OpenZfsFileSystemRootVolumeConfigurationNfsExportsArrgs:
     def __init__(__self__, *,
-                 client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]):
+                 client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
     @property
     @pulumi.getter(name="clientConfigurations")
-    def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]:
+    def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrgs']]]:
         """
         A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         return pulumi.get(self, "client_configurations")
 
     @client_configurations.setter
-    def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs']]]):
+    def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrgs']]]):
         pulumi.set(self, "client_configurations", value)
 
 
 @pulumi.input_type
-class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs:
+calass OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrgs:
     def __init__(__self__, *,
                  clients: pulumi.Input[str],
                  options: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -1631,7 +1631,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs:
 
 
 @pulumi.input_type
-class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs:
+calass OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[int],
                  storage_capacity_quota_gib: pulumi.Input[int],
@@ -1683,29 +1683,29 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs:
 
 
 @pulumi.input_type
-class OpenZfsVolumeNfsExportsArgs:
+calass OpenZfsVolumeNfsExportsArrgs:
     def __init__(__self__, *,
-                 client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]):
+                 client_configurations: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArrgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
     @property
     @pulumi.getter(name="clientConfigurations")
-    def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]:
+    def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArrgs']]]:
         """
         A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         return pulumi.get(self, "client_configurations")
 
     @client_configurations.setter
-    def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArgs']]]):
+    def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OpenZfsVolumeNfsExportsClientConfigurationArrgs']]]):
         pulumi.set(self, "client_configurations", value)
 
 
 @pulumi.input_type
-class OpenZfsVolumeNfsExportsClientConfigurationArgs:
+calass OpenZfsVolumeNfsExportsClientConfigurationArrgs:
     def __init__(__self__, *,
                  clients: pulumi.Input[str],
                  options: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -1742,7 +1742,7 @@ class OpenZfsVolumeNfsExportsClientConfigurationArgs:
 
 
 @pulumi.input_type
-class OpenZfsVolumeOriginSnapshotArgs:
+calass OpenZfsVolumeOriginSnapshotArrgs:
     def __init__(__self__, *,
                  copy_strategy: pulumi.Input[str],
                  snapshot_arn: pulumi.Input[str]):
@@ -1769,7 +1769,7 @@ class OpenZfsVolumeOriginSnapshotArgs:
 
 
 @pulumi.input_type
-class OpenZfsVolumeUserAndGroupQuotaArgs:
+calass OpenZfsVolumeUserAndGroupQuotaArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[int],
                  storage_capacity_quota_gib: pulumi.Input[int],
@@ -1817,7 +1817,7 @@ class OpenZfsVolumeUserAndGroupQuotaArgs:
 
 
 @pulumi.input_type
-class WindowsFileSystemAuditLogConfigurationArgs:
+calass WindowsFileSystemAuditLogConfigurationArrgs:
     def __init__(__self__, *,
                  audit_log_destination: Optional[pulumi.Input[str]] = None,
                  file_access_audit_log_level: Optional[pulumi.Input[str]] = None,
@@ -1872,7 +1872,7 @@ class WindowsFileSystemAuditLogConfigurationArgs:
 
 
 @pulumi.input_type
-class WindowsFileSystemDiskIopsConfigurationArgs:
+calass WindowsFileSystemDiskIopsConfigurationArrgs:
     def __init__(__self__, *,
                  iops: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None):
@@ -1911,7 +1911,7 @@ class WindowsFileSystemDiskIopsConfigurationArgs:
 
 
 @pulumi.input_type
-class WindowsFileSystemSelfManagedActiveDirectoryArgs:
+calass WindowsFileSystemSelfManagedActiveDirectoryArrgs:
     def __init__(__self__, *,
                  dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
                  domain_name: pulumi.Input[str],
@@ -2010,7 +2010,7 @@ class WindowsFileSystemSelfManagedActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class GetOntapStorageVirtualMachineFilterArgs:
+calass GetOntapStorageVirtualMachineFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -2047,7 +2047,7 @@ class GetOntapStorageVirtualMachineFilterArgs:
 
 
 @pulumi.input_type
-class GetOntapStorageVirtualMachinesFilterArgs:
+calass GetOntapStorageVirtualMachinesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -2084,7 +2084,7 @@ class GetOntapStorageVirtualMachinesFilterArgs:
 
 
 @pulumi.input_type
-class GetOpenZfsSnapshotFilterArgs:
+calass GetOpenZfsSnapshotFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

@@ -10,65 +10,65 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AnomalySubscriptionSubscriberArgs',
-    'AnomalySubscriptionThresholdExpressionArgs',
-    'AnomalySubscriptionThresholdExpressionAndArgs',
-    'AnomalySubscriptionThresholdExpressionAndCostCategoryArgs',
-    'AnomalySubscriptionThresholdExpressionAndDimensionArgs',
-    'AnomalySubscriptionThresholdExpressionAndTagsArgs',
-    'AnomalySubscriptionThresholdExpressionCostCategoryArgs',
-    'AnomalySubscriptionThresholdExpressionDimensionArgs',
-    'AnomalySubscriptionThresholdExpressionNotArgs',
-    'AnomalySubscriptionThresholdExpressionNotCostCategoryArgs',
-    'AnomalySubscriptionThresholdExpressionNotDimensionArgs',
-    'AnomalySubscriptionThresholdExpressionNotTagsArgs',
-    'AnomalySubscriptionThresholdExpressionOrArgs',
-    'AnomalySubscriptionThresholdExpressionOrCostCategoryArgs',
-    'AnomalySubscriptionThresholdExpressionOrDimensionArgs',
-    'AnomalySubscriptionThresholdExpressionOrTagsArgs',
-    'AnomalySubscriptionThresholdExpressionTagsArgs',
-    'CostCategoryRuleArgs',
-    'CostCategoryRuleInheritedValueArgs',
-    'CostCategoryRuleRuleArgs',
-    'CostCategoryRuleRuleAndArgs',
-    'CostCategoryRuleRuleAndCostCategoryArgs',
-    'CostCategoryRuleRuleAndDimensionArgs',
-    'CostCategoryRuleRuleAndTagsArgs',
-    'CostCategoryRuleRuleCostCategoryArgs',
-    'CostCategoryRuleRuleDimensionArgs',
-    'CostCategoryRuleRuleNotArgs',
-    'CostCategoryRuleRuleNotCostCategoryArgs',
-    'CostCategoryRuleRuleNotDimensionArgs',
-    'CostCategoryRuleRuleNotTagsArgs',
-    'CostCategoryRuleRuleOrArgs',
-    'CostCategoryRuleRuleOrCostCategoryArgs',
-    'CostCategoryRuleRuleOrDimensionArgs',
-    'CostCategoryRuleRuleOrTagsArgs',
-    'CostCategoryRuleRuleTagsArgs',
-    'CostCategorySplitChargeRuleArgs',
-    'CostCategorySplitChargeRuleParameterArgs',
-    'GetTagsFilterArgs',
-    'GetTagsFilterAndArgs',
-    'GetTagsFilterAndCostCategoryArgs',
-    'GetTagsFilterAndDimensionArgs',
-    'GetTagsFilterAndTagsArgs',
-    'GetTagsFilterCostCategoryArgs',
-    'GetTagsFilterDimensionArgs',
-    'GetTagsFilterNotArgs',
-    'GetTagsFilterNotCostCategoryArgs',
-    'GetTagsFilterNotDimensionArgs',
-    'GetTagsFilterNotTagsArgs',
-    'GetTagsFilterOrArgs',
-    'GetTagsFilterOrCostCategoryArgs',
-    'GetTagsFilterOrDimensionArgs',
-    'GetTagsFilterOrTagsArgs',
-    'GetTagsFilterTagsArgs',
-    'GetTagsSortByArgs',
-    'GetTagsTimePeriodArgs',
+    'AnomalySubscriptionSubscriberArrgs',
+    'AnomalySubscriptionThresholdExpressionArrgs',
+    'AnomalySubscriptionThresholdExpressionAndArrgs',
+    'AnomalySubscriptionThresholdExpressionAndCostCategoryArrgs',
+    'AnomalySubscriptionThresholdExpressionAndDimensionArrgs',
+    'AnomalySubscriptionThresholdExpressionAndTagsArrgs',
+    'AnomalySubscriptionThresholdExpressionCostCategoryArrgs',
+    'AnomalySubscriptionThresholdExpressionDimensionArrgs',
+    'AnomalySubscriptionThresholdExpressionNotArrgs',
+    'AnomalySubscriptionThresholdExpressionNotCostCategoryArrgs',
+    'AnomalySubscriptionThresholdExpressionNotDimensionArrgs',
+    'AnomalySubscriptionThresholdExpressionNotTagsArrgs',
+    'AnomalySubscriptionThresholdExpressionOrArrgs',
+    'AnomalySubscriptionThresholdExpressionOrCostCategoryArrgs',
+    'AnomalySubscriptionThresholdExpressionOrDimensionArrgs',
+    'AnomalySubscriptionThresholdExpressionOrTagsArrgs',
+    'AnomalySubscriptionThresholdExpressionTagsArrgs',
+    'CostCategoryRuleArrgs',
+    'CostCategoryRuleInheritedValueArrgs',
+    'CostCategoryRuleRuleArrgs',
+    'CostCategoryRuleRuleAndArrgs',
+    'CostCategoryRuleRuleAndCostCategoryArrgs',
+    'CostCategoryRuleRuleAndDimensionArrgs',
+    'CostCategoryRuleRuleAndTagsArrgs',
+    'CostCategoryRuleRuleCostCategoryArrgs',
+    'CostCategoryRuleRuleDimensionArrgs',
+    'CostCategoryRuleRuleNotArrgs',
+    'CostCategoryRuleRuleNotCostCategoryArrgs',
+    'CostCategoryRuleRuleNotDimensionArrgs',
+    'CostCategoryRuleRuleNotTagsArrgs',
+    'CostCategoryRuleRuleOrArrgs',
+    'CostCategoryRuleRuleOrCostCategoryArrgs',
+    'CostCategoryRuleRuleOrDimensionArrgs',
+    'CostCategoryRuleRuleOrTagsArrgs',
+    'CostCategoryRuleRuleTagsArrgs',
+    'CostCategorySplitChargeRuleArrgs',
+    'CostCategorySplitChargeRuleParameterArrgs',
+    'GetTagsFilterArrgs',
+    'GetTagsFilterAndArrgs',
+    'GetTagsFilterAndCostCategoryArrgs',
+    'GetTagsFilterAndDimensionArrgs',
+    'GetTagsFilterAndTagsArrgs',
+    'GetTagsFilterCostCategoryArrgs',
+    'GetTagsFilterDimensionArrgs',
+    'GetTagsFilterNotArrgs',
+    'GetTagsFilterNotCostCategoryArrgs',
+    'GetTagsFilterNotDimensionArrgs',
+    'GetTagsFilterNotTagsArrgs',
+    'GetTagsFilterOrArrgs',
+    'GetTagsFilterOrCostCategoryArrgs',
+    'GetTagsFilterOrDimensionArrgs',
+    'GetTagsFilterOrTagsArrgs',
+    'GetTagsFilterTagsArrgs',
+    'GetTagsSortByArrgs',
+    'GetTagsTimePeriodArrgs',
 ]
 
 @pulumi.input_type
-class AnomalySubscriptionSubscriberArgs:
+calass AnomalySubscriptionSubscriberArrgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -105,21 +105,21 @@ class AnomalySubscriptionSubscriberArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionArgs:
+calass AnomalySubscriptionThresholdExpressionArrgs:
     def __init__(__self__, *,
-                 ands: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArgs']]]] = None,
-                 cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArgs']] = None,
-                 dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArgs']] = None,
-                 not_: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs']] = None,
-                 ors: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]]] = None,
-                 tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgs']] = None):
+                 ands: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArrgs']]]] = None,
+                 cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArrgs']] = None,
+                 dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArrgs']] = None,
+                 not_: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArrgs']] = None,
+                 ors: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArrgs']]]] = None,
+                 tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArgs']]] ands: Return results that match both Dimension objects.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs'] not_: Return results that match both Dimension object.
-        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]] ors: Return results that match both Dimension object.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgs'] tags: Configuration block for the specific Tag to use for. See Tags below.
+        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArrgs']]] ands: Return results that match both Dimension objects.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArrgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArrgs'] dimension: Configuration block for the specific Dimension to use for.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotArrgs'] not_: Return results that match both Dimension object.
+        :param pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArrgs']]] ors: Return results that match both Dimension object.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArrgs'] tags: Configuration block for the specific Tag to use for. See Tags below.
         """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
@@ -136,87 +136,87 @@ class AnomalySubscriptionThresholdExpressionArgs:
 
     @property
     @pulumi.getter
-    def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArgs']]]]:
+    def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArrgs']]]]:
         """
         Return results that match both Dimension objects.
         """
         return pulumi.get(self, "ands")
 
     @ands.setter
-    def ands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArgs']]]]):
+    def ands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionAndArrgs']]]]):
         pulumi.set(self, "ands", value)
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArgs']]:
+    def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArrgs']]:
         """
         Configuration block for the filter that's based on  values. See Cost Category below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArgs']]):
+    def cost_category(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionCostCategoryArrgs']]):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArrgs']]:
         """
         Configuration block for the specific Dimension to use for.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs']]:
+    def not_(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArrgs']]:
         """
         Return results that match both Dimension object.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArgs']]):
+    def not_(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotArrgs']]):
         pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
-    def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]]]:
+    def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArrgs']]]]:
         """
         Return results that match both Dimension object.
         """
         return pulumi.get(self, "ors")
 
     @ors.setter
-    def ors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArgs']]]]):
+    def ors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnomalySubscriptionThresholdExpressionOrArrgs']]]]):
         pulumi.set(self, "ors", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArrgs']]:
         """
         Configuration block for the specific Tag to use for. See Tags below.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionTagsArrgs']]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionAndArgs:
+calass AnomalySubscriptionThresholdExpressionAndArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArgs']] = None,
-                 dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArgs']] = None,
-                 tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArgs']] = None):
+                 cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArrgs']] = None,
+                 dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArrgs']] = None,
+                 tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArrgs']] = None):
         """
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArrgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArrgs'] dimension: Configuration block for the specific Dimension to use for.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArrgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -227,43 +227,43 @@ class AnomalySubscriptionThresholdExpressionAndArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArgs']]:
+    def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArrgs']]:
         """
         Configuration block for the filter that's based on  values. See Cost Category below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArgs']]):
+    def cost_category(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndCostCategoryArrgs']]):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArrgs']]:
         """
         Configuration block for the specific Dimension to use for.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArrgs']]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionAndTagsArrgs']]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionAndCostCategoryArgs:
+calass AnomalySubscriptionThresholdExpressionAndCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -318,7 +318,7 @@ class AnomalySubscriptionThresholdExpressionAndCostCategoryArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionAndDimensionArgs:
+calass AnomalySubscriptionThresholdExpressionAndDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -373,7 +373,7 @@ class AnomalySubscriptionThresholdExpressionAndDimensionArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionAndTagsArgs:
+calass AnomalySubscriptionThresholdExpressionAndTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -428,7 +428,7 @@ class AnomalySubscriptionThresholdExpressionAndTagsArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionCostCategoryArgs:
+calass AnomalySubscriptionThresholdExpressionCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -483,7 +483,7 @@ class AnomalySubscriptionThresholdExpressionCostCategoryArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionDimensionArgs:
+calass AnomalySubscriptionThresholdExpressionDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -538,15 +538,15 @@ class AnomalySubscriptionThresholdExpressionDimensionArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionNotArgs:
+calass AnomalySubscriptionThresholdExpressionNotArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArgs']] = None,
-                 dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArgs']] = None,
-                 tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArgs']] = None):
+                 cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArrgs']] = None,
+                 dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArrgs']] = None,
+                 tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArrgs']] = None):
         """
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArrgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArrgs'] dimension: Configuration block for the specific Dimension to use for.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArrgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -557,43 +557,43 @@ class AnomalySubscriptionThresholdExpressionNotArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArgs']]:
+    def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArrgs']]:
         """
         Configuration block for the filter that's based on  values. See Cost Category below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArgs']]):
+    def cost_category(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotCostCategoryArrgs']]):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArrgs']]:
         """
         Configuration block for the specific Dimension to use for.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArrgs']]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionNotTagsArrgs']]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionNotCostCategoryArgs:
+calass AnomalySubscriptionThresholdExpressionNotCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -648,7 +648,7 @@ class AnomalySubscriptionThresholdExpressionNotCostCategoryArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionNotDimensionArgs:
+calass AnomalySubscriptionThresholdExpressionNotDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -703,7 +703,7 @@ class AnomalySubscriptionThresholdExpressionNotDimensionArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionNotTagsArgs:
+calass AnomalySubscriptionThresholdExpressionNotTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -758,15 +758,15 @@ class AnomalySubscriptionThresholdExpressionNotTagsArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionOrArgs:
+calass AnomalySubscriptionThresholdExpressionOrArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArgs']] = None,
-                 dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArgs']] = None,
-                 tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArgs']] = None):
+                 cost_category: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArrgs']] = None,
+                 dimension: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArrgs']] = None,
+                 tags: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArrgs']] = None):
         """
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArgs'] dimension: Configuration block for the specific Dimension to use for.
-        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArrgs'] cost_category: Configuration block for the filter that's based on  values. See Cost Category below.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArrgs'] dimension: Configuration block for the specific Dimension to use for.
+        :param pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArrgs'] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -777,43 +777,43 @@ class AnomalySubscriptionThresholdExpressionOrArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArgs']]:
+    def cost_category(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArrgs']]:
         """
         Configuration block for the filter that's based on  values. See Cost Category below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArgs']]):
+    def cost_category(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrCostCategoryArrgs']]):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArrgs']]:
         """
         Configuration block for the specific Dimension to use for.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArrgs']]:
         """
         A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input['AnomalySubscriptionThresholdExpressionOrTagsArrgs']]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionOrCostCategoryArgs:
+calass AnomalySubscriptionThresholdExpressionOrCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -868,7 +868,7 @@ class AnomalySubscriptionThresholdExpressionOrCostCategoryArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionOrDimensionArgs:
+calass AnomalySubscriptionThresholdExpressionOrDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -923,7 +923,7 @@ class AnomalySubscriptionThresholdExpressionOrDimensionArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionOrTagsArgs:
+calass AnomalySubscriptionThresholdExpressionOrTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -978,7 +978,7 @@ class AnomalySubscriptionThresholdExpressionOrTagsArgs:
 
 
 @pulumi.input_type
-class AnomalySubscriptionThresholdExpressionTagsArgs:
+calass AnomalySubscriptionThresholdExpressionTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1033,15 +1033,15 @@ class AnomalySubscriptionThresholdExpressionTagsArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleArgs:
+calass CostCategoryRuleArrgs:
     def __init__(__self__, *,
-                 inherited_value: Optional[pulumi.Input['CostCategoryRuleInheritedValueArgs']] = None,
-                 rule: Optional[pulumi.Input['CostCategoryRuleRuleArgs']] = None,
+                 inherited_value: Optional[pulumi.Input['CostCategoryRuleInheritedValueArrgs']] = None,
+                 rule: Optional[pulumi.Input['CostCategoryRuleRuleArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['CostCategoryRuleInheritedValueArgs'] inherited_value: Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
-        :param pulumi.Input['CostCategoryRuleRuleArgs'] rule: Configuration block for the `Expression` object used to categorize costs. See below.
+        :param pulumi.Input['CostCategoryRuleInheritedValueArrgs'] inherited_value: Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
+        :param pulumi.Input['CostCategoryRuleRuleArrgs'] rule: Configuration block for the `Expression` object used to categorize costs. See below.
         :param pulumi.Input[str] type: You can define the CostCategoryRule rule type as either `REGULAR` or `INHERITED_VALUE`.
         :param pulumi.Input[str] value: Default value for the cost category.
         """
@@ -1056,26 +1056,26 @@ class CostCategoryRuleArgs:
 
     @property
     @pulumi.getter(name="inheritedValue")
-    def inherited_value(self) -> Optional[pulumi.Input['CostCategoryRuleInheritedValueArgs']]:
+    def inherited_value(self) -> Optional[pulumi.Input['CostCategoryRuleInheritedValueArrgs']]:
         """
         Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
         """
         return pulumi.get(self, "inherited_value")
 
     @inherited_value.setter
-    def inherited_value(self, value: Optional[pulumi.Input['CostCategoryRuleInheritedValueArgs']]):
+    def inherited_value(self, value: Optional[pulumi.Input['CostCategoryRuleInheritedValueArrgs']]):
         pulumi.set(self, "inherited_value", value)
 
     @property
     @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['CostCategoryRuleRuleArgs']]:
+    def rule(self) -> Optional[pulumi.Input['CostCategoryRuleRuleArrgs']]:
         """
         Configuration block for the `Expression` object used to categorize costs. See below.
         """
         return pulumi.get(self, "rule")
 
     @rule.setter
-    def rule(self, value: Optional[pulumi.Input['CostCategoryRuleRuleArgs']]):
+    def rule(self, value: Optional[pulumi.Input['CostCategoryRuleRuleArrgs']]):
         pulumi.set(self, "rule", value)
 
     @property
@@ -1104,7 +1104,7 @@ class CostCategoryRuleArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleInheritedValueArgs:
+calass CostCategoryRuleInheritedValueArrgs:
     def __init__(__self__, *,
                  dimension_key: Optional[pulumi.Input[str]] = None,
                  dimension_name: Optional[pulumi.Input[str]] = None):
@@ -1143,21 +1143,21 @@ class CostCategoryRuleInheritedValueArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleArgs:
+calass CostCategoryRuleRuleArrgs:
     def __init__(__self__, *,
-                 ands: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArgs']]]] = None,
-                 cost_category: Optional[pulumi.Input['CostCategoryRuleRuleCostCategoryArgs']] = None,
-                 dimension: Optional[pulumi.Input['CostCategoryRuleRuleDimensionArgs']] = None,
-                 not_: Optional[pulumi.Input['CostCategoryRuleRuleNotArgs']] = None,
-                 ors: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArgs']]]] = None,
-                 tags: Optional[pulumi.Input['CostCategoryRuleRuleTagsArgs']] = None):
+                 ands: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArrgs']]]] = None,
+                 cost_category: Optional[pulumi.Input['CostCategoryRuleRuleCostCategoryArrgs']] = None,
+                 dimension: Optional[pulumi.Input['CostCategoryRuleRuleDimensionArrgs']] = None,
+                 not_: Optional[pulumi.Input['CostCategoryRuleRuleNotArrgs']] = None,
+                 ors: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArrgs']]]] = None,
+                 tags: Optional[pulumi.Input['CostCategoryRuleRuleTagsArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArgs']]] ands: Return results that match both `Dimension` objects.
-        :param pulumi.Input['CostCategoryRuleRuleCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotArgs'] not_: Return results that match both `Dimension` object.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArgs']]] ors: Return results that match both `Dimension` object.
-        :param pulumi.Input['CostCategoryRuleRuleTagsArgs'] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArrgs']]] ands: Return results that match both `Dimension` objects.
+        :param pulumi.Input['CostCategoryRuleRuleCostCategoryArrgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
+        :param pulumi.Input['CostCategoryRuleRuleDimensionArrgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param pulumi.Input['CostCategoryRuleRuleNotArrgs'] not_: Return results that match both `Dimension` object.
+        :param pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArrgs']]] ors: Return results that match both `Dimension` object.
+        :param pulumi.Input['CostCategoryRuleRuleTagsArrgs'] tags: Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
@@ -1174,87 +1174,87 @@ class CostCategoryRuleRuleArgs:
 
     @property
     @pulumi.getter
-    def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArgs']]]]:
+    def ands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArrgs']]]]:
         """
         Return results that match both `Dimension` objects.
         """
         return pulumi.get(self, "ands")
 
     @ands.setter
-    def ands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArgs']]]]):
+    def ands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleAndArrgs']]]]):
         pulumi.set(self, "ands", value)
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleCostCategoryArgs']]:
+    def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleCostCategoryArrgs']]:
         """
         Configuration block for the filter that's based on `CostCategory` values. See below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional[pulumi.Input['CostCategoryRuleRuleCostCategoryArgs']]):
+    def cost_category(self, value: Optional[pulumi.Input['CostCategoryRuleRuleCostCategoryArrgs']]):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleDimensionArrgs']]:
         """
         Configuration block for the specific `Dimension` to use for `Expression`. See below.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['CostCategoryRuleRuleDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['CostCategoryRuleRuleDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotArgs']]:
+    def not_(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotArrgs']]:
         """
         Return results that match both `Dimension` object.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['CostCategoryRuleRuleNotArgs']]):
+    def not_(self, value: Optional[pulumi.Input['CostCategoryRuleRuleNotArrgs']]):
         pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
-    def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArgs']]]]:
+    def ors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArrgs']]]]:
         """
         Return results that match both `Dimension` object.
         """
         return pulumi.get(self, "ors")
 
     @ors.setter
-    def ors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArgs']]]]):
+    def ors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategoryRuleRuleOrArrgs']]]]):
         pulumi.set(self, "ors", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleTagsArrgs']]:
         """
         Configuration block for the specific `Tag` to use for `Expression`. See below.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['CostCategoryRuleRuleTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input['CostCategoryRuleRuleTagsArrgs']]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleAndArgs:
+calass CostCategoryRuleRuleAndArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional[pulumi.Input['CostCategoryRuleRuleAndCostCategoryArgs']] = None,
-                 dimension: Optional[pulumi.Input['CostCategoryRuleRuleAndDimensionArgs']] = None,
-                 tags: Optional[pulumi.Input['CostCategoryRuleRuleAndTagsArgs']] = None):
+                 cost_category: Optional[pulumi.Input['CostCategoryRuleRuleAndCostCategoryArrgs']] = None,
+                 dimension: Optional[pulumi.Input['CostCategoryRuleRuleAndDimensionArrgs']] = None,
+                 tags: Optional[pulumi.Input['CostCategoryRuleRuleAndTagsArrgs']] = None):
         """
-        :param pulumi.Input['CostCategoryRuleRuleAndCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleAndTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['CostCategoryRuleRuleAndCostCategoryArrgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
+        :param pulumi.Input['CostCategoryRuleRuleAndDimensionArrgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param pulumi.Input['CostCategoryRuleRuleAndTagsArrgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -1265,43 +1265,43 @@ class CostCategoryRuleRuleAndArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndCostCategoryArgs']]:
+    def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndCostCategoryArrgs']]:
         """
         Configuration block for the filter that's based on `CostCategory` values. See below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional[pulumi.Input['CostCategoryRuleRuleAndCostCategoryArgs']]):
+    def cost_category(self, value: Optional[pulumi.Input['CostCategoryRuleRuleAndCostCategoryArrgs']]):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndDimensionArrgs']]:
         """
         Configuration block for the specific `Dimension` to use for `Expression`. See below.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['CostCategoryRuleRuleAndDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['CostCategoryRuleRuleAndDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleAndTagsArrgs']]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['CostCategoryRuleRuleAndTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input['CostCategoryRuleRuleAndTagsArrgs']]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleAndCostCategoryArgs:
+calass CostCategoryRuleRuleAndCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1356,7 +1356,7 @@ class CostCategoryRuleRuleAndCostCategoryArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleAndDimensionArgs:
+calass CostCategoryRuleRuleAndDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1411,7 +1411,7 @@ class CostCategoryRuleRuleAndDimensionArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleAndTagsArgs:
+calass CostCategoryRuleRuleAndTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1466,7 +1466,7 @@ class CostCategoryRuleRuleAndTagsArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleCostCategoryArgs:
+calass CostCategoryRuleRuleCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1521,7 +1521,7 @@ class CostCategoryRuleRuleCostCategoryArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleDimensionArgs:
+calass CostCategoryRuleRuleDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1576,15 +1576,15 @@ class CostCategoryRuleRuleDimensionArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleNotArgs:
+calass CostCategoryRuleRuleNotArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional[pulumi.Input['CostCategoryRuleRuleNotCostCategoryArgs']] = None,
-                 dimension: Optional[pulumi.Input['CostCategoryRuleRuleNotDimensionArgs']] = None,
-                 tags: Optional[pulumi.Input['CostCategoryRuleRuleNotTagsArgs']] = None):
+                 cost_category: Optional[pulumi.Input['CostCategoryRuleRuleNotCostCategoryArrgs']] = None,
+                 dimension: Optional[pulumi.Input['CostCategoryRuleRuleNotDimensionArrgs']] = None,
+                 tags: Optional[pulumi.Input['CostCategoryRuleRuleNotTagsArrgs']] = None):
         """
-        :param pulumi.Input['CostCategoryRuleRuleNotCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleNotTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['CostCategoryRuleRuleNotCostCategoryArrgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
+        :param pulumi.Input['CostCategoryRuleRuleNotDimensionArrgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param pulumi.Input['CostCategoryRuleRuleNotTagsArrgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -1595,43 +1595,43 @@ class CostCategoryRuleRuleNotArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotCostCategoryArgs']]:
+    def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotCostCategoryArrgs']]:
         """
         Configuration block for the filter that's based on `CostCategory` values. See below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional[pulumi.Input['CostCategoryRuleRuleNotCostCategoryArgs']]):
+    def cost_category(self, value: Optional[pulumi.Input['CostCategoryRuleRuleNotCostCategoryArrgs']]):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotDimensionArrgs']]:
         """
         Configuration block for the specific `Dimension` to use for `Expression`. See below.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['CostCategoryRuleRuleNotDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['CostCategoryRuleRuleNotDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleNotTagsArrgs']]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['CostCategoryRuleRuleNotTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input['CostCategoryRuleRuleNotTagsArrgs']]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleNotCostCategoryArgs:
+calass CostCategoryRuleRuleNotCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1686,7 +1686,7 @@ class CostCategoryRuleRuleNotCostCategoryArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleNotDimensionArgs:
+calass CostCategoryRuleRuleNotDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1741,7 +1741,7 @@ class CostCategoryRuleRuleNotDimensionArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleNotTagsArgs:
+calass CostCategoryRuleRuleNotTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1796,15 +1796,15 @@ class CostCategoryRuleRuleNotTagsArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleOrArgs:
+calass CostCategoryRuleRuleOrArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional[pulumi.Input['CostCategoryRuleRuleOrCostCategoryArgs']] = None,
-                 dimension: Optional[pulumi.Input['CostCategoryRuleRuleOrDimensionArgs']] = None,
-                 tags: Optional[pulumi.Input['CostCategoryRuleRuleOrTagsArgs']] = None):
+                 cost_category: Optional[pulumi.Input['CostCategoryRuleRuleOrCostCategoryArrgs']] = None,
+                 dimension: Optional[pulumi.Input['CostCategoryRuleRuleOrDimensionArrgs']] = None,
+                 tags: Optional[pulumi.Input['CostCategoryRuleRuleOrTagsArrgs']] = None):
         """
-        :param pulumi.Input['CostCategoryRuleRuleOrCostCategoryArgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrDimensionArgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param pulumi.Input['CostCategoryRuleRuleOrTagsArgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['CostCategoryRuleRuleOrCostCategoryArrgs'] cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
+        :param pulumi.Input['CostCategoryRuleRuleOrDimensionArrgs'] dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param pulumi.Input['CostCategoryRuleRuleOrTagsArrgs'] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -1815,43 +1815,43 @@ class CostCategoryRuleRuleOrArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrCostCategoryArgs']]:
+    def cost_category(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrCostCategoryArrgs']]:
         """
         Configuration block for the filter that's based on `CostCategory` values. See below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional[pulumi.Input['CostCategoryRuleRuleOrCostCategoryArgs']]):
+    def cost_category(self, value: Optional[pulumi.Input['CostCategoryRuleRuleOrCostCategoryArrgs']]):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrDimensionArrgs']]:
         """
         Configuration block for the specific `Dimension` to use for `Expression`. See below.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['CostCategoryRuleRuleOrDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['CostCategoryRuleRuleOrDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrTagsArgs']]:
+    def tags(self) -> Optional[pulumi.Input['CostCategoryRuleRuleOrTagsArrgs']]:
         """
         Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input['CostCategoryRuleRuleOrTagsArgs']]):
+    def tags(self, value: Optional[pulumi.Input['CostCategoryRuleRuleOrTagsArrgs']]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleOrCostCategoryArgs:
+calass CostCategoryRuleRuleOrCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1906,7 +1906,7 @@ class CostCategoryRuleRuleOrCostCategoryArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleOrDimensionArgs:
+calass CostCategoryRuleRuleOrDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1961,7 +1961,7 @@ class CostCategoryRuleRuleOrDimensionArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleOrTagsArgs:
+calass CostCategoryRuleRuleOrTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2016,7 +2016,7 @@ class CostCategoryRuleRuleOrTagsArgs:
 
 
 @pulumi.input_type
-class CostCategoryRuleRuleTagsArgs:
+calass CostCategoryRuleRuleTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  match_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2071,17 +2071,17 @@ class CostCategoryRuleRuleTagsArgs:
 
 
 @pulumi.input_type
-class CostCategorySplitChargeRuleArgs:
+calass CostCategorySplitChargeRuleArrgs:
     def __init__(__self__, *,
                  method: pulumi.Input[str],
                  source: pulumi.Input[str],
                  targets: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArrgs']]]] = None):
         """
         :param pulumi.Input[str] method: Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
         :param pulumi.Input[str] source: Cost Category value that you want to split.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] targets: Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
-        :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArgs']]] parameters: Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArrgs']]] parameters: Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
         """
         pulumi.set(__self__, "method", method)
         pulumi.set(__self__, "source", source)
@@ -2127,19 +2127,19 @@ class CostCategorySplitChargeRuleArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArrgs']]]]:
         """
         Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CostCategorySplitChargeRuleParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
-class CostCategorySplitChargeRuleParameterArgs:
+calass CostCategorySplitChargeRuleParameterArrgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[str]] = None,
                  values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -2178,21 +2178,21 @@ class CostCategorySplitChargeRuleParameterArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterArgs:
+calass GetTagsFilterArrgs:
     def __init__(__self__, *,
-                 ands: Optional[Sequence['GetTagsFilterAndArgs']] = None,
-                 cost_category: Optional['GetTagsFilterCostCategoryArgs'] = None,
-                 dimension: Optional['GetTagsFilterDimensionArgs'] = None,
-                 not_: Optional['GetTagsFilterNotArgs'] = None,
-                 ors: Optional[Sequence['GetTagsFilterOrArgs']] = None,
-                 tags: Optional['GetTagsFilterTagsArgs'] = None):
+                 ands: Optional[Sequence['GetTagsFilterAndArrgs']] = None,
+                 cost_category: Optional['GetTagsFilterCostCategoryArrgs'] = None,
+                 dimension: Optional['GetTagsFilterDimensionArrgs'] = None,
+                 not_: Optional['GetTagsFilterNotArrgs'] = None,
+                 ors: Optional[Sequence['GetTagsFilterOrArrgs']] = None,
+                 tags: Optional['GetTagsFilterTagsArrgs'] = None):
         """
-        :param Sequence['GetTagsFilterAndArgs'] ands: Return results that match both `Dimension` objects.
-        :param 'GetTagsFilterCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param 'GetTagsFilterDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param 'GetTagsFilterNotArgs' not_: Return results that match both `Dimension` object.
-        :param Sequence['GetTagsFilterOrArgs'] ors: Return results that match both `Dimension` object.
-        :param 'GetTagsFilterTagsArgs' tags: Tags that match your request.
+        :param Sequence['GetTagsFilterAndArrgs'] ands: Return results that match both `Dimension` objects.
+        :param 'GetTagsFilterCostCategoryArrgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
+        :param 'GetTagsFilterDimensionArrgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'GetTagsFilterNotArrgs' not_: Return results that match both `Dimension` object.
+        :param Sequence['GetTagsFilterOrArrgs'] ors: Return results that match both `Dimension` object.
+        :param 'GetTagsFilterTagsArrgs' tags: Tags that match your request.
         """
         if ands is not None:
             pulumi.set(__self__, "ands", ands)
@@ -2209,87 +2209,87 @@ class GetTagsFilterArgs:
 
     @property
     @pulumi.getter
-    def ands(self) -> Optional[Sequence['GetTagsFilterAndArgs']]:
+    def ands(self) -> Optional[Sequence['GetTagsFilterAndArrgs']]:
         """
         Return results that match both `Dimension` objects.
         """
         return pulumi.get(self, "ands")
 
     @ands.setter
-    def ands(self, value: Optional[Sequence['GetTagsFilterAndArgs']]):
+    def ands(self, value: Optional[Sequence['GetTagsFilterAndArrgs']]):
         pulumi.set(self, "ands", value)
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional['GetTagsFilterCostCategoryArgs']:
+    def cost_category(self) -> Optional['GetTagsFilterCostCategoryArrgs']:
         """
         Configuration block for the filter that's based on `CostCategory` values. See below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional['GetTagsFilterCostCategoryArgs']):
+    def cost_category(self, value: Optional['GetTagsFilterCostCategoryArrgs']):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional['GetTagsFilterDimensionArgs']:
+    def dimension(self) -> Optional['GetTagsFilterDimensionArrgs']:
         """
         Configuration block for the specific `Dimension` to use for `Expression`. See below.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional['GetTagsFilterDimensionArgs']):
+    def dimension(self, value: Optional['GetTagsFilterDimensionArrgs']):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional['GetTagsFilterNotArgs']:
+    def not_(self) -> Optional['GetTagsFilterNotArrgs']:
         """
         Return results that match both `Dimension` object.
         """
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional['GetTagsFilterNotArgs']):
+    def not_(self, value: Optional['GetTagsFilterNotArrgs']):
         pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
-    def ors(self) -> Optional[Sequence['GetTagsFilterOrArgs']]:
+    def ors(self) -> Optional[Sequence['GetTagsFilterOrArrgs']]:
         """
         Return results that match both `Dimension` object.
         """
         return pulumi.get(self, "ors")
 
     @ors.setter
-    def ors(self, value: Optional[Sequence['GetTagsFilterOrArgs']]):
+    def ors(self, value: Optional[Sequence['GetTagsFilterOrArrgs']]):
         pulumi.set(self, "ors", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['GetTagsFilterTagsArgs']:
+    def tags(self) -> Optional['GetTagsFilterTagsArrgs']:
         """
         Tags that match your request.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional['GetTagsFilterTagsArgs']):
+    def tags(self, value: Optional['GetTagsFilterTagsArrgs']):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class GetTagsFilterAndArgs:
+calass GetTagsFilterAndArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional['GetTagsFilterAndCostCategoryArgs'] = None,
-                 dimension: Optional['GetTagsFilterAndDimensionArgs'] = None,
-                 tags: Optional['GetTagsFilterAndTagsArgs'] = None):
+                 cost_category: Optional['GetTagsFilterAndCostCategoryArrgs'] = None,
+                 dimension: Optional['GetTagsFilterAndDimensionArrgs'] = None,
+                 tags: Optional['GetTagsFilterAndTagsArrgs'] = None):
         """
-        :param 'GetTagsFilterAndCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param 'GetTagsFilterAndDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param 'GetTagsFilterAndTagsArgs' tags: Tags that match your request.
+        :param 'GetTagsFilterAndCostCategoryArrgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
+        :param 'GetTagsFilterAndDimensionArrgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'GetTagsFilterAndTagsArrgs' tags: Tags that match your request.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -2300,43 +2300,43 @@ class GetTagsFilterAndArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional['GetTagsFilterAndCostCategoryArgs']:
+    def cost_category(self) -> Optional['GetTagsFilterAndCostCategoryArrgs']:
         """
         Configuration block for the filter that's based on `CostCategory` values. See below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional['GetTagsFilterAndCostCategoryArgs']):
+    def cost_category(self, value: Optional['GetTagsFilterAndCostCategoryArrgs']):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional['GetTagsFilterAndDimensionArgs']:
+    def dimension(self) -> Optional['GetTagsFilterAndDimensionArrgs']:
         """
         Configuration block for the specific `Dimension` to use for `Expression`. See below.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional['GetTagsFilterAndDimensionArgs']):
+    def dimension(self, value: Optional['GetTagsFilterAndDimensionArrgs']):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['GetTagsFilterAndTagsArgs']:
+    def tags(self) -> Optional['GetTagsFilterAndTagsArrgs']:
         """
         Tags that match your request.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional['GetTagsFilterAndTagsArgs']):
+    def tags(self, value: Optional['GetTagsFilterAndTagsArrgs']):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class GetTagsFilterAndCostCategoryArgs:
+calass GetTagsFilterAndCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2391,7 +2391,7 @@ class GetTagsFilterAndCostCategoryArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterAndDimensionArgs:
+calass GetTagsFilterAndDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2446,7 +2446,7 @@ class GetTagsFilterAndDimensionArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterAndTagsArgs:
+calass GetTagsFilterAndTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2501,7 +2501,7 @@ class GetTagsFilterAndTagsArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterCostCategoryArgs:
+calass GetTagsFilterCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2556,7 +2556,7 @@ class GetTagsFilterCostCategoryArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterDimensionArgs:
+calass GetTagsFilterDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2611,15 +2611,15 @@ class GetTagsFilterDimensionArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterNotArgs:
+calass GetTagsFilterNotArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional['GetTagsFilterNotCostCategoryArgs'] = None,
-                 dimension: Optional['GetTagsFilterNotDimensionArgs'] = None,
-                 tags: Optional['GetTagsFilterNotTagsArgs'] = None):
+                 cost_category: Optional['GetTagsFilterNotCostCategoryArrgs'] = None,
+                 dimension: Optional['GetTagsFilterNotDimensionArrgs'] = None,
+                 tags: Optional['GetTagsFilterNotTagsArrgs'] = None):
         """
-        :param 'GetTagsFilterNotCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param 'GetTagsFilterNotDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param 'GetTagsFilterNotTagsArgs' tags: Tags that match your request.
+        :param 'GetTagsFilterNotCostCategoryArrgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
+        :param 'GetTagsFilterNotDimensionArrgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'GetTagsFilterNotTagsArrgs' tags: Tags that match your request.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -2630,43 +2630,43 @@ class GetTagsFilterNotArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional['GetTagsFilterNotCostCategoryArgs']:
+    def cost_category(self) -> Optional['GetTagsFilterNotCostCategoryArrgs']:
         """
         Configuration block for the filter that's based on `CostCategory` values. See below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional['GetTagsFilterNotCostCategoryArgs']):
+    def cost_category(self, value: Optional['GetTagsFilterNotCostCategoryArrgs']):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional['GetTagsFilterNotDimensionArgs']:
+    def dimension(self) -> Optional['GetTagsFilterNotDimensionArrgs']:
         """
         Configuration block for the specific `Dimension` to use for `Expression`. See below.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional['GetTagsFilterNotDimensionArgs']):
+    def dimension(self, value: Optional['GetTagsFilterNotDimensionArrgs']):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['GetTagsFilterNotTagsArgs']:
+    def tags(self) -> Optional['GetTagsFilterNotTagsArrgs']:
         """
         Tags that match your request.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional['GetTagsFilterNotTagsArgs']):
+    def tags(self, value: Optional['GetTagsFilterNotTagsArrgs']):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class GetTagsFilterNotCostCategoryArgs:
+calass GetTagsFilterNotCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2721,7 +2721,7 @@ class GetTagsFilterNotCostCategoryArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterNotDimensionArgs:
+calass GetTagsFilterNotDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2776,7 +2776,7 @@ class GetTagsFilterNotDimensionArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterNotTagsArgs:
+calass GetTagsFilterNotTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2831,15 +2831,15 @@ class GetTagsFilterNotTagsArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterOrArgs:
+calass GetTagsFilterOrArrgs:
     def __init__(__self__, *,
-                 cost_category: Optional['GetTagsFilterOrCostCategoryArgs'] = None,
-                 dimension: Optional['GetTagsFilterOrDimensionArgs'] = None,
-                 tags: Optional['GetTagsFilterOrTagsArgs'] = None):
+                 cost_category: Optional['GetTagsFilterOrCostCategoryArrgs'] = None,
+                 dimension: Optional['GetTagsFilterOrDimensionArrgs'] = None,
+                 tags: Optional['GetTagsFilterOrTagsArrgs'] = None):
         """
-        :param 'GetTagsFilterOrCostCategoryArgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
-        :param 'GetTagsFilterOrDimensionArgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
-        :param 'GetTagsFilterOrTagsArgs' tags: Tags that match your request.
+        :param 'GetTagsFilterOrCostCategoryArrgs' cost_category: Configuration block for the filter that's based on `CostCategory` values. See below.
+        :param 'GetTagsFilterOrDimensionArrgs' dimension: Configuration block for the specific `Dimension` to use for `Expression`. See below.
+        :param 'GetTagsFilterOrTagsArrgs' tags: Tags that match your request.
         """
         if cost_category is not None:
             pulumi.set(__self__, "cost_category", cost_category)
@@ -2850,43 +2850,43 @@ class GetTagsFilterOrArgs:
 
     @property
     @pulumi.getter(name="costCategory")
-    def cost_category(self) -> Optional['GetTagsFilterOrCostCategoryArgs']:
+    def cost_category(self) -> Optional['GetTagsFilterOrCostCategoryArrgs']:
         """
         Configuration block for the filter that's based on `CostCategory` values. See below.
         """
         return pulumi.get(self, "cost_category")
 
     @cost_category.setter
-    def cost_category(self, value: Optional['GetTagsFilterOrCostCategoryArgs']):
+    def cost_category(self, value: Optional['GetTagsFilterOrCostCategoryArrgs']):
         pulumi.set(self, "cost_category", value)
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional['GetTagsFilterOrDimensionArgs']:
+    def dimension(self) -> Optional['GetTagsFilterOrDimensionArrgs']:
         """
         Configuration block for the specific `Dimension` to use for `Expression`. See below.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional['GetTagsFilterOrDimensionArgs']):
+    def dimension(self, value: Optional['GetTagsFilterOrDimensionArrgs']):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional['GetTagsFilterOrTagsArgs']:
+    def tags(self) -> Optional['GetTagsFilterOrTagsArrgs']:
         """
         Tags that match your request.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional['GetTagsFilterOrTagsArgs']):
+    def tags(self, value: Optional['GetTagsFilterOrTagsArrgs']):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class GetTagsFilterOrCostCategoryArgs:
+calass GetTagsFilterOrCostCategoryArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2941,7 +2941,7 @@ class GetTagsFilterOrCostCategoryArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterOrDimensionArgs:
+calass GetTagsFilterOrDimensionArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -2996,7 +2996,7 @@ class GetTagsFilterOrDimensionArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterOrTagsArgs:
+calass GetTagsFilterOrTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -3051,7 +3051,7 @@ class GetTagsFilterOrTagsArgs:
 
 
 @pulumi.input_type
-class GetTagsFilterTagsArgs:
+calass GetTagsFilterTagsArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  match_options: Optional[Sequence[str]] = None,
@@ -3106,7 +3106,7 @@ class GetTagsFilterTagsArgs:
 
 
 @pulumi.input_type
-class GetTagsSortByArgs:
+calass GetTagsSortByArrgs:
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  sort_order: Optional[str] = None):
@@ -3145,7 +3145,7 @@ class GetTagsSortByArgs:
 
 
 @pulumi.input_type
-class GetTagsTimePeriodArgs:
+calass GetTagsTimePeriodArrgs:
     def __init__(__self__, *,
                  end: str,
                  start: str):

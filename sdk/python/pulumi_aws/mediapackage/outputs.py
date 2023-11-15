@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ChannelHlsIngest(dict):
+calass ChannelHlsIngest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -37,7 +37,7 @@ class ChannelHlsIngest(dict):
     def __init__(__self__, *,
                  ingest_endpoints: Optional[Sequence['outputs.ChannelHlsIngestIngestEndpoint']] = None):
         """
-        :param Sequence['ChannelHlsIngestIngestEndpointArgs'] ingest_endpoints: A list of the ingest endpoints
+        :param Sequence['ChannelHlsIngestIngestEndpointArrgs'] ingest_endpoints: A list of the ingest endpoints
         """
         if ingest_endpoints is not None:
             pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
@@ -52,7 +52,7 @@ class ChannelHlsIngest(dict):
 
 
 @pulumi.output_type
-class ChannelHlsIngestIngestEndpoint(dict):
+calass ChannelHlsIngestIngestEndpoint(dict):
     def __init__(__self__, *,
                  password: Optional[str] = None,
                  url: Optional[str] = None,

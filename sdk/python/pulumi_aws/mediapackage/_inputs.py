@@ -10,35 +10,35 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ChannelHlsIngestArgs',
-    'ChannelHlsIngestIngestEndpointArgs',
+    'ChannelHlsIngestArrgs',
+    'ChannelHlsIngestIngestEndpointArrgs',
 ]
 
 @pulumi.input_type
-class ChannelHlsIngestArgs:
+calass ChannelHlsIngestArrgs:
     def __init__(__self__, *,
-                 ingest_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]] = None):
+                 ingest_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]] ingest_endpoints: A list of the ingest endpoints
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArrgs']]] ingest_endpoints: A list of the ingest endpoints
         """
         if ingest_endpoints is not None:
             pulumi.set(__self__, "ingest_endpoints", ingest_endpoints)
 
     @property
     @pulumi.getter(name="ingestEndpoints")
-    def ingest_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]:
+    def ingest_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArrgs']]]]:
         """
         A list of the ingest endpoints
         """
         return pulumi.get(self, "ingest_endpoints")
 
     @ingest_endpoints.setter
-    def ingest_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgs']]]]):
+    def ingest_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArrgs']]]]):
         pulumi.set(self, "ingest_endpoints", value)
 
 
 @pulumi.input_type
-class ChannelHlsIngestIngestEndpointArgs:
+calass ChannelHlsIngestIngestEndpointArrgs:
     def __init__(__self__, *,
                  password: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,

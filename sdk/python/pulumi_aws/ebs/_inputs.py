@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'SnapshotImportClientDataArgs',
-    'SnapshotImportDiskContainerArgs',
-    'SnapshotImportDiskContainerUserBucketArgs',
-    'GetEbsVolumesFilterArgs',
-    'GetSnapshotFilterArgs',
-    'GetSnapshotIdsFilterArgs',
-    'GetVolumeFilterArgs',
+    'SnapshotImportClientDataArrgs',
+    'SnapshotImportDiskContainerArrgs',
+    'SnapshotImportDiskContainerUserBucketArrgs',
+    'GetEbsVolumesFilterArrgs',
+    'GetSnapshotFilterArrgs',
+    'GetSnapshotIdsFilterArrgs',
+    'GetVolumeFilterArrgs',
 ]
 
 @pulumi.input_type
-class SnapshotImportClientDataArgs:
+calass SnapshotImportClientDataArrgs:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  upload_end: Optional[pulumi.Input[str]] = None,
@@ -91,17 +91,17 @@ class SnapshotImportClientDataArgs:
 
 
 @pulumi.input_type
-class SnapshotImportDiskContainerArgs:
+calass SnapshotImportDiskContainerArrgs:
     def __init__(__self__, *,
                  format: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 user_bucket: Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArgs']] = None):
+                 user_bucket: Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArrgs']] = None):
         """
         :param pulumi.Input[str] format: The format of the disk image being imported. One of `VHD` or `VMDK`.
         :param pulumi.Input[str] description: The description of the disk image being imported.
         :param pulumi.Input[str] url: The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
-        :param pulumi.Input['SnapshotImportDiskContainerUserBucketArgs'] user_bucket: The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
+        :param pulumi.Input['SnapshotImportDiskContainerUserBucketArrgs'] user_bucket: The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
         """
         pulumi.set(__self__, "format", format)
         if description is not None:
@@ -149,19 +149,19 @@ class SnapshotImportDiskContainerArgs:
 
     @property
     @pulumi.getter(name="userBucket")
-    def user_bucket(self) -> Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArgs']]:
+    def user_bucket(self) -> Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArrgs']]:
         """
         The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
         """
         return pulumi.get(self, "user_bucket")
 
     @user_bucket.setter
-    def user_bucket(self, value: Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArgs']]):
+    def user_bucket(self, value: Optional[pulumi.Input['SnapshotImportDiskContainerUserBucketArrgs']]):
         pulumi.set(self, "user_bucket", value)
 
 
 @pulumi.input_type
-class SnapshotImportDiskContainerUserBucketArgs:
+calass SnapshotImportDiskContainerUserBucketArrgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[str],
                  s3_key: pulumi.Input[str]):
@@ -198,7 +198,7 @@ class SnapshotImportDiskContainerUserBucketArgs:
 
 
 @pulumi.input_type
-class GetEbsVolumesFilterArgs:
+calass GetEbsVolumesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -211,7 +211,7 @@ class GetEbsVolumesFilterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArgs(
+               ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArrgs(
                    name="size",
                    values=[
                        "10",
@@ -237,7 +237,7 @@ class GetEbsVolumesFilterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArgs(
+        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[aws.ebs.GetEbsVolumesFilterArrgs(
             name="size",
             values=[
                 "10",
@@ -267,7 +267,7 @@ class GetEbsVolumesFilterArgs:
 
 
 @pulumi.input_type
-class GetSnapshotFilterArgs:
+calass GetSnapshotFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -294,7 +294,7 @@ class GetSnapshotFilterArgs:
 
 
 @pulumi.input_type
-class GetSnapshotIdsFilterArgs:
+calass GetSnapshotIdsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -321,7 +321,7 @@ class GetSnapshotIdsFilterArgs:
 
 
 @pulumi.input_type
-class GetVolumeFilterArgs:
+calass GetVolumeFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

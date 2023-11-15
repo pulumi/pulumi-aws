@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SegmentArgs', 'Segment']
+__all__ = ['SegmentArrgs', 'Segment']
 
 @pulumi.input_type
-class SegmentArgs:
+calass SegmentArrgs:
     def __init__(__self__, *,
                  pattern: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class SegmentArgs:
 
 
 @pulumi.input_type
-class _SegmentState:
+calass _SegmentState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
@@ -256,7 +256,7 @@ class _SegmentState:
         pulumi.set(self, "tags_all", value)
 
 
-class Segment(pulumi.CustomResource):
+calass Segment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -332,7 +332,7 @@ class Segment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SegmentArgs,
+                 args: SegmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Evidently Segment resource.
@@ -390,12 +390,12 @@ class Segment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SegmentArgs args: The arguments to use to populate this resource's properties.
+        :param SegmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SegmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SegmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -415,7 +415,7 @@ class Segment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SegmentArgs.__new__(SegmentArgs)
+            __props__ = SegmentArrgs.__new__(SegmentArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

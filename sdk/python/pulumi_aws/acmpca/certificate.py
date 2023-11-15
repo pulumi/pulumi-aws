@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CertificateArgs', 'Certificate']
+__all__ = ['CertificateArrgs', 'Certificate']
 
 @pulumi.input_type
-class CertificateArgs:
+calass CertificateArrgs:
     def __init__(__self__, *,
                  certificate_authority_arn: pulumi.Input[str],
                  certificate_signing_request: pulumi.Input[str],
                  signing_algorithm: pulumi.Input[str],
-                 validity: pulumi.Input['CertificateValidityArgs'],
+                 validity: pulumi.Input['CertificateValidityArrgs'],
                  api_passthrough: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None):
         """
@@ -27,7 +27,7 @@ class CertificateArgs:
         :param pulumi.Input[str] certificate_authority_arn: ARN of the certificate authority.
         :param pulumi.Input[str] certificate_signing_request: Certificate Signing Request in PEM format.
         :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
-        :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input['CertificateValidityArrgs'] validity: Configures end of the validity period for the certificate. See validity block below.
         :param pulumi.Input[str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
         :param pulumi.Input[str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
@@ -79,14 +79,14 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
-    def validity(self) -> pulumi.Input['CertificateValidityArgs']:
+    def validity(self) -> pulumi.Input['CertificateValidityArrgs']:
         """
         Configures end of the validity period for the certificate. See validity block below.
         """
         return pulumi.get(self, "validity")
 
     @validity.setter
-    def validity(self, value: pulumi.Input['CertificateValidityArgs']):
+    def validity(self, value: pulumi.Input['CertificateValidityArrgs']):
         pulumi.set(self, "validity", value)
 
     @property
@@ -116,7 +116,7 @@ class CertificateArgs:
 
 
 @pulumi.input_type
-class _CertificateState:
+calass _CertificateState:
     def __init__(__self__, *,
                  api_passthrough: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class _CertificateState:
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None,
-                 validity: Optional[pulumi.Input['CertificateValidityArgs']] = None):
+                 validity: Optional[pulumi.Input['CertificateValidityArrgs']] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[str] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. To use with API Passthrough templates
@@ -138,7 +138,7 @@ class _CertificateState:
         :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input['CertificateValidityArgs'] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input['CertificateValidityArrgs'] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         if api_passthrough is not None:
             pulumi.set(__self__, "api_passthrough", api_passthrough)
@@ -258,18 +258,18 @@ class _CertificateState:
 
     @property
     @pulumi.getter
-    def validity(self) -> Optional[pulumi.Input['CertificateValidityArgs']]:
+    def validity(self) -> Optional[pulumi.Input['CertificateValidityArrgs']]:
         """
         Configures end of the validity period for the certificate. See validity block below.
         """
         return pulumi.get(self, "validity")
 
     @validity.setter
-    def validity(self, value: Optional[pulumi.Input['CertificateValidityArgs']]):
+    def validity(self, value: Optional[pulumi.Input['CertificateValidityArrgs']]):
         pulumi.set(self, "validity", value)
 
 
-class Certificate(pulumi.CustomResource):
+calass Certificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -279,7 +279,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None,
-                 validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
+                 validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArrgs']]] = None,
                  __props__=None):
         """
         Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
@@ -307,13 +307,13 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input[pulumi.InputType['CertificateValidityArrgs']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CertificateArgs,
+                 args: CertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to issue a certificate using AWS Certificate Manager Private Certificate Authority (ACM PCA).
@@ -334,12 +334,12 @@ class Certificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CertificateArgs args: The arguments to use to populate this resource's properties.
+        :param CertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -353,7 +353,7 @@ class Certificate(pulumi.CustomResource):
                  certificate_signing_request: Optional[pulumi.Input[str]] = None,
                  signing_algorithm: Optional[pulumi.Input[str]] = None,
                  template_arn: Optional[pulumi.Input[str]] = None,
-                 validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None,
+                 validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -361,7 +361,7 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CertificateArgs.__new__(CertificateArgs)
+            __props__ = CertificateArrgs.__new__(CertificateArrgs)
 
             __props__.__dict__["api_passthrough"] = api_passthrough
             if certificate_authority_arn is None and not opts.urn:
@@ -398,7 +398,7 @@ class Certificate(pulumi.CustomResource):
             certificate_signing_request: Optional[pulumi.Input[str]] = None,
             signing_algorithm: Optional[pulumi.Input[str]] = None,
             template_arn: Optional[pulumi.Input[str]] = None,
-            validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArgs']]] = None) -> 'Certificate':
+            validity: Optional[pulumi.Input[pulumi.InputType['CertificateValidityArrgs']]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -415,7 +415,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] signing_algorithm: Algorithm to use to sign certificate requests. Valid values: `SHA256WITHRSA`, `SHA256WITHECDSA`, `SHA384WITHRSA`, `SHA384WITHECDSA`, `SHA512WITHRSA`, `SHA512WITHECDSA`.
         :param pulumi.Input[str] template_arn: Template to use when issuing a certificate.
                See [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html) for more information.
-        :param pulumi.Input[pulumi.InputType['CertificateValidityArgs']] validity: Configures end of the validity period for the certificate. See validity block below.
+        :param pulumi.Input[pulumi.InputType['CertificateValidityArrgs']] validity: Configures end of the validity period for the certificate. See validity block below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

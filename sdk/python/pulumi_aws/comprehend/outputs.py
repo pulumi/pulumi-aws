@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DocumentClassifierInputDataConfig(dict):
+calass DocumentClassifierInputDataConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -58,7 +58,7 @@ class DocumentClassifierInputDataConfig(dict):
                  s3_uri: Optional[str] = None,
                  test_s3_uri: Optional[str] = None):
         """
-        :param Sequence['DocumentClassifierInputDataConfigAugmentedManifestArgs'] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
+        :param Sequence['DocumentClassifierInputDataConfigAugmentedManifestArrgs'] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
                Used if `data_format` is `AUGMENTED_MANIFEST`.
                See the `augmented_manifests` Configuration Block section below.
         :param str data_format: The format for the training data.
@@ -125,7 +125,7 @@ class DocumentClassifierInputDataConfig(dict):
 
 
 @pulumi.output_type
-class DocumentClassifierInputDataConfigAugmentedManifest(dict):
+calass DocumentClassifierInputDataConfigAugmentedManifest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -231,7 +231,7 @@ class DocumentClassifierInputDataConfigAugmentedManifest(dict):
 
 
 @pulumi.output_type
-class DocumentClassifierOutputDataConfig(dict):
+calass DocumentClassifierOutputDataConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -298,7 +298,7 @@ class DocumentClassifierOutputDataConfig(dict):
 
 
 @pulumi.output_type
-class DocumentClassifierVpcConfig(dict):
+calass DocumentClassifierVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -344,7 +344,7 @@ class DocumentClassifierVpcConfig(dict):
 
 
 @pulumi.output_type
-class EntityRecognizerInputDataConfig(dict):
+calass EntityRecognizerInputDataConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -376,21 +376,21 @@ class EntityRecognizerInputDataConfig(dict):
                  documents: Optional['outputs.EntityRecognizerInputDataConfigDocuments'] = None,
                  entity_list: Optional['outputs.EntityRecognizerInputDataConfigEntityList'] = None):
         """
-        :param Sequence['EntityRecognizerInputDataConfigEntityTypeArgs'] entity_types: Set of entity types to be recognized.
+        :param Sequence['EntityRecognizerInputDataConfigEntityTypeArrgs'] entity_types: Set of entity types to be recognized.
                Has a maximum of 25 items.
                See the `entity_types` Configuration Block section below.
-        :param 'EntityRecognizerInputDataConfigAnnotationsArgs' annotations: Specifies location of the document annotation data.
+        :param 'EntityRecognizerInputDataConfigAnnotationsArrgs' annotations: Specifies location of the document annotation data.
                See the `annotations` Configuration Block section below.
                One of `annotations` or `entity_list` is required.
-        :param Sequence['EntityRecognizerInputDataConfigAugmentedManifestArgs'] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
+        :param Sequence['EntityRecognizerInputDataConfigAugmentedManifestArrgs'] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
                Used if `data_format` is `AUGMENTED_MANIFEST`.
                See the `augmented_manifests` Configuration Block section below.
         :param str data_format: The format for the training data.
                One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        :param 'EntityRecognizerInputDataConfigDocumentsArgs' documents: Specifies a collection of training documents.
+        :param 'EntityRecognizerInputDataConfigDocumentsArrgs' documents: Specifies a collection of training documents.
                Used if `data_format` is `COMPREHEND_CSV`.
                See the `documents` Configuration Block section below.
-        :param 'EntityRecognizerInputDataConfigEntityListArgs' entity_list: Specifies location of the entity list data.
+        :param 'EntityRecognizerInputDataConfigEntityListArrgs' entity_list: Specifies location of the entity list data.
                See the `entity_list` Configuration Block section below.
                One of `entity_list` or `annotations` is required.
         """
@@ -467,7 +467,7 @@ class EntityRecognizerInputDataConfig(dict):
 
 
 @pulumi.output_type
-class EntityRecognizerInputDataConfigAnnotations(dict):
+calass EntityRecognizerInputDataConfigAnnotations(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -512,7 +512,7 @@ class EntityRecognizerInputDataConfigAnnotations(dict):
 
 
 @pulumi.output_type
-class EntityRecognizerInputDataConfigAugmentedManifest(dict):
+calass EntityRecognizerInputDataConfigAugmentedManifest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -618,7 +618,7 @@ class EntityRecognizerInputDataConfigAugmentedManifest(dict):
 
 
 @pulumi.output_type
-class EntityRecognizerInputDataConfigDocuments(dict):
+calass EntityRecognizerInputDataConfigDocuments(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -679,7 +679,7 @@ class EntityRecognizerInputDataConfigDocuments(dict):
 
 
 @pulumi.output_type
-class EntityRecognizerInputDataConfigEntityList(dict):
+calass EntityRecognizerInputDataConfigEntityList(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -714,7 +714,7 @@ class EntityRecognizerInputDataConfigEntityList(dict):
 
 
 @pulumi.output_type
-class EntityRecognizerInputDataConfigEntityType(dict):
+calass EntityRecognizerInputDataConfigEntityType(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -734,7 +734,7 @@ class EntityRecognizerInputDataConfigEntityType(dict):
 
 
 @pulumi.output_type
-class EntityRecognizerVpcConfig(dict):
+calass EntityRecognizerVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EmailIdentityMailFromAttributesArgs', 'EmailIdentityMailFromAttributes']
+__all__ = ['EmailIdentityMailFromAttributesArrgs', 'EmailIdentityMailFromAttributes']
 
 @pulumi.input_type
-class EmailIdentityMailFromAttributesArgs:
+calass EmailIdentityMailFromAttributesArrgs:
     def __init__(__self__, *,
                  email_identity: pulumi.Input[str],
                  behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class EmailIdentityMailFromAttributesArgs:
 
 
 @pulumi.input_type
-class _EmailIdentityMailFromAttributesState:
+calass _EmailIdentityMailFromAttributesState:
     def __init__(__self__, *,
                  behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
                  email_identity: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _EmailIdentityMailFromAttributesState:
         pulumi.set(self, "mail_from_domain", value)
 
 
-class EmailIdentityMailFromAttributes(pulumi.CustomResource):
+calass EmailIdentityMailFromAttributes(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -166,7 +166,7 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EmailIdentityMailFromAttributesArgs,
+                 args: EmailIdentityMailFromAttributesArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
@@ -194,12 +194,12 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EmailIdentityMailFromAttributesArgs args: The arguments to use to populate this resource's properties.
+        :param EmailIdentityMailFromAttributesArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityMailFromAttributesArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityMailFromAttributesArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -218,7 +218,7 @@ class EmailIdentityMailFromAttributes(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EmailIdentityMailFromAttributesArgs.__new__(EmailIdentityMailFromAttributesArgs)
+            __props__ = EmailIdentityMailFromAttributesArrgs.__new__(EmailIdentityMailFromAttributesArrgs)
 
             __props__.__dict__["behavior_on_mx_failure"] = behavior_on_mx_failure
             if email_identity is None and not opts.urn:

@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcEndpointServiceResult:
+calass GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
@@ -190,7 +190,7 @@ class GetVpcEndpointServiceResult:
         return pulumi.get(self, "vpc_endpoint_policy_supported")
 
 
-class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
+calass AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -214,7 +214,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             vpc_endpoint_policy_supported=self.vpc_endpoint_policy_supported)
 
 
-def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']]] = None,
+def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArrgs']]] = None,
                              service: Optional[str] = None,
                              service_name: Optional[str] = None,
                              service_type: Optional[str] = None,
@@ -254,14 +254,14 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_vpc_endpoint_service(filters=[aws.ec2.GetVpcEndpointServiceFilterArgs(
+    test = aws.ec2.get_vpc_endpoint_service(filters=[aws.ec2.GetVpcEndpointServiceFilterArrgs(
         name="service-name",
         values=["some-service"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str service: Common name of an AWS service (e.g., `s3`).
     :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str service_type: Service type, `Gateway` or `Interface`.
@@ -298,7 +298,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
 
 
 @_utilities.lift_output_func(get_vpc_endpoint_service)
-def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']]]]] = None,
+def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArrgs']]]]] = None,
                                     service: Optional[pulumi.Input[Optional[str]]] = None,
                                     service_name: Optional[pulumi.Input[Optional[str]]] = None,
                                     service_type: Optional[pulumi.Input[Optional[str]]] = None,
@@ -338,14 +338,14 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2.get_vpc_endpoint_service(filters=[aws.ec2.GetVpcEndpointServiceFilterArgs(
+    test = aws.ec2.get_vpc_endpoint_service(filters=[aws.ec2.GetVpcEndpointServiceFilterArrgs(
         name="service-name",
         values=["some-service"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str service: Common name of an AWS service (e.g., `s3`).
     :param str service_name: Service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str service_type: Service type, `Gateway` or `Interface`.

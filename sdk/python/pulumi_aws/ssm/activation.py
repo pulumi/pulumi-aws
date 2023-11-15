@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ActivationArgs', 'Activation']
+__all__ = ['ActivationArrgs', 'Activation']
 
 @pulumi.input_type
-class ActivationArgs:
+calass ActivationArrgs:
     def __init__(__self__, *,
                  iam_role: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class ActivationArgs:
 
 
 @pulumi.input_type
-class _ActivationState:
+calass _ActivationState:
     def __init__(__self__, *,
                  activation_code: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -288,7 +288,7 @@ class _ActivationState:
         pulumi.set(self, "tags_all", value)
 
 
-class Activation(pulumi.CustomResource):
+calass Activation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -309,9 +309,9 @@ class Activation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["ssm.amazonaws.com"],
             )],
@@ -350,7 +350,7 @@ class Activation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActivationArgs,
+                 args: ActivationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
@@ -361,9 +361,9 @@ class Activation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["ssm.amazonaws.com"],
             )],
@@ -390,12 +390,12 @@ class Activation(pulumi.CustomResource):
          -> __Note:__ The `activation_code` attribute cannot be imported.
 
         :param str resource_name: The name of the resource.
-        :param ActivationArgs args: The arguments to use to populate this resource's properties.
+        :param ActivationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActivationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActivationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -417,7 +417,7 @@ class Activation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActivationArgs.__new__(ActivationArgs)
+            __props__ = ActivationArrgs.__new__(ActivationArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["expiration_date"] = expiration_date

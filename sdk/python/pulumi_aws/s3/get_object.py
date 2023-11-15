@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetObjectResult:
+calass GetObjectResult:
     """
     A collection of values returned by getObject.
     """
@@ -353,7 +353,7 @@ class GetObjectResult:
         return pulumi.get(self, "website_redirect_location")
 
 
-class AwaitableGetObjectResult(GetObjectResult):
+calass AwaitableGetObjectResult(GetObjectResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

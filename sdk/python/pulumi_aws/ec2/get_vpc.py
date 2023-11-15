@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcResult:
+calass GetVpcResult:
     """
     A collection of values returned by getVpc.
     """
@@ -196,7 +196,7 @@ class GetVpcResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVpcResult(GetVpcResult):
+calass AwaitableGetVpcResult(GetVpcResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -224,7 +224,7 @@ class AwaitableGetVpcResult(GetVpcResult):
 def get_vpc(cidr_block: Optional[str] = None,
             default: Optional[bool] = None,
             dhcp_options_id: Optional[str] = None,
-            filters: Optional[Sequence[pulumi.InputType['GetVpcFilterArgs']]] = None,
+            filters: Optional[Sequence[pulumi.InputType['GetVpcFilterArrgs']]] = None,
             id: Optional[str] = None,
             state: Optional[str] = None,
             tags: Optional[Mapping[str, str]] = None,
@@ -241,7 +241,7 @@ def get_vpc(cidr_block: Optional[str] = None,
     :param bool default: Boolean constraint on whether the desired VPC is
            the default VPC for the region.
     :param str dhcp_options_id: DHCP options id of the desired VPC.
-    :param Sequence[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcFilterArrgs']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPC to retrieve.
     :param str state: Current state of the desired VPC.
            Can be either `"pending"` or `"available"`.
@@ -286,7 +286,7 @@ def get_vpc(cidr_block: Optional[str] = None,
 def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
                    default: Optional[pulumi.Input[Optional[bool]]] = None,
                    dhcp_options_id: Optional[pulumi.Input[Optional[str]]] = None,
-                   filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcFilterArgs']]]]] = None,
+                   filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcFilterArrgs']]]]] = None,
                    id: Optional[pulumi.Input[Optional[str]]] = None,
                    state: Optional[pulumi.Input[Optional[str]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -303,7 +303,7 @@ def get_vpc_output(cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
     :param bool default: Boolean constraint on whether the desired VPC is
            the default VPC for the region.
     :param str dhcp_options_id: DHCP options id of the desired VPC.
-    :param Sequence[pulumi.InputType['GetVpcFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcFilterArrgs']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPC to retrieve.
     :param str state: Current state of the desired VPC.
            Can be either `"pending"` or `"available"`.

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetImageRecipeResult:
+calass GetImageRecipeResult:
     """
     A collection of values returned by getImageRecipe.
     """
@@ -176,7 +176,7 @@ class GetImageRecipeResult:
         return pulumi.get(self, "working_directory")
 
 
-class AwaitableGetImageRecipeResult(GetImageRecipeResult):
+calass AwaitableGetImageRecipeResult(GetImageRecipeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

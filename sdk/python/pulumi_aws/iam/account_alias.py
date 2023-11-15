@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountAliasArgs', 'AccountAlias']
+__all__ = ['AccountAliasArrgs', 'AccountAlias']
 
 @pulumi.input_type
-class AccountAliasArgs:
+calass AccountAliasArrgs:
     def __init__(__self__, *,
                  account_alias: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class AccountAliasArgs:
 
 
 @pulumi.input_type
-class _AccountAliasState:
+calass _AccountAliasState:
     def __init__(__self__, *,
                  account_alias: Optional[pulumi.Input[str]] = None):
         """
@@ -58,7 +58,7 @@ class _AccountAliasState:
         pulumi.set(self, "account_alias", value)
 
 
-class AccountAlias(pulumi.CustomResource):
+calass AccountAlias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -95,7 +95,7 @@ class AccountAlias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountAliasArgs,
+                 args: AccountAliasArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note:** There is only a single account alias per AWS account.
@@ -120,12 +120,12 @@ class AccountAlias(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountAliasArgs args: The arguments to use to populate this resource's properties.
+        :param AccountAliasArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountAliasArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountAliasArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -142,7 +142,7 @@ class AccountAlias(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountAliasArgs.__new__(AccountAliasArgs)
+            __props__ = AccountAliasArrgs.__new__(AccountAliasArrgs)
 
             if account_alias is None and not opts.urn:
                 raise TypeError("Missing required property 'account_alias'")

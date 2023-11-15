@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VoiceConnectorStreamingArgs', 'VoiceConnectorStreaming']
+__all__ = ['VoiceConnectorStreamingArrgs', 'VoiceConnectorStreaming']
 
 @pulumi.input_type
-class VoiceConnectorStreamingArgs:
+calass VoiceConnectorStreamingArrgs:
     def __init__(__self__, *,
                  data_retention: pulumi.Input[int],
                  voice_connector_id: pulumi.Input[str],
                  disabled: Optional[pulumi.Input[bool]] = None,
-                 media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
+                 media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']] = None,
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VoiceConnectorStreaming resource.
         :param pulumi.Input[int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         :param pulumi.Input[bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-        :param pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs'] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
+        :param pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArrgs'] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         """
         pulumi.set(__self__, "data_retention", data_retention)
@@ -76,14 +76,14 @@ class VoiceConnectorStreamingArgs:
 
     @property
     @pulumi.getter(name="mediaInsightsConfiguration")
-    def media_insights_configuration(self) -> Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]:
+    def media_insights_configuration(self) -> Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']]:
         """
         The media insights configuration. See `media_insights_configuration`.
         """
         return pulumi.get(self, "media_insights_configuration")
 
     @media_insights_configuration.setter
-    def media_insights_configuration(self, value: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]):
+    def media_insights_configuration(self, value: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']]):
         pulumi.set(self, "media_insights_configuration", value)
 
     @property
@@ -100,18 +100,18 @@ class VoiceConnectorStreamingArgs:
 
 
 @pulumi.input_type
-class _VoiceConnectorStreamingState:
+calass _VoiceConnectorStreamingState:
     def __init__(__self__, *,
                  data_retention: Optional[pulumi.Input[int]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
-                 media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] = None,
+                 media_insights_configuration: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']] = None,
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VoiceConnectorStreaming resources.
         :param pulumi.Input[int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-        :param pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs'] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
+        :param pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArrgs'] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
@@ -152,14 +152,14 @@ class _VoiceConnectorStreamingState:
 
     @property
     @pulumi.getter(name="mediaInsightsConfiguration")
-    def media_insights_configuration(self) -> Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]:
+    def media_insights_configuration(self) -> Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']]:
         """
         The media insights configuration. See `media_insights_configuration`.
         """
         return pulumi.get(self, "media_insights_configuration")
 
     @media_insights_configuration.setter
-    def media_insights_configuration(self, value: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]):
+    def media_insights_configuration(self, value: Optional[pulumi.Input['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']]):
         pulumi.set(self, "media_insights_configuration", value)
 
     @property
@@ -187,14 +187,14 @@ class _VoiceConnectorStreamingState:
         pulumi.set(self, "voice_connector_id", value)
 
 
-class VoiceConnectorStreaming(pulumi.CustomResource):
+calass VoiceConnectorStreaming(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_retention: Optional[pulumi.Input[int]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
-                 media_insights_configuration: Optional[pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]] = None,
+                 media_insights_configuration: Optional[pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']]] = None,
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -222,9 +222,9 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["mediapipelines.chime.amazonaws.com"],
             )],
@@ -235,15 +235,15 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         example_media_insights_pipeline_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration",
             resource_access_role_arn=example_role.arn,
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
+                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArrgs(
                     type="AmazonTranscribeCallAnalyticsProcessor",
-                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs(
+                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArrgs(
                         language_code="en-US",
                     ),
                 ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
+                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArrgs(
                     type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
+                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArrgs(
                         insights_target=example_stream.arn,
                     ),
                 ),
@@ -253,7 +253,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             voice_connector_id=default_voice_connector.id,
             data_retention=7,
             streaming_notification_targets=["SQS"],
-            media_insights_configuration=aws.chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs(
+            media_insights_configuration=aws.chime.VoiceConnectorStreamingMediaInsightsConfigurationArrgs(
                 disabled=False,
                 configuration_arn=example_media_insights_pipeline_configuration.arn,
             ))
@@ -271,7 +271,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-        :param pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
+        :param pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """
@@ -279,7 +279,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VoiceConnectorStreamingArgs,
+                 args: VoiceConnectorStreamingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
@@ -305,9 +305,9 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_voice_connector = aws.chime.VoiceConnector("defaultVoiceConnector", require_encryption=True)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["mediapipelines.chime.amazonaws.com"],
             )],
@@ -318,15 +318,15 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         example_media_insights_pipeline_configuration = aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("exampleMediaInsightsPipelineConfiguration",
             resource_access_role_arn=example_role.arn,
             elements=[
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
+                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArrgs(
                     type="AmazonTranscribeCallAnalyticsProcessor",
-                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs(
+                    amazon_transcribe_call_analytics_processor_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArrgs(
                         language_code="en-US",
                     ),
                 ),
-                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs(
+                aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArrgs(
                     type="KinesisDataStreamSink",
-                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs(
+                    kinesis_data_stream_sink_configuration=aws.chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArrgs(
                         insights_target=example_stream.arn,
                     ),
                 ),
@@ -336,7 +336,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             voice_connector_id=default_voice_connector.id,
             data_retention=7,
             streaming_notification_targets=["SQS"],
-            media_insights_configuration=aws.chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs(
+            media_insights_configuration=aws.chime.VoiceConnectorStreamingMediaInsightsConfigurationArrgs(
                 disabled=False,
                 configuration_arn=example_media_insights_pipeline_configuration.arn,
             ))
@@ -351,12 +351,12 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VoiceConnectorStreamingArgs args: The arguments to use to populate this resource's properties.
+        :param VoiceConnectorStreamingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VoiceConnectorStreamingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VoiceConnectorStreamingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -367,7 +367,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_retention: Optional[pulumi.Input[int]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
-                 media_insights_configuration: Optional[pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]] = None,
+                 media_insights_configuration: Optional[pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']]] = None,
                  streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  voice_connector_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -377,7 +377,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VoiceConnectorStreamingArgs.__new__(VoiceConnectorStreamingArgs)
+            __props__ = VoiceConnectorStreamingArrgs.__new__(VoiceConnectorStreamingArrgs)
 
             if data_retention is None and not opts.urn:
                 raise TypeError("Missing required property 'data_retention'")
@@ -400,7 +400,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             data_retention: Optional[pulumi.Input[int]] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
-            media_insights_configuration: Optional[pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArgs']]] = None,
+            media_insights_configuration: Optional[pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']]] = None,
             streaming_notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             voice_connector_id: Optional[pulumi.Input[str]] = None) -> 'VoiceConnectorStreaming':
         """
@@ -412,7 +412,7 @@ class VoiceConnectorStreaming(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] data_retention: The retention period, in hours, for the Amazon Kinesis data.
         :param pulumi.Input[bool] disabled: When true, media streaming to Amazon Kinesis is turned off. Default: `false`
-        :param pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArgs']] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
+        :param pulumi.Input[pulumi.InputType['VoiceConnectorStreamingMediaInsightsConfigurationArrgs']] media_insights_configuration: The media insights configuration. See `media_insights_configuration`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] streaming_notification_targets: The streaming notification targets. Valid Values: `EventBridge | SNS | SQS`
         :param pulumi.Input[str] voice_connector_id: The Amazon Chime Voice Connector ID.
         """

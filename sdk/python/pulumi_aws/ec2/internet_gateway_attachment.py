@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['InternetGatewayAttachmentArgs', 'InternetGatewayAttachment']
+__all__ = ['InternetGatewayAttachmentArrgs', 'InternetGatewayAttachment']
 
 @pulumi.input_type
-class InternetGatewayAttachmentArgs:
+calass InternetGatewayAttachmentArrgs:
     def __init__(__self__, *,
                  internet_gateway_id: pulumi.Input[str],
                  vpc_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class InternetGatewayAttachmentArgs:
 
 
 @pulumi.input_type
-class _InternetGatewayAttachmentState:
+calass _InternetGatewayAttachmentState:
     def __init__(__self__, *,
                  internet_gateway_id: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _InternetGatewayAttachmentState:
         pulumi.set(self, "vpc_id", value)
 
 
-class InternetGatewayAttachment(pulumi.CustomResource):
+calass InternetGatewayAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -130,7 +130,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InternetGatewayAttachmentArgs,
+                 args: InternetGatewayAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create a VPC Internet Gateway Attachment.
@@ -157,12 +157,12 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InternetGatewayAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param InternetGatewayAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InternetGatewayAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InternetGatewayAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -180,7 +180,7 @@ class InternetGatewayAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InternetGatewayAttachmentArgs.__new__(InternetGatewayAttachmentArgs)
+            __props__ = InternetGatewayAttachmentArrgs.__new__(InternetGatewayAttachmentArrgs)
 
             if internet_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'internet_gateway_id'")

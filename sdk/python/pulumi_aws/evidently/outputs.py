@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FeatureEvaluationRule(dict):
+calass FeatureEvaluationRule(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -58,13 +58,13 @@ class FeatureEvaluationRule(dict):
 
 
 @pulumi.output_type
-class FeatureVariation(dict):
+calass FeatureVariation(dict):
     def __init__(__self__, *,
                  name: str,
                  value: 'outputs.FeatureVariationValue'):
         """
         :param str name: The name of the variation. Minimum length of `1`. Maximum length of `127`.
-        :param 'FeatureVariationValueArgs' value: A block that specifies the value assigned to this variation. Detailed below
+        :param 'FeatureVariationValueArrgs' value: A block that specifies the value assigned to this variation. Detailed below
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -87,7 +87,7 @@ class FeatureVariation(dict):
 
 
 @pulumi.output_type
-class FeatureVariationValue(dict):
+calass FeatureVariationValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -165,7 +165,7 @@ class FeatureVariationValue(dict):
 
 
 @pulumi.output_type
-class LaunchExecution(dict):
+calass LaunchExecution(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -215,7 +215,7 @@ class LaunchExecution(dict):
 
 
 @pulumi.output_type
-class LaunchGroup(dict):
+calass LaunchGroup(dict):
     def __init__(__self__, *,
                  feature: str,
                  name: str,
@@ -267,7 +267,7 @@ class LaunchGroup(dict):
 
 
 @pulumi.output_type
-class LaunchMetricMonitor(dict):
+calass LaunchMetricMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -288,7 +288,7 @@ class LaunchMetricMonitor(dict):
     def __init__(__self__, *,
                  metric_definition: 'outputs.LaunchMetricMonitorMetricDefinition'):
         """
-        :param 'LaunchMetricMonitorMetricDefinitionArgs' metric_definition: A block that defines the metric. Detailed below.
+        :param 'LaunchMetricMonitorMetricDefinitionArrgs' metric_definition: A block that defines the metric. Detailed below.
         """
         pulumi.set(__self__, "metric_definition", metric_definition)
 
@@ -302,7 +302,7 @@ class LaunchMetricMonitor(dict):
 
 
 @pulumi.output_type
-class LaunchMetricMonitorMetricDefinition(dict):
+calass LaunchMetricMonitorMetricDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -389,11 +389,11 @@ class LaunchMetricMonitorMetricDefinition(dict):
 
 
 @pulumi.output_type
-class LaunchScheduledSplitsConfig(dict):
+calass LaunchScheduledSplitsConfig(dict):
     def __init__(__self__, *,
                  steps: Sequence['outputs.LaunchScheduledSplitsConfigStep']):
         """
-        :param Sequence['LaunchScheduledSplitsConfigStepArgs'] steps: One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
+        :param Sequence['LaunchScheduledSplitsConfigStepArrgs'] steps: One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
         """
         pulumi.set(__self__, "steps", steps)
 
@@ -407,7 +407,7 @@ class LaunchScheduledSplitsConfig(dict):
 
 
 @pulumi.output_type
-class LaunchScheduledSplitsConfigStep(dict):
+calass LaunchScheduledSplitsConfigStep(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -436,7 +436,7 @@ class LaunchScheduledSplitsConfigStep(dict):
         """
         :param Mapping[str, int] group_weights: The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
         :param str start_time: Specifies the date and time that this step of the launch starts.
-        :param Sequence['LaunchScheduledSplitsConfigStepSegmentOverrideArgs'] segment_overrides: One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
+        :param Sequence['LaunchScheduledSplitsConfigStepSegmentOverrideArrgs'] segment_overrides: One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
         """
         pulumi.set(__self__, "group_weights", group_weights)
         pulumi.set(__self__, "start_time", start_time)
@@ -469,7 +469,7 @@ class LaunchScheduledSplitsConfigStep(dict):
 
 
 @pulumi.output_type
-class LaunchScheduledSplitsConfigStepSegmentOverride(dict):
+calass LaunchScheduledSplitsConfigStepSegmentOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -526,7 +526,7 @@ class LaunchScheduledSplitsConfigStepSegmentOverride(dict):
 
 
 @pulumi.output_type
-class ProjectDataDelivery(dict):
+calass ProjectDataDelivery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -550,8 +550,8 @@ class ProjectDataDelivery(dict):
                  cloudwatch_logs: Optional['outputs.ProjectDataDeliveryCloudwatchLogs'] = None,
                  s3_destination: Optional['outputs.ProjectDataDeliveryS3Destination'] = None):
         """
-        :param 'ProjectDataDeliveryCloudwatchLogsArgs' cloudwatch_logs: A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
-        :param 'ProjectDataDeliveryS3DestinationArgs' s3_destination: A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
+        :param 'ProjectDataDeliveryCloudwatchLogsArrgs' cloudwatch_logs: A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
+        :param 'ProjectDataDeliveryS3DestinationArrgs' s3_destination: A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -576,7 +576,7 @@ class ProjectDataDelivery(dict):
 
 
 @pulumi.output_type
-class ProjectDataDeliveryCloudwatchLogs(dict):
+calass ProjectDataDeliveryCloudwatchLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -616,7 +616,7 @@ class ProjectDataDeliveryCloudwatchLogs(dict):
 
 
 @pulumi.output_type
-class ProjectDataDeliveryS3Destination(dict):
+calass ProjectDataDeliveryS3Destination(dict):
     def __init__(__self__, *,
                  bucket: Optional[str] = None,
                  prefix: Optional[str] = None):

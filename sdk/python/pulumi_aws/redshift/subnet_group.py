@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubnetGroupArgs', 'SubnetGroup']
+__all__ = ['SubnetGroupArrgs', 'SubnetGroup']
 
 @pulumi.input_type
-class SubnetGroupArgs:
+calass SubnetGroupArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  description: Optional[pulumi.Input[str]] = None,
@@ -85,7 +85,7 @@ class SubnetGroupArgs:
 
 
 @pulumi.input_type
-class _SubnetGroupState:
+calass _SubnetGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -196,7 +196,7 @@ class _SubnetGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class SubnetGroup(pulumi.CustomResource):
+calass SubnetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -259,7 +259,7 @@ class SubnetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubnetGroupArgs,
+                 args: SubnetGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
@@ -304,12 +304,12 @@ class SubnetGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubnetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param SubnetGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubnetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -329,7 +329,7 @@ class SubnetGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubnetGroupArgs.__new__(SubnetGroupArgs)
+            __props__ = SubnetGroupArrgs.__new__(SubnetGroupArrgs)
 
             if description is None:
                 description = 'Managed by Pulumi'

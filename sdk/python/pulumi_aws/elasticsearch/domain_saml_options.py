@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DomainSamlOptionsArgs', 'DomainSamlOptions']
+__all__ = ['DomainSamlOptionsArrgs', 'DomainSamlOptions']
 
 @pulumi.input_type
-class DomainSamlOptionsArgs:
+calass DomainSamlOptionsArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
-                 saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None):
+                 saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArrgs']] = None):
         """
         The set of arguments for constructing a DomainSamlOptions resource.
         :param pulumi.Input[str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
+        :param pulumi.Input['DomainSamlOptionsSamlOptionsArrgs'] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         if saml_options is not None:
@@ -45,28 +45,28 @@ class DomainSamlOptionsArgs:
 
     @property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']]:
+    def saml_options(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArrgs']]:
         """
         The SAML authentication options for an AWS Elasticsearch Domain.
         """
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
-    def saml_options(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']]):
+    def saml_options(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArrgs']]):
         pulumi.set(self, "saml_options", value)
 
 
 @pulumi.input_type
-class _DomainSamlOptionsState:
+calass _DomainSamlOptionsState:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']] = None):
+                 saml_options: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArrgs']] = None):
         """
         Input properties used for looking up and filtering DomainSamlOptions resources.
         :param pulumi.Input[str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input['DomainSamlOptionsSamlOptionsArgs'] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
+        :param pulumi.Input['DomainSamlOptionsSamlOptionsArrgs'] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
@@ -89,24 +89,24 @@ class _DomainSamlOptionsState:
 
     @property
     @pulumi.getter(name="samlOptions")
-    def saml_options(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']]:
+    def saml_options(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArrgs']]:
         """
         The SAML authentication options for an AWS Elasticsearch Domain.
         """
         return pulumi.get(self, "saml_options")
 
     @saml_options.setter
-    def saml_options(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArgs']]):
+    def saml_options(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsArrgs']]):
         pulumi.set(self, "saml_options", value)
 
 
-class DomainSamlOptions(pulumi.CustomResource):
+calass DomainSamlOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 saml_options: Optional[pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArgs']]] = None,
+                 saml_options: Optional[pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArrgs']]] = None,
                  __props__=None):
         """
         Manages SAML authentication options for an AWS Elasticsearch Domain.
@@ -120,10 +120,10 @@ class DomainSamlOptions(pulumi.CustomResource):
 
         example_domain = aws.elasticsearch.Domain("exampleDomain",
             elasticsearch_version="1.5",
-            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
+            cluster_config=aws.elasticsearch.DomainClusterConfigArrgs(
                 instance_type="r4.large.elasticsearch",
             ),
-            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
+            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArrgs(
                 automated_snapshot_start_hour=23,
             ),
             tags={
@@ -131,9 +131,9 @@ class DomainSamlOptions(pulumi.CustomResource):
             })
         example_domain_saml_options = aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions",
             domain_name=example_domain.domain_name,
-            saml_options=aws.elasticsearch.DomainSamlOptionsSamlOptionsArgs(
+            saml_options=aws.elasticsearch.DomainSamlOptionsSamlOptionsArrgs(
                 enabled=True,
-                idp=aws.elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs(
+                idp=aws.elasticsearch.DomainSamlOptionsSamlOptionsIdpArrgs(
                     entity_id="https://example.com",
                     metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
                 ),
@@ -153,13 +153,13 @@ class DomainSamlOptions(pulumi.CustomResource):
         :param pulumi.Input[str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArgs']] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
+        :param pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArrgs']] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainSamlOptionsArgs,
+                 args: DomainSamlOptionsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages SAML authentication options for an AWS Elasticsearch Domain.
@@ -173,10 +173,10 @@ class DomainSamlOptions(pulumi.CustomResource):
 
         example_domain = aws.elasticsearch.Domain("exampleDomain",
             elasticsearch_version="1.5",
-            cluster_config=aws.elasticsearch.DomainClusterConfigArgs(
+            cluster_config=aws.elasticsearch.DomainClusterConfigArrgs(
                 instance_type="r4.large.elasticsearch",
             ),
-            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArgs(
+            snapshot_options=aws.elasticsearch.DomainSnapshotOptionsArrgs(
                 automated_snapshot_start_hour=23,
             ),
             tags={
@@ -184,9 +184,9 @@ class DomainSamlOptions(pulumi.CustomResource):
             })
         example_domain_saml_options = aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions",
             domain_name=example_domain.domain_name,
-            saml_options=aws.elasticsearch.DomainSamlOptionsSamlOptionsArgs(
+            saml_options=aws.elasticsearch.DomainSamlOptionsSamlOptionsArrgs(
                 enabled=True,
-                idp=aws.elasticsearch.DomainSamlOptionsSamlOptionsIdpArgs(
+                idp=aws.elasticsearch.DomainSamlOptionsSamlOptionsIdpArrgs(
                     entity_id="https://example.com",
                     metadata_content=(lambda path: open(path).read())("./saml-metadata.xml"),
                 ),
@@ -202,12 +202,12 @@ class DomainSamlOptions(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DomainSamlOptionsArgs args: The arguments to use to populate this resource's properties.
+        :param DomainSamlOptionsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DomainSamlOptionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DomainSamlOptionsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -217,7 +217,7 @@ class DomainSamlOptions(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 saml_options: Optional[pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArgs']]] = None,
+                 saml_options: Optional[pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -225,7 +225,7 @@ class DomainSamlOptions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DomainSamlOptionsArgs.__new__(DomainSamlOptionsArgs)
+            __props__ = DomainSamlOptionsArrgs.__new__(DomainSamlOptionsArrgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
@@ -242,7 +242,7 @@ class DomainSamlOptions(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            saml_options: Optional[pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArgs']]] = None) -> 'DomainSamlOptions':
+            saml_options: Optional[pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArrgs']]] = None) -> 'DomainSamlOptions':
         """
         Get an existing DomainSamlOptions resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -253,7 +253,7 @@ class DomainSamlOptions(pulumi.CustomResource):
         :param pulumi.Input[str] domain_name: Name of the domain.
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArgs']] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
+        :param pulumi.Input[pulumi.InputType['DomainSamlOptionsSamlOptionsArrgs']] saml_options: The SAML authentication options for an AWS Elasticsearch Domain.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

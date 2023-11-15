@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SiteToSiteVpnAttachmentArgs', 'SiteToSiteVpnAttachment']
+__all__ = ['SiteToSiteVpnAttachmentArrgs', 'SiteToSiteVpnAttachment']
 
 @pulumi.input_type
-class SiteToSiteVpnAttachmentArgs:
+calass SiteToSiteVpnAttachmentArrgs:
     def __init__(__self__, *,
                  core_network_id: pulumi.Input[str],
                  vpn_connection_arn: pulumi.Input[str],
@@ -70,7 +70,7 @@ class SiteToSiteVpnAttachmentArgs:
 
 
 @pulumi.input_type
-class _SiteToSiteVpnAttachmentState:
+calass _SiteToSiteVpnAttachmentState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
@@ -295,7 +295,7 @@ class _SiteToSiteVpnAttachmentState:
         pulumi.set(self, "vpn_connection_arn", value)
 
 
-class SiteToSiteVpnAttachment(pulumi.CustomResource):
+calass SiteToSiteVpnAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -339,7 +339,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SiteToSiteVpnAttachmentArgs,
+                 args: SiteToSiteVpnAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS NetworkManager SiteToSiteAttachment.
@@ -365,12 +365,12 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SiteToSiteVpnAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param SiteToSiteVpnAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SiteToSiteVpnAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SiteToSiteVpnAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -389,7 +389,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SiteToSiteVpnAttachmentArgs.__new__(SiteToSiteVpnAttachmentArgs)
+            __props__ = SiteToSiteVpnAttachmentArrgs.__new__(SiteToSiteVpnAttachmentArrgs)
 
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")

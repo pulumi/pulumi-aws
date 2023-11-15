@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PortfolioShareArgs', 'PortfolioShare']
+__all__ = ['PortfolioShareArrgs', 'PortfolioShare']
 
 @pulumi.input_type
-class PortfolioShareArgs:
+calass PortfolioShareArrgs:
     def __init__(__self__, *,
                  portfolio_id: pulumi.Input[str],
                  principal_id: pulumi.Input[str],
@@ -133,7 +133,7 @@ class PortfolioShareArgs:
 
 
 @pulumi.input_type
-class _PortfolioShareState:
+calass _PortfolioShareState:
     def __init__(__self__, *,
                  accept_language: Optional[pulumi.Input[str]] = None,
                  accepted: Optional[pulumi.Input[bool]] = None,
@@ -272,7 +272,7 @@ class _PortfolioShareState:
         pulumi.set(self, "wait_for_acceptance", value)
 
 
-class PortfolioShare(pulumi.CustomResource):
+calass PortfolioShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -333,7 +333,7 @@ class PortfolioShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PortfolioShareArgs,
+                 args: PortfolioShareArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog Portfolio Share. Shares the specified portfolio with the specified account or organization node. You can share portfolios to an organization, an organizational unit, or a specific account.
@@ -368,12 +368,12 @@ class PortfolioShare(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PortfolioShareArgs args: The arguments to use to populate this resource's properties.
+        :param PortfolioShareArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PortfolioShareArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PortfolioShareArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -396,7 +396,7 @@ class PortfolioShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PortfolioShareArgs.__new__(PortfolioShareArgs)
+            __props__ = PortfolioShareArrgs.__new__(PortfolioShareArrgs)
 
             __props__.__dict__["accept_language"] = accept_language
             if portfolio_id is None and not opts.urn:

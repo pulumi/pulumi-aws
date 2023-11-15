@@ -42,7 +42,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountVdmAttributesDashboardAttributes(dict):
+calass AccountVdmAttributesDashboardAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -78,7 +78,7 @@ class AccountVdmAttributesDashboardAttributes(dict):
 
 
 @pulumi.output_type
-class AccountVdmAttributesGuardianAttributes(dict):
+calass AccountVdmAttributesGuardianAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -114,7 +114,7 @@ class AccountVdmAttributesGuardianAttributes(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetDeliveryOptions(dict):
+calass ConfigurationSetDeliveryOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -164,7 +164,7 @@ class ConfigurationSetDeliveryOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetEventDestinationEventDestination(dict):
+calass ConfigurationSetEventDestinationEventDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -201,11 +201,11 @@ class ConfigurationSetEventDestinationEventDestination(dict):
         :param Sequence[str] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
                
                The following arguments are optional:
-        :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
+        :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArrgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See cloud_watch_destination below
         :param bool enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-        :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
-        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
-        :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs' sns_destination: An object that defines an Amazon SNS destination for email events. See sns_destination below.
+        :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArrgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See kinesis_firehose_destination below.
+        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArrgs' pinpoint_destination: An object that defines an Amazon Pinpoint project destination for email events. See pinpoint_destination below.
+        :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArrgs' sns_destination: An object that defines an Amazon SNS destination for email events. See sns_destination below.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
@@ -271,7 +271,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict):
+calass ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -292,7 +292,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict
     def __init__(__self__, *,
                  dimension_configurations: Sequence['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration']):
         """
-        :param Sequence['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs'] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
+        :param Sequence['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArrgs'] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See dimension_configuration below.
         """
         pulumi.set(__self__, "dimension_configurations", dimension_configurations)
 
@@ -306,7 +306,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict
 
 
 @pulumi.output_type
-class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration(dict):
+calass ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -367,7 +367,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
 
 
 @pulumi.output_type
-class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination(dict):
+calass ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -415,7 +415,7 @@ class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
 
 
 @pulumi.output_type
-class ConfigurationSetEventDestinationEventDestinationPinpointDestination(dict):
+calass ConfigurationSetEventDestinationEventDestinationPinpointDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -444,7 +444,7 @@ class ConfigurationSetEventDestinationEventDestinationPinpointDestination(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetEventDestinationEventDestinationSnsDestination(dict):
+calass ConfigurationSetEventDestinationEventDestinationSnsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -479,7 +479,7 @@ class ConfigurationSetEventDestinationEventDestinationSnsDestination(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetReputationOptions(dict):
+calass ConfigurationSetReputationOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -529,7 +529,7 @@ class ConfigurationSetReputationOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetSendingOptions(dict):
+calass ConfigurationSetSendingOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -565,7 +565,7 @@ class ConfigurationSetSendingOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetSuppressionOptions(dict):
+calass ConfigurationSetSuppressionOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -601,7 +601,7 @@ class ConfigurationSetSuppressionOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetTrackingOptions(dict):
+calass ConfigurationSetTrackingOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -636,7 +636,7 @@ class ConfigurationSetTrackingOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetVdmOptions(dict):
+calass ConfigurationSetVdmOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -660,8 +660,8 @@ class ConfigurationSetVdmOptions(dict):
                  dashboard_options: Optional['outputs.ConfigurationSetVdmOptionsDashboardOptions'] = None,
                  guardian_options: Optional['outputs.ConfigurationSetVdmOptionsGuardianOptions'] = None):
         """
-        :param 'ConfigurationSetVdmOptionsDashboardOptionsArgs' dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param 'ConfigurationSetVdmOptionsGuardianOptionsArgs' guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param 'ConfigurationSetVdmOptionsDashboardOptionsArrgs' dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param 'ConfigurationSetVdmOptionsGuardianOptionsArrgs' guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         if dashboard_options is not None:
             pulumi.set(__self__, "dashboard_options", dashboard_options)
@@ -686,7 +686,7 @@ class ConfigurationSetVdmOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetVdmOptionsDashboardOptions(dict):
+calass ConfigurationSetVdmOptionsDashboardOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -722,7 +722,7 @@ class ConfigurationSetVdmOptionsDashboardOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetVdmOptionsGuardianOptions(dict):
+calass ConfigurationSetVdmOptionsGuardianOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -758,7 +758,7 @@ class ConfigurationSetVdmOptionsGuardianOptions(dict):
 
 
 @pulumi.output_type
-class ContactListTopic(dict):
+calass ContactListTopic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -835,7 +835,7 @@ class ContactListTopic(dict):
 
 
 @pulumi.output_type
-class EmailIdentityDkimSigningAttributes(dict):
+calass EmailIdentityDkimSigningAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -969,7 +969,7 @@ class EmailIdentityDkimSigningAttributes(dict):
 
 
 @pulumi.output_type
-class GetConfigurationSetDeliveryOptionResult(dict):
+calass GetConfigurationSetDeliveryOptionResult(dict):
     def __init__(__self__, *,
                  sending_pool_name: str,
                  tls_policy: str):
@@ -998,7 +998,7 @@ class GetConfigurationSetDeliveryOptionResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationSetReputationOptionResult(dict):
+calass GetConfigurationSetReputationOptionResult(dict):
     def __init__(__self__, *,
                  last_fresh_start: str,
                  reputation_metrics_enabled: bool):
@@ -1027,7 +1027,7 @@ class GetConfigurationSetReputationOptionResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationSetSendingOptionResult(dict):
+calass GetConfigurationSetSendingOptionResult(dict):
     def __init__(__self__, *,
                  sending_enabled: bool):
         """
@@ -1045,7 +1045,7 @@ class GetConfigurationSetSendingOptionResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationSetSuppressionOptionResult(dict):
+calass GetConfigurationSetSuppressionOptionResult(dict):
     def __init__(__self__, *,
                  suppressed_reasons: Sequence[str]):
         """
@@ -1063,7 +1063,7 @@ class GetConfigurationSetSuppressionOptionResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationSetTrackingOptionResult(dict):
+calass GetConfigurationSetTrackingOptionResult(dict):
     def __init__(__self__, *,
                  custom_redirect_domain: str):
         """
@@ -1081,13 +1081,13 @@ class GetConfigurationSetTrackingOptionResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationSetVdmOptionResult(dict):
+calass GetConfigurationSetVdmOptionResult(dict):
     def __init__(__self__, *,
                  dashboard_options: Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult'],
                  guardian_options: Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']):
         """
-        :param Sequence['GetConfigurationSetVdmOptionDashboardOptionArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param Sequence['GetConfigurationSetVdmOptionGuardianOptionArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param Sequence['GetConfigurationSetVdmOptionDashboardOptionArrgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        :param Sequence['GetConfigurationSetVdmOptionGuardianOptionArrgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
         """
         pulumi.set(__self__, "dashboard_options", dashboard_options)
         pulumi.set(__self__, "guardian_options", guardian_options)
@@ -1110,7 +1110,7 @@ class GetConfigurationSetVdmOptionResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationSetVdmOptionDashboardOptionResult(dict):
+calass GetConfigurationSetVdmOptionDashboardOptionResult(dict):
     def __init__(__self__, *,
                  engagement_metrics: str):
         """
@@ -1128,7 +1128,7 @@ class GetConfigurationSetVdmOptionDashboardOptionResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationSetVdmOptionGuardianOptionResult(dict):
+calass GetConfigurationSetVdmOptionGuardianOptionResult(dict):
     def __init__(__self__, *,
                  optimized_shared_delivery: str):
         """
@@ -1146,7 +1146,7 @@ class GetConfigurationSetVdmOptionGuardianOptionResult(dict):
 
 
 @pulumi.output_type
-class GetDedicatedIpPoolDedicatedIpResult(dict):
+calass GetDedicatedIpPoolDedicatedIpResult(dict):
     def __init__(__self__, *,
                  ip: str,
                  warmup_percentage: int,
@@ -1186,7 +1186,7 @@ class GetDedicatedIpPoolDedicatedIpResult(dict):
 
 
 @pulumi.output_type
-class GetEmailIdentityDkimSigningAttributeResult(dict):
+calass GetEmailIdentityDkimSigningAttributeResult(dict):
     def __init__(__self__, *,
                  current_signing_key_length: str,
                  domain_signing_private_key: str,

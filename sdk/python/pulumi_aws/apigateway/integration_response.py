@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IntegrationResponseArgs', 'IntegrationResponse']
+__all__ = ['IntegrationResponseArrgs', 'IntegrationResponse']
 
 @pulumi.input_type
-class IntegrationResponseArgs:
+calass IntegrationResponseArrgs:
     def __init__(__self__, *,
                  http_method: pulumi.Input[str],
                  resource_id: pulumi.Input[str],
@@ -148,7 +148,7 @@ class IntegrationResponseArgs:
 
 
 @pulumi.input_type
-class _IntegrationResponseState:
+calass _IntegrationResponseState:
     def __init__(__self__, *,
                  content_handling: Optional[pulumi.Input[str]] = None,
                  http_method: Optional[pulumi.Input[str]] = None,
@@ -287,7 +287,7 @@ class _IntegrationResponseState:
         pulumi.set(self, "status_code", value)
 
 
-class IntegrationResponse(pulumi.CustomResource):
+calass IntegrationResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -373,7 +373,7 @@ class IntegrationResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationResponseArgs,
+                 args: IntegrationResponseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an HTTP Method Integration Response for an API Gateway Resource.
@@ -431,12 +431,12 @@ class IntegrationResponse(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationResponseArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationResponseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationResponseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationResponseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -460,7 +460,7 @@ class IntegrationResponse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationResponseArgs.__new__(IntegrationResponseArgs)
+            __props__ = IntegrationResponseArrgs.__new__(IntegrationResponseArrgs)
 
             __props__.__dict__["content_handling"] = content_handling
             if http_method is None and not opts.urn:

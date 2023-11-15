@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkAclsResult:
+calass GetNetworkAclsResult:
     """
     A collection of values returned by getNetworkAcls.
     """
@@ -72,7 +72,7 @@ class GetNetworkAclsResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
+calass AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -85,7 +85,7 @@ class AwaitableGetNetworkAclsResult(GetNetworkAclsResult):
             vpc_id=self.vpc_id)
 
 
-def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']]] = None,
+def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAclsFilterArrgs']]] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      vpc_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkAclsResult:
@@ -123,14 +123,14 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     import pulumi_aws as aws
 
     example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
-        filters=[aws.ec2.GetNetworkAclsFilterArgs(
+        filters=[aws.ec2.GetNetworkAclsFilterArrgs(
             name="association.subnet-id",
             values=[aws_subnet["test"]["id"]],
         )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetNetworkAclsFilterArrgs']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -154,7 +154,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
 
 
 @_utilities.lift_output_func(get_network_acls)
-def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']]]]] = None,
+def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNetworkAclsFilterArrgs']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkAclsResult]:
@@ -192,14 +192,14 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi_aws as aws
 
     example = aws.ec2.get_network_acls(vpc_id=var["vpc_id"],
-        filters=[aws.ec2.GetNetworkAclsFilterArgs(
+        filters=[aws.ec2.GetNetworkAclsFilterArrgs(
             name="association.subnet-id",
             values=[aws_subnet["test"]["id"]],
         )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetNetworkAclsFilterArrgs']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

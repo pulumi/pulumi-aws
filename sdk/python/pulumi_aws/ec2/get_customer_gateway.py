@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCustomerGatewayResult:
+calass GetCustomerGatewayResult:
     """
     A collection of values returned by getCustomerGateway.
     """
@@ -119,7 +119,7 @@ class GetCustomerGatewayResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
+calass AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -136,7 +136,7 @@ class AwaitableGetCustomerGatewayResult(GetCustomerGatewayResult):
             type=self.type)
 
 
-def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']]] = None,
+def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustomerGatewayFilterArrgs']]] = None,
                          id: Optional[str] = None,
                          tags: Optional[Mapping[str, str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomerGatewayResult:
@@ -149,7 +149,7 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
     import pulumi
     import pulumi_aws as aws
 
-    foo = aws.ec2.get_customer_gateway(filters=[aws.ec2.GetCustomerGatewayFilterArgs(
+    foo = aws.ec2.get_customer_gateway(filters=[aws.ec2.GetCustomerGatewayFilterArrgs(
         name="tag:Name",
         values=["foo-prod"],
     )])
@@ -164,7 +164,7 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
     ```
 
 
-    :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
+    :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArrgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
            
            [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param str id: ID of the gateway.
@@ -190,7 +190,7 @@ def get_customer_gateway(filters: Optional[Sequence[pulumi.InputType['GetCustome
 
 
 @_utilities.lift_output_func(get_customer_gateway)
-def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']]]]] = None,
+def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetCustomerGatewayFilterArrgs']]]]] = None,
                                 id: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayResult]:
@@ -203,7 +203,7 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
     import pulumi
     import pulumi_aws as aws
 
-    foo = aws.ec2.get_customer_gateway(filters=[aws.ec2.GetCustomerGatewayFilterArgs(
+    foo = aws.ec2.get_customer_gateway(filters=[aws.ec2.GetCustomerGatewayFilterArrgs(
         name="tag:Name",
         values=["foo-prod"],
     )])
@@ -218,7 +218,7 @@ def get_customer_gateway_output(filters: Optional[pulumi.Input[Optional[Sequence
     ```
 
 
-    :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
+    :param Sequence[pulumi.InputType['GetCustomerGatewayFilterArrgs']] filters: One or more [name-value pairs][dcg-filters] to filter by.
            
            [dcg-filters]: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCustomerGateways.html
     :param str id: ID of the gateway.

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTrackerResult:
+calass GetTrackerResult:
     """
     A collection of values returned by getTracker.
     """
@@ -120,7 +120,7 @@ class GetTrackerResult:
         return pulumi.get(self, "update_time")
 
 
-class AwaitableGetTrackerResult(GetTrackerResult):
+calass AwaitableGetTrackerResult(GetTrackerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

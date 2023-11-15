@@ -38,7 +38,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DeploymentConfigMinimumHealthyHosts(dict):
+calass DeploymentConfigMinimumHealthyHosts(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[int] = None):
@@ -75,7 +75,7 @@ class DeploymentConfigMinimumHealthyHosts(dict):
 
 
 @pulumi.output_type
-class DeploymentConfigTrafficRoutingConfig(dict):
+calass DeploymentConfigTrafficRoutingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -100,8 +100,8 @@ class DeploymentConfigTrafficRoutingConfig(dict):
                  time_based_linear: Optional['outputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinear'] = None,
                  type: Optional[str] = None):
         """
-        :param 'DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs' time_based_canary: The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
-        :param 'DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs' time_based_linear: The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+        :param 'DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArrgs' time_based_canary: The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+        :param 'DeploymentConfigTrafficRoutingConfigTimeBasedLinearArrgs' time_based_linear: The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
         :param str type: Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
         """
         if time_based_canary is not None:
@@ -137,7 +137,7 @@ class DeploymentConfigTrafficRoutingConfig(dict):
 
 
 @pulumi.output_type
-class DeploymentConfigTrafficRoutingConfigTimeBasedCanary(dict):
+calass DeploymentConfigTrafficRoutingConfigTimeBasedCanary(dict):
     def __init__(__self__, *,
                  interval: Optional[int] = None,
                  percentage: Optional[int] = None):
@@ -168,7 +168,7 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedCanary(dict):
 
 
 @pulumi.output_type
-class DeploymentConfigTrafficRoutingConfigTimeBasedLinear(dict):
+calass DeploymentConfigTrafficRoutingConfigTimeBasedLinear(dict):
     def __init__(__self__, *,
                  interval: Optional[int] = None,
                  percentage: Optional[int] = None):
@@ -199,7 +199,7 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedLinear(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupAlarmConfiguration(dict):
+calass DeploymentGroupAlarmConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -259,7 +259,7 @@ class DeploymentGroupAlarmConfiguration(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupAutoRollbackConfiguration(dict):
+calass DeploymentGroupAutoRollbackConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  events: Optional[Sequence[str]] = None):
@@ -294,7 +294,7 @@ class DeploymentGroupAutoRollbackConfiguration(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupBlueGreenDeploymentConfig(dict):
+calass DeploymentGroupBlueGreenDeploymentConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -321,9 +321,9 @@ class DeploymentGroupBlueGreenDeploymentConfig(dict):
                  green_fleet_provisioning_option: Optional['outputs.DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption'] = None,
                  terminate_blue_instances_on_deployment_success: Optional['outputs.DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess'] = None):
         """
-        :param 'DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs' deployment_ready_option: Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-        :param 'DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs' green_fleet_provisioning_option: Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-        :param 'DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs' terminate_blue_instances_on_deployment_success: Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+        :param 'DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArrgs' deployment_ready_option: Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
+        :param 'DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArrgs' green_fleet_provisioning_option: Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
+        :param 'DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArrgs' terminate_blue_instances_on_deployment_success: Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
                
                _Only one `blue_green_deployment_config` is allowed_.
         """
@@ -362,7 +362,7 @@ class DeploymentGroupBlueGreenDeploymentConfig(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(dict):
+calass DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -412,7 +412,7 @@ class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOption(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(dict):
+calass DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(dict):
     def __init__(__self__, *,
                  action: Optional[str] = None):
         """
@@ -431,7 +431,7 @@ class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOption(dict)
 
 
 @pulumi.output_type
-class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess(dict):
+calass DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -479,7 +479,7 @@ class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployment
 
 
 @pulumi.output_type
-class DeploymentGroupDeploymentStyle(dict):
+calass DeploymentGroupDeploymentStyle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -533,7 +533,7 @@ class DeploymentGroupDeploymentStyle(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupEc2TagFilter(dict):
+calass DeploymentGroupEc2TagFilter(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  type: Optional[str] = None,
@@ -580,7 +580,7 @@ class DeploymentGroupEc2TagFilter(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupEc2TagSet(dict):
+calass DeploymentGroupEc2TagSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -601,7 +601,7 @@ class DeploymentGroupEc2TagSet(dict):
     def __init__(__self__, *,
                  ec2_tag_filters: Optional[Sequence['outputs.DeploymentGroupEc2TagSetEc2TagFilter']] = None):
         """
-        :param Sequence['DeploymentGroupEc2TagSetEc2TagFilterArgs'] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
+        :param Sequence['DeploymentGroupEc2TagSetEc2TagFilterArrgs'] ec2_tag_filters: Tag filters associated with the deployment group. See the AWS docs for details.
         """
         if ec2_tag_filters is not None:
             pulumi.set(__self__, "ec2_tag_filters", ec2_tag_filters)
@@ -616,7 +616,7 @@ class DeploymentGroupEc2TagSet(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupEc2TagSetEc2TagFilter(dict):
+calass DeploymentGroupEc2TagSetEc2TagFilter(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  type: Optional[str] = None,
@@ -663,7 +663,7 @@ class DeploymentGroupEc2TagSetEc2TagFilter(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupEcsService(dict):
+calass DeploymentGroupEcsService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -711,7 +711,7 @@ class DeploymentGroupEcsService(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupLoadBalancerInfo(dict):
+calass DeploymentGroupLoadBalancerInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -738,9 +738,9 @@ class DeploymentGroupLoadBalancerInfo(dict):
                  target_group_infos: Optional[Sequence['outputs.DeploymentGroupLoadBalancerInfoTargetGroupInfo']] = None,
                  target_group_pair_info: Optional['outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfo'] = None):
         """
-        :param Sequence['DeploymentGroupLoadBalancerInfoElbInfoArgs'] elb_infos: The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
-        :param Sequence['DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs'] target_group_infos: The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
-        :param 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs' target_group_pair_info: The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
+        :param Sequence['DeploymentGroupLoadBalancerInfoElbInfoArrgs'] elb_infos: The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
+        :param Sequence['DeploymentGroupLoadBalancerInfoTargetGroupInfoArrgs'] target_group_infos: The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
+        :param 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArrgs' target_group_pair_info: The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
         """
         if elb_infos is not None:
             pulumi.set(__self__, "elb_infos", elb_infos)
@@ -775,7 +775,7 @@ class DeploymentGroupLoadBalancerInfo(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupLoadBalancerInfoElbInfo(dict):
+calass DeploymentGroupLoadBalancerInfoElbInfo(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
@@ -794,7 +794,7 @@ class DeploymentGroupLoadBalancerInfoElbInfo(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupLoadBalancerInfoTargetGroupInfo(dict):
+calass DeploymentGroupLoadBalancerInfoTargetGroupInfo(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
@@ -813,7 +813,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupInfo(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(dict):
+calass DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -840,9 +840,9 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(dict):
                  target_groups: Sequence['outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup'],
                  test_traffic_route: Optional['outputs.DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute'] = None):
         """
-        :param 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs' prod_traffic_route: Configuration block for the production traffic route (documented below).
-        :param Sequence['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs'] target_groups: Configuration blocks for a target group within a target group pair (documented below).
-        :param 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs' test_traffic_route: Configuration block for the test traffic route (documented below).
+        :param 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArrgs' prod_traffic_route: Configuration block for the production traffic route (documented below).
+        :param Sequence['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArrgs'] target_groups: Configuration blocks for a target group within a target group pair (documented below).
+        :param 'DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArrgs' test_traffic_route: Configuration block for the test traffic route (documented below).
         """
         pulumi.set(__self__, "prod_traffic_route", prod_traffic_route)
         pulumi.set(__self__, "target_groups", target_groups)
@@ -875,7 +875,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfo(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(dict):
+calass DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -910,7 +910,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup(dict):
+calass DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -928,7 +928,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroup(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute(dict):
+calass DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -963,7 +963,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupOnPremisesInstanceTagFilter(dict):
+calass DeploymentGroupOnPremisesInstanceTagFilter(dict):
     def __init__(__self__, *,
                  key: Optional[str] = None,
                  type: Optional[str] = None,
@@ -1006,7 +1006,7 @@ class DeploymentGroupOnPremisesInstanceTagFilter(dict):
 
 
 @pulumi.output_type
-class DeploymentGroupTriggerConfiguration(dict):
+calass DeploymentGroupTriggerConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

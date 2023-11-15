@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['S3EndpointArgs', 'S3Endpoint']
+__all__ = ['S3EndpointArrgs', 'S3Endpoint']
 
 @pulumi.input_type
-class S3EndpointArgs:
+calass S3EndpointArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  endpoint_id: pulumi.Input[str],
@@ -788,7 +788,7 @@ class S3EndpointArgs:
 
 
 @pulumi.input_type
-class _S3EndpointState:
+calass _S3EndpointState:
     def __init__(__self__, *,
                  add_column_name: Optional[pulumi.Input[bool]] = None,
                  add_trailing_padding_character: Optional[pulumi.Input[bool]] = None,
@@ -1653,7 +1653,7 @@ class _S3EndpointState:
         pulumi.set(self, "use_task_start_time_for_full_load_timestamp", value)
 
 
-class S3Endpoint(pulumi.CustomResource):
+calass S3Endpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1854,7 +1854,7 @@ class S3Endpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: S3EndpointArgs,
+                 args: S3EndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DMS (Data Migration Service) S3 endpoint resource. DMS S3 endpoints can be created, updated, deleted, and imported.
@@ -1947,12 +1947,12 @@ class S3Endpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param S3EndpointArgs args: The arguments to use to populate this resource's properties.
+        :param S3EndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(S3EndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(S3EndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -2016,7 +2016,7 @@ class S3Endpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = S3EndpointArgs.__new__(S3EndpointArgs)
+            __props__ = S3EndpointArrgs.__new__(S3EndpointArrgs)
 
             __props__.__dict__["add_column_name"] = add_column_name
             __props__.__dict__["add_trailing_padding_character"] = add_trailing_padding_character

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VaultLockArgs', 'VaultLock']
+__all__ = ['VaultLockArrgs', 'VaultLock']
 
 @pulumi.input_type
-class VaultLockArgs:
+calass VaultLockArrgs:
     def __init__(__self__, *,
                  complete_lock: pulumi.Input[bool],
                  policy: pulumi.Input[str],
@@ -81,7 +81,7 @@ class VaultLockArgs:
 
 
 @pulumi.input_type
-class _VaultLockState:
+calass _VaultLockState:
     def __init__(__self__, *,
                  complete_lock: Optional[pulumi.Input[bool]] = None,
                  ignore_deletion_error: Optional[pulumi.Input[bool]] = None,
@@ -152,7 +152,7 @@ class _VaultLockState:
         pulumi.set(self, "vault_name", value)
 
 
-class VaultLock(pulumi.CustomResource):
+calass VaultLock(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,11 +177,11 @@ class VaultLock(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vault = aws.glacier.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["glacier:DeleteArchive"],
             effect="Deny",
             resources=[example_vault.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="NumericLessThanEquals",
                 variable="glacier:ArchiveAgeinDays",
                 values=["365"],
@@ -223,7 +223,7 @@ class VaultLock(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VaultLockArgs,
+                 args: VaultLockArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Glacier Vault Lock. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html) for a full explanation of the Glacier Vault Lock functionality.
@@ -240,11 +240,11 @@ class VaultLock(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_vault = aws.glacier.Vault("exampleVault")
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["glacier:DeleteArchive"],
             effect="Deny",
             resources=[example_vault.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="NumericLessThanEquals",
                 variable="glacier:ArchiveAgeinDays",
                 values=["365"],
@@ -276,12 +276,12 @@ class VaultLock(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VaultLockArgs args: The arguments to use to populate this resource's properties.
+        :param VaultLockArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VaultLockArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VaultLockArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -301,7 +301,7 @@ class VaultLock(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VaultLockArgs.__new__(VaultLockArgs)
+            __props__ = VaultLockArrgs.__new__(VaultLockArrgs)
 
             if complete_lock is None and not opts.urn:
                 raise TypeError("Missing required property 'complete_lock'")

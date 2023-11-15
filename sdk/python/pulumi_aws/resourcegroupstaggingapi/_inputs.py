@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetResourcesTagFilterArgs',
+    'GetResourcesTagFilterArrgs',
 ]
 
 @pulumi.input_type
-class GetResourcesTagFilterArgs:
+calass GetResourcesTagFilterArrgs:
     def __init__(__self__, *,
                  key: str,
                  values: Optional[Sequence[str]] = None):

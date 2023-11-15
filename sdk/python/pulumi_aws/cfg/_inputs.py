@@ -10,26 +10,26 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConfigurationAggregatorAccountAggregationSourceArgs',
-    'ConfigurationAggregatorOrganizationAggregationSourceArgs',
-    'ConformancePackInputParameterArgs',
-    'DeliveryChannelSnapshotDeliveryPropertiesArgs',
-    'OrganizationConformancePackInputParameterArgs',
-    'RecorderRecordingGroupArgs',
-    'RecorderRecordingGroupExclusionByResourceTypeArgs',
-    'RecorderRecordingGroupRecordingStrategyArgs',
-    'RemediationConfigurationExecutionControlsArgs',
-    'RemediationConfigurationExecutionControlsSsmControlsArgs',
-    'RemediationConfigurationParameterArgs',
-    'RuleEvaluationModeArgs',
-    'RuleScopeArgs',
-    'RuleSourceArgs',
-    'RuleSourceCustomPolicyDetailsArgs',
-    'RuleSourceSourceDetailArgs',
+    'ConfigurationAggregatorAccountAggregationSourceArrgs',
+    'ConfigurationAggregatorOrganizationAggregationSourceArrgs',
+    'ConformancePackInputParameterArrgs',
+    'DeliveryChannelSnapshotDeliveryPropertiesArrgs',
+    'OrganizationConformancePackInputParameterArrgs',
+    'RecorderRecordingGroupArrgs',
+    'RecorderRecordingGroupExclusionByResourceTypeArrgs',
+    'RecorderRecordingGroupRecordingStrategyArrgs',
+    'RemediationConfigurationExecutionControlsArrgs',
+    'RemediationConfigurationExecutionControlsSsmControlsArrgs',
+    'RemediationConfigurationParameterArrgs',
+    'RuleEvaluationModeArrgs',
+    'RuleScopeArrgs',
+    'RuleSourceArrgs',
+    'RuleSourceCustomPolicyDetailsArrgs',
+    'RuleSourceSourceDetailArrgs',
 ]
 
 @pulumi.input_type
-class ConfigurationAggregatorAccountAggregationSourceArgs:
+calass ConfigurationAggregatorAccountAggregationSourceArrgs:
     def __init__(__self__, *,
                  account_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  all_regions: Optional[pulumi.Input[bool]] = None,
@@ -87,7 +87,7 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
 
 
 @pulumi.input_type
-class ConfigurationAggregatorOrganizationAggregationSourceArgs:
+calass ConfigurationAggregatorOrganizationAggregationSourceArrgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  all_regions: Optional[pulumi.Input[bool]] = None,
@@ -145,7 +145,7 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
 
 
 @pulumi.input_type
-class ConformancePackInputParameterArgs:
+calass ConformancePackInputParameterArrgs:
     def __init__(__self__, *,
                  parameter_name: pulumi.Input[str],
                  parameter_value: pulumi.Input[str]):
@@ -182,7 +182,7 @@ class ConformancePackInputParameterArgs:
 
 
 @pulumi.input_type
-class DeliveryChannelSnapshotDeliveryPropertiesArgs:
+calass DeliveryChannelSnapshotDeliveryPropertiesArrgs:
     def __init__(__self__, *,
                  delivery_frequency: Optional[pulumi.Input[str]] = None):
         """
@@ -205,7 +205,7 @@ class DeliveryChannelSnapshotDeliveryPropertiesArgs:
 
 
 @pulumi.input_type
-class OrganizationConformancePackInputParameterArgs:
+calass OrganizationConformancePackInputParameterArrgs:
     def __init__(__self__, *,
                  parameter_name: pulumi.Input[str],
                  parameter_value: pulumi.Input[str]):
@@ -242,18 +242,18 @@ class OrganizationConformancePackInputParameterArgs:
 
 
 @pulumi.input_type
-class RecorderRecordingGroupArgs:
+calass RecorderRecordingGroupArrgs:
     def __init__(__self__, *,
                  all_supported: Optional[pulumi.Input[bool]] = None,
-                 exclusion_by_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgs']]]] = None,
+                 exclusion_by_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArrgs']]]] = None,
                  include_global_resource_types: Optional[pulumi.Input[bool]] = None,
-                 recording_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgs']]]] = None,
+                 recording_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArrgs']]]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[bool] all_supported: Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgs']]] exclusion_by_resource_types: An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+        :param pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArrgs']]] exclusion_by_resource_types: An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
         :param pulumi.Input[bool] include_global_resource_types: Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        :param pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgs']]] recording_strategies: Recording Strategy. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArrgs']]] recording_strategies: Recording Strategy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
         """
         if all_supported is not None:
@@ -281,14 +281,14 @@ class RecorderRecordingGroupArgs:
 
     @property
     @pulumi.getter(name="exclusionByResourceTypes")
-    def exclusion_by_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgs']]]]:
+    def exclusion_by_resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArrgs']]]]:
         """
         An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
         """
         return pulumi.get(self, "exclusion_by_resource_types")
 
     @exclusion_by_resource_types.setter
-    def exclusion_by_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgs']]]]):
+    def exclusion_by_resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArrgs']]]]):
         pulumi.set(self, "exclusion_by_resource_types", value)
 
     @property
@@ -305,14 +305,14 @@ class RecorderRecordingGroupArgs:
 
     @property
     @pulumi.getter(name="recordingStrategies")
-    def recording_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgs']]]]:
+    def recording_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArrgs']]]]:
         """
         Recording Strategy. Detailed below.
         """
         return pulumi.get(self, "recording_strategies")
 
     @recording_strategies.setter
-    def recording_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgs']]]]):
+    def recording_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArrgs']]]]):
         pulumi.set(self, "recording_strategies", value)
 
     @property
@@ -329,7 +329,7 @@ class RecorderRecordingGroupArgs:
 
 
 @pulumi.input_type
-class RecorderRecordingGroupExclusionByResourceTypeArgs:
+calass RecorderRecordingGroupExclusionByResourceTypeArrgs:
     def __init__(__self__, *,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -352,7 +352,7 @@ class RecorderRecordingGroupExclusionByResourceTypeArgs:
 
 
 @pulumi.input_type
-class RecorderRecordingGroupRecordingStrategyArgs:
+calass RecorderRecordingGroupRecordingStrategyArrgs:
     def __init__(__self__, *,
                  use_only: Optional[pulumi.Input[str]] = None):
         if use_only is not None:
@@ -369,30 +369,30 @@ class RecorderRecordingGroupRecordingStrategyArgs:
 
 
 @pulumi.input_type
-class RemediationConfigurationExecutionControlsArgs:
+calass RemediationConfigurationExecutionControlsArrgs:
     def __init__(__self__, *,
-                 ssm_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs']] = None):
+                 ssm_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArrgs']] = None):
         """
-        :param pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs'] ssm_controls: Configuration block for SSM controls. See below.
+        :param pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArrgs'] ssm_controls: Configuration block for SSM controls. See below.
         """
         if ssm_controls is not None:
             pulumi.set(__self__, "ssm_controls", ssm_controls)
 
     @property
     @pulumi.getter(name="ssmControls")
-    def ssm_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs']]:
+    def ssm_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArrgs']]:
         """
         Configuration block for SSM controls. See below.
         """
         return pulumi.get(self, "ssm_controls")
 
     @ssm_controls.setter
-    def ssm_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs']]):
+    def ssm_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArrgs']]):
         pulumi.set(self, "ssm_controls", value)
 
 
 @pulumi.input_type
-class RemediationConfigurationExecutionControlsSsmControlsArgs:
+calass RemediationConfigurationExecutionControlsSsmControlsArrgs:
     def __init__(__self__, *,
                  concurrent_execution_rate_percentage: Optional[pulumi.Input[int]] = None,
                  error_percentage: Optional[pulumi.Input[int]] = None):
@@ -431,7 +431,7 @@ class RemediationConfigurationExecutionControlsSsmControlsArgs:
 
 
 @pulumi.input_type
-class RemediationConfigurationParameterArgs:
+calass RemediationConfigurationParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resource_value: Optional[pulumi.Input[str]] = None,
@@ -501,7 +501,7 @@ class RemediationConfigurationParameterArgs:
 
 
 @pulumi.input_type
-class RuleEvaluationModeArgs:
+calass RuleEvaluationModeArrgs:
     def __init__(__self__, *,
                  mode: Optional[pulumi.Input[str]] = None):
         """
@@ -524,7 +524,7 @@ class RuleEvaluationModeArgs:
 
 
 @pulumi.input_type
-class RuleScopeArgs:
+calass RuleScopeArrgs:
     def __init__(__self__, *,
                  compliance_resource_id: Optional[pulumi.Input[str]] = None,
                  compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -595,16 +595,16 @@ class RuleScopeArgs:
 
 
 @pulumi.input_type
-class RuleSourceArgs:
+calass RuleSourceArrgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str],
-                 custom_policy_details: Optional[pulumi.Input['RuleSourceCustomPolicyDetailsArgs']] = None,
-                 source_details: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArgs']]]] = None,
+                 custom_policy_details: Optional[pulumi.Input['RuleSourceCustomPolicyDetailsArrgs']] = None,
+                 source_details: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArrgs']]]] = None,
                  source_identifier: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] owner: Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
-        :param pulumi.Input['RuleSourceCustomPolicyDetailsArgs'] custom_policy_details: Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
-        :param pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArgs']]] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
+        :param pulumi.Input['RuleSourceCustomPolicyDetailsArrgs'] custom_policy_details: Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArrgs']]] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         :param pulumi.Input[str] source_identifier: For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
         """
         pulumi.set(__self__, "owner", owner)
@@ -629,26 +629,26 @@ class RuleSourceArgs:
 
     @property
     @pulumi.getter(name="customPolicyDetails")
-    def custom_policy_details(self) -> Optional[pulumi.Input['RuleSourceCustomPolicyDetailsArgs']]:
+    def custom_policy_details(self) -> Optional[pulumi.Input['RuleSourceCustomPolicyDetailsArrgs']]:
         """
         Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
         """
         return pulumi.get(self, "custom_policy_details")
 
     @custom_policy_details.setter
-    def custom_policy_details(self, value: Optional[pulumi.Input['RuleSourceCustomPolicyDetailsArgs']]):
+    def custom_policy_details(self, value: Optional[pulumi.Input['RuleSourceCustomPolicyDetailsArrgs']]):
         pulumi.set(self, "custom_policy_details", value)
 
     @property
     @pulumi.getter(name="sourceDetails")
-    def source_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArgs']]]]:
+    def source_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArrgs']]]]:
         """
         Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         """
         return pulumi.get(self, "source_details")
 
     @source_details.setter
-    def source_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArgs']]]]):
+    def source_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArrgs']]]]):
         pulumi.set(self, "source_details", value)
 
     @property
@@ -665,7 +665,7 @@ class RuleSourceArgs:
 
 
 @pulumi.input_type
-class RuleSourceCustomPolicyDetailsArgs:
+calass RuleSourceCustomPolicyDetailsArrgs:
     def __init__(__self__, *,
                  policy_runtime: pulumi.Input[str],
                  policy_text: pulumi.Input[str],
@@ -718,7 +718,7 @@ class RuleSourceCustomPolicyDetailsArgs:
 
 
 @pulumi.input_type
-class RuleSourceSourceDetailArgs:
+calass RuleSourceSourceDetailArrgs:
     def __init__(__self__, *,
                  event_source: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,

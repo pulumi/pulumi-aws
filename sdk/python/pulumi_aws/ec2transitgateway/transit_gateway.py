@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TransitGatewayArgs', 'TransitGateway']
+__all__ = ['TransitGatewayArrgs', 'TransitGateway']
 
 @pulumi.input_type
-class TransitGatewayArgs:
+calass TransitGatewayArrgs:
     def __init__(__self__, *,
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
                  auto_accept_shared_attachments: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class TransitGatewayArgs:
 
 
 @pulumi.input_type
-class _TransitGatewayState:
+calass _TransitGatewayState:
     def __init__(__self__, *,
                  amazon_side_asn: Optional[pulumi.Input[int]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -441,7 +441,7 @@ class _TransitGatewayState:
         pulumi.set(self, "vpn_ecmp_support", value)
 
 
-class TransitGateway(pulumi.CustomResource):
+calass TransitGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -496,7 +496,7 @@ class TransitGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TransitGatewayArgs] = None,
+                 args: Optional[TransitGatewayArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Transit Gateway.
@@ -519,12 +519,12 @@ class TransitGateway(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TransitGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param TransitGatewayArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -550,7 +550,7 @@ class TransitGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TransitGatewayArgs.__new__(TransitGatewayArgs)
+            __props__ = TransitGatewayArrgs.__new__(TransitGatewayArrgs)
 
             __props__.__dict__["amazon_side_asn"] = amazon_side_asn
             __props__.__dict__["auto_accept_shared_attachments"] = auto_accept_shared_attachments

@@ -33,7 +33,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CertificateDomainValidationOption(dict):
+calass CertificateDomainValidationOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -99,7 +99,7 @@ class CertificateDomainValidationOption(dict):
 
 
 @pulumi.output_type
-class ContainerServiceDeploymentVersionContainer(dict):
+calass ContainerServiceDeploymentVersionContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -181,7 +181,7 @@ class ContainerServiceDeploymentVersionContainer(dict):
 
 
 @pulumi.output_type
-class ContainerServiceDeploymentVersionPublicEndpoint(dict):
+calass ContainerServiceDeploymentVersionPublicEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -210,7 +210,7 @@ class ContainerServiceDeploymentVersionPublicEndpoint(dict):
         """
         :param str container_name: The name of the container for the endpoint.
         :param int container_port: The port of the container to which traffic is forwarded to.
-        :param 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs' health_check: A configuration block that describes the health check configuration of the container. Detailed below.
+        :param 'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs' health_check: A configuration block that describes the health check configuration of the container. Detailed below.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "container_port", container_port)
@@ -242,7 +242,7 @@ class ContainerServiceDeploymentVersionPublicEndpoint(dict):
 
 
 @pulumi.output_type
-class ContainerServiceDeploymentVersionPublicEndpointHealthCheck(dict):
+calass ContainerServiceDeploymentVersionPublicEndpointHealthCheck(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -346,7 +346,7 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheck(dict):
 
 
 @pulumi.output_type
-class ContainerServicePrivateRegistryAccess(dict):
+calass ContainerServicePrivateRegistryAccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -367,7 +367,7 @@ class ContainerServicePrivateRegistryAccess(dict):
     def __init__(__self__, *,
                  ecr_image_puller_role: Optional['outputs.ContainerServicePrivateRegistryAccessEcrImagePullerRole'] = None):
         """
-        :param 'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs' ecr_image_puller_role: Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+        :param 'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs' ecr_image_puller_role: Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
         """
         if ecr_image_puller_role is not None:
             pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
@@ -382,7 +382,7 @@ class ContainerServicePrivateRegistryAccess(dict):
 
 
 @pulumi.output_type
-class ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
+calass ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -436,7 +436,7 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRole(dict):
 
 
 @pulumi.output_type
-class ContainerServicePublicDomainNames(dict):
+calass ContainerServicePublicDomainNames(dict):
     def __init__(__self__, *,
                  certificates: Sequence['outputs.ContainerServicePublicDomainNamesCertificate']):
         pulumi.set(__self__, "certificates", certificates)
@@ -448,7 +448,7 @@ class ContainerServicePublicDomainNames(dict):
 
 
 @pulumi.output_type
-class ContainerServicePublicDomainNamesCertificate(dict):
+calass ContainerServicePublicDomainNamesCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -486,7 +486,7 @@ class ContainerServicePublicDomainNamesCertificate(dict):
 
 
 @pulumi.output_type
-class DistributionCacheBehavior(dict):
+calass DistributionCacheBehavior(dict):
     def __init__(__self__, *,
                  behavior: str,
                  path: str):
@@ -515,7 +515,7 @@ class DistributionCacheBehavior(dict):
 
 
 @pulumi.output_type
-class DistributionCacheBehaviorSettings(dict):
+calass DistributionCacheBehaviorSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -560,9 +560,9 @@ class DistributionCacheBehaviorSettings(dict):
         :param str allowed_http_methods: The HTTP methods that are processed and forwarded to the distribution's origin.
         :param str cached_http_methods: The HTTP method responses that are cached by your distribution.
         :param int default_ttl: The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
-        :param 'DistributionCacheBehaviorSettingsForwardedCookiesArgs' forwarded_cookies: An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
-        :param 'DistributionCacheBehaviorSettingsForwardedHeadersArgs' forwarded_headers: An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
-        :param 'DistributionCacheBehaviorSettingsForwardedQueryStringsArgs' forwarded_query_strings: An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+        :param 'DistributionCacheBehaviorSettingsForwardedCookiesArrgs' forwarded_cookies: An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+        :param 'DistributionCacheBehaviorSettingsForwardedHeadersArrgs' forwarded_headers: An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+        :param 'DistributionCacheBehaviorSettingsForwardedQueryStringsArrgs' forwarded_query_strings: An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
         :param int maximum_ttl: The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         :param int minimum_ttl: The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         """
@@ -649,7 +649,7 @@ class DistributionCacheBehaviorSettings(dict):
 
 
 @pulumi.output_type
-class DistributionCacheBehaviorSettingsForwardedCookies(dict):
+calass DistributionCacheBehaviorSettingsForwardedCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -697,7 +697,7 @@ class DistributionCacheBehaviorSettingsForwardedCookies(dict):
 
 
 @pulumi.output_type
-class DistributionCacheBehaviorSettingsForwardedHeaders(dict):
+calass DistributionCacheBehaviorSettingsForwardedHeaders(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -745,7 +745,7 @@ class DistributionCacheBehaviorSettingsForwardedHeaders(dict):
 
 
 @pulumi.output_type
-class DistributionCacheBehaviorSettingsForwardedQueryStrings(dict):
+calass DistributionCacheBehaviorSettingsForwardedQueryStrings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -793,7 +793,7 @@ class DistributionCacheBehaviorSettingsForwardedQueryStrings(dict):
 
 
 @pulumi.output_type
-class DistributionDefaultCacheBehavior(dict):
+calass DistributionDefaultCacheBehavior(dict):
     def __init__(__self__, *,
                  behavior: str):
         """
@@ -811,7 +811,7 @@ class DistributionDefaultCacheBehavior(dict):
 
 
 @pulumi.output_type
-class DistributionLocation(dict):
+calass DistributionLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -859,7 +859,7 @@ class DistributionLocation(dict):
 
 
 @pulumi.output_type
-class DistributionOrigin(dict):
+calass DistributionOrigin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -933,7 +933,7 @@ class DistributionOrigin(dict):
 
 
 @pulumi.output_type
-class InstanceAddOn(dict):
+calass InstanceAddOn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -990,7 +990,7 @@ class InstanceAddOn(dict):
 
 
 @pulumi.output_type
-class InstancePublicPortsPortInfo(dict):
+calass InstancePublicPortsPortInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1089,7 +1089,7 @@ class InstancePublicPortsPortInfo(dict):
 
 
 @pulumi.output_type
-class LbCertificateDomainValidationRecord(dict):
+calass LbCertificateDomainValidationRecord(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

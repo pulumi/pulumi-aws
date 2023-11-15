@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LanguageModelInputDataConfig(dict):
+calass LanguageModelInputDataConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

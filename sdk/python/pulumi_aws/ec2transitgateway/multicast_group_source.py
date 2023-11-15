@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MulticastGroupSourceArgs', 'MulticastGroupSource']
+__all__ = ['MulticastGroupSourceArrgs', 'MulticastGroupSource']
 
 @pulumi.input_type
-class MulticastGroupSourceArgs:
+calass MulticastGroupSourceArrgs:
     def __init__(__self__, *,
                  group_ip_address: pulumi.Input[str],
                  network_interface_id: pulumi.Input[str],
@@ -65,7 +65,7 @@ class MulticastGroupSourceArgs:
 
 
 @pulumi.input_type
-class _MulticastGroupSourceState:
+calass _MulticastGroupSourceState:
     def __init__(__self__, *,
                  group_ip_address: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _MulticastGroupSourceState:
         pulumi.set(self, "transit_gateway_multicast_domain_id", value)
 
 
-class MulticastGroupSource(pulumi.CustomResource):
+calass MulticastGroupSource(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -155,7 +155,7 @@ class MulticastGroupSource(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MulticastGroupSourceArgs,
+                 args: MulticastGroupSourceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registers sources (network interfaces) with the transit gateway multicast group.
@@ -174,12 +174,12 @@ class MulticastGroupSource(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MulticastGroupSourceArgs args: The arguments to use to populate this resource's properties.
+        :param MulticastGroupSourceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MulticastGroupSourceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MulticastGroupSourceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -198,7 +198,7 @@ class MulticastGroupSource(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MulticastGroupSourceArgs.__new__(MulticastGroupSourceArgs)
+            __props__ = MulticastGroupSourceArrgs.__new__(MulticastGroupSourceArrgs)
 
             if group_ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'group_ip_address'")

@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RefreshScheduleArgs', 'RefreshSchedule']
+__all__ = ['RefreshScheduleArrgs', 'RefreshSchedule']
 
 @pulumi.input_type
-class RefreshScheduleArgs:
+calass RefreshScheduleArrgs:
     def __init__(__self__, *,
                  data_set_id: pulumi.Input[str],
                  schedule_id: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input['RefreshScheduleScheduleArgs']] = None):
+                 schedule: Optional[pulumi.Input['RefreshScheduleScheduleArrgs']] = None):
         """
         The set of arguments for constructing a RefreshSchedule resource.
         :param pulumi.Input[str] data_set_id: The ID of the dataset.
         :param pulumi.Input[str] schedule_id: The ID of the refresh schedule.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
-        :param pulumi.Input['RefreshScheduleScheduleArgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+        :param pulumi.Input['RefreshScheduleScheduleArrgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
         """
@@ -74,7 +74,7 @@ class RefreshScheduleArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['RefreshScheduleScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['RefreshScheduleScheduleArrgs']]:
         """
         The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 
@@ -83,24 +83,24 @@ class RefreshScheduleArgs:
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['RefreshScheduleScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['RefreshScheduleScheduleArrgs']]):
         pulumi.set(self, "schedule", value)
 
 
 @pulumi.input_type
-class _RefreshScheduleState:
+calass _RefreshScheduleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input['RefreshScheduleScheduleArgs']] = None,
+                 schedule: Optional[pulumi.Input['RefreshScheduleScheduleArrgs']] = None,
                  schedule_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RefreshSchedule resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the refresh schedule.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] data_set_id: The ID of the dataset.
-        :param pulumi.Input['RefreshScheduleScheduleArgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+        :param pulumi.Input['RefreshScheduleScheduleArrgs'] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
         :param pulumi.Input[str] schedule_id: The ID of the refresh schedule.
@@ -154,7 +154,7 @@ class _RefreshScheduleState:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['RefreshScheduleScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['RefreshScheduleScheduleArrgs']]:
         """
         The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
 
@@ -163,7 +163,7 @@ class _RefreshScheduleState:
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['RefreshScheduleScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['RefreshScheduleScheduleArrgs']]):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -179,14 +179,14 @@ class _RefreshScheduleState:
         pulumi.set(self, "schedule_id", value)
 
 
-class RefreshSchedule(pulumi.CustomResource):
+calass RefreshSchedule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArrgs']]] = None,
                  schedule_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -201,9 +201,9 @@ class RefreshSchedule(pulumi.CustomResource):
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
-            schedule=aws.quicksight.RefreshScheduleScheduleArgs(
+            schedule=aws.quicksight.RefreshScheduleScheduleArrgs(
                 refresh_type="FULL_REFRESH",
-                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
+                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArrgs(
                     interval="HOURLY",
                 ),
             ),
@@ -217,11 +217,11 @@ class RefreshSchedule(pulumi.CustomResource):
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
-            schedule=aws.quicksight.RefreshScheduleScheduleArgs(
+            schedule=aws.quicksight.RefreshScheduleScheduleArrgs(
                 refresh_type="INCREMENTAL_REFRESH",
-                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
+                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArrgs(
                     interval="WEEKLY",
-                    refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(
+                    refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArrgs(
                         day_of_week="MONDAY",
                     ),
                     time_of_the_day="01:00",
@@ -238,11 +238,11 @@ class RefreshSchedule(pulumi.CustomResource):
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
-            schedule=aws.quicksight.RefreshScheduleScheduleArgs(
+            schedule=aws.quicksight.RefreshScheduleScheduleArrgs(
                 refresh_type="INCREMENTAL_REFRESH",
-                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
+                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArrgs(
                     interval="MONTHLY",
-                    refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(
+                    refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArrgs(
                         day_of_month="1",
                     ),
                     time_of_the_day="01:00",
@@ -264,7 +264,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] data_set_id: The ID of the dataset.
-        :param pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArgs']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+        :param pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArrgs']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
         :param pulumi.Input[str] schedule_id: The ID of the refresh schedule.
@@ -273,7 +273,7 @@ class RefreshSchedule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RefreshScheduleArgs,
+                 args: RefreshScheduleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing a QuickSight Refresh Schedule.
@@ -287,9 +287,9 @@ class RefreshSchedule(pulumi.CustomResource):
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
-            schedule=aws.quicksight.RefreshScheduleScheduleArgs(
+            schedule=aws.quicksight.RefreshScheduleScheduleArrgs(
                 refresh_type="FULL_REFRESH",
-                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
+                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArrgs(
                     interval="HOURLY",
                 ),
             ),
@@ -303,11 +303,11 @@ class RefreshSchedule(pulumi.CustomResource):
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
-            schedule=aws.quicksight.RefreshScheduleScheduleArgs(
+            schedule=aws.quicksight.RefreshScheduleScheduleArrgs(
                 refresh_type="INCREMENTAL_REFRESH",
-                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
+                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArrgs(
                     interval="WEEKLY",
-                    refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(
+                    refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArrgs(
                         day_of_week="MONDAY",
                     ),
                     time_of_the_day="01:00",
@@ -324,11 +324,11 @@ class RefreshSchedule(pulumi.CustomResource):
 
         example = aws.quicksight.RefreshSchedule("example",
             data_set_id="dataset-id",
-            schedule=aws.quicksight.RefreshScheduleScheduleArgs(
+            schedule=aws.quicksight.RefreshScheduleScheduleArrgs(
                 refresh_type="INCREMENTAL_REFRESH",
-                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArgs(
+                schedule_frequency=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyArrgs(
                     interval="MONTHLY",
-                    refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs(
+                    refresh_on_day=aws.quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArrgs(
                         day_of_month="1",
                     ),
                     time_of_the_day="01:00",
@@ -347,12 +347,12 @@ class RefreshSchedule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RefreshScheduleArgs args: The arguments to use to populate this resource's properties.
+        :param RefreshScheduleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RefreshScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RefreshScheduleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -363,7 +363,7 @@ class RefreshSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  data_set_id: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArrgs']]] = None,
                  schedule_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -372,7 +372,7 @@ class RefreshSchedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RefreshScheduleArgs.__new__(RefreshScheduleArgs)
+            __props__ = RefreshScheduleArrgs.__new__(RefreshScheduleArrgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             if data_set_id is None and not opts.urn:
@@ -396,7 +396,7 @@ class RefreshSchedule(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             aws_account_id: Optional[pulumi.Input[str]] = None,
             data_set_id: Optional[pulumi.Input[str]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArgs']]] = None,
+            schedule: Optional[pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArrgs']]] = None,
             schedule_id: Optional[pulumi.Input[str]] = None) -> 'RefreshSchedule':
         """
         Get an existing RefreshSchedule resource's state with the given name, id, and optional extra
@@ -408,7 +408,7 @@ class RefreshSchedule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the refresh schedule.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] data_set_id: The ID of the dataset.
-        :param pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArgs']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
+        :param pulumi.Input[pulumi.InputType['RefreshScheduleScheduleArrgs']] schedule: The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
                
                The following arguments are optional:
         :param pulumi.Input[str] schedule_id: The ID of the refresh schedule.

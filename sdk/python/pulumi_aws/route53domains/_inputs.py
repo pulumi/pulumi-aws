@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'RegisteredDomainAdminContactArgs',
-    'RegisteredDomainNameServerArgs',
-    'RegisteredDomainRegistrantContactArgs',
-    'RegisteredDomainTechContactArgs',
+    'RegisteredDomainAdminContactArrgs',
+    'RegisteredDomainNameServerArrgs',
+    'RegisteredDomainRegistrantContactArrgs',
+    'RegisteredDomainTechContactArrgs',
 ]
 
 @pulumi.input_type
-class RegisteredDomainAdminContactArgs:
+calass RegisteredDomainAdminContactArrgs:
     def __init__(__self__, *,
                  address_line1: Optional[pulumi.Input[str]] = None,
                  address_line2: Optional[pulumi.Input[str]] = None,
@@ -248,7 +248,7 @@ class RegisteredDomainAdminContactArgs:
 
 
 @pulumi.input_type
-class RegisteredDomainNameServerArgs:
+calass RegisteredDomainNameServerArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  glue_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -286,7 +286,7 @@ class RegisteredDomainNameServerArgs:
 
 
 @pulumi.input_type
-class RegisteredDomainRegistrantContactArgs:
+calass RegisteredDomainRegistrantContactArrgs:
     def __init__(__self__, *,
                  address_line1: Optional[pulumi.Input[str]] = None,
                  address_line2: Optional[pulumi.Input[str]] = None,
@@ -517,7 +517,7 @@ class RegisteredDomainRegistrantContactArgs:
 
 
 @pulumi.input_type
-class RegisteredDomainTechContactArgs:
+calass RegisteredDomainTechContactArrgs:
     def __init__(__self__, *,
                  address_line1: Optional[pulumi.Input[str]] = None,
                  address_line2: Optional[pulumi.Input[str]] = None,

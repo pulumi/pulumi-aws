@@ -30,7 +30,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BrokerConfiguration(dict):
+calass BrokerConfiguration(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  revision: Optional[int] = None):
@@ -61,7 +61,7 @@ class BrokerConfiguration(dict):
 
 
 @pulumi.output_type
-class BrokerEncryptionOptions(dict):
+calass BrokerEncryptionOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -111,7 +111,7 @@ class BrokerEncryptionOptions(dict):
 
 
 @pulumi.output_type
-class BrokerInstance(dict):
+calass BrokerInstance(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -159,7 +159,7 @@ class BrokerInstance(dict):
 
 
 @pulumi.output_type
-class BrokerLdapServerMetadata(dict):
+calass BrokerLdapServerMetadata(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -333,7 +333,7 @@ class BrokerLdapServerMetadata(dict):
 
 
 @pulumi.output_type
-class BrokerLogs(dict):
+calass BrokerLogs(dict):
     def __init__(__self__, *,
                  audit: Optional[bool] = None,
                  general: Optional[bool] = None):
@@ -364,7 +364,7 @@ class BrokerLogs(dict):
 
 
 @pulumi.output_type
-class BrokerMaintenanceWindowStartTime(dict):
+calass BrokerMaintenanceWindowStartTime(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -425,7 +425,7 @@ class BrokerMaintenanceWindowStartTime(dict):
 
 
 @pulumi.output_type
-class BrokerUser(dict):
+calass BrokerUser(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -513,7 +513,7 @@ class BrokerUser(dict):
 
 
 @pulumi.output_type
-class GetBrokerConfigurationResult(dict):
+calass GetBrokerConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  revision: int):
@@ -532,7 +532,7 @@ class GetBrokerConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetBrokerEncryptionOptionResult(dict):
+calass GetBrokerEncryptionOptionResult(dict):
     def __init__(__self__, *,
                  kms_key_id: str,
                  use_aws_owned_key: bool):
@@ -551,7 +551,7 @@ class GetBrokerEncryptionOptionResult(dict):
 
 
 @pulumi.output_type
-class GetBrokerInstanceResult(dict):
+calass GetBrokerInstanceResult(dict):
     def __init__(__self__, *,
                  console_url: str,
                  endpoints: Sequence[str],
@@ -577,7 +577,7 @@ class GetBrokerInstanceResult(dict):
 
 
 @pulumi.output_type
-class GetBrokerLdapServerMetadataResult(dict):
+calass GetBrokerLdapServerMetadataResult(dict):
     def __init__(__self__, *,
                  hosts: Sequence[str],
                  role_base: str,
@@ -659,7 +659,7 @@ class GetBrokerLdapServerMetadataResult(dict):
 
 
 @pulumi.output_type
-class GetBrokerLogsResult(dict):
+calass GetBrokerLogsResult(dict):
     def __init__(__self__, *,
                  audit: bool,
                  general: bool):
@@ -678,7 +678,7 @@ class GetBrokerLogsResult(dict):
 
 
 @pulumi.output_type
-class GetBrokerMaintenanceWindowStartTimeResult(dict):
+calass GetBrokerMaintenanceWindowStartTimeResult(dict):
     def __init__(__self__, *,
                  day_of_week: str,
                  time_of_day: str,
@@ -704,7 +704,7 @@ class GetBrokerMaintenanceWindowStartTimeResult(dict):
 
 
 @pulumi.output_type
-class GetBrokerUserResult(dict):
+calass GetBrokerUserResult(dict):
     def __init__(__self__, *,
                  console_access: bool,
                  groups: Sequence[str],
@@ -737,7 +737,7 @@ class GetBrokerUserResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
+calass GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
     def __init__(__self__, *,
                  availability_zones: Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult'],
                  engine_type: str,
@@ -746,7 +746,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
                  supported_deployment_modes: Sequence[str],
                  supported_engine_versions: Sequence[str]):
         """
-        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: List of available AZs. See Availability Zones. below
+        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrgs'] availability_zones: List of available AZs. See Availability Zones. below
         :param str engine_type: Filter response by engine type.
         :param str host_instance_type: Filter response by host instance type.
         :param str storage_type: Filter response by storage type.
@@ -810,7 +810,7 @@ class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
+calass GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
     def __init__(__self__, *,
                  name: str):
         """

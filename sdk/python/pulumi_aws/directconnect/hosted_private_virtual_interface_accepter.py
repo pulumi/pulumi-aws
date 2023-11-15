@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HostedPrivateVirtualInterfaceAccepterArgs', 'HostedPrivateVirtualInterfaceAccepter']
+__all__ = ['HostedPrivateVirtualInterfaceAccepterArrgs', 'HostedPrivateVirtualInterfaceAccepter']
 
 @pulumi.input_type
-class HostedPrivateVirtualInterfaceAccepterArgs:
+calass HostedPrivateVirtualInterfaceAccepterArrgs:
     def __init__(__self__, *,
                  virtual_interface_id: pulumi.Input[str],
                  dx_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class HostedPrivateVirtualInterfaceAccepterArgs:
 
 
 @pulumi.input_type
-class _HostedPrivateVirtualInterfaceAccepterState:
+calass _HostedPrivateVirtualInterfaceAccepterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  dx_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -192,7 +192,7 @@ class _HostedPrivateVirtualInterfaceAccepterState:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
-class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
+calass HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -253,7 +253,7 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HostedPrivateVirtualInterfaceAccepterArgs,
+                 args: HostedPrivateVirtualInterfaceAccepterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage the accepter's side of a Direct Connect hosted private virtual interface.
@@ -296,12 +296,12 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HostedPrivateVirtualInterfaceAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param HostedPrivateVirtualInterfaceAccepterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HostedPrivateVirtualInterfaceAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HostedPrivateVirtualInterfaceAccepterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -321,7 +321,7 @@ class HostedPrivateVirtualInterfaceAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HostedPrivateVirtualInterfaceAccepterArgs.__new__(HostedPrivateVirtualInterfaceAccepterArgs)
+            __props__ = HostedPrivateVirtualInterfaceAccepterArrgs.__new__(HostedPrivateVirtualInterfaceAccepterArrgs)
 
             __props__.__dict__["dx_gateway_id"] = dx_gateway_id
             __props__.__dict__["tags"] = tags

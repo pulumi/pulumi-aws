@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLicenseGrantsFilterResult(dict):
+calass GetLicenseGrantsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -37,7 +37,7 @@ class GetLicenseGrantsFilterResult(dict):
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
+               selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArrgs(
                    name="ProductSKU",
                    values=[""],
                )])
@@ -59,7 +59,7 @@ class GetLicenseGrantsFilterResult(dict):
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
+        selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArrgs(
             name="ProductSKU",
             values=[""],
         )])
@@ -77,14 +77,14 @@ class GetLicenseGrantsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetReceivedLicenseConsumptionConfigurationResult(dict):
+calass GetReceivedLicenseConsumptionConfigurationResult(dict):
     def __init__(__self__, *,
                  borrow_configurations: Sequence['outputs.GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult'],
                  provisional_configurations: Sequence['outputs.GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult'],
                  renew_type: str):
         """
-        :param Sequence['GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArgs'] borrow_configurations: Details about a borrow configuration. Detailed below
-        :param Sequence['GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArgs'] provisional_configurations: Details about a provisional configuration. Detailed below
+        :param Sequence['GetReceivedLicenseConsumptionConfigurationBorrowConfigurationArrgs'] borrow_configurations: Details about a borrow configuration. Detailed below
+        :param Sequence['GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationArrgs'] provisional_configurations: Details about a provisional configuration. Detailed below
         """
         pulumi.set(__self__, "borrow_configurations", borrow_configurations)
         pulumi.set(__self__, "provisional_configurations", provisional_configurations)
@@ -113,7 +113,7 @@ class GetReceivedLicenseConsumptionConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(dict):
+calass GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(dict):
     def __init__(__self__, *,
                  allow_early_check_in: bool,
                  max_time_to_live_in_minutes: int):
@@ -142,7 +142,7 @@ class GetReceivedLicenseConsumptionConfigurationBorrowConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(dict):
+calass GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(dict):
     def __init__(__self__, *,
                  max_time_to_live_in_minutes: int):
         """
@@ -160,7 +160,7 @@ class GetReceivedLicenseConsumptionConfigurationProvisionalConfigurationResult(d
 
 
 @pulumi.output_type
-class GetReceivedLicenseEntitlementResult(dict):
+calass GetReceivedLicenseEntitlementResult(dict):
     def __init__(__self__, *,
                  allow_check_in: bool,
                  max_count: int,
@@ -222,7 +222,7 @@ class GetReceivedLicenseEntitlementResult(dict):
 
 
 @pulumi.output_type
-class GetReceivedLicenseIssuerResult(dict):
+calass GetReceivedLicenseIssuerResult(dict):
     def __init__(__self__, *,
                  key_fingerprint: str,
                  name: str,
@@ -262,7 +262,7 @@ class GetReceivedLicenseIssuerResult(dict):
 
 
 @pulumi.output_type
-class GetReceivedLicenseLicenseMetadataResult(dict):
+calass GetReceivedLicenseLicenseMetadataResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -291,7 +291,7 @@ class GetReceivedLicenseLicenseMetadataResult(dict):
 
 
 @pulumi.output_type
-class GetReceivedLicenseReceivedMetadataResult(dict):
+calass GetReceivedLicenseReceivedMetadataResult(dict):
     def __init__(__self__, *,
                  allowed_operations: Sequence[str],
                  received_status: str,
@@ -331,7 +331,7 @@ class GetReceivedLicenseReceivedMetadataResult(dict):
 
 
 @pulumi.output_type
-class GetReceivedLicenseValidityResult(dict):
+calass GetReceivedLicenseValidityResult(dict):
     def __init__(__self__, *,
                  begin: str,
                  end: str):
@@ -360,7 +360,7 @@ class GetReceivedLicenseValidityResult(dict):
 
 
 @pulumi.output_type
-class GetReceivedLicensesFilterResult(dict):
+calass GetReceivedLicensesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -373,7 +373,7 @@ class GetReceivedLicensesFilterResult(dict):
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
+               selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArrgs(
                    name="ProductSKU",
                    values=[""],
                )])
@@ -395,7 +395,7 @@ class GetReceivedLicensesFilterResult(dict):
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
+        selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArrgs(
             name="ProductSKU",
             values=[""],
         )])

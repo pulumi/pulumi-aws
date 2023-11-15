@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationLayerAutomaticResponseTimeoutsArgs',
-    'DrtAccessLogBucketAssociationTimeoutsArgs',
-    'DrtAccessRoleArnAssociationTimeoutsArgs',
+    'ApplicationLayerAutomaticResponseTimeoutsArrgs',
+    'DrtAccessLogBucketAssociationTimeoutsArrgs',
+    'DrtAccessRoleArnAssociationTimeoutsArrgs',
 ]
 
 @pulumi.input_type
-class ApplicationLayerAutomaticResponseTimeoutsArgs:
+calass ApplicationLayerAutomaticResponseTimeoutsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,7 @@ class ApplicationLayerAutomaticResponseTimeoutsArgs:
 
 
 @pulumi.input_type
-class DrtAccessLogBucketAssociationTimeoutsArgs:
+calass DrtAccessLogBucketAssociationTimeoutsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class DrtAccessLogBucketAssociationTimeoutsArgs:
 
 
 @pulumi.input_type
-class DrtAccessRoleArnAssociationTimeoutsArgs:
+calass DrtAccessRoleArnAssociationTimeoutsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,

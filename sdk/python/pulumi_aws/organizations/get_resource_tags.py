@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResourceTagsResult:
+calass GetResourceTagsResult:
     """
     A collection of values returned by getResourceTags.
     """
@@ -54,7 +54,7 @@ class GetResourceTagsResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetResourceTagsResult(GetResourceTagsResult):
+calass AwaitableGetResourceTagsResult(GetResourceTagsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

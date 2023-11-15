@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServiceQuotaResult:
+calass GetServiceQuotaResult:
     """
     A collection of values returned by getServiceQuota.
     """
@@ -137,7 +137,7 @@ class GetServiceQuotaResult:
         return pulumi.get(self, "value")
 
 
-class AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
+calass AwaitableGetServiceQuotaResult(GetServiceQuotaResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

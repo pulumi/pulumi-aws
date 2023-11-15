@@ -35,7 +35,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RecordAlias(dict):
+calass RecordAlias(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -94,7 +94,7 @@ class RecordAlias(dict):
 
 
 @pulumi.output_type
-class RecordCidrRoutingPolicy(dict):
+calass RecordCidrRoutingPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -142,7 +142,7 @@ class RecordCidrRoutingPolicy(dict):
 
 
 @pulumi.output_type
-class RecordFailoverRoutingPolicy(dict):
+calass RecordFailoverRoutingPolicy(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -160,7 +160,7 @@ class RecordFailoverRoutingPolicy(dict):
 
 
 @pulumi.output_type
-class RecordGeolocationRoutingPolicy(dict):
+calass RecordGeolocationRoutingPolicy(dict):
     def __init__(__self__, *,
                  continent: Optional[str] = None,
                  country: Optional[str] = None,
@@ -203,7 +203,7 @@ class RecordGeolocationRoutingPolicy(dict):
 
 
 @pulumi.output_type
-class RecordLatencyRoutingPolicy(dict):
+calass RecordLatencyRoutingPolicy(dict):
     def __init__(__self__, *,
                  region: str):
         """
@@ -221,7 +221,7 @@ class RecordLatencyRoutingPolicy(dict):
 
 
 @pulumi.output_type
-class RecordWeightedRoutingPolicy(dict):
+calass RecordWeightedRoutingPolicy(dict):
     def __init__(__self__, *,
                  weight: int):
         """
@@ -239,7 +239,7 @@ class RecordWeightedRoutingPolicy(dict):
 
 
 @pulumi.output_type
-class ResolverEndpointIpAddress(dict):
+calass ResolverEndpointIpAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -296,7 +296,7 @@ class ResolverEndpointIpAddress(dict):
 
 
 @pulumi.output_type
-class ResolverRuleTargetIp(dict):
+calass ResolverRuleTargetIp(dict):
     def __init__(__self__, *,
                  ip: str,
                  port: Optional[int] = None):
@@ -326,7 +326,7 @@ class ResolverRuleTargetIp(dict):
 
 
 @pulumi.output_type
-class ZoneVpc(dict):
+calass ZoneVpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -375,7 +375,7 @@ class ZoneVpc(dict):
 
 
 @pulumi.output_type
-class GetQueryLogConfigFilterResult(dict):
+calass GetQueryLogConfigFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -400,7 +400,7 @@ class GetQueryLogConfigFilterResult(dict):
 
 
 @pulumi.output_type
-class GetResolverEndpointFilterResult(dict):
+calass GetResolverEndpointFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -419,7 +419,7 @@ class GetResolverEndpointFilterResult(dict):
 
 
 @pulumi.output_type
-class GetResolverFirewallRulesFirewallRuleResult(dict):
+calass GetResolverFirewallRulesFirewallRuleResult(dict):
     def __init__(__self__, *,
                  action: str,
                  block_override_dns_type: str,
@@ -558,7 +558,7 @@ class GetResolverFirewallRulesFirewallRuleResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficPolicyDocumentEndpointResult(dict):
+calass GetTrafficPolicyDocumentEndpointResult(dict):
     def __init__(__self__, *,
                  id: str,
                  region: Optional[str] = None,
@@ -612,7 +612,7 @@ class GetTrafficPolicyDocumentEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficPolicyDocumentRuleResult(dict):
+calass GetTrafficPolicyDocumentRuleResult(dict):
     def __init__(__self__, *,
                  id: str,
                  geo_proximity_locations: Optional[Sequence['outputs.GetTrafficPolicyDocumentRuleGeoProximityLocationResult']] = None,
@@ -624,12 +624,12 @@ class GetTrafficPolicyDocumentRuleResult(dict):
                  type: Optional[str] = None):
         """
         :param str id: ID of a rule you want to assign.
-        :param Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArgs'] geo_proximity_locations: Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleItemArgs'] items: Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleLocationArgs'] locations: Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
-        :param 'GetTrafficPolicyDocumentRulePrimaryArgs' primary: Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
-        :param Sequence['GetTrafficPolicyDocumentRuleRegionArgs'] regions: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
-        :param 'GetTrafficPolicyDocumentRuleSecondaryArgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+        :param Sequence['GetTrafficPolicyDocumentRuleGeoProximityLocationArrgs'] geo_proximity_locations: Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+        :param Sequence['GetTrafficPolicyDocumentRuleItemArrgs'] items: Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+        :param Sequence['GetTrafficPolicyDocumentRuleLocationArrgs'] locations: Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+        :param 'GetTrafficPolicyDocumentRulePrimaryArrgs' primary: Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+        :param Sequence['GetTrafficPolicyDocumentRuleRegionArrgs'] regions: To route traffic to an Amazon S3 bucket that is configured as a website endpoint, specify the region in which you created the bucket for `region`.
+        :param 'GetTrafficPolicyDocumentRuleSecondaryArrgs' secondary: Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
         :param str type: Type of the rule.
         """
         pulumi.set(__self__, "id", id)
@@ -714,7 +714,7 @@ class GetTrafficPolicyDocumentRuleResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficPolicyDocumentRuleGeoProximityLocationResult(dict):
+calass GetTrafficPolicyDocumentRuleGeoProximityLocationResult(dict):
     def __init__(__self__, *,
                  bias: Optional[str] = None,
                  endpoint_reference: Optional[str] = None,
@@ -817,7 +817,7 @@ class GetTrafficPolicyDocumentRuleGeoProximityLocationResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficPolicyDocumentRuleItemResult(dict):
+calass GetTrafficPolicyDocumentRuleItemResult(dict):
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  health_check: Optional[str] = None):
@@ -848,7 +848,7 @@ class GetTrafficPolicyDocumentRuleItemResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficPolicyDocumentRuleLocationResult(dict):
+calass GetTrafficPolicyDocumentRuleLocationResult(dict):
     def __init__(__self__, *,
                  continent: Optional[str] = None,
                  country: Optional[str] = None,
@@ -951,7 +951,7 @@ class GetTrafficPolicyDocumentRuleLocationResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficPolicyDocumentRulePrimaryResult(dict):
+calass GetTrafficPolicyDocumentRulePrimaryResult(dict):
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  evaluate_target_health: Optional[bool] = None,
@@ -1006,7 +1006,7 @@ class GetTrafficPolicyDocumentRulePrimaryResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficPolicyDocumentRuleRegionResult(dict):
+calass GetTrafficPolicyDocumentRuleRegionResult(dict):
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  evaluate_target_health: Optional[bool] = None,
@@ -1073,7 +1073,7 @@ class GetTrafficPolicyDocumentRuleRegionResult(dict):
 
 
 @pulumi.output_type
-class GetTrafficPolicyDocumentRuleSecondaryResult(dict):
+calass GetTrafficPolicyDocumentRuleSecondaryResult(dict):
     def __init__(__self__, *,
                  endpoint_reference: Optional[str] = None,
                  evaluate_target_health: Optional[bool] = None,

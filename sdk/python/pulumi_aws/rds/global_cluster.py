@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GlobalClusterArgs', 'GlobalCluster']
+__all__ = ['GlobalClusterArrgs', 'GlobalCluster']
 
 @pulumi.input_type
-class GlobalClusterArgs:
+calass GlobalClusterArrgs:
     def __init__(__self__, *,
                  global_cluster_identifier: pulumi.Input[str],
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -149,7 +149,7 @@ class GlobalClusterArgs:
 
 
 @pulumi.input_type
-class _GlobalClusterState:
+calass _GlobalClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class _GlobalClusterState:
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                 global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]] = None,
+                 global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArrgs']]]] = None,
                  global_cluster_resource_id: Optional[pulumi.Input[str]] = None,
                  source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  storage_encrypted: Optional[pulumi.Input[bool]] = None):
@@ -172,7 +172,7 @@ class _GlobalClusterState:
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[str] global_cluster_identifier: Global cluster identifier.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]] global_cluster_members: Set of objects containing Global Cluster members.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArrgs']]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
         :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
@@ -297,14 +297,14 @@ class _GlobalClusterState:
 
     @property
     @pulumi.getter(name="globalClusterMembers")
-    def global_cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]:
+    def global_cluster_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArrgs']]]]:
         """
         Set of objects containing Global Cluster members.
         """
         return pulumi.get(self, "global_cluster_members")
 
     @global_cluster_members.setter
-    def global_cluster_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArgs']]]]):
+    def global_cluster_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalClusterGlobalClusterMemberArrgs']]]]):
         pulumi.set(self, "global_cluster_members", value)
 
     @property
@@ -344,7 +344,7 @@ class _GlobalClusterState:
         pulumi.set(self, "storage_encrypted", value)
 
 
-class GlobalCluster(pulumi.CustomResource):
+calass GlobalCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -530,7 +530,7 @@ class GlobalCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GlobalClusterArgs,
+                 args: GlobalClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an RDS Global Cluster, which is an Aurora global database spread across multiple regions. The global database contains a single primary cluster with read-write capability, and a read-only secondary cluster that receives data from the primary cluster through high-speed replication performed by the Aurora storage subsystem.
@@ -690,12 +690,12 @@ class GlobalCluster(pulumi.CustomResource):
         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
-        :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.
+        :param GlobalClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GlobalClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GlobalClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -719,7 +719,7 @@ class GlobalCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GlobalClusterArgs.__new__(GlobalClusterArgs)
+            __props__ = GlobalClusterArrgs.__new__(GlobalClusterArrgs)
 
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["deletion_protection"] = deletion_protection
@@ -753,7 +753,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-            global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalClusterGlobalClusterMemberArgs']]]]] = None,
+            global_cluster_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalClusterGlobalClusterMemberArrgs']]]]] = None,
             global_cluster_resource_id: Optional[pulumi.Input[str]] = None,
             source_db_cluster_identifier: Optional[pulumi.Input[str]] = None,
             storage_encrypted: Optional[pulumi.Input[bool]] = None) -> 'GlobalCluster':
@@ -771,7 +771,7 @@ class GlobalCluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version: Engine version of the Aurora global database. The `engine`, `engine_version`, and `instance_class` (on the `rds.ClusterInstance`) must together support global databases. See [Using Amazon Aurora global databases](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database.html) for more information. By upgrading the engine version, the provider will upgrade cluster members. **NOTE:** To avoid an `inconsistent final plan` error while upgrading, use the `lifecycle` `ignore_changes` for `engine_version` meta argument on the associated `rds.Cluster` resource as shown above in Upgrading Engine Versions example.
         :param pulumi.Input[bool] force_destroy: Enable to remove DB Cluster members from Global Cluster on destroy. Required with `source_db_cluster_identifier`.
         :param pulumi.Input[str] global_cluster_identifier: Global cluster identifier.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalClusterGlobalClusterMemberArgs']]]] global_cluster_members: Set of objects containing Global Cluster members.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalClusterGlobalClusterMemberArrgs']]]] global_cluster_members: Set of objects containing Global Cluster members.
         :param pulumi.Input[str] global_cluster_resource_id: AWS Region-unique, immutable identifier for the global database cluster. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed
         :param pulumi.Input[str] source_db_cluster_identifier: Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false` unless `source_db_cluster_identifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.

@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FileSystemAssociationCacheAttributes(dict):
+calass FileSystemAssociationCacheAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -60,7 +60,7 @@ class FileSystemAssociationCacheAttributes(dict):
 
 
 @pulumi.output_type
-class GatewayGatewayNetworkInterface(dict):
+calass GatewayGatewayNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -96,7 +96,7 @@ class GatewayGatewayNetworkInterface(dict):
 
 
 @pulumi.output_type
-class GatewayMaintenanceStartTime(dict):
+calass GatewayMaintenanceStartTime(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -173,7 +173,7 @@ class GatewayMaintenanceStartTime(dict):
 
 
 @pulumi.output_type
-class GatewaySmbActiveDirectorySettings(dict):
+calass GatewaySmbActiveDirectorySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -286,7 +286,7 @@ class GatewaySmbActiveDirectorySettings(dict):
 
 
 @pulumi.output_type
-class NfsFileShareCacheAttributes(dict):
+calass NfsFileShareCacheAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -326,7 +326,7 @@ class NfsFileShareCacheAttributes(dict):
 
 
 @pulumi.output_type
-class NfsFileShareNfsFileShareDefaults(dict):
+calass NfsFileShareNfsFileShareDefaults(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -404,7 +404,7 @@ class NfsFileShareNfsFileShareDefaults(dict):
 
 
 @pulumi.output_type
-class SmbFileShareCacheAttributes(dict):
+calass SmbFileShareCacheAttributes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

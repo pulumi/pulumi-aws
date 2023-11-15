@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConfigurationSetDeliveryOptions(dict):
+calass ConfigurationSetDeliveryOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -61,7 +61,7 @@ class ConfigurationSetDeliveryOptions(dict):
 
 
 @pulumi.output_type
-class ConfigurationSetTrackingOptions(dict):
+calass ConfigurationSetTrackingOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -97,7 +97,7 @@ class ConfigurationSetTrackingOptions(dict):
 
 
 @pulumi.output_type
-class EventDestinationCloudwatchDestination(dict):
+calass EventDestinationCloudwatchDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -158,7 +158,7 @@ class EventDestinationCloudwatchDestination(dict):
 
 
 @pulumi.output_type
-class EventDestinationKinesisDestination(dict):
+calass EventDestinationKinesisDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -206,7 +206,7 @@ class EventDestinationKinesisDestination(dict):
 
 
 @pulumi.output_type
-class EventDestinationSnsDestination(dict):
+calass EventDestinationSnsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -241,7 +241,7 @@ class EventDestinationSnsDestination(dict):
 
 
 @pulumi.output_type
-class ReceiptRuleAddHeaderAction(dict):
+calass ReceiptRuleAddHeaderAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -300,7 +300,7 @@ class ReceiptRuleAddHeaderAction(dict):
 
 
 @pulumi.output_type
-class ReceiptRuleBounceAction(dict):
+calass ReceiptRuleBounceAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -396,7 +396,7 @@ class ReceiptRuleBounceAction(dict):
 
 
 @pulumi.output_type
-class ReceiptRuleLambdaAction(dict):
+calass ReceiptRuleLambdaAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -470,7 +470,7 @@ class ReceiptRuleLambdaAction(dict):
 
 
 @pulumi.output_type
-class ReceiptRuleS3Action(dict):
+calass ReceiptRuleS3Action(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -558,7 +558,7 @@ class ReceiptRuleS3Action(dict):
 
 
 @pulumi.output_type
-class ReceiptRuleSnsAction(dict):
+calass ReceiptRuleSnsAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -616,7 +616,7 @@ class ReceiptRuleSnsAction(dict):
 
 
 @pulumi.output_type
-class ReceiptRuleStopAction(dict):
+calass ReceiptRuleStopAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -674,7 +674,7 @@ class ReceiptRuleStopAction(dict):
 
 
 @pulumi.output_type
-class ReceiptRuleWorkmailAction(dict):
+calass ReceiptRuleWorkmailAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -10,37 +10,37 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DomainAdvancedSecurityOptionsArgs',
-    'DomainAdvancedSecurityOptionsMasterUserOptionsArgs',
-    'DomainAutoTuneOptionsArgs',
-    'DomainAutoTuneOptionsMaintenanceScheduleArgs',
-    'DomainAutoTuneOptionsMaintenanceScheduleDurationArgs',
-    'DomainClusterConfigArgs',
-    'DomainClusterConfigColdStorageOptionsArgs',
-    'DomainClusterConfigZoneAwarenessConfigArgs',
-    'DomainCognitoOptionsArgs',
-    'DomainDomainEndpointOptionsArgs',
-    'DomainEbsOptionsArgs',
-    'DomainEncryptAtRestArgs',
-    'DomainLogPublishingOptionArgs',
-    'DomainNodeToNodeEncryptionArgs',
-    'DomainSamlOptionsSamlOptionsArgs',
-    'DomainSamlOptionsSamlOptionsIdpArgs',
-    'DomainSnapshotOptionsArgs',
-    'DomainVpcOptionsArgs',
-    'VpcEndpointVpcOptionsArgs',
+    'DomainAdvancedSecurityOptionsArrgs',
+    'DomainAdvancedSecurityOptionsMasterUserOptionsArrgs',
+    'DomainAutoTuneOptionsArrgs',
+    'DomainAutoTuneOptionsMaintenanceScheduleArrgs',
+    'DomainAutoTuneOptionsMaintenanceScheduleDurationArrgs',
+    'DomainClusterConfigArrgs',
+    'DomainClusterConfigColdStorageOptionsArrgs',
+    'DomainClusterConfigZoneAwarenessConfigArrgs',
+    'DomainCognitoOptionsArrgs',
+    'DomainDomainEndpointOptionsArrgs',
+    'DomainEbsOptionsArrgs',
+    'DomainEncryptAtRestArrgs',
+    'DomainLogPublishingOptionArrgs',
+    'DomainNodeToNodeEncryptionArrgs',
+    'DomainSamlOptionsSamlOptionsArrgs',
+    'DomainSamlOptionsSamlOptionsIdpArrgs',
+    'DomainSnapshotOptionsArrgs',
+    'DomainVpcOptionsArrgs',
+    'VpcEndpointVpcOptionsArrgs',
 ]
 
 @pulumi.input_type
-class DomainAdvancedSecurityOptionsArgs:
+calass DomainAdvancedSecurityOptionsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
-                 master_user_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']] = None):
+                 master_user_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArrgs']] = None):
         """
         :param pulumi.Input[bool] enabled: Whether advanced security is enabled.
         :param pulumi.Input[bool] internal_user_database_enabled: Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
-        :param pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs'] master_user_options: Configuration block for the main user. Detailed below.
+        :param pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArrgs'] master_user_options: Configuration block for the main user. Detailed below.
         """
         pulumi.set(__self__, "enabled", enabled)
         if internal_user_database_enabled is not None:
@@ -74,19 +74,19 @@ class DomainAdvancedSecurityOptionsArgs:
 
     @property
     @pulumi.getter(name="masterUserOptions")
-    def master_user_options(self) -> Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']]:
+    def master_user_options(self) -> Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArrgs']]:
         """
         Configuration block for the main user. Detailed below.
         """
         return pulumi.get(self, "master_user_options")
 
     @master_user_options.setter
-    def master_user_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']]):
+    def master_user_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArrgs']]):
         pulumi.set(self, "master_user_options", value)
 
 
 @pulumi.input_type
-class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
+calass DomainAdvancedSecurityOptionsMasterUserOptionsArrgs:
     def __init__(__self__, *,
                  master_user_arn: Optional[pulumi.Input[str]] = None,
                  master_user_name: Optional[pulumi.Input[str]] = None,
@@ -141,14 +141,14 @@ class DomainAdvancedSecurityOptionsMasterUserOptionsArgs:
 
 
 @pulumi.input_type
-class DomainAutoTuneOptionsArgs:
+calass DomainAutoTuneOptionsArrgs:
     def __init__(__self__, *,
                  desired_state: pulumi.Input[str],
-                 maintenance_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]]] = None,
+                 maintenance_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArrgs']]]] = None,
                  rollback_on_disable: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] desired_state: The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArrgs']]] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
         :param pulumi.Input[str] rollback_on_disable: Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
         """
         pulumi.set(__self__, "desired_state", desired_state)
@@ -171,14 +171,14 @@ class DomainAutoTuneOptionsArgs:
 
     @property
     @pulumi.getter(name="maintenanceSchedules")
-    def maintenance_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]]]:
+    def maintenance_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArrgs']]]]:
         """
         Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
         """
         return pulumi.get(self, "maintenance_schedules")
 
     @maintenance_schedules.setter
-    def maintenance_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]]]):
+    def maintenance_schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArrgs']]]]):
         pulumi.set(self, "maintenance_schedules", value)
 
     @property
@@ -195,14 +195,14 @@ class DomainAutoTuneOptionsArgs:
 
 
 @pulumi.input_type
-class DomainAutoTuneOptionsMaintenanceScheduleArgs:
+calass DomainAutoTuneOptionsMaintenanceScheduleArrgs:
     def __init__(__self__, *,
                  cron_expression_for_recurrence: pulumi.Input[str],
-                 duration: pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArgs'],
+                 duration: pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArrgs'],
                  start_at: pulumi.Input[str]):
         """
         :param pulumi.Input[str] cron_expression_for_recurrence: A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
-        :param pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArgs'] duration: Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+        :param pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArrgs'] duration: Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
         :param pulumi.Input[str] start_at: Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         """
         pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
@@ -223,14 +223,14 @@ class DomainAutoTuneOptionsMaintenanceScheduleArgs:
 
     @property
     @pulumi.getter
-    def duration(self) -> pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArgs']:
+    def duration(self) -> pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArrgs']:
         """
         Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArgs']):
+    def duration(self, value: pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleDurationArrgs']):
         pulumi.set(self, "duration", value)
 
     @property
@@ -247,7 +247,7 @@ class DomainAutoTuneOptionsMaintenanceScheduleArgs:
 
 
 @pulumi.input_type
-class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs:
+calass DomainAutoTuneOptionsMaintenanceScheduleDurationArrgs:
     def __init__(__self__, *,
                  unit: pulumi.Input[str],
                  value: pulumi.Input[int]):
@@ -284,9 +284,9 @@ class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs:
 
 
 @pulumi.input_type
-class DomainClusterConfigArgs:
+calass DomainClusterConfigArrgs:
     def __init__(__self__, *,
-                 cold_storage_options: Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArgs']] = None,
+                 cold_storage_options: Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArrgs']] = None,
                  dedicated_master_count: Optional[pulumi.Input[int]] = None,
                  dedicated_master_enabled: Optional[pulumi.Input[bool]] = None,
                  dedicated_master_type: Optional[pulumi.Input[str]] = None,
@@ -295,10 +295,10 @@ class DomainClusterConfigArgs:
                  warm_count: Optional[pulumi.Input[int]] = None,
                  warm_enabled: Optional[pulumi.Input[bool]] = None,
                  warm_type: Optional[pulumi.Input[str]] = None,
-                 zone_awareness_config: Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs']] = None,
+                 zone_awareness_config: Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArrgs']] = None,
                  zone_awareness_enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['DomainClusterConfigColdStorageOptionsArgs'] cold_storage_options: Configuration block containing cold storage configuration. Detailed below.
+        :param pulumi.Input['DomainClusterConfigColdStorageOptionsArrgs'] cold_storage_options: Configuration block containing cold storage configuration. Detailed below.
         :param pulumi.Input[int] dedicated_master_count: Number of dedicated main nodes in the cluster.
         :param pulumi.Input[bool] dedicated_master_enabled: Whether dedicated main nodes are enabled for the cluster.
         :param pulumi.Input[str] dedicated_master_type: Instance type of the dedicated main nodes in the cluster.
@@ -307,7 +307,7 @@ class DomainClusterConfigArgs:
         :param pulumi.Input[int] warm_count: Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warm_count` can be only and must be set when `warm_enabled` is set to `true`.
         :param pulumi.Input[bool] warm_enabled: Whether to enable warm storage.
         :param pulumi.Input[str] warm_type: Instance type for the Elasticsearch cluster's warm nodes. Valid values are `ultrawarm1.medium.elasticsearch`, `ultrawarm1.large.elasticsearch` and `ultrawarm1.xlarge.elasticsearch`. `warm_type` can be only and must be set when `warm_enabled` is set to `true`.
-        :param pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
+        :param pulumi.Input['DomainClusterConfigZoneAwarenessConfigArrgs'] zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
         :param pulumi.Input[bool] zone_awareness_enabled: Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         """
         if cold_storage_options is not None:
@@ -335,14 +335,14 @@ class DomainClusterConfigArgs:
 
     @property
     @pulumi.getter(name="coldStorageOptions")
-    def cold_storage_options(self) -> Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArgs']]:
+    def cold_storage_options(self) -> Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArrgs']]:
         """
         Configuration block containing cold storage configuration. Detailed below.
         """
         return pulumi.get(self, "cold_storage_options")
 
     @cold_storage_options.setter
-    def cold_storage_options(self, value: Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArgs']]):
+    def cold_storage_options(self, value: Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArrgs']]):
         pulumi.set(self, "cold_storage_options", value)
 
     @property
@@ -443,14 +443,14 @@ class DomainClusterConfigArgs:
 
     @property
     @pulumi.getter(name="zoneAwarenessConfig")
-    def zone_awareness_config(self) -> Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs']]:
+    def zone_awareness_config(self) -> Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArrgs']]:
         """
         Configuration block containing zone awareness settings. Detailed below.
         """
         return pulumi.get(self, "zone_awareness_config")
 
     @zone_awareness_config.setter
-    def zone_awareness_config(self, value: Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs']]):
+    def zone_awareness_config(self, value: Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArrgs']]):
         pulumi.set(self, "zone_awareness_config", value)
 
     @property
@@ -467,7 +467,7 @@ class DomainClusterConfigArgs:
 
 
 @pulumi.input_type
-class DomainClusterConfigColdStorageOptionsArgs:
+calass DomainClusterConfigColdStorageOptionsArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -490,7 +490,7 @@ class DomainClusterConfigColdStorageOptionsArgs:
 
 
 @pulumi.input_type
-class DomainClusterConfigZoneAwarenessConfigArgs:
+calass DomainClusterConfigZoneAwarenessConfigArrgs:
     def __init__(__self__, *,
                  availability_zone_count: Optional[pulumi.Input[int]] = None):
         """
@@ -513,7 +513,7 @@ class DomainClusterConfigZoneAwarenessConfigArgs:
 
 
 @pulumi.input_type
-class DomainCognitoOptionsArgs:
+calass DomainCognitoOptionsArrgs:
     def __init__(__self__, *,
                  identity_pool_id: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
@@ -581,7 +581,7 @@ class DomainCognitoOptionsArgs:
 
 
 @pulumi.input_type
-class DomainDomainEndpointOptionsArgs:
+calass DomainDomainEndpointOptionsArrgs:
     def __init__(__self__, *,
                  custom_endpoint: Optional[pulumi.Input[str]] = None,
                  custom_endpoint_certificate_arn: Optional[pulumi.Input[str]] = None,
@@ -668,7 +668,7 @@ class DomainDomainEndpointOptionsArgs:
 
 
 @pulumi.input_type
-class DomainEbsOptionsArgs:
+calass DomainEbsOptionsArrgs:
     def __init__(__self__, *,
                  ebs_enabled: pulumi.Input[bool],
                  iops: Optional[pulumi.Input[int]] = None,
@@ -754,7 +754,7 @@ class DomainEbsOptionsArgs:
 
 
 @pulumi.input_type
-class DomainEncryptAtRestArgs:
+calass DomainEncryptAtRestArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
@@ -792,7 +792,7 @@ class DomainEncryptAtRestArgs:
 
 
 @pulumi.input_type
-class DomainLogPublishingOptionArgs:
+calass DomainLogPublishingOptionArrgs:
     def __init__(__self__, *,
                  cloudwatch_log_group_arn: pulumi.Input[str],
                  log_type: pulumi.Input[str],
@@ -845,7 +845,7 @@ class DomainLogPublishingOptionArgs:
 
 
 @pulumi.input_type
-class DomainNodeToNodeEncryptionArgs:
+calass DomainNodeToNodeEncryptionArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
@@ -867,10 +867,10 @@ class DomainNodeToNodeEncryptionArgs:
 
 
 @pulumi.input_type
-class DomainSamlOptionsSamlOptionsArgs:
+calass DomainSamlOptionsSamlOptionsArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 idp: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs']] = None,
+                 idp: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArrgs']] = None,
                  master_backend_role: Optional[pulumi.Input[str]] = None,
                  master_user_name: Optional[pulumi.Input[str]] = None,
                  roles_key: Optional[pulumi.Input[str]] = None,
@@ -878,7 +878,7 @@ class DomainSamlOptionsSamlOptionsArgs:
                  subject_key: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] enabled: Whether SAML authentication is enabled.
-        :param pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs'] idp: Information from your identity provider.
+        :param pulumi.Input['DomainSamlOptionsSamlOptionsIdpArrgs'] idp: Information from your identity provider.
         :param pulumi.Input[str] master_backend_role: This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         :param pulumi.Input[str] master_user_name: This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         :param pulumi.Input[str] roles_key: Element of the SAML assertion to use for backend roles. Default is roles.
@@ -914,14 +914,14 @@ class DomainSamlOptionsSamlOptionsArgs:
 
     @property
     @pulumi.getter
-    def idp(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs']]:
+    def idp(self) -> Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArrgs']]:
         """
         Information from your identity provider.
         """
         return pulumi.get(self, "idp")
 
     @idp.setter
-    def idp(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArgs']]):
+    def idp(self, value: Optional[pulumi.Input['DomainSamlOptionsSamlOptionsIdpArrgs']]):
         pulumi.set(self, "idp", value)
 
     @property
@@ -986,7 +986,7 @@ class DomainSamlOptionsSamlOptionsArgs:
 
 
 @pulumi.input_type
-class DomainSamlOptionsSamlOptionsIdpArgs:
+calass DomainSamlOptionsSamlOptionsIdpArrgs:
     def __init__(__self__, *,
                  entity_id: pulumi.Input[str],
                  metadata_content: pulumi.Input[str]):
@@ -1023,7 +1023,7 @@ class DomainSamlOptionsSamlOptionsIdpArgs:
 
 
 @pulumi.input_type
-class DomainSnapshotOptionsArgs:
+calass DomainSnapshotOptionsArrgs:
     def __init__(__self__, *,
                  automated_snapshot_start_hour: pulumi.Input[int]):
         """
@@ -1045,7 +1045,7 @@ class DomainSnapshotOptionsArgs:
 
 
 @pulumi.input_type
-class DomainVpcOptionsArgs:
+calass DomainVpcOptionsArrgs:
     def __init__(__self__, *,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1108,7 +1108,7 @@ class DomainVpcOptionsArgs:
 
 
 @pulumi.input_type
-class VpcEndpointVpcOptionsArgs:
+calass VpcEndpointVpcOptionsArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

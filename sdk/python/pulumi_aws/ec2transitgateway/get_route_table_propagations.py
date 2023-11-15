@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRouteTablePropagationsResult:
+calass GetRouteTablePropagationsResult:
     """
     A collection of values returned by getRouteTablePropagations.
     """
@@ -64,7 +64,7 @@ class GetRouteTablePropagationsResult:
         return pulumi.get(self, "transit_gateway_route_table_id")
 
 
-class AwaitableGetRouteTablePropagationsResult(GetRouteTablePropagationsResult):
+calass AwaitableGetRouteTablePropagationsResult(GetRouteTablePropagationsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -76,7 +76,7 @@ class AwaitableGetRouteTablePropagationsResult(GetRouteTablePropagationsResult):
             transit_gateway_route_table_id=self.transit_gateway_route_table_id)
 
 
-def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArgs']]] = None,
+def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArrgs']]] = None,
                                  transit_gateway_route_table_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTablePropagationsResult:
     """
@@ -93,7 +93,7 @@ def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['Ge
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArrgs']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:
@@ -115,7 +115,7 @@ def get_route_table_propagations(filters: Optional[Sequence[pulumi.InputType['Ge
 
 
 @_utilities.lift_output_func(get_route_table_propagations)
-def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArgs']]]]] = None,
+def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArrgs']]]]] = None,
                                         transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTablePropagationsResult]:
     """
@@ -132,7 +132,7 @@ def get_route_table_propagations_output(filters: Optional[pulumi.Input[Optional[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetRouteTablePropagationsFilterArrgs']] filters: Custom filter block as described below.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
            which take the following arguments:

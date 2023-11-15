@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCachePolicyResult:
+calass GetCachePolicyResult:
     """
     A collection of values returned by getCachePolicy.
     """
@@ -107,7 +107,7 @@ class GetCachePolicyResult:
         return pulumi.get(self, "parameters_in_cache_key_and_forwarded_to_origins")
 
 
-class AwaitableGetCachePolicyResult(GetCachePolicyResult):
+calass AwaitableGetCachePolicyResult(GetCachePolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

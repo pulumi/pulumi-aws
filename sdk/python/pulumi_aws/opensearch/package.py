@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PackageArgs', 'Package']
+__all__ = ['PackageArrgs', 'Package']
 
 @pulumi.input_type
-class PackageArgs:
+calass PackageArrgs:
     def __init__(__self__, *,
                  package_name: pulumi.Input[str],
-                 package_source: pulumi.Input['PackagePackageSourceArgs'],
+                 package_source: pulumi.Input['PackagePackageSourceArrgs'],
                  package_type: pulumi.Input[str],
                  package_description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Package resource.
         :param pulumi.Input[str] package_name: Unique name for the package.
-        :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
+        :param pulumi.Input['PackagePackageSourceArrgs'] package_source: Configuration block for the package source options.
         :param pulumi.Input[str] package_type: The type of package.
         :param pulumi.Input[str] package_description: Description of the package.
         """
@@ -47,14 +47,14 @@ class PackageArgs:
 
     @property
     @pulumi.getter(name="packageSource")
-    def package_source(self) -> pulumi.Input['PackagePackageSourceArgs']:
+    def package_source(self) -> pulumi.Input['PackagePackageSourceArrgs']:
         """
         Configuration block for the package source options.
         """
         return pulumi.get(self, "package_source")
 
     @package_source.setter
-    def package_source(self, value: pulumi.Input['PackagePackageSourceArgs']):
+    def package_source(self, value: pulumi.Input['PackagePackageSourceArrgs']):
         pulumi.set(self, "package_source", value)
 
     @property
@@ -83,20 +83,20 @@ class PackageArgs:
 
 
 @pulumi.input_type
-class _PackageState:
+calass _PackageState:
     def __init__(__self__, *,
                  available_package_version: Optional[pulumi.Input[str]] = None,
                  package_description: Optional[pulumi.Input[str]] = None,
                  package_id: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
-                 package_source: Optional[pulumi.Input['PackagePackageSourceArgs']] = None,
+                 package_source: Optional[pulumi.Input['PackagePackageSourceArrgs']] = None,
                  package_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Package resources.
         :param pulumi.Input[str] available_package_version: The current version of the package.
         :param pulumi.Input[str] package_description: Description of the package.
         :param pulumi.Input[str] package_name: Unique name for the package.
-        :param pulumi.Input['PackagePackageSourceArgs'] package_source: Configuration block for the package source options.
+        :param pulumi.Input['PackagePackageSourceArrgs'] package_source: Configuration block for the package source options.
         :param pulumi.Input[str] package_type: The type of package.
         """
         if available_package_version is not None:
@@ -159,14 +159,14 @@ class _PackageState:
 
     @property
     @pulumi.getter(name="packageSource")
-    def package_source(self) -> Optional[pulumi.Input['PackagePackageSourceArgs']]:
+    def package_source(self) -> Optional[pulumi.Input['PackagePackageSourceArrgs']]:
         """
         Configuration block for the package source options.
         """
         return pulumi.get(self, "package_source")
 
     @package_source.setter
-    def package_source(self, value: Optional[pulumi.Input['PackagePackageSourceArgs']]):
+    def package_source(self, value: Optional[pulumi.Input['PackagePackageSourceArrgs']]):
         pulumi.set(self, "package_source", value)
 
     @property
@@ -182,14 +182,14 @@ class _PackageState:
         pulumi.set(self, "package_type", value)
 
 
-class Package(pulumi.CustomResource):
+calass Package(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  package_description: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
-                 package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']]] = None,
+                 package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArrgs']]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -209,14 +209,14 @@ class Package(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] package_description: Description of the package.
         :param pulumi.Input[str] package_name: Unique name for the package.
-        :param pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']] package_source: Configuration block for the package source options.
+        :param pulumi.Input[pulumi.InputType['PackagePackageSourceArrgs']] package_source: Configuration block for the package source options.
         :param pulumi.Input[str] package_type: The type of package.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PackageArgs,
+                 args: PackageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Opensearch Package.
@@ -232,12 +232,12 @@ class Package(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PackageArgs args: The arguments to use to populate this resource's properties.
+        :param PackageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PackageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PackageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -248,7 +248,7 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  package_description: Optional[pulumi.Input[str]] = None,
                  package_name: Optional[pulumi.Input[str]] = None,
-                 package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']]] = None,
+                 package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArrgs']]] = None,
                  package_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -257,7 +257,7 @@ class Package(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PackageArgs.__new__(PackageArgs)
+            __props__ = PackageArrgs.__new__(PackageArrgs)
 
             __props__.__dict__["package_description"] = package_description
             if package_name is None and not opts.urn:
@@ -285,7 +285,7 @@ class Package(pulumi.CustomResource):
             package_description: Optional[pulumi.Input[str]] = None,
             package_id: Optional[pulumi.Input[str]] = None,
             package_name: Optional[pulumi.Input[str]] = None,
-            package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']]] = None,
+            package_source: Optional[pulumi.Input[pulumi.InputType['PackagePackageSourceArrgs']]] = None,
             package_type: Optional[pulumi.Input[str]] = None) -> 'Package':
         """
         Get an existing Package resource's state with the given name, id, and optional extra
@@ -297,7 +297,7 @@ class Package(pulumi.CustomResource):
         :param pulumi.Input[str] available_package_version: The current version of the package.
         :param pulumi.Input[str] package_description: Description of the package.
         :param pulumi.Input[str] package_name: Unique name for the package.
-        :param pulumi.Input[pulumi.InputType['PackagePackageSourceArgs']] package_source: Configuration block for the package source options.
+        :param pulumi.Input[pulumi.InputType['PackagePackageSourceArrgs']] package_source: Configuration block for the package source options.
         :param pulumi.Input[str] package_type: The type of package.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

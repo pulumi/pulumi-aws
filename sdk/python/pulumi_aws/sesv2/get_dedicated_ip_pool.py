@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDedicatedIpPoolResult:
+calass GetDedicatedIpPoolResult:
     """
     A collection of values returned by getDedicatedIpPool.
     """
@@ -88,7 +88,7 @@ class GetDedicatedIpPoolResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDedicatedIpPoolResult(GetDedicatedIpPoolResult):
+calass AwaitableGetDedicatedIpPoolResult(GetDedicatedIpPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

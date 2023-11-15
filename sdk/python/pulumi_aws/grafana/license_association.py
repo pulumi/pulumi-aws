@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LicenseAssociationArgs', 'LicenseAssociation']
+__all__ = ['LicenseAssociationArrgs', 'LicenseAssociation']
 
 @pulumi.input_type
-class LicenseAssociationArgs:
+calass LicenseAssociationArrgs:
     def __init__(__self__, *,
                  license_type: pulumi.Input[str],
                  workspace_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class LicenseAssociationArgs:
 
 
 @pulumi.input_type
-class _LicenseAssociationState:
+calass _LicenseAssociationState:
     def __init__(__self__, *,
                  free_trial_expiration: Optional[pulumi.Input[str]] = None,
                  license_expiration: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _LicenseAssociationState:
         pulumi.set(self, "workspace_id", value)
 
 
-class LicenseAssociation(pulumi.CustomResource):
+calass LicenseAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -178,7 +178,7 @@ class LicenseAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LicenseAssociationArgs,
+                 args: LicenseAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Managed Grafana workspace license association resource.
@@ -221,12 +221,12 @@ class LicenseAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LicenseAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param LicenseAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LicenseAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LicenseAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -244,7 +244,7 @@ class LicenseAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LicenseAssociationArgs.__new__(LicenseAssociationArgs)
+            __props__ = LicenseAssociationArrgs.__new__(LicenseAssociationArrgs)
 
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")

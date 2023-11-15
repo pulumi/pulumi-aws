@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LogDataProtectionPolicyArgs', 'LogDataProtectionPolicy']
+__all__ = ['LogDataProtectionPolicyArrgs', 'LogDataProtectionPolicy']
 
 @pulumi.input_type
-class LogDataProtectionPolicyArgs:
+calass LogDataProtectionPolicyArrgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str],
                  policy_document: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class LogDataProtectionPolicyArgs:
 
 
 @pulumi.input_type
-class _LogDataProtectionPolicyState:
+calass _LogDataProtectionPolicyState:
     def __init__(__self__, *,
                  log_group_name: Optional[pulumi.Input[str]] = None,
                  policy_document: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _LogDataProtectionPolicyState:
         pulumi.set(self, "policy_document", value)
 
 
-class LogDataProtectionPolicy(pulumi.CustomResource):
+calass LogDataProtectionPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -160,7 +160,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LogDataProtectionPolicyArgs,
+                 args: LogDataProtectionPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Log Data Protection Policy resource.
@@ -217,12 +217,12 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogDataProtectionPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LogDataProtectionPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogDataProtectionPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogDataProtectionPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -240,7 +240,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogDataProtectionPolicyArgs.__new__(LogDataProtectionPolicyArgs)
+            __props__ = LogDataProtectionPolicyArrgs.__new__(LogDataProtectionPolicyArrgs)
 
             if log_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'log_group_name'")

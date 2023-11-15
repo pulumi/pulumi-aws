@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MetricAlarmArgs', 'MetricAlarm']
+__all__ = ['MetricAlarmArrgs', 'MetricAlarm']
 
 @pulumi.input_type
-class MetricAlarmArgs:
+calass MetricAlarmArrgs:
     def __init__(__self__, *,
                  comparison_operator: pulumi.Input[str],
                  evaluation_periods: pulumi.Input[int],
@@ -27,7 +27,7 @@ class MetricAlarmArgs:
                  extended_statistic: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]]] = None,
+                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -55,7 +55,7 @@ class MetricAlarmArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArrgs']]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -253,14 +253,14 @@ class MetricAlarmArgs:
 
     @property
     @pulumi.getter(name="metricQueries")
-    def metric_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]]]:
+    def metric_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArrgs']]]]:
         """
         Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         """
         return pulumi.get(self, "metric_queries")
 
     @metric_queries.setter
-    def metric_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]]]):
+    def metric_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArrgs']]]]):
         pulumi.set(self, "metric_queries", value)
 
     @property
@@ -390,7 +390,7 @@ class MetricAlarmArgs:
 
 
 @pulumi.input_type
-class _MetricAlarmState:
+calass _MetricAlarmState:
     def __init__(__self__, *,
                  actions_enabled: Optional[pulumi.Input[bool]] = None,
                  alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -404,7 +404,7 @@ class _MetricAlarmState:
                  extended_statistic: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]]] = None,
+                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -434,7 +434,7 @@ class _MetricAlarmState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArrgs']]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -654,14 +654,14 @@ class _MetricAlarmState:
 
     @property
     @pulumi.getter(name="metricQueries")
-    def metric_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]]]:
+    def metric_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArrgs']]]]:
         """
         Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         """
         return pulumi.get(self, "metric_queries")
 
     @metric_queries.setter
-    def metric_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArgs']]]]):
+    def metric_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlarmMetricQueryArrgs']]]]):
         pulumi.set(self, "metric_queries", value)
 
     @property
@@ -805,7 +805,7 @@ class _MetricAlarmState:
         pulumi.set(self, "unit", value)
 
 
-class MetricAlarm(pulumi.CustomResource):
+calass MetricAlarm(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -821,7 +821,7 @@ class MetricAlarm(pulumi.CustomResource):
                  extended_statistic: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]]] = None,
+                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -891,15 +891,15 @@ class MetricAlarm(pulumi.CustomResource):
             evaluation_periods=2,
             insufficient_data_actions=[],
             metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     expression="m2/m1*100",
                     id="e1",
                     label="Error Rate",
                     return_data=True,
                 ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
+                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArrgs(
                         dimensions={
                             "LoadBalancer": "app/web",
                         },
@@ -910,9 +910,9 @@ class MetricAlarm(pulumi.CustomResource):
                         unit="Count",
                     ),
                 ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     id="m2",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
+                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArrgs(
                         dimensions={
                             "LoadBalancer": "app/web",
                         },
@@ -937,15 +937,15 @@ class MetricAlarm(pulumi.CustomResource):
             evaluation_periods=2,
             insufficient_data_actions=[],
             metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     expression="ANOMALY_DETECTION_BAND(m1)",
                     id="e1",
                     label="CPUUtilization (Expected)",
                     return_data=True,
                 ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
+                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArrgs(
                         dimensions={
                             "InstanceId": "i-abc123",
                         },
@@ -1013,7 +1013,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArrgs']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -1034,7 +1034,7 @@ class MetricAlarm(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MetricAlarmArgs,
+                 args: MetricAlarmArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Metric Alarm resource.
@@ -1094,15 +1094,15 @@ class MetricAlarm(pulumi.CustomResource):
             evaluation_periods=2,
             insufficient_data_actions=[],
             metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     expression="m2/m1*100",
                     id="e1",
                     label="Error Rate",
                     return_data=True,
                 ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
+                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArrgs(
                         dimensions={
                             "LoadBalancer": "app/web",
                         },
@@ -1113,9 +1113,9 @@ class MetricAlarm(pulumi.CustomResource):
                         unit="Count",
                     ),
                 ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     id="m2",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
+                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArrgs(
                         dimensions={
                             "LoadBalancer": "app/web",
                         },
@@ -1140,15 +1140,15 @@ class MetricAlarm(pulumi.CustomResource):
             evaluation_periods=2,
             insufficient_data_actions=[],
             metric_queries=[
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     expression="ANOMALY_DETECTION_BAND(m1)",
                     id="e1",
                     label="CPUUtilization (Expected)",
                     return_data=True,
                 ),
-                aws.cloudwatch.MetricAlarmMetricQueryArgs(
+                aws.cloudwatch.MetricAlarmMetricQueryArrgs(
                     id="m1",
-                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArgs(
+                    metric=aws.cloudwatch.MetricAlarmMetricQueryMetricArrgs(
                         dimensions={
                             "InstanceId": "i-abc123",
                         },
@@ -1200,12 +1200,12 @@ class MetricAlarm(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MetricAlarmArgs args: The arguments to use to populate this resource's properties.
+        :param MetricAlarmArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MetricAlarmArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MetricAlarmArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1225,7 +1225,7 @@ class MetricAlarm(pulumi.CustomResource):
                  extended_statistic: Optional[pulumi.Input[str]] = None,
                  insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
-                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]]] = None,
+                 metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  namespace: Optional[pulumi.Input[str]] = None,
                  ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1243,7 +1243,7 @@ class MetricAlarm(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MetricAlarmArgs.__new__(MetricAlarmArgs)
+            __props__ = MetricAlarmArrgs.__new__(MetricAlarmArrgs)
 
             __props__.__dict__["actions_enabled"] = actions_enabled
             __props__.__dict__["alarm_actions"] = alarm_actions
@@ -1297,7 +1297,7 @@ class MetricAlarm(pulumi.CustomResource):
             extended_statistic: Optional[pulumi.Input[str]] = None,
             insufficient_data_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
-            metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]]] = None,
+            metric_queries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             namespace: Optional[pulumi.Input[str]] = None,
             ok_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1332,7 +1332,7 @@ class MetricAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] insufficient_data_actions: The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
         :param pulumi.Input[str] metric_name: The name for the alarm's associated metric.
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArgs']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlarmMetricQueryArrgs']]]] metric_queries: Enables you to create an alarm based on a metric math expression. You may specify at most 20.
         :param pulumi.Input[str] name: The descriptive name for the alarm. This name must be unique within the user's AWS account
         :param pulumi.Input[str] namespace: The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
                See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).

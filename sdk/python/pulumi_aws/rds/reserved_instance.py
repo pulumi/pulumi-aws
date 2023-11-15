@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ReservedInstanceArgs', 'ReservedInstance']
+__all__ = ['ReservedInstanceArrgs', 'ReservedInstance']
 
 @pulumi.input_type
-class ReservedInstanceArgs:
+calass ReservedInstanceArrgs:
     def __init__(__self__, *,
                  offering_id: pulumi.Input[str],
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -89,7 +89,7 @@ class ReservedInstanceArgs:
 
 
 @pulumi.input_type
-class _ReservedInstanceState:
+calass _ReservedInstanceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  currency_code: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class _ReservedInstanceState:
                  offering_id: Optional[pulumi.Input[str]] = None,
                  offering_type: Optional[pulumi.Input[str]] = None,
                  product_description: Optional[pulumi.Input[str]] = None,
-                 recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]] = None,
+                 recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArrgs']]]] = None,
                  reservation_id: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -124,7 +124,7 @@ class _ReservedInstanceState:
                The following arguments are optional:
         :param pulumi.Input[str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[str] product_description: Description of the reserved DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArrgs']]] recurring_charges: Recurring price charged to run this reserved DB instance.
         :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[str] start_time: Time the reservation started.
         :param pulumi.Input[str] state: State of the reserved DB instance.
@@ -308,14 +308,14 @@ class _ReservedInstanceState:
 
     @property
     @pulumi.getter(name="recurringCharges")
-    def recurring_charges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]]:
+    def recurring_charges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArrgs']]]]:
         """
         Recurring price charged to run this reserved DB instance.
         """
         return pulumi.get(self, "recurring_charges")
 
     @recurring_charges.setter
-    def recurring_charges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]]):
+    def recurring_charges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArrgs']]]]):
         pulumi.set(self, "recurring_charges", value)
 
     @property
@@ -394,7 +394,7 @@ class _ReservedInstanceState:
         pulumi.set(self, "usage_price", value)
 
 
-class ReservedInstance(pulumi.CustomResource):
+calass ReservedInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -449,7 +449,7 @@ class ReservedInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReservedInstanceArgs,
+                 args: ReservedInstanceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an RDS DB Reserved Instance.
@@ -484,12 +484,12 @@ class ReservedInstance(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReservedInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param ReservedInstanceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReservedInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReservedInstanceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -509,7 +509,7 @@ class ReservedInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReservedInstanceArgs.__new__(ReservedInstanceArgs)
+            __props__ = ReservedInstanceArrgs.__new__(ReservedInstanceArrgs)
 
             __props__.__dict__["instance_count"] = instance_count
             if offering_id is None and not opts.urn:
@@ -554,7 +554,7 @@ class ReservedInstance(pulumi.CustomResource):
             offering_id: Optional[pulumi.Input[str]] = None,
             offering_type: Optional[pulumi.Input[str]] = None,
             product_description: Optional[pulumi.Input[str]] = None,
-            recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArgs']]]]] = None,
+            recurring_charges: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArrgs']]]]] = None,
             reservation_id: Optional[pulumi.Input[str]] = None,
             start_time: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -581,7 +581,7 @@ class ReservedInstance(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[str] product_description: Description of the reserved DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArgs']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ReservedInstanceRecurringChargeArrgs']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
         :param pulumi.Input[str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[str] start_time: Time the reservation started.
         :param pulumi.Input[str] state: State of the reserved DB instance.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LfTagArgs', 'LfTag']
+__all__ = ['LfTagArrgs', 'LfTag']
 
 @pulumi.input_type
-class LfTagArgs:
+calass LfTagArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -66,7 +66,7 @@ class LfTagArgs:
 
 
 @pulumi.input_type
-class _LfTagState:
+calass _LfTagState:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _LfTagState:
         pulumi.set(self, "values", value)
 
 
-class LfTag(pulumi.CustomResource):
+calass LfTag(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -166,7 +166,7 @@ class LfTag(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LfTagArgs,
+                 args: LfTagArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
@@ -195,12 +195,12 @@ class LfTag(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LfTagArgs args: The arguments to use to populate this resource's properties.
+        :param LfTagArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LfTagArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LfTagArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -219,7 +219,7 @@ class LfTag(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LfTagArgs.__new__(LfTagArgs)
+            __props__ = LfTagArrgs.__new__(LfTagArrgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
             if key is None and not opts.urn:

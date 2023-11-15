@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GeoMatchSetArgs', 'GeoMatchSet']
+__all__ = ['GeoMatchSetArrgs', 'GeoMatchSet']
 
 @pulumi.input_type
-class GeoMatchSetArgs:
+calass GeoMatchSetArrgs:
     def __init__(__self__, *,
-                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]] = None,
+                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GeoMatchSet resource.
-        :param pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        :param pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArrgs']]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the Geo Match Set.
         """
         if geo_match_constraints is not None:
@@ -30,14 +30,14 @@ class GeoMatchSetArgs:
 
     @property
     @pulumi.getter(name="geoMatchConstraints")
-    def geo_match_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]]:
+    def geo_match_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArrgs']]]]:
         """
         The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         """
         return pulumi.get(self, "geo_match_constraints")
 
     @geo_match_constraints.setter
-    def geo_match_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]]):
+    def geo_match_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArrgs']]]]):
         pulumi.set(self, "geo_match_constraints", value)
 
     @property
@@ -54,13 +54,13 @@ class GeoMatchSetArgs:
 
 
 @pulumi.input_type
-class _GeoMatchSetState:
+calass _GeoMatchSetState:
     def __init__(__self__, *,
-                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]] = None,
+                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GeoMatchSet resources.
-        :param pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        :param pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArrgs']]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the Geo Match Set.
         """
         if geo_match_constraints is not None:
@@ -70,14 +70,14 @@ class _GeoMatchSetState:
 
     @property
     @pulumi.getter(name="geoMatchConstraints")
-    def geo_match_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]]:
+    def geo_match_constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArrgs']]]]:
         """
         The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         """
         return pulumi.get(self, "geo_match_constraints")
 
     @geo_match_constraints.setter
-    def geo_match_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArgs']]]]):
+    def geo_match_constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GeoMatchSetGeoMatchConstraintArrgs']]]]):
         pulumi.set(self, "geo_match_constraints", value)
 
     @property
@@ -93,12 +93,12 @@ class _GeoMatchSetState:
         pulumi.set(self, "name", value)
 
 
-class GeoMatchSet(pulumi.CustomResource):
+calass GeoMatchSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArgs']]]]] = None,
+                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -111,11 +111,11 @@ class GeoMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         geo_match_set = aws.wafregional.GeoMatchSet("geoMatchSet", geo_match_constraints=[
-            aws.wafregional.GeoMatchSetGeoMatchConstraintArgs(
+            aws.wafregional.GeoMatchSetGeoMatchConstraintArrgs(
                 type="Country",
                 value="US",
             ),
-            aws.wafregional.GeoMatchSetGeoMatchConstraintArgs(
+            aws.wafregional.GeoMatchSetGeoMatchConstraintArrgs(
                 type="Country",
                 value="CA",
             ),
@@ -132,14 +132,14 @@ class GeoMatchSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArgs']]]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArrgs']]]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the Geo Match Set.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[GeoMatchSetArgs] = None,
+                 args: Optional[GeoMatchSetArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a WAF Regional Geo Match Set Resource
@@ -151,11 +151,11 @@ class GeoMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         geo_match_set = aws.wafregional.GeoMatchSet("geoMatchSet", geo_match_constraints=[
-            aws.wafregional.GeoMatchSetGeoMatchConstraintArgs(
+            aws.wafregional.GeoMatchSetGeoMatchConstraintArrgs(
                 type="Country",
                 value="US",
             ),
-            aws.wafregional.GeoMatchSetGeoMatchConstraintArgs(
+            aws.wafregional.GeoMatchSetGeoMatchConstraintArrgs(
                 type="Country",
                 value="CA",
             ),
@@ -171,12 +171,12 @@ class GeoMatchSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GeoMatchSetArgs args: The arguments to use to populate this resource's properties.
+        :param GeoMatchSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GeoMatchSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GeoMatchSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -185,7 +185,7 @@ class GeoMatchSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArgs']]]]] = None,
+                 geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -194,7 +194,7 @@ class GeoMatchSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GeoMatchSetArgs.__new__(GeoMatchSetArgs)
+            __props__ = GeoMatchSetArrgs.__new__(GeoMatchSetArrgs)
 
             __props__.__dict__["geo_match_constraints"] = geo_match_constraints
             __props__.__dict__["name"] = name
@@ -208,7 +208,7 @@ class GeoMatchSet(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArgs']]]]] = None,
+            geo_match_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'GeoMatchSet':
         """
         Get an existing GeoMatchSet resource's state with the given name, id, and optional extra
@@ -217,7 +217,7 @@ class GeoMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArgs']]]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GeoMatchSetGeoMatchConstraintArrgs']]]] geo_match_constraints: The Geo Match Constraint objects which contain the country that you want AWS WAF to search for.
         :param pulumi.Input[str] name: The name or description of the Geo Match Set.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

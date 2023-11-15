@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ThesaurusArgs', 'Thesaurus']
+__all__ = ['ThesaurusArrgs', 'Thesaurus']
 
 @pulumi.input_type
-class ThesaurusArgs:
+calass ThesaurusArrgs:
     def __init__(__self__, *,
                  index_id: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 source_s3_path: pulumi.Input['ThesaurusSourceS3PathArgs'],
+                 source_s3_path: pulumi.Input['ThesaurusSourceS3PathArrgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -26,7 +26,7 @@ class ThesaurusArgs:
         The set of arguments for constructing a Thesaurus resource.
         :param pulumi.Input[str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input['ThesaurusSourceS3PathArrgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
                
                The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] description: The description for a thesaurus.
@@ -69,7 +69,7 @@ class ThesaurusArgs:
 
     @property
     @pulumi.getter(name="sourceS3Path")
-    def source_s3_path(self) -> pulumi.Input['ThesaurusSourceS3PathArgs']:
+    def source_s3_path(self) -> pulumi.Input['ThesaurusSourceS3PathArrgs']:
         """
         The S3 path where your thesaurus file sits in S3. Detailed below.
 
@@ -78,7 +78,7 @@ class ThesaurusArgs:
         return pulumi.get(self, "source_s3_path")
 
     @source_s3_path.setter
-    def source_s3_path(self, value: pulumi.Input['ThesaurusSourceS3PathArgs']):
+    def source_s3_path(self, value: pulumi.Input['ThesaurusSourceS3PathArrgs']):
         pulumi.set(self, "source_s3_path", value)
 
     @property
@@ -119,14 +119,14 @@ class ThesaurusArgs:
 
 
 @pulumi.input_type
-class _ThesaurusState:
+calass _ThesaurusState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 source_s3_path: Optional[pulumi.Input['ThesaurusSourceS3PathArgs']] = None,
+                 source_s3_path: Optional[pulumi.Input['ThesaurusSourceS3PathArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -138,7 +138,7 @@ class _ThesaurusState:
         :param pulumi.Input[str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input['ThesaurusSourceS3PathArgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input['ThesaurusSourceS3PathArrgs'] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
                
                The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] status: The current status of the thesaurus.
@@ -231,7 +231,7 @@ class _ThesaurusState:
 
     @property
     @pulumi.getter(name="sourceS3Path")
-    def source_s3_path(self) -> Optional[pulumi.Input['ThesaurusSourceS3PathArgs']]:
+    def source_s3_path(self) -> Optional[pulumi.Input['ThesaurusSourceS3PathArrgs']]:
         """
         The S3 path where your thesaurus file sits in S3. Detailed below.
 
@@ -240,7 +240,7 @@ class _ThesaurusState:
         return pulumi.get(self, "source_s3_path")
 
     @source_s3_path.setter
-    def source_s3_path(self, value: Optional[pulumi.Input['ThesaurusSourceS3PathArgs']]):
+    def source_s3_path(self, value: Optional[pulumi.Input['ThesaurusSourceS3PathArrgs']]):
         pulumi.set(self, "source_s3_path", value)
 
     @property
@@ -292,7 +292,7 @@ class _ThesaurusState:
         pulumi.set(self, "thesaurus_id", value)
 
 
-class Thesaurus(pulumi.CustomResource):
+calass Thesaurus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -301,7 +301,7 @@ class Thesaurus(pulumi.CustomResource):
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']]] = None,
+                 source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -316,7 +316,7 @@ class Thesaurus(pulumi.CustomResource):
         example = aws.kendra.Thesaurus("example",
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
-            source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
+            source_s3_path=aws.kendra.ThesaurusSourceS3PathArrgs(
                 bucket=aws_s3_bucket["example"]["id"],
                 key=aws_s3_object["example"]["key"],
             ),
@@ -339,7 +339,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArrgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
                
                The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -348,7 +348,7 @@ class Thesaurus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ThesaurusArgs,
+                 args: ThesaurusArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Kendra Thesaurus.
@@ -362,7 +362,7 @@ class Thesaurus(pulumi.CustomResource):
         example = aws.kendra.Thesaurus("example",
             index_id=aws_kendra_index["example"]["id"],
             role_arn=aws_iam_role["example"]["arn"],
-            source_s3_path=aws.kendra.ThesaurusSourceS3PathArgs(
+            source_s3_path=aws.kendra.ThesaurusSourceS3PathArrgs(
                 bucket=aws_s3_bucket["example"]["id"],
                 key=aws_s3_object["example"]["key"],
             ),
@@ -380,12 +380,12 @@ class Thesaurus(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ThesaurusArgs args: The arguments to use to populate this resource's properties.
+        :param ThesaurusArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ThesaurusArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ThesaurusArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -398,7 +398,7 @@ class Thesaurus(pulumi.CustomResource):
                  index_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']]] = None,
+                 source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -407,7 +407,7 @@ class Thesaurus(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ThesaurusArgs.__new__(ThesaurusArgs)
+            __props__ = ThesaurusArrgs.__new__(ThesaurusArrgs)
 
             __props__.__dict__["description"] = description
             if index_id is None and not opts.urn:
@@ -442,7 +442,7 @@ class Thesaurus(pulumi.CustomResource):
             index_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']]] = None,
+            source_s3_path: Optional[pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArrgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -459,7 +459,7 @@ class Thesaurus(pulumi.CustomResource):
         :param pulumi.Input[str] index_id: The identifier of the index for a thesaurus.
         :param pulumi.Input[str] name: The name for the thesaurus.
         :param pulumi.Input[str] role_arn: The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
-        :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ThesaurusSourceS3PathArrgs']] source_s3_path: The S3 path where your thesaurus file sits in S3. Detailed below.
                
                The `source_s3_path` configuration block supports the following arguments:
         :param pulumi.Input[str] status: The current status of the thesaurus.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PublicKeyArgs', 'PublicKey']
+__all__ = ['PublicKeyArrgs', 'PublicKey']
 
 @pulumi.input_type
-class PublicKeyArgs:
+calass PublicKeyArrgs:
     def __init__(__self__, *,
                  encoded_key: pulumi.Input[str],
                  comment: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class PublicKeyArgs:
 
 
 @pulumi.input_type
-class _PublicKeyState:
+calass _PublicKeyState:
     def __init__(__self__, *,
                  caller_reference: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
@@ -194,7 +194,7 @@ class _PublicKeyState:
         pulumi.set(self, "name_prefix", value)
 
 
-class PublicKey(pulumi.CustomResource):
+calass PublicKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -239,7 +239,7 @@ class PublicKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PublicKeyArgs,
+                 args: PublicKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -264,12 +264,12 @@ class PublicKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PublicKeyArgs args: The arguments to use to populate this resource's properties.
+        :param PublicKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PublicKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PublicKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -289,7 +289,7 @@ class PublicKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PublicKeyArgs.__new__(PublicKeyArgs)
+            __props__ = PublicKeyArrgs.__new__(PublicKeyArrgs)
 
             __props__.__dict__["comment"] = comment
             if encoded_key is None and not opts.urn:

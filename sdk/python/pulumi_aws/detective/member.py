@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MemberArgs', 'Member']
+__all__ = ['MemberArrgs', 'Member']
 
 @pulumi.input_type
-class MemberArgs:
+calass MemberArrgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
                  email_address: pulumi.Input[str],
@@ -97,7 +97,7 @@ class MemberArgs:
 
 
 @pulumi.input_type
-class _MemberState:
+calass _MemberState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  administrator_id: Optional[pulumi.Input[str]] = None,
@@ -276,7 +276,7 @@ class _MemberState:
         pulumi.set(self, "volume_usage_in_bytes", value)
 
 
-class Member(pulumi.CustomResource):
+calass Member(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -325,7 +325,7 @@ class Member(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MemberArgs,
+                 args: MemberArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an [Amazon Detective Member](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateMembers.html).
@@ -354,12 +354,12 @@ class Member(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MemberArgs args: The arguments to use to populate this resource's properties.
+        :param MemberArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MemberArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MemberArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -380,7 +380,7 @@ class Member(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MemberArgs.__new__(MemberArgs)
+            __props__ = MemberArrgs.__new__(MemberArrgs)
 
             if account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'account_id'")

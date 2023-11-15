@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LanguageModelArgs', 'LanguageModel']
+__all__ = ['LanguageModelArrgs', 'LanguageModel']
 
 @pulumi.input_type
-class LanguageModelArgs:
+calass LanguageModelArrgs:
     def __init__(__self__, *,
                  base_model_name: pulumi.Input[str],
-                 input_data_config: pulumi.Input['LanguageModelInputDataConfigArgs'],
+                 input_data_config: pulumi.Input['LanguageModelInputDataConfigArrgs'],
                  language_code: pulumi.Input[str],
                  model_name: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LanguageModel resource.
         :param pulumi.Input[str] base_model_name: Name of reference base model.
-        :param pulumi.Input['LanguageModelInputDataConfigArgs'] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
+        :param pulumi.Input['LanguageModelInputDataConfigArrgs'] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
         :param pulumi.Input[str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[str] model_name: The model name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -50,14 +50,14 @@ class LanguageModelArgs:
 
     @property
     @pulumi.getter(name="inputDataConfig")
-    def input_data_config(self) -> pulumi.Input['LanguageModelInputDataConfigArgs']:
+    def input_data_config(self) -> pulumi.Input['LanguageModelInputDataConfigArrgs']:
         """
         The input data config for the LanguageModel. See Input Data Config for more details.
         """
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
-    def input_data_config(self, value: pulumi.Input['LanguageModelInputDataConfigArgs']):
+    def input_data_config(self, value: pulumi.Input['LanguageModelInputDataConfigArrgs']):
         pulumi.set(self, "input_data_config", value)
 
     @property
@@ -98,11 +98,11 @@ class LanguageModelArgs:
 
 
 @pulumi.input_type
-class _LanguageModelState:
+calass _LanguageModelState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  base_model_name: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input['LanguageModelInputDataConfigArgs']] = None,
+                 input_data_config: Optional[pulumi.Input['LanguageModelInputDataConfigArrgs']] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -111,7 +111,7 @@ class _LanguageModelState:
         Input properties used for looking up and filtering LanguageModel resources.
         :param pulumi.Input[str] arn: ARN of the LanguageModel.
         :param pulumi.Input[str] base_model_name: Name of reference base model.
-        :param pulumi.Input['LanguageModelInputDataConfigArgs'] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
+        :param pulumi.Input['LanguageModelInputDataConfigArrgs'] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
         :param pulumi.Input[str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[str] model_name: The model name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -160,14 +160,14 @@ class _LanguageModelState:
 
     @property
     @pulumi.getter(name="inputDataConfig")
-    def input_data_config(self) -> Optional[pulumi.Input['LanguageModelInputDataConfigArgs']]:
+    def input_data_config(self) -> Optional[pulumi.Input['LanguageModelInputDataConfigArrgs']]:
         """
         The input data config for the LanguageModel. See Input Data Config for more details.
         """
         return pulumi.get(self, "input_data_config")
 
     @input_data_config.setter
-    def input_data_config(self, value: Optional[pulumi.Input['LanguageModelInputDataConfigArgs']]):
+    def input_data_config(self, value: Optional[pulumi.Input['LanguageModelInputDataConfigArrgs']]):
         pulumi.set(self, "input_data_config", value)
 
     @property
@@ -219,13 +219,13 @@ class _LanguageModelState:
         pulumi.set(self, "tags_all", value)
 
 
-class LanguageModel(pulumi.CustomResource):
+calass LanguageModel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_model_name: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArgs']]] = None,
+                 input_data_config: Optional[pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArrgs']]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -243,9 +243,9 @@ class LanguageModel(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["transcribe.amazonaws.com"],
             )],
@@ -272,7 +272,7 @@ class LanguageModel(pulumi.CustomResource):
         example_language_model = aws.transcribe.LanguageModel("exampleLanguageModel",
             model_name="example",
             base_model_name="NarrowBand",
-            input_data_config=aws.transcribe.LanguageModelInputDataConfigArgs(
+            input_data_config=aws.transcribe.LanguageModelInputDataConfigArrgs(
                 data_access_role_arn=example_role.arn,
                 s3_uri=example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
             ),
@@ -293,7 +293,7 @@ class LanguageModel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] base_model_name: Name of reference base model.
-        :param pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArgs']] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
+        :param pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArrgs']] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
         :param pulumi.Input[str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[str] model_name: The model name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -302,7 +302,7 @@ class LanguageModel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LanguageModelArgs,
+                 args: LanguageModelArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Transcribe LanguageModel.
@@ -317,9 +317,9 @@ class LanguageModel(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["transcribe.amazonaws.com"],
             )],
@@ -346,7 +346,7 @@ class LanguageModel(pulumi.CustomResource):
         example_language_model = aws.transcribe.LanguageModel("exampleLanguageModel",
             model_name="example",
             base_model_name="NarrowBand",
-            input_data_config=aws.transcribe.LanguageModelInputDataConfigArgs(
+            input_data_config=aws.transcribe.LanguageModelInputDataConfigArrgs(
                 data_access_role_arn=example_role.arn,
                 s3_uri=example_bucket_v2.id.apply(lambda id: f"s3://{id}/transcribe/"),
             ),
@@ -365,12 +365,12 @@ class LanguageModel(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LanguageModelArgs args: The arguments to use to populate this resource's properties.
+        :param LanguageModelArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LanguageModelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LanguageModelArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -380,7 +380,7 @@ class LanguageModel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_model_name: Optional[pulumi.Input[str]] = None,
-                 input_data_config: Optional[pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArgs']]] = None,
+                 input_data_config: Optional[pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArrgs']]] = None,
                  language_code: Optional[pulumi.Input[str]] = None,
                  model_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -391,7 +391,7 @@ class LanguageModel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LanguageModelArgs.__new__(LanguageModelArgs)
+            __props__ = LanguageModelArrgs.__new__(LanguageModelArrgs)
 
             if base_model_name is None and not opts.urn:
                 raise TypeError("Missing required property 'base_model_name'")
@@ -422,7 +422,7 @@ class LanguageModel(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             base_model_name: Optional[pulumi.Input[str]] = None,
-            input_data_config: Optional[pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArgs']]] = None,
+            input_data_config: Optional[pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArrgs']]] = None,
             language_code: Optional[pulumi.Input[str]] = None,
             model_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -436,7 +436,7 @@ class LanguageModel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the LanguageModel.
         :param pulumi.Input[str] base_model_name: Name of reference base model.
-        :param pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArgs']] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
+        :param pulumi.Input[pulumi.InputType['LanguageModelInputDataConfigArrgs']] input_data_config: The input data config for the LanguageModel. See Input Data Config for more details.
         :param pulumi.Input[str] language_code: The language code you selected for your language model. Refer to the [supported languages](https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html) page for accepted codes.
         :param pulumi.Input[str] model_name: The model name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the LanguageModel. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

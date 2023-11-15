@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationAutoStartConfiguration(dict):
+calass ApplicationAutoStartConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -41,7 +41,7 @@ class ApplicationAutoStartConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationAutoStopConfiguration(dict):
+calass ApplicationAutoStopConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -89,7 +89,7 @@ class ApplicationAutoStopConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationImageConfiguration(dict):
+calass ApplicationImageConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -124,7 +124,7 @@ class ApplicationImageConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationInitialCapacity(dict):
+calass ApplicationInitialCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -149,7 +149,7 @@ class ApplicationInitialCapacity(dict):
                  initial_capacity_config: Optional['outputs.ApplicationInitialCapacityInitialCapacityConfig'] = None):
         """
         :param str initial_capacity_type: The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-        :param 'ApplicationInitialCapacityInitialCapacityConfigArgs' initial_capacity_config: The initial capacity configuration per worker.
+        :param 'ApplicationInitialCapacityInitialCapacityConfigArrgs' initial_capacity_config: The initial capacity configuration per worker.
         """
         pulumi.set(__self__, "initial_capacity_type", initial_capacity_type)
         if initial_capacity_config is not None:
@@ -173,7 +173,7 @@ class ApplicationInitialCapacity(dict):
 
 
 @pulumi.output_type
-class ApplicationInitialCapacityInitialCapacityConfig(dict):
+calass ApplicationInitialCapacityInitialCapacityConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -198,7 +198,7 @@ class ApplicationInitialCapacityInitialCapacityConfig(dict):
                  worker_configuration: Optional['outputs.ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration'] = None):
         """
         :param int worker_count: The number of workers in the initial capacity configuration.
-        :param 'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs' worker_configuration: The resource configuration of the initial capacity configuration.
+        :param 'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArrgs' worker_configuration: The resource configuration of the initial capacity configuration.
         """
         pulumi.set(__self__, "worker_count", worker_count)
         if worker_configuration is not None:
@@ -222,7 +222,7 @@ class ApplicationInitialCapacityInitialCapacityConfig(dict):
 
 
 @pulumi.output_type
-class ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration(dict):
+calass ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration(dict):
     def __init__(__self__, *,
                  cpu: str,
                  memory: str,
@@ -263,7 +263,7 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfiguration(dict):
 
 
 @pulumi.output_type
-class ApplicationMaximumCapacity(dict):
+calass ApplicationMaximumCapacity(dict):
     def __init__(__self__, *,
                  cpu: str,
                  memory: str,
@@ -304,7 +304,7 @@ class ApplicationMaximumCapacity(dict):
 
 
 @pulumi.output_type
-class ApplicationNetworkConfiguration(dict):
+calass ApplicationNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

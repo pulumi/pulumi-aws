@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEipsResult:
+calass GetEipsResult:
     """
     A collection of values returned by getEips.
     """
@@ -75,7 +75,7 @@ class GetEipsResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetEipsResult(GetEipsResult):
+calass AwaitableGetEipsResult(GetEipsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -88,7 +88,7 @@ class AwaitableGetEipsResult(GetEipsResult):
             tags=self.tags)
 
 
-def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] = None,
+def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArrgs']]] = None,
              tags: Optional[Mapping[str, str]] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEipsResult:
     """
@@ -110,7 +110,7 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
     ```
 
 
-    :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetEipsFilterArrgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     __args__ = dict()
@@ -128,7 +128,7 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
 
 
 @_utilities.lift_output_func(get_eips)
-def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]]]] = None,
+def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEipsFilterArrgs']]]]] = None,
                     tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipsResult]:
     """
@@ -150,7 +150,7 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetEipsFilterArrgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired Elastic IPs.
     """
     ...

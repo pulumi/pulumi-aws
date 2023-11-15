@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOrganizationalUnitsResult:
+calass GetOrganizationalUnitsResult:
     """
     A collection of values returned by getOrganizationalUnits.
     """
@@ -55,7 +55,7 @@ class GetOrganizationalUnitsResult:
         return pulumi.get(self, "parent_id")
 
 
-class AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
+calass AwaitableGetOrganizationalUnitsResult(GetOrganizationalUnitsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

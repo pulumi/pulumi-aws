@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetExportResult:
+calass GetExportResult:
     """
     A collection of values returned by getExport.
     """
@@ -94,7 +94,7 @@ class GetExportResult:
         return pulumi.get(self, "stage_name")
 
 
-class AwaitableGetExportResult(GetExportResult):
+calass AwaitableGetExportResult(GetExportResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

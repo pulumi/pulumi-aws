@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSlotTypeResult:
+calass GetSlotTypeResult:
     """
     A collection of values returned by getSlotType.
     """
@@ -130,7 +130,7 @@ class GetSlotTypeResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetSlotTypeResult(GetSlotTypeResult):
+calass AwaitableGetSlotTypeResult(GetSlotTypeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

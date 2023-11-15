@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCanonicalUserIdResult:
+calass GetCanonicalUserIdResult:
     """
     A collection of values returned by getCanonicalUserId.
     """
@@ -46,7 +46,7 @@ class GetCanonicalUserIdResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetCanonicalUserIdResult(GetCanonicalUserIdResult):
+calass AwaitableGetCanonicalUserIdResult(GetCanonicalUserIdResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

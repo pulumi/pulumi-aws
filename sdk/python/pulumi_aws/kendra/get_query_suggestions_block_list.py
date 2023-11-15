@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetQuerySuggestionsBlockListResult:
+calass GetQuerySuggestionsBlockListResult:
     """
     A collection of values returned by getQuerySuggestionsBlockList.
     """
@@ -184,7 +184,7 @@ class GetQuerySuggestionsBlockListResult:
         return pulumi.get(self, "updated_at")
 
 
-class AwaitableGetQuerySuggestionsBlockListResult(GetQuerySuggestionsBlockListResult):
+calass AwaitableGetQuerySuggestionsBlockListResult(GetQuerySuggestionsBlockListResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

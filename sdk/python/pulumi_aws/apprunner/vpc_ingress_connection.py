@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpcIngressConnectionArgs', 'VpcIngressConnection']
+__all__ = ['VpcIngressConnectionArrgs', 'VpcIngressConnection']
 
 @pulumi.input_type
-class VpcIngressConnectionArgs:
+calass VpcIngressConnectionArrgs:
     def __init__(__self__, *,
-                 ingress_vpc_configuration: pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs'],
+                 ingress_vpc_configuration: pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArrgs'],
                  service_arn: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcIngressConnection resource.
-        :param pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs'] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+        :param pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArrgs'] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         :param pulumi.Input[str] service_arn: The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         :param pulumi.Input[str] name: A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -36,14 +36,14 @@ class VpcIngressConnectionArgs:
 
     @property
     @pulumi.getter(name="ingressVpcConfiguration")
-    def ingress_vpc_configuration(self) -> pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs']:
+    def ingress_vpc_configuration(self) -> pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArrgs']:
         """
         Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         """
         return pulumi.get(self, "ingress_vpc_configuration")
 
     @ingress_vpc_configuration.setter
-    def ingress_vpc_configuration(self, value: pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs']):
+    def ingress_vpc_configuration(self, value: pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArrgs']):
         pulumi.set(self, "ingress_vpc_configuration", value)
 
     @property
@@ -84,11 +84,11 @@ class VpcIngressConnectionArgs:
 
 
 @pulumi.input_type
-class _VpcIngressConnectionState:
+calass _VpcIngressConnectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 ingress_vpc_configuration: Optional[pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs']] = None,
+                 ingress_vpc_configuration: Optional[pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -98,7 +98,7 @@ class _VpcIngressConnectionState:
         Input properties used for looking up and filtering VpcIngressConnection resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the VPC Ingress Connection.
         :param pulumi.Input[str] domain_name: The domain name associated with the VPC Ingress Connection resource.
-        :param pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs'] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+        :param pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArrgs'] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         :param pulumi.Input[str] name: A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
         :param pulumi.Input[str] service_arn: The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         :param pulumi.Input[str] status: The current status of the VPC Ingress Connection.
@@ -151,14 +151,14 @@ class _VpcIngressConnectionState:
 
     @property
     @pulumi.getter(name="ingressVpcConfiguration")
-    def ingress_vpc_configuration(self) -> Optional[pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs']]:
+    def ingress_vpc_configuration(self) -> Optional[pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArrgs']]:
         """
         Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         """
         return pulumi.get(self, "ingress_vpc_configuration")
 
     @ingress_vpc_configuration.setter
-    def ingress_vpc_configuration(self, value: Optional[pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArgs']]):
+    def ingress_vpc_configuration(self, value: Optional[pulumi.Input['VpcIngressConnectionIngressVpcConfigurationArrgs']]):
         pulumi.set(self, "ingress_vpc_configuration", value)
 
     @property
@@ -225,12 +225,12 @@ class _VpcIngressConnectionState:
         pulumi.set(self, "tags_all", value)
 
 
-class VpcIngressConnection(pulumi.CustomResource):
+calass VpcIngressConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ingress_vpc_configuration: Optional[pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArgs']]] = None,
+                 ingress_vpc_configuration: Optional[pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -246,7 +246,7 @@ class VpcIngressConnection(pulumi.CustomResource):
 
         example = aws.apprunner.VpcIngressConnection("example",
             service_arn=aws_apprunner_service["example"]["arn"],
-            ingress_vpc_configuration=aws.apprunner.VpcIngressConnectionIngressVpcConfigurationArgs(
+            ingress_vpc_configuration=aws.apprunner.VpcIngressConnectionIngressVpcConfigurationArrgs(
                 vpc_id=aws_default_vpc["default"]["id"],
                 vpc_endpoint_id=aws_vpc_endpoint["apprunner"]["id"],
             ),
@@ -265,7 +265,7 @@ class VpcIngressConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArgs']] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArrgs']] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         :param pulumi.Input[str] name: A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
         :param pulumi.Input[str] service_arn: The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -274,7 +274,7 @@ class VpcIngressConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcIngressConnectionArgs,
+                 args: VpcIngressConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Runner VPC Ingress Connection.
@@ -287,7 +287,7 @@ class VpcIngressConnection(pulumi.CustomResource):
 
         example = aws.apprunner.VpcIngressConnection("example",
             service_arn=aws_apprunner_service["example"]["arn"],
-            ingress_vpc_configuration=aws.apprunner.VpcIngressConnectionIngressVpcConfigurationArgs(
+            ingress_vpc_configuration=aws.apprunner.VpcIngressConnectionIngressVpcConfigurationArrgs(
                 vpc_id=aws_default_vpc["default"]["id"],
                 vpc_endpoint_id=aws_vpc_endpoint["apprunner"]["id"],
             ),
@@ -305,12 +305,12 @@ class VpcIngressConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcIngressConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param VpcIngressConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcIngressConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIngressConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -319,7 +319,7 @@ class VpcIngressConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ingress_vpc_configuration: Optional[pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArgs']]] = None,
+                 ingress_vpc_configuration: Optional[pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  service_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -330,7 +330,7 @@ class VpcIngressConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcIngressConnectionArgs.__new__(VpcIngressConnectionArgs)
+            __props__ = VpcIngressConnectionArrgs.__new__(VpcIngressConnectionArrgs)
 
             if ingress_vpc_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'ingress_vpc_configuration'")
@@ -358,7 +358,7 @@ class VpcIngressConnection(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
-            ingress_vpc_configuration: Optional[pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArgs']]] = None,
+            ingress_vpc_configuration: Optional[pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             service_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -373,7 +373,7 @@ class VpcIngressConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the VPC Ingress Connection.
         :param pulumi.Input[str] domain_name: The domain name associated with the VPC Ingress Connection resource.
-        :param pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArgs']] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['VpcIngressConnectionIngressVpcConfigurationArrgs']] ingress_vpc_configuration: Specifications for the customer’s Amazon VPC and the related AWS PrivateLink VPC endpoint that are used to create the VPC Ingress Connection resource. See Ingress VPC Configuration below for more details.
         :param pulumi.Input[str] name: A name for the VPC Ingress Connection resource. It must be unique across all the active VPC Ingress Connections in your AWS account in the AWS Region.
         :param pulumi.Input[str] service_arn: The Amazon Resource Name (ARN) for this App Runner service that is used to create the VPC Ingress Connection resource.
         :param pulumi.Input[str] status: The current status of the VPC Ingress Connection.

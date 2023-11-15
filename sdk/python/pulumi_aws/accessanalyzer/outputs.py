@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ArchiveRuleFilter(dict):
+calass ArchiveRuleFilter(dict):
     def __init__(__self__, *,
                  criteria: str,
                  contains: Optional[Sequence[str]] = None,

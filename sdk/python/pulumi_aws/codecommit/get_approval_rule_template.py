@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetApprovalRuleTemplateResult:
+calass GetApprovalRuleTemplateResult:
     """
     A collection of values returned by getApprovalRuleTemplate.
     """
@@ -120,7 +120,7 @@ class GetApprovalRuleTemplateResult:
         return pulumi.get(self, "rule_content_sha256")
 
 
-class AwaitableGetApprovalRuleTemplateResult(GetApprovalRuleTemplateResult):
+calass AwaitableGetApprovalRuleTemplateResult(GetApprovalRuleTemplateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

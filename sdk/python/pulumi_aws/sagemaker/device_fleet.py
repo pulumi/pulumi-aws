@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DeviceFleetArgs', 'DeviceFleet']
+__all__ = ['DeviceFleetArrgs', 'DeviceFleet']
 
 @pulumi.input_type
-class DeviceFleetArgs:
+calass DeviceFleetArrgs:
     def __init__(__self__, *,
                  device_fleet_name: pulumi.Input[str],
-                 output_config: pulumi.Input['DeviceFleetOutputConfigArgs'],
+                 output_config: pulumi.Input['DeviceFleetOutputConfigArrgs'],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  enable_iot_role_alias: Optional[pulumi.Input[bool]] = None,
@@ -25,7 +25,7 @@ class DeviceFleetArgs:
         """
         The set of arguments for constructing a DeviceFleet resource.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet (must be unique).
-        :param pulumi.Input['DeviceFleetOutputConfigArgs'] output_config: Specifies details about the repository. see Output Config details below.
+        :param pulumi.Input['DeviceFleetOutputConfigArrgs'] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[str] description: A description of the fleet.
         :param pulumi.Input[bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
@@ -55,14 +55,14 @@ class DeviceFleetArgs:
 
     @property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> pulumi.Input['DeviceFleetOutputConfigArgs']:
+    def output_config(self) -> pulumi.Input['DeviceFleetOutputConfigArrgs']:
         """
         Specifies details about the repository. see Output Config details below.
         """
         return pulumi.get(self, "output_config")
 
     @output_config.setter
-    def output_config(self, value: pulumi.Input['DeviceFleetOutputConfigArgs']):
+    def output_config(self, value: pulumi.Input['DeviceFleetOutputConfigArrgs']):
         pulumi.set(self, "output_config", value)
 
     @property
@@ -115,14 +115,14 @@ class DeviceFleetArgs:
 
 
 @pulumi.input_type
-class _DeviceFleetState:
+calass _DeviceFleetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
                  enable_iot_role_alias: Optional[pulumi.Input[bool]] = None,
                  iot_role_alias: Optional[pulumi.Input[str]] = None,
-                 output_config: Optional[pulumi.Input['DeviceFleetOutputConfigArgs']] = None,
+                 output_config: Optional[pulumi.Input['DeviceFleetOutputConfigArrgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -132,7 +132,7 @@ class _DeviceFleetState:
         :param pulumi.Input[str] description: A description of the fleet.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet (must be unique).
         :param pulumi.Input[bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-        :param pulumi.Input['DeviceFleetOutputConfigArgs'] output_config: Specifies details about the repository. see Output Config details below.
+        :param pulumi.Input['DeviceFleetOutputConfigArrgs'] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -218,14 +218,14 @@ class _DeviceFleetState:
 
     @property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> Optional[pulumi.Input['DeviceFleetOutputConfigArgs']]:
+    def output_config(self) -> Optional[pulumi.Input['DeviceFleetOutputConfigArrgs']]:
         """
         Specifies details about the repository. see Output Config details below.
         """
         return pulumi.get(self, "output_config")
 
     @output_config.setter
-    def output_config(self, value: Optional[pulumi.Input['DeviceFleetOutputConfigArgs']]):
+    def output_config(self, value: Optional[pulumi.Input['DeviceFleetOutputConfigArrgs']]):
         pulumi.set(self, "output_config", value)
 
     @property
@@ -268,7 +268,7 @@ class _DeviceFleetState:
         pulumi.set(self, "tags_all", value)
 
 
-class DeviceFleet(pulumi.CustomResource):
+calass DeviceFleet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -276,7 +276,7 @@ class DeviceFleet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
                  enable_iot_role_alias: Optional[pulumi.Input[bool]] = None,
-                 output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArgs']]] = None,
+                 output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArrgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -293,7 +293,7 @@ class DeviceFleet(pulumi.CustomResource):
         example = aws.sagemaker.DeviceFleet("example",
             device_fleet_name="example",
             role_arn=aws_iam_role["test"]["arn"],
-            output_config=aws.sagemaker.DeviceFleetOutputConfigArgs(
+            output_config=aws.sagemaker.DeviceFleetOutputConfigArrgs(
                 s3_output_location=f"s3://{aws_s3_bucket['example']['bucket']}/prefix/",
             ))
         ```
@@ -311,7 +311,7 @@ class DeviceFleet(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the fleet.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet (must be unique).
         :param pulumi.Input[bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-        :param pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArgs']] output_config: Specifies details about the repository. see Output Config details below.
+        :param pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArrgs']] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -319,7 +319,7 @@ class DeviceFleet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DeviceFleetArgs,
+                 args: DeviceFleetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker Device Fleet resource.
@@ -334,7 +334,7 @@ class DeviceFleet(pulumi.CustomResource):
         example = aws.sagemaker.DeviceFleet("example",
             device_fleet_name="example",
             role_arn=aws_iam_role["test"]["arn"],
-            output_config=aws.sagemaker.DeviceFleetOutputConfigArgs(
+            output_config=aws.sagemaker.DeviceFleetOutputConfigArrgs(
                 s3_output_location=f"s3://{aws_s3_bucket['example']['bucket']}/prefix/",
             ))
         ```
@@ -348,12 +348,12 @@ class DeviceFleet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DeviceFleetArgs args: The arguments to use to populate this resource's properties.
+        :param DeviceFleetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DeviceFleetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DeviceFleetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -365,7 +365,7 @@ class DeviceFleet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  device_fleet_name: Optional[pulumi.Input[str]] = None,
                  enable_iot_role_alias: Optional[pulumi.Input[bool]] = None,
-                 output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArgs']]] = None,
+                 output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArrgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -375,7 +375,7 @@ class DeviceFleet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DeviceFleetArgs.__new__(DeviceFleetArgs)
+            __props__ = DeviceFleetArrgs.__new__(DeviceFleetArrgs)
 
             __props__.__dict__["description"] = description
             if device_fleet_name is None and not opts.urn:
@@ -409,7 +409,7 @@ class DeviceFleet(pulumi.CustomResource):
             device_fleet_name: Optional[pulumi.Input[str]] = None,
             enable_iot_role_alias: Optional[pulumi.Input[bool]] = None,
             iot_role_alias: Optional[pulumi.Input[str]] = None,
-            output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArgs']]] = None,
+            output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArrgs']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DeviceFleet':
@@ -424,7 +424,7 @@ class DeviceFleet(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description of the fleet.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet (must be unique).
         :param pulumi.Input[bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
-        :param pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArgs']] output_config: Specifies details about the repository. see Output Config details below.
+        :param pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArrgs']] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

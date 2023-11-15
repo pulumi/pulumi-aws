@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClassificationJobArgs', 'ClassificationJob']
+__all__ = ['ClassificationJobArrgs', 'ClassificationJob']
 
 @pulumi.input_type
-class ClassificationJobArgs:
+calass ClassificationJobArrgs:
     def __init__(__self__, *,
                  job_type: pulumi.Input[str],
-                 s3_job_definition: pulumi.Input['ClassificationJobS3JobDefinitionArgs'],
+                 s3_job_definition: pulumi.Input['ClassificationJobS3JobDefinitionArrgs'],
                  custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  initial_run: Optional[pulumi.Input[bool]] = None,
@@ -25,12 +25,12 @@ class ClassificationJobArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  sampling_percentage: Optional[pulumi.Input[int]] = None,
-                 schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']] = None,
+                 schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClassificationJob resource.
         :param pulumi.Input[str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
-        :param pulumi.Input['ClassificationJobS3JobDefinitionArgs'] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+        :param pulumi.Input['ClassificationJobS3JobDefinitionArrgs'] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_data_identifier_ids: The custom data identifiers to use for data analysis and classification.
         :param pulumi.Input[str] description: A custom description of the job. The description can contain as many as 200 characters.
         :param pulumi.Input[bool] initial_run: Specifies whether to analyze all existing, eligible objects immediately after the job is created.
@@ -38,7 +38,7 @@ class ClassificationJobArgs:
         :param pulumi.Input[str] name: A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        :param pulumi.Input['ClassificationJobScheduleFrequencyArgs'] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
+        :param pulumi.Input['ClassificationJobScheduleFrequencyArrgs'] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
         """
         pulumi.set(__self__, "job_type", job_type)
@@ -76,14 +76,14 @@ class ClassificationJobArgs:
 
     @property
     @pulumi.getter(name="s3JobDefinition")
-    def s3_job_definition(self) -> pulumi.Input['ClassificationJobS3JobDefinitionArgs']:
+    def s3_job_definition(self) -> pulumi.Input['ClassificationJobS3JobDefinitionArrgs']:
         """
         The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         """
         return pulumi.get(self, "s3_job_definition")
 
     @s3_job_definition.setter
-    def s3_job_definition(self, value: pulumi.Input['ClassificationJobS3JobDefinitionArgs']):
+    def s3_job_definition(self, value: pulumi.Input['ClassificationJobS3JobDefinitionArrgs']):
         pulumi.set(self, "s3_job_definition", value)
 
     @property
@@ -172,14 +172,14 @@ class ClassificationJobArgs:
 
     @property
     @pulumi.getter(name="scheduleFrequency")
-    def schedule_frequency(self) -> Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]:
+    def schedule_frequency(self) -> Optional[pulumi.Input['ClassificationJobScheduleFrequencyArrgs']]:
         """
         The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         """
         return pulumi.get(self, "schedule_frequency")
 
     @schedule_frequency.setter
-    def schedule_frequency(self, value: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]):
+    def schedule_frequency(self, value: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArrgs']]):
         pulumi.set(self, "schedule_frequency", value)
 
     @property
@@ -196,7 +196,7 @@ class ClassificationJobArgs:
 
 
 @pulumi.input_type
-class _ClassificationJobState:
+calass _ClassificationJobState:
     def __init__(__self__, *,
                  created_at: Optional[pulumi.Input[str]] = None,
                  custom_data_identifier_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -208,12 +208,12 @@ class _ClassificationJobState:
                  job_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 s3_job_definition: Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']] = None,
+                 s3_job_definition: Optional[pulumi.Input['ClassificationJobS3JobDefinitionArrgs']] = None,
                  sampling_percentage: Optional[pulumi.Input[int]] = None,
-                 schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']] = None,
+                 schedule_frequency: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]] = None):
+                 user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArrgs']]]] = None):
         """
         Input properties used for looking up and filtering ClassificationJob resources.
         :param pulumi.Input[str] created_at: The date and time, in UTC and extended RFC 3339 format, when the job was created.
@@ -224,11 +224,11 @@ class _ClassificationJobState:
         :param pulumi.Input[str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         :param pulumi.Input[str] name: A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input['ClassificationJobS3JobDefinitionArgs'] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+        :param pulumi.Input['ClassificationJobS3JobDefinitionArrgs'] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         :param pulumi.Input[int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        :param pulumi.Input['ClassificationJobScheduleFrequencyArgs'] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
+        :param pulumi.Input['ClassificationJobScheduleFrequencyArrgs'] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        :param pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArrgs']]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -382,14 +382,14 @@ class _ClassificationJobState:
 
     @property
     @pulumi.getter(name="s3JobDefinition")
-    def s3_job_definition(self) -> Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']]:
+    def s3_job_definition(self) -> Optional[pulumi.Input['ClassificationJobS3JobDefinitionArrgs']]:
         """
         The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         """
         return pulumi.get(self, "s3_job_definition")
 
     @s3_job_definition.setter
-    def s3_job_definition(self, value: Optional[pulumi.Input['ClassificationJobS3JobDefinitionArgs']]):
+    def s3_job_definition(self, value: Optional[pulumi.Input['ClassificationJobS3JobDefinitionArrgs']]):
         pulumi.set(self, "s3_job_definition", value)
 
     @property
@@ -406,14 +406,14 @@ class _ClassificationJobState:
 
     @property
     @pulumi.getter(name="scheduleFrequency")
-    def schedule_frequency(self) -> Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]:
+    def schedule_frequency(self) -> Optional[pulumi.Input['ClassificationJobScheduleFrequencyArrgs']]:
         """
         The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         """
         return pulumi.get(self, "schedule_frequency")
 
     @schedule_frequency.setter
-    def schedule_frequency(self, value: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArgs']]):
+    def schedule_frequency(self, value: Optional[pulumi.Input['ClassificationJobScheduleFrequencyArrgs']]):
         pulumi.set(self, "schedule_frequency", value)
 
     @property
@@ -442,18 +442,18 @@ class _ClassificationJobState:
 
     @property
     @pulumi.getter(name="userPausedDetails")
-    def user_paused_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]]:
+    def user_paused_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArrgs']]]]:
         """
         If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         return pulumi.get(self, "user_paused_details")
 
     @user_paused_details.setter
-    def user_paused_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArgs']]]]):
+    def user_paused_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClassificationJobUserPausedDetailArrgs']]]]):
         pulumi.set(self, "user_paused_details", value)
 
 
-class ClassificationJob(pulumi.CustomResource):
+calass ClassificationJob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -465,9 +465,9 @@ class ClassificationJob(pulumi.CustomResource):
                  job_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 s3_job_definition: Optional[pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArgs']]] = None,
+                 s3_job_definition: Optional[pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArrgs']]] = None,
                  sampling_percentage: Optional[pulumi.Input[int]] = None,
-                 schedule_frequency: Optional[pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArgs']]] = None,
+                 schedule_frequency: Optional[pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -482,8 +482,8 @@ class ClassificationJob(pulumi.CustomResource):
         test_account = aws.macie2.Account("testAccount")
         test_classification_job = aws.macie2.ClassificationJob("testClassificationJob",
             job_type="ONE_TIME",
-            s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArgs(
-                bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs(
+            s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArrgs(
+                bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArrgs(
                     account_id="ACCOUNT ID",
                     buckets=["S3 BUCKET NAME"],
                 )],
@@ -508,16 +508,16 @@ class ClassificationJob(pulumi.CustomResource):
         :param pulumi.Input[str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         :param pulumi.Input[str] name: A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArgs']] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+        :param pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArrgs']] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         :param pulumi.Input[int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        :param pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArgs']] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
+        :param pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArrgs']] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClassificationJobArgs,
+                 args: ClassificationJobArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
@@ -531,8 +531,8 @@ class ClassificationJob(pulumi.CustomResource):
         test_account = aws.macie2.Account("testAccount")
         test_classification_job = aws.macie2.ClassificationJob("testClassificationJob",
             job_type="ONE_TIME",
-            s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArgs(
-                bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs(
+            s3_job_definition=aws.macie2.ClassificationJobS3JobDefinitionArrgs(
+                bucket_definitions=[aws.macie2.ClassificationJobS3JobDefinitionBucketDefinitionArrgs(
                     account_id="ACCOUNT ID",
                     buckets=["S3 BUCKET NAME"],
                 )],
@@ -549,12 +549,12 @@ class ClassificationJob(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClassificationJobArgs args: The arguments to use to populate this resource's properties.
+        :param ClassificationJobArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClassificationJobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClassificationJobArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -570,9 +570,9 @@ class ClassificationJob(pulumi.CustomResource):
                  job_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
-                 s3_job_definition: Optional[pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArgs']]] = None,
+                 s3_job_definition: Optional[pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArrgs']]] = None,
                  sampling_percentage: Optional[pulumi.Input[int]] = None,
-                 schedule_frequency: Optional[pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArgs']]] = None,
+                 schedule_frequency: Optional[pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -581,7 +581,7 @@ class ClassificationJob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClassificationJobArgs.__new__(ClassificationJobArgs)
+            __props__ = ClassificationJobArrgs.__new__(ClassificationJobArrgs)
 
             __props__.__dict__["custom_data_identifier_ids"] = custom_data_identifier_ids
             __props__.__dict__["description"] = description
@@ -625,12 +625,12 @@ class ClassificationJob(pulumi.CustomResource):
             job_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
-            s3_job_definition: Optional[pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArgs']]] = None,
+            s3_job_definition: Optional[pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArrgs']]] = None,
             sampling_percentage: Optional[pulumi.Input[int]] = None,
-            schedule_frequency: Optional[pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArgs']]] = None,
+            schedule_frequency: Optional[pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClassificationJobUserPausedDetailArgs']]]]] = None) -> 'ClassificationJob':
+            user_paused_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClassificationJobUserPausedDetailArrgs']]]]] = None) -> 'ClassificationJob':
         """
         Get an existing ClassificationJob resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -646,11 +646,11 @@ class ClassificationJob(pulumi.CustomResource):
         :param pulumi.Input[str] job_type: The schedule for running the job. Valid values are: `ONE_TIME` - Run the job only once. If you specify this value, don't specify a value for the `schedule_frequency` property. `SCHEDULED` - Run the job on a daily, weekly, or monthly basis. If you specify this value, use the `schedule_frequency` property to define the recurrence pattern for the job.
         :param pulumi.Input[str] name: A custom name for the job. The name can contain as many as 500 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
-        :param pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArgs']] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
+        :param pulumi.Input[pulumi.InputType['ClassificationJobS3JobDefinitionArrgs']] s3_job_definition: The S3 buckets that contain the objects to analyze, and the scope of that analysis. (documented below)
         :param pulumi.Input[int] sampling_percentage: The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.
-        :param pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArgs']] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
+        :param pulumi.Input[pulumi.InputType['ClassificationJobScheduleFrequencyArrgs']] schedule_frequency: The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the `job_type` property to `ONE_TIME`. (documented below)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key-value pairs that specifies the tags to associate with the job. A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClassificationJobUserPausedDetailArgs']]]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClassificationJobUserPausedDetailArrgs']]]] user_paused_details: If the current status of the job is `USER_PAUSED`, specifies when the job was paused and when the job or job run will expire and be cancelled if it isn't resumed. This value is present only if the value for `job-status` is `USER_PAUSED`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

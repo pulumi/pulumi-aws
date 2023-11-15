@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TagArgs', 'Tag']
+__all__ = ['TagArrgs', 'Tag']
 
 @pulumi.input_type
-class TagArgs:
+calass TagArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  resource_arn: pulumi.Input[str],
@@ -65,7 +65,7 @@ class TagArgs:
 
 
 @pulumi.input_type
-class _TagState:
+calass _TagState:
     def __init__(__self__, *,
                  key: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _TagState:
         pulumi.set(self, "value", value)
 
 
-class Tag(pulumi.CustomResource):
+calass Tag(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,7 +170,7 @@ class Tag(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TagArgs,
+                 args: TagArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an individual ECS resource tag. This resource should only be used in cases where ECS resources are created outside the provider (e.g., ECS Clusters implicitly created by Batch Compute Environments).
@@ -204,12 +204,12 @@ class Tag(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TagArgs args: The arguments to use to populate this resource's properties.
+        :param TagArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TagArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TagArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -228,7 +228,7 @@ class Tag(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TagArgs.__new__(TagArgs)
+            __props__ = TagArrgs.__new__(TagArrgs)
 
             if key is None and not opts.urn:
                 raise TypeError("Missing required property 'key'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SchemaArgs', 'Schema']
+__all__ = ['SchemaArrgs', 'Schema']
 
 @pulumi.input_type
-class SchemaArgs:
+calass SchemaArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  registry_name: pulumi.Input[str],
@@ -113,7 +113,7 @@ class SchemaArgs:
 
 
 @pulumi.input_type
-class _SchemaState:
+calass _SchemaState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
@@ -302,7 +302,7 @@ class _SchemaState:
         pulumi.set(self, "version_created_date", value)
 
 
-class Schema(pulumi.CustomResource):
+calass Schema(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -374,7 +374,7 @@ class Schema(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SchemaArgs,
+                 args: SchemaArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EventBridge Schema resource.
@@ -424,12 +424,12 @@ class Schema(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SchemaArgs args: The arguments to use to populate this resource's properties.
+        :param SchemaArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SchemaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SchemaArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -451,7 +451,7 @@ class Schema(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SchemaArgs.__new__(SchemaArgs)
+            __props__ = SchemaArrgs.__new__(SchemaArrgs)
 
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")

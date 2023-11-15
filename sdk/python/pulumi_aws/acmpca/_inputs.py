@@ -10,24 +10,24 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CertificateAuthorityCertificateAuthorityConfigurationArgs',
-    'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs',
-    'CertificateAuthorityRevocationConfigurationArgs',
-    'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs',
-    'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs',
-    'CertificateValidityArgs',
+    'CertificateAuthorityCertificateAuthorityConfigurationArrgs',
+    'CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs',
+    'CertificateAuthorityRevocationConfigurationArrgs',
+    'CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs',
+    'CertificateAuthorityRevocationConfigurationOcspConfigurationArrgs',
+    'CertificateValidityArrgs',
 ]
 
 @pulumi.input_type
-class CertificateAuthorityCertificateAuthorityConfigurationArgs:
+calass CertificateAuthorityCertificateAuthorityConfigurationArrgs:
     def __init__(__self__, *,
                  key_algorithm: pulumi.Input[str],
                  signing_algorithm: pulumi.Input[str],
-                 subject: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs']):
+                 subject: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs']):
         """
         :param pulumi.Input[str] key_algorithm: Type of the public key algorithm and size, in bits, of the key pair that your key pair creates when it issues a certificate. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
         :param pulumi.Input[str] signing_algorithm: Name of the algorithm your private CA uses to sign certificate requests. Valid values can be found in the [ACM PCA Documentation](https://docs.aws.amazon.com/privateca/latest/APIReference/API_CertificateAuthorityConfiguration.html).
-        :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs'] subject: Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
+        :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs'] subject: Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
         """
         pulumi.set(__self__, "key_algorithm", key_algorithm)
         pulumi.set(__self__, "signing_algorithm", signing_algorithm)
@@ -59,19 +59,19 @@ class CertificateAuthorityCertificateAuthorityConfigurationArgs:
 
     @property
     @pulumi.getter
-    def subject(self) -> pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs']:
+    def subject(self) -> pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs']:
         """
         Nested argument that contains X.500 distinguished name information. At least one nested attribute must be specified.
         """
         return pulumi.get(self, "subject")
 
     @subject.setter
-    def subject(self, value: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs']):
+    def subject(self, value: pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs']):
         pulumi.set(self, "subject", value)
 
 
 @pulumi.input_type
-class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
+calass CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs:
     def __init__(__self__, *,
                  common_name: Optional[pulumi.Input[str]] = None,
                  country: Optional[pulumi.Input[str]] = None,
@@ -286,13 +286,13 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
 
 
 @pulumi.input_type
-class CertificateAuthorityRevocationConfigurationArgs:
+calass CertificateAuthorityRevocationConfigurationArrgs:
     def __init__(__self__, *,
-                 crl_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']] = None,
-                 ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']] = None):
+                 crl_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs']] = None,
+                 ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs'] crl_configuration: Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
-        :param pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs'] ocsp_configuration: Nested argument containing configuration of
+        :param pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs'] crl_configuration: Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
+        :param pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArrgs'] ocsp_configuration: Nested argument containing configuration of
                the custom OCSP responder endpoint. Defined below.
         """
         if crl_configuration is not None:
@@ -302,19 +302,19 @@ class CertificateAuthorityRevocationConfigurationArgs:
 
     @property
     @pulumi.getter(name="crlConfiguration")
-    def crl_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]:
+    def crl_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs']]:
         """
         Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
         """
         return pulumi.get(self, "crl_configuration")
 
     @crl_configuration.setter
-    def crl_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]):
+    def crl_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs']]):
         pulumi.set(self, "crl_configuration", value)
 
     @property
     @pulumi.getter(name="ocspConfiguration")
-    def ocsp_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]:
+    def ocsp_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArrgs']]:
         """
         Nested argument containing configuration of
         the custom OCSP responder endpoint. Defined below.
@@ -322,12 +322,12 @@ class CertificateAuthorityRevocationConfigurationArgs:
         return pulumi.get(self, "ocsp_configuration")
 
     @ocsp_configuration.setter
-    def ocsp_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]):
+    def ocsp_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArrgs']]):
         pulumi.set(self, "ocsp_configuration", value)
 
 
 @pulumi.input_type
-class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
+calass CertificateAuthorityRevocationConfigurationCrlConfigurationArrgs:
     def __init__(__self__, *,
                  custom_cname: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -414,7 +414,7 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
 
 
 @pulumi.input_type
-class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
+calass CertificateAuthorityRevocationConfigurationOcspConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  ocsp_custom_cname: Optional[pulumi.Input[str]] = None):
@@ -452,7 +452,7 @@ class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
 
 
 @pulumi.input_type
-class CertificateValidityArgs:
+calass CertificateValidityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):

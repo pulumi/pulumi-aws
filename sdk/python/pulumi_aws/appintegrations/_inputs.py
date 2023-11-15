@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DataIntegrationScheduleConfigArgs',
+    'DataIntegrationScheduleConfigArrgs',
 ]
 
 @pulumi.input_type
-class DataIntegrationScheduleConfigArgs:
+calass DataIntegrationScheduleConfigArrgs:
     def __init__(__self__, *,
                  first_execution_from: pulumi.Input[str],
                  object: pulumi.Input[str],

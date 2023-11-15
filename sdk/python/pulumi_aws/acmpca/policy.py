@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PolicyArgs', 'Policy']
+__all__ = ['PolicyArrgs', 'Policy']
 
 @pulumi.input_type
-class PolicyArgs:
+calass PolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  resource_arn: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class PolicyArgs:
 
 
 @pulumi.input_type
-class _PolicyState:
+calass _PolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _PolicyState:
         pulumi.set(self, "resource_arn", value)
 
 
-class Policy(pulumi.CustomResource):
+calass Policy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -108,10 +108,10 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_policy_document = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="1",
                 effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
                 )],
@@ -124,16 +124,16 @@ class Policy(pulumi.CustomResource):
                 ],
                 resources=[aws_acmpca_certificate_authority["example"]["arn"]],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="2",
                 effect=allow,
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
                 )],
                 actions=["acm-pca:IssueCertificate"],
                 resources=[aws_acmpca_certificate_authority["example"]["arn"]],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="StringEquals",
                     variable="acm-pca:TemplateArn",
                     values=["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
@@ -162,7 +162,7 @@ class Policy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PolicyArgs,
+                 args: PolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a resource based policy to a private CA.
@@ -175,10 +175,10 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_policy_document = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="1",
                 effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
                 )],
@@ -191,16 +191,16 @@ class Policy(pulumi.CustomResource):
                 ],
                 resources=[aws_acmpca_certificate_authority["example"]["arn"]],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="2",
                 effect=allow,
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=[data["aws_caller_identity"]["current"]["account_id"]],
                 )],
                 actions=["acm-pca:IssueCertificate"],
                 resources=[aws_acmpca_certificate_authority["example"]["arn"]],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="StringEquals",
                     variable="acm-pca:TemplateArn",
                     values=["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
@@ -221,12 +221,12 @@ class Policy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PolicyArgs args: The arguments to use to populate this resource's properties.
+        :param PolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -244,7 +244,7 @@ class Policy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PolicyArgs.__new__(PolicyArgs)
+            __props__ = PolicyArrgs.__new__(PolicyArrgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

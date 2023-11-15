@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'SecretReplicaArgs',
-    'SecretRotationRotationRulesArgs',
-    'GetSecretsFilterArgs',
+    'SecretReplicaArrgs',
+    'SecretRotationRotationRulesArrgs',
+    'GetSecretsFilterArrgs',
 ]
 
 @pulumi.input_type
-class SecretReplicaArgs:
+calass SecretReplicaArrgs:
     def __init__(__self__, *,
                  region: pulumi.Input[str],
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class SecretReplicaArgs:
 
 
 @pulumi.input_type
-class SecretRotationRotationRulesArgs:
+calass SecretRotationRotationRulesArrgs:
     def __init__(__self__, *,
                  automatically_after_days: Optional[pulumi.Input[int]] = None,
                  duration: Optional[pulumi.Input[str]] = None,
@@ -157,7 +157,7 @@ class SecretRotationRotationRulesArgs:
 
 
 @pulumi.input_type
-class GetSecretsFilterArgs:
+calass GetSecretsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CertificateDomainValidationOptionArgs',
-    'CertificateOptionsArgs',
-    'CertificateRenewalSummaryArgs',
-    'CertificateValidationOptionArgs',
+    'CertificateDomainValidationOptionArrgs',
+    'CertificateOptionsArrgs',
+    'CertificateRenewalSummaryArrgs',
+    'CertificateValidationOptionArrgs',
 ]
 
 @pulumi.input_type
-class CertificateDomainValidationOptionArgs:
+calass CertificateDomainValidationOptionArrgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  resource_record_name: Optional[pulumi.Input[str]] = None,
@@ -88,7 +88,7 @@ class CertificateDomainValidationOptionArgs:
 
 
 @pulumi.input_type
-class CertificateOptionsArgs:
+calass CertificateOptionsArrgs:
     def __init__(__self__, *,
                  certificate_transparency_logging_preference: Optional[pulumi.Input[str]] = None):
         """
@@ -111,7 +111,7 @@ class CertificateOptionsArgs:
 
 
 @pulumi.input_type
-class CertificateRenewalSummaryArgs:
+calass CertificateRenewalSummaryArrgs:
     def __init__(__self__, *,
                  renewal_status: Optional[pulumi.Input[str]] = None,
                  renewal_status_reason: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class CertificateRenewalSummaryArgs:
 
 
 @pulumi.input_type
-class CertificateValidationOptionArgs:
+calass CertificateValidationOptionArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  validation_domain: pulumi.Input[str]):

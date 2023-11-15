@@ -10,23 +10,23 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountThrottleSettingArgs',
-    'DocumentationPartLocationArgs',
-    'DomainNameEndpointConfigurationArgs',
-    'DomainNameMutualTlsAuthenticationArgs',
-    'IntegrationTlsConfigArgs',
-    'MethodSettingsSettingsArgs',
-    'RestApiEndpointConfigurationArgs',
-    'StageAccessLogSettingsArgs',
-    'StageCanarySettingsArgs',
-    'UsagePlanApiStageArgs',
-    'UsagePlanApiStageThrottleArgs',
-    'UsagePlanQuotaSettingsArgs',
-    'UsagePlanThrottleSettingsArgs',
+    'AccountThrottleSettingArrgs',
+    'DocumentationPartLocationArrgs',
+    'DomainNameEndpointConfigurationArrgs',
+    'DomainNameMutualTlsAuthenticationArrgs',
+    'IntegrationTlsConfigArrgs',
+    'MethodSettingsSettingsArrgs',
+    'RestApiEndpointConfigurationArrgs',
+    'StageAccessLogSettingsArrgs',
+    'StageCanarySettingsArrgs',
+    'UsagePlanApiStageArrgs',
+    'UsagePlanApiStageThrottleArrgs',
+    'UsagePlanQuotaSettingsArrgs',
+    'UsagePlanThrottleSettingsArrgs',
 ]
 
 @pulumi.input_type
-class AccountThrottleSettingArgs:
+calass AccountThrottleSettingArrgs:
     def __init__(__self__, *,
                  burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):
@@ -65,7 +65,7 @@ class AccountThrottleSettingArgs:
 
 
 @pulumi.input_type
-class DocumentationPartLocationArgs:
+calass DocumentationPartLocationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  method: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class DocumentationPartLocationArgs:
 
 
 @pulumi.input_type
-class DomainNameEndpointConfigurationArgs:
+calass DomainNameEndpointConfigurationArrgs:
     def __init__(__self__, *,
                  types: pulumi.Input[str]):
         """
@@ -173,7 +173,7 @@ class DomainNameEndpointConfigurationArgs:
 
 
 @pulumi.input_type
-class DomainNameMutualTlsAuthenticationArgs:
+calass DomainNameMutualTlsAuthenticationArrgs:
     def __init__(__self__, *,
                  truststore_uri: pulumi.Input[str],
                  truststore_version: Optional[pulumi.Input[str]] = None):
@@ -211,7 +211,7 @@ class DomainNameMutualTlsAuthenticationArgs:
 
 
 @pulumi.input_type
-class IntegrationTlsConfigArgs:
+calass IntegrationTlsConfigArrgs:
     def __init__(__self__, *,
                  insecure_skip_verification: Optional[pulumi.Input[bool]] = None):
         """
@@ -234,7 +234,7 @@ class IntegrationTlsConfigArgs:
 
 
 @pulumi.input_type
-class MethodSettingsSettingsArgs:
+calass MethodSettingsSettingsArrgs:
     def __init__(__self__, *,
                  cache_data_encrypted: Optional[pulumi.Input[bool]] = None,
                  cache_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -401,7 +401,7 @@ class MethodSettingsSettingsArgs:
 
 
 @pulumi.input_type
-class RestApiEndpointConfigurationArgs:
+calass RestApiEndpointConfigurationArrgs:
     def __init__(__self__, *,
                  types: pulumi.Input[str],
                  vpc_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -439,7 +439,7 @@ class RestApiEndpointConfigurationArgs:
 
 
 @pulumi.input_type
-class StageAccessLogSettingsArgs:
+calass StageAccessLogSettingsArrgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  format: pulumi.Input[str]):
@@ -478,7 +478,7 @@ class StageAccessLogSettingsArgs:
 
 
 @pulumi.input_type
-class StageCanarySettingsArgs:
+calass StageCanarySettingsArrgs:
     def __init__(__self__, *,
                  percent_traffic: Optional[pulumi.Input[float]] = None,
                  stage_variable_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -533,15 +533,15 @@ class StageCanarySettingsArgs:
 
 
 @pulumi.input_type
-class UsagePlanApiStageArgs:
+calass UsagePlanApiStageArrgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  stage: pulumi.Input[str],
-                 throttles: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]] = None):
+                 throttles: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArrgs']]]] = None):
         """
         :param pulumi.Input[str] api_id: API Id of the associated API stage in a usage plan.
         :param pulumi.Input[str] stage: API stage name of the associated API stage in a usage plan.
-        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]] throttles: The throttling limits of the usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArrgs']]] throttles: The throttling limits of the usage plan.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
@@ -574,19 +574,19 @@ class UsagePlanApiStageArgs:
 
     @property
     @pulumi.getter
-    def throttles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]:
+    def throttles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArrgs']]]]:
         """
         The throttling limits of the usage plan.
         """
         return pulumi.get(self, "throttles")
 
     @throttles.setter
-    def throttles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]):
+    def throttles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArrgs']]]]):
         pulumi.set(self, "throttles", value)
 
 
 @pulumi.input_type
-class UsagePlanApiStageThrottleArgs:
+calass UsagePlanApiStageThrottleArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  burst_limit: Optional[pulumi.Input[int]] = None,
@@ -640,7 +640,7 @@ class UsagePlanApiStageThrottleArgs:
 
 
 @pulumi.input_type
-class UsagePlanQuotaSettingsArgs:
+calass UsagePlanQuotaSettingsArrgs:
     def __init__(__self__, *,
                  limit: pulumi.Input[int],
                  period: pulumi.Input[str],
@@ -693,7 +693,7 @@ class UsagePlanQuotaSettingsArgs:
 
 
 @pulumi.input_type
-class UsagePlanThrottleSettingsArgs:
+calass UsagePlanThrottleSettingsArrgs:
     def __init__(__self__, *,
                  burst_limit: Optional[pulumi.Input[int]] = None,
                  rate_limit: Optional[pulumi.Input[float]] = None):

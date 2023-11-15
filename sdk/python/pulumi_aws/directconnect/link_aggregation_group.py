@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkAggregationGroupArgs', 'LinkAggregationGroup']
+__all__ = ['LinkAggregationGroupArrgs', 'LinkAggregationGroup']
 
 @pulumi.input_type
-class LinkAggregationGroupArgs:
+calass LinkAggregationGroupArrgs:
     def __init__(__self__, *,
                  connections_bandwidth: pulumi.Input[str],
                  location: pulumi.Input[str],
@@ -130,7 +130,7 @@ class LinkAggregationGroupArgs:
 
 
 @pulumi.input_type
-class _LinkAggregationGroupState:
+calass _LinkAggregationGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  connection_id: Optional[pulumi.Input[str]] = None,
@@ -335,7 +335,7 @@ class _LinkAggregationGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class LinkAggregationGroup(pulumi.CustomResource):
+calass LinkAggregationGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -387,7 +387,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkAggregationGroupArgs,
+                 args: LinkAggregationGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
@@ -415,12 +415,12 @@ class LinkAggregationGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkAggregationGroupArgs args: The arguments to use to populate this resource's properties.
+        :param LinkAggregationGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkAggregationGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkAggregationGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -443,7 +443,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkAggregationGroupArgs.__new__(LinkAggregationGroupArgs)
+            __props__ = LinkAggregationGroupArrgs.__new__(LinkAggregationGroupArrgs)
 
             __props__.__dict__["connection_id"] = connection_id
             if connections_bandwidth is None and not opts.urn:

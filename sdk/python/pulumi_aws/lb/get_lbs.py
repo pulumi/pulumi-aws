@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLbsResult:
+calass GetLbsResult:
     """
     A collection of values returned by getLbs.
     """
@@ -54,7 +54,7 @@ class GetLbsResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLbsResult(GetLbsResult):
+calass AwaitableGetLbsResult(GetLbsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLocalDiskResult:
+calass GetLocalDiskResult:
     """
     A collection of values returned by getLocalDisk.
     """
@@ -70,7 +70,7 @@ class GetLocalDiskResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetLocalDiskResult(GetLocalDiskResult):
+calass AwaitableGetLocalDiskResult(GetLocalDiskResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

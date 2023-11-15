@@ -11,32 +11,32 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AssociationOutputLocationArgs',
-    'AssociationTargetArgs',
-    'DocumentAttachmentsSourceArgs',
-    'DocumentParameterArgs',
-    'MaintenanceWindowTargetTargetArgs',
-    'MaintenanceWindowTaskTargetArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs',
-    'MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs',
-    'PatchBaselineApprovalRuleArgs',
-    'PatchBaselineApprovalRulePatchFilterArgs',
-    'PatchBaselineGlobalFilterArgs',
-    'PatchBaselineSourceArgs',
-    'ResourceDataSyncS3DestinationArgs',
-    'GetInstancesFilterArgs',
-    'GetMaintenanceWindowsFilterArgs',
+    'AssociationOutputLocationArrgs',
+    'AssociationTargetArrgs',
+    'DocumentAttachmentsSourceArrgs',
+    'DocumentParameterArrgs',
+    'MaintenanceWindowTargetTargetArrgs',
+    'MaintenanceWindowTaskTargetArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrgs',
+    'MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArrgs',
+    'PatchBaselineApprovalRuleArrgs',
+    'PatchBaselineApprovalRulePatchFilterArrgs',
+    'PatchBaselineGlobalFilterArrgs',
+    'PatchBaselineSourceArrgs',
+    'ResourceDataSyncS3DestinationArrgs',
+    'GetInstancesFilterArrgs',
+    'GetMaintenanceWindowsFilterArrgs',
 ]
 
 @pulumi.input_type
-class AssociationOutputLocationArgs:
+calass AssociationOutputLocationArrgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[str],
                  s3_key_prefix: Optional[pulumi.Input[str]] = None,
@@ -94,7 +94,7 @@ class AssociationOutputLocationArgs:
 
 
 @pulumi.input_type
-class AssociationTargetArgs:
+calass AssociationTargetArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -131,7 +131,7 @@ class AssociationTargetArgs:
 
 
 @pulumi.input_type
-class DocumentAttachmentsSourceArgs:
+calass DocumentAttachmentsSourceArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -184,7 +184,7 @@ class DocumentAttachmentsSourceArgs:
 
 
 @pulumi.input_type
-class DocumentParameterArgs:
+calass DocumentParameterArrgs:
     def __init__(__self__, *,
                  default_value: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -247,7 +247,7 @@ class DocumentParameterArgs:
 
 
 @pulumi.input_type
-class MaintenanceWindowTargetTargetArgs:
+calass MaintenanceWindowTargetTargetArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -274,7 +274,7 @@ class MaintenanceWindowTargetTargetArgs:
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTargetArgs:
+calass MaintenanceWindowTaskTargetArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -307,17 +307,17 @@ class MaintenanceWindowTaskTargetArgs:
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersArrgs:
     def __init__(__self__, *,
-                 automation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs']] = None,
-                 lambda_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs']] = None,
-                 run_command_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs']] = None,
-                 step_functions_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs']] = None):
+                 automation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArrgs']] = None,
+                 lambda_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArrgs']] = None,
+                 run_command_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArrgs']] = None,
+                 step_functions_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArrgs']] = None):
         """
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs'] automation_parameters: The parameters for an AUTOMATION task type. Documented below.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs'] lambda_parameters: The parameters for a LAMBDA task type. Documented below.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs'] run_command_parameters: The parameters for a RUN_COMMAND task type. Documented below.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs'] step_functions_parameters: The parameters for a STEP_FUNCTIONS task type. Documented below.
+        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArrgs'] automation_parameters: The parameters for an AUTOMATION task type. Documented below.
+        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArrgs'] lambda_parameters: The parameters for a LAMBDA task type. Documented below.
+        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArrgs'] run_command_parameters: The parameters for a RUN_COMMAND task type. Documented below.
+        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArrgs'] step_functions_parameters: The parameters for a STEP_FUNCTIONS task type. Documented below.
         """
         if automation_parameters is not None:
             pulumi.set(__self__, "automation_parameters", automation_parameters)
@@ -330,61 +330,61 @@ class MaintenanceWindowTaskTaskInvocationParametersArgs:
 
     @property
     @pulumi.getter(name="automationParameters")
-    def automation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs']]:
+    def automation_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArrgs']]:
         """
         The parameters for an AUTOMATION task type. Documented below.
         """
         return pulumi.get(self, "automation_parameters")
 
     @automation_parameters.setter
-    def automation_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs']]):
+    def automation_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArrgs']]):
         pulumi.set(self, "automation_parameters", value)
 
     @property
     @pulumi.getter(name="lambdaParameters")
-    def lambda_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs']]:
+    def lambda_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArrgs']]:
         """
         The parameters for a LAMBDA task type. Documented below.
         """
         return pulumi.get(self, "lambda_parameters")
 
     @lambda_parameters.setter
-    def lambda_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs']]):
+    def lambda_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArrgs']]):
         pulumi.set(self, "lambda_parameters", value)
 
     @property
     @pulumi.getter(name="runCommandParameters")
-    def run_command_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs']]:
+    def run_command_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArrgs']]:
         """
         The parameters for a RUN_COMMAND task type. Documented below.
         """
         return pulumi.get(self, "run_command_parameters")
 
     @run_command_parameters.setter
-    def run_command_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs']]):
+    def run_command_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArrgs']]):
         pulumi.set(self, "run_command_parameters", value)
 
     @property
     @pulumi.getter(name="stepFunctionsParameters")
-    def step_functions_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs']]:
+    def step_functions_parameters(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArrgs']]:
         """
         The parameters for a STEP_FUNCTIONS task type. Documented below.
         """
         return pulumi.get(self, "step_functions_parameters")
 
     @step_functions_parameters.setter
-    def step_functions_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs']]):
+    def step_functions_parameters(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArrgs']]):
         pulumi.set(self, "step_functions_parameters", value)
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArrgs:
     def __init__(__self__, *,
                  document_version: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrgs']]]] = None):
         """
         :param pulumi.Input[str] document_version: The version of an Automation document to use during task execution.
-        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrgs']]] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
         """
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
@@ -405,19 +405,19 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrgs']]]]:
         """
         The parameters for the RUN_COMMAND task execution. Documented below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -454,7 +454,7 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArrgs:
     def __init__(__self__, *,
                  client_context: Optional[pulumi.Input[str]] = None,
                  payload: Optional[pulumi.Input[str]] = None,
@@ -509,29 +509,29 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs:
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArrgs:
     def __init__(__self__, *,
-                 cloudwatch_config: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']] = None,
+                 cloudwatch_config: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArrgs']] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  document_hash: Optional[pulumi.Input[str]] = None,
                  document_hash_type: Optional[pulumi.Input[str]] = None,
                  document_version: Optional[pulumi.Input[str]] = None,
-                 notification_config: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs']] = None,
+                 notification_config: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArrgs']] = None,
                  output_s3_bucket: Optional[pulumi.Input[str]] = None,
                  output_s3_key_prefix: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrgs']]]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs'] cloudwatch_config: Configuration options for sending command output to CloudWatch Logs. Documented below.
+        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArrgs'] cloudwatch_config: Configuration options for sending command output to CloudWatch Logs. Documented below.
         :param pulumi.Input[str] comment: Information about the command(s) to execute.
         :param pulumi.Input[str] document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         :param pulumi.Input[str] document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
         :param pulumi.Input[str] document_version: The version of an Automation document to use during task execution.
-        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs'] notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
+        :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArrgs'] notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param pulumi.Input[str] output_s3_bucket: The name of the Amazon S3 bucket.
         :param pulumi.Input[str] output_s3_key_prefix: The Amazon S3 bucket subfolder.
-        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrgs']]] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
         :param pulumi.Input[str] service_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         :param pulumi.Input[int] timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
@@ -560,14 +560,14 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
 
     @property
     @pulumi.getter(name="cloudwatchConfig")
-    def cloudwatch_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']]:
+    def cloudwatch_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArrgs']]:
         """
         Configuration options for sending command output to CloudWatch Logs. Documented below.
         """
         return pulumi.get(self, "cloudwatch_config")
 
     @cloudwatch_config.setter
-    def cloudwatch_config(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs']]):
+    def cloudwatch_config(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArrgs']]):
         pulumi.set(self, "cloudwatch_config", value)
 
     @property
@@ -620,14 +620,14 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
 
     @property
     @pulumi.getter(name="notificationConfig")
-    def notification_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs']]:
+    def notification_config(self) -> Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArrgs']]:
         """
         Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         """
         return pulumi.get(self, "notification_config")
 
     @notification_config.setter
-    def notification_config(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs']]):
+    def notification_config(self, value: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArrgs']]):
         pulumi.set(self, "notification_config", value)
 
     @property
@@ -656,14 +656,14 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrgs']]]]:
         """
         The parameters for the RUN_COMMAND task execution. Documented below.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -692,7 +692,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArrgs:
     def __init__(__self__, *,
                  cloudwatch_log_group_name: Optional[pulumi.Input[str]] = None,
                  cloudwatch_output_enabled: Optional[pulumi.Input[bool]] = None):
@@ -731,7 +731,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatc
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArrgs:
     def __init__(__self__, *,
                  notification_arn: Optional[pulumi.Input[str]] = None,
                  notification_events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -786,7 +786,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -823,7 +823,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
 
 
 @pulumi.input_type
-class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs:
+calass MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArrgs:
     def __init__(__self__, *,
                  input: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -862,15 +862,15 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs:
 
 
 @pulumi.input_type
-class PatchBaselineApprovalRuleArgs:
+calass PatchBaselineApprovalRuleArrgs:
     def __init__(__self__, *,
-                 patch_filters: pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]],
+                 patch_filters: pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArrgs']]],
                  approve_after_days: Optional[pulumi.Input[int]] = None,
                  approve_until_date: Optional[pulumi.Input[str]] = None,
                  compliance_level: Optional[pulumi.Input[str]] = None,
                  enable_non_security: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]] patch_filters: The patch filter group that defines the criteria for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArrgs']]] patch_filters: The patch filter group that defines the criteria for the rule.
                Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
                Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
                Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
@@ -900,7 +900,7 @@ class PatchBaselineApprovalRuleArgs:
 
     @property
     @pulumi.getter(name="patchFilters")
-    def patch_filters(self) -> pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]]:
+    def patch_filters(self) -> pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArrgs']]]:
         """
         The patch filter group that defines the criteria for the rule.
         Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
@@ -910,7 +910,7 @@ class PatchBaselineApprovalRuleArgs:
         return pulumi.get(self, "patch_filters")
 
     @patch_filters.setter
-    def patch_filters(self, value: pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArgs']]]):
+    def patch_filters(self, value: pulumi.Input[Sequence[pulumi.Input['PatchBaselineApprovalRulePatchFilterArrgs']]]):
         pulumi.set(self, "patch_filters", value)
 
     @property
@@ -972,7 +972,7 @@ class PatchBaselineApprovalRuleArgs:
 
 
 @pulumi.input_type
-class PatchBaselineApprovalRulePatchFilterArgs:
+calass PatchBaselineApprovalRulePatchFilterArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -999,7 +999,7 @@ class PatchBaselineApprovalRulePatchFilterArgs:
 
 
 @pulumi.input_type
-class PatchBaselineGlobalFilterArgs:
+calass PatchBaselineGlobalFilterArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -1026,7 +1026,7 @@ class PatchBaselineGlobalFilterArgs:
 
 
 @pulumi.input_type
-class PatchBaselineSourceArgs:
+calass PatchBaselineSourceArrgs:
     def __init__(__self__, *,
                  configuration: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -1082,7 +1082,7 @@ class PatchBaselineSourceArgs:
 
 
 @pulumi.input_type
-class ResourceDataSyncS3DestinationArgs:
+calass ResourceDataSyncS3DestinationArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  region: pulumi.Input[str],
@@ -1167,7 +1167,7 @@ class ResourceDataSyncS3DestinationArgs:
 
 
 @pulumi.input_type
-class GetInstancesFilterArgs:
+calass GetInstancesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1204,7 +1204,7 @@ class GetInstancesFilterArgs:
 
 
 @pulumi.input_type
-class GetMaintenanceWindowsFilterArgs:
+calass GetMaintenanceWindowsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

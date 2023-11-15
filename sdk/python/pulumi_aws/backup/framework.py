@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FrameworkArgs', 'Framework']
+__all__ = ['FrameworkArrgs', 'Framework']
 
 @pulumi.input_type
-class FrameworkArgs:
+calass FrameworkArrgs:
     def __init__(__self__, *,
-                 controls: pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]],
+                 controls: pulumi.Input[Sequence[pulumi.Input['FrameworkControlArrgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Framework resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlArrgs']]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[str] description: The description of the framework with a maximum of 1,024 characters
         :param pulumi.Input[str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -37,14 +37,14 @@ class FrameworkArgs:
 
     @property
     @pulumi.getter
-    def controls(self) -> pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]]:
+    def controls(self) -> pulumi.Input[Sequence[pulumi.Input['FrameworkControlArrgs']]]:
         """
         One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]]):
+    def controls(self, value: pulumi.Input[Sequence[pulumi.Input['FrameworkControlArrgs']]]):
         pulumi.set(self, "controls", value)
 
     @property
@@ -85,10 +85,10 @@ class FrameworkArgs:
 
 
 @pulumi.input_type
-class _FrameworkState:
+calass _FrameworkState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]]] = None,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlArrgs']]]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  deployment_status: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class _FrameworkState:
         """
         Input properties used for looking up and filtering Framework resources.
         :param pulumi.Input[str] arn: The ARN of the backup framework.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlArrgs']]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[str] creation_time: The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         :param pulumi.Input[str] deployment_status: The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         :param pulumi.Input[str] description: The description of the framework with a maximum of 1,024 characters
@@ -144,14 +144,14 @@ class _FrameworkState:
 
     @property
     @pulumi.getter
-    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]]]:
+    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlArrgs']]]]:
         """
         One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlArgs']]]]):
+    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlArrgs']]]]):
         pulumi.set(self, "controls", value)
 
     @property
@@ -242,12 +242,12 @@ class _FrameworkState:
         pulumi.set(self, "tags_all", value)
 
 
-class Framework(pulumi.CustomResource):
+calass Framework(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]]] = None,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -265,71 +265,71 @@ class Framework(pulumi.CustomResource):
 
         example = aws.backup.Framework("example",
             controls=[
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[aws.backup.FrameworkControlInputParameterArgs(
+                aws.backup.FrameworkControlArrgs(
+                    input_parameters=[aws.backup.FrameworkControlInputParameterArrgs(
                         name="requiredRetentionDays",
                         value="35",
                     )],
                     name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="requiredFrequencyUnit",
                             value="hours",
                         ),
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="requiredRetentionDays",
                             value="35",
                         ),
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="requiredFrequencyValue",
                             value="1",
                         ),
                     ],
                     name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     name="BACKUP_RECOVERY_POINT_ENCRYPTED",
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-                    scope=aws.backup.FrameworkControlScopeArgs(
+                    scope=aws.backup.FrameworkControlScopeArrgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="maxRetentionDays",
                             value="100",
                         ),
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="minRetentionDays",
                             value="1",
                         ),
                     ],
                     name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    scope=aws.backup.FrameworkControlScopeArgs(
+                    scope=aws.backup.FrameworkControlScopeArrgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="recoveryPointAgeUnit",
                             value="days",
                         ),
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="recoveryPointAgeValue",
                             value="1",
                         ),
                     ],
                     name="BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    scope=aws.backup.FrameworkControlScopeArgs(
+                    scope=aws.backup.FrameworkControlScopeArrgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
@@ -350,7 +350,7 @@ class Framework(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArrgs']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[str] description: The description of the framework with a maximum of 1,024 characters
         :param pulumi.Input[str] name: The unique name of the framework. The name must be between 1 and 256 characters, starting with a letter, and consisting of letters, numbers, and underscores.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to help organize the frameworks you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -359,7 +359,7 @@ class Framework(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrameworkArgs,
+                 args: FrameworkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Backup Framework resource.
@@ -374,71 +374,71 @@ class Framework(pulumi.CustomResource):
 
         example = aws.backup.Framework("example",
             controls=[
-                aws.backup.FrameworkControlArgs(
-                    input_parameters=[aws.backup.FrameworkControlInputParameterArgs(
+                aws.backup.FrameworkControlArrgs(
+                    input_parameters=[aws.backup.FrameworkControlInputParameterArrgs(
                         name="requiredRetentionDays",
                         value="35",
                     )],
                     name="BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="requiredFrequencyUnit",
                             value="hours",
                         ),
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="requiredRetentionDays",
                             value="35",
                         ),
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="requiredFrequencyValue",
                             value="1",
                         ),
                     ],
                     name="BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     name="BACKUP_RECOVERY_POINT_ENCRYPTED",
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
-                    scope=aws.backup.FrameworkControlScopeArgs(
+                    scope=aws.backup.FrameworkControlScopeArrgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     name="BACKUP_RECOVERY_POINT_MANUAL_DELETION_DISABLED",
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="maxRetentionDays",
                             value="100",
                         ),
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="minRetentionDays",
                             value="1",
                         ),
                     ],
                     name="BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
-                    scope=aws.backup.FrameworkControlScopeArgs(
+                    scope=aws.backup.FrameworkControlScopeArrgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
-                aws.backup.FrameworkControlArgs(
+                aws.backup.FrameworkControlArrgs(
                     input_parameters=[
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="recoveryPointAgeUnit",
                             value="days",
                         ),
-                        aws.backup.FrameworkControlInputParameterArgs(
+                        aws.backup.FrameworkControlInputParameterArrgs(
                             name="recoveryPointAgeValue",
                             value="1",
                         ),
                     ],
                     name="BACKUP_LAST_RECOVERY_POINT_CREATED",
-                    scope=aws.backup.FrameworkControlScopeArgs(
+                    scope=aws.backup.FrameworkControlScopeArrgs(
                         compliance_resource_types=["EBS"],
                     ),
                 ),
@@ -458,12 +458,12 @@ class Framework(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrameworkArgs args: The arguments to use to populate this resource's properties.
+        :param FrameworkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrameworkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrameworkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -472,7 +472,7 @@ class Framework(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]]] = None,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -483,7 +483,7 @@ class Framework(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrameworkArgs.__new__(FrameworkArgs)
+            __props__ = FrameworkArrgs.__new__(FrameworkArrgs)
 
             if controls is None and not opts.urn:
                 raise TypeError("Missing required property 'controls'")
@@ -509,7 +509,7 @@ class Framework(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]]] = None,
+            controls: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArrgs']]]]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             deployment_status: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -525,7 +525,7 @@ class Framework(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the backup framework.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArgs']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FrameworkControlArrgs']]]] controls: One or more control blocks that make up the framework. Each control in the list has a name, input parameters, and scope. Detailed below.
         :param pulumi.Input[str] creation_time: The date and time that a framework is created, in Unix format and Coordinated Universal Time (UTC).
         :param pulumi.Input[str] deployment_status: The deployment status of a framework. The statuses are: `CREATE_IN_PROGRESS` | `UPDATE_IN_PROGRESS` | `DELETE_IN_PROGRESS` | `COMPLETED` | `FAILED`.
         :param pulumi.Input[str] description: The description of the framework with a maximum of 1,024 characters

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ThingPrincipalAttachmentArgs', 'ThingPrincipalAttachment']
+__all__ = ['ThingPrincipalAttachmentArrgs', 'ThingPrincipalAttachment']
 
 @pulumi.input_type
-class ThingPrincipalAttachmentArgs:
+calass ThingPrincipalAttachmentArrgs:
     def __init__(__self__, *,
                  principal: pulumi.Input[str],
                  thing: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ThingPrincipalAttachmentArgs:
 
 
 @pulumi.input_type
-class _ThingPrincipalAttachmentState:
+calass _ThingPrincipalAttachmentState:
     def __init__(__self__, *,
                  principal: Optional[pulumi.Input[str]] = None,
                  thing: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ThingPrincipalAttachmentState:
         pulumi.set(self, "thing", value)
 
 
-class ThingPrincipalAttachment(pulumi.CustomResource):
+calass ThingPrincipalAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -124,7 +124,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ThingPrincipalAttachmentArgs,
+                 args: ThingPrincipalAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches Principal to AWS IoT Thing.
@@ -145,12 +145,12 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ThingPrincipalAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param ThingPrincipalAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ThingPrincipalAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ThingPrincipalAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -168,7 +168,7 @@ class ThingPrincipalAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ThingPrincipalAttachmentArgs.__new__(ThingPrincipalAttachmentArgs)
+            __props__ = ThingPrincipalAttachmentArrgs.__new__(ThingPrincipalAttachmentArrgs)
 
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")

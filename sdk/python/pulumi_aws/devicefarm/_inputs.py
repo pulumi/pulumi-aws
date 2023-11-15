@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DevicePoolRuleArgs',
-    'TestGridProjectVpcConfigArgs',
+    'DevicePoolRuleArrgs',
+    'TestGridProjectVpcConfigArrgs',
 ]
 
 @pulumi.input_type
-class DevicePoolRuleArgs:
+calass DevicePoolRuleArrgs:
     def __init__(__self__, *,
                  attribute: Optional[pulumi.Input[str]] = None,
                  operator: Optional[pulumi.Input[str]] = None,
@@ -70,7 +70,7 @@ class DevicePoolRuleArgs:
 
 
 @pulumi.input_type
-class TestGridProjectVpcConfigArgs:
+calass TestGridProjectVpcConfigArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],

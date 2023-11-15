@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'QueueReservationPlanSettingsArgs',
+    'QueueReservationPlanSettingsArrgs',
 ]
 
 @pulumi.input_type
-class QueueReservationPlanSettingsArgs:
+calass QueueReservationPlanSettingsArrgs:
     def __init__(__self__, *,
                  commitment: pulumi.Input[str],
                  renewal_type: pulumi.Input[str],

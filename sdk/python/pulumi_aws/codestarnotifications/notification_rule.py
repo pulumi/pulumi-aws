@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NotificationRuleArgs', 'NotificationRule']
+__all__ = ['NotificationRuleArrgs', 'NotificationRule']
 
 @pulumi.input_type
-class NotificationRuleArgs:
+calass NotificationRuleArrgs:
     def __init__(__self__, *,
                  detail_type: pulumi.Input[str],
                  event_type_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -22,7 +22,7 @@ class NotificationRuleArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]] = None):
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArrgs']]]] = None):
         """
         The set of arguments for constructing a NotificationRule resource.
         :param pulumi.Input[str] detail_type: The level of detail to include in the notifications for this resource. Possible values are `BASIC` and `FULL`.
@@ -32,7 +32,7 @@ class NotificationRuleArgs:
         :param pulumi.Input[str] name: The name of notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArrgs']]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         pulumi.set(__self__, "detail_type", detail_type)
         pulumi.set(__self__, "event_type_ids", event_type_ids)
@@ -121,19 +121,19 @@ class NotificationRuleArgs:
 
     @property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]]:
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArrgs']]]]:
         """
         Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]]):
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArrgs']]]]):
         pulumi.set(self, "targets", value)
 
 
 @pulumi.input_type
-class _NotificationRuleState:
+calass _NotificationRuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  detail_type: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class _NotificationRuleState:
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]] = None):
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArrgs']]]] = None):
         """
         Input properties used for looking up and filtering NotificationRule resources.
         :param pulumi.Input[str] arn: The codestar notification rule ARN.
@@ -155,7 +155,7 @@ class _NotificationRuleState:
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArrgs']]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -281,18 +281,18 @@ class _NotificationRuleState:
 
     @property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]]:
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArrgs']]]]:
         """
         Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArgs']]]]):
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NotificationRuleTargetArrgs']]]]):
         pulumi.set(self, "targets", value)
 
 
-class NotificationRule(pulumi.CustomResource):
+calass NotificationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -303,7 +303,7 @@ class NotificationRule(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArrgs']]]]] = None,
                  __props__=None):
         """
         Provides a CodeStar Notifications Rule.
@@ -316,9 +316,9 @@ class NotificationRule(pulumi.CustomResource):
 
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
         notif = aws.sns.Topic("notif")
-        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["sns:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["codestar-notifications.amazonaws.com"],
             )],
@@ -331,7 +331,7 @@ class NotificationRule(pulumi.CustomResource):
             detail_type="BASIC",
             event_type_ids=["codecommit-repository-comments-on-commits"],
             resource=code.arn,
-            targets=[aws.codestarnotifications.NotificationRuleTargetArgs(
+            targets=[aws.codestarnotifications.NotificationRuleTargetArrgs(
                 address=notif.arn,
             )])
         ```
@@ -353,13 +353,13 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] resource: The ARN of the resource to associate with the notification rule.
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArrgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NotificationRuleArgs,
+                 args: NotificationRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeStar Notifications Rule.
@@ -372,9 +372,9 @@ class NotificationRule(pulumi.CustomResource):
 
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
         notif = aws.sns.Topic("notif")
-        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        notif_access = notif.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["sns:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["codestar-notifications.amazonaws.com"],
             )],
@@ -387,7 +387,7 @@ class NotificationRule(pulumi.CustomResource):
             detail_type="BASIC",
             event_type_ids=["codecommit-repository-comments-on-commits"],
             resource=code.arn,
-            targets=[aws.codestarnotifications.NotificationRuleTargetArgs(
+            targets=[aws.codestarnotifications.NotificationRuleTargetArrgs(
                 address=notif.arn,
             )])
         ```
@@ -401,12 +401,12 @@ class NotificationRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NotificationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param NotificationRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NotificationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NotificationRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -421,7 +421,7 @@ class NotificationRule(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -429,7 +429,7 @@ class NotificationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NotificationRuleArgs.__new__(NotificationRuleArgs)
+            __props__ = NotificationRuleArrgs.__new__(NotificationRuleArrgs)
 
             if detail_type is None and not opts.urn:
                 raise TypeError("Missing required property 'detail_type'")
@@ -466,7 +466,7 @@ class NotificationRule(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]]] = None) -> 'NotificationRule':
+            targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArrgs']]]]] = None) -> 'NotificationRule':
         """
         Get an existing NotificationRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -483,7 +483,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input[str] status: The status of the notification rule. Possible values are `ENABLED` and `DISABLED`, default is `ENABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NotificationRuleTargetArrgs']]]] targets: Configuration blocks containing notification target information. Can be specified multiple times. At least one target must be specified on creation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

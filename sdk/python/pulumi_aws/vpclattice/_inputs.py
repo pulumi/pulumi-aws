@@ -10,35 +10,35 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ListenerDefaultActionArgs',
-    'ListenerDefaultActionFixedResponseArgs',
-    'ListenerDefaultActionForwardArgs',
-    'ListenerDefaultActionForwardTargetGroupArgs',
-    'ListenerRuleActionArgs',
-    'ListenerRuleActionFixedResponseArgs',
-    'ListenerRuleActionForwardArgs',
-    'ListenerRuleActionForwardTargetGroupArgs',
-    'ListenerRuleMatchArgs',
-    'ListenerRuleMatchHttpMatchArgs',
-    'ListenerRuleMatchHttpMatchHeaderMatchArgs',
-    'ListenerRuleMatchHttpMatchHeaderMatchMatchArgs',
-    'ListenerRuleMatchHttpMatchPathMatchArgs',
-    'ListenerRuleMatchHttpMatchPathMatchMatchArgs',
-    'ServiceDnsEntryArgs',
-    'ServiceNetworkServiceAssociationDnsEntryArgs',
-    'TargetGroupAttachmentTargetArgs',
-    'TargetGroupConfigArgs',
-    'TargetGroupConfigHealthCheckArgs',
-    'TargetGroupConfigHealthCheckMatcherArgs',
+    'ListenerDefaultActionArrgs',
+    'ListenerDefaultActionFixedResponseArrgs',
+    'ListenerDefaultActionForwardArrgs',
+    'ListenerDefaultActionForwardTargetGroupArrgs',
+    'ListenerRuleActionArrgs',
+    'ListenerRuleActionFixedResponseArrgs',
+    'ListenerRuleActionForwardArrgs',
+    'ListenerRuleActionForwardTargetGroupArrgs',
+    'ListenerRuleMatchArrgs',
+    'ListenerRuleMatchHttpMatchArrgs',
+    'ListenerRuleMatchHttpMatchHeaderMatchArrgs',
+    'ListenerRuleMatchHttpMatchHeaderMatchMatchArrgs',
+    'ListenerRuleMatchHttpMatchPathMatchArrgs',
+    'ListenerRuleMatchHttpMatchPathMatchMatchArrgs',
+    'ServiceDnsEntryArrgs',
+    'ServiceNetworkServiceAssociationDnsEntryArrgs',
+    'TargetGroupAttachmentTargetArrgs',
+    'TargetGroupConfigArrgs',
+    'TargetGroupConfigHealthCheckArrgs',
+    'TargetGroupConfigHealthCheckMatcherArrgs',
 ]
 
 @pulumi.input_type
-class ListenerDefaultActionArgs:
+calass ListenerDefaultActionArrgs:
     def __init__(__self__, *,
-                 fixed_response: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']] = None,
-                 forwards: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]]] = None):
+                 fixed_response: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArrgs']] = None,
+                 forwards: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]] forwards: Route requests to one or more target groups. See Forward blocks below.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArrgs']]] forwards: Route requests to one or more target groups. See Forward blocks below.
                
                > **NOTE:** You must specify exactly one of the following argument blocks: `fixed_response` or `forward`.
         """
@@ -49,16 +49,16 @@ class ListenerDefaultActionArgs:
 
     @property
     @pulumi.getter(name="fixedResponse")
-    def fixed_response(self) -> Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']]:
+    def fixed_response(self) -> Optional[pulumi.Input['ListenerDefaultActionFixedResponseArrgs']]:
         return pulumi.get(self, "fixed_response")
 
     @fixed_response.setter
-    def fixed_response(self, value: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']]):
+    def fixed_response(self, value: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArrgs']]):
         pulumi.set(self, "fixed_response", value)
 
     @property
     @pulumi.getter
-    def forwards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]]]:
+    def forwards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArrgs']]]]:
         """
         Route requests to one or more target groups. See Forward blocks below.
 
@@ -67,12 +67,12 @@ class ListenerDefaultActionArgs:
         return pulumi.get(self, "forwards")
 
     @forwards.setter
-    def forwards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArgs']]]]):
+    def forwards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardArrgs']]]]):
         pulumi.set(self, "forwards", value)
 
 
 @pulumi.input_type
-class ListenerDefaultActionFixedResponseArgs:
+calass ListenerDefaultActionFixedResponseArrgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[int]):
         """
@@ -94,30 +94,30 @@ class ListenerDefaultActionFixedResponseArgs:
 
 
 @pulumi.input_type
-class ListenerDefaultActionForwardArgs:
+calass ListenerDefaultActionForwardArrgs:
     def __init__(__self__, *,
-                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]] = None):
+                 target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: One or more target group blocks.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArrgs']]] target_groups: One or more target group blocks.
         """
         if target_groups is not None:
             pulumi.set(__self__, "target_groups", target_groups)
 
     @property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]]:
+    def target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArrgs']]]]:
         """
         One or more target group blocks.
         """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]]):
+    def target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArrgs']]]]):
         pulumi.set(self, "target_groups", value)
 
 
 @pulumi.input_type
-class ListenerDefaultActionForwardTargetGroupArgs:
+calass ListenerDefaultActionForwardTargetGroupArrgs:
     def __init__(__self__, *,
                  target_group_identifier: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[int]] = None):
@@ -158,13 +158,13 @@ class ListenerDefaultActionForwardTargetGroupArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionArgs:
+calass ListenerRuleActionArrgs:
     def __init__(__self__, *,
-                 fixed_response: Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']] = None,
-                 forward: Optional[pulumi.Input['ListenerRuleActionForwardArgs']] = None):
+                 fixed_response: Optional[pulumi.Input['ListenerRuleActionFixedResponseArrgs']] = None,
+                 forward: Optional[pulumi.Input['ListenerRuleActionForwardArrgs']] = None):
         """
-        :param pulumi.Input['ListenerRuleActionFixedResponseArgs'] fixed_response: Describes the rule action that returns a custom HTTP response.
-        :param pulumi.Input['ListenerRuleActionForwardArgs'] forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
+        :param pulumi.Input['ListenerRuleActionFixedResponseArrgs'] fixed_response: Describes the rule action that returns a custom HTTP response.
+        :param pulumi.Input['ListenerRuleActionForwardArrgs'] forward: The forward action. Traffic that matches the rule is forwarded to the specified target groups.
         """
         if fixed_response is not None:
             pulumi.set(__self__, "fixed_response", fixed_response)
@@ -173,31 +173,31 @@ class ListenerRuleActionArgs:
 
     @property
     @pulumi.getter(name="fixedResponse")
-    def fixed_response(self) -> Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']]:
+    def fixed_response(self) -> Optional[pulumi.Input['ListenerRuleActionFixedResponseArrgs']]:
         """
         Describes the rule action that returns a custom HTTP response.
         """
         return pulumi.get(self, "fixed_response")
 
     @fixed_response.setter
-    def fixed_response(self, value: Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']]):
+    def fixed_response(self, value: Optional[pulumi.Input['ListenerRuleActionFixedResponseArrgs']]):
         pulumi.set(self, "fixed_response", value)
 
     @property
     @pulumi.getter
-    def forward(self) -> Optional[pulumi.Input['ListenerRuleActionForwardArgs']]:
+    def forward(self) -> Optional[pulumi.Input['ListenerRuleActionForwardArrgs']]:
         """
         The forward action. Traffic that matches the rule is forwarded to the specified target groups.
         """
         return pulumi.get(self, "forward")
 
     @forward.setter
-    def forward(self, value: Optional[pulumi.Input['ListenerRuleActionForwardArgs']]):
+    def forward(self, value: Optional[pulumi.Input['ListenerRuleActionForwardArrgs']]):
         pulumi.set(self, "forward", value)
 
 
 @pulumi.input_type
-class ListenerRuleActionFixedResponseArgs:
+calass ListenerRuleActionFixedResponseArrgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[int]):
         """
@@ -219,11 +219,11 @@ class ListenerRuleActionFixedResponseArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionForwardArgs:
+calass ListenerRuleActionForwardArrgs:
     def __init__(__self__, *,
-                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]):
+                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArrgs']]] target_groups: The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
                
                The default value is 1 with maximum number of 2. If only one target group is provided, there is no need to set the weight; 100% of traffic will go to that target group.
         """
@@ -231,7 +231,7 @@ class ListenerRuleActionForwardArgs:
 
     @property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]:
+    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArrgs']]]:
         """
         The target groups. Traffic matching the rule is forwarded to the specified target groups. With forward actions, you can assign a weight that controls the prioritization and selection of each target group. This means that requests are distributed to individual target groups based on their weights. For example, if two target groups have the same weight, each target group receives half of the traffic.
 
@@ -240,12 +240,12 @@ class ListenerRuleActionForwardArgs:
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]):
+    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArrgs']]]):
         pulumi.set(self, "target_groups", value)
 
 
 @pulumi.input_type
-class ListenerRuleActionForwardTargetGroupArgs:
+calass ListenerRuleActionForwardTargetGroupArrgs:
     def __init__(__self__, *,
                  target_group_identifier: pulumi.Input[str],
                  weight: Optional[pulumi.Input[int]] = None):
@@ -273,38 +273,38 @@ class ListenerRuleActionForwardTargetGroupArgs:
 
 
 @pulumi.input_type
-class ListenerRuleMatchArgs:
+calass ListenerRuleMatchArrgs:
     def __init__(__self__, *,
-                 http_match: Optional[pulumi.Input['ListenerRuleMatchHttpMatchArgs']] = None):
+                 http_match: Optional[pulumi.Input['ListenerRuleMatchHttpMatchArrgs']] = None):
         """
-        :param pulumi.Input['ListenerRuleMatchHttpMatchArgs'] http_match: The HTTP criteria that a rule must match.
+        :param pulumi.Input['ListenerRuleMatchHttpMatchArrgs'] http_match: The HTTP criteria that a rule must match.
         """
         if http_match is not None:
             pulumi.set(__self__, "http_match", http_match)
 
     @property
     @pulumi.getter(name="httpMatch")
-    def http_match(self) -> Optional[pulumi.Input['ListenerRuleMatchHttpMatchArgs']]:
+    def http_match(self) -> Optional[pulumi.Input['ListenerRuleMatchHttpMatchArrgs']]:
         """
         The HTTP criteria that a rule must match.
         """
         return pulumi.get(self, "http_match")
 
     @http_match.setter
-    def http_match(self, value: Optional[pulumi.Input['ListenerRuleMatchHttpMatchArgs']]):
+    def http_match(self, value: Optional[pulumi.Input['ListenerRuleMatchHttpMatchArrgs']]):
         pulumi.set(self, "http_match", value)
 
 
 @pulumi.input_type
-class ListenerRuleMatchHttpMatchArgs:
+calass ListenerRuleMatchHttpMatchArrgs:
     def __init__(__self__, *,
-                 header_matches: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]]] = None,
+                 header_matches: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArrgs']]]] = None,
                  method: Optional[pulumi.Input[str]] = None,
-                 path_match: Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArgs']] = None):
+                 path_match: Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]] header_matches: The header matches. Matches incoming requests with rule based on request header value before applying rule action.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArrgs']]] header_matches: The header matches. Matches incoming requests with rule based on request header value before applying rule action.
         :param pulumi.Input[str] method: The HTTP method type.
-        :param pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArgs'] path_match: The path match.
+        :param pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArrgs'] path_match: The path match.
         """
         if header_matches is not None:
             pulumi.set(__self__, "header_matches", header_matches)
@@ -315,14 +315,14 @@ class ListenerRuleMatchHttpMatchArgs:
 
     @property
     @pulumi.getter(name="headerMatches")
-    def header_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]]]:
+    def header_matches(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArrgs']]]]:
         """
         The header matches. Matches incoming requests with rule based on request header value before applying rule action.
         """
         return pulumi.get(self, "header_matches")
 
     @header_matches.setter
-    def header_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArgs']]]]):
+    def header_matches(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchArrgs']]]]):
         pulumi.set(self, "header_matches", value)
 
     @property
@@ -339,25 +339,25 @@ class ListenerRuleMatchHttpMatchArgs:
 
     @property
     @pulumi.getter(name="pathMatch")
-    def path_match(self) -> Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArgs']]:
+    def path_match(self) -> Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArrgs']]:
         """
         The path match.
         """
         return pulumi.get(self, "path_match")
 
     @path_match.setter
-    def path_match(self, value: Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArgs']]):
+    def path_match(self, value: Optional[pulumi.Input['ListenerRuleMatchHttpMatchPathMatchArrgs']]):
         pulumi.set(self, "path_match", value)
 
 
 @pulumi.input_type
-class ListenerRuleMatchHttpMatchHeaderMatchArgs:
+calass ListenerRuleMatchHttpMatchHeaderMatchArrgs:
     def __init__(__self__, *,
-                 match: pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArgs'],
+                 match: pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArrgs'],
                  name: pulumi.Input[str],
                  case_sensitive: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArgs'] match: The header match type.
+        :param pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArrgs'] match: The header match type.
         :param pulumi.Input[str] name: The name of the header.
         :param pulumi.Input[bool] case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
         """
@@ -368,14 +368,14 @@ class ListenerRuleMatchHttpMatchHeaderMatchArgs:
 
     @property
     @pulumi.getter
-    def match(self) -> pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArgs']:
+    def match(self) -> pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArrgs']:
         """
         The header match type.
         """
         return pulumi.get(self, "match")
 
     @match.setter
-    def match(self, value: pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArgs']):
+    def match(self, value: pulumi.Input['ListenerRuleMatchHttpMatchHeaderMatchMatchArrgs']):
         pulumi.set(self, "match", value)
 
     @property
@@ -404,7 +404,7 @@ class ListenerRuleMatchHttpMatchHeaderMatchArgs:
 
 
 @pulumi.input_type
-class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs:
+calass ListenerRuleMatchHttpMatchHeaderMatchMatchArrgs:
     def __init__(__self__, *,
                  contains: Optional[pulumi.Input[str]] = None,
                  exact: Optional[pulumi.Input[str]] = None,
@@ -459,12 +459,12 @@ class ListenerRuleMatchHttpMatchHeaderMatchMatchArgs:
 
 
 @pulumi.input_type
-class ListenerRuleMatchHttpMatchPathMatchArgs:
+calass ListenerRuleMatchHttpMatchPathMatchArrgs:
     def __init__(__self__, *,
-                 match: pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArgs'],
+                 match: pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArrgs'],
                  case_sensitive: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArgs'] match: The header match type.
+        :param pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArrgs'] match: The header match type.
         :param pulumi.Input[bool] case_sensitive: Indicates whether the match is case sensitive. Defaults to false.
         """
         pulumi.set(__self__, "match", match)
@@ -473,14 +473,14 @@ class ListenerRuleMatchHttpMatchPathMatchArgs:
 
     @property
     @pulumi.getter
-    def match(self) -> pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArgs']:
+    def match(self) -> pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArrgs']:
         """
         The header match type.
         """
         return pulumi.get(self, "match")
 
     @match.setter
-    def match(self, value: pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArgs']):
+    def match(self, value: pulumi.Input['ListenerRuleMatchHttpMatchPathMatchMatchArrgs']):
         pulumi.set(self, "match", value)
 
     @property
@@ -497,7 +497,7 @@ class ListenerRuleMatchHttpMatchPathMatchArgs:
 
 
 @pulumi.input_type
-class ListenerRuleMatchHttpMatchPathMatchMatchArgs:
+calass ListenerRuleMatchHttpMatchPathMatchMatchArrgs:
     def __init__(__self__, *,
                  exact: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
@@ -536,7 +536,7 @@ class ListenerRuleMatchHttpMatchPathMatchMatchArgs:
 
 
 @pulumi.input_type
-class ServiceDnsEntryArgs:
+calass ServiceDnsEntryArrgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None):
@@ -565,7 +565,7 @@ class ServiceDnsEntryArgs:
 
 
 @pulumi.input_type
-class ServiceNetworkServiceAssociationDnsEntryArgs:
+calass ServiceNetworkServiceAssociationDnsEntryArrgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None):
@@ -604,7 +604,7 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
 
 
 @pulumi.input_type
-class TargetGroupAttachmentTargetArgs:
+calass TargetGroupAttachmentTargetArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  port: Optional[pulumi.Input[int]] = None):
@@ -642,9 +642,9 @@ class TargetGroupAttachmentTargetArgs:
 
 
 @pulumi.input_type
-class TargetGroupConfigArgs:
+calass TargetGroupConfigArrgs:
     def __init__(__self__, *,
-                 health_check: Optional[pulumi.Input['TargetGroupConfigHealthCheckArgs']] = None,
+                 health_check: Optional[pulumi.Input['TargetGroupConfigHealthCheckArrgs']] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_event_structure_version: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -652,7 +652,7 @@ class TargetGroupConfigArgs:
                  protocol_version: Optional[pulumi.Input[str]] = None,
                  vpc_identifier: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['TargetGroupConfigHealthCheckArgs'] health_check: The health check configuration.
+        :param pulumi.Input['TargetGroupConfigHealthCheckArrgs'] health_check: The health check configuration.
         :param pulumi.Input[str] ip_address_type: The type of IP address used for the target group. Valid values: `IPV4` | `IPV6`.
         :param pulumi.Input[str] lambda_event_structure_version: The version of the event structure that the Lambda function receives. Supported only if `type` is `LAMBDA`. Valid Values are `V1` | `V2`.
         :param pulumi.Input[int] port: The port on which the targets are listening.
@@ -677,14 +677,14 @@ class TargetGroupConfigArgs:
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> Optional[pulumi.Input['TargetGroupConfigHealthCheckArgs']]:
+    def health_check(self) -> Optional[pulumi.Input['TargetGroupConfigHealthCheckArrgs']]:
         """
         The health check configuration.
         """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
-    def health_check(self, value: Optional[pulumi.Input['TargetGroupConfigHealthCheckArgs']]):
+    def health_check(self, value: Optional[pulumi.Input['TargetGroupConfigHealthCheckArrgs']]):
         pulumi.set(self, "health_check", value)
 
     @property
@@ -761,13 +761,13 @@ class TargetGroupConfigArgs:
 
 
 @pulumi.input_type
-class TargetGroupConfigHealthCheckArgs:
+calass TargetGroupConfigHealthCheckArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  health_check_interval_seconds: Optional[pulumi.Input[int]] = None,
                  health_check_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  healthy_threshold_count: Optional[pulumi.Input[int]] = None,
-                 matcher: Optional[pulumi.Input['TargetGroupConfigHealthCheckMatcherArgs']] = None,
+                 matcher: Optional[pulumi.Input['TargetGroupConfigHealthCheckMatcherArrgs']] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -778,7 +778,7 @@ class TargetGroupConfigHealthCheckArgs:
         :param pulumi.Input[int] health_check_interval_seconds: The approximate amount of time, in seconds, between health checks of an individual target. The range is 5–300 seconds. The default is 30 seconds.
         :param pulumi.Input[int] health_check_timeout_seconds: The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is 1–120 seconds. The default is 5 seconds.
                * `healthy_threshold_count ` - (Optional) The number of consecutive successful health checks required before considering an unhealthy target healthy. The range is 2–10. The default is 5.
-        :param pulumi.Input['TargetGroupConfigHealthCheckMatcherArgs'] matcher: The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
+        :param pulumi.Input['TargetGroupConfigHealthCheckMatcherArrgs'] matcher: The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
         :param pulumi.Input[str] path: The destination for health checks on the targets. If the protocol version is HTTP/1.1 or HTTP/2, specify a valid URI (for example, /path?query). The default path is `/`. Health checks are not supported if the protocol version is gRPC, however, you can choose HTTP/1.1 or HTTP/2 and specify a valid URI.
         :param pulumi.Input[int] port: The port used when performing health checks on targets. The default setting is the port that a target receives traffic on.
         :param pulumi.Input[str] protocol: The protocol used when performing health checks on targets. The possible protocols are `HTTP` and `HTTPS`.
@@ -854,14 +854,14 @@ class TargetGroupConfigHealthCheckArgs:
 
     @property
     @pulumi.getter
-    def matcher(self) -> Optional[pulumi.Input['TargetGroupConfigHealthCheckMatcherArgs']]:
+    def matcher(self) -> Optional[pulumi.Input['TargetGroupConfigHealthCheckMatcherArrgs']]:
         """
         The codes to use when checking for a successful response from a target. These are called _Success codes_ in the console.
         """
         return pulumi.get(self, "matcher")
 
     @matcher.setter
-    def matcher(self, value: Optional[pulumi.Input['TargetGroupConfigHealthCheckMatcherArgs']]):
+    def matcher(self, value: Optional[pulumi.Input['TargetGroupConfigHealthCheckMatcherArrgs']]):
         pulumi.set(self, "matcher", value)
 
     @property
@@ -926,7 +926,7 @@ class TargetGroupConfigHealthCheckArgs:
 
 
 @pulumi.input_type
-class TargetGroupConfigHealthCheckMatcherArgs:
+calass TargetGroupConfigHealthCheckMatcherArrgs:
     def __init__(__self__, *,
                  value: Optional[pulumi.Input[str]] = None):
         """

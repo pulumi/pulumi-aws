@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServiceLinkedRoleArgs', 'ServiceLinkedRole']
+__all__ = ['ServiceLinkedRoleArrgs', 'ServiceLinkedRole']
 
 @pulumi.input_type
-class ServiceLinkedRoleArgs:
+calass ServiceLinkedRoleArrgs:
     def __init__(__self__, *,
                  aws_service_name: pulumi.Input[str],
                  custom_suffix: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class ServiceLinkedRoleArgs:
 
 
 @pulumi.input_type
-class _ServiceLinkedRoleState:
+calass _ServiceLinkedRoleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_service_name: Optional[pulumi.Input[str]] = None,
@@ -256,7 +256,7 @@ class _ServiceLinkedRoleState:
         pulumi.set(self, "unique_id", value)
 
 
-class ServiceLinkedRole(pulumi.CustomResource):
+calass ServiceLinkedRole(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -297,7 +297,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceLinkedRoleArgs,
+                 args: ServiceLinkedRoleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
@@ -320,12 +320,12 @@ class ServiceLinkedRole(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceLinkedRoleArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceLinkedRoleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceLinkedRoleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceLinkedRoleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -345,7 +345,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceLinkedRoleArgs.__new__(ServiceLinkedRoleArgs)
+            __props__ = ServiceLinkedRoleArrgs.__new__(ServiceLinkedRoleArrgs)
 
             if aws_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'aws_service_name'")

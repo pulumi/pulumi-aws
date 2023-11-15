@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BucketObjectLockConfigurationV2Args', 'BucketObjectLockConfigurationV2']
+__all__ = ['BucketObjectLockConfigurationV2Arrgs', 'BucketObjectLockConfigurationV2']
 
 @pulumi.input_type
-class BucketObjectLockConfigurationV2Args:
+calass BucketObjectLockConfigurationV2Arrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  object_lock_enabled: Optional[pulumi.Input[str]] = None,
-                 rule: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']] = None,
+                 rule: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArrgs']] = None,
                  token: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BucketObjectLockConfigurationV2 resource.
         :param pulumi.Input[str] bucket: Name of the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        :param pulumi.Input['BucketObjectLockConfigurationV2RuleArgs'] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
+        :param pulumi.Input['BucketObjectLockConfigurationV2RuleArrgs'] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
         :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
                The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
@@ -78,14 +78,14 @@ class BucketObjectLockConfigurationV2Args:
 
     @property
     @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']]:
+    def rule(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArrgs']]:
         """
         Configuration block for specifying the Object Lock rule for the specified object. See below.
         """
         return pulumi.get(self, "rule")
 
     @rule.setter
-    def rule(self, value: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']]):
+    def rule(self, value: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArrgs']]):
         pulumi.set(self, "rule", value)
 
     @property
@@ -103,19 +103,19 @@ class BucketObjectLockConfigurationV2Args:
 
 
 @pulumi.input_type
-class _BucketObjectLockConfigurationV2State:
+calass _BucketObjectLockConfigurationV2State:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  object_lock_enabled: Optional[pulumi.Input[str]] = None,
-                 rule: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']] = None,
+                 rule: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArrgs']] = None,
                  token: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BucketObjectLockConfigurationV2 resources.
         :param pulumi.Input[str] bucket: Name of the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        :param pulumi.Input['BucketObjectLockConfigurationV2RuleArgs'] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
+        :param pulumi.Input['BucketObjectLockConfigurationV2RuleArrgs'] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
         :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
                The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
@@ -168,14 +168,14 @@ class _BucketObjectLockConfigurationV2State:
 
     @property
     @pulumi.getter
-    def rule(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']]:
+    def rule(self) -> Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArrgs']]:
         """
         Configuration block for specifying the Object Lock rule for the specified object. See below.
         """
         return pulumi.get(self, "rule")
 
     @rule.setter
-    def rule(self, value: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArgs']]):
+    def rule(self, value: Optional[pulumi.Input['BucketObjectLockConfigurationV2RuleArrgs']]):
         pulumi.set(self, "rule", value)
 
     @property
@@ -192,7 +192,7 @@ class _BucketObjectLockConfigurationV2State:
         pulumi.set(self, "token", value)
 
 
-class BucketObjectLockConfigurationV2(pulumi.CustomResource):
+calass BucketObjectLockConfigurationV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -200,7 +200,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  object_lock_enabled: Optional[pulumi.Input[str]] = None,
-                 rule: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArgs']]] = None,
+                 rule: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArrgs']]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -220,8 +220,8 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", object_lock_enabled=True)
         example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
             bucket=example_bucket_v2.id,
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
+            rule=aws.s3.BucketObjectLockConfigurationV2RuleArrgs(
+                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArrgs(
                     mode="COMPLIANCE",
                     days=5,
                 ),
@@ -242,7 +242,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
             bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
+            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArrgs(
                 status="Enabled",
             ))
         ```
@@ -258,8 +258,8 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketObjectLockConfigurationV2("example",
             bucket=aws_s3_bucket["example"]["id"],
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
+            rule=aws.s3.BucketObjectLockConfigurationV2RuleArrgs(
+                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArrgs(
                     mode="COMPLIANCE",
                     days=5,
                 ),
@@ -296,7 +296,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArgs']] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
+        :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArrgs']] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
         :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
                The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """
@@ -304,7 +304,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BucketObjectLockConfigurationV2Args,
+                 args: BucketObjectLockConfigurationV2Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an S3 bucket Object Lock configuration resource. For more information about Object Locking, go to [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html) in the Amazon S3 User Guide.
@@ -323,8 +323,8 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", object_lock_enabled=True)
         example_bucket_object_lock_configuration_v2 = aws.s3.BucketObjectLockConfigurationV2("exampleBucketObjectLockConfigurationV2",
             bucket=example_bucket_v2.id,
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
+            rule=aws.s3.BucketObjectLockConfigurationV2RuleArrgs(
+                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArrgs(
                     mode="COMPLIANCE",
                     days=5,
                 ),
@@ -345,7 +345,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_bucket_versioning_v2 = aws.s3.BucketVersioningV2("exampleBucketVersioningV2",
             bucket=example_bucket_v2.id,
-            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArgs(
+            versioning_configuration=aws.s3.BucketVersioningV2VersioningConfigurationArrgs(
                 status="Enabled",
             ))
         ```
@@ -361,8 +361,8 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
 
         example = aws.s3.BucketObjectLockConfigurationV2("example",
             bucket=aws_s3_bucket["example"]["id"],
-            rule=aws.s3.BucketObjectLockConfigurationV2RuleArgs(
-                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArgs(
+            rule=aws.s3.BucketObjectLockConfigurationV2RuleArrgs(
+                default_retention=aws.s3.BucketObjectLockConfigurationV2RuleDefaultRetentionArrgs(
                     mode="COMPLIANCE",
                     days=5,
                 ),
@@ -395,12 +395,12 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BucketObjectLockConfigurationV2Args args: The arguments to use to populate this resource's properties.
+        :param BucketObjectLockConfigurationV2Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BucketObjectLockConfigurationV2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BucketObjectLockConfigurationV2Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -412,7 +412,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  object_lock_enabled: Optional[pulumi.Input[str]] = None,
-                 rule: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArgs']]] = None,
+                 rule: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArrgs']]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -421,7 +421,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BucketObjectLockConfigurationV2Args.__new__(BucketObjectLockConfigurationV2Args)
+            __props__ = BucketObjectLockConfigurationV2Arrgs.__new__(BucketObjectLockConfigurationV2Arrgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
@@ -445,7 +445,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
             bucket: Optional[pulumi.Input[str]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
             object_lock_enabled: Optional[pulumi.Input[str]] = None,
-            rule: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArgs']]] = None,
+            rule: Optional[pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArrgs']]] = None,
             token: Optional[pulumi.Input[str]] = None) -> 'BucketObjectLockConfigurationV2':
         """
         Get an existing BucketObjectLockConfigurationV2 resource's state with the given name, id, and optional extra
@@ -457,7 +457,7 @@ class BucketObjectLockConfigurationV2(pulumi.CustomResource):
         :param pulumi.Input[str] bucket: Name of the bucket.
         :param pulumi.Input[str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[str] object_lock_enabled: Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
-        :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArgs']] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
+        :param pulumi.Input[pulumi.InputType['BucketObjectLockConfigurationV2RuleArrgs']] rule: Configuration block for specifying the Object Lock rule for the specified object. See below.
         :param pulumi.Input[str] token: Token to allow Object Lock to be enabled for an existing bucket. You must contact AWS support for the bucket's "Object Lock token".
                The token is generated in the back-end when [versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/manage-versioning-examples.html) is enabled on a bucket. For more details on versioning, see the `s3.BucketVersioningV2` resource.
         """

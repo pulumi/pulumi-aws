@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RoleAliasArgs', 'RoleAlias']
+__all__ = ['RoleAliasArrgs', 'RoleAlias']
 
 @pulumi.input_type
-class RoleAliasArgs:
+calass RoleAliasArrgs:
     def __init__(__self__, *,
                  alias: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
@@ -66,7 +66,7 @@ class RoleAliasArgs:
 
 
 @pulumi.input_type
-class _RoleAliasState:
+calass _RoleAliasState:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _RoleAliasState:
         pulumi.set(self, "role_arn", value)
 
 
-class RoleAlias(pulumi.CustomResource):
+calass RoleAlias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,7 +167,7 @@ class RoleAlias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RoleAliasArgs,
+                 args: RoleAliasArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IoT role alias.
@@ -181,12 +181,12 @@ class RoleAlias(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RoleAliasArgs args: The arguments to use to populate this resource's properties.
+        :param RoleAliasArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RoleAliasArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RoleAliasArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -205,7 +205,7 @@ class RoleAlias(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RoleAliasArgs.__new__(RoleAliasArgs)
+            __props__ = RoleAliasArrgs.__new__(RoleAliasArrgs)
 
             if alias is None and not opts.urn:
                 raise TypeError("Missing required property 'alias'")

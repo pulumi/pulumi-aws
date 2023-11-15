@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterClusterNodeArgs',
-    'ClusterLoggingArgs',
-    'ClusterSnapshotCopyArgs',
-    'EndpointAccessVpcEndpointArgs',
-    'EndpointAccessVpcEndpointNetworkInterfaceArgs',
-    'ParameterGroupParameterArgs',
-    'ScheduledActionTargetActionArgs',
-    'ScheduledActionTargetActionPauseClusterArgs',
-    'ScheduledActionTargetActionResizeClusterArgs',
-    'ScheduledActionTargetActionResumeClusterArgs',
+    'ClusterClusterNodeArrgs',
+    'ClusterLoggingArrgs',
+    'ClusterSnapshotCopyArrgs',
+    'EndpointAccessVpcEndpointArrgs',
+    'EndpointAccessVpcEndpointNetworkInterfaceArrgs',
+    'ParameterGroupParameterArrgs',
+    'ScheduledActionTargetActionArrgs',
+    'ScheduledActionTargetActionPauseClusterArrgs',
+    'ScheduledActionTargetActionResizeClusterArrgs',
+    'ScheduledActionTargetActionResumeClusterArrgs',
 ]
 
 @pulumi.input_type
-class ClusterClusterNodeArgs:
+calass ClusterClusterNodeArrgs:
     def __init__(__self__, *,
                  node_role: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -78,7 +78,7 @@ class ClusterClusterNodeArgs:
 
 
 @pulumi.input_type
-class ClusterLoggingArgs:
+calass ClusterLoggingArrgs:
     def __init__(__self__, *,
                  enable: pulumi.Input[bool],
                  bucket_name: Optional[pulumi.Input[str]] = None,
@@ -166,7 +166,7 @@ class ClusterLoggingArgs:
 
 
 @pulumi.input_type
-class ClusterSnapshotCopyArgs:
+calass ClusterSnapshotCopyArrgs:
     def __init__(__self__, *,
                  destination_region: pulumi.Input[str],
                  grant_name: Optional[pulumi.Input[str]] = None,
@@ -220,13 +220,13 @@ class ClusterSnapshotCopyArgs:
 
 
 @pulumi.input_type
-class EndpointAccessVpcEndpointArgs:
+calass EndpointAccessVpcEndpointArrgs:
     def __init__(__self__, *,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArrgs']]]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArrgs']]] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
         :param pulumi.Input[str] vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
         :param pulumi.Input[str] vpc_id: The VPC identifier that the endpoint is associated.
         """
@@ -239,14 +239,14 @@ class EndpointAccessVpcEndpointArgs:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArrgs']]]]:
         """
         One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArrgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @property
@@ -275,7 +275,7 @@ class EndpointAccessVpcEndpointArgs:
 
 
 @pulumi.input_type
-class EndpointAccessVpcEndpointNetworkInterfaceArgs:
+calass EndpointAccessVpcEndpointNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
@@ -346,7 +346,7 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class ParameterGroupParameterArgs:
+calass ParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -383,15 +383,15 @@ class ParameterGroupParameterArgs:
 
 
 @pulumi.input_type
-class ScheduledActionTargetActionArgs:
+calass ScheduledActionTargetActionArrgs:
     def __init__(__self__, *,
-                 pause_cluster: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']] = None,
-                 resize_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']] = None,
-                 resume_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']] = None):
+                 pause_cluster: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArrgs']] = None,
+                 resize_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArrgs']] = None,
+                 resume_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArrgs']] = None):
         """
-        :param pulumi.Input['ScheduledActionTargetActionPauseClusterArgs'] pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
-        :param pulumi.Input['ScheduledActionTargetActionResizeClusterArgs'] resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
-        :param pulumi.Input['ScheduledActionTargetActionResumeClusterArgs'] resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionPauseClusterArrgs'] pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionResizeClusterArrgs'] resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionResumeClusterArrgs'] resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
         """
         if pause_cluster is not None:
             pulumi.set(__self__, "pause_cluster", pause_cluster)
@@ -402,43 +402,43 @@ class ScheduledActionTargetActionArgs:
 
     @property
     @pulumi.getter(name="pauseCluster")
-    def pause_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']]:
+    def pause_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArrgs']]:
         """
         An action that runs a `PauseCluster` API operation. Documented below.
         """
         return pulumi.get(self, "pause_cluster")
 
     @pause_cluster.setter
-    def pause_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']]):
+    def pause_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArrgs']]):
         pulumi.set(self, "pause_cluster", value)
 
     @property
     @pulumi.getter(name="resizeCluster")
-    def resize_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']]:
+    def resize_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArrgs']]:
         """
         An action that runs a `ResizeCluster` API operation. Documented below.
         """
         return pulumi.get(self, "resize_cluster")
 
     @resize_cluster.setter
-    def resize_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']]):
+    def resize_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArrgs']]):
         pulumi.set(self, "resize_cluster", value)
 
     @property
     @pulumi.getter(name="resumeCluster")
-    def resume_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']]:
+    def resume_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArrgs']]:
         """
         An action that runs a `ResumeCluster` API operation. Documented below.
         """
         return pulumi.get(self, "resume_cluster")
 
     @resume_cluster.setter
-    def resume_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']]):
+    def resume_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArrgs']]):
         pulumi.set(self, "resume_cluster", value)
 
 
 @pulumi.input_type
-class ScheduledActionTargetActionPauseClusterArgs:
+calass ScheduledActionTargetActionPauseClusterArrgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str]):
         """
@@ -460,7 +460,7 @@ class ScheduledActionTargetActionPauseClusterArgs:
 
 
 @pulumi.input_type
-class ScheduledActionTargetActionResizeClusterArgs:
+calass ScheduledActionTargetActionResizeClusterArrgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str],
                  classic: Optional[pulumi.Input[bool]] = None,
@@ -546,7 +546,7 @@ class ScheduledActionTargetActionResizeClusterArgs:
 
 
 @pulumi.input_type
-class ScheduledActionTargetActionResumeClusterArgs:
+calass ScheduledActionTargetActionResumeClusterArrgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str]):
         """

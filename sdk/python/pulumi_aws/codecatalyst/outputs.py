@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DevEnvironmentIdes(dict):
+calass DevEnvironmentIdes(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  runtime: Optional[str] = None):
@@ -50,7 +50,7 @@ class DevEnvironmentIdes(dict):
 
 
 @pulumi.output_type
-class DevEnvironmentPersistentStorage(dict):
+calass DevEnvironmentPersistentStorage(dict):
     def __init__(__self__, *,
                  size: int):
         """
@@ -68,7 +68,7 @@ class DevEnvironmentPersistentStorage(dict):
 
 
 @pulumi.output_type
-class DevEnvironmentRepository(dict):
+calass DevEnvironmentRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -121,7 +121,7 @@ class DevEnvironmentRepository(dict):
 
 
 @pulumi.output_type
-class GetDevEnvironmentIdeResult(dict):
+calass GetDevEnvironmentIdeResult(dict):
     def __init__(__self__, *,
                  name: str,
                  runtime: str):
@@ -140,7 +140,7 @@ class GetDevEnvironmentIdeResult(dict):
 
 
 @pulumi.output_type
-class GetDevEnvironmentPersistentStorageResult(dict):
+calass GetDevEnvironmentPersistentStorageResult(dict):
     def __init__(__self__, *,
                  size: int):
         pulumi.set(__self__, "size", size)
@@ -152,7 +152,7 @@ class GetDevEnvironmentPersistentStorageResult(dict):
 
 
 @pulumi.output_type
-class GetDevEnvironmentRepositoryResult(dict):
+calass GetDevEnvironmentRepositoryResult(dict):
     def __init__(__self__, *,
                  branch_name: str,
                  repository_name: str):

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RedriveAllowPolicyArgs', 'RedriveAllowPolicy']
+__all__ = ['RedriveAllowPolicyArrgs', 'RedriveAllowPolicy']
 
 @pulumi.input_type
-class RedriveAllowPolicyArgs:
+calass RedriveAllowPolicyArrgs:
     def __init__(__self__, *,
                  queue_url: pulumi.Input[str],
                  redrive_allow_policy: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class RedriveAllowPolicyArgs:
 
 
 @pulumi.input_type
-class _RedriveAllowPolicyState:
+calass _RedriveAllowPolicyState:
     def __init__(__self__, *,
                  queue_url: Optional[pulumi.Input[str]] = None,
                  redrive_allow_policy: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _RedriveAllowPolicyState:
         pulumi.set(self, "redrive_allow_policy", value)
 
 
-class RedriveAllowPolicy(pulumi.CustomResource):
+calass RedriveAllowPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -137,7 +137,7 @@ class RedriveAllowPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RedriveAllowPolicyArgs,
+                 args: RedriveAllowPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SQS Queue Redrive Allow Policy resource.
@@ -171,12 +171,12 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RedriveAllowPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param RedriveAllowPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RedriveAllowPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RedriveAllowPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -194,7 +194,7 @@ class RedriveAllowPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RedriveAllowPolicyArgs.__new__(RedriveAllowPolicyArgs)
+            __props__ = RedriveAllowPolicyArrgs.__new__(RedriveAllowPolicyArrgs)
 
             if queue_url is None and not opts.urn:
                 raise TypeError("Missing required property 'queue_url'")

@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterClusterEndpoint(dict):
+calass ClusterClusterEndpoint(dict):
     def __init__(__self__, *,
                  endpoint: Optional[str] = None,
                  region: Optional[str] = None):
@@ -46,7 +46,7 @@ class ClusterClusterEndpoint(dict):
 
 
 @pulumi.output_type
-class SafetyRuleRuleConfig(dict):
+calass SafetyRuleRuleConfig(dict):
     def __init__(__self__, *,
                  inverted: bool,
                  threshold: int,

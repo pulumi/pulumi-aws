@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBotResult:
+calass GetBotResult:
     """
     A collection of values returned by getBot.
     """
@@ -211,7 +211,7 @@ class GetBotResult:
         return pulumi.get(self, "voice_id")
 
 
-class AwaitableGetBotResult(GetBotResult):
+calass AwaitableGetBotResult(GetBotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

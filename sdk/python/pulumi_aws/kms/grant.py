@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GrantArgs', 'Grant']
+__all__ = ['GrantArrgs', 'Grant']
 
 @pulumi.input_type
-class GrantArgs:
+calass GrantArrgs:
     def __init__(__self__, *,
                  grantee_principal: pulumi.Input[str],
                  key_id: pulumi.Input[str],
                  operations: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
+                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArrgs']]]] = None,
                  grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  retire_on_delete: Optional[pulumi.Input[bool]] = None,
@@ -29,7 +29,7 @@ class GrantArgs:
         :param pulumi.Input[str] grantee_principal: The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         :param pulumi.Input[str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] operations: A list of operations that the grant permits. The permitted values are: `Decrypt`, `Encrypt`, `GenerateDataKey`, `GenerateDataKeyWithoutPlaintext`, `ReEncryptFrom`, `ReEncryptTo`, `Sign`, `Verify`, `GetPublicKey`, `CreateGrant`, `RetireGrant`, `DescribeKey`, `GenerateDataKeyPair`, or `GenerateDataKeyPairWithoutPlaintext`.
-        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArrgs']]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         :param pulumi.Input[str] name: A friendly name for identifying the grant.
         :param pulumi.Input[bool] retire_on_delete: If set to false (the default) the grants will be revoked upon deletion, and if set to true the grants will try to be retired upon deletion. Note that retiring grants requires special permissions, hence why we default to revoking grants.
@@ -88,14 +88,14 @@ class GrantArgs:
 
     @property
     @pulumi.getter
-    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
+    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArrgs']]]]:
         """
         A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
-    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]):
+    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArrgs']]]]):
         pulumi.set(self, "constraints", value)
 
     @property
@@ -149,9 +149,9 @@ class GrantArgs:
 
 
 @pulumi.input_type
-class _GrantState:
+calass _GrantState:
     def __init__(__self__, *,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]] = None,
+                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArrgs']]]] = None,
                  grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  grant_id: Optional[pulumi.Input[str]] = None,
                  grant_token: Optional[pulumi.Input[str]] = None,
@@ -163,7 +163,7 @@ class _GrantState:
                  retiring_principal: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Grant resources.
-        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        :param pulumi.Input[Sequence[pulumi.Input['GrantConstraintArrgs']]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         :param pulumi.Input[str] grant_id: The unique identifier for the grant.
         :param pulumi.Input[str] grant_token: The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).
@@ -198,14 +198,14 @@ class _GrantState:
 
     @property
     @pulumi.getter
-    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]:
+    def constraints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArrgs']]]]:
         """
         A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         """
         return pulumi.get(self, "constraints")
 
     @constraints.setter
-    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArgs']]]]):
+    def constraints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GrantConstraintArrgs']]]]):
         pulumi.set(self, "constraints", value)
 
     @property
@@ -318,12 +318,12 @@ class _GrantState:
         pulumi.set(self, "retiring_principal", value)
 
 
-class Grant(pulumi.CustomResource):
+calass Grant(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArgs']]]]] = None,
+                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArrgs']]]]] = None,
                  grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  grantee_principal: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
@@ -345,7 +345,7 @@ class Grant(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArgs']]]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArrgs']]]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         :param pulumi.Input[str] grantee_principal: The principal that is given permission to perform the operations that the grant permits in ARN format. Note that due to eventual consistency issues around IAM principals, the providers's state may not always be refreshed to reflect what is true in AWS.
         :param pulumi.Input[str] key_id: The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.
@@ -359,7 +359,7 @@ class Grant(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GrantArgs,
+                 args: GrantArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource-based access control mechanism for a KMS customer master key.
@@ -373,12 +373,12 @@ class Grant(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GrantArgs args: The arguments to use to populate this resource's properties.
+        :param GrantArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GrantArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GrantArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -387,7 +387,7 @@ class Grant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArgs']]]]] = None,
+                 constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArrgs']]]]] = None,
                  grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  grantee_principal: Optional[pulumi.Input[str]] = None,
                  key_id: Optional[pulumi.Input[str]] = None,
@@ -402,7 +402,7 @@ class Grant(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GrantArgs.__new__(GrantArgs)
+            __props__ = GrantArrgs.__new__(GrantArrgs)
 
             __props__.__dict__["constraints"] = constraints
             __props__.__dict__["grant_creation_tokens"] = grant_creation_tokens
@@ -430,7 +430,7 @@ class Grant(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArgs']]]]] = None,
+            constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArrgs']]]]] = None,
             grant_creation_tokens: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             grant_id: Optional[pulumi.Input[str]] = None,
             grant_token: Optional[pulumi.Input[str]] = None,
@@ -447,7 +447,7 @@ class Grant(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArgs']]]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GrantConstraintArrgs']]]] constraints: A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see [Encryption Context](http://docs.aws.amazon.com/kms/latest/developerguide/encryption-context.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] grant_creation_tokens: A list of grant tokens to be used when creating the grant. See [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token) for more information about grant tokens.
         :param pulumi.Input[str] grant_id: The unique identifier for the grant.
         :param pulumi.Input[str] grant_token: The grant token for the created grant. For more information, see [Grant Tokens](http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token).

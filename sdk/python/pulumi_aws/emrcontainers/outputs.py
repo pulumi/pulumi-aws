@@ -30,7 +30,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class JobTemplateJobTemplateData(dict):
+calass JobTemplateJobTemplateData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -64,9 +64,9 @@ class JobTemplateJobTemplateData(dict):
                  job_tags: Optional[Mapping[str, str]] = None):
         """
         :param str execution_role_arn: The execution role ARN of the job run.
-        :param 'JobTemplateJobTemplateDataJobDriverArgs' job_driver: Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
+        :param 'JobTemplateJobTemplateDataJobDriverArrgs' job_driver: Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
         :param str release_label: The release version of Amazon EMR.
-        :param 'JobTemplateJobTemplateDataConfigurationOverridesArgs' configuration_overrides: The configuration settings that are used to override defaults configuration.
+        :param 'JobTemplateJobTemplateDataConfigurationOverridesArrgs' configuration_overrides: The configuration settings that are used to override defaults configuration.
         :param Mapping[str, str] job_tags: The tags assigned to jobs started using the job template.
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -119,7 +119,7 @@ class JobTemplateJobTemplateData(dict):
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataConfigurationOverrides(dict):
+calass JobTemplateJobTemplateDataConfigurationOverrides(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -143,8 +143,8 @@ class JobTemplateJobTemplateDataConfigurationOverrides(dict):
                  application_configurations: Optional[Sequence['outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration']] = None,
                  monitoring_configuration: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration'] = None):
         """
-        :param Sequence['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs'] application_configurations: The configurations for the application running by the job run.
-        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs' monitoring_configuration: The configurations for monitoring.
+        :param Sequence['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrgs'] application_configurations: The configurations for the application running by the job run.
+        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArrgs' monitoring_configuration: The configurations for monitoring.
         """
         if application_configurations is not None:
             pulumi.set(__self__, "application_configurations", application_configurations)
@@ -169,14 +169,14 @@ class JobTemplateJobTemplateDataConfigurationOverrides(dict):
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration(dict):
+calass JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration(dict):
     def __init__(__self__, *,
                  classification: str,
                  configurations: Optional[Sequence['outputs.JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration']] = None,
                  properties: Optional[Mapping[str, str]] = None):
         """
         :param str classification: The classification within a configuration.
-        :param Sequence['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs'] configurations: A list of additional configurations to apply within a configuration object.
+        :param Sequence['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrgs'] configurations: A list of additional configurations to apply within a configuration object.
         :param Mapping[str, str] properties: A set of properties specified within a configuration classification.
         """
         pulumi.set(__self__, "classification", classification)
@@ -211,7 +211,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfiguration(d
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration(dict):
+calass JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfiguration(dict):
     def __init__(__self__, *,
                  classification: Optional[str] = None,
                  properties: Optional[Mapping[str, str]] = None):
@@ -242,7 +242,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration(dict):
+calass JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -269,9 +269,9 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration(di
                  persistent_app_ui: Optional[str] = None,
                  s3_monitoring_configuration: Optional['outputs.JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration'] = None):
         """
-        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs' cloud_watch_monitoring_configuration: Monitoring configurations for CloudWatch.
+        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArrgs' cloud_watch_monitoring_configuration: Monitoring configurations for CloudWatch.
         :param str persistent_app_ui: Monitoring configurations for the persistent application UI.
-        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs' s3_monitoring_configuration: Amazon S3 configuration for monitoring log publishing.
+        :param 'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArrgs' s3_monitoring_configuration: Amazon S3 configuration for monitoring log publishing.
         """
         if cloud_watch_monitoring_configuration is not None:
             pulumi.set(__self__, "cloud_watch_monitoring_configuration", cloud_watch_monitoring_configuration)
@@ -306,7 +306,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfiguration(di
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration(dict):
+calass JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -355,7 +355,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationClo
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration(dict):
+calass JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -390,7 +390,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3M
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataJobDriver(dict):
+calass JobTemplateJobTemplateDataJobDriver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -414,8 +414,8 @@ class JobTemplateJobTemplateDataJobDriver(dict):
                  spark_sql_job_driver: Optional['outputs.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver'] = None,
                  spark_submit_job_driver: Optional['outputs.JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver'] = None):
         """
-        :param 'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs' spark_sql_job_driver: The job driver for job type.
-        :param 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs' spark_submit_job_driver: The job driver parameters specified for spark submit.
+        :param 'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs' spark_sql_job_driver: The job driver for job type.
+        :param 'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArrgs' spark_submit_job_driver: The job driver parameters specified for spark submit.
         """
         if spark_sql_job_driver is not None:
             pulumi.set(__self__, "spark_sql_job_driver", spark_sql_job_driver)
@@ -440,7 +440,7 @@ class JobTemplateJobTemplateDataJobDriver(dict):
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver(dict):
+calass JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -490,7 +490,7 @@ class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriver(dict):
 
 
 @pulumi.output_type
-class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver(dict):
+calass JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -553,14 +553,14 @@ class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriver(dict):
 
 
 @pulumi.output_type
-class VirtualClusterContainerProvider(dict):
+calass VirtualClusterContainerProvider(dict):
     def __init__(__self__, *,
                  id: str,
                  info: 'outputs.VirtualClusterContainerProviderInfo',
                  type: str):
         """
         :param str id: The name of the container provider that is running your EMR Containers cluster
-        :param 'VirtualClusterContainerProviderInfoArgs' info: Nested list containing information about the configuration of the container provider
+        :param 'VirtualClusterContainerProviderInfoArrgs' info: Nested list containing information about the configuration of the container provider
         :param str type: The type of the container provider
         """
         pulumi.set(__self__, "id", id)
@@ -593,7 +593,7 @@ class VirtualClusterContainerProvider(dict):
 
 
 @pulumi.output_type
-class VirtualClusterContainerProviderInfo(dict):
+calass VirtualClusterContainerProviderInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -614,7 +614,7 @@ class VirtualClusterContainerProviderInfo(dict):
     def __init__(__self__, *,
                  eks_info: 'outputs.VirtualClusterContainerProviderInfoEksInfo'):
         """
-        :param 'VirtualClusterContainerProviderInfoEksInfoArgs' eks_info: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
+        :param 'VirtualClusterContainerProviderInfoEksInfoArrgs' eks_info: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
         """
         pulumi.set(__self__, "eks_info", eks_info)
 
@@ -628,7 +628,7 @@ class VirtualClusterContainerProviderInfo(dict):
 
 
 @pulumi.output_type
-class VirtualClusterContainerProviderInfoEksInfo(dict):
+calass VirtualClusterContainerProviderInfoEksInfo(dict):
     def __init__(__self__, *,
                  namespace: Optional[str] = None):
         """
@@ -647,14 +647,14 @@ class VirtualClusterContainerProviderInfoEksInfo(dict):
 
 
 @pulumi.output_type
-class GetVirtualClusterContainerProviderResult(dict):
+calass GetVirtualClusterContainerProviderResult(dict):
     def __init__(__self__, *,
                  id: str,
                  infos: Sequence['outputs.GetVirtualClusterContainerProviderInfoResult'],
                  type: str):
         """
         :param str id: The name of the container provider that is running your EMR Containers cluster
-        :param Sequence['GetVirtualClusterContainerProviderInfoArgs'] infos: Nested list containing information about the configuration of the container provider
+        :param Sequence['GetVirtualClusterContainerProviderInfoArrgs'] infos: Nested list containing information about the configuration of the container provider
         :param str type: The type of the container provider
         """
         pulumi.set(__self__, "id", id)
@@ -687,11 +687,11 @@ class GetVirtualClusterContainerProviderResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualClusterContainerProviderInfoResult(dict):
+calass GetVirtualClusterContainerProviderInfoResult(dict):
     def __init__(__self__, *,
                  eks_infos: Sequence['outputs.GetVirtualClusterContainerProviderInfoEksInfoResult']):
         """
-        :param Sequence['GetVirtualClusterContainerProviderInfoEksInfoArgs'] eks_infos: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
+        :param Sequence['GetVirtualClusterContainerProviderInfoEksInfoArrgs'] eks_infos: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
         """
         pulumi.set(__self__, "eks_infos", eks_infos)
 
@@ -705,7 +705,7 @@ class GetVirtualClusterContainerProviderInfoResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualClusterContainerProviderInfoEksInfoResult(dict):
+calass GetVirtualClusterContainerProviderInfoEksInfoResult(dict):
     def __init__(__self__, *,
                  namespace: str):
         """

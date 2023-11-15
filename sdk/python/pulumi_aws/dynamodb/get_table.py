@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTableResult:
+calass GetTableResult:
     """
     A collection of values returned by getTable.
     """
@@ -205,7 +205,7 @@ class GetTableResult:
         return pulumi.get(self, "write_capacity")
 
 
-class AwaitableGetTableResult(GetTableResult):
+calass AwaitableGetTableResult(GetTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -236,7 +236,7 @@ class AwaitableGetTableResult(GetTableResult):
 
 
 def get_table(name: Optional[str] = None,
-              server_side_encryption: Optional[pulumi.InputType['GetTableServerSideEncryptionArgs']] = None,
+              server_side_encryption: Optional[pulumi.InputType['GetTableServerSideEncryptionArrgs']] = None,
               tags: Optional[Mapping[str, str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
@@ -288,7 +288,7 @@ def get_table(name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_table)
 def get_table_output(name: Optional[pulumi.Input[str]] = None,
-                     server_side_encryption: Optional[pulumi.Input[Optional[pulumi.InputType['GetTableServerSideEncryptionArgs']]]] = None,
+                     server_side_encryption: Optional[pulumi.Input[Optional[pulumi.InputType['GetTableServerSideEncryptionArrgs']]]] = None,
                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """

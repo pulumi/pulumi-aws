@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ServiceDnsConfigArgs',
-    'ServiceDnsConfigDnsRecordArgs',
-    'ServiceHealthCheckConfigArgs',
-    'ServiceHealthCheckCustomConfigArgs',
+    'ServiceDnsConfigArrgs',
+    'ServiceDnsConfigDnsRecordArrgs',
+    'ServiceHealthCheckConfigArrgs',
+    'ServiceHealthCheckCustomConfigArrgs',
 ]
 
 @pulumi.input_type
-class ServiceDnsConfigArgs:
+calass ServiceDnsConfigArrgs:
     def __init__(__self__, *,
-                 dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgs']]],
+                 dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArrgs']]],
                  namespace_id: pulumi.Input[str],
                  routing_policy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgs']]] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArrgs']]] dns_records: An array that contains one DnsRecord object for each resource record set.
         :param pulumi.Input[str] namespace_id: The ID of the namespace to use for DNS configuration.
         :param pulumi.Input[str] routing_policy: The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         """
@@ -34,14 +34,14 @@ class ServiceDnsConfigArgs:
 
     @property
     @pulumi.getter(name="dnsRecords")
-    def dns_records(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgs']]]:
+    def dns_records(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArrgs']]]:
         """
         An array that contains one DnsRecord object for each resource record set.
         """
         return pulumi.get(self, "dns_records")
 
     @dns_records.setter
-    def dns_records(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgs']]]):
+    def dns_records(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArrgs']]]):
         pulumi.set(self, "dns_records", value)
 
     @property
@@ -70,7 +70,7 @@ class ServiceDnsConfigArgs:
 
 
 @pulumi.input_type
-class ServiceDnsConfigDnsRecordArgs:
+calass ServiceDnsConfigDnsRecordArrgs:
     def __init__(__self__, *,
                  ttl: pulumi.Input[int],
                  type: pulumi.Input[str]):
@@ -107,7 +107,7 @@ class ServiceDnsConfigDnsRecordArgs:
 
 
 @pulumi.input_type
-class ServiceHealthCheckConfigArgs:
+calass ServiceHealthCheckConfigArrgs:
     def __init__(__self__, *,
                  failure_threshold: Optional[pulumi.Input[int]] = None,
                  resource_path: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class ServiceHealthCheckConfigArgs:
 
 
 @pulumi.input_type
-class ServiceHealthCheckCustomConfigArgs:
+calass ServiceHealthCheckCustomConfigArrgs:
     def __init__(__self__, *,
                  failure_threshold: Optional[pulumi.Input[int]] = None):
         """

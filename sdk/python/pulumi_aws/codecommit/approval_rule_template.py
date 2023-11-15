@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApprovalRuleTemplateArgs', 'ApprovalRuleTemplate']
+__all__ = ['ApprovalRuleTemplateArrgs', 'ApprovalRuleTemplate']
 
 @pulumi.input_type
-class ApprovalRuleTemplateArgs:
+calass ApprovalRuleTemplateArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class ApprovalRuleTemplateArgs:
 
 
 @pulumi.input_type
-class _ApprovalRuleTemplateState:
+calass _ApprovalRuleTemplateState:
     def __init__(__self__, *,
                  approval_rule_template_id: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class _ApprovalRuleTemplateState:
         pulumi.set(self, "rule_content_sha256", value)
 
 
-class ApprovalRuleTemplate(pulumi.CustomResource):
+calass ApprovalRuleTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -252,7 +252,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApprovalRuleTemplateArgs,
+                 args: ApprovalRuleTemplateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeCommit Approval Rule Template Resource.
@@ -286,12 +286,12 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApprovalRuleTemplateArgs args: The arguments to use to populate this resource's properties.
+        :param ApprovalRuleTemplateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApprovalRuleTemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApprovalRuleTemplateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -310,7 +310,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApprovalRuleTemplateArgs.__new__(ApprovalRuleTemplateArgs)
+            __props__ = ApprovalRuleTemplateArrgs.__new__(ApprovalRuleTemplateArrgs)
 
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")

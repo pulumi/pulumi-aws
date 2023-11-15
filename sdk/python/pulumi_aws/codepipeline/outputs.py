@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CustomActionTypeConfigurationProperty(dict):
+calass CustomActionTypeConfigurationProperty(dict):
     def __init__(__self__, *,
                  key: bool,
                  name: str,
@@ -111,7 +111,7 @@ class CustomActionTypeConfigurationProperty(dict):
 
 
 @pulumi.output_type
-class CustomActionTypeInputArtifactDetails(dict):
+calass CustomActionTypeInputArtifactDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -159,7 +159,7 @@ class CustomActionTypeInputArtifactDetails(dict):
 
 
 @pulumi.output_type
-class CustomActionTypeOutputArtifactDetails(dict):
+calass CustomActionTypeOutputArtifactDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -207,7 +207,7 @@ class CustomActionTypeOutputArtifactDetails(dict):
 
 
 @pulumi.output_type
-class CustomActionTypeSettings(dict):
+calass CustomActionTypeSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -285,7 +285,7 @@ class CustomActionTypeSettings(dict):
 
 
 @pulumi.output_type
-class PipelineArtifactStore(dict):
+calass PipelineArtifactStore(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -311,7 +311,7 @@ class PipelineArtifactStore(dict):
         """
         :param str location: The location where AWS CodePipeline stores artifacts for a pipeline; currently only `S3` is supported.
         :param str type: The type of the artifact store, such as Amazon S3
-        :param 'PipelineArtifactStoreEncryptionKeyArgs' encryption_key: The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
+        :param 'PipelineArtifactStoreEncryptionKeyArrgs' encryption_key: The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryption_key` block is documented below.
         :param str region: The region where the artifact store is located. Required for a cross-region CodePipeline, do not provide for a single-region CodePipeline.
         """
         pulumi.set(__self__, "location", location)
@@ -355,7 +355,7 @@ class PipelineArtifactStore(dict):
 
 
 @pulumi.output_type
-class PipelineArtifactStoreEncryptionKey(dict):
+calass PipelineArtifactStoreEncryptionKey(dict):
     def __init__(__self__, *,
                  id: str,
                  type: str):
@@ -384,12 +384,12 @@ class PipelineArtifactStoreEncryptionKey(dict):
 
 
 @pulumi.output_type
-class PipelineStage(dict):
+calass PipelineStage(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.PipelineStageAction'],
                  name: str):
         """
-        :param Sequence['PipelineStageActionArgs'] actions: The action(s) to include in the stage. Defined as an `action` block below
+        :param Sequence['PipelineStageActionArrgs'] actions: The action(s) to include in the stage. Defined as an `action` block below
         :param str name: The name of the stage.
         """
         pulumi.set(__self__, "actions", actions)
@@ -413,7 +413,7 @@ class PipelineStage(dict):
 
 
 @pulumi.output_type
-class PipelineStageAction(dict):
+calass PipelineStageAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -586,7 +586,7 @@ class PipelineStageAction(dict):
 
 
 @pulumi.output_type
-class WebhookAuthenticationConfiguration(dict):
+calass WebhookAuthenticationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -636,7 +636,7 @@ class WebhookAuthenticationConfiguration(dict):
 
 
 @pulumi.output_type
-class WebhookFilter(dict):
+calass WebhookFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

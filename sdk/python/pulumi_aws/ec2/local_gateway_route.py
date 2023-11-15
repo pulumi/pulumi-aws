@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocalGatewayRouteArgs', 'LocalGatewayRoute']
+__all__ = ['LocalGatewayRouteArrgs', 'LocalGatewayRoute']
 
 @pulumi.input_type
-class LocalGatewayRouteArgs:
+calass LocalGatewayRouteArrgs:
     def __init__(__self__, *,
                  destination_cidr_block: pulumi.Input[str],
                  local_gateway_route_table_id: pulumi.Input[str],
@@ -65,7 +65,7 @@ class LocalGatewayRouteArgs:
 
 
 @pulumi.input_type
-class _LocalGatewayRouteState:
+calass _LocalGatewayRouteState:
     def __init__(__self__, *,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _LocalGatewayRouteState:
         pulumi.set(self, "local_gateway_virtual_interface_group_id", value)
 
 
-class LocalGatewayRoute(pulumi.CustomResource):
+calass LocalGatewayRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -162,7 +162,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalGatewayRouteArgs,
+                 args: LocalGatewayRouteArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Local Gateway Route. More information can be found in the [Outposts User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#routing).
@@ -188,12 +188,12 @@ class LocalGatewayRoute(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocalGatewayRouteArgs args: The arguments to use to populate this resource's properties.
+        :param LocalGatewayRouteArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalGatewayRouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalGatewayRouteArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -212,7 +212,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalGatewayRouteArgs.__new__(LocalGatewayRouteArgs)
+            __props__ = LocalGatewayRouteArrgs.__new__(LocalGatewayRouteArrgs)
 
             if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")

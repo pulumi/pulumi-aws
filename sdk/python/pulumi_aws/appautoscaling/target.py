@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TargetArgs', 'Target']
+__all__ = ['TargetArrgs', 'Target']
 
 @pulumi.input_type
-class TargetArgs:
+calass TargetArrgs:
     def __init__(__self__, *,
                  max_capacity: pulumi.Input[int],
                  min_capacity: pulumi.Input[int],
@@ -127,7 +127,7 @@ class TargetArgs:
 
 
 @pulumi.input_type
-class _TargetState:
+calass _TargetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
@@ -284,7 +284,7 @@ class _TargetState:
         pulumi.set(self, "tags_all", value)
 
 
-class Target(pulumi.CustomResource):
+calass Target(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -406,7 +406,7 @@ class Target(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TargetArgs,
+                 args: TargetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Application AutoScaling ScalableTarget resource. To manage policies which get attached to the target, see the `appautoscaling.Policy` resource.
@@ -504,12 +504,12 @@ class Target(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TargetArgs args: The arguments to use to populate this resource's properties.
+        :param TargetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TargetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -532,7 +532,7 @@ class Target(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TargetArgs.__new__(TargetArgs)
+            __props__ = TargetArrgs.__new__(TargetArrgs)
 
             if max_capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'max_capacity'")

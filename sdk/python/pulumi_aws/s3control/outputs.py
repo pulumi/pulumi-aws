@@ -51,7 +51,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BucketLifecycleConfigurationRule(dict):
+calass BucketLifecycleConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -77,9 +77,9 @@ class BucketLifecycleConfigurationRule(dict):
                  status: Optional[str] = None):
         """
         :param str id: Unique identifier for the rule.
-        :param 'BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs' abort_incomplete_multipart_upload: Configuration block containing settings for abort incomplete multipart upload.
-        :param 'BucketLifecycleConfigurationRuleExpirationArgs' expiration: Configuration block containing settings for expiration of objects.
-        :param 'BucketLifecycleConfigurationRuleFilterArgs' filter: Configuration block containing settings for filtering.
+        :param 'BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArrgs' abort_incomplete_multipart_upload: Configuration block containing settings for abort incomplete multipart upload.
+        :param 'BucketLifecycleConfigurationRuleExpirationArrgs' expiration: Configuration block containing settings for expiration of objects.
+        :param 'BucketLifecycleConfigurationRuleFilterArrgs' filter: Configuration block containing settings for filtering.
         :param str status: Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
         """
         pulumi.set(__self__, "id", id)
@@ -134,7 +134,7 @@ class BucketLifecycleConfigurationRule(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(dict):
+calass BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -169,7 +169,7 @@ class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUpload(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationRuleExpiration(dict):
+calass BucketLifecycleConfigurationRuleExpiration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -229,7 +229,7 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
 
 
 @pulumi.output_type
-class BucketLifecycleConfigurationRuleFilter(dict):
+calass BucketLifecycleConfigurationRuleFilter(dict):
     def __init__(__self__, *,
                  prefix: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None):
@@ -260,7 +260,7 @@ class BucketLifecycleConfigurationRuleFilter(dict):
 
 
 @pulumi.output_type
-class MultiRegionAccessPointDetails(dict):
+calass MultiRegionAccessPointDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -304,7 +304,7 @@ class MultiRegionAccessPointDetails(dict):
 
 
 @pulumi.output_type
-class MultiRegionAccessPointDetailsPublicAccessBlock(dict):
+calass MultiRegionAccessPointDetailsPublicAccessBlock(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -364,7 +364,7 @@ class MultiRegionAccessPointDetailsPublicAccessBlock(dict):
 
 
 @pulumi.output_type
-class MultiRegionAccessPointDetailsRegion(dict):
+calass MultiRegionAccessPointDetailsRegion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -409,7 +409,7 @@ class MultiRegionAccessPointDetailsRegion(dict):
 
 
 @pulumi.output_type
-class MultiRegionAccessPointPolicyDetails(dict):
+calass MultiRegionAccessPointPolicyDetails(dict):
     def __init__(__self__, *,
                  name: str,
                  policy: str):
@@ -442,7 +442,7 @@ class MultiRegionAccessPointPolicyDetails(dict):
 
 
 @pulumi.output_type
-class ObjectLambdaAccessPointConfiguration(dict):
+calass ObjectLambdaAccessPointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -473,7 +473,7 @@ class ObjectLambdaAccessPointConfiguration(dict):
                  cloud_watch_metrics_enabled: Optional[bool] = None):
         """
         :param str supporting_access_point: Standard access point associated with the Object Lambda Access Point.
-        :param Sequence['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs'] transformation_configurations: List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+        :param Sequence['ObjectLambdaAccessPointConfigurationTransformationConfigurationArrgs'] transformation_configurations: List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
         :param Sequence[str] allowed_features: Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
         :param bool cloud_watch_metrics_enabled: Whether or not the CloudWatch metrics configuration is enabled.
         """
@@ -518,7 +518,7 @@ class ObjectLambdaAccessPointConfiguration(dict):
 
 
 @pulumi.output_type
-class ObjectLambdaAccessPointConfigurationTransformationConfiguration(dict):
+calass ObjectLambdaAccessPointConfigurationTransformationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -541,7 +541,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfiguration(dict):
                  content_transformation: 'outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation'):
         """
         :param Sequence[str] actions: The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-        :param 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs' content_transformation: The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+        :param 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArrgs' content_transformation: The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "content_transformation", content_transformation)
@@ -564,7 +564,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfiguration(dict):
 
 
 @pulumi.output_type
-class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation(dict):
+calass ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -585,7 +585,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
     def __init__(__self__, *,
                  aws_lambda: 'outputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda'):
         """
-        :param 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs' aws_lambda: Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+        :param 'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArrgs' aws_lambda: Configuration for an AWS Lambda function. See AWS Lambda below for more details.
         """
         pulumi.set(__self__, "aws_lambda", aws_lambda)
 
@@ -599,7 +599,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
 
 
 @pulumi.output_type
-class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda(dict):
+calass ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -648,7 +648,7 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfiguration(dict):
+calass StorageLensConfigurationStorageLensConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -678,12 +678,12 @@ class StorageLensConfigurationStorageLensConfiguration(dict):
                  exclude: Optional['outputs.StorageLensConfigurationStorageLensConfigurationExclude'] = None,
                  include: Optional['outputs.StorageLensConfigurationStorageLensConfigurationInclude'] = None):
         """
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelArgs' account_level: The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelArrgs' account_level: The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
         :param bool enabled: Whether the S3 Storage Lens configuration is enabled.
-        :param 'StorageLensConfigurationStorageLensConfigurationAwsOrgArgs' aws_org: The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportArgs' data_export: Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationExcludeArgs' exclude: What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationIncludeArgs' include: What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAwsOrgArrgs' aws_org: The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportArrgs' data_export: Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationExcludeArrgs' exclude: What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationIncludeArrgs' include: What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
         """
         pulumi.set(__self__, "account_level", account_level)
         pulumi.set(__self__, "enabled", enabled)
@@ -746,7 +746,7 @@ class StorageLensConfigurationStorageLensConfiguration(dict):
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevel(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevel(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -779,11 +779,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevel(dict):
                  advanced_data_protection_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics'] = None,
                  detailed_status_code_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics'] = None):
         """
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs' bucket_level: S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs' activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs' advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs' advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs' detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArrgs' bucket_level: S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArrgs' activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArrgs' advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArrgs' advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArrgs' detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
         """
         pulumi.set(__self__, "bucket_level", bucket_level)
         if activity_metrics is not None:
@@ -837,7 +837,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevel(dict):
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -856,7 +856,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetric
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -875,7 +875,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOp
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -894,7 +894,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataPr
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -927,11 +927,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel(di
                  detailed_status_code_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics'] = None,
                  prefix_level: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel'] = None):
         """
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs' activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs' advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs' advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs' detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs' prefix_level: Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArrgs' activity_metrics: S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArrgs' advanced_cost_optimization_metrics: Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArrgs' advanced_data_protection_metrics: Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArrgs' detailed_status_code_metrics: Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArrgs' prefix_level: Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
         """
         if activity_metrics is not None:
             pulumi.set(__self__, "activity_metrics", activity_metrics)
@@ -986,7 +986,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevel(di
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -1005,7 +1005,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAct
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -1024,7 +1024,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdv
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -1043,7 +1043,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdv
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -1062,7 +1062,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDet
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevel(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1083,7 +1083,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
     def __init__(__self__, *,
                  storage_metrics: 'outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics'):
         """
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs' storage_metrics: Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArrgs' storage_metrics: Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
         """
         pulumi.set(__self__, "storage_metrics", storage_metrics)
 
@@ -1097,7 +1097,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetrics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1120,7 +1120,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
                  selection_criteria: Optional['outputs.StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria'] = None):
         """
         :param bool enabled: Whether prefix-level storage metrics are enabled.
-        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs' selection_criteria: Selection criteria. See Selection Criteria below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArrgs' selection_criteria: Selection criteria. See Selection Criteria below for more details.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1145,7 +1145,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1207,7 +1207,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetrics(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -1226,7 +1226,7 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatus
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationAwsOrg(dict):
+calass StorageLensConfigurationStorageLensConfigurationAwsOrg(dict):
     def __init__(__self__, *,
                  arn: str):
         """
@@ -1244,7 +1244,7 @@ class StorageLensConfigurationStorageLensConfigurationAwsOrg(dict):
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationDataExport(dict):
+calass StorageLensConfigurationStorageLensConfigurationDataExport(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1268,8 +1268,8 @@ class StorageLensConfigurationStorageLensConfigurationDataExport(dict):
                  cloud_watch_metrics: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics'] = None,
                  s3_bucket_destination: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination'] = None):
         """
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs' cloud_watch_metrics: Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs' s3_bucket_destination: The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArrgs' cloud_watch_metrics: Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArrgs' s3_bucket_destination: The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
         """
         if cloud_watch_metrics is not None:
             pulumi.set(__self__, "cloud_watch_metrics", cloud_watch_metrics)
@@ -1294,7 +1294,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExport(dict):
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics(dict):
+calass StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetrics(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -1312,7 +1312,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetric
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination(dict):
+calass StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1344,7 +1344,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
         :param str arn: The Amazon Resource Name (ARN) of the Amazon Web Services organization.
         :param str format: The export format. Valid values: `CSV`, `Parquet`.
         :param str output_schema_version: The schema version of the export file. Valid values: `V_1`.
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs' encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArrgs' encryption: Encryption of the metrics exports in this bucket. See Encryption below for more details.
         :param str prefix: The prefix of the destination bucket where the metrics export will be delivered.
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -1406,7 +1406,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption(dict):
+calass StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1430,8 +1430,8 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
                  sse_kms: Optional['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms'] = None,
                  sse_s3s: Optional[Sequence['outputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3']] = None):
         """
-        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs' sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
-        :param Sequence['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args'] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
+        :param 'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArrgs' sse_kms: SSE-KMS encryption. See SSE KMS below for more details.
+        :param Sequence['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Arrgs'] sse_s3s: SSE-S3 encryption. An empty configuration block `{}` should be used.
         """
         if sse_kms is not None:
             pulumi.set(__self__, "sse_kms", sse_kms)
@@ -1456,7 +1456,7 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms(dict):
+calass StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKms(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1491,13 +1491,13 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3(dict):
+calass StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationExclude(dict):
+calass StorageLensConfigurationStorageLensConfigurationExclude(dict):
     def __init__(__self__, *,
                  buckets: Optional[Sequence[str]] = None,
                  regions: Optional[Sequence[str]] = None):
@@ -1528,7 +1528,7 @@ class StorageLensConfigurationStorageLensConfigurationExclude(dict):
 
 
 @pulumi.output_type
-class StorageLensConfigurationStorageLensConfigurationInclude(dict):
+calass StorageLensConfigurationStorageLensConfigurationInclude(dict):
     def __init__(__self__, *,
                  buckets: Optional[Sequence[str]] = None,
                  regions: Optional[Sequence[str]] = None):
@@ -1559,7 +1559,7 @@ class StorageLensConfigurationStorageLensConfigurationInclude(dict):
 
 
 @pulumi.output_type
-class GetMultiRegionAccessPointPublicAccessBlockResult(dict):
+calass GetMultiRegionAccessPointPublicAccessBlockResult(dict):
     def __init__(__self__, *,
                  block_public_acls: bool,
                  block_public_policy: bool,
@@ -1622,7 +1622,7 @@ class GetMultiRegionAccessPointPublicAccessBlockResult(dict):
 
 
 @pulumi.output_type
-class GetMultiRegionAccessPointRegionResult(dict):
+calass GetMultiRegionAccessPointRegionResult(dict):
     def __init__(__self__, *,
                  bucket: str,
                  bucket_account_id: str,

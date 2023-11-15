@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIpsetResult:
+calass GetIpsetResult:
     """
     A collection of values returned by getIpset.
     """
@@ -43,7 +43,7 @@ class GetIpsetResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetIpsetResult(GetIpsetResult):
+calass AwaitableGetIpsetResult(GetIpsetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

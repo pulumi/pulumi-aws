@@ -10,83 +10,83 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationAppSourceArgs',
-    'ApplicationEnvironmentArgs',
-    'ApplicationSslConfigurationArgs',
-    'CustomLayerCloudwatchConfigurationArgs',
-    'CustomLayerCloudwatchConfigurationLogStreamArgs',
-    'CustomLayerEbsVolumeArgs',
-    'CustomLayerLoadBasedAutoScalingArgs',
-    'CustomLayerLoadBasedAutoScalingDownscalingArgs',
-    'CustomLayerLoadBasedAutoScalingUpscalingArgs',
-    'EcsClusterLayerCloudwatchConfigurationArgs',
-    'EcsClusterLayerCloudwatchConfigurationLogStreamArgs',
-    'EcsClusterLayerEbsVolumeArgs',
-    'EcsClusterLayerLoadBasedAutoScalingArgs',
-    'EcsClusterLayerLoadBasedAutoScalingDownscalingArgs',
-    'EcsClusterLayerLoadBasedAutoScalingUpscalingArgs',
-    'GangliaLayerCloudwatchConfigurationArgs',
-    'GangliaLayerCloudwatchConfigurationLogStreamArgs',
-    'GangliaLayerEbsVolumeArgs',
-    'GangliaLayerLoadBasedAutoScalingArgs',
-    'GangliaLayerLoadBasedAutoScalingDownscalingArgs',
-    'GangliaLayerLoadBasedAutoScalingUpscalingArgs',
-    'HaproxyLayerCloudwatchConfigurationArgs',
-    'HaproxyLayerCloudwatchConfigurationLogStreamArgs',
-    'HaproxyLayerEbsVolumeArgs',
-    'HaproxyLayerLoadBasedAutoScalingArgs',
-    'HaproxyLayerLoadBasedAutoScalingDownscalingArgs',
-    'HaproxyLayerLoadBasedAutoScalingUpscalingArgs',
-    'InstanceEbsBlockDeviceArgs',
-    'InstanceEphemeralBlockDeviceArgs',
-    'InstanceRootBlockDeviceArgs',
-    'JavaAppLayerCloudwatchConfigurationArgs',
-    'JavaAppLayerCloudwatchConfigurationLogStreamArgs',
-    'JavaAppLayerEbsVolumeArgs',
-    'JavaAppLayerLoadBasedAutoScalingArgs',
-    'JavaAppLayerLoadBasedAutoScalingDownscalingArgs',
-    'JavaAppLayerLoadBasedAutoScalingUpscalingArgs',
-    'MemcachedLayerCloudwatchConfigurationArgs',
-    'MemcachedLayerCloudwatchConfigurationLogStreamArgs',
-    'MemcachedLayerEbsVolumeArgs',
-    'MemcachedLayerLoadBasedAutoScalingArgs',
-    'MemcachedLayerLoadBasedAutoScalingDownscalingArgs',
-    'MemcachedLayerLoadBasedAutoScalingUpscalingArgs',
-    'MysqlLayerCloudwatchConfigurationArgs',
-    'MysqlLayerCloudwatchConfigurationLogStreamArgs',
-    'MysqlLayerEbsVolumeArgs',
-    'MysqlLayerLoadBasedAutoScalingArgs',
-    'MysqlLayerLoadBasedAutoScalingDownscalingArgs',
-    'MysqlLayerLoadBasedAutoScalingUpscalingArgs',
-    'NodejsAppLayerCloudwatchConfigurationArgs',
-    'NodejsAppLayerCloudwatchConfigurationLogStreamArgs',
-    'NodejsAppLayerEbsVolumeArgs',
-    'NodejsAppLayerLoadBasedAutoScalingArgs',
-    'NodejsAppLayerLoadBasedAutoScalingDownscalingArgs',
-    'NodejsAppLayerLoadBasedAutoScalingUpscalingArgs',
-    'PhpAppLayerCloudwatchConfigurationArgs',
-    'PhpAppLayerCloudwatchConfigurationLogStreamArgs',
-    'PhpAppLayerEbsVolumeArgs',
-    'PhpAppLayerLoadBasedAutoScalingArgs',
-    'PhpAppLayerLoadBasedAutoScalingDownscalingArgs',
-    'PhpAppLayerLoadBasedAutoScalingUpscalingArgs',
-    'RailsAppLayerCloudwatchConfigurationArgs',
-    'RailsAppLayerCloudwatchConfigurationLogStreamArgs',
-    'RailsAppLayerEbsVolumeArgs',
-    'RailsAppLayerLoadBasedAutoScalingArgs',
-    'RailsAppLayerLoadBasedAutoScalingDownscalingArgs',
-    'RailsAppLayerLoadBasedAutoScalingUpscalingArgs',
-    'StackCustomCookbooksSourceArgs',
-    'StaticWebLayerCloudwatchConfigurationArgs',
-    'StaticWebLayerCloudwatchConfigurationLogStreamArgs',
-    'StaticWebLayerEbsVolumeArgs',
-    'StaticWebLayerLoadBasedAutoScalingArgs',
-    'StaticWebLayerLoadBasedAutoScalingDownscalingArgs',
-    'StaticWebLayerLoadBasedAutoScalingUpscalingArgs',
+    'ApplicationAppSourceArrgs',
+    'ApplicationEnvironmentArrgs',
+    'ApplicationSslConfigurationArrgs',
+    'CustomLayerCloudwatchConfigurationArrgs',
+    'CustomLayerCloudwatchConfigurationLogStreamArrgs',
+    'CustomLayerEbsVolumeArrgs',
+    'CustomLayerLoadBasedAutoScalingArrgs',
+    'CustomLayerLoadBasedAutoScalingDownscalingArrgs',
+    'CustomLayerLoadBasedAutoScalingUpscalingArrgs',
+    'EcsClusterLayerCloudwatchConfigurationArrgs',
+    'EcsClusterLayerCloudwatchConfigurationLogStreamArrgs',
+    'EcsClusterLayerEbsVolumeArrgs',
+    'EcsClusterLayerLoadBasedAutoScalingArrgs',
+    'EcsClusterLayerLoadBasedAutoScalingDownscalingArrgs',
+    'EcsClusterLayerLoadBasedAutoScalingUpscalingArrgs',
+    'GangliaLayerCloudwatchConfigurationArrgs',
+    'GangliaLayerCloudwatchConfigurationLogStreamArrgs',
+    'GangliaLayerEbsVolumeArrgs',
+    'GangliaLayerLoadBasedAutoScalingArrgs',
+    'GangliaLayerLoadBasedAutoScalingDownscalingArrgs',
+    'GangliaLayerLoadBasedAutoScalingUpscalingArrgs',
+    'HaproxyLayerCloudwatchConfigurationArrgs',
+    'HaproxyLayerCloudwatchConfigurationLogStreamArrgs',
+    'HaproxyLayerEbsVolumeArrgs',
+    'HaproxyLayerLoadBasedAutoScalingArrgs',
+    'HaproxyLayerLoadBasedAutoScalingDownscalingArrgs',
+    'HaproxyLayerLoadBasedAutoScalingUpscalingArrgs',
+    'InstanceEbsBlockDeviceArrgs',
+    'InstanceEphemeralBlockDeviceArrgs',
+    'InstanceRootBlockDeviceArrgs',
+    'JavaAppLayerCloudwatchConfigurationArrgs',
+    'JavaAppLayerCloudwatchConfigurationLogStreamArrgs',
+    'JavaAppLayerEbsVolumeArrgs',
+    'JavaAppLayerLoadBasedAutoScalingArrgs',
+    'JavaAppLayerLoadBasedAutoScalingDownscalingArrgs',
+    'JavaAppLayerLoadBasedAutoScalingUpscalingArrgs',
+    'MemcachedLayerCloudwatchConfigurationArrgs',
+    'MemcachedLayerCloudwatchConfigurationLogStreamArrgs',
+    'MemcachedLayerEbsVolumeArrgs',
+    'MemcachedLayerLoadBasedAutoScalingArrgs',
+    'MemcachedLayerLoadBasedAutoScalingDownscalingArrgs',
+    'MemcachedLayerLoadBasedAutoScalingUpscalingArrgs',
+    'MysqlLayerCloudwatchConfigurationArrgs',
+    'MysqlLayerCloudwatchConfigurationLogStreamArrgs',
+    'MysqlLayerEbsVolumeArrgs',
+    'MysqlLayerLoadBasedAutoScalingArrgs',
+    'MysqlLayerLoadBasedAutoScalingDownscalingArrgs',
+    'MysqlLayerLoadBasedAutoScalingUpscalingArrgs',
+    'NodejsAppLayerCloudwatchConfigurationArrgs',
+    'NodejsAppLayerCloudwatchConfigurationLogStreamArrgs',
+    'NodejsAppLayerEbsVolumeArrgs',
+    'NodejsAppLayerLoadBasedAutoScalingArrgs',
+    'NodejsAppLayerLoadBasedAutoScalingDownscalingArrgs',
+    'NodejsAppLayerLoadBasedAutoScalingUpscalingArrgs',
+    'PhpAppLayerCloudwatchConfigurationArrgs',
+    'PhpAppLayerCloudwatchConfigurationLogStreamArrgs',
+    'PhpAppLayerEbsVolumeArrgs',
+    'PhpAppLayerLoadBasedAutoScalingArrgs',
+    'PhpAppLayerLoadBasedAutoScalingDownscalingArrgs',
+    'PhpAppLayerLoadBasedAutoScalingUpscalingArrgs',
+    'RailsAppLayerCloudwatchConfigurationArrgs',
+    'RailsAppLayerCloudwatchConfigurationLogStreamArrgs',
+    'RailsAppLayerEbsVolumeArrgs',
+    'RailsAppLayerLoadBasedAutoScalingArrgs',
+    'RailsAppLayerLoadBasedAutoScalingDownscalingArrgs',
+    'RailsAppLayerLoadBasedAutoScalingUpscalingArrgs',
+    'StackCustomCookbooksSourceArrgs',
+    'StaticWebLayerCloudwatchConfigurationArrgs',
+    'StaticWebLayerCloudwatchConfigurationLogStreamArrgs',
+    'StaticWebLayerEbsVolumeArrgs',
+    'StaticWebLayerLoadBasedAutoScalingArrgs',
+    'StaticWebLayerLoadBasedAutoScalingDownscalingArrgs',
+    'StaticWebLayerLoadBasedAutoScalingUpscalingArrgs',
 ]
 
 @pulumi.input_type
-class ApplicationAppSourceArgs:
+calass ApplicationAppSourceArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
@@ -188,7 +188,7 @@ class ApplicationAppSourceArgs:
 
 
 @pulumi.input_type
-class ApplicationEnvironmentArgs:
+calass ApplicationEnvironmentArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -241,7 +241,7 @@ class ApplicationEnvironmentArgs:
 
 
 @pulumi.input_type
-class ApplicationSslConfigurationArgs:
+calass ApplicationSslConfigurationArrgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[str],
                  private_key: pulumi.Input[str],
@@ -294,12 +294,12 @@ class ApplicationSslConfigurationArgs:
 
 
 @pulumi.input_type
-class CustomLayerCloudwatchConfigurationArgs:
+calass CustomLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]] log_streams: A block the specifies how an opsworks logs look like. See Log Streams.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArrgs']]] log_streams: A block the specifies how an opsworks logs look like. See Log Streams.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -317,19 +317,19 @@ class CustomLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         """
         A block the specifies how an opsworks logs look like. See Log Streams.
         """
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class CustomLayerCloudwatchConfigurationLogStreamArgs:
+calass CustomLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -510,7 +510,7 @@ class CustomLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class CustomLayerEbsVolumeArgs:
+calass CustomLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -626,15 +626,15 @@ class CustomLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class CustomLayerLoadBasedAutoScalingArgs:
+calass CustomLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         """
-        :param pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArgs'] downscaling: The downscaling settings, as defined below, used for load-based autoscaling
+        :param pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArrgs'] downscaling: The downscaling settings, as defined below, used for load-based autoscaling
         :param pulumi.Input[bool] enable: Whether load-based auto scaling is enabled for the layer.
-        :param pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgs'] upscaling: The upscaling settings, as defined below, used for load-based autoscaling
+        :param pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArrgs'] upscaling: The upscaling settings, as defined below, used for load-based autoscaling
         """
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
@@ -645,14 +645,14 @@ class CustomLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArrgs']]:
         """
         The downscaling settings, as defined below, used for load-based autoscaling
         """
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -669,19 +669,19 @@ class CustomLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArrgs']]:
         """
         The upscaling settings, as defined below, used for load-based autoscaling
         """
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['CustomLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class CustomLayerLoadBasedAutoScalingDownscalingArgs:
+calass CustomLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -800,7 +800,7 @@ class CustomLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class CustomLayerLoadBasedAutoScalingUpscalingArgs:
+calass CustomLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -919,10 +919,10 @@ class CustomLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class EcsClusterLayerCloudwatchConfigurationArgs:
+calass EcsClusterLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -939,16 +939,16 @@ class EcsClusterLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EcsClusterLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class EcsClusterLayerCloudwatchConfigurationLogStreamArgs:
+calass EcsClusterLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -1083,7 +1083,7 @@ class EcsClusterLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class EcsClusterLayerEbsVolumeArgs:
+calass EcsClusterLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -1195,11 +1195,11 @@ class EcsClusterLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class EcsClusterLayerLoadBasedAutoScalingArgs:
+calass EcsClusterLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -1209,11 +1209,11 @@ class EcsClusterLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -1227,16 +1227,16 @@ class EcsClusterLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['EcsClusterLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class EcsClusterLayerLoadBasedAutoScalingDownscalingArgs:
+calass EcsClusterLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -1325,7 +1325,7 @@ class EcsClusterLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class EcsClusterLayerLoadBasedAutoScalingUpscalingArgs:
+calass EcsClusterLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -1414,10 +1414,10 @@ class EcsClusterLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class GangliaLayerCloudwatchConfigurationArgs:
+calass GangliaLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -1434,16 +1434,16 @@ class GangliaLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class GangliaLayerCloudwatchConfigurationLogStreamArgs:
+calass GangliaLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -1578,7 +1578,7 @@ class GangliaLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class GangliaLayerEbsVolumeArgs:
+calass GangliaLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -1690,11 +1690,11 @@ class GangliaLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class GangliaLayerLoadBasedAutoScalingArgs:
+calass GangliaLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -1704,11 +1704,11 @@ class GangliaLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -1722,16 +1722,16 @@ class GangliaLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class GangliaLayerLoadBasedAutoScalingDownscalingArgs:
+calass GangliaLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -1820,7 +1820,7 @@ class GangliaLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class GangliaLayerLoadBasedAutoScalingUpscalingArgs:
+calass GangliaLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -1909,10 +1909,10 @@ class GangliaLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class HaproxyLayerCloudwatchConfigurationArgs:
+calass HaproxyLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -1929,16 +1929,16 @@ class HaproxyLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HaproxyLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class HaproxyLayerCloudwatchConfigurationLogStreamArgs:
+calass HaproxyLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -2073,7 +2073,7 @@ class HaproxyLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class HaproxyLayerEbsVolumeArgs:
+calass HaproxyLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -2185,11 +2185,11 @@ class HaproxyLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class HaproxyLayerLoadBasedAutoScalingArgs:
+calass HaproxyLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -2199,11 +2199,11 @@ class HaproxyLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -2217,16 +2217,16 @@ class HaproxyLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['HaproxyLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class HaproxyLayerLoadBasedAutoScalingDownscalingArgs:
+calass HaproxyLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -2315,7 +2315,7 @@ class HaproxyLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class HaproxyLayerLoadBasedAutoScalingUpscalingArgs:
+calass HaproxyLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -2404,7 +2404,7 @@ class HaproxyLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class InstanceEbsBlockDeviceArgs:
+calass InstanceEbsBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -2480,7 +2480,7 @@ class InstanceEbsBlockDeviceArgs:
 
 
 @pulumi.input_type
-class InstanceEphemeralBlockDeviceArgs:
+calass InstanceEphemeralBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  virtual_name: pulumi.Input[str]):
@@ -2507,7 +2507,7 @@ class InstanceEphemeralBlockDeviceArgs:
 
 
 @pulumi.input_type
-class InstanceRootBlockDeviceArgs:
+calass InstanceRootBlockDeviceArrgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
@@ -2560,10 +2560,10 @@ class InstanceRootBlockDeviceArgs:
 
 
 @pulumi.input_type
-class JavaAppLayerCloudwatchConfigurationArgs:
+calass JavaAppLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -2580,16 +2580,16 @@ class JavaAppLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JavaAppLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class JavaAppLayerCloudwatchConfigurationLogStreamArgs:
+calass JavaAppLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -2724,7 +2724,7 @@ class JavaAppLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class JavaAppLayerEbsVolumeArgs:
+calass JavaAppLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -2836,11 +2836,11 @@ class JavaAppLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class JavaAppLayerLoadBasedAutoScalingArgs:
+calass JavaAppLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -2850,11 +2850,11 @@ class JavaAppLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -2868,16 +2868,16 @@ class JavaAppLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['JavaAppLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class JavaAppLayerLoadBasedAutoScalingDownscalingArgs:
+calass JavaAppLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -2966,7 +2966,7 @@ class JavaAppLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class JavaAppLayerLoadBasedAutoScalingUpscalingArgs:
+calass JavaAppLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -3055,10 +3055,10 @@ class JavaAppLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class MemcachedLayerCloudwatchConfigurationArgs:
+calass MemcachedLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -3075,16 +3075,16 @@ class MemcachedLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MemcachedLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class MemcachedLayerCloudwatchConfigurationLogStreamArgs:
+calass MemcachedLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -3219,7 +3219,7 @@ class MemcachedLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class MemcachedLayerEbsVolumeArgs:
+calass MemcachedLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -3331,11 +3331,11 @@ class MemcachedLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class MemcachedLayerLoadBasedAutoScalingArgs:
+calass MemcachedLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -3345,11 +3345,11 @@ class MemcachedLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -3363,16 +3363,16 @@ class MemcachedLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['MemcachedLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class MemcachedLayerLoadBasedAutoScalingDownscalingArgs:
+calass MemcachedLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -3461,7 +3461,7 @@ class MemcachedLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class MemcachedLayerLoadBasedAutoScalingUpscalingArgs:
+calass MemcachedLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -3550,10 +3550,10 @@ class MemcachedLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class MysqlLayerCloudwatchConfigurationArgs:
+calass MysqlLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -3570,16 +3570,16 @@ class MysqlLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MysqlLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class MysqlLayerCloudwatchConfigurationLogStreamArgs:
+calass MysqlLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -3714,7 +3714,7 @@ class MysqlLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class MysqlLayerEbsVolumeArgs:
+calass MysqlLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -3826,11 +3826,11 @@ class MysqlLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class MysqlLayerLoadBasedAutoScalingArgs:
+calass MysqlLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -3840,11 +3840,11 @@ class MysqlLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -3858,16 +3858,16 @@ class MysqlLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['MysqlLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class MysqlLayerLoadBasedAutoScalingDownscalingArgs:
+calass MysqlLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -3956,7 +3956,7 @@ class MysqlLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class MysqlLayerLoadBasedAutoScalingUpscalingArgs:
+calass MysqlLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -4045,10 +4045,10 @@ class MysqlLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class NodejsAppLayerCloudwatchConfigurationArgs:
+calass NodejsAppLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -4065,16 +4065,16 @@ class NodejsAppLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class NodejsAppLayerCloudwatchConfigurationLogStreamArgs:
+calass NodejsAppLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -4209,7 +4209,7 @@ class NodejsAppLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class NodejsAppLayerEbsVolumeArgs:
+calass NodejsAppLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -4321,11 +4321,11 @@ class NodejsAppLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class NodejsAppLayerLoadBasedAutoScalingArgs:
+calass NodejsAppLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -4335,11 +4335,11 @@ class NodejsAppLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -4353,16 +4353,16 @@ class NodejsAppLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class NodejsAppLayerLoadBasedAutoScalingDownscalingArgs:
+calass NodejsAppLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -4451,7 +4451,7 @@ class NodejsAppLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class NodejsAppLayerLoadBasedAutoScalingUpscalingArgs:
+calass NodejsAppLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -4540,10 +4540,10 @@ class NodejsAppLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class PhpAppLayerCloudwatchConfigurationArgs:
+calass PhpAppLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -4560,16 +4560,16 @@ class PhpAppLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class PhpAppLayerCloudwatchConfigurationLogStreamArgs:
+calass PhpAppLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -4704,7 +4704,7 @@ class PhpAppLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class PhpAppLayerEbsVolumeArgs:
+calass PhpAppLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -4816,11 +4816,11 @@ class PhpAppLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class PhpAppLayerLoadBasedAutoScalingArgs:
+calass PhpAppLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -4830,11 +4830,11 @@ class PhpAppLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -4848,16 +4848,16 @@ class PhpAppLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class PhpAppLayerLoadBasedAutoScalingDownscalingArgs:
+calass PhpAppLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -4946,7 +4946,7 @@ class PhpAppLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class PhpAppLayerLoadBasedAutoScalingUpscalingArgs:
+calass PhpAppLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -5035,10 +5035,10 @@ class PhpAppLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class RailsAppLayerCloudwatchConfigurationArgs:
+calass RailsAppLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -5055,16 +5055,16 @@ class RailsAppLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RailsAppLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class RailsAppLayerCloudwatchConfigurationLogStreamArgs:
+calass RailsAppLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -5199,7 +5199,7 @@ class RailsAppLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class RailsAppLayerEbsVolumeArgs:
+calass RailsAppLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -5311,11 +5311,11 @@ class RailsAppLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class RailsAppLayerLoadBasedAutoScalingArgs:
+calass RailsAppLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -5325,11 +5325,11 @@ class RailsAppLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -5343,16 +5343,16 @@ class RailsAppLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['RailsAppLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class RailsAppLayerLoadBasedAutoScalingDownscalingArgs:
+calass RailsAppLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -5441,7 +5441,7 @@ class RailsAppLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class RailsAppLayerLoadBasedAutoScalingUpscalingArgs:
+calass RailsAppLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -5530,7 +5530,7 @@ class RailsAppLayerLoadBasedAutoScalingUpscalingArgs:
 
 
 @pulumi.input_type
-class StackCustomCookbooksSourceArgs:
+calass StackCustomCookbooksSourceArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  url: pulumi.Input[str],
@@ -5631,10 +5631,10 @@ class StackCustomCookbooksSourceArgs:
 
 
 @pulumi.input_type
-class StaticWebLayerCloudwatchConfigurationArgs:
+calass StaticWebLayerCloudwatchConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArgs']]]] = None):
+                 log_streams: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArrgs']]]] = None):
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if log_streams is not None:
@@ -5651,16 +5651,16 @@ class StaticWebLayerCloudwatchConfigurationArgs:
 
     @property
     @pulumi.getter(name="logStreams")
-    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArgs']]]]:
+    def log_streams(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArrgs']]]]:
         return pulumi.get(self, "log_streams")
 
     @log_streams.setter
-    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArgs']]]]):
+    def log_streams(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerCloudwatchConfigurationLogStreamArrgs']]]]):
         pulumi.set(self, "log_streams", value)
 
 
 @pulumi.input_type
-class StaticWebLayerCloudwatchConfigurationLogStreamArgs:
+calass StaticWebLayerCloudwatchConfigurationLogStreamArrgs:
     def __init__(__self__, *,
                  file: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
@@ -5795,7 +5795,7 @@ class StaticWebLayerCloudwatchConfigurationLogStreamArgs:
 
 
 @pulumi.input_type
-class StaticWebLayerEbsVolumeArgs:
+calass StaticWebLayerEbsVolumeArrgs:
     def __init__(__self__, *,
                  mount_point: pulumi.Input[str],
                  number_of_disks: pulumi.Input[int],
@@ -5907,11 +5907,11 @@ class StaticWebLayerEbsVolumeArgs:
 
 
 @pulumi.input_type
-class StaticWebLayerLoadBasedAutoScalingArgs:
+calass StaticWebLayerLoadBasedAutoScalingArrgs:
     def __init__(__self__, *,
-                 downscaling: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingDownscalingArgs']] = None,
+                 downscaling: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingDownscalingArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
-                 upscaling: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingUpscalingArgs']] = None):
+                 upscaling: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingUpscalingArrgs']] = None):
         if downscaling is not None:
             pulumi.set(__self__, "downscaling", downscaling)
         if enable is not None:
@@ -5921,11 +5921,11 @@ class StaticWebLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def downscaling(self) -> Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingDownscalingArgs']]:
+    def downscaling(self) -> Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingDownscalingArrgs']]:
         return pulumi.get(self, "downscaling")
 
     @downscaling.setter
-    def downscaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingDownscalingArgs']]):
+    def downscaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingDownscalingArrgs']]):
         pulumi.set(self, "downscaling", value)
 
     @property
@@ -5939,16 +5939,16 @@ class StaticWebLayerLoadBasedAutoScalingArgs:
 
     @property
     @pulumi.getter
-    def upscaling(self) -> Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingUpscalingArgs']]:
+    def upscaling(self) -> Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingUpscalingArrgs']]:
         return pulumi.get(self, "upscaling")
 
     @upscaling.setter
-    def upscaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingUpscalingArgs']]):
+    def upscaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingUpscalingArrgs']]):
         pulumi.set(self, "upscaling", value)
 
 
 @pulumi.input_type
-class StaticWebLayerLoadBasedAutoScalingDownscalingArgs:
+calass StaticWebLayerLoadBasedAutoScalingDownscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,
@@ -6037,7 +6037,7 @@ class StaticWebLayerLoadBasedAutoScalingDownscalingArgs:
 
 
 @pulumi.input_type
-class StaticWebLayerLoadBasedAutoScalingUpscalingArgs:
+calass StaticWebLayerLoadBasedAutoScalingUpscalingArrgs:
     def __init__(__self__, *,
                  alarms: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_threshold: Optional[pulumi.Input[float]] = None,

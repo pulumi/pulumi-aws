@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ExtensionAssociationArgs', 'ExtensionAssociation']
+__all__ = ['ExtensionAssociationArrgs', 'ExtensionAssociation']
 
 @pulumi.input_type
-class ExtensionAssociationArgs:
+calass ExtensionAssociationArrgs:
     def __init__(__self__, *,
                  extension_arn: pulumi.Input[str],
                  resource_arn: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ExtensionAssociationArgs:
 
 
 @pulumi.input_type
-class _ExtensionAssociationState:
+calass _ExtensionAssociationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  extension_arn: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _ExtensionAssociationState:
         pulumi.set(self, "resource_arn", value)
 
 
-class ExtensionAssociation(pulumi.CustomResource):
+calass ExtensionAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,9 +172,9 @@ class ExtensionAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["appconfig.amazonaws.com"],
             )],
@@ -182,9 +182,9 @@ class ExtensionAssociation(pulumi.CustomResource):
         test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
         test_extension = aws.appconfig.Extension("testExtension",
             description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
+            action_points=[aws.appconfig.ExtensionActionPointArrgs(
                 point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
+                actions=[aws.appconfig.ExtensionActionPointActionArrgs(
                     name="test",
                     role_arn=test_role.arn,
                     uri=test_topic.arn,
@@ -217,7 +217,7 @@ class ExtensionAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExtensionAssociationArgs,
+                 args: ExtensionAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates an AppConfig Extension with a Resource.
@@ -229,9 +229,9 @@ class ExtensionAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_topic = aws.sns.Topic("testTopic")
-        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             actions=["sts:AssumeRole"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["appconfig.amazonaws.com"],
             )],
@@ -239,9 +239,9 @@ class ExtensionAssociation(pulumi.CustomResource):
         test_role = aws.iam.Role("testRole", assume_role_policy=test_policy_document.json)
         test_extension = aws.appconfig.Extension("testExtension",
             description="test description",
-            action_points=[aws.appconfig.ExtensionActionPointArgs(
+            action_points=[aws.appconfig.ExtensionActionPointArrgs(
                 point="ON_DEPLOYMENT_COMPLETE",
-                actions=[aws.appconfig.ExtensionActionPointActionArgs(
+                actions=[aws.appconfig.ExtensionActionPointActionArrgs(
                     name="test",
                     role_arn=test_role.arn,
                     uri=test_topic.arn,
@@ -265,12 +265,12 @@ class ExtensionAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExtensionAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ExtensionAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExtensionAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExtensionAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -289,7 +289,7 @@ class ExtensionAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExtensionAssociationArgs.__new__(ExtensionAssociationArgs)
+            __props__ = ExtensionAssociationArrgs.__new__(ExtensionAssociationArrgs)
 
             if extension_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'extension_arn'")

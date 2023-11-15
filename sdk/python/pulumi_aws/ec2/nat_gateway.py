@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NatGatewayArgs', 'NatGateway']
+__all__ = ['NatGatewayArrgs', 'NatGateway']
 
 @pulumi.input_type
-class NatGatewayArgs:
+calass NatGatewayArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  allocation_id: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class NatGatewayArgs:
 
 
 @pulumi.input_type
-class _NatGatewayState:
+calass _NatGatewayState:
     def __init__(__self__, *,
                  allocation_id: Optional[pulumi.Input[str]] = None,
                  association_id: Optional[pulumi.Input[str]] = None,
@@ -352,7 +352,7 @@ class _NatGatewayState:
         pulumi.set(self, "tags_all", value)
 
 
-class NatGateway(pulumi.CustomResource):
+calass NatGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -441,7 +441,7 @@ class NatGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NatGatewayArgs,
+                 args: NatGatewayArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create a VPC NAT Gateway.
@@ -504,12 +504,12 @@ class NatGateway(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NatGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param NatGatewayArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NatGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NatGatewayArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -533,7 +533,7 @@ class NatGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NatGatewayArgs.__new__(NatGatewayArgs)
+            __props__ = NatGatewayArrgs.__new__(NatGatewayArrgs)
 
             __props__.__dict__["allocation_id"] = allocation_id
             __props__.__dict__["connectivity_type"] = connectivity_type

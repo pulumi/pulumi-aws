@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApplicationVersionArgs', 'ApplicationVersion']
+__all__ = ['ApplicationVersionArrgs', 'ApplicationVersion']
 
 @pulumi.input_type
-class ApplicationVersionArgs:
+calass ApplicationVersionArrgs:
     def __init__(__self__, *,
                  application: pulumi.Input[str],
                  bucket: pulumi.Input[str],
@@ -133,7 +133,7 @@ class ApplicationVersionArgs:
 
 
 @pulumi.input_type
-class _ApplicationVersionState:
+calass _ApplicationVersionState:
     def __init__(__self__, *,
                  application: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -294,7 +294,7 @@ class _ApplicationVersionState:
         pulumi.set(self, "tags_all", value)
 
 
-class ApplicationVersion(pulumi.CustomResource):
+calass ApplicationVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -355,7 +355,7 @@ class ApplicationVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationVersionArgs,
+                 args: ApplicationVersionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic Beanstalk Application Version Resource. Elastic Beanstalk allows
@@ -390,12 +390,12 @@ class ApplicationVersion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationVersionArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationVersionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationVersionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -418,7 +418,7 @@ class ApplicationVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationVersionArgs.__new__(ApplicationVersionArgs)
+            __props__ = ApplicationVersionArrgs.__new__(ApplicationVersionArrgs)
 
             if application is None and not opts.urn:
                 raise TypeError("Missing required property 'application'")

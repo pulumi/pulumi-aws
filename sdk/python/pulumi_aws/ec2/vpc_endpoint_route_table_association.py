@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcEndpointRouteTableAssociationArgs', 'VpcEndpointRouteTableAssociation']
+__all__ = ['VpcEndpointRouteTableAssociationArrgs', 'VpcEndpointRouteTableAssociation']
 
 @pulumi.input_type
-class VpcEndpointRouteTableAssociationArgs:
+calass VpcEndpointRouteTableAssociationArrgs:
     def __init__(__self__, *,
                  route_table_id: pulumi.Input[str],
                  vpc_endpoint_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class VpcEndpointRouteTableAssociationArgs:
 
 
 @pulumi.input_type
-class _VpcEndpointRouteTableAssociationState:
+calass _VpcEndpointRouteTableAssociationState:
     def __init__(__self__, *,
                  route_table_id: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _VpcEndpointRouteTableAssociationState:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
-class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
+calass VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -128,7 +128,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcEndpointRouteTableAssociationArgs,
+                 args: VpcEndpointRouteTableAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPC Endpoint Route Table Association
@@ -153,12 +153,12 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcEndpointRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEndpointRouteTableAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointRouteTableAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointRouteTableAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -176,7 +176,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcEndpointRouteTableAssociationArgs.__new__(VpcEndpointRouteTableAssociationArgs)
+            __props__ = VpcEndpointRouteTableAssociationArrgs.__new__(VpcEndpointRouteTableAssociationArrgs)
 
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")

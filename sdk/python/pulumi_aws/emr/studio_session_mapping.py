@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StudioSessionMappingArgs', 'StudioSessionMapping']
+__all__ = ['StudioSessionMappingArrgs', 'StudioSessionMapping']
 
 @pulumi.input_type
-class StudioSessionMappingArgs:
+calass StudioSessionMappingArrgs:
     def __init__(__self__, *,
                  identity_type: pulumi.Input[str],
                  session_policy_arn: pulumi.Input[str],
@@ -97,7 +97,7 @@ class StudioSessionMappingArgs:
 
 
 @pulumi.input_type
-class _StudioSessionMappingState:
+calass _StudioSessionMappingState:
     def __init__(__self__, *,
                  identity_id: Optional[pulumi.Input[str]] = None,
                  identity_name: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _StudioSessionMappingState:
         pulumi.set(self, "studio_id", value)
 
 
-class StudioSessionMapping(pulumi.CustomResource):
+calass StudioSessionMapping(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -231,7 +231,7 @@ class StudioSessionMapping(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StudioSessionMappingArgs,
+                 args: StudioSessionMappingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic MapReduce Studio Session Mapping.
@@ -258,12 +258,12 @@ class StudioSessionMapping(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StudioSessionMappingArgs args: The arguments to use to populate this resource's properties.
+        :param StudioSessionMappingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StudioSessionMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StudioSessionMappingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -284,7 +284,7 @@ class StudioSessionMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StudioSessionMappingArgs.__new__(StudioSessionMappingArgs)
+            __props__ = StudioSessionMappingArrgs.__new__(StudioSessionMappingArrgs)
 
             __props__.__dict__["identity_id"] = identity_id
             __props__.__dict__["identity_name"] = identity_name

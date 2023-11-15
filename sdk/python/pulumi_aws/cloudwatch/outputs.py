@@ -70,7 +70,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CompositeAlarmActionsSuppressor(dict):
+calass CompositeAlarmActionsSuppressor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -129,7 +129,7 @@ class CompositeAlarmActionsSuppressor(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParameters(dict):
+calass EventConnectionAuthParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -155,10 +155,10 @@ class EventConnectionAuthParameters(dict):
                  invocation_http_parameters: Optional['outputs.EventConnectionAuthParametersInvocationHttpParameters'] = None,
                  oauth: Optional['outputs.EventConnectionAuthParametersOauth'] = None):
         """
-        :param 'EventConnectionAuthParametersApiKeyArgs' api_key: Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-        :param 'EventConnectionAuthParametersBasicArgs' basic: Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
-        :param 'EventConnectionAuthParametersInvocationHttpParametersArgs' invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        :param 'EventConnectionAuthParametersOauthArgs' oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+        :param 'EventConnectionAuthParametersApiKeyArrgs' api_key: Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+        :param 'EventConnectionAuthParametersBasicArrgs' basic: Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+        :param 'EventConnectionAuthParametersInvocationHttpParametersArrgs' invocation_http_parameters: Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        :param 'EventConnectionAuthParametersOauthArrgs' oauth: Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
@@ -203,7 +203,7 @@ class EventConnectionAuthParameters(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersApiKey(dict):
+calass EventConnectionAuthParametersApiKey(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -232,7 +232,7 @@ class EventConnectionAuthParametersApiKey(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersBasic(dict):
+calass EventConnectionAuthParametersBasic(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):
@@ -261,7 +261,7 @@ class EventConnectionAuthParametersBasic(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersInvocationHttpParameters(dict):
+calass EventConnectionAuthParametersInvocationHttpParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -284,9 +284,9 @@ class EventConnectionAuthParametersInvocationHttpParameters(dict):
                  headers: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersHeader']] = None,
                  query_strings: Optional[Sequence['outputs.EventConnectionAuthParametersInvocationHttpParametersQueryString']] = None):
         """
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersBodyArgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersHeaderArgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersBodyArrgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersHeaderArrgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersInvocationHttpParametersQueryStringArrgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         """
         if bodies is not None:
             pulumi.set(__self__, "bodies", bodies)
@@ -321,7 +321,7 @@ class EventConnectionAuthParametersInvocationHttpParameters(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
+calass EventConnectionAuthParametersInvocationHttpParametersBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -381,7 +381,7 @@ class EventConnectionAuthParametersInvocationHttpParametersBody(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
+calass EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -441,7 +441,7 @@ class EventConnectionAuthParametersInvocationHttpParametersHeader(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
+calass EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -501,7 +501,7 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryString(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersOauth(dict):
+calass EventConnectionAuthParametersOauth(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -533,8 +533,8 @@ class EventConnectionAuthParametersOauth(dict):
         """
         :param str authorization_endpoint: The URL to the authorization endpoint.
         :param str http_method: A password for the authorization. Created and stored in AWS Secrets Manager.
-        :param 'EventConnectionAuthParametersOauthOauthHttpParametersArgs' oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        :param 'EventConnectionAuthParametersOauthClientParametersArgs' client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
+        :param 'EventConnectionAuthParametersOauthOauthHttpParametersArrgs' oauth_http_parameters: OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+        :param 'EventConnectionAuthParametersOauthClientParametersArrgs' client_parameters: Contains the client parameters for OAuth authorization. Contains the following two parameters.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "http_method", http_method)
@@ -576,7 +576,7 @@ class EventConnectionAuthParametersOauth(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersOauthClientParameters(dict):
+calass EventConnectionAuthParametersOauthClientParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -624,7 +624,7 @@ class EventConnectionAuthParametersOauthClientParameters(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersOauthOauthHttpParameters(dict):
+calass EventConnectionAuthParametersOauthOauthHttpParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -647,9 +647,9 @@ class EventConnectionAuthParametersOauthOauthHttpParameters(dict):
                  headers: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersHeader']] = None,
                  query_strings: Optional[Sequence['outputs.EventConnectionAuthParametersOauthOauthHttpParametersQueryString']] = None):
         """
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersBodyArrgs'] bodies: Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArrgs'] headers: Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+        :param Sequence['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArrgs'] query_strings: Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
         """
         if bodies is not None:
             pulumi.set(__self__, "bodies", bodies)
@@ -684,7 +684,7 @@ class EventConnectionAuthParametersOauthOauthHttpParameters(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
+calass EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -744,7 +744,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBody(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
+calass EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -804,7 +804,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeader(dict):
 
 
 @pulumi.output_type
-class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
+calass EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -864,7 +864,7 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryString(dict):
 
 
 @pulumi.output_type
-class EventEndpointEventBus(dict):
+calass EventEndpointEventBus(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -899,7 +899,7 @@ class EventEndpointEventBus(dict):
 
 
 @pulumi.output_type
-class EventEndpointReplicationConfig(dict):
+calass EventEndpointReplicationConfig(dict):
     def __init__(__self__, *,
                  state: Optional[str] = None):
         """
@@ -918,7 +918,7 @@ class EventEndpointReplicationConfig(dict):
 
 
 @pulumi.output_type
-class EventEndpointRoutingConfig(dict):
+calass EventEndpointRoutingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -939,7 +939,7 @@ class EventEndpointRoutingConfig(dict):
     def __init__(__self__, *,
                  failover_config: 'outputs.EventEndpointRoutingConfigFailoverConfig'):
         """
-        :param 'EventEndpointRoutingConfigFailoverConfigArgs' failover_config: Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+        :param 'EventEndpointRoutingConfigFailoverConfigArrgs' failover_config: Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
         """
         pulumi.set(__self__, "failover_config", failover_config)
 
@@ -953,13 +953,13 @@ class EventEndpointRoutingConfig(dict):
 
 
 @pulumi.output_type
-class EventEndpointRoutingConfigFailoverConfig(dict):
+calass EventEndpointRoutingConfigFailoverConfig(dict):
     def __init__(__self__, *,
                  primary: 'outputs.EventEndpointRoutingConfigFailoverConfigPrimary',
                  secondary: 'outputs.EventEndpointRoutingConfigFailoverConfigSecondary'):
         """
-        :param 'EventEndpointRoutingConfigFailoverConfigPrimaryArgs' primary: Parameters used for the primary Region. Documented below.
-        :param 'EventEndpointRoutingConfigFailoverConfigSecondaryArgs' secondary: Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+        :param 'EventEndpointRoutingConfigFailoverConfigPrimaryArrgs' primary: Parameters used for the primary Region. Documented below.
+        :param 'EventEndpointRoutingConfigFailoverConfigSecondaryArrgs' secondary: Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
         """
         pulumi.set(__self__, "primary", primary)
         pulumi.set(__self__, "secondary", secondary)
@@ -982,7 +982,7 @@ class EventEndpointRoutingConfigFailoverConfig(dict):
 
 
 @pulumi.output_type
-class EventEndpointRoutingConfigFailoverConfigPrimary(dict):
+calass EventEndpointRoutingConfigFailoverConfigPrimary(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1018,7 +1018,7 @@ class EventEndpointRoutingConfigFailoverConfigPrimary(dict):
 
 
 @pulumi.output_type
-class EventEndpointRoutingConfigFailoverConfigSecondary(dict):
+calass EventEndpointRoutingConfigFailoverConfigSecondary(dict):
     def __init__(__self__, *,
                  route: Optional[str] = None):
         """
@@ -1037,7 +1037,7 @@ class EventEndpointRoutingConfigFailoverConfigSecondary(dict):
 
 
 @pulumi.output_type
-class EventPermissionCondition(dict):
+calass EventPermissionCondition(dict):
     def __init__(__self__, *,
                  key: str,
                  type: str,
@@ -1077,7 +1077,7 @@ class EventPermissionCondition(dict):
 
 
 @pulumi.output_type
-class EventTargetBatchTarget(dict):
+calass EventTargetBatchTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1153,7 +1153,7 @@ class EventTargetBatchTarget(dict):
 
 
 @pulumi.output_type
-class EventTargetDeadLetterConfig(dict):
+calass EventTargetDeadLetterConfig(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None):
         """
@@ -1172,7 +1172,7 @@ class EventTargetDeadLetterConfig(dict):
 
 
 @pulumi.output_type
-class EventTargetEcsTarget(dict):
+calass EventTargetEcsTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1226,14 +1226,14 @@ class EventTargetEcsTarget(dict):
                  task_count: Optional[int] = None):
         """
         :param str task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-        :param Sequence['EventTargetEcsTargetCapacityProviderStrategyArgs'] capacity_provider_strategies: The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+        :param Sequence['EventTargetEcsTargetCapacityProviderStrategyArrgs'] capacity_provider_strategies: The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
         :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task.
         :param bool enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         :param str group: Specifies an ECS task group for the task. The maximum length is 255 characters.
         :param str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
-        :param 'EventTargetEcsTargetNetworkConfigurationArgs' network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
-        :param Sequence['EventTargetEcsTargetOrderedPlacementStrategyArgs'] ordered_placement_strategies: An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
-        :param Sequence['EventTargetEcsTargetPlacementConstraintArgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+        :param 'EventTargetEcsTargetNetworkConfigurationArrgs' network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+        :param Sequence['EventTargetEcsTargetOrderedPlacementStrategyArrgs'] ordered_placement_strategies: An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+        :param Sequence['EventTargetEcsTargetPlacementConstraintArrgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         :param str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
         :param str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
         :param Mapping[str, str] tags: A map of tags to assign to ecs resources.
@@ -1371,7 +1371,7 @@ class EventTargetEcsTarget(dict):
 
 
 @pulumi.output_type
-class EventTargetEcsTargetCapacityProviderStrategy(dict):
+calass EventTargetEcsTargetCapacityProviderStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1430,7 +1430,7 @@ class EventTargetEcsTargetCapacityProviderStrategy(dict):
 
 
 @pulumi.output_type
-class EventTargetEcsTargetNetworkConfiguration(dict):
+calass EventTargetEcsTargetNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1495,7 +1495,7 @@ class EventTargetEcsTargetNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class EventTargetEcsTargetOrderedPlacementStrategy(dict):
+calass EventTargetEcsTargetOrderedPlacementStrategy(dict):
     def __init__(__self__, *,
                  type: str,
                  field: Optional[str] = None):
@@ -1525,7 +1525,7 @@ class EventTargetEcsTargetOrderedPlacementStrategy(dict):
 
 
 @pulumi.output_type
-class EventTargetEcsTargetPlacementConstraint(dict):
+calass EventTargetEcsTargetPlacementConstraint(dict):
     def __init__(__self__, *,
                  type: str,
                  expression: Optional[str] = None):
@@ -1555,7 +1555,7 @@ class EventTargetEcsTargetPlacementConstraint(dict):
 
 
 @pulumi.output_type
-class EventTargetHttpTarget(dict):
+calass EventTargetHttpTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1619,7 +1619,7 @@ class EventTargetHttpTarget(dict):
 
 
 @pulumi.output_type
-class EventTargetInputTransformer(dict):
+calass EventTargetInputTransformer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1674,7 +1674,7 @@ class EventTargetInputTransformer(dict):
 
 
 @pulumi.output_type
-class EventTargetKinesisTarget(dict):
+calass EventTargetKinesisTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1710,7 +1710,7 @@ class EventTargetKinesisTarget(dict):
 
 
 @pulumi.output_type
-class EventTargetRedshiftTarget(dict):
+calass EventTargetRedshiftTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1811,7 +1811,7 @@ class EventTargetRedshiftTarget(dict):
 
 
 @pulumi.output_type
-class EventTargetRetryPolicy(dict):
+calass EventTargetRetryPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1861,7 +1861,7 @@ class EventTargetRetryPolicy(dict):
 
 
 @pulumi.output_type
-class EventTargetRunCommandTarget(dict):
+calass EventTargetRunCommandTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1890,7 +1890,7 @@ class EventTargetRunCommandTarget(dict):
 
 
 @pulumi.output_type
-class EventTargetSagemakerPipelineTarget(dict):
+calass EventTargetSagemakerPipelineTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1911,7 +1911,7 @@ class EventTargetSagemakerPipelineTarget(dict):
     def __init__(__self__, *,
                  pipeline_parameter_lists: Optional[Sequence['outputs.EventTargetSagemakerPipelineTargetPipelineParameterList']] = None):
         """
-        :param Sequence['EventTargetSagemakerPipelineTargetPipelineParameterListArgs'] pipeline_parameter_lists: List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        :param Sequence['EventTargetSagemakerPipelineTargetPipelineParameterListArrgs'] pipeline_parameter_lists: List of Parameter names and values for SageMaker Model Building Pipeline execution.
         """
         if pipeline_parameter_lists is not None:
             pulumi.set(__self__, "pipeline_parameter_lists", pipeline_parameter_lists)
@@ -1926,7 +1926,7 @@ class EventTargetSagemakerPipelineTarget(dict):
 
 
 @pulumi.output_type
-class EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
+calass EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1955,7 +1955,7 @@ class EventTargetSagemakerPipelineTargetPipelineParameterList(dict):
 
 
 @pulumi.output_type
-class EventTargetSqsTarget(dict):
+calass EventTargetSqsTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1991,7 +1991,7 @@ class EventTargetSqsTarget(dict):
 
 
 @pulumi.output_type
-class InternetMonitorHealthEventsConfig(dict):
+calass InternetMonitorHealthEventsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2041,7 +2041,7 @@ class InternetMonitorHealthEventsConfig(dict):
 
 
 @pulumi.output_type
-class InternetMonitorInternetMeasurementsLogDelivery(dict):
+calass InternetMonitorInternetMeasurementsLogDelivery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2071,7 +2071,7 @@ class InternetMonitorInternetMeasurementsLogDelivery(dict):
 
 
 @pulumi.output_type
-class InternetMonitorInternetMeasurementsLogDeliveryS3Config(dict):
+calass InternetMonitorInternetMeasurementsLogDeliveryS3Config(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2120,7 +2120,7 @@ class InternetMonitorInternetMeasurementsLogDeliveryS3Config(dict):
 
 
 @pulumi.output_type
-class LogMetricFilterMetricTransformation(dict):
+calass LogMetricFilterMetricTransformation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2213,7 +2213,7 @@ class LogMetricFilterMetricTransformation(dict):
 
 
 @pulumi.output_type
-class MetricAlarmMetricQuery(dict):
+calass MetricAlarmMetricQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2246,7 +2246,7 @@ class MetricAlarmMetricQuery(dict):
         :param str account_id: The ID of the account where the metrics are located, if this is a cross-account alarm.
         :param str expression: The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the id of the other metrics to refer to those metrics, and can also use the id of other expressions to use the result of those expressions. For more information about metric math expressions, see Metric Math Syntax and Functions in the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax).
         :param str label: A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        :param 'MetricAlarmMetricQueryMetricArgs' metric: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+        :param 'MetricAlarmMetricQueryMetricArrgs' metric: The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
         :param int period: Granularity in seconds of returned data points.
                For metrics with regular resolution, valid values are any multiple of `60`.
                For high-resolution metrics, valid values are `1`, `5`, `10`, `30`, or any multiple of `60`.
@@ -2330,7 +2330,7 @@ class MetricAlarmMetricQuery(dict):
 
 
 @pulumi.output_type
-class MetricAlarmMetricQueryMetric(dict):
+calass MetricAlarmMetricQueryMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2433,7 +2433,7 @@ class MetricAlarmMetricQueryMetric(dict):
 
 
 @pulumi.output_type
-class MetricStreamExcludeFilter(dict):
+calass MetricStreamExcludeFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2480,7 +2480,7 @@ class MetricStreamExcludeFilter(dict):
 
 
 @pulumi.output_type
-class MetricStreamIncludeFilter(dict):
+calass MetricStreamIncludeFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2527,7 +2527,7 @@ class MetricStreamIncludeFilter(dict):
 
 
 @pulumi.output_type
-class MetricStreamStatisticsConfiguration(dict):
+calass MetricStreamStatisticsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2552,7 +2552,7 @@ class MetricStreamStatisticsConfiguration(dict):
                  include_metrics: Sequence['outputs.MetricStreamStatisticsConfigurationIncludeMetric']):
         """
         :param Sequence[str] additional_statistics: The additional statistics to stream for the metrics listed in `include_metrics`.
-        :param Sequence['MetricStreamStatisticsConfigurationIncludeMetricArgs'] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
+        :param Sequence['MetricStreamStatisticsConfigurationIncludeMetricArrgs'] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
         """
         pulumi.set(__self__, "additional_statistics", additional_statistics)
         pulumi.set(__self__, "include_metrics", include_metrics)
@@ -2575,7 +2575,7 @@ class MetricStreamStatisticsConfiguration(dict):
 
 
 @pulumi.output_type
-class MetricStreamStatisticsConfigurationIncludeMetric(dict):
+calass MetricStreamStatisticsConfigurationIncludeMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2621,14 +2621,14 @@ class MetricStreamStatisticsConfigurationIncludeMetric(dict):
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementResult(dict):
+calass GetLogDataProtectionPolicyDocumentStatementResult(dict):
     def __init__(__self__, *,
                  data_identifiers: Sequence[str],
                  operation: 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationResult',
                  sid: Optional[str] = None):
         """
         :param Sequence[str] data_identifiers: Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationArgs' operation: Configures the data protection operation applied by this statement.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationArrgs' operation: Configures the data protection operation applied by this statement.
         :param str sid: Name of this statement.
         """
         pulumi.set(__self__, "data_identifiers", data_identifiers)
@@ -2662,13 +2662,13 @@ class GetLogDataProtectionPolicyDocumentStatementResult(dict):
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
+calass GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
     def __init__(__self__, *,
                  audit: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditResult'] = None,
                  deidentify: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult'] = None):
         """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs' audit: Configures the detection of sensitive data.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs' deidentify: Configures the masking of sensitive data.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditArrgs' audit: Configures the detection of sensitive data.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArrgs' deidentify: Configures the masking of sensitive data.
                
                > Every policy statement must specify exactly one operation.
         """
@@ -2697,11 +2697,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationResult(dict):
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementOperationAuditResult(dict):
+calass GetLogDataProtectionPolicyDocumentStatementOperationAuditResult(dict):
     def __init__(__self__, *,
                  findings_destination: 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult'):
         """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs' findings_destination: Configures destinations to send audit findings to.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArrgs' findings_destination: Configures destinations to send audit findings to.
         """
         pulumi.set(__self__, "findings_destination", findings_destination)
 
@@ -2715,15 +2715,15 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditResult(dict):
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult(dict):
+calass GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationResult(dict):
     def __init__(__self__, *,
                  cloudwatch_logs: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsResult'] = None,
                  firehose: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseResult'] = None,
                  s3: Optional['outputs.GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Result'] = None):
         """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs' cloudwatch_logs: Configures CloudWatch Logs as a findings destination.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs' firehose: Configures Kinesis Firehose as a findings destination.
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args' s3: Configures S3 as a findings destination.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArrgs' cloudwatch_logs: Configures CloudWatch Logs as a findings destination.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArrgs' firehose: Configures Kinesis Firehose as a findings destination.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Arrgs' s3: Configures S3 as a findings destination.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -2758,7 +2758,7 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsResult(dict):
+calass GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsResult(dict):
     def __init__(__self__, *,
                  log_group: str):
         """
@@ -2776,7 +2776,7 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseResult(dict):
+calass GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseResult(dict):
     def __init__(__self__, *,
                  delivery_stream: str):
         """
@@ -2794,7 +2794,7 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Result(dict):
+calass GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Result(dict):
     def __init__(__self__, *,
                  bucket: str):
         """
@@ -2812,11 +2812,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult(dict):
+calass GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult(dict):
     def __init__(__self__, *,
                  mask_config: 'outputs.GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult'):
         """
-        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs' mask_config: An empty object that configures masking.
+        :param 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArrgs' mask_config: An empty object that configures masking.
         """
         pulumi.set(__self__, "mask_config", mask_config)
 
@@ -2830,7 +2830,7 @@ class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyResult(dict)
 
 
 @pulumi.output_type
-class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult(dict):
+calass GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigResult(dict):
     def __init__(__self__):
         pass
 

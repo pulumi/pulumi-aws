@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CachesIscsiVolumeArgs', 'CachesIscsiVolume']
+__all__ = ['CachesIscsiVolumeArrgs', 'CachesIscsiVolume']
 
 @pulumi.input_type
-class CachesIscsiVolumeArgs:
+calass CachesIscsiVolumeArrgs:
     def __init__(__self__, *,
                  gateway_arn: pulumi.Input[str],
                  network_interface_id: pulumi.Input[str],
@@ -160,7 +160,7 @@ class CachesIscsiVolumeArgs:
 
 
 @pulumi.input_type
-class _CachesIscsiVolumeState:
+calass _CachesIscsiVolumeState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  chap_enabled: Optional[pulumi.Input[bool]] = None,
@@ -445,7 +445,7 @@ class _CachesIscsiVolumeState:
         pulumi.set(self, "volume_size_in_bytes", value)
 
 
-class CachesIscsiVolume(pulumi.CustomResource):
+calass CachesIscsiVolume(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -534,7 +534,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CachesIscsiVolumeArgs,
+                 args: CachesIscsiVolumeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Storage Gateway cached iSCSI volume.
@@ -595,12 +595,12 @@ class CachesIscsiVolume(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CachesIscsiVolumeArgs args: The arguments to use to populate this resource's properties.
+        :param CachesIscsiVolumeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CachesIscsiVolumeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CachesIscsiVolumeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -625,7 +625,7 @@ class CachesIscsiVolume(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CachesIscsiVolumeArgs.__new__(CachesIscsiVolumeArgs)
+            __props__ = CachesIscsiVolumeArrgs.__new__(CachesIscsiVolumeArrgs)
 
             if gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_arn'")

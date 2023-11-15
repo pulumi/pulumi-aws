@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GlobalReplicationGroupArgs', 'GlobalReplicationGroup']
+__all__ = ['GlobalReplicationGroupArrgs', 'GlobalReplicationGroup']
 
 @pulumi.input_type
-class GlobalReplicationGroupArgs:
+calass GlobalReplicationGroupArrgs:
     def __init__(__self__, *,
                  global_replication_group_id_suffix: pulumi.Input[str],
                  primary_replication_group_id: pulumi.Input[str],
@@ -176,7 +176,7 @@ class GlobalReplicationGroupArgs:
 
 
 @pulumi.input_type
-class _GlobalReplicationGroupState:
+calass _GlobalReplicationGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  at_rest_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -187,7 +187,7 @@ class _GlobalReplicationGroupState:
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
-                 global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]] = None,
+                 global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArrgs']]]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
@@ -217,7 +217,7 @@ class _GlobalReplicationGroupState:
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
-        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]] global_node_groups: Set of node groups (shards) on the global replication group.
+        :param pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArrgs']]] global_node_groups: Set of node groups (shards) on the global replication group.
                Has the values:
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.
@@ -386,7 +386,7 @@ class _GlobalReplicationGroupState:
 
     @property
     @pulumi.getter(name="globalNodeGroups")
-    def global_node_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]]:
+    def global_node_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArrgs']]]]:
         """
         Set of node groups (shards) on the global replication group.
         Has the values:
@@ -394,7 +394,7 @@ class _GlobalReplicationGroupState:
         return pulumi.get(self, "global_node_groups")
 
     @global_node_groups.setter
-    def global_node_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArgs']]]]):
+    def global_node_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalReplicationGroupGlobalNodeGroupArrgs']]]]):
         pulumi.set(self, "global_node_groups", value)
 
     @property
@@ -485,7 +485,7 @@ class _GlobalReplicationGroupState:
         pulumi.set(self, "transit_encryption_enabled", value)
 
 
-class GlobalReplicationGroup(pulumi.CustomResource):
+calass GlobalReplicationGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -598,7 +598,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GlobalReplicationGroupArgs,
+                 args: GlobalReplicationGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
@@ -671,12 +671,12 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GlobalReplicationGroupArgs args: The arguments to use to populate this resource's properties.
+        :param GlobalReplicationGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GlobalReplicationGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GlobalReplicationGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -700,7 +700,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GlobalReplicationGroupArgs.__new__(GlobalReplicationGroupArgs)
+            __props__ = GlobalReplicationGroupArrgs.__new__(GlobalReplicationGroupArrgs)
 
             __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
             __props__.__dict__["cache_node_type"] = cache_node_type
@@ -742,7 +742,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
-            global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArgs']]]]] = None,
+            global_node_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArrgs']]]]] = None,
             global_replication_group_description: Optional[pulumi.Input[str]] = None,
             global_replication_group_id: Optional[pulumi.Input[str]] = None,
             global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
@@ -777,7 +777,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArgs']]]] global_node_groups: Set of node groups (shards) on the global replication group.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GlobalReplicationGroupGlobalNodeGroupArrgs']]]] global_node_groups: Set of node groups (shards) on the global replication group.
                Has the values:
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.

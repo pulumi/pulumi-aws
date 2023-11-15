@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReplicationInstanceResult:
+calass GetReplicationInstanceResult:
     """
     A collection of values returned by getReplicationInstance.
     """
@@ -216,7 +216,7 @@ class GetReplicationInstanceResult:
         return pulumi.get(self, "vpc_security_group_ids")
 
 
-class AwaitableGetReplicationInstanceResult(GetReplicationInstanceResult):
+calass AwaitableGetReplicationInstanceResult(GetReplicationInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

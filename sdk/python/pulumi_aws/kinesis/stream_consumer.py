@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StreamConsumerArgs', 'StreamConsumer']
+__all__ = ['StreamConsumerArrgs', 'StreamConsumer']
 
 @pulumi.input_type
-class StreamConsumerArgs:
+calass StreamConsumerArrgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class StreamConsumerArgs:
 
 
 @pulumi.input_type
-class _StreamConsumerState:
+calass _StreamConsumerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_timestamp: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _StreamConsumerState:
         pulumi.set(self, "stream_arn", value)
 
 
-class StreamConsumer(pulumi.CustomResource):
+calass StreamConsumer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -164,7 +164,7 @@ class StreamConsumer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StreamConsumerArgs,
+                 args: StreamConsumerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a Kinesis Stream Consumer.
@@ -192,12 +192,12 @@ class StreamConsumer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StreamConsumerArgs args: The arguments to use to populate this resource's properties.
+        :param StreamConsumerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StreamConsumerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StreamConsumerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -215,7 +215,7 @@ class StreamConsumer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StreamConsumerArgs.__new__(StreamConsumerArgs)
+            __props__ = StreamConsumerArrgs.__new__(StreamConsumerArrgs)
 
             __props__.__dict__["name"] = name
             if stream_arn is None and not opts.urn:

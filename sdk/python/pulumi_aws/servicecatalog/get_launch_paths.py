@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLaunchPathsResult:
+calass GetLaunchPathsResult:
     """
     A collection of values returned by getLaunchPaths.
     """
@@ -63,7 +63,7 @@ class GetLaunchPathsResult:
         return pulumi.get(self, "summaries")
 
 
-class AwaitableGetLaunchPathsResult(GetLaunchPathsResult):
+calass AwaitableGetLaunchPathsResult(GetLaunchPathsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

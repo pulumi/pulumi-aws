@@ -11,30 +11,30 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DevEnvironmentArgs', 'DevEnvironment']
+__all__ = ['DevEnvironmentArrgs', 'DevEnvironment']
 
 @pulumi.input_type
-class DevEnvironmentArgs:
+calass DevEnvironmentArrgs:
     def __init__(__self__, *,
-                 ides: pulumi.Input['DevEnvironmentIdesArgs'],
+                 ides: pulumi.Input['DevEnvironmentIdesArrgs'],
                  instance_type: pulumi.Input[str],
-                 persistent_storage: pulumi.Input['DevEnvironmentPersistentStorageArgs'],
+                 persistent_storage: pulumi.Input['DevEnvironmentPersistentStorageArrgs'],
                  project_name: pulumi.Input[str],
                  space_name: pulumi.Input[str],
                  alias: Optional[pulumi.Input[str]] = None,
                  inactivity_timeout_minutes: Optional[pulumi.Input[int]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None):
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArrgs']]]] = None):
         """
         The set of arguments for constructing a DevEnvironment resource.
-        :param pulumi.Input['DevEnvironmentIdesArgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
+        :param pulumi.Input['DevEnvironmentIdesArrgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
-        :param pulumi.Input['DevEnvironmentPersistentStorageArgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
+        :param pulumi.Input['DevEnvironmentPersistentStorageArrgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[str] project_name: The name of the project in the space.
         :param pulumi.Input[str] space_name: The name of the space.
         :param pulumi.Input[int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
-        :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
+        :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArrgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         """
         pulumi.set(__self__, "ides", ides)
         pulumi.set(__self__, "instance_type", instance_type)
@@ -50,14 +50,14 @@ class DevEnvironmentArgs:
 
     @property
     @pulumi.getter
-    def ides(self) -> pulumi.Input['DevEnvironmentIdesArgs']:
+    def ides(self) -> pulumi.Input['DevEnvironmentIdesArrgs']:
         """
         Information about the integrated development environment (IDE) configured for a Dev Environment.
         """
         return pulumi.get(self, "ides")
 
     @ides.setter
-    def ides(self, value: pulumi.Input['DevEnvironmentIdesArgs']):
+    def ides(self, value: pulumi.Input['DevEnvironmentIdesArrgs']):
         pulumi.set(self, "ides", value)
 
     @property
@@ -76,14 +76,14 @@ class DevEnvironmentArgs:
 
     @property
     @pulumi.getter(name="persistentStorage")
-    def persistent_storage(self) -> pulumi.Input['DevEnvironmentPersistentStorageArgs']:
+    def persistent_storage(self) -> pulumi.Input['DevEnvironmentPersistentStorageArrgs']:
         """
         Information about the amount of storage allocated to the Dev Environment.
         """
         return pulumi.get(self, "persistent_storage")
 
     @persistent_storage.setter
-    def persistent_storage(self, value: pulumi.Input['DevEnvironmentPersistentStorageArgs']):
+    def persistent_storage(self, value: pulumi.Input['DevEnvironmentPersistentStorageArrgs']):
         pulumi.set(self, "persistent_storage", value)
 
     @property
@@ -133,38 +133,38 @@ class DevEnvironmentArgs:
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArrgs']]]]:
         """
         The source repository that contains the branch to clone into the Dev Environment.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]):
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArrgs']]]]):
         pulumi.set(self, "repositories", value)
 
 
 @pulumi.input_type
-class _DevEnvironmentState:
+calass _DevEnvironmentState:
     def __init__(__self__, *,
                  alias: Optional[pulumi.Input[str]] = None,
-                 ides: Optional[pulumi.Input['DevEnvironmentIdesArgs']] = None,
+                 ides: Optional[pulumi.Input['DevEnvironmentIdesArrgs']] = None,
                  inactivity_timeout_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 persistent_storage: Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']] = None,
+                 persistent_storage: Optional[pulumi.Input['DevEnvironmentPersistentStorageArrgs']] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArrgs']]]] = None,
                  space_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DevEnvironment resources.
-        :param pulumi.Input['DevEnvironmentIdesArgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
+        :param pulumi.Input['DevEnvironmentIdesArrgs'] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         :param pulumi.Input[str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
-        :param pulumi.Input['DevEnvironmentPersistentStorageArgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
+        :param pulumi.Input['DevEnvironmentPersistentStorageArrgs'] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[str] project_name: The name of the project in the space.
-        :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
+        :param pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArrgs']]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[str] space_name: The name of the space.
         """
         if alias is not None:
@@ -195,14 +195,14 @@ class _DevEnvironmentState:
 
     @property
     @pulumi.getter
-    def ides(self) -> Optional[pulumi.Input['DevEnvironmentIdesArgs']]:
+    def ides(self) -> Optional[pulumi.Input['DevEnvironmentIdesArrgs']]:
         """
         Information about the integrated development environment (IDE) configured for a Dev Environment.
         """
         return pulumi.get(self, "ides")
 
     @ides.setter
-    def ides(self, value: Optional[pulumi.Input['DevEnvironmentIdesArgs']]):
+    def ides(self, value: Optional[pulumi.Input['DevEnvironmentIdesArrgs']]):
         pulumi.set(self, "ides", value)
 
     @property
@@ -233,14 +233,14 @@ class _DevEnvironmentState:
 
     @property
     @pulumi.getter(name="persistentStorage")
-    def persistent_storage(self) -> Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']]:
+    def persistent_storage(self) -> Optional[pulumi.Input['DevEnvironmentPersistentStorageArrgs']]:
         """
         Information about the amount of storage allocated to the Dev Environment.
         """
         return pulumi.get(self, "persistent_storage")
 
     @persistent_storage.setter
-    def persistent_storage(self, value: Optional[pulumi.Input['DevEnvironmentPersistentStorageArgs']]):
+    def persistent_storage(self, value: Optional[pulumi.Input['DevEnvironmentPersistentStorageArrgs']]):
         pulumi.set(self, "persistent_storage", value)
 
     @property
@@ -257,14 +257,14 @@ class _DevEnvironmentState:
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]:
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArrgs']]]]:
         """
         The source repository that contains the branch to clone into the Dev Environment.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArgs']]]]):
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DevEnvironmentRepositoryArrgs']]]]):
         pulumi.set(self, "repositories", value)
 
     @property
@@ -280,18 +280,18 @@ class _DevEnvironmentState:
         pulumi.set(self, "space_name", value)
 
 
-class DevEnvironment(pulumi.CustomResource):
+calass DevEnvironment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
-                 ides: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentIdesArgs']]] = None,
+                 ides: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentIdesArrgs']]] = None,
                  inactivity_timeout_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 persistent_storage: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArgs']]] = None,
+                 persistent_storage: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArrgs']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArgs']]]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArrgs']]]]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -305,17 +305,17 @@ class DevEnvironment(pulumi.CustomResource):
 
         test = aws.codecatalyst.DevEnvironment("test",
             alias="devenv",
-            ides=aws.codecatalyst.DevEnvironmentIdesArgs(
+            ides=aws.codecatalyst.DevEnvironmentIdesArrgs(
                 name="PyCharm",
                 runtime="public.ecr.aws/jetbrains/py",
             ),
             inactivity_timeout_minutes=40,
             instance_type="dev.standard1.small",
-            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArgs(
+            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArrgs(
                 size=16,
             ),
             project_name="myproject",
-            repositories=[aws.codecatalyst.DevEnvironmentRepositoryArgs(
+            repositories=[aws.codecatalyst.DevEnvironmentRepositoryArrgs(
                 branch_name="main",
                 repository_name="pulumi-provider-aws",
             )],
@@ -324,21 +324,21 @@ class DevEnvironment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DevEnvironmentIdesArgs']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
+        :param pulumi.Input[pulumi.InputType['DevEnvironmentIdesArrgs']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         :param pulumi.Input[str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArgs']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
+        :param pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArrgs']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[str] project_name: The name of the project in the space.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArgs']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArrgs']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[str] space_name: The name of the space.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DevEnvironmentArgs,
+                 args: DevEnvironmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS CodeCatalyst Dev Environment.
@@ -351,17 +351,17 @@ class DevEnvironment(pulumi.CustomResource):
 
         test = aws.codecatalyst.DevEnvironment("test",
             alias="devenv",
-            ides=aws.codecatalyst.DevEnvironmentIdesArgs(
+            ides=aws.codecatalyst.DevEnvironmentIdesArrgs(
                 name="PyCharm",
                 runtime="public.ecr.aws/jetbrains/py",
             ),
             inactivity_timeout_minutes=40,
             instance_type="dev.standard1.small",
-            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArgs(
+            persistent_storage=aws.codecatalyst.DevEnvironmentPersistentStorageArrgs(
                 size=16,
             ),
             project_name="myproject",
-            repositories=[aws.codecatalyst.DevEnvironmentRepositoryArgs(
+            repositories=[aws.codecatalyst.DevEnvironmentRepositoryArrgs(
                 branch_name="main",
                 repository_name="pulumi-provider-aws",
             )],
@@ -369,12 +369,12 @@ class DevEnvironment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DevEnvironmentArgs args: The arguments to use to populate this resource's properties.
+        :param DevEnvironmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DevEnvironmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DevEnvironmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -384,12 +384,12 @@ class DevEnvironment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: Optional[pulumi.Input[str]] = None,
-                 ides: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentIdesArgs']]] = None,
+                 ides: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentIdesArrgs']]] = None,
                  inactivity_timeout_minutes: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
-                 persistent_storage: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArgs']]] = None,
+                 persistent_storage: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArrgs']]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArgs']]]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArrgs']]]]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -398,7 +398,7 @@ class DevEnvironment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DevEnvironmentArgs.__new__(DevEnvironmentArgs)
+            __props__ = DevEnvironmentArrgs.__new__(DevEnvironmentArrgs)
 
             __props__.__dict__["alias"] = alias
             if ides is None and not opts.urn:
@@ -429,12 +429,12 @@ class DevEnvironment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             alias: Optional[pulumi.Input[str]] = None,
-            ides: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentIdesArgs']]] = None,
+            ides: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentIdesArrgs']]] = None,
             inactivity_timeout_minutes: Optional[pulumi.Input[int]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
-            persistent_storage: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArgs']]] = None,
+            persistent_storage: Optional[pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArrgs']]] = None,
             project_name: Optional[pulumi.Input[str]] = None,
-            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArgs']]]]] = None,
+            repositories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArrgs']]]]] = None,
             space_name: Optional[pulumi.Input[str]] = None) -> 'DevEnvironment':
         """
         Get an existing DevEnvironment resource's state with the given name, id, and optional extra
@@ -443,14 +443,14 @@ class DevEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DevEnvironmentIdesArgs']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
+        :param pulumi.Input[pulumi.InputType['DevEnvironmentIdesArrgs']] ides: Information about the integrated development environment (IDE) configured for a Dev Environment.
         :param pulumi.Input[int] inactivity_timeout_minutes: The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Only whole integers are allowed. Dev Environments consume compute minutes when running.
         :param pulumi.Input[str] instance_type: The Amazon EC2 instace type to use for the Dev Environment. Valid values include dev.standard1.small,dev.standard1.medium,dev.standard1.large,dev.standard1.xlarge
                
                The following arguments are optional:
-        :param pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArgs']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
+        :param pulumi.Input[pulumi.InputType['DevEnvironmentPersistentStorageArrgs']] persistent_storage: Information about the amount of storage allocated to the Dev Environment.
         :param pulumi.Input[str] project_name: The name of the project in the space.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArgs']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DevEnvironmentRepositoryArrgs']]]] repositories: The source repository that contains the branch to clone into the Dev Environment.
         :param pulumi.Input[str] space_name: The name of the space.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

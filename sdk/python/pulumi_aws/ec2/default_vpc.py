@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DefaultVpcArgs', 'DefaultVpc']
+__all__ = ['DefaultVpcArrgs', 'DefaultVpc']
 
 @pulumi.input_type
-class DefaultVpcArgs:
+calass DefaultVpcArrgs:
     def __init__(__self__, *,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
@@ -144,7 +144,7 @@ class DefaultVpcArgs:
 
 
 @pulumi.input_type
-class _DefaultVpcState:
+calass _DefaultVpcState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  assign_generated_ipv6_cidr_block: Optional[pulumi.Input[bool]] = None,
@@ -433,7 +433,7 @@ class _DefaultVpcState:
         pulumi.set(self, "tags_all", value)
 
 
-class DefaultVpc(pulumi.CustomResource):
+calass DefaultVpc(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -491,7 +491,7 @@ class DefaultVpc(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DefaultVpcArgs] = None,
+                 args: Optional[DefaultVpcArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage the [default AWS VPC](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html)
@@ -528,12 +528,12 @@ class DefaultVpc(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DefaultVpcArgs args: The arguments to use to populate this resource's properties.
+        :param DefaultVpcArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DefaultVpcArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DefaultVpcArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -559,7 +559,7 @@ class DefaultVpc(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DefaultVpcArgs.__new__(DefaultVpcArgs)
+            __props__ = DefaultVpcArrgs.__new__(DefaultVpcArrgs)
 
             __props__.__dict__["assign_generated_ipv6_cidr_block"] = assign_generated_ipv6_cidr_block
             __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames

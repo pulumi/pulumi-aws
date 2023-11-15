@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetClusterAuthResult:
+calass GetClusterAuthResult:
     """
     A collection of values returned by getClusterAuth.
     """
@@ -54,7 +54,7 @@ class GetClusterAuthResult:
         return pulumi.get(self, "token")
 
 
-class AwaitableGetClusterAuthResult(GetClusterAuthResult):
+calass AwaitableGetClusterAuthResult(GetClusterAuthResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

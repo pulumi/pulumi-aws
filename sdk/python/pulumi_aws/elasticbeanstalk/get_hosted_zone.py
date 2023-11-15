@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetHostedZoneResult:
+calass GetHostedZoneResult:
     """
     A collection of values returned by getHostedZone.
     """
@@ -46,7 +46,7 @@ class GetHostedZoneResult:
         return pulumi.get(self, "region")
 
 
-class AwaitableGetHostedZoneResult(GetHostedZoneResult):
+calass AwaitableGetHostedZoneResult(GetHostedZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

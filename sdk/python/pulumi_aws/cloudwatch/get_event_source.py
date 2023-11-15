@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEventSourceResult:
+calass GetEventSourceResult:
     """
     A collection of values returned by getEventSource.
     """
@@ -87,7 +87,7 @@ class GetEventSourceResult:
         return pulumi.get(self, "state")
 
 
-class AwaitableGetEventSourceResult(GetEventSourceResult):
+calass AwaitableGetEventSourceResult(GetEventSourceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

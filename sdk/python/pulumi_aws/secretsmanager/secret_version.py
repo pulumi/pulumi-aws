@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SecretVersionArgs', 'SecretVersion']
+__all__ = ['SecretVersionArrgs', 'SecretVersion']
 
 @pulumi.input_type
-class SecretVersionArgs:
+calass SecretVersionArrgs:
     def __init__(__self__, *,
                  secret_id: pulumi.Input[str],
                  secret_binary: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class SecretVersionArgs:
 
 
 @pulumi.input_type
-class _SecretVersionState:
+calass _SecretVersionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  secret_binary: Optional[pulumi.Input[str]] = None,
@@ -194,7 +194,7 @@ class _SecretVersionState:
         pulumi.set(self, "version_stages", value)
 
 
-class SecretVersion(pulumi.CustomResource):
+calass SecretVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -242,7 +242,7 @@ class SecretVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecretVersionArgs,
+                 args: SecretVersionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage AWS Secrets Manager secret version including its secret value. To manage secret metadata, see the `secretsmanager.Secret` resource.
@@ -270,12 +270,12 @@ class SecretVersion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SecretVersionArgs args: The arguments to use to populate this resource's properties.
+        :param SecretVersionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecretVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecretVersionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class SecretVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecretVersionArgs.__new__(SecretVersionArgs)
+            __props__ = SecretVersionArrgs.__new__(SecretVersionArrgs)
 
             __props__.__dict__["secret_binary"] = None if secret_binary is None else pulumi.Output.secret(secret_binary)
             if secret_id is None and not opts.urn:

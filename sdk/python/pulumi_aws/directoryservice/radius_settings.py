@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RadiusSettingsArgs', 'RadiusSettings']
+__all__ = ['RadiusSettingsArrgs', 'RadiusSettings']
 
 @pulumi.input_type
-class RadiusSettingsArgs:
+calass RadiusSettingsArrgs:
     def __init__(__self__, *,
                  authentication_protocol: pulumi.Input[str],
                  directory_id: pulumi.Input[str],
@@ -156,7 +156,7 @@ class RadiusSettingsArgs:
 
 
 @pulumi.input_type
-class _RadiusSettingsState:
+calass _RadiusSettingsState:
     def __init__(__self__, *,
                  authentication_protocol: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
@@ -307,7 +307,7 @@ class _RadiusSettingsState:
         pulumi.set(self, "use_same_username", value)
 
 
-class RadiusSettings(pulumi.CustomResource):
+calass RadiusSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -366,7 +366,7 @@ class RadiusSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RadiusSettingsArgs,
+                 args: RadiusSettingsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a directory's multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
@@ -397,12 +397,12 @@ class RadiusSettings(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RadiusSettingsArgs args: The arguments to use to populate this resource's properties.
+        :param RadiusSettingsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RadiusSettingsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RadiusSettingsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -427,7 +427,7 @@ class RadiusSettings(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RadiusSettingsArgs.__new__(RadiusSettingsArgs)
+            __props__ = RadiusSettingsArrgs.__new__(RadiusSettingsArrgs)
 
             if authentication_protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_protocol'")

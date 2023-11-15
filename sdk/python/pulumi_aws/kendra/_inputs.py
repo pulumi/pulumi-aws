@@ -10,58 +10,58 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DataSourceConfigurationArgs',
-    'DataSourceConfigurationS3ConfigurationArgs',
-    'DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs',
-    'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs',
-    'DataSourceConfigurationWebCrawlerConfigurationArgs',
-    'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs',
-    'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs',
-    'DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs',
-    'DataSourceConfigurationWebCrawlerConfigurationUrlsArgs',
-    'DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs',
-    'DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs',
-    'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs',
-    'ExperienceConfigurationArgs',
-    'ExperienceConfigurationContentSourceConfigurationArgs',
-    'ExperienceConfigurationUserIdentityConfigurationArgs',
-    'ExperienceEndpointArgs',
-    'FaqS3PathArgs',
-    'IndexCapacityUnitsArgs',
-    'IndexDocumentMetadataConfigurationUpdateArgs',
-    'IndexDocumentMetadataConfigurationUpdateRelevanceArgs',
-    'IndexDocumentMetadataConfigurationUpdateSearchArgs',
-    'IndexIndexStatisticArgs',
-    'IndexIndexStatisticFaqStatisticArgs',
-    'IndexIndexStatisticTextDocumentStatisticArgs',
-    'IndexServerSideEncryptionConfigurationArgs',
-    'IndexUserGroupResolutionConfigurationArgs',
-    'IndexUserTokenConfigurationsArgs',
-    'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs',
-    'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs',
-    'QuerySuggestionsBlockListSourceS3PathArgs',
-    'ThesaurusSourceS3PathArgs',
+    'DataSourceConfigurationArrgs',
+    'DataSourceConfigurationS3ConfigurationArrgs',
+    'DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArrgs',
+    'DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArrgs',
+    'DataSourceConfigurationWebCrawlerConfigurationArrgs',
+    'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArrgs',
+    'DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrgs',
+    'DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArrgs',
+    'DataSourceConfigurationWebCrawlerConfigurationUrlsArrgs',
+    'DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArrgs',
+    'DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArrgs',
+    'DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArrgs',
+    'ExperienceConfigurationArrgs',
+    'ExperienceConfigurationContentSourceConfigurationArrgs',
+    'ExperienceConfigurationUserIdentityConfigurationArrgs',
+    'ExperienceEndpointArrgs',
+    'FaqS3PathArrgs',
+    'IndexCapacityUnitsArrgs',
+    'IndexDocumentMetadataConfigurationUpdateArrgs',
+    'IndexDocumentMetadataConfigurationUpdateRelevanceArrgs',
+    'IndexDocumentMetadataConfigurationUpdateSearchArrgs',
+    'IndexIndexStatisticArrgs',
+    'IndexIndexStatisticFaqStatisticArrgs',
+    'IndexIndexStatisticTextDocumentStatisticArrgs',
+    'IndexServerSideEncryptionConfigurationArrgs',
+    'IndexUserGroupResolutionConfigurationArrgs',
+    'IndexUserTokenConfigurationsArrgs',
+    'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArrgs',
+    'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArrgs',
+    'QuerySuggestionsBlockListSourceS3PathArrgs',
+    'ThesaurusSourceS3PathArrgs',
 ]
 
 @pulumi.input_type
-class DataSourceConfigurationArgs:
+calass DataSourceConfigurationArrgs:
     def __init__(__self__, *,
-                 s3_configuration: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationArgs']] = None,
-                 web_crawler_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationArgs']] = None):
+                 s3_configuration: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationArrgs']] = None,
+                 web_crawler_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['DataSourceConfigurationS3ConfigurationArgs'] s3_configuration: A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
-        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationArgs'] web_crawler_configuration: A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
+        :param pulumi.Input['DataSourceConfigurationS3ConfigurationArrgs'] s3_configuration: A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
+        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationArrgs'] web_crawler_configuration: A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -70,42 +70,42 @@ class DataSourceConfigurationArgs:
 
     @property
     @pulumi.getter(name="s3Configuration")
-    def s3_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationArgs']]:
+    def s3_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationArrgs']]:
         """
         A block that provides the configuration information to connect to an Amazon S3 bucket as your data source. Detailed below.
         """
         return pulumi.get(self, "s3_configuration")
 
     @s3_configuration.setter
-    def s3_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationArgs']]):
+    def s3_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationArrgs']]):
         pulumi.set(self, "s3_configuration", value)
 
     @property
     @pulumi.getter(name="webCrawlerConfiguration")
-    def web_crawler_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationArgs']]:
+    def web_crawler_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationArrgs']]:
         """
         A block that provides the configuration information required for Amazon Kendra Web Crawler. Detailed below.
         """
         return pulumi.get(self, "web_crawler_configuration")
 
     @web_crawler_configuration.setter
-    def web_crawler_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationArgs']]):
+    def web_crawler_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationArrgs']]):
         pulumi.set(self, "web_crawler_configuration", value)
 
 
 @pulumi.input_type
-class DataSourceConfigurationS3ConfigurationArgs:
+calass DataSourceConfigurationS3ConfigurationArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
-                 access_control_list_configuration: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs']] = None,
-                 documents_metadata_configuration: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs']] = None,
+                 access_control_list_configuration: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArrgs']] = None,
+                 documents_metadata_configuration: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArrgs']] = None,
                  exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inclusion_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] bucket_name: The name of the bucket that contains the documents.
-        :param pulumi.Input['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs'] access_control_list_configuration: A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
-        :param pulumi.Input['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs'] documents_metadata_configuration: A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
+        :param pulumi.Input['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArrgs'] access_control_list_configuration: A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
+        :param pulumi.Input['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArrgs'] documents_metadata_configuration: A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusion_patterns: A list of glob patterns for documents that should not be indexed. If a document that matches an inclusion prefix or inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Exclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-ExclusionPatterns).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_patterns: A list of glob patterns for documents that should be indexed. If a document that matches an inclusion pattern also matches an exclusion pattern, the document is not indexed. Refer to [Inclusion Patterns for more examples](https://docs.aws.amazon.com/kendra/latest/dg/API_S3DataSourceConfiguration.html#Kendra-Type-S3DataSourceConfiguration-InclusionPatterns).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inclusion_prefixes: A list of S3 prefixes for the documents that should be included in the index.
@@ -136,26 +136,26 @@ class DataSourceConfigurationS3ConfigurationArgs:
 
     @property
     @pulumi.getter(name="accessControlListConfiguration")
-    def access_control_list_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs']]:
+    def access_control_list_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArrgs']]:
         """
         A block that provides the path to the S3 bucket that contains the user context filtering files for the data source. For the format of the file, see [Access control for S3 data sources](https://docs.aws.amazon.com/kendra/latest/dg/s3-acl.html). Detailed below.
         """
         return pulumi.get(self, "access_control_list_configuration")
 
     @access_control_list_configuration.setter
-    def access_control_list_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs']]):
+    def access_control_list_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArrgs']]):
         pulumi.set(self, "access_control_list_configuration", value)
 
     @property
     @pulumi.getter(name="documentsMetadataConfiguration")
-    def documents_metadata_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs']]:
+    def documents_metadata_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArrgs']]:
         """
         A block that defines the Document metadata files that contain information such as the document access control information, source URI, document author, and custom attributes. Each metadata file contains metadata about a single document. Detailed below.
         """
         return pulumi.get(self, "documents_metadata_configuration")
 
     @documents_metadata_configuration.setter
-    def documents_metadata_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs']]):
+    def documents_metadata_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArrgs']]):
         pulumi.set(self, "documents_metadata_configuration", value)
 
     @property
@@ -196,7 +196,7 @@ class DataSourceConfigurationS3ConfigurationArgs:
 
 
 @pulumi.input_type
-class DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs:
+calass DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArrgs:
     def __init__(__self__, *,
                  key_path: Optional[pulumi.Input[str]] = None):
         """
@@ -219,7 +219,7 @@ class DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs:
 
 
 @pulumi.input_type
-class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs:
+calass DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArrgs:
     def __init__(__self__, *,
                  s3_prefix: Optional[pulumi.Input[str]] = None):
         """
@@ -242,25 +242,25 @@ class DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs:
 
 
 @pulumi.input_type
-class DataSourceConfigurationWebCrawlerConfigurationArgs:
+calass DataSourceConfigurationWebCrawlerConfigurationArrgs:
     def __init__(__self__, *,
-                 urls: pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsArgs'],
-                 authentication_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs']] = None,
+                 urls: pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsArrgs'],
+                 authentication_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArrgs']] = None,
                  crawl_depth: Optional[pulumi.Input[int]] = None,
                  max_content_size_per_page_in_mega_bytes: Optional[pulumi.Input[float]] = None,
                  max_links_per_page: Optional[pulumi.Input[int]] = None,
                  max_urls_per_minute_crawl_rate: Optional[pulumi.Input[int]] = None,
-                 proxy_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs']] = None,
+                 proxy_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArrgs']] = None,
                  url_exclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  url_inclusion_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsArgs'] urls: A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
-        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs'] authentication_configuration: A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
+        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsArrgs'] urls: A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArrgs'] authentication_configuration: A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
         :param pulumi.Input[int] crawl_depth: Specifies the number of levels in a website that you want to crawl. The first level begins from the website seed or starting point URL. For example, if a website has 3 levels – index level (i.e. seed in this example), sections level, and subsections level – and you are only interested in crawling information up to the sections level (i.e. levels 0-1), you can set your depth to 1. The default crawl depth is set to `2`. Minimum value of `0`. Maximum value of `10`.
         :param pulumi.Input[float] max_content_size_per_page_in_mega_bytes: The maximum size (in MB) of a webpage or attachment to crawl. Files larger than this size (in MB) are skipped/not crawled. The default maximum size of a webpage or attachment is set to `50` MB. Minimum value of `1.0e-06`. Maximum value of `50`.
         :param pulumi.Input[int] max_links_per_page: The maximum number of URLs on a webpage to include when crawling a website. This number is per webpage. As a website’s webpages are crawled, any URLs the webpages link to are also crawled. URLs on a webpage are crawled in order of appearance. The default maximum links per page is `100`. Minimum value of `1`. Maximum value of `1000`.
         :param pulumi.Input[int] max_urls_per_minute_crawl_rate: The maximum number of URLs crawled per website host per minute. The default maximum number of URLs crawled per website host per minute is `300`. Minimum value of `1`. Maximum value of `300`.
-        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs'] proxy_configuration: Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
+        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArrgs'] proxy_configuration: Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] url_exclusion_patterns: A list of regular expression patterns to exclude certain URLs to crawl. URLs that match the patterns are excluded from the index. URLs that don't match the patterns are included in the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] url_inclusion_patterns: A list of regular expression patterns to include certain URLs to crawl. URLs that match the patterns are included in the index. URLs that don't match the patterns are excluded from the index. If a URL matches both an inclusion and exclusion pattern, the exclusion pattern takes precedence and the URL file isn't included in the index. Array Members: Minimum number of `0` items. Maximum number of `100` items. Length Constraints: Minimum length of `1`. Maximum length of `150`.
         """
@@ -284,26 +284,26 @@ class DataSourceConfigurationWebCrawlerConfigurationArgs:
 
     @property
     @pulumi.getter
-    def urls(self) -> pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsArgs']:
+    def urls(self) -> pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsArrgs']:
         """
         A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
         """
         return pulumi.get(self, "urls")
 
     @urls.setter
-    def urls(self, value: pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsArgs']):
+    def urls(self, value: pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsArrgs']):
         pulumi.set(self, "urls", value)
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs']]:
+    def authentication_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArrgs']]:
         """
         A block with the configuration information required to connect to websites using authentication. You can connect to websites using basic authentication of user name and password. You use a secret in AWS Secrets Manager to store your authentication credentials. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Detailed below.
         """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs']]):
+    def authentication_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArrgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @property
@@ -356,14 +356,14 @@ class DataSourceConfigurationWebCrawlerConfigurationArgs:
 
     @property
     @pulumi.getter(name="proxyConfiguration")
-    def proxy_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs']]:
+    def proxy_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArrgs']]:
         """
         Configuration information required to connect to your internal websites via a web proxy. You must provide the website host name and port number. For example, the host name of `https://a.example.com/page1.html` is `"a.example.com"` and the port is `443`, the standard port for HTTPS. Web proxy credentials are optional and you can use them to connect to a web proxy server that requires basic authentication. To store web proxy credentials, you use a secret in [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html). Detailed below.
         """
         return pulumi.get(self, "proxy_configuration")
 
     @proxy_configuration.setter
-    def proxy_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs']]):
+    def proxy_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArrgs']]):
         pulumi.set(self, "proxy_configuration", value)
 
     @property
@@ -392,30 +392,30 @@ class DataSourceConfigurationWebCrawlerConfigurationArgs:
 
 
 @pulumi.input_type
-class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs:
+calass DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArrgs:
     def __init__(__self__, *,
-                 basic_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs']]]] = None):
+                 basic_authentications: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs']]] basic_authentications: The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrgs']]] basic_authentications: The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
         """
         if basic_authentications is not None:
             pulumi.set(__self__, "basic_authentications", basic_authentications)
 
     @property
     @pulumi.getter(name="basicAuthentications")
-    def basic_authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs']]]]:
+    def basic_authentications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrgs']]]]:
         """
         The list of configuration information that's required to connect to and crawl a website host using basic authentication credentials. The list includes the name and port number of the website host. Detailed below.
         """
         return pulumi.get(self, "basic_authentications")
 
     @basic_authentications.setter
-    def basic_authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs']]]]):
+    def basic_authentications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrgs']]]]):
         pulumi.set(self, "basic_authentications", value)
 
 
 @pulumi.input_type
-class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArgs:
+calass DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationBasicAuthenticationArrgs:
     def __init__(__self__, *,
                  credentials: pulumi.Input[str],
                  host: pulumi.Input[str],
@@ -467,7 +467,7 @@ class DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationB
 
 
 @pulumi.input_type
-class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs:
+calass DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArrgs:
     def __init__(__self__, *,
                  host: pulumi.Input[str],
                  port: pulumi.Input[int],
@@ -520,13 +520,13 @@ class DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs:
 
 
 @pulumi.input_type
-class DataSourceConfigurationWebCrawlerConfigurationUrlsArgs:
+calass DataSourceConfigurationWebCrawlerConfigurationUrlsArrgs:
     def __init__(__self__, *,
-                 seed_url_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs']] = None,
-                 site_maps_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs']] = None):
+                 seed_url_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArrgs']] = None,
+                 site_maps_configuration: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs'] seed_url_configuration: A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
-        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs'] site_maps_configuration: A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
+        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArrgs'] seed_url_configuration: A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
+        :param pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArrgs'] site_maps_configuration: A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
         """
         if seed_url_configuration is not None:
             pulumi.set(__self__, "seed_url_configuration", seed_url_configuration)
@@ -535,31 +535,31 @@ class DataSourceConfigurationWebCrawlerConfigurationUrlsArgs:
 
     @property
     @pulumi.getter(name="seedUrlConfiguration")
-    def seed_url_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs']]:
+    def seed_url_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArrgs']]:
         """
         A block that specifies the configuration of the seed or starting point URLs of the websites you want to crawl. You can choose to crawl only the website host names, or the website host names with subdomains, or the website host names with subdomains and other domains that the webpages link to. You can list up to `100` seed URLs. Detailed below.
         """
         return pulumi.get(self, "seed_url_configuration")
 
     @seed_url_configuration.setter
-    def seed_url_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs']]):
+    def seed_url_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArrgs']]):
         pulumi.set(self, "seed_url_configuration", value)
 
     @property
     @pulumi.getter(name="siteMapsConfiguration")
-    def site_maps_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs']]:
+    def site_maps_configuration(self) -> Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArrgs']]:
         """
         A block that specifies the configuration of the sitemap URLs of the websites you want to crawl. Only URLs belonging to the same website host names are crawled. You can list up to `3` sitemap URLs. Detailed below.
         """
         return pulumi.get(self, "site_maps_configuration")
 
     @site_maps_configuration.setter
-    def site_maps_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs']]):
+    def site_maps_configuration(self, value: Optional[pulumi.Input['DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArrgs']]):
         pulumi.set(self, "site_maps_configuration", value)
 
 
 @pulumi.input_type
-class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs:
+calass DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArrgs:
     def __init__(__self__, *,
                  seed_urls: pulumi.Input[Sequence[pulumi.Input[str]]],
                  web_crawler_mode: Optional[pulumi.Input[str]] = None):
@@ -597,7 +597,7 @@ class DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs
 
 
 @pulumi.input_type
-class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArgs:
+calass DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArrgs:
     def __init__(__self__, *,
                  site_maps: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -619,16 +619,16 @@ class DataSourceConfigurationWebCrawlerConfigurationUrlsSiteMapsConfigurationArg
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationArrgs:
     def __init__(__self__, *,
-                 inline_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs']]]] = None,
-                 post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs']] = None,
-                 pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs']] = None,
+                 inline_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrgs']]]] = None,
+                 post_extraction_hook_configuration: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArrgs']] = None,
+                 pre_extraction_hook_configuration: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArrgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs']]] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs'] post_extraction_hook_configuration: A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs'] pre_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrgs']]] inline_configurations: Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArrgs'] post_extraction_hook_configuration: A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArrgs'] pre_extraction_hook_configuration: Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of a role with permission to run `pre_extraction_hook_configuration` and `post_extraction_hook_configuration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         if inline_configurations is not None:
@@ -642,38 +642,38 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
 
     @property
     @pulumi.getter(name="inlineConfigurations")
-    def inline_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs']]]]:
+    def inline_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrgs']]]]:
         """
         Configuration information to alter document attributes or metadata fields and content when ingesting documents into Amazon Kendra. Minimum number of `0` items. Maximum number of `100` items. Detailed below.
         """
         return pulumi.get(self, "inline_configurations")
 
     @inline_configurations.setter
-    def inline_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs']]]]):
+    def inline_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrgs']]]]):
         pulumi.set(self, "inline_configurations", value)
 
     @property
     @pulumi.getter(name="postExtractionHookConfiguration")
-    def post_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs']]:
+    def post_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArrgs']]:
         """
         A block that specifies the configuration information for invoking a Lambda function in AWS Lambda on the structured documents with their metadata and text extracted. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
         """
         return pulumi.get(self, "post_extraction_hook_configuration")
 
     @post_extraction_hook_configuration.setter
-    def post_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs']]):
+    def post_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArrgs']]):
         pulumi.set(self, "post_extraction_hook_configuration", value)
 
     @property
     @pulumi.getter(name="preExtractionHookConfiguration")
-    def pre_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs']]:
+    def pre_extraction_hook_configuration(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArrgs']]:
         """
         Configuration information for invoking a Lambda function in AWS Lambda on the original or raw documents before extracting their metadata and text. You can use a Lambda function to apply advanced logic for creating, modifying, or deleting document metadata and content. For more information, see [Advanced data manipulation](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#advanced-data-manipulation). Detailed below.
         """
         return pulumi.get(self, "pre_extraction_hook_configuration")
 
     @pre_extraction_hook_configuration.setter
-    def pre_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs']]):
+    def pre_extraction_hook_configuration(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArrgs']]):
         pulumi.set(self, "pre_extraction_hook_configuration", value)
 
     @property
@@ -690,15 +690,15 @@ class DataSourceCustomDocumentEnrichmentConfigurationArgs:
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArrgs:
     def __init__(__self__, *,
-                 condition: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs']] = None,
+                 condition: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArrgs']] = None,
                  document_content_deletion: Optional[pulumi.Input[bool]] = None,
-                 target: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs']] = None):
+                 target: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArrgs']] = None):
         """
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs'] condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArrgs'] condition: Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
         :param pulumi.Input[bool] document_content_deletion: `TRUE` to delete content if the condition used for the target attribute is met.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs'] target: Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArrgs'] target: Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
         """
         if condition is not None:
             pulumi.set(__self__, "condition", condition)
@@ -709,14 +709,14 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs:
 
     @property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs']]:
+    def condition(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArrgs']]:
         """
         Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Kendra. See condition.
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs']]):
+    def condition(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArrgs']]):
         pulumi.set(self, "condition", value)
 
     @property
@@ -733,27 +733,27 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationArgs:
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs']]:
+    def target(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArrgs']]:
         """
         Configuration of the target document attribute or metadata field when ingesting documents into Amazon Kendra. You can also include a value. Detailed below.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs']]):
+    def target(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArrgs']]):
         pulumi.set(self, "target", value)
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionArrgs:
     def __init__(__self__, *,
                  condition_document_attribute_key: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 condition_on_value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs']] = None):
+                 condition_on_value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArrgs']] = None):
         """
         :param pulumi.Input[str] condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param pulumi.Input[str] operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs'] condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArrgs'] condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -786,19 +786,19 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditio
 
     @property
     @pulumi.getter(name="conditionOnValue")
-    def condition_on_value(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs']]:
+    def condition_on_value(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArrgs']]:
         """
         The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         return pulumi.get(self, "condition_on_value")
 
     @condition_on_value.setter
-    def condition_on_value(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs']]):
+    def condition_on_value(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArrgs']]):
         pulumi.set(self, "condition_on_value", value)
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditionConditionOnValueArrgs:
     def __init__(__self__, *,
                  date_value: Optional[pulumi.Input[str]] = None,
                  long_value: Optional[pulumi.Input[int]] = None,
@@ -865,14 +865,14 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationConditio
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetArrgs:
     def __init__(__self__, *,
                  target_document_attribute_key: Optional[pulumi.Input[str]] = None,
-                 target_document_attribute_value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs']] = None,
+                 target_document_attribute_value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArrgs']] = None,
                  target_document_attribute_value_deletion: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] target_document_attribute_key: The identifier of the target document attribute or metadata field. For example, 'Department' could be an identifier for the target attribute or metadata field that includes the department names associated with the documents.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs'] target_document_attribute_value: The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArrgs'] target_document_attribute_value: The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         :param pulumi.Input[bool] target_document_attribute_value_deletion: `TRUE` to delete the existing target value for your specified target attribute key. You cannot create a target value and set this to `TRUE`. To create a target value (`TargetDocumentAttributeValue`), set this to `FALSE`.
         """
         if target_document_attribute_key is not None:
@@ -896,14 +896,14 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetAr
 
     @property
     @pulumi.getter(name="targetDocumentAttributeValue")
-    def target_document_attribute_value(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs']]:
+    def target_document_attribute_value(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArrgs']]:
         """
         The target value you want to create for the target attribute. For example, 'Finance' could be the target value for the target attribute key 'Department'. See target_document_attribute_value.
         """
         return pulumi.get(self, "target_document_attribute_value")
 
     @target_document_attribute_value.setter
-    def target_document_attribute_value(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs']]):
+    def target_document_attribute_value(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArrgs']]):
         pulumi.set(self, "target_document_attribute_value", value)
 
     @property
@@ -920,7 +920,7 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetAr
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTargetDocumentAttributeValueArrgs:
     def __init__(__self__, *,
                  date_value: Optional[pulumi.Input[str]] = None,
                  long_value: Optional[pulumi.Input[int]] = None,
@@ -987,15 +987,15 @@ class DataSourceCustomDocumentEnrichmentConfigurationInlineConfigurationTargetTa
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationArrgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[str],
                  s3_bucket: pulumi.Input[str],
-                 invocation_condition: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs']] = None):
+                 invocation_condition: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArrgs']] = None):
         """
         :param pulumi.Input[str] lambda_arn: The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         :param pulumi.Input[str] s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs'] invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArrgs'] invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -1028,27 +1028,27 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
 
     @property
     @pulumi.getter(name="invocationCondition")
-    def invocation_condition(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs']]:
+    def invocation_condition(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArrgs']]:
         """
         A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         return pulumi.get(self, "invocation_condition")
 
     @invocation_condition.setter
-    def invocation_condition(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs']]):
+    def invocation_condition(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArrgs']]):
         pulumi.set(self, "invocation_condition", value)
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionArrgs:
     def __init__(__self__, *,
                  condition_document_attribute_key: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 condition_on_value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs']] = None):
+                 condition_on_value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArrgs']] = None):
         """
         :param pulumi.Input[str] condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param pulumi.Input[str] operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs'] condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArrgs'] condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -1081,19 +1081,19 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
 
     @property
     @pulumi.getter(name="conditionOnValue")
-    def condition_on_value(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs']]:
+    def condition_on_value(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArrgs']]:
         """
         The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         return pulumi.get(self, "condition_on_value")
 
     @condition_on_value.setter
-    def condition_on_value(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs']]):
+    def condition_on_value(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArrgs']]):
         pulumi.set(self, "condition_on_value", value)
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationConditionConditionOnValueArrgs:
     def __init__(__self__, *,
                  date_value: Optional[pulumi.Input[str]] = None,
                  long_value: Optional[pulumi.Input[int]] = None,
@@ -1160,15 +1160,15 @@ class DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigura
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationArrgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[str],
                  s3_bucket: pulumi.Input[str],
-                 invocation_condition: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs']] = None):
+                 invocation_condition: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArrgs']] = None):
         """
         :param pulumi.Input[str] lambda_arn: The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         :param pulumi.Input[str] s3_bucket: Stores the original, raw documents or the structured, parsed documents before and after altering them. For more information, see [Data contracts for Lambda functions](https://docs.aws.amazon.com/kendra/latest/dg/custom-document-enrichment.html#cde-data-contracts-lambda).
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs'] invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArrgs'] invocation_condition: A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "s3_bucket", s3_bucket)
@@ -1201,27 +1201,27 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
 
     @property
     @pulumi.getter(name="invocationCondition")
-    def invocation_condition(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs']]:
+    def invocation_condition(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArrgs']]:
         """
         A block that specifies the condition used for when a Lambda function should be invoked. For example, you can specify a condition that if there are empty date-time values, then Amazon Kendra should invoke a function that inserts the current date-time. See invocation_condition.
         """
         return pulumi.get(self, "invocation_condition")
 
     @invocation_condition.setter
-    def invocation_condition(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs']]):
+    def invocation_condition(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArrgs']]):
         pulumi.set(self, "invocation_condition", value)
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionArrgs:
     def __init__(__self__, *,
                  condition_document_attribute_key: pulumi.Input[str],
                  operator: pulumi.Input[str],
-                 condition_on_value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs']] = None):
+                 condition_on_value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArrgs']] = None):
         """
         :param pulumi.Input[str] condition_document_attribute_key: The identifier of the document attribute used for the condition. For example, `_source_uri` could be an identifier for the attribute or metadata field that contains source URIs associated with the documents. Amazon Kendra currently does not support `_document_body` as an attribute key used for the condition.
         :param pulumi.Input[str] operator: The condition operator. For example, you can use `Contains` to partially match a string. Valid Values: `GreaterThan` | `GreaterThanOrEquals` | `LessThan` | `LessThanOrEquals` | `Equals` | `NotEquals` | `Contains` | `NotContains` | `Exists` | `NotExists` | `BeginsWith`.
-        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs'] condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
+        :param pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArrgs'] condition_on_value: The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         pulumi.set(__self__, "condition_document_attribute_key", condition_document_attribute_key)
         pulumi.set(__self__, "operator", operator)
@@ -1254,19 +1254,19 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
 
     @property
     @pulumi.getter(name="conditionOnValue")
-    def condition_on_value(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs']]:
+    def condition_on_value(self) -> Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArrgs']]:
         """
         The value used by the operator. For example, you can specify the value 'financial' for strings in the `_source_uri` field that partially match or contain this value. See condition_on_value.
         """
         return pulumi.get(self, "condition_on_value")
 
     @condition_on_value.setter
-    def condition_on_value(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs']]):
+    def condition_on_value(self, value: Optional[pulumi.Input['DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArrgs']]):
         pulumi.set(self, "condition_on_value", value)
 
 
 @pulumi.input_type
-class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArgs:
+calass DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationConditionConditionOnValueArrgs:
     def __init__(__self__, *,
                  date_value: Optional[pulumi.Input[str]] = None,
                  long_value: Optional[pulumi.Input[int]] = None,
@@ -1333,13 +1333,13 @@ class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurat
 
 
 @pulumi.input_type
-class ExperienceConfigurationArgs:
+calass ExperienceConfigurationArrgs:
     def __init__(__self__, *,
-                 content_source_configuration: Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs']] = None,
-                 user_identity_configuration: Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs']] = None):
+                 content_source_configuration: Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArrgs']] = None,
+                 user_identity_configuration: Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs'] content_source_configuration: The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
-        :param pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs'] user_identity_configuration: The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+        :param pulumi.Input['ExperienceConfigurationContentSourceConfigurationArrgs'] content_source_configuration: The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
+        :param pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArrgs'] user_identity_configuration: The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
         """
         if content_source_configuration is not None:
             pulumi.set(__self__, "content_source_configuration", content_source_configuration)
@@ -1348,31 +1348,31 @@ class ExperienceConfigurationArgs:
 
     @property
     @pulumi.getter(name="contentSourceConfiguration")
-    def content_source_configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs']]:
+    def content_source_configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArrgs']]:
         """
         The identifiers of your data sources and FAQs. Or, you can specify that you want to use documents indexed via the `BatchPutDocument API`. The provider will only perform drift detection of its value when present in a configuration. Detailed below.
         """
         return pulumi.get(self, "content_source_configuration")
 
     @content_source_configuration.setter
-    def content_source_configuration(self, value: Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs']]):
+    def content_source_configuration(self, value: Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArrgs']]):
         pulumi.set(self, "content_source_configuration", value)
 
     @property
     @pulumi.getter(name="userIdentityConfiguration")
-    def user_identity_configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs']]:
+    def user_identity_configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArrgs']]:
         """
         The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
         """
         return pulumi.get(self, "user_identity_configuration")
 
     @user_identity_configuration.setter
-    def user_identity_configuration(self, value: Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs']]):
+    def user_identity_configuration(self, value: Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArrgs']]):
         pulumi.set(self, "user_identity_configuration", value)
 
 
 @pulumi.input_type
-class ExperienceConfigurationContentSourceConfigurationArgs:
+calass ExperienceConfigurationContentSourceConfigurationArrgs:
     def __init__(__self__, *,
                  data_source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  direct_put_content: Optional[pulumi.Input[bool]] = None,
@@ -1427,7 +1427,7 @@ class ExperienceConfigurationContentSourceConfigurationArgs:
 
 
 @pulumi.input_type
-class ExperienceConfigurationUserIdentityConfigurationArgs:
+calass ExperienceConfigurationUserIdentityConfigurationArrgs:
     def __init__(__self__, *,
                  identity_attribute_name: pulumi.Input[str]):
         """
@@ -1449,7 +1449,7 @@ class ExperienceConfigurationUserIdentityConfigurationArgs:
 
 
 @pulumi.input_type
-class ExperienceEndpointArgs:
+calass ExperienceEndpointArrgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None):
@@ -1488,7 +1488,7 @@ class ExperienceEndpointArgs:
 
 
 @pulumi.input_type
-class FaqS3PathArgs:
+calass FaqS3PathArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str]):
@@ -1529,7 +1529,7 @@ class FaqS3PathArgs:
 
 
 @pulumi.input_type
-class IndexCapacityUnitsArgs:
+calass IndexCapacityUnitsArrgs:
     def __init__(__self__, *,
                  query_capacity_units: Optional[pulumi.Input[int]] = None,
                  storage_capacity_units: Optional[pulumi.Input[int]] = None):
@@ -1568,17 +1568,17 @@ class IndexCapacityUnitsArgs:
 
 
 @pulumi.input_type
-class IndexDocumentMetadataConfigurationUpdateArgs:
+calass IndexDocumentMetadataConfigurationUpdateArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 relevance: Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateRelevanceArgs']] = None,
-                 search: Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateSearchArgs']] = None):
+                 relevance: Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateRelevanceArrgs']] = None,
+                 search: Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateSearchArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name of the index field. Minimum length of 1. Maximum length of 30.
         :param pulumi.Input[str] type: The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
-        :param pulumi.Input['IndexDocumentMetadataConfigurationUpdateRelevanceArgs'] relevance: A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
-        :param pulumi.Input['IndexDocumentMetadataConfigurationUpdateSearchArgs'] search: A block that provides information about how the field is used during a search. Documented below. Detailed below
+        :param pulumi.Input['IndexDocumentMetadataConfigurationUpdateRelevanceArrgs'] relevance: A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
+        :param pulumi.Input['IndexDocumentMetadataConfigurationUpdateSearchArrgs'] search: A block that provides information about how the field is used during a search. Documented below. Detailed below
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -1613,31 +1613,31 @@ class IndexDocumentMetadataConfigurationUpdateArgs:
 
     @property
     @pulumi.getter
-    def relevance(self) -> Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateRelevanceArgs']]:
+    def relevance(self) -> Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateRelevanceArrgs']]:
         """
         A block that provides manual tuning parameters to determine how the field affects the search results. Detailed below
         """
         return pulumi.get(self, "relevance")
 
     @relevance.setter
-    def relevance(self, value: Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateRelevanceArgs']]):
+    def relevance(self, value: Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateRelevanceArrgs']]):
         pulumi.set(self, "relevance", value)
 
     @property
     @pulumi.getter
-    def search(self) -> Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateSearchArgs']]:
+    def search(self) -> Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateSearchArrgs']]:
         """
         A block that provides information about how the field is used during a search. Documented below. Detailed below
         """
         return pulumi.get(self, "search")
 
     @search.setter
-    def search(self, value: Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateSearchArgs']]):
+    def search(self, value: Optional[pulumi.Input['IndexDocumentMetadataConfigurationUpdateSearchArrgs']]):
         pulumi.set(self, "search", value)
 
 
 @pulumi.input_type
-class IndexDocumentMetadataConfigurationUpdateRelevanceArgs:
+calass IndexDocumentMetadataConfigurationUpdateRelevanceArrgs:
     def __init__(__self__, *,
                  duration: Optional[pulumi.Input[str]] = None,
                  freshness: Optional[pulumi.Input[bool]] = None,
@@ -1724,7 +1724,7 @@ class IndexDocumentMetadataConfigurationUpdateRelevanceArgs:
 
 
 @pulumi.input_type
-class IndexDocumentMetadataConfigurationUpdateSearchArgs:
+calass IndexDocumentMetadataConfigurationUpdateSearchArrgs:
     def __init__(__self__, *,
                  displayable: Optional[pulumi.Input[bool]] = None,
                  facetable: Optional[pulumi.Input[bool]] = None,
@@ -1795,13 +1795,13 @@ class IndexDocumentMetadataConfigurationUpdateSearchArgs:
 
 
 @pulumi.input_type
-class IndexIndexStatisticArgs:
+calass IndexIndexStatisticArrgs:
     def __init__(__self__, *,
-                 faq_statistics: Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArgs']]]] = None,
-                 text_document_statistics: Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArgs']]]] = None):
+                 faq_statistics: Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArrgs']]]] = None,
+                 text_document_statistics: Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArgs']]] faq_statistics: A block that specifies the number of question and answer topics in the index. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArgs']]] text_document_statistics: A block that specifies the number of text documents indexed. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArrgs']]] faq_statistics: A block that specifies the number of question and answer topics in the index. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArrgs']]] text_document_statistics: A block that specifies the number of text documents indexed. Detailed below.
         """
         if faq_statistics is not None:
             pulumi.set(__self__, "faq_statistics", faq_statistics)
@@ -1810,31 +1810,31 @@ class IndexIndexStatisticArgs:
 
     @property
     @pulumi.getter(name="faqStatistics")
-    def faq_statistics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArgs']]]]:
+    def faq_statistics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArrgs']]]]:
         """
         A block that specifies the number of question and answer topics in the index. Detailed below.
         """
         return pulumi.get(self, "faq_statistics")
 
     @faq_statistics.setter
-    def faq_statistics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArgs']]]]):
+    def faq_statistics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticFaqStatisticArrgs']]]]):
         pulumi.set(self, "faq_statistics", value)
 
     @property
     @pulumi.getter(name="textDocumentStatistics")
-    def text_document_statistics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArgs']]]]:
+    def text_document_statistics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArrgs']]]]:
         """
         A block that specifies the number of text documents indexed. Detailed below.
         """
         return pulumi.get(self, "text_document_statistics")
 
     @text_document_statistics.setter
-    def text_document_statistics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArgs']]]]):
+    def text_document_statistics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexIndexStatisticTextDocumentStatisticArrgs']]]]):
         pulumi.set(self, "text_document_statistics", value)
 
 
 @pulumi.input_type
-class IndexIndexStatisticFaqStatisticArgs:
+calass IndexIndexStatisticFaqStatisticArrgs:
     def __init__(__self__, *,
                  indexed_question_answers_count: Optional[pulumi.Input[int]] = None):
         """
@@ -1857,7 +1857,7 @@ class IndexIndexStatisticFaqStatisticArgs:
 
 
 @pulumi.input_type
-class IndexIndexStatisticTextDocumentStatisticArgs:
+calass IndexIndexStatisticTextDocumentStatisticArrgs:
     def __init__(__self__, *,
                  indexed_text_bytes: Optional[pulumi.Input[int]] = None,
                  indexed_text_documents_count: Optional[pulumi.Input[int]] = None):
@@ -1896,7 +1896,7 @@ class IndexIndexStatisticTextDocumentStatisticArgs:
 
 
 @pulumi.input_type
-class IndexServerSideEncryptionConfigurationArgs:
+calass IndexServerSideEncryptionConfigurationArrgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
@@ -1919,7 +1919,7 @@ class IndexServerSideEncryptionConfigurationArgs:
 
 
 @pulumi.input_type
-class IndexUserGroupResolutionConfigurationArgs:
+calass IndexUserGroupResolutionConfigurationArrgs:
     def __init__(__self__, *,
                  user_group_resolution_mode: pulumi.Input[str]):
         """
@@ -1941,13 +1941,13 @@ class IndexUserGroupResolutionConfigurationArgs:
 
 
 @pulumi.input_type
-class IndexUserTokenConfigurationsArgs:
+calass IndexUserTokenConfigurationsArrgs:
     def __init__(__self__, *,
-                 json_token_type_configuration: Optional[pulumi.Input['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs']] = None,
-                 jwt_token_type_configuration: Optional[pulumi.Input['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs']] = None):
+                 json_token_type_configuration: Optional[pulumi.Input['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArrgs']] = None,
+                 jwt_token_type_configuration: Optional[pulumi.Input['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs'] json_token_type_configuration: A block that specifies the information about the JSON token type configuration. Detailed below.
-        :param pulumi.Input['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs'] jwt_token_type_configuration: A block that specifies the information about the JWT token type configuration. Detailed below.
+        :param pulumi.Input['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArrgs'] json_token_type_configuration: A block that specifies the information about the JSON token type configuration. Detailed below.
+        :param pulumi.Input['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArrgs'] jwt_token_type_configuration: A block that specifies the information about the JWT token type configuration. Detailed below.
         """
         if json_token_type_configuration is not None:
             pulumi.set(__self__, "json_token_type_configuration", json_token_type_configuration)
@@ -1956,31 +1956,31 @@ class IndexUserTokenConfigurationsArgs:
 
     @property
     @pulumi.getter(name="jsonTokenTypeConfiguration")
-    def json_token_type_configuration(self) -> Optional[pulumi.Input['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs']]:
+    def json_token_type_configuration(self) -> Optional[pulumi.Input['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArrgs']]:
         """
         A block that specifies the information about the JSON token type configuration. Detailed below.
         """
         return pulumi.get(self, "json_token_type_configuration")
 
     @json_token_type_configuration.setter
-    def json_token_type_configuration(self, value: Optional[pulumi.Input['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs']]):
+    def json_token_type_configuration(self, value: Optional[pulumi.Input['IndexUserTokenConfigurationsJsonTokenTypeConfigurationArrgs']]):
         pulumi.set(self, "json_token_type_configuration", value)
 
     @property
     @pulumi.getter(name="jwtTokenTypeConfiguration")
-    def jwt_token_type_configuration(self) -> Optional[pulumi.Input['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs']]:
+    def jwt_token_type_configuration(self) -> Optional[pulumi.Input['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArrgs']]:
         """
         A block that specifies the information about the JWT token type configuration. Detailed below.
         """
         return pulumi.get(self, "jwt_token_type_configuration")
 
     @jwt_token_type_configuration.setter
-    def jwt_token_type_configuration(self, value: Optional[pulumi.Input['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs']]):
+    def jwt_token_type_configuration(self, value: Optional[pulumi.Input['IndexUserTokenConfigurationsJwtTokenTypeConfigurationArrgs']]):
         pulumi.set(self, "jwt_token_type_configuration", value)
 
 
 @pulumi.input_type
-class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs:
+calass IndexUserTokenConfigurationsJsonTokenTypeConfigurationArrgs:
     def __init__(__self__, *,
                  group_attribute_field: pulumi.Input[str],
                  user_name_attribute_field: pulumi.Input[str]):
@@ -2017,7 +2017,7 @@ class IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs:
 
 
 @pulumi.input_type
-class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs:
+calass IndexUserTokenConfigurationsJwtTokenTypeConfigurationArrgs:
     def __init__(__self__, *,
                  key_location: pulumi.Input[str],
                  claim_regex: Optional[pulumi.Input[str]] = None,
@@ -2135,7 +2135,7 @@ class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs:
 
 
 @pulumi.input_type
-class QuerySuggestionsBlockListSourceS3PathArgs:
+calass QuerySuggestionsBlockListSourceS3PathArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str]):
@@ -2176,7 +2176,7 @@ class QuerySuggestionsBlockListSourceS3PathArgs:
 
 
 @pulumi.input_type
-class ThesaurusSourceS3PathArgs:
+calass ThesaurusSourceS3PathArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  key: pulumi.Input[str]):

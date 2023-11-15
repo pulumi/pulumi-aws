@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkAclAssociationArgs', 'NetworkAclAssociation']
+__all__ = ['NetworkAclAssociationArrgs', 'NetworkAclAssociation']
 
 @pulumi.input_type
-class NetworkAclAssociationArgs:
+calass NetworkAclAssociationArrgs:
     def __init__(__self__, *,
                  network_acl_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class NetworkAclAssociationArgs:
 
 
 @pulumi.input_type
-class _NetworkAclAssociationState:
+calass _NetworkAclAssociationState:
     def __init__(__self__, *,
                  network_acl_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _NetworkAclAssociationState:
         pulumi.set(self, "subnet_id", value)
 
 
-class NetworkAclAssociation(pulumi.CustomResource):
+calass NetworkAclAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -124,7 +124,7 @@ class NetworkAclAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkAclAssociationArgs,
+                 args: NetworkAclAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an network ACL association resource which allows you to associate your network ACL with any subnet(s).
@@ -145,12 +145,12 @@ class NetworkAclAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkAclAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkAclAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkAclAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkAclAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -168,7 +168,7 @@ class NetworkAclAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkAclAssociationArgs.__new__(NetworkAclAssociationArgs)
+            __props__ = NetworkAclAssociationArrgs.__new__(NetworkAclAssociationArrgs)
 
             if network_acl_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_acl_id'")

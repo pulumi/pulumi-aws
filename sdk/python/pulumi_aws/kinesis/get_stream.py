@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetStreamResult:
+calass GetStreamResult:
     """
     A collection of values returned by getStream.
     """
@@ -146,7 +146,7 @@ class GetStreamResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetStreamResult(GetStreamResult):
+calass AwaitableGetStreamResult(GetStreamResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSnapshotResult:
+calass GetSnapshotResult:
     """
     A collection of values returned by getSnapshot.
     """
@@ -113,7 +113,7 @@ class GetSnapshotResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetSnapshotResult(GetSnapshotResult):
+calass AwaitableGetSnapshotResult(GetSnapshotResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

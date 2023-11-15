@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcConnectionResult:
+calass GetVpcConnectionResult:
     """
     A collection of values returned by getVpcConnection.
     """
@@ -109,7 +109,7 @@ class GetVpcConnectionResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetVpcConnectionResult(GetVpcConnectionResult):
+calass AwaitableGetVpcConnectionResult(GetVpcConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

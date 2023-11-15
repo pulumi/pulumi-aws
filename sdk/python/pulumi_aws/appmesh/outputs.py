@@ -420,7 +420,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GatewayRouteSpec(dict):
+calass GatewayRouteSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -448,9 +448,9 @@ class GatewayRouteSpec(dict):
                  http_route: Optional['outputs.GatewayRouteSpecHttpRoute'] = None,
                  priority: Optional[int] = None):
         """
-        :param 'GatewayRouteSpecGrpcRouteArgs' grpc_route: Specification of a gRPC gateway route.
-        :param 'GatewayRouteSpecHttp2RouteArgs' http2_route: Specification of an HTTP/2 gateway route.
-        :param 'GatewayRouteSpecHttpRouteArgs' http_route: Specification of an HTTP gateway route.
+        :param 'GatewayRouteSpecGrpcRouteArrgs' grpc_route: Specification of a gRPC gateway route.
+        :param 'GatewayRouteSpecHttp2RouteArrgs' http2_route: Specification of an HTTP/2 gateway route.
+        :param 'GatewayRouteSpecHttpRouteArrgs' http_route: Specification of an HTTP gateway route.
         :param int priority: Priority for the gateway route, between `0` and `1000`.
         """
         if grpc_route is not None:
@@ -496,13 +496,13 @@ class GatewayRouteSpec(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecGrpcRoute(dict):
+calass GatewayRouteSpecGrpcRoute(dict):
     def __init__(__self__, *,
                  action: 'outputs.GatewayRouteSpecGrpcRouteAction',
                  match: 'outputs.GatewayRouteSpecGrpcRouteMatch'):
         """
-        :param 'GatewayRouteSpecGrpcRouteActionArgs' action: Action to take if a match is determined.
-        :param 'GatewayRouteSpecGrpcRouteMatchArgs' match: Criteria for determining a request match.
+        :param 'GatewayRouteSpecGrpcRouteActionArrgs' action: Action to take if a match is determined.
+        :param 'GatewayRouteSpecGrpcRouteMatchArrgs' match: Criteria for determining a request match.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -525,11 +525,11 @@ class GatewayRouteSpecGrpcRoute(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecGrpcRouteAction(dict):
+calass GatewayRouteSpecGrpcRouteAction(dict):
     def __init__(__self__, *,
                  target: 'outputs.GatewayRouteSpecGrpcRouteActionTarget'):
         """
-        :param 'GatewayRouteSpecGrpcRouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
+        :param 'GatewayRouteSpecGrpcRouteActionTargetArrgs' target: Target that traffic is routed to when a request matches the gateway route.
         """
         pulumi.set(__self__, "target", target)
 
@@ -543,7 +543,7 @@ class GatewayRouteSpecGrpcRouteAction(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecGrpcRouteActionTarget(dict):
+calass GatewayRouteSpecGrpcRouteActionTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -565,7 +565,7 @@ class GatewayRouteSpecGrpcRouteActionTarget(dict):
                  virtual_service: 'outputs.GatewayRouteSpecGrpcRouteActionTargetVirtualService',
                  port: Optional[int] = None):
         """
-        :param 'GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
+        :param 'GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArrgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
         pulumi.set(__self__, "virtual_service", virtual_service)
@@ -590,7 +590,7 @@ class GatewayRouteSpecGrpcRouteActionTarget(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
+calass GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -625,7 +625,7 @@ class GatewayRouteSpecGrpcRouteActionTargetVirtualService(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecGrpcRouteMatch(dict):
+calass GatewayRouteSpecGrpcRouteMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -672,13 +672,13 @@ class GatewayRouteSpecGrpcRouteMatch(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2Route(dict):
+calass GatewayRouteSpecHttp2Route(dict):
     def __init__(__self__, *,
                  action: 'outputs.GatewayRouteSpecHttp2RouteAction',
                  match: 'outputs.GatewayRouteSpecHttp2RouteMatch'):
         """
-        :param 'GatewayRouteSpecHttp2RouteActionArgs' action: Action to take if a match is determined.
-        :param 'GatewayRouteSpecHttp2RouteMatchArgs' match: Criteria for determining a request match.
+        :param 'GatewayRouteSpecHttp2RouteActionArrgs' action: Action to take if a match is determined.
+        :param 'GatewayRouteSpecHttp2RouteMatchArrgs' match: Criteria for determining a request match.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -701,13 +701,13 @@ class GatewayRouteSpecHttp2Route(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteAction(dict):
+calass GatewayRouteSpecHttp2RouteAction(dict):
     def __init__(__self__, *,
                  target: 'outputs.GatewayRouteSpecHttp2RouteActionTarget',
                  rewrite: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewrite'] = None):
         """
-        :param 'GatewayRouteSpecHttp2RouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
-        :param 'GatewayRouteSpecHttp2RouteActionRewriteArgs' rewrite: Gateway route action to rewrite.
+        :param 'GatewayRouteSpecHttp2RouteActionTargetArrgs' target: Target that traffic is routed to when a request matches the gateway route.
+        :param 'GatewayRouteSpecHttp2RouteActionRewriteArrgs' rewrite: Gateway route action to rewrite.
         """
         pulumi.set(__self__, "target", target)
         if rewrite is not None:
@@ -731,15 +731,15 @@ class GatewayRouteSpecHttp2RouteAction(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteActionRewrite(dict):
+calass GatewayRouteSpecHttp2RouteActionRewrite(dict):
     def __init__(__self__, *,
                  hostname: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewriteHostname'] = None,
                  path: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewritePath'] = None,
                  prefix: Optional['outputs.GatewayRouteSpecHttp2RouteActionRewritePrefix'] = None):
         """
-        :param 'GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs' hostname: Host name to rewrite.
-        :param 'GatewayRouteSpecHttp2RouteActionRewritePathArgs' path: Exact path to rewrite.
-        :param 'GatewayRouteSpecHttp2RouteActionRewritePrefixArgs' prefix: Specified beginning characters to rewrite.
+        :param 'GatewayRouteSpecHttp2RouteActionRewriteHostnameArrgs' hostname: Host name to rewrite.
+        :param 'GatewayRouteSpecHttp2RouteActionRewritePathArrgs' path: Exact path to rewrite.
+        :param 'GatewayRouteSpecHttp2RouteActionRewritePrefixArrgs' prefix: Specified beginning characters to rewrite.
         """
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
@@ -774,7 +774,7 @@ class GatewayRouteSpecHttp2RouteActionRewrite(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteActionRewriteHostname(dict):
+calass GatewayRouteSpecHttp2RouteActionRewriteHostname(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -809,7 +809,7 @@ class GatewayRouteSpecHttp2RouteActionRewriteHostname(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteActionRewritePath(dict):
+calass GatewayRouteSpecHttp2RouteActionRewritePath(dict):
     def __init__(__self__, *,
                  exact: str):
         """
@@ -827,7 +827,7 @@ class GatewayRouteSpecHttp2RouteActionRewritePath(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteActionRewritePrefix(dict):
+calass GatewayRouteSpecHttp2RouteActionRewritePrefix(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -875,7 +875,7 @@ class GatewayRouteSpecHttp2RouteActionRewritePrefix(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteActionTarget(dict):
+calass GatewayRouteSpecHttp2RouteActionTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -897,7 +897,7 @@ class GatewayRouteSpecHttp2RouteActionTarget(dict):
                  virtual_service: 'outputs.GatewayRouteSpecHttp2RouteActionTargetVirtualService',
                  port: Optional[int] = None):
         """
-        :param 'GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
+        :param 'GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArrgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
         pulumi.set(__self__, "virtual_service", virtual_service)
@@ -922,7 +922,7 @@ class GatewayRouteSpecHttp2RouteActionTarget(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
+calass GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -957,7 +957,7 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualService(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteMatch(dict):
+calass GatewayRouteSpecHttp2RouteMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -983,12 +983,12 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
                  prefix: Optional[str] = None,
                  query_parameters: Optional[Sequence['outputs.GatewayRouteSpecHttp2RouteMatchQueryParameter']] = None):
         """
-        :param Sequence['GatewayRouteSpecHttp2RouteMatchHeaderArgs'] headers: Client request headers to match on.
-        :param 'GatewayRouteSpecHttp2RouteMatchHostnameArgs' hostname: Host name to match on.
-        :param 'GatewayRouteSpecHttp2RouteMatchPathArgs' path: Client request path to match on.
+        :param Sequence['GatewayRouteSpecHttp2RouteMatchHeaderArrgs'] headers: Client request headers to match on.
+        :param 'GatewayRouteSpecHttp2RouteMatchHostnameArrgs' hostname: Host name to match on.
+        :param 'GatewayRouteSpecHttp2RouteMatchPathArrgs' path: Client request path to match on.
         :param int port: The port number to match from the request.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param Sequence['GatewayRouteSpecHttp2RouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
+        :param Sequence['GatewayRouteSpecHttp2RouteMatchQueryParameterArrgs'] query_parameters: Client request query parameters to match on.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -1053,7 +1053,7 @@ class GatewayRouteSpecHttp2RouteMatch(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteMatchHeader(dict):
+calass GatewayRouteSpecHttp2RouteMatchHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  invert: Optional[bool] = None,
@@ -1061,7 +1061,7 @@ class GatewayRouteSpecHttp2RouteMatchHeader(dict):
         """
         :param str name: Name for the HTTP header in the client request that will be matched on.
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-        :param 'GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
+        :param 'GatewayRouteSpecHttp2RouteMatchHeaderMatchArrgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
         pulumi.set(__self__, "name", name)
         if invert is not None:
@@ -1095,7 +1095,7 @@ class GatewayRouteSpecHttp2RouteMatchHeader(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteMatchHeaderMatch(dict):
+calass GatewayRouteSpecHttp2RouteMatchHeaderMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None,
@@ -1105,7 +1105,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatch(dict):
         """
         :param str exact: Header value sent by the client must match the specified value exactly.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param 'GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
+        :param 'GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArrgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: Header value sent by the client must include the specified characters.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
@@ -1162,7 +1162,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatch(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteMatchHeaderMatchRange(dict):
+calass GatewayRouteSpecHttp2RouteMatchHeaderMatchRange(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -1191,7 +1191,7 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchRange(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteMatchHostname(dict):
+calass GatewayRouteSpecHttp2RouteMatchHostname(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  suffix: Optional[str] = None):
@@ -1222,7 +1222,7 @@ class GatewayRouteSpecHttp2RouteMatchHostname(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteMatchPath(dict):
+calass GatewayRouteSpecHttp2RouteMatchPath(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  regex: Optional[str] = None):
@@ -1253,13 +1253,13 @@ class GatewayRouteSpecHttp2RouteMatchPath(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteMatchQueryParameter(dict):
+calass GatewayRouteSpecHttp2RouteMatchQueryParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  match: Optional['outputs.GatewayRouteSpecHttp2RouteMatchQueryParameterMatch'] = None):
         """
         :param str name: Name for the query parameter that will be matched on.
-        :param 'GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs' match: The query parameter to match on.
+        :param 'GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArrgs' match: The query parameter to match on.
         """
         pulumi.set(__self__, "name", name)
         if match is not None:
@@ -1283,7 +1283,7 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameter(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttp2RouteMatchQueryParameterMatch(dict):
+calass GatewayRouteSpecHttp2RouteMatchQueryParameterMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None):
         """
@@ -1302,13 +1302,13 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatch(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRoute(dict):
+calass GatewayRouteSpecHttpRoute(dict):
     def __init__(__self__, *,
                  action: 'outputs.GatewayRouteSpecHttpRouteAction',
                  match: 'outputs.GatewayRouteSpecHttpRouteMatch'):
         """
-        :param 'GatewayRouteSpecHttpRouteActionArgs' action: Action to take if a match is determined.
-        :param 'GatewayRouteSpecHttpRouteMatchArgs' match: Criteria for determining a request match.
+        :param 'GatewayRouteSpecHttpRouteActionArrgs' action: Action to take if a match is determined.
+        :param 'GatewayRouteSpecHttpRouteMatchArrgs' match: Criteria for determining a request match.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -1331,13 +1331,13 @@ class GatewayRouteSpecHttpRoute(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteAction(dict):
+calass GatewayRouteSpecHttpRouteAction(dict):
     def __init__(__self__, *,
                  target: 'outputs.GatewayRouteSpecHttpRouteActionTarget',
                  rewrite: Optional['outputs.GatewayRouteSpecHttpRouteActionRewrite'] = None):
         """
-        :param 'GatewayRouteSpecHttpRouteActionTargetArgs' target: Target that traffic is routed to when a request matches the gateway route.
-        :param 'GatewayRouteSpecHttpRouteActionRewriteArgs' rewrite: Gateway route action to rewrite.
+        :param 'GatewayRouteSpecHttpRouteActionTargetArrgs' target: Target that traffic is routed to when a request matches the gateway route.
+        :param 'GatewayRouteSpecHttpRouteActionRewriteArrgs' rewrite: Gateway route action to rewrite.
         """
         pulumi.set(__self__, "target", target)
         if rewrite is not None:
@@ -1361,15 +1361,15 @@ class GatewayRouteSpecHttpRouteAction(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteActionRewrite(dict):
+calass GatewayRouteSpecHttpRouteActionRewrite(dict):
     def __init__(__self__, *,
                  hostname: Optional['outputs.GatewayRouteSpecHttpRouteActionRewriteHostname'] = None,
                  path: Optional['outputs.GatewayRouteSpecHttpRouteActionRewritePath'] = None,
                  prefix: Optional['outputs.GatewayRouteSpecHttpRouteActionRewritePrefix'] = None):
         """
-        :param 'GatewayRouteSpecHttpRouteActionRewriteHostnameArgs' hostname: Host name to rewrite.
-        :param 'GatewayRouteSpecHttpRouteActionRewritePathArgs' path: Exact path to rewrite.
-        :param 'GatewayRouteSpecHttpRouteActionRewritePrefixArgs' prefix: Specified beginning characters to rewrite.
+        :param 'GatewayRouteSpecHttpRouteActionRewriteHostnameArrgs' hostname: Host name to rewrite.
+        :param 'GatewayRouteSpecHttpRouteActionRewritePathArrgs' path: Exact path to rewrite.
+        :param 'GatewayRouteSpecHttpRouteActionRewritePrefixArrgs' prefix: Specified beginning characters to rewrite.
         """
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
@@ -1404,7 +1404,7 @@ class GatewayRouteSpecHttpRouteActionRewrite(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteActionRewriteHostname(dict):
+calass GatewayRouteSpecHttpRouteActionRewriteHostname(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1439,7 +1439,7 @@ class GatewayRouteSpecHttpRouteActionRewriteHostname(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteActionRewritePath(dict):
+calass GatewayRouteSpecHttpRouteActionRewritePath(dict):
     def __init__(__self__, *,
                  exact: str):
         """
@@ -1457,7 +1457,7 @@ class GatewayRouteSpecHttpRouteActionRewritePath(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteActionRewritePrefix(dict):
+calass GatewayRouteSpecHttpRouteActionRewritePrefix(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1505,7 +1505,7 @@ class GatewayRouteSpecHttpRouteActionRewritePrefix(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteActionTarget(dict):
+calass GatewayRouteSpecHttpRouteActionTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1527,7 +1527,7 @@ class GatewayRouteSpecHttpRouteActionTarget(dict):
                  virtual_service: 'outputs.GatewayRouteSpecHttpRouteActionTargetVirtualService',
                  port: Optional[int] = None):
         """
-        :param 'GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs' virtual_service: Virtual service gateway route target.
+        :param 'GatewayRouteSpecHttpRouteActionTargetVirtualServiceArrgs' virtual_service: Virtual service gateway route target.
         :param int port: The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
         """
         pulumi.set(__self__, "virtual_service", virtual_service)
@@ -1552,7 +1552,7 @@ class GatewayRouteSpecHttpRouteActionTarget(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
+calass GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1587,7 +1587,7 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualService(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteMatch(dict):
+calass GatewayRouteSpecHttpRouteMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1613,12 +1613,12 @@ class GatewayRouteSpecHttpRouteMatch(dict):
                  prefix: Optional[str] = None,
                  query_parameters: Optional[Sequence['outputs.GatewayRouteSpecHttpRouteMatchQueryParameter']] = None):
         """
-        :param Sequence['GatewayRouteSpecHttpRouteMatchHeaderArgs'] headers: Client request headers to match on.
-        :param 'GatewayRouteSpecHttpRouteMatchHostnameArgs' hostname: Host name to match on.
-        :param 'GatewayRouteSpecHttpRouteMatchPathArgs' path: Client request path to match on.
+        :param Sequence['GatewayRouteSpecHttpRouteMatchHeaderArrgs'] headers: Client request headers to match on.
+        :param 'GatewayRouteSpecHttpRouteMatchHostnameArrgs' hostname: Host name to match on.
+        :param 'GatewayRouteSpecHttpRouteMatchPathArrgs' path: Client request path to match on.
         :param int port: The port number to match from the request.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param Sequence['GatewayRouteSpecHttpRouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
+        :param Sequence['GatewayRouteSpecHttpRouteMatchQueryParameterArrgs'] query_parameters: Client request query parameters to match on.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -1683,7 +1683,7 @@ class GatewayRouteSpecHttpRouteMatch(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteMatchHeader(dict):
+calass GatewayRouteSpecHttpRouteMatchHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  invert: Optional[bool] = None,
@@ -1691,7 +1691,7 @@ class GatewayRouteSpecHttpRouteMatchHeader(dict):
         """
         :param str name: Name for the HTTP header in the client request that will be matched on.
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-        :param 'GatewayRouteSpecHttpRouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
+        :param 'GatewayRouteSpecHttpRouteMatchHeaderMatchArrgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
         pulumi.set(__self__, "name", name)
         if invert is not None:
@@ -1725,7 +1725,7 @@ class GatewayRouteSpecHttpRouteMatchHeader(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteMatchHeaderMatch(dict):
+calass GatewayRouteSpecHttpRouteMatchHeaderMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None,
@@ -1735,7 +1735,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatch(dict):
         """
         :param str exact: Header value sent by the client must match the specified value exactly.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param 'GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
+        :param 'GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArrgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: Header value sent by the client must include the specified characters.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
@@ -1792,7 +1792,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatch(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteMatchHeaderMatchRange(dict):
+calass GatewayRouteSpecHttpRouteMatchHeaderMatchRange(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -1821,7 +1821,7 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchRange(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteMatchHostname(dict):
+calass GatewayRouteSpecHttpRouteMatchHostname(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  suffix: Optional[str] = None):
@@ -1852,7 +1852,7 @@ class GatewayRouteSpecHttpRouteMatchHostname(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteMatchPath(dict):
+calass GatewayRouteSpecHttpRouteMatchPath(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  regex: Optional[str] = None):
@@ -1883,13 +1883,13 @@ class GatewayRouteSpecHttpRouteMatchPath(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteMatchQueryParameter(dict):
+calass GatewayRouteSpecHttpRouteMatchQueryParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  match: Optional['outputs.GatewayRouteSpecHttpRouteMatchQueryParameterMatch'] = None):
         """
         :param str name: Name for the query parameter that will be matched on.
-        :param 'GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs' match: The query parameter to match on.
+        :param 'GatewayRouteSpecHttpRouteMatchQueryParameterMatchArrgs' match: The query parameter to match on.
         """
         pulumi.set(__self__, "name", name)
         if match is not None:
@@ -1913,7 +1913,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameter(dict):
 
 
 @pulumi.output_type
-class GatewayRouteSpecHttpRouteMatchQueryParameterMatch(dict):
+calass GatewayRouteSpecHttpRouteMatchQueryParameterMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None):
         """
@@ -1932,7 +1932,7 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatch(dict):
 
 
 @pulumi.output_type
-class MeshSpec(dict):
+calass MeshSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1953,7 +1953,7 @@ class MeshSpec(dict):
     def __init__(__self__, *,
                  egress_filter: Optional['outputs.MeshSpecEgressFilter'] = None):
         """
-        :param 'MeshSpecEgressFilterArgs' egress_filter: Egress filter rules for the service mesh.
+        :param 'MeshSpecEgressFilterArrgs' egress_filter: Egress filter rules for the service mesh.
         """
         if egress_filter is not None:
             pulumi.set(__self__, "egress_filter", egress_filter)
@@ -1968,7 +1968,7 @@ class MeshSpec(dict):
 
 
 @pulumi.output_type
-class MeshSpecEgressFilter(dict):
+calass MeshSpecEgressFilter(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None):
         """
@@ -1989,7 +1989,7 @@ class MeshSpecEgressFilter(dict):
 
 
 @pulumi.output_type
-class RouteSpec(dict):
+calass RouteSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2020,12 +2020,12 @@ class RouteSpec(dict):
                  priority: Optional[int] = None,
                  tcp_route: Optional['outputs.RouteSpecTcpRoute'] = None):
         """
-        :param 'RouteSpecGrpcRouteArgs' grpc_route: GRPC routing information for the route.
-        :param 'RouteSpecHttp2RouteArgs' http2_route: HTTP/2 routing information for the route.
-        :param 'RouteSpecHttpRouteArgs' http_route: HTTP routing information for the route.
+        :param 'RouteSpecGrpcRouteArrgs' grpc_route: GRPC routing information for the route.
+        :param 'RouteSpecHttp2RouteArrgs' http2_route: HTTP/2 routing information for the route.
+        :param 'RouteSpecHttpRouteArrgs' http_route: HTTP routing information for the route.
         :param int priority: Priority for the route, between `0` and `1000`.
                Routes are matched based on the specified value, where `0` is the highest priority.
-        :param 'RouteSpecTcpRouteArgs' tcp_route: TCP routing information for the route.
+        :param 'RouteSpecTcpRouteArrgs' tcp_route: TCP routing information for the route.
         """
         if grpc_route is not None:
             pulumi.set(__self__, "grpc_route", grpc_route)
@@ -2081,7 +2081,7 @@ class RouteSpec(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRoute(dict):
+calass RouteSpecGrpcRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2105,10 +2105,10 @@ class RouteSpecGrpcRoute(dict):
                  retry_policy: Optional['outputs.RouteSpecGrpcRouteRetryPolicy'] = None,
                  timeout: Optional['outputs.RouteSpecGrpcRouteTimeout'] = None):
         """
-        :param 'RouteSpecGrpcRouteActionArgs' action: Action to take if a match is determined.
-        :param 'RouteSpecGrpcRouteMatchArgs' match: Criteria for determining an gRPC request match.
-        :param 'RouteSpecGrpcRouteRetryPolicyArgs' retry_policy: Retry policy.
-        :param 'RouteSpecGrpcRouteTimeoutArgs' timeout: Types of timeouts.
+        :param 'RouteSpecGrpcRouteActionArrgs' action: Action to take if a match is determined.
+        :param 'RouteSpecGrpcRouteMatchArrgs' match: Criteria for determining an gRPC request match.
+        :param 'RouteSpecGrpcRouteRetryPolicyArrgs' retry_policy: Retry policy.
+        :param 'RouteSpecGrpcRouteTimeoutArrgs' timeout: Types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         if match is not None:
@@ -2152,7 +2152,7 @@ class RouteSpecGrpcRoute(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteAction(dict):
+calass RouteSpecGrpcRouteAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2173,7 +2173,7 @@ class RouteSpecGrpcRouteAction(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.RouteSpecGrpcRouteActionWeightedTarget']):
         """
-        :param Sequence['RouteSpecGrpcRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
+        :param Sequence['RouteSpecGrpcRouteActionWeightedTargetArrgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
         pulumi.set(__self__, "weighted_targets", weighted_targets)
@@ -2189,7 +2189,7 @@ class RouteSpecGrpcRouteAction(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteActionWeightedTarget(dict):
+calass RouteSpecGrpcRouteActionWeightedTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2247,7 +2247,7 @@ class RouteSpecGrpcRouteActionWeightedTarget(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteMatch(dict):
+calass RouteSpecGrpcRouteMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2274,7 +2274,7 @@ class RouteSpecGrpcRouteMatch(dict):
                  prefix: Optional[str] = None,
                  service_name: Optional[str] = None):
         """
-        :param Sequence['RouteSpecGrpcRouteMatchMetadataArgs'] metadatas: Data to match from the gRPC request.
+        :param Sequence['RouteSpecGrpcRouteMatchMetadataArrgs'] metadatas: Data to match from the gRPC request.
         :param str method_name: Method name to match from the request. If you specify a name, you must also specify a `service_name`.
         :param int port: The port number to match from the request.
         :param str prefix: Header value sent by the client must begin with the specified characters.
@@ -2333,7 +2333,7 @@ class RouteSpecGrpcRouteMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteMatchMetadata(dict):
+calass RouteSpecGrpcRouteMatchMetadata(dict):
     def __init__(__self__, *,
                  name: str,
                  invert: Optional[bool] = None,
@@ -2341,7 +2341,7 @@ class RouteSpecGrpcRouteMatchMetadata(dict):
         """
         :param str name: Name of the route. Must be between 1 and 50 characters in length.
         :param bool invert: If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
-        :param 'RouteSpecGrpcRouteMatchMetadataMatchArgs' match: Data to match from the request.
+        :param 'RouteSpecGrpcRouteMatchMetadataMatchArrgs' match: Data to match from the request.
         """
         pulumi.set(__self__, "name", name)
         if invert is not None:
@@ -2375,7 +2375,7 @@ class RouteSpecGrpcRouteMatchMetadata(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteMatchMetadataMatch(dict):
+calass RouteSpecGrpcRouteMatchMetadataMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None,
@@ -2385,7 +2385,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
         """
         :param str exact: The exact path to match on.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param 'RouteSpecGrpcRouteMatchMetadataMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
+        :param 'RouteSpecGrpcRouteMatchMetadataMatchRangeArrgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: The regex used to match the path.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
@@ -2442,7 +2442,7 @@ class RouteSpecGrpcRouteMatchMetadataMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteMatchMetadataMatchRange(dict):
+calass RouteSpecGrpcRouteMatchMetadataMatchRange(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -2471,7 +2471,7 @@ class RouteSpecGrpcRouteMatchMetadataMatchRange(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteRetryPolicy(dict):
+calass RouteSpecGrpcRouteRetryPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2505,7 +2505,7 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
                  tcp_retry_events: Optional[Sequence[str]] = None):
         """
         :param int max_retries: Maximum number of retries.
-        :param 'RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs' per_retry_timeout: Per-retry timeout.
+        :param 'RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArrgs' per_retry_timeout: Per-retry timeout.
         :param Sequence[str] grpc_retry_events: List of gRPC retry events.
                Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
         :param Sequence[str] http_retry_events: List of HTTP retry events.
@@ -2565,7 +2565,7 @@ class RouteSpecGrpcRouteRetryPolicy(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
+calass RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -2594,7 +2594,7 @@ class RouteSpecGrpcRouteRetryPolicyPerRetryTimeout(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteTimeout(dict):
+calass RouteSpecGrpcRouteTimeout(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2616,8 +2616,8 @@ class RouteSpecGrpcRouteTimeout(dict):
                  idle: Optional['outputs.RouteSpecGrpcRouteTimeoutIdle'] = None,
                  per_request: Optional['outputs.RouteSpecGrpcRouteTimeoutPerRequest'] = None):
         """
-        :param 'RouteSpecGrpcRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        :param 'RouteSpecGrpcRouteTimeoutPerRequestArgs' per_request: Per request timeout.
+        :param 'RouteSpecGrpcRouteTimeoutIdleArrgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'RouteSpecGrpcRouteTimeoutPerRequestArrgs' per_request: Per request timeout.
         """
         if idle is not None:
             pulumi.set(__self__, "idle", idle)
@@ -2642,7 +2642,7 @@ class RouteSpecGrpcRouteTimeout(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteTimeoutIdle(dict):
+calass RouteSpecGrpcRouteTimeoutIdle(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -2671,7 +2671,7 @@ class RouteSpecGrpcRouteTimeoutIdle(dict):
 
 
 @pulumi.output_type
-class RouteSpecGrpcRouteTimeoutPerRequest(dict):
+calass RouteSpecGrpcRouteTimeoutPerRequest(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -2700,7 +2700,7 @@ class RouteSpecGrpcRouteTimeoutPerRequest(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2Route(dict):
+calass RouteSpecHttp2Route(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2724,10 +2724,10 @@ class RouteSpecHttp2Route(dict):
                  retry_policy: Optional['outputs.RouteSpecHttp2RouteRetryPolicy'] = None,
                  timeout: Optional['outputs.RouteSpecHttp2RouteTimeout'] = None):
         """
-        :param 'RouteSpecHttp2RouteActionArgs' action: Action to take if a match is determined.
-        :param 'RouteSpecHttp2RouteMatchArgs' match: Criteria for determining an gRPC request match.
-        :param 'RouteSpecHttp2RouteRetryPolicyArgs' retry_policy: Retry policy.
-        :param 'RouteSpecHttp2RouteTimeoutArgs' timeout: Types of timeouts.
+        :param 'RouteSpecHttp2RouteActionArrgs' action: Action to take if a match is determined.
+        :param 'RouteSpecHttp2RouteMatchArrgs' match: Criteria for determining an gRPC request match.
+        :param 'RouteSpecHttp2RouteRetryPolicyArrgs' retry_policy: Retry policy.
+        :param 'RouteSpecHttp2RouteTimeoutArrgs' timeout: Types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -2770,7 +2770,7 @@ class RouteSpecHttp2Route(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteAction(dict):
+calass RouteSpecHttp2RouteAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2791,7 +2791,7 @@ class RouteSpecHttp2RouteAction(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.RouteSpecHttp2RouteActionWeightedTarget']):
         """
-        :param Sequence['RouteSpecHttp2RouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
+        :param Sequence['RouteSpecHttp2RouteActionWeightedTargetArrgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
         pulumi.set(__self__, "weighted_targets", weighted_targets)
@@ -2807,7 +2807,7 @@ class RouteSpecHttp2RouteAction(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteActionWeightedTarget(dict):
+calass RouteSpecHttp2RouteActionWeightedTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2865,7 +2865,7 @@ class RouteSpecHttp2RouteActionWeightedTarget(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteMatch(dict):
+calass RouteSpecHttp2RouteMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2892,12 +2892,12 @@ class RouteSpecHttp2RouteMatch(dict):
                  query_parameters: Optional[Sequence['outputs.RouteSpecHttp2RouteMatchQueryParameter']] = None,
                  scheme: Optional[str] = None):
         """
-        :param Sequence['RouteSpecHttp2RouteMatchHeaderArgs'] headers: Client request headers to match on.
+        :param Sequence['RouteSpecHttp2RouteMatchHeaderArrgs'] headers: Client request headers to match on.
         :param str method: Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-        :param 'RouteSpecHttp2RouteMatchPathArgs' path: Client request path to match on.
+        :param 'RouteSpecHttp2RouteMatchPathArrgs' path: Client request path to match on.
         :param int port: The port number to match from the request.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param Sequence['RouteSpecHttp2RouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
+        :param Sequence['RouteSpecHttp2RouteMatchQueryParameterArrgs'] query_parameters: Client request query parameters to match on.
         :param str scheme: Client request header scheme to match on. Valid values: `http`, `https`.
         """
         if headers is not None:
@@ -2973,7 +2973,7 @@ class RouteSpecHttp2RouteMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteMatchHeader(dict):
+calass RouteSpecHttp2RouteMatchHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  invert: Optional[bool] = None,
@@ -2981,7 +2981,7 @@ class RouteSpecHttp2RouteMatchHeader(dict):
         """
         :param str name: Name for the HTTP header in the client request that will be matched on.
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-        :param 'RouteSpecHttp2RouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
+        :param 'RouteSpecHttp2RouteMatchHeaderMatchArrgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
         pulumi.set(__self__, "name", name)
         if invert is not None:
@@ -3015,7 +3015,7 @@ class RouteSpecHttp2RouteMatchHeader(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteMatchHeaderMatch(dict):
+calass RouteSpecHttp2RouteMatchHeaderMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None,
@@ -3025,7 +3025,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
         """
         :param str exact: The exact path to match on.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param 'RouteSpecHttp2RouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
+        :param 'RouteSpecHttp2RouteMatchHeaderMatchRangeArrgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: The regex used to match the path.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
@@ -3082,7 +3082,7 @@ class RouteSpecHttp2RouteMatchHeaderMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteMatchHeaderMatchRange(dict):
+calass RouteSpecHttp2RouteMatchHeaderMatchRange(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -3111,7 +3111,7 @@ class RouteSpecHttp2RouteMatchHeaderMatchRange(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteMatchPath(dict):
+calass RouteSpecHttp2RouteMatchPath(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  regex: Optional[str] = None):
@@ -3142,13 +3142,13 @@ class RouteSpecHttp2RouteMatchPath(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteMatchQueryParameter(dict):
+calass RouteSpecHttp2RouteMatchQueryParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  match: Optional['outputs.RouteSpecHttp2RouteMatchQueryParameterMatch'] = None):
         """
         :param str name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param 'RouteSpecHttp2RouteMatchQueryParameterMatchArgs' match: Criteria for determining an gRPC request match.
+        :param 'RouteSpecHttp2RouteMatchQueryParameterMatchArrgs' match: Criteria for determining an gRPC request match.
         """
         pulumi.set(__self__, "name", name)
         if match is not None:
@@ -3172,7 +3172,7 @@ class RouteSpecHttp2RouteMatchQueryParameter(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteMatchQueryParameterMatch(dict):
+calass RouteSpecHttp2RouteMatchQueryParameterMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None):
         """
@@ -3191,7 +3191,7 @@ class RouteSpecHttp2RouteMatchQueryParameterMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteRetryPolicy(dict):
+calass RouteSpecHttp2RouteRetryPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3222,7 +3222,7 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
                  tcp_retry_events: Optional[Sequence[str]] = None):
         """
         :param int max_retries: Maximum number of retries.
-        :param 'RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs' per_retry_timeout: Per-retry timeout.
+        :param 'RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArrgs' per_retry_timeout: Per-retry timeout.
         :param Sequence[str] http_retry_events: List of HTTP retry events.
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
@@ -3269,7 +3269,7 @@ class RouteSpecHttp2RouteRetryPolicy(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
+calass RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -3298,7 +3298,7 @@ class RouteSpecHttp2RouteRetryPolicyPerRetryTimeout(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteTimeout(dict):
+calass RouteSpecHttp2RouteTimeout(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3320,8 +3320,8 @@ class RouteSpecHttp2RouteTimeout(dict):
                  idle: Optional['outputs.RouteSpecHttp2RouteTimeoutIdle'] = None,
                  per_request: Optional['outputs.RouteSpecHttp2RouteTimeoutPerRequest'] = None):
         """
-        :param 'RouteSpecHttp2RouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        :param 'RouteSpecHttp2RouteTimeoutPerRequestArgs' per_request: Per request timeout.
+        :param 'RouteSpecHttp2RouteTimeoutIdleArrgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'RouteSpecHttp2RouteTimeoutPerRequestArrgs' per_request: Per request timeout.
         """
         if idle is not None:
             pulumi.set(__self__, "idle", idle)
@@ -3346,7 +3346,7 @@ class RouteSpecHttp2RouteTimeout(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteTimeoutIdle(dict):
+calass RouteSpecHttp2RouteTimeoutIdle(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -3375,7 +3375,7 @@ class RouteSpecHttp2RouteTimeoutIdle(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttp2RouteTimeoutPerRequest(dict):
+calass RouteSpecHttp2RouteTimeoutPerRequest(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -3404,7 +3404,7 @@ class RouteSpecHttp2RouteTimeoutPerRequest(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRoute(dict):
+calass RouteSpecHttpRoute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3428,10 +3428,10 @@ class RouteSpecHttpRoute(dict):
                  retry_policy: Optional['outputs.RouteSpecHttpRouteRetryPolicy'] = None,
                  timeout: Optional['outputs.RouteSpecHttpRouteTimeout'] = None):
         """
-        :param 'RouteSpecHttpRouteActionArgs' action: Action to take if a match is determined.
-        :param 'RouteSpecHttpRouteMatchArgs' match: Criteria for determining an HTTP request match.
-        :param 'RouteSpecHttpRouteRetryPolicyArgs' retry_policy: Retry policy.
-        :param 'RouteSpecHttpRouteTimeoutArgs' timeout: Types of timeouts.
+        :param 'RouteSpecHttpRouteActionArrgs' action: Action to take if a match is determined.
+        :param 'RouteSpecHttpRouteMatchArrgs' match: Criteria for determining an HTTP request match.
+        :param 'RouteSpecHttpRouteRetryPolicyArrgs' retry_policy: Retry policy.
+        :param 'RouteSpecHttpRouteTimeoutArrgs' timeout: Types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "match", match)
@@ -3474,7 +3474,7 @@ class RouteSpecHttpRoute(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteAction(dict):
+calass RouteSpecHttpRouteAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3495,7 +3495,7 @@ class RouteSpecHttpRouteAction(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.RouteSpecHttpRouteActionWeightedTarget']):
         """
-        :param Sequence['RouteSpecHttpRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
+        :param Sequence['RouteSpecHttpRouteActionWeightedTargetArrgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
         pulumi.set(__self__, "weighted_targets", weighted_targets)
@@ -3511,7 +3511,7 @@ class RouteSpecHttpRouteAction(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteActionWeightedTarget(dict):
+calass RouteSpecHttpRouteActionWeightedTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3569,7 +3569,7 @@ class RouteSpecHttpRouteActionWeightedTarget(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteMatch(dict):
+calass RouteSpecHttpRouteMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3596,12 +3596,12 @@ class RouteSpecHttpRouteMatch(dict):
                  query_parameters: Optional[Sequence['outputs.RouteSpecHttpRouteMatchQueryParameter']] = None,
                  scheme: Optional[str] = None):
         """
-        :param Sequence['RouteSpecHttpRouteMatchHeaderArgs'] headers: Client request headers to match on.
+        :param Sequence['RouteSpecHttpRouteMatchHeaderArrgs'] headers: Client request headers to match on.
         :param str method: Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-        :param 'RouteSpecHttpRouteMatchPathArgs' path: Client request path to match on.
+        :param 'RouteSpecHttpRouteMatchPathArrgs' path: Client request path to match on.
         :param int port: The port number to match from the request.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param Sequence['RouteSpecHttpRouteMatchQueryParameterArgs'] query_parameters: Client request query parameters to match on.
+        :param Sequence['RouteSpecHttpRouteMatchQueryParameterArrgs'] query_parameters: Client request query parameters to match on.
         :param str scheme: Client request header scheme to match on. Valid values: `http`, `https`.
         """
         if headers is not None:
@@ -3677,7 +3677,7 @@ class RouteSpecHttpRouteMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteMatchHeader(dict):
+calass RouteSpecHttpRouteMatchHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  invert: Optional[bool] = None,
@@ -3685,7 +3685,7 @@ class RouteSpecHttpRouteMatchHeader(dict):
         """
         :param str name: Name for the HTTP header in the client request that will be matched on.
         :param bool invert: If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-        :param 'RouteSpecHttpRouteMatchHeaderMatchArgs' match: Method and value to match the header value sent with a request. Specify one match method.
+        :param 'RouteSpecHttpRouteMatchHeaderMatchArrgs' match: Method and value to match the header value sent with a request. Specify one match method.
         """
         pulumi.set(__self__, "name", name)
         if invert is not None:
@@ -3719,7 +3719,7 @@ class RouteSpecHttpRouteMatchHeader(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteMatchHeaderMatch(dict):
+calass RouteSpecHttpRouteMatchHeaderMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  prefix: Optional[str] = None,
@@ -3729,7 +3729,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
         """
         :param str exact: The exact path to match on.
         :param str prefix: Header value sent by the client must begin with the specified characters.
-        :param 'RouteSpecHttpRouteMatchHeaderMatchRangeArgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
+        :param 'RouteSpecHttpRouteMatchHeaderMatchRangeArrgs' range: Object that specifies the range of numbers that the header value sent by the client must be included in.
         :param str regex: The regex used to match the path.
         :param str suffix: Header value sent by the client must end with the specified characters.
         """
@@ -3786,7 +3786,7 @@ class RouteSpecHttpRouteMatchHeaderMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
+calass RouteSpecHttpRouteMatchHeaderMatchRange(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -3815,7 +3815,7 @@ class RouteSpecHttpRouteMatchHeaderMatchRange(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteMatchPath(dict):
+calass RouteSpecHttpRouteMatchPath(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None,
                  regex: Optional[str] = None):
@@ -3846,13 +3846,13 @@ class RouteSpecHttpRouteMatchPath(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteMatchQueryParameter(dict):
+calass RouteSpecHttpRouteMatchQueryParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  match: Optional['outputs.RouteSpecHttpRouteMatchQueryParameterMatch'] = None):
         """
         :param str name: Name to use for the route. Must be between 1 and 255 characters in length.
-        :param 'RouteSpecHttpRouteMatchQueryParameterMatchArgs' match: Criteria for determining an gRPC request match.
+        :param 'RouteSpecHttpRouteMatchQueryParameterMatchArrgs' match: Criteria for determining an gRPC request match.
         """
         pulumi.set(__self__, "name", name)
         if match is not None:
@@ -3876,7 +3876,7 @@ class RouteSpecHttpRouteMatchQueryParameter(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteMatchQueryParameterMatch(dict):
+calass RouteSpecHttpRouteMatchQueryParameterMatch(dict):
     def __init__(__self__, *,
                  exact: Optional[str] = None):
         """
@@ -3895,7 +3895,7 @@ class RouteSpecHttpRouteMatchQueryParameterMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteRetryPolicy(dict):
+calass RouteSpecHttpRouteRetryPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3926,7 +3926,7 @@ class RouteSpecHttpRouteRetryPolicy(dict):
                  tcp_retry_events: Optional[Sequence[str]] = None):
         """
         :param int max_retries: Maximum number of retries.
-        :param 'RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs' per_retry_timeout: Per-retry timeout.
+        :param 'RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArrgs' per_retry_timeout: Per-retry timeout.
         :param Sequence[str] http_retry_events: List of HTTP retry events.
                Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
         :param Sequence[str] tcp_retry_events: List of TCP retry events. The only valid value is `connection-error`.
@@ -3973,7 +3973,7 @@ class RouteSpecHttpRouteRetryPolicy(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
+calass RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -4002,7 +4002,7 @@ class RouteSpecHttpRouteRetryPolicyPerRetryTimeout(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteTimeout(dict):
+calass RouteSpecHttpRouteTimeout(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4024,8 +4024,8 @@ class RouteSpecHttpRouteTimeout(dict):
                  idle: Optional['outputs.RouteSpecHttpRouteTimeoutIdle'] = None,
                  per_request: Optional['outputs.RouteSpecHttpRouteTimeoutPerRequest'] = None):
         """
-        :param 'RouteSpecHttpRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        :param 'RouteSpecHttpRouteTimeoutPerRequestArgs' per_request: Per request timeout.
+        :param 'RouteSpecHttpRouteTimeoutIdleArrgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'RouteSpecHttpRouteTimeoutPerRequestArrgs' per_request: Per request timeout.
         """
         if idle is not None:
             pulumi.set(__self__, "idle", idle)
@@ -4050,7 +4050,7 @@ class RouteSpecHttpRouteTimeout(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteTimeoutIdle(dict):
+calass RouteSpecHttpRouteTimeoutIdle(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -4079,7 +4079,7 @@ class RouteSpecHttpRouteTimeoutIdle(dict):
 
 
 @pulumi.output_type
-class RouteSpecHttpRouteTimeoutPerRequest(dict):
+calass RouteSpecHttpRouteTimeoutPerRequest(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -4108,15 +4108,15 @@ class RouteSpecHttpRouteTimeoutPerRequest(dict):
 
 
 @pulumi.output_type
-class RouteSpecTcpRoute(dict):
+calass RouteSpecTcpRoute(dict):
     def __init__(__self__, *,
                  action: 'outputs.RouteSpecTcpRouteAction',
                  match: Optional['outputs.RouteSpecTcpRouteMatch'] = None,
                  timeout: Optional['outputs.RouteSpecTcpRouteTimeout'] = None):
         """
-        :param 'RouteSpecTcpRouteActionArgs' action: Action to take if a match is determined.
-        :param 'RouteSpecTcpRouteMatchArgs' match: Criteria for determining an gRPC request match.
-        :param 'RouteSpecTcpRouteTimeoutArgs' timeout: Types of timeouts.
+        :param 'RouteSpecTcpRouteActionArrgs' action: Action to take if a match is determined.
+        :param 'RouteSpecTcpRouteMatchArrgs' match: Criteria for determining an gRPC request match.
+        :param 'RouteSpecTcpRouteTimeoutArrgs' timeout: Types of timeouts.
         """
         pulumi.set(__self__, "action", action)
         if match is not None:
@@ -4150,7 +4150,7 @@ class RouteSpecTcpRoute(dict):
 
 
 @pulumi.output_type
-class RouteSpecTcpRouteAction(dict):
+calass RouteSpecTcpRouteAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4171,7 +4171,7 @@ class RouteSpecTcpRouteAction(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.RouteSpecTcpRouteActionWeightedTarget']):
         """
-        :param Sequence['RouteSpecTcpRouteActionWeightedTargetArgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
+        :param Sequence['RouteSpecTcpRouteActionWeightedTargetArrgs'] weighted_targets: Targets that traffic is routed to when a request matches the route.
                You can specify one or more targets and their relative weights with which to distribute traffic.
         """
         pulumi.set(__self__, "weighted_targets", weighted_targets)
@@ -4187,7 +4187,7 @@ class RouteSpecTcpRouteAction(dict):
 
 
 @pulumi.output_type
-class RouteSpecTcpRouteActionWeightedTarget(dict):
+calass RouteSpecTcpRouteActionWeightedTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4245,7 +4245,7 @@ class RouteSpecTcpRouteActionWeightedTarget(dict):
 
 
 @pulumi.output_type
-class RouteSpecTcpRouteMatch(dict):
+calass RouteSpecTcpRouteMatch(dict):
     def __init__(__self__, *,
                  port: Optional[int] = None):
         """
@@ -4264,11 +4264,11 @@ class RouteSpecTcpRouteMatch(dict):
 
 
 @pulumi.output_type
-class RouteSpecTcpRouteTimeout(dict):
+calass RouteSpecTcpRouteTimeout(dict):
     def __init__(__self__, *,
                  idle: Optional['outputs.RouteSpecTcpRouteTimeoutIdle'] = None):
         """
-        :param 'RouteSpecTcpRouteTimeoutIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'RouteSpecTcpRouteTimeoutIdleArrgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         """
         if idle is not None:
             pulumi.set(__self__, "idle", idle)
@@ -4283,7 +4283,7 @@ class RouteSpecTcpRouteTimeout(dict):
 
 
 @pulumi.output_type
-class RouteSpecTcpRouteTimeoutIdle(dict):
+calass RouteSpecTcpRouteTimeoutIdle(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -4312,7 +4312,7 @@ class RouteSpecTcpRouteTimeoutIdle(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpec(dict):
+calass VirtualGatewaySpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4335,9 +4335,9 @@ class VirtualGatewaySpec(dict):
                  backend_defaults: Optional['outputs.VirtualGatewaySpecBackendDefaults'] = None,
                  logging: Optional['outputs.VirtualGatewaySpecLogging'] = None):
         """
-        :param Sequence['VirtualGatewaySpecListenerArgs'] listeners: Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-        :param 'VirtualGatewaySpecBackendDefaultsArgs' backend_defaults: Defaults for backends.
-        :param 'VirtualGatewaySpecLoggingArgs' logging: Inbound and outbound access logging information for the virtual gateway.
+        :param Sequence['VirtualGatewaySpecListenerArrgs'] listeners: Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+        :param 'VirtualGatewaySpecBackendDefaultsArrgs' backend_defaults: Defaults for backends.
+        :param 'VirtualGatewaySpecLoggingArrgs' logging: Inbound and outbound access logging information for the virtual gateway.
         """
         pulumi.set(__self__, "listeners", listeners)
         if backend_defaults is not None:
@@ -4371,7 +4371,7 @@ class VirtualGatewaySpec(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaults(dict):
+calass VirtualGatewaySpecBackendDefaults(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4392,7 +4392,7 @@ class VirtualGatewaySpecBackendDefaults(dict):
     def __init__(__self__, *,
                  client_policy: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicy'] = None):
         """
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyArgs' client_policy: Default client policy for virtual gateway backends.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyArrgs' client_policy: Default client policy for virtual gateway backends.
         """
         if client_policy is not None:
             pulumi.set(__self__, "client_policy", client_policy)
@@ -4407,11 +4407,11 @@ class VirtualGatewaySpecBackendDefaults(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicy(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicy(dict):
     def __init__(__self__, *,
                  tls: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTls'] = None):
         """
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsArrgs' tls: Transport Layer Security (TLS) client policy.
         """
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
@@ -4426,15 +4426,15 @@ class VirtualGatewaySpecBackendDefaultsClientPolicy(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
     def __init__(__self__, *,
                  validation: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation',
                  certificate: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate'] = None,
                  enforce: Optional[bool] = None,
                  ports: Optional[Sequence[int]] = None):
         """
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs' certificate: Listener's TLS certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArrgs' validation: Listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArrgs' certificate: Listener's TLS certificate.
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
@@ -4480,13 +4480,13 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTls(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(dict):
     def __init__(__self__, *,
                  file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile'] = None,
                  sds: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds'] = None):
         """
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs' file: Local file certificate.
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArrgs' file: Local file certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArrgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if file is not None:
             pulumi.set(__self__, "file", file)
@@ -4511,7 +4511,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4559,7 +4559,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4594,7 +4594,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4616,8 +4616,8 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
                  trust: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None):
         """
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArrgs' trust: TLS validation context trust.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArrgs' subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         """
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -4641,11 +4641,11 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(dict):
     def __init__(__self__, *,
                  match: 'outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch'):
         """
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArrgs' match: Criteria for determining a SAN's match.
         """
         pulumi.set(__self__, "match", match)
 
@@ -4659,7 +4659,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         """
@@ -4677,15 +4677,15 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
                  file: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None,
                  sds: Optional['outputs.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds'] = None):
         """
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs' acm: TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
-        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArrgs' acm: TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArrgs' file: TLS validation context trust for a local file certificate.
+        :param 'VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArrgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
@@ -4720,7 +4720,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4755,7 +4755,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4790,7 +4790,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
+calass VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4825,7 +4825,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListener(dict):
+calass VirtualGatewaySpecListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4853,10 +4853,10 @@ class VirtualGatewaySpecListener(dict):
                  health_check: Optional['outputs.VirtualGatewaySpecListenerHealthCheck'] = None,
                  tls: Optional['outputs.VirtualGatewaySpecListenerTls'] = None):
         """
-        :param 'VirtualGatewaySpecListenerPortMappingArgs' port_mapping: Port mapping information for the listener.
-        :param 'VirtualGatewaySpecListenerConnectionPoolArgs' connection_pool: Connection pool information for the listener.
-        :param 'VirtualGatewaySpecListenerHealthCheckArgs' health_check: Health check information for the listener.
-        :param 'VirtualGatewaySpecListenerTlsArgs' tls: Transport Layer Security (TLS) properties for the listener
+        :param 'VirtualGatewaySpecListenerPortMappingArrgs' port_mapping: Port mapping information for the listener.
+        :param 'VirtualGatewaySpecListenerConnectionPoolArrgs' connection_pool: Connection pool information for the listener.
+        :param 'VirtualGatewaySpecListenerHealthCheckArrgs' health_check: Health check information for the listener.
+        :param 'VirtualGatewaySpecListenerTlsArrgs' tls: Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
@@ -4900,15 +4900,15 @@ class VirtualGatewaySpecListener(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerConnectionPool(dict):
+calass VirtualGatewaySpecListenerConnectionPool(dict):
     def __init__(__self__, *,
                  grpc: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolGrpc'] = None,
                  http: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp'] = None,
                  http2: Optional['outputs.VirtualGatewaySpecListenerConnectionPoolHttp2'] = None):
         """
-        :param 'VirtualGatewaySpecListenerConnectionPoolGrpcArgs' grpc: Connection pool information for gRPC listeners.
-        :param 'VirtualGatewaySpecListenerConnectionPoolHttpArgs' http: Connection pool information for HTTP listeners.
-        :param 'VirtualGatewaySpecListenerConnectionPoolHttp2Args' http2: Connection pool information for HTTP2 listeners.
+        :param 'VirtualGatewaySpecListenerConnectionPoolGrpcArrgs' grpc: Connection pool information for gRPC listeners.
+        :param 'VirtualGatewaySpecListenerConnectionPoolHttpArrgs' http: Connection pool information for HTTP listeners.
+        :param 'VirtualGatewaySpecListenerConnectionPoolHttp2Arrgs' http2: Connection pool information for HTTP2 listeners.
         """
         if grpc is not None:
             pulumi.set(__self__, "grpc", grpc)
@@ -4943,7 +4943,7 @@ class VirtualGatewaySpecListenerConnectionPool(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerConnectionPoolGrpc(dict):
+calass VirtualGatewaySpecListenerConnectionPoolGrpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4978,7 +4978,7 @@ class VirtualGatewaySpecListenerConnectionPoolGrpc(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerConnectionPoolHttp2(dict):
+calass VirtualGatewaySpecListenerConnectionPoolHttp2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5013,7 +5013,7 @@ class VirtualGatewaySpecListenerConnectionPoolHttp2(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
+calass VirtualGatewaySpecListenerConnectionPoolHttp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5066,7 +5066,7 @@ class VirtualGatewaySpecListenerConnectionPoolHttp(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerHealthCheck(dict):
+calass VirtualGatewaySpecListenerHealthCheck(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5175,7 +5175,7 @@ class VirtualGatewaySpecListenerHealthCheck(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerPortMapping(dict):
+calass VirtualGatewaySpecListenerPortMapping(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
@@ -5204,15 +5204,15 @@ class VirtualGatewaySpecListenerPortMapping(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTls(dict):
+calass VirtualGatewaySpecListenerTls(dict):
     def __init__(__self__, *,
                  certificate: 'outputs.VirtualGatewaySpecListenerTlsCertificate',
                  mode: str,
                  validation: Optional['outputs.VirtualGatewaySpecListenerTlsValidation'] = None):
         """
-        :param 'VirtualGatewaySpecListenerTlsCertificateArgs' certificate: Listener's TLS certificate.
+        :param 'VirtualGatewaySpecListenerTlsCertificateArrgs' certificate: Listener's TLS certificate.
         :param str mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-        :param 'VirtualGatewaySpecListenerTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualGatewaySpecListenerTlsValidationArrgs' validation: Listener's Transport Layer Security (TLS) validation context.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "mode", mode)
@@ -5245,15 +5245,15 @@ class VirtualGatewaySpecListenerTls(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsCertificate(dict):
+calass VirtualGatewaySpecListenerTlsCertificate(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateAcm'] = None,
                  file: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateFile'] = None,
                  sds: Optional['outputs.VirtualGatewaySpecListenerTlsCertificateSds'] = None):
         """
-        :param 'VirtualGatewaySpecListenerTlsCertificateAcmArgs' acm: An AWS Certificate Manager (ACM) certificate.
-        :param 'VirtualGatewaySpecListenerTlsCertificateFileArgs' file: Local file certificate.
-        :param 'VirtualGatewaySpecListenerTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualGatewaySpecListenerTlsCertificateAcmArrgs' acm: An AWS Certificate Manager (ACM) certificate.
+        :param 'VirtualGatewaySpecListenerTlsCertificateFileArrgs' file: Local file certificate.
+        :param 'VirtualGatewaySpecListenerTlsCertificateSdsArrgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
@@ -5288,7 +5288,7 @@ class VirtualGatewaySpecListenerTlsCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsCertificateAcm(dict):
+calass VirtualGatewaySpecListenerTlsCertificateAcm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5323,7 +5323,7 @@ class VirtualGatewaySpecListenerTlsCertificateAcm(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsCertificateFile(dict):
+calass VirtualGatewaySpecListenerTlsCertificateFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5371,7 +5371,7 @@ class VirtualGatewaySpecListenerTlsCertificateFile(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsCertificateSds(dict):
+calass VirtualGatewaySpecListenerTlsCertificateSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5406,7 +5406,7 @@ class VirtualGatewaySpecListenerTlsCertificateSds(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsValidation(dict):
+calass VirtualGatewaySpecListenerTlsValidation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5428,8 +5428,8 @@ class VirtualGatewaySpecListenerTlsValidation(dict):
                  trust: 'outputs.VirtualGatewaySpecListenerTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames'] = None):
         """
-        :param 'VirtualGatewaySpecListenerTlsValidationTrustArgs' trust: TLS validation context trust.
-        :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualGatewaySpecListenerTlsValidationTrustArrgs' trust: TLS validation context trust.
+        :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArrgs' subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
         """
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -5453,11 +5453,11 @@ class VirtualGatewaySpecListenerTlsValidation(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(dict):
+calass VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(dict):
     def __init__(__self__, *,
                  match: 'outputs.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch'):
         """
-        :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
+        :param 'VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArrgs' match: Criteria for determining a SAN's match.
         """
         pulumi.set(__self__, "match", match)
 
@@ -5471,7 +5471,7 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
+calass VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         """
@@ -5489,13 +5489,13 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsValidationTrust(dict):
+calass VirtualGatewaySpecListenerTlsValidationTrust(dict):
     def __init__(__self__, *,
                  file: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustFile'] = None,
                  sds: Optional['outputs.VirtualGatewaySpecListenerTlsValidationTrustSds'] = None):
         """
-        :param 'VirtualGatewaySpecListenerTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
-        :param 'VirtualGatewaySpecListenerTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualGatewaySpecListenerTlsValidationTrustFileArrgs' file: TLS validation context trust for a local file certificate.
+        :param 'VirtualGatewaySpecListenerTlsValidationTrustSdsArrgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if file is not None:
             pulumi.set(__self__, "file", file)
@@ -5520,7 +5520,7 @@ class VirtualGatewaySpecListenerTlsValidationTrust(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsValidationTrustFile(dict):
+calass VirtualGatewaySpecListenerTlsValidationTrustFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5555,7 +5555,7 @@ class VirtualGatewaySpecListenerTlsValidationTrustFile(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecListenerTlsValidationTrustSds(dict):
+calass VirtualGatewaySpecListenerTlsValidationTrustSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5590,7 +5590,7 @@ class VirtualGatewaySpecListenerTlsValidationTrustSds(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecLogging(dict):
+calass VirtualGatewaySpecLogging(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5611,7 +5611,7 @@ class VirtualGatewaySpecLogging(dict):
     def __init__(__self__, *,
                  access_log: Optional['outputs.VirtualGatewaySpecLoggingAccessLog'] = None):
         """
-        :param 'VirtualGatewaySpecLoggingAccessLogArgs' access_log: Access log configuration for a virtual gateway.
+        :param 'VirtualGatewaySpecLoggingAccessLogArrgs' access_log: Access log configuration for a virtual gateway.
         """
         if access_log is not None:
             pulumi.set(__self__, "access_log", access_log)
@@ -5626,11 +5626,11 @@ class VirtualGatewaySpecLogging(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecLoggingAccessLog(dict):
+calass VirtualGatewaySpecLoggingAccessLog(dict):
     def __init__(__self__, *,
                  file: Optional['outputs.VirtualGatewaySpecLoggingAccessLogFile'] = None):
         """
-        :param 'VirtualGatewaySpecLoggingAccessLogFileArgs' file: File object to send virtual gateway access logs to.
+        :param 'VirtualGatewaySpecLoggingAccessLogFileArrgs' file: File object to send virtual gateway access logs to.
         """
         if file is not None:
             pulumi.set(__self__, "file", file)
@@ -5645,13 +5645,13 @@ class VirtualGatewaySpecLoggingAccessLog(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecLoggingAccessLogFile(dict):
+calass VirtualGatewaySpecLoggingAccessLogFile(dict):
     def __init__(__self__, *,
                  path: str,
                  format: Optional['outputs.VirtualGatewaySpecLoggingAccessLogFileFormat'] = None):
         """
         :param str path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-        :param 'VirtualGatewaySpecLoggingAccessLogFileFormatArgs' format: The specified format for the logs.
+        :param 'VirtualGatewaySpecLoggingAccessLogFileFormatArrgs' format: The specified format for the logs.
         """
         pulumi.set(__self__, "path", path)
         if format is not None:
@@ -5675,12 +5675,12 @@ class VirtualGatewaySpecLoggingAccessLogFile(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecLoggingAccessLogFileFormat(dict):
+calass VirtualGatewaySpecLoggingAccessLogFileFormat(dict):
     def __init__(__self__, *,
                  jsons: Optional[Sequence['outputs.VirtualGatewaySpecLoggingAccessLogFileFormatJson']] = None,
                  text: Optional[str] = None):
         """
-        :param Sequence['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs'] jsons: The logging format for JSON.
+        :param Sequence['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArrgs'] jsons: The logging format for JSON.
         :param str text: The logging format for text. Must be between 1 and 1000 characters in length.
         """
         if jsons is not None:
@@ -5706,7 +5706,7 @@ class VirtualGatewaySpecLoggingAccessLogFileFormat(dict):
 
 
 @pulumi.output_type
-class VirtualGatewaySpecLoggingAccessLogFileFormatJson(dict):
+calass VirtualGatewaySpecLoggingAccessLogFileFormatJson(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -5735,7 +5735,7 @@ class VirtualGatewaySpecLoggingAccessLogFileFormatJson(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpec(dict):
+calass VirtualNodeSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5762,11 +5762,11 @@ class VirtualNodeSpec(dict):
                  logging: Optional['outputs.VirtualNodeSpecLogging'] = None,
                  service_discovery: Optional['outputs.VirtualNodeSpecServiceDiscovery'] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsArgs' backend_defaults: Defaults for backends.
-        :param Sequence['VirtualNodeSpecBackendArgs'] backends: Backends to which the virtual node is expected to send outbound traffic.
-        :param Sequence['VirtualNodeSpecListenerArgs'] listeners: Listeners from which the virtual node is expected to receive inbound traffic.
-        :param 'VirtualNodeSpecLoggingArgs' logging: Inbound and outbound access logging information for the virtual node.
-        :param 'VirtualNodeSpecServiceDiscoveryArgs' service_discovery: Service discovery information for the virtual node.
+        :param 'VirtualNodeSpecBackendDefaultsArrgs' backend_defaults: Defaults for backends.
+        :param Sequence['VirtualNodeSpecBackendArrgs'] backends: Backends to which the virtual node is expected to send outbound traffic.
+        :param Sequence['VirtualNodeSpecListenerArrgs'] listeners: Listeners from which the virtual node is expected to receive inbound traffic.
+        :param 'VirtualNodeSpecLoggingArrgs' logging: Inbound and outbound access logging information for the virtual node.
+        :param 'VirtualNodeSpecServiceDiscoveryArrgs' service_discovery: Service discovery information for the virtual node.
         """
         if backend_defaults is not None:
             pulumi.set(__self__, "backend_defaults", backend_defaults)
@@ -5821,7 +5821,7 @@ class VirtualNodeSpec(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackend(dict):
+calass VirtualNodeSpecBackend(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5842,7 +5842,7 @@ class VirtualNodeSpecBackend(dict):
     def __init__(__self__, *,
                  virtual_service: 'outputs.VirtualNodeSpecBackendVirtualService'):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceArgs' virtual_service: Virtual service to use as a backend for a virtual node.
+        :param 'VirtualNodeSpecBackendVirtualServiceArrgs' virtual_service: Virtual service to use as a backend for a virtual node.
         """
         pulumi.set(__self__, "virtual_service", virtual_service)
 
@@ -5856,7 +5856,7 @@ class VirtualNodeSpecBackend(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaults(dict):
+calass VirtualNodeSpecBackendDefaults(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5877,7 +5877,7 @@ class VirtualNodeSpecBackendDefaults(dict):
     def __init__(__self__, *,
                  client_policy: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicy'] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyArgs' client_policy: Default client policy for virtual service backends. See above for details.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyArrgs' client_policy: Default client policy for virtual service backends. See above for details.
         """
         if client_policy is not None:
             pulumi.set(__self__, "client_policy", client_policy)
@@ -5892,11 +5892,11 @@ class VirtualNodeSpecBackendDefaults(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicy(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicy(dict):
     def __init__(__self__, *,
                  tls: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTls'] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsArrgs' tls: Transport Layer Security (TLS) client policy.
         """
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
@@ -5911,15 +5911,15 @@ class VirtualNodeSpecBackendDefaultsClientPolicy(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
     def __init__(__self__, *,
                  validation: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation',
                  certificate: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate'] = None,
                  enforce: Optional[bool] = None,
                  ports: Optional[Sequence[int]] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs' certificate: Listener's TLS certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArrgs' validation: Listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArrgs' certificate: Listener's TLS certificate.
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
@@ -5965,13 +5965,13 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTls(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(dict):
     def __init__(__self__, *,
                  file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile'] = None,
                  sds: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds'] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs' file: Local file certificate.
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArrgs' file: Local file certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArrgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if file is not None:
             pulumi.set(__self__, "file", file)
@@ -5996,7 +5996,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6044,7 +6044,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFile(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6079,7 +6079,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6101,8 +6101,8 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
                  trust: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames'] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArrgs' trust: TLS validation context trust.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArrgs' subject_alternative_names: SANs for a TLS validation context.
         """
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -6126,11 +6126,11 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames(dict):
     def __init__(__self__, *,
                  match: 'outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch'):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArrgs' match: Criteria for determining a SAN's match.
         """
         pulumi.set(__self__, "match", match)
 
@@ -6144,7 +6144,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         """
@@ -6162,15 +6162,15 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm'] = None,
                  file: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile'] = None,
                  sds: Optional['outputs.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds'] = None):
         """
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs' acm: TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
-        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArrgs' acm: TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArrgs' file: TLS validation context trust for a local file certificate.
+        :param 'VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArrgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
@@ -6205,7 +6205,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrust(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6240,7 +6240,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcm(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6275,7 +6275,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFile(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
+calass VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6310,7 +6310,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualService(dict):
+calass VirtualNodeSpecBackendVirtualService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6335,7 +6335,7 @@ class VirtualNodeSpecBackendVirtualService(dict):
                  client_policy: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicy'] = None):
         """
         :param str virtual_service_name: Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyArgs' client_policy: Client policy for the backend.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyArrgs' client_policy: Client policy for the backend.
         """
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
         if client_policy is not None:
@@ -6359,11 +6359,11 @@ class VirtualNodeSpecBackendVirtualService(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
     def __init__(__self__, *,
                  tls: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTls'] = None):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs' tls: Transport Layer Security (TLS) client policy.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArrgs' tls: Transport Layer Security (TLS) client policy.
         """
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
@@ -6378,15 +6378,15 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicy(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
     def __init__(__self__, *,
                  validation: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation',
                  certificate: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate'] = None,
                  enforce: Optional[bool] = None,
                  ports: Optional[Sequence[int]] = None):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs' certificate: Listener's TLS certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArrgs' validation: Listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArrgs' certificate: Listener's TLS certificate.
         :param bool enforce: Whether the policy is enforced. Default is `true`.
         :param Sequence[int] ports: One or more ports that the policy is enforced for.
         """
@@ -6432,13 +6432,13 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTls(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate(dict):
     def __init__(__self__, *,
                  file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile'] = None,
                  sds: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds'] = None):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs' file: Local file certificate.
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArrgs' file: Local file certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArrgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if file is not None:
             pulumi.set(__self__, "file", file)
@@ -6463,7 +6463,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6511,7 +6511,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFile(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6546,7 +6546,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6568,8 +6568,8 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
                  trust: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames'] = None):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs' trust: TLS validation context trust.
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArrgs' trust: TLS validation context trust.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArrgs' subject_alternative_names: SANs for a TLS validation context.
         """
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -6593,11 +6593,11 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNames(dict):
     def __init__(__self__, *,
                  match: 'outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch'):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArrgs' match: Criteria for determining a SAN's match.
         """
         pulumi.set(__self__, "match", match)
 
@@ -6611,7 +6611,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatch(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         """
@@ -6629,15 +6629,15 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm'] = None,
                  file: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile'] = None,
                  sds: Optional['outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds'] = None):
         """
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs' acm: TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
-        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArrgs' acm: TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArrgs' file: TLS validation context trust for a local file certificate.
+        :param 'VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArrgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
@@ -6672,7 +6672,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrust(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6707,7 +6707,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcm(dict
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6742,7 +6742,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFile(dic
 
 
 @pulumi.output_type
-class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds(dict):
+calass VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6777,7 +6777,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds(dict
 
 
 @pulumi.output_type
-class VirtualNodeSpecListener(dict):
+calass VirtualNodeSpecListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6809,12 +6809,12 @@ class VirtualNodeSpecListener(dict):
                  timeout: Optional['outputs.VirtualNodeSpecListenerTimeout'] = None,
                  tls: Optional['outputs.VirtualNodeSpecListenerTls'] = None):
         """
-        :param 'VirtualNodeSpecListenerPortMappingArgs' port_mapping: Port mapping information for the listener.
-        :param 'VirtualNodeSpecListenerConnectionPoolArgs' connection_pool: Connection pool information for the listener.
-        :param 'VirtualNodeSpecListenerHealthCheckArgs' health_check: Health check information for the listener.
-        :param 'VirtualNodeSpecListenerOutlierDetectionArgs' outlier_detection: Outlier detection information for the listener.
-        :param 'VirtualNodeSpecListenerTimeoutArgs' timeout: Timeouts for different protocols.
-        :param 'VirtualNodeSpecListenerTlsArgs' tls: Transport Layer Security (TLS) properties for the listener
+        :param 'VirtualNodeSpecListenerPortMappingArrgs' port_mapping: Port mapping information for the listener.
+        :param 'VirtualNodeSpecListenerConnectionPoolArrgs' connection_pool: Connection pool information for the listener.
+        :param 'VirtualNodeSpecListenerHealthCheckArrgs' health_check: Health check information for the listener.
+        :param 'VirtualNodeSpecListenerOutlierDetectionArrgs' outlier_detection: Outlier detection information for the listener.
+        :param 'VirtualNodeSpecListenerTimeoutArrgs' timeout: Timeouts for different protocols.
+        :param 'VirtualNodeSpecListenerTlsArrgs' tls: Transport Layer Security (TLS) properties for the listener
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
@@ -6878,17 +6878,17 @@ class VirtualNodeSpecListener(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerConnectionPool(dict):
+calass VirtualNodeSpecListenerConnectionPool(dict):
     def __init__(__self__, *,
                  grpc: Optional['outputs.VirtualNodeSpecListenerConnectionPoolGrpc'] = None,
                  http2s: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolHttp2']] = None,
                  https: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolHttp']] = None,
                  tcps: Optional[Sequence['outputs.VirtualNodeSpecListenerConnectionPoolTcp']] = None):
         """
-        :param 'VirtualNodeSpecListenerConnectionPoolGrpcArgs' grpc: Connection pool information for gRPC listeners.
-        :param Sequence['VirtualNodeSpecListenerConnectionPoolHttp2Args'] http2s: Connection pool information for HTTP2 listeners.
-        :param Sequence['VirtualNodeSpecListenerConnectionPoolHttpArgs'] https: Connection pool information for HTTP listeners.
-        :param Sequence['VirtualNodeSpecListenerConnectionPoolTcpArgs'] tcps: Connection pool information for TCP listeners.
+        :param 'VirtualNodeSpecListenerConnectionPoolGrpcArrgs' grpc: Connection pool information for gRPC listeners.
+        :param Sequence['VirtualNodeSpecListenerConnectionPoolHttp2Arrgs'] http2s: Connection pool information for HTTP2 listeners.
+        :param Sequence['VirtualNodeSpecListenerConnectionPoolHttpArrgs'] https: Connection pool information for HTTP listeners.
+        :param Sequence['VirtualNodeSpecListenerConnectionPoolTcpArrgs'] tcps: Connection pool information for TCP listeners.
         """
         if grpc is not None:
             pulumi.set(__self__, "grpc", grpc)
@@ -6933,7 +6933,7 @@ class VirtualNodeSpecListenerConnectionPool(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerConnectionPoolGrpc(dict):
+calass VirtualNodeSpecListenerConnectionPoolGrpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6968,7 +6968,7 @@ class VirtualNodeSpecListenerConnectionPoolGrpc(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerConnectionPoolHttp2(dict):
+calass VirtualNodeSpecListenerConnectionPoolHttp2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7003,7 +7003,7 @@ class VirtualNodeSpecListenerConnectionPoolHttp2(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerConnectionPoolHttp(dict):
+calass VirtualNodeSpecListenerConnectionPoolHttp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7056,7 +7056,7 @@ class VirtualNodeSpecListenerConnectionPoolHttp(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerConnectionPoolTcp(dict):
+calass VirtualNodeSpecListenerConnectionPoolTcp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7091,7 +7091,7 @@ class VirtualNodeSpecListenerConnectionPoolTcp(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerHealthCheck(dict):
+calass VirtualNodeSpecListenerHealthCheck(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7200,7 +7200,7 @@ class VirtualNodeSpecListenerHealthCheck(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerOutlierDetection(dict):
+calass VirtualNodeSpecListenerOutlierDetection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7228,8 +7228,8 @@ class VirtualNodeSpecListenerOutlierDetection(dict):
                  max_ejection_percent: int,
                  max_server_errors: int):
         """
-        :param 'VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs' base_ejection_duration: Base amount of time for which a host is ejected.
-        :param 'VirtualNodeSpecListenerOutlierDetectionIntervalArgs' interval: Time interval between ejection sweep analysis.
+        :param 'VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArrgs' base_ejection_duration: Base amount of time for which a host is ejected.
+        :param 'VirtualNodeSpecListenerOutlierDetectionIntervalArrgs' interval: Time interval between ejection sweep analysis.
         :param int max_ejection_percent: Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
                Minimum value of `0`. Maximum value of `100`.
         :param int max_server_errors: Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
@@ -7274,7 +7274,7 @@ class VirtualNodeSpecListenerOutlierDetection(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration(dict):
+calass VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7303,7 +7303,7 @@ class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDuration(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
+calass VirtualNodeSpecListenerOutlierDetectionInterval(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7332,7 +7332,7 @@ class VirtualNodeSpecListenerOutlierDetectionInterval(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerPortMapping(dict):
+calass VirtualNodeSpecListenerPortMapping(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
@@ -7361,17 +7361,17 @@ class VirtualNodeSpecListenerPortMapping(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeout(dict):
+calass VirtualNodeSpecListenerTimeout(dict):
     def __init__(__self__, *,
                  grpc: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpc'] = None,
                  http: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp'] = None,
                  http2: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2'] = None,
                  tcp: Optional['outputs.VirtualNodeSpecListenerTimeoutTcp'] = None):
         """
-        :param 'VirtualNodeSpecListenerTimeoutGrpcArgs' grpc: Timeouts for gRPC listeners.
-        :param 'VirtualNodeSpecListenerTimeoutHttpArgs' http: Timeouts for HTTP listeners.
-        :param 'VirtualNodeSpecListenerTimeoutHttp2Args' http2: Timeouts for HTTP2 listeners.
-        :param 'VirtualNodeSpecListenerTimeoutTcpArgs' tcp: Timeouts for TCP listeners.
+        :param 'VirtualNodeSpecListenerTimeoutGrpcArrgs' grpc: Timeouts for gRPC listeners.
+        :param 'VirtualNodeSpecListenerTimeoutHttpArrgs' http: Timeouts for HTTP listeners.
+        :param 'VirtualNodeSpecListenerTimeoutHttp2Arrgs' http2: Timeouts for HTTP2 listeners.
+        :param 'VirtualNodeSpecListenerTimeoutTcpArrgs' tcp: Timeouts for TCP listeners.
         """
         if grpc is not None:
             pulumi.set(__self__, "grpc", grpc)
@@ -7416,7 +7416,7 @@ class VirtualNodeSpecListenerTimeout(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutGrpc(dict):
+calass VirtualNodeSpecListenerTimeoutGrpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7438,8 +7438,8 @@ class VirtualNodeSpecListenerTimeoutGrpc(dict):
                  idle: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcIdle'] = None,
                  per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutGrpcPerRequest'] = None):
         """
-        :param 'VirtualNodeSpecListenerTimeoutGrpcIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        :param 'VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs' per_request: Per request timeout.
+        :param 'VirtualNodeSpecListenerTimeoutGrpcIdleArrgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'VirtualNodeSpecListenerTimeoutGrpcPerRequestArrgs' per_request: Per request timeout.
         """
         if idle is not None:
             pulumi.set(__self__, "idle", idle)
@@ -7464,7 +7464,7 @@ class VirtualNodeSpecListenerTimeoutGrpc(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutGrpcIdle(dict):
+calass VirtualNodeSpecListenerTimeoutGrpcIdle(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7493,7 +7493,7 @@ class VirtualNodeSpecListenerTimeoutGrpcIdle(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
+calass VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7522,7 +7522,7 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequest(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutHttp2(dict):
+calass VirtualNodeSpecListenerTimeoutHttp2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7544,8 +7544,8 @@ class VirtualNodeSpecListenerTimeoutHttp2(dict):
                  idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2Idle'] = None,
                  per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttp2PerRequest'] = None):
         """
-        :param 'VirtualNodeSpecListenerTimeoutHttp2IdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        :param 'VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs' per_request: Per request timeout.
+        :param 'VirtualNodeSpecListenerTimeoutHttp2IdleArrgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'VirtualNodeSpecListenerTimeoutHttp2PerRequestArrgs' per_request: Per request timeout.
         """
         if idle is not None:
             pulumi.set(__self__, "idle", idle)
@@ -7570,7 +7570,7 @@ class VirtualNodeSpecListenerTimeoutHttp2(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutHttp2Idle(dict):
+calass VirtualNodeSpecListenerTimeoutHttp2Idle(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7599,7 +7599,7 @@ class VirtualNodeSpecListenerTimeoutHttp2Idle(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
+calass VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7628,7 +7628,7 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequest(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutHttp(dict):
+calass VirtualNodeSpecListenerTimeoutHttp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7650,8 +7650,8 @@ class VirtualNodeSpecListenerTimeoutHttp(dict):
                  idle: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpIdle'] = None,
                  per_request: Optional['outputs.VirtualNodeSpecListenerTimeoutHttpPerRequest'] = None):
         """
-        :param 'VirtualNodeSpecListenerTimeoutHttpIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        :param 'VirtualNodeSpecListenerTimeoutHttpPerRequestArgs' per_request: Per request timeout.
+        :param 'VirtualNodeSpecListenerTimeoutHttpIdleArrgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'VirtualNodeSpecListenerTimeoutHttpPerRequestArrgs' per_request: Per request timeout.
         """
         if idle is not None:
             pulumi.set(__self__, "idle", idle)
@@ -7676,7 +7676,7 @@ class VirtualNodeSpecListenerTimeoutHttp(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutHttpIdle(dict):
+calass VirtualNodeSpecListenerTimeoutHttpIdle(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7705,7 +7705,7 @@ class VirtualNodeSpecListenerTimeoutHttpIdle(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
+calass VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7734,11 +7734,11 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequest(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutTcp(dict):
+calass VirtualNodeSpecListenerTimeoutTcp(dict):
     def __init__(__self__, *,
                  idle: Optional['outputs.VirtualNodeSpecListenerTimeoutTcpIdle'] = None):
         """
-        :param 'VirtualNodeSpecListenerTimeoutTcpIdleArgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+        :param 'VirtualNodeSpecListenerTimeoutTcpIdleArrgs' idle: Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
         """
         if idle is not None:
             pulumi.set(__self__, "idle", idle)
@@ -7753,7 +7753,7 @@ class VirtualNodeSpecListenerTimeoutTcp(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTimeoutTcpIdle(dict):
+calass VirtualNodeSpecListenerTimeoutTcpIdle(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -7782,15 +7782,15 @@ class VirtualNodeSpecListenerTimeoutTcpIdle(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTls(dict):
+calass VirtualNodeSpecListenerTls(dict):
     def __init__(__self__, *,
                  certificate: 'outputs.VirtualNodeSpecListenerTlsCertificate',
                  mode: str,
                  validation: Optional['outputs.VirtualNodeSpecListenerTlsValidation'] = None):
         """
-        :param 'VirtualNodeSpecListenerTlsCertificateArgs' certificate: Listener's TLS certificate.
+        :param 'VirtualNodeSpecListenerTlsCertificateArrgs' certificate: Listener's TLS certificate.
         :param str mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-        :param 'VirtualNodeSpecListenerTlsValidationArgs' validation: Listener's Transport Layer Security (TLS) validation context.
+        :param 'VirtualNodeSpecListenerTlsValidationArrgs' validation: Listener's Transport Layer Security (TLS) validation context.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "mode", mode)
@@ -7823,15 +7823,15 @@ class VirtualNodeSpecListenerTls(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsCertificate(dict):
+calass VirtualNodeSpecListenerTlsCertificate(dict):
     def __init__(__self__, *,
                  acm: Optional['outputs.VirtualNodeSpecListenerTlsCertificateAcm'] = None,
                  file: Optional['outputs.VirtualNodeSpecListenerTlsCertificateFile'] = None,
                  sds: Optional['outputs.VirtualNodeSpecListenerTlsCertificateSds'] = None):
         """
-        :param 'VirtualNodeSpecListenerTlsCertificateAcmArgs' acm: An AWS Certificate Manager (ACM) certificate.
-        :param 'VirtualNodeSpecListenerTlsCertificateFileArgs' file: Local file certificate.
-        :param 'VirtualNodeSpecListenerTlsCertificateSdsArgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualNodeSpecListenerTlsCertificateAcmArrgs' acm: An AWS Certificate Manager (ACM) certificate.
+        :param 'VirtualNodeSpecListenerTlsCertificateFileArrgs' file: Local file certificate.
+        :param 'VirtualNodeSpecListenerTlsCertificateSdsArrgs' sds: A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
@@ -7866,7 +7866,7 @@ class VirtualNodeSpecListenerTlsCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsCertificateAcm(dict):
+calass VirtualNodeSpecListenerTlsCertificateAcm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7901,7 +7901,7 @@ class VirtualNodeSpecListenerTlsCertificateAcm(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsCertificateFile(dict):
+calass VirtualNodeSpecListenerTlsCertificateFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7949,7 +7949,7 @@ class VirtualNodeSpecListenerTlsCertificateFile(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsCertificateSds(dict):
+calass VirtualNodeSpecListenerTlsCertificateSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7984,7 +7984,7 @@ class VirtualNodeSpecListenerTlsCertificateSds(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsValidation(dict):
+calass VirtualNodeSpecListenerTlsValidation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8006,8 +8006,8 @@ class VirtualNodeSpecListenerTlsValidation(dict):
                  trust: 'outputs.VirtualNodeSpecListenerTlsValidationTrust',
                  subject_alternative_names: Optional['outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames'] = None):
         """
-        :param 'VirtualNodeSpecListenerTlsValidationTrustArgs' trust: TLS validation context trust.
-        :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs' subject_alternative_names: SANs for a TLS validation context.
+        :param 'VirtualNodeSpecListenerTlsValidationTrustArrgs' trust: TLS validation context trust.
+        :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArrgs' subject_alternative_names: SANs for a TLS validation context.
         """
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -8031,11 +8031,11 @@ class VirtualNodeSpecListenerTlsValidation(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(dict):
+calass VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(dict):
     def __init__(__self__, *,
                  match: 'outputs.VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch'):
         """
-        :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs' match: Criteria for determining a SAN's match.
+        :param 'VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArrgs' match: Criteria for determining a SAN's match.
         """
         pulumi.set(__self__, "match", match)
 
@@ -8049,7 +8049,7 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNames(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
+calass VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         """
@@ -8067,13 +8067,13 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatch(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsValidationTrust(dict):
+calass VirtualNodeSpecListenerTlsValidationTrust(dict):
     def __init__(__self__, *,
                  file: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustFile'] = None,
                  sds: Optional['outputs.VirtualNodeSpecListenerTlsValidationTrustSds'] = None):
         """
-        :param 'VirtualNodeSpecListenerTlsValidationTrustFileArgs' file: TLS validation context trust for a local file certificate.
-        :param 'VirtualNodeSpecListenerTlsValidationTrustSdsArgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+        :param 'VirtualNodeSpecListenerTlsValidationTrustFileArrgs' file: TLS validation context trust for a local file certificate.
+        :param 'VirtualNodeSpecListenerTlsValidationTrustSdsArrgs' sds: TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
         """
         if file is not None:
             pulumi.set(__self__, "file", file)
@@ -8098,7 +8098,7 @@ class VirtualNodeSpecListenerTlsValidationTrust(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsValidationTrustFile(dict):
+calass VirtualNodeSpecListenerTlsValidationTrustFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8133,7 +8133,7 @@ class VirtualNodeSpecListenerTlsValidationTrustFile(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecListenerTlsValidationTrustSds(dict):
+calass VirtualNodeSpecListenerTlsValidationTrustSds(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8168,7 +8168,7 @@ class VirtualNodeSpecListenerTlsValidationTrustSds(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecLogging(dict):
+calass VirtualNodeSpecLogging(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8189,7 +8189,7 @@ class VirtualNodeSpecLogging(dict):
     def __init__(__self__, *,
                  access_log: Optional['outputs.VirtualNodeSpecLoggingAccessLog'] = None):
         """
-        :param 'VirtualNodeSpecLoggingAccessLogArgs' access_log: Access log configuration for a virtual node.
+        :param 'VirtualNodeSpecLoggingAccessLogArrgs' access_log: Access log configuration for a virtual node.
         """
         if access_log is not None:
             pulumi.set(__self__, "access_log", access_log)
@@ -8204,11 +8204,11 @@ class VirtualNodeSpecLogging(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecLoggingAccessLog(dict):
+calass VirtualNodeSpecLoggingAccessLog(dict):
     def __init__(__self__, *,
                  file: Optional['outputs.VirtualNodeSpecLoggingAccessLogFile'] = None):
         """
-        :param 'VirtualNodeSpecLoggingAccessLogFileArgs' file: File object to send virtual node access logs to.
+        :param 'VirtualNodeSpecLoggingAccessLogFileArrgs' file: File object to send virtual node access logs to.
         """
         if file is not None:
             pulumi.set(__self__, "file", file)
@@ -8223,13 +8223,13 @@ class VirtualNodeSpecLoggingAccessLog(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecLoggingAccessLogFile(dict):
+calass VirtualNodeSpecLoggingAccessLogFile(dict):
     def __init__(__self__, *,
                  path: str,
                  format: Optional['outputs.VirtualNodeSpecLoggingAccessLogFileFormat'] = None):
         """
         :param str path: File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-        :param 'VirtualNodeSpecLoggingAccessLogFileFormatArgs' format: The specified format for the logs.
+        :param 'VirtualNodeSpecLoggingAccessLogFileFormatArrgs' format: The specified format for the logs.
         """
         pulumi.set(__self__, "path", path)
         if format is not None:
@@ -8253,12 +8253,12 @@ class VirtualNodeSpecLoggingAccessLogFile(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecLoggingAccessLogFileFormat(dict):
+calass VirtualNodeSpecLoggingAccessLogFileFormat(dict):
     def __init__(__self__, *,
                  jsons: Optional[Sequence['outputs.VirtualNodeSpecLoggingAccessLogFileFormatJson']] = None,
                  text: Optional[str] = None):
         """
-        :param Sequence['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs'] jsons: The logging format for JSON.
+        :param Sequence['VirtualNodeSpecLoggingAccessLogFileFormatJsonArrgs'] jsons: The logging format for JSON.
         :param str text: The logging format for text. Must be between 1 and 1000 characters in length.
         """
         if jsons is not None:
@@ -8284,7 +8284,7 @@ class VirtualNodeSpecLoggingAccessLogFileFormat(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecLoggingAccessLogFileFormatJson(dict):
+calass VirtualNodeSpecLoggingAccessLogFileFormatJson(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -8313,7 +8313,7 @@ class VirtualNodeSpecLoggingAccessLogFileFormatJson(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecServiceDiscovery(dict):
+calass VirtualNodeSpecServiceDiscovery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8335,8 +8335,8 @@ class VirtualNodeSpecServiceDiscovery(dict):
                  aws_cloud_map: Optional['outputs.VirtualNodeSpecServiceDiscoveryAwsCloudMap'] = None,
                  dns: Optional['outputs.VirtualNodeSpecServiceDiscoveryDns'] = None):
         """
-        :param 'VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs' aws_cloud_map: Any AWS Cloud Map information for the virtual node.
-        :param 'VirtualNodeSpecServiceDiscoveryDnsArgs' dns: DNS service name for the virtual node.
+        :param 'VirtualNodeSpecServiceDiscoveryAwsCloudMapArrgs' aws_cloud_map: Any AWS Cloud Map information for the virtual node.
+        :param 'VirtualNodeSpecServiceDiscoveryDnsArrgs' dns: DNS service name for the virtual node.
         """
         if aws_cloud_map is not None:
             pulumi.set(__self__, "aws_cloud_map", aws_cloud_map)
@@ -8361,7 +8361,7 @@ class VirtualNodeSpecServiceDiscovery(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
+calass VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8423,7 +8423,7 @@ class VirtualNodeSpecServiceDiscoveryAwsCloudMap(dict):
 
 
 @pulumi.output_type
-class VirtualNodeSpecServiceDiscoveryDns(dict):
+calass VirtualNodeSpecServiceDiscoveryDns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8484,11 +8484,11 @@ class VirtualNodeSpecServiceDiscoveryDns(dict):
 
 
 @pulumi.output_type
-class VirtualRouterSpec(dict):
+calass VirtualRouterSpec(dict):
     def __init__(__self__, *,
                  listeners: Optional[Sequence['outputs.VirtualRouterSpecListener']] = None):
         """
-        :param Sequence['VirtualRouterSpecListenerArgs'] listeners: Listeners that the virtual router is expected to receive inbound traffic from.
+        :param Sequence['VirtualRouterSpecListenerArrgs'] listeners: Listeners that the virtual router is expected to receive inbound traffic from.
                Currently only one listener is supported per virtual router.
         """
         if listeners is not None:
@@ -8505,7 +8505,7 @@ class VirtualRouterSpec(dict):
 
 
 @pulumi.output_type
-class VirtualRouterSpecListener(dict):
+calass VirtualRouterSpecListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8526,7 +8526,7 @@ class VirtualRouterSpecListener(dict):
     def __init__(__self__, *,
                  port_mapping: 'outputs.VirtualRouterSpecListenerPortMapping'):
         """
-        :param 'VirtualRouterSpecListenerPortMappingArgs' port_mapping: Port mapping information for the listener.
+        :param 'VirtualRouterSpecListenerPortMappingArrgs' port_mapping: Port mapping information for the listener.
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
 
@@ -8540,7 +8540,7 @@ class VirtualRouterSpecListener(dict):
 
 
 @pulumi.output_type
-class VirtualRouterSpecListenerPortMapping(dict):
+calass VirtualRouterSpecListenerPortMapping(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
@@ -8569,11 +8569,11 @@ class VirtualRouterSpecListenerPortMapping(dict):
 
 
 @pulumi.output_type
-class VirtualServiceSpec(dict):
+calass VirtualServiceSpec(dict):
     def __init__(__self__, *,
                  provider: Optional['outputs.VirtualServiceSpecProvider'] = None):
         """
-        :param 'VirtualServiceSpecProviderArgs' provider: App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+        :param 'VirtualServiceSpecProviderArrgs' provider: App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
         """
         if provider is not None:
             pulumi.set(__self__, "provider", provider)
@@ -8588,7 +8588,7 @@ class VirtualServiceSpec(dict):
 
 
 @pulumi.output_type
-class VirtualServiceSpecProvider(dict):
+calass VirtualServiceSpecProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8612,8 +8612,8 @@ class VirtualServiceSpecProvider(dict):
                  virtual_node: Optional['outputs.VirtualServiceSpecProviderVirtualNode'] = None,
                  virtual_router: Optional['outputs.VirtualServiceSpecProviderVirtualRouter'] = None):
         """
-        :param 'VirtualServiceSpecProviderVirtualNodeArgs' virtual_node: Virtual node associated with a virtual service.
-        :param 'VirtualServiceSpecProviderVirtualRouterArgs' virtual_router: Virtual router associated with a virtual service.
+        :param 'VirtualServiceSpecProviderVirtualNodeArrgs' virtual_node: Virtual node associated with a virtual service.
+        :param 'VirtualServiceSpecProviderVirtualRouterArrgs' virtual_router: Virtual router associated with a virtual service.
         """
         if virtual_node is not None:
             pulumi.set(__self__, "virtual_node", virtual_node)
@@ -8638,7 +8638,7 @@ class VirtualServiceSpecProvider(dict):
 
 
 @pulumi.output_type
-class VirtualServiceSpecProviderVirtualNode(dict):
+calass VirtualServiceSpecProviderVirtualNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8673,7 +8673,7 @@ class VirtualServiceSpecProviderVirtualNode(dict):
 
 
 @pulumi.output_type
-class VirtualServiceSpecProviderVirtualRouter(dict):
+calass VirtualServiceSpecProviderVirtualRouter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8708,7 +8708,7 @@ class VirtualServiceSpecProviderVirtualRouter(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecResult(dict):
+calass GetGatewayRouteSpecResult(dict):
     def __init__(__self__, *,
                  grpc_routes: Sequence['outputs.GetGatewayRouteSpecGrpcRouteResult'],
                  http2_routes: Sequence['outputs.GetGatewayRouteSpecHttp2RouteResult'],
@@ -8741,7 +8741,7 @@ class GetGatewayRouteSpecResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecGrpcRouteResult(dict):
+calass GetGatewayRouteSpecGrpcRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecGrpcRouteMatchResult']):
@@ -8760,7 +8760,7 @@ class GetGatewayRouteSpecGrpcRouteResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecGrpcRouteActionResult(dict):
+calass GetGatewayRouteSpecGrpcRouteActionResult(dict):
     def __init__(__self__, *,
                  targets: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetResult']):
         pulumi.set(__self__, "targets", targets)
@@ -8772,7 +8772,7 @@ class GetGatewayRouteSpecGrpcRouteActionResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecGrpcRouteActionTargetResult(dict):
+calass GetGatewayRouteSpecGrpcRouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult']):
@@ -8791,7 +8791,7 @@ class GetGatewayRouteSpecGrpcRouteActionTargetResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult(dict):
+calass GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
@@ -8803,7 +8803,7 @@ class GetGatewayRouteSpecGrpcRouteActionTargetVirtualServiceResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecGrpcRouteMatchResult(dict):
+calass GetGatewayRouteSpecGrpcRouteMatchResult(dict):
     def __init__(__self__, *,
                  port: int,
                  service_name: str):
@@ -8822,7 +8822,7 @@ class GetGatewayRouteSpecGrpcRouteMatchResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteResult(dict):
+calass GetGatewayRouteSpecHttp2RouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchResult']):
@@ -8841,7 +8841,7 @@ class GetGatewayRouteSpecHttp2RouteResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteActionResult(dict):
+calass GetGatewayRouteSpecHttp2RouteActionResult(dict):
     def __init__(__self__, *,
                  rewrites: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteResult'],
                  targets: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetResult']):
@@ -8860,7 +8860,7 @@ class GetGatewayRouteSpecHttp2RouteActionResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteActionRewriteResult(dict):
+calass GetGatewayRouteSpecHttp2RouteActionRewriteResult(dict):
     def __init__(__self__, *,
                  hostnames: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult'],
                  paths: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionRewritePathResult'],
@@ -8886,7 +8886,7 @@ class GetGatewayRouteSpecHttp2RouteActionRewriteResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult(dict):
+calass GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult(dict):
     def __init__(__self__, *,
                  default_target_hostname: str):
         pulumi.set(__self__, "default_target_hostname", default_target_hostname)
@@ -8898,7 +8898,7 @@ class GetGatewayRouteSpecHttp2RouteActionRewriteHostnameResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteActionRewritePathResult(dict):
+calass GetGatewayRouteSpecHttp2RouteActionRewritePathResult(dict):
     def __init__(__self__, *,
                  exact: str):
         pulumi.set(__self__, "exact", exact)
@@ -8910,7 +8910,7 @@ class GetGatewayRouteSpecHttp2RouteActionRewritePathResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult(dict):
+calass GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult(dict):
     def __init__(__self__, *,
                  default_prefix: str,
                  value: str):
@@ -8929,7 +8929,7 @@ class GetGatewayRouteSpecHttp2RouteActionRewritePrefixResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteActionTargetResult(dict):
+calass GetGatewayRouteSpecHttp2RouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult']):
@@ -8948,7 +8948,7 @@ class GetGatewayRouteSpecHttp2RouteActionTargetResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult(dict):
+calass GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
@@ -8960,7 +8960,7 @@ class GetGatewayRouteSpecHttp2RouteActionTargetVirtualServiceResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteMatchResult(dict):
+calass GetGatewayRouteSpecHttp2RouteMatchResult(dict):
     def __init__(__self__, *,
                  headers: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderResult'],
                  hostnames: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHostnameResult'],
@@ -9007,7 +9007,7 @@ class GetGatewayRouteSpecHttp2RouteMatchResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteMatchHeaderResult(dict):
+calass GetGatewayRouteSpecHttp2RouteMatchHeaderResult(dict):
     def __init__(__self__, *,
                  invert: bool,
                  matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult'],
@@ -9039,7 +9039,7 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
+calass GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  prefix: str,
@@ -9079,7 +9079,7 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
+calass GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -9098,7 +9098,7 @@ class GetGatewayRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteMatchHostnameResult(dict):
+calass GetGatewayRouteSpecHttp2RouteMatchHostnameResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  suffix: str):
@@ -9117,7 +9117,7 @@ class GetGatewayRouteSpecHttp2RouteMatchHostnameResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteMatchPathResult(dict):
+calass GetGatewayRouteSpecHttp2RouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
@@ -9136,7 +9136,7 @@ class GetGatewayRouteSpecHttp2RouteMatchPathResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
+calass GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult'],
                  name: str):
@@ -9161,7 +9161,7 @@ class GetGatewayRouteSpecHttp2RouteMatchQueryParameterResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
+calass GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
         pulumi.set(__self__, "exact", exact)
@@ -9173,7 +9173,7 @@ class GetGatewayRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteResult(dict):
+calass GetGatewayRouteSpecHttpRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionResult'],
                  matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchResult']):
@@ -9192,7 +9192,7 @@ class GetGatewayRouteSpecHttpRouteResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteActionResult(dict):
+calass GetGatewayRouteSpecHttpRouteActionResult(dict):
     def __init__(__self__, *,
                  rewrites: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteResult'],
                  targets: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetResult']):
@@ -9211,7 +9211,7 @@ class GetGatewayRouteSpecHttpRouteActionResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteActionRewriteResult(dict):
+calass GetGatewayRouteSpecHttpRouteActionRewriteResult(dict):
     def __init__(__self__, *,
                  hostnames: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult'],
                  paths: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionRewritePathResult'],
@@ -9237,7 +9237,7 @@ class GetGatewayRouteSpecHttpRouteActionRewriteResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(dict):
+calass GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(dict):
     def __init__(__self__, *,
                  default_target_hostname: str):
         pulumi.set(__self__, "default_target_hostname", default_target_hostname)
@@ -9249,7 +9249,7 @@ class GetGatewayRouteSpecHttpRouteActionRewriteHostnameResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteActionRewritePathResult(dict):
+calass GetGatewayRouteSpecHttpRouteActionRewritePathResult(dict):
     def __init__(__self__, *,
                  exact: str):
         pulumi.set(__self__, "exact", exact)
@@ -9261,7 +9261,7 @@ class GetGatewayRouteSpecHttpRouteActionRewritePathResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteActionRewritePrefixResult(dict):
+calass GetGatewayRouteSpecHttpRouteActionRewritePrefixResult(dict):
     def __init__(__self__, *,
                  default_prefix: str,
                  value: str):
@@ -9280,7 +9280,7 @@ class GetGatewayRouteSpecHttpRouteActionRewritePrefixResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteActionTargetResult(dict):
+calass GetGatewayRouteSpecHttpRouteActionTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_services: Sequence['outputs.GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult']):
@@ -9299,7 +9299,7 @@ class GetGatewayRouteSpecHttpRouteActionTargetResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult(dict):
+calass GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult(dict):
     def __init__(__self__, *,
                  virtual_service_name: str):
         pulumi.set(__self__, "virtual_service_name", virtual_service_name)
@@ -9311,7 +9311,7 @@ class GetGatewayRouteSpecHttpRouteActionTargetVirtualServiceResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteMatchResult(dict):
+calass GetGatewayRouteSpecHttpRouteMatchResult(dict):
     def __init__(__self__, *,
                  headers: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderResult'],
                  hostnames: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHostnameResult'],
@@ -9358,7 +9358,7 @@ class GetGatewayRouteSpecHttpRouteMatchResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteMatchHeaderResult(dict):
+calass GetGatewayRouteSpecHttpRouteMatchHeaderResult(dict):
     def __init__(__self__, *,
                  invert: bool,
                  matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult'],
@@ -9390,7 +9390,7 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult(dict):
+calass GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  prefix: str,
@@ -9430,7 +9430,7 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderMatchResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
+calass GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -9449,7 +9449,7 @@ class GetGatewayRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteMatchHostnameResult(dict):
+calass GetGatewayRouteSpecHttpRouteMatchHostnameResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  suffix: str):
@@ -9468,7 +9468,7 @@ class GetGatewayRouteSpecHttpRouteMatchHostnameResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteMatchPathResult(dict):
+calass GetGatewayRouteSpecHttpRouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
@@ -9487,7 +9487,7 @@ class GetGatewayRouteSpecHttpRouteMatchPathResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
+calass GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult'],
                  name: str):
@@ -9512,7 +9512,7 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
+calass GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
         pulumi.set(__self__, "exact", exact)
@@ -9524,7 +9524,7 @@ class GetGatewayRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
 
 
 @pulumi.output_type
-class GetMeshSpecResult(dict):
+calass GetMeshSpecResult(dict):
     def __init__(__self__, *,
                  egress_filters: Sequence['outputs.GetMeshSpecEgressFilterResult']):
         pulumi.set(__self__, "egress_filters", egress_filters)
@@ -9536,7 +9536,7 @@ class GetMeshSpecResult(dict):
 
 
 @pulumi.output_type
-class GetMeshSpecEgressFilterResult(dict):
+calass GetMeshSpecEgressFilterResult(dict):
     def __init__(__self__, *,
                  type: str):
         pulumi.set(__self__, "type", type)
@@ -9548,7 +9548,7 @@ class GetMeshSpecEgressFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecResult(dict):
+calass GetRouteSpecResult(dict):
     def __init__(__self__, *,
                  grpc_routes: Sequence['outputs.GetRouteSpecGrpcRouteResult'],
                  http2_routes: Sequence['outputs.GetRouteSpecHttp2RouteResult'],
@@ -9588,7 +9588,7 @@ class GetRouteSpecResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteResult(dict):
+calass GetRouteSpecGrpcRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetRouteSpecGrpcRouteActionResult'],
                  matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchResult'],
@@ -9621,7 +9621,7 @@ class GetRouteSpecGrpcRouteResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteActionResult(dict):
+calass GetRouteSpecGrpcRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecGrpcRouteActionWeightedTargetResult']):
         pulumi.set(__self__, "weighted_targets", weighted_targets)
@@ -9633,7 +9633,7 @@ class GetRouteSpecGrpcRouteActionResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteActionWeightedTargetResult(dict):
+calass GetRouteSpecGrpcRouteActionWeightedTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_node: str,
@@ -9659,7 +9659,7 @@ class GetRouteSpecGrpcRouteActionWeightedTargetResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteMatchResult(dict):
+calass GetRouteSpecGrpcRouteMatchResult(dict):
     def __init__(__self__, *,
                  metadatas: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataResult'],
                  method_name: str,
@@ -9699,7 +9699,7 @@ class GetRouteSpecGrpcRouteMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteMatchMetadataResult(dict):
+calass GetRouteSpecGrpcRouteMatchMetadataResult(dict):
     def __init__(__self__, *,
                  invert: bool,
                  matches: Sequence['outputs.GetRouteSpecGrpcRouteMatchMetadataMatchResult'],
@@ -9731,7 +9731,7 @@ class GetRouteSpecGrpcRouteMatchMetadataResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteMatchMetadataMatchResult(dict):
+calass GetRouteSpecGrpcRouteMatchMetadataMatchResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  prefix: str,
@@ -9771,7 +9771,7 @@ class GetRouteSpecGrpcRouteMatchMetadataMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult(dict):
+calass GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -9790,7 +9790,7 @@ class GetRouteSpecGrpcRouteMatchMetadataMatchRangeResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteRetryPolicyResult(dict):
+calass GetRouteSpecGrpcRouteRetryPolicyResult(dict):
     def __init__(__self__, *,
                  grpc_retry_events: Sequence[str],
                  http_retry_events: Sequence[str],
@@ -9830,7 +9830,7 @@ class GetRouteSpecGrpcRouteRetryPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult(dict):
+calass GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -9849,7 +9849,7 @@ class GetRouteSpecGrpcRouteRetryPolicyPerRetryTimeoutResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteTimeoutResult(dict):
+calass GetRouteSpecGrpcRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecGrpcRouteTimeoutPerRequestResult']):
@@ -9868,7 +9868,7 @@ class GetRouteSpecGrpcRouteTimeoutResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteTimeoutIdleResult(dict):
+calass GetRouteSpecGrpcRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -9887,7 +9887,7 @@ class GetRouteSpecGrpcRouteTimeoutIdleResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecGrpcRouteTimeoutPerRequestResult(dict):
+calass GetRouteSpecGrpcRouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -9906,7 +9906,7 @@ class GetRouteSpecGrpcRouteTimeoutPerRequestResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteResult(dict):
+calass GetRouteSpecHttp2RouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetRouteSpecHttp2RouteActionResult'],
                  matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchResult'],
@@ -9939,7 +9939,7 @@ class GetRouteSpecHttp2RouteResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteActionResult(dict):
+calass GetRouteSpecHttp2RouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecHttp2RouteActionWeightedTargetResult']):
         pulumi.set(__self__, "weighted_targets", weighted_targets)
@@ -9951,7 +9951,7 @@ class GetRouteSpecHttp2RouteActionResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteActionWeightedTargetResult(dict):
+calass GetRouteSpecHttp2RouteActionWeightedTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_node: str,
@@ -9977,7 +9977,7 @@ class GetRouteSpecHttp2RouteActionWeightedTargetResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteMatchResult(dict):
+calass GetRouteSpecHttp2RouteMatchResult(dict):
     def __init__(__self__, *,
                  headers: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderResult'],
                  method: str,
@@ -10031,7 +10031,7 @@ class GetRouteSpecHttp2RouteMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteMatchHeaderResult(dict):
+calass GetRouteSpecHttp2RouteMatchHeaderResult(dict):
     def __init__(__self__, *,
                  invert: bool,
                  matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchHeaderMatchResult'],
@@ -10063,7 +10063,7 @@ class GetRouteSpecHttp2RouteMatchHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
+calass GetRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  prefix: str,
@@ -10103,7 +10103,7 @@ class GetRouteSpecHttp2RouteMatchHeaderMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
+calass GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -10122,7 +10122,7 @@ class GetRouteSpecHttp2RouteMatchHeaderMatchRangeResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteMatchPathResult(dict):
+calass GetRouteSpecHttp2RouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
@@ -10141,7 +10141,7 @@ class GetRouteSpecHttp2RouteMatchPathResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
+calass GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetRouteSpecHttp2RouteMatchQueryParameterMatchResult'],
                  name: str):
@@ -10166,7 +10166,7 @@ class GetRouteSpecHttp2RouteMatchQueryParameterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
+calass GetRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
         pulumi.set(__self__, "exact", exact)
@@ -10178,7 +10178,7 @@ class GetRouteSpecHttp2RouteMatchQueryParameterMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteRetryPolicyResult(dict):
+calass GetRouteSpecHttp2RouteRetryPolicyResult(dict):
     def __init__(__self__, *,
                  http_retry_events: Sequence[str],
                  max_retries: int,
@@ -10211,7 +10211,7 @@ class GetRouteSpecHttp2RouteRetryPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult(dict):
+calass GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -10230,7 +10230,7 @@ class GetRouteSpecHttp2RouteRetryPolicyPerRetryTimeoutResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteTimeoutResult(dict):
+calass GetRouteSpecHttp2RouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecHttp2RouteTimeoutPerRequestResult']):
@@ -10249,7 +10249,7 @@ class GetRouteSpecHttp2RouteTimeoutResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteTimeoutIdleResult(dict):
+calass GetRouteSpecHttp2RouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -10268,7 +10268,7 @@ class GetRouteSpecHttp2RouteTimeoutIdleResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttp2RouteTimeoutPerRequestResult(dict):
+calass GetRouteSpecHttp2RouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -10287,7 +10287,7 @@ class GetRouteSpecHttp2RouteTimeoutPerRequestResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteResult(dict):
+calass GetRouteSpecHttpRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetRouteSpecHttpRouteActionResult'],
                  matches: Sequence['outputs.GetRouteSpecHttpRouteMatchResult'],
@@ -10320,7 +10320,7 @@ class GetRouteSpecHttpRouteResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteActionResult(dict):
+calass GetRouteSpecHttpRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecHttpRouteActionWeightedTargetResult']):
         pulumi.set(__self__, "weighted_targets", weighted_targets)
@@ -10332,7 +10332,7 @@ class GetRouteSpecHttpRouteActionResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteActionWeightedTargetResult(dict):
+calass GetRouteSpecHttpRouteActionWeightedTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_node: str,
@@ -10358,7 +10358,7 @@ class GetRouteSpecHttpRouteActionWeightedTargetResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteMatchResult(dict):
+calass GetRouteSpecHttpRouteMatchResult(dict):
     def __init__(__self__, *,
                  headers: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderResult'],
                  method: str,
@@ -10412,7 +10412,7 @@ class GetRouteSpecHttpRouteMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteMatchHeaderResult(dict):
+calass GetRouteSpecHttpRouteMatchHeaderResult(dict):
     def __init__(__self__, *,
                  invert: bool,
                  matches: Sequence['outputs.GetRouteSpecHttpRouteMatchHeaderMatchResult'],
@@ -10444,7 +10444,7 @@ class GetRouteSpecHttpRouteMatchHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteMatchHeaderMatchResult(dict):
+calass GetRouteSpecHttpRouteMatchHeaderMatchResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  prefix: str,
@@ -10484,7 +10484,7 @@ class GetRouteSpecHttpRouteMatchHeaderMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
+calass GetRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
     def __init__(__self__, *,
                  end: int,
                  start: int):
@@ -10503,7 +10503,7 @@ class GetRouteSpecHttpRouteMatchHeaderMatchRangeResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteMatchPathResult(dict):
+calass GetRouteSpecHttpRouteMatchPathResult(dict):
     def __init__(__self__, *,
                  exact: str,
                  regex: str):
@@ -10522,7 +10522,7 @@ class GetRouteSpecHttpRouteMatchPathResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
+calass GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetRouteSpecHttpRouteMatchQueryParameterMatchResult'],
                  name: str):
@@ -10547,7 +10547,7 @@ class GetRouteSpecHttpRouteMatchQueryParameterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
+calass GetRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
     def __init__(__self__, *,
                  exact: str):
         pulumi.set(__self__, "exact", exact)
@@ -10559,7 +10559,7 @@ class GetRouteSpecHttpRouteMatchQueryParameterMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteRetryPolicyResult(dict):
+calass GetRouteSpecHttpRouteRetryPolicyResult(dict):
     def __init__(__self__, *,
                  http_retry_events: Sequence[str],
                  max_retries: int,
@@ -10592,7 +10592,7 @@ class GetRouteSpecHttpRouteRetryPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult(dict):
+calass GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -10611,7 +10611,7 @@ class GetRouteSpecHttpRouteRetryPolicyPerRetryTimeoutResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteTimeoutResult(dict):
+calass GetRouteSpecHttpRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecHttpRouteTimeoutIdleResult'],
                  per_requests: Sequence['outputs.GetRouteSpecHttpRouteTimeoutPerRequestResult']):
@@ -10630,7 +10630,7 @@ class GetRouteSpecHttpRouteTimeoutResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteTimeoutIdleResult(dict):
+calass GetRouteSpecHttpRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -10649,7 +10649,7 @@ class GetRouteSpecHttpRouteTimeoutIdleResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecHttpRouteTimeoutPerRequestResult(dict):
+calass GetRouteSpecHttpRouteTimeoutPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -10668,7 +10668,7 @@ class GetRouteSpecHttpRouteTimeoutPerRequestResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecTcpRouteResult(dict):
+calass GetRouteSpecTcpRouteResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetRouteSpecTcpRouteActionResult'],
                  matches: Sequence['outputs.GetRouteSpecTcpRouteMatchResult'],
@@ -10694,7 +10694,7 @@ class GetRouteSpecTcpRouteResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecTcpRouteActionResult(dict):
+calass GetRouteSpecTcpRouteActionResult(dict):
     def __init__(__self__, *,
                  weighted_targets: Sequence['outputs.GetRouteSpecTcpRouteActionWeightedTargetResult']):
         pulumi.set(__self__, "weighted_targets", weighted_targets)
@@ -10706,7 +10706,7 @@ class GetRouteSpecTcpRouteActionResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
+calass GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
     def __init__(__self__, *,
                  port: int,
                  virtual_node: str,
@@ -10732,7 +10732,7 @@ class GetRouteSpecTcpRouteActionWeightedTargetResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecTcpRouteMatchResult(dict):
+calass GetRouteSpecTcpRouteMatchResult(dict):
     def __init__(__self__, *,
                  port: int):
         pulumi.set(__self__, "port", port)
@@ -10744,7 +10744,7 @@ class GetRouteSpecTcpRouteMatchResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecTcpRouteTimeoutResult(dict):
+calass GetRouteSpecTcpRouteTimeoutResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetRouteSpecTcpRouteTimeoutIdleResult']):
         pulumi.set(__self__, "idles", idles)
@@ -10756,7 +10756,7 @@ class GetRouteSpecTcpRouteTimeoutResult(dict):
 
 
 @pulumi.output_type
-class GetRouteSpecTcpRouteTimeoutIdleResult(dict):
+calass GetRouteSpecTcpRouteTimeoutIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -10775,7 +10775,7 @@ class GetRouteSpecTcpRouteTimeoutIdleResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecResult(dict):
+calass GetVirtualGatewaySpecResult(dict):
     def __init__(__self__, *,
                  backend_defaults: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultResult'],
                  listeners: Sequence['outputs.GetVirtualGatewaySpecListenerResult'],
@@ -10801,7 +10801,7 @@ class GetVirtualGatewaySpecResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyResult']):
         pulumi.set(__self__, "client_policies", client_policies)
@@ -10813,7 +10813,7 @@ class GetVirtualGatewaySpecBackendDefaultResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult']):
         pulumi.set(__self__, "tls", tls)
@@ -10825,7 +10825,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult(dict):
     def __init__(__self__, *,
                  certificates: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult'],
                  enforce: bool,
@@ -10858,7 +10858,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult']):
@@ -10877,7 +10877,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -10896,7 +10896,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateFileResult(dic
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -10908,7 +10908,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlCertificateSdResult(dict)
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult']):
@@ -10927,7 +10927,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
         pulumi.set(__self__, "matches", matches)
@@ -10939,7 +10939,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternat
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         pulumi.set(__self__, "exacts", exacts)
@@ -10951,7 +10951,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationSubjectAlternat
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  acms: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
@@ -10977,7 +10977,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustResult(dic
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
         pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
@@ -10989,7 +10989,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustAcmResult(
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         pulumi.set(__self__, "certificate_chain", certificate_chain)
@@ -11001,7 +11001,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustFileResult
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
+calass GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -11013,7 +11013,7 @@ class GetVirtualGatewaySpecBackendDefaultClientPolicyTlValidationTrustSdResult(d
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerResult(dict):
+calass GetVirtualGatewaySpecListenerResult(dict):
     def __init__(__self__, *,
                  connection_pools: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolResult'],
                  health_checks: Sequence['outputs.GetVirtualGatewaySpecListenerHealthCheckResult'],
@@ -11046,7 +11046,7 @@ class GetVirtualGatewaySpecListenerResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
+calass GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
     def __init__(__self__, *,
                  grpcs: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolGrpcResult'],
                  http2s: Sequence['outputs.GetVirtualGatewaySpecListenerConnectionPoolHttp2Result'],
@@ -11072,7 +11072,7 @@ class GetVirtualGatewaySpecListenerConnectionPoolResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
+calass GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
                  max_requests: int):
         pulumi.set(__self__, "max_requests", max_requests)
@@ -11084,7 +11084,7 @@ class GetVirtualGatewaySpecListenerConnectionPoolGrpcResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(dict):
+calass GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
                  max_requests: int):
         pulumi.set(__self__, "max_requests", max_requests)
@@ -11096,7 +11096,7 @@ class GetVirtualGatewaySpecListenerConnectionPoolHttp2Result(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerConnectionPoolHttpResult(dict):
+calass GetVirtualGatewaySpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
                  max_connections: int,
                  max_pending_requests: int):
@@ -11115,7 +11115,7 @@ class GetVirtualGatewaySpecListenerConnectionPoolHttpResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerHealthCheckResult(dict):
+calass GetVirtualGatewaySpecListenerHealthCheckResult(dict):
     def __init__(__self__, *,
                  healthy_threshold: int,
                  interval_millis: int,
@@ -11169,7 +11169,7 @@ class GetVirtualGatewaySpecListenerHealthCheckResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerPortMappingResult(dict):
+calass GetVirtualGatewaySpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
@@ -11188,7 +11188,7 @@ class GetVirtualGatewaySpecListenerPortMappingResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlResult(dict):
+calass GetVirtualGatewaySpecListenerTlResult(dict):
     def __init__(__self__, *,
                  certificates: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateResult'],
                  mode: str,
@@ -11214,7 +11214,7 @@ class GetVirtualGatewaySpecListenerTlResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlCertificateResult(dict):
+calass GetVirtualGatewaySpecListenerTlCertificateResult(dict):
     def __init__(__self__, *,
                  acms: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateAcmResult'],
                  files: Sequence['outputs.GetVirtualGatewaySpecListenerTlCertificateFileResult'],
@@ -11240,7 +11240,7 @@ class GetVirtualGatewaySpecListenerTlCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlCertificateAcmResult(dict):
+calass GetVirtualGatewaySpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
                  certificate_arn: str):
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -11252,7 +11252,7 @@ class GetVirtualGatewaySpecListenerTlCertificateAcmResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
+calass GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -11271,7 +11271,7 @@ class GetVirtualGatewaySpecListenerTlCertificateFileResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlCertificateSdResult(dict):
+calass GetVirtualGatewaySpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -11283,7 +11283,7 @@ class GetVirtualGatewaySpecListenerTlCertificateSdResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlValidationResult(dict):
+calass GetVirtualGatewaySpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustResult']):
@@ -11302,7 +11302,7 @@ class GetVirtualGatewaySpecListenerTlValidationResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict):
+calass GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult']):
         pulumi.set(__self__, "matches", matches)
@@ -11314,7 +11314,7 @@ class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameResult(dict
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
+calass GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         pulumi.set(__self__, "exacts", exacts)
@@ -11326,7 +11326,7 @@ class GetVirtualGatewaySpecListenerTlValidationSubjectAlternativeNameMatchResult
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
+calass GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualGatewaySpecListenerTlValidationTrustSdResult']):
@@ -11345,7 +11345,7 @@ class GetVirtualGatewaySpecListenerTlValidationTrustResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
+calass GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         pulumi.set(__self__, "certificate_chain", certificate_chain)
@@ -11357,7 +11357,7 @@ class GetVirtualGatewaySpecListenerTlValidationTrustFileResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
+calass GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -11369,7 +11369,7 @@ class GetVirtualGatewaySpecListenerTlValidationTrustSdResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecLoggingResult(dict):
+calass GetVirtualGatewaySpecLoggingResult(dict):
     def __init__(__self__, *,
                  access_logs: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogResult']):
         pulumi.set(__self__, "access_logs", access_logs)
@@ -11381,7 +11381,7 @@ class GetVirtualGatewaySpecLoggingResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecLoggingAccessLogResult(dict):
+calass GetVirtualGatewaySpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileResult']):
         pulumi.set(__self__, "files", files)
@@ -11393,7 +11393,7 @@ class GetVirtualGatewaySpecLoggingAccessLogResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecLoggingAccessLogFileResult(dict):
+calass GetVirtualGatewaySpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
                  formats: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatResult'],
                  path: str):
@@ -11412,7 +11412,7 @@ class GetVirtualGatewaySpecLoggingAccessLogFileResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecLoggingAccessLogFileFormatResult(dict):
+calass GetVirtualGatewaySpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
                  jsons: Sequence['outputs.GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult'],
                  text: str):
@@ -11431,7 +11431,7 @@ class GetVirtualGatewaySpecLoggingAccessLogFileFormatResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult(dict):
+calass GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -11450,7 +11450,7 @@ class GetVirtualGatewaySpecLoggingAccessLogFileFormatJsonResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecResult(dict):
+calass GetVirtualNodeSpecResult(dict):
     def __init__(__self__, *,
                  backend_defaults: Sequence['outputs.GetVirtualNodeSpecBackendDefaultResult'],
                  backends: Sequence['outputs.GetVirtualNodeSpecBackendResult'],
@@ -11490,7 +11490,7 @@ class GetVirtualNodeSpecResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendResult(dict):
+calass GetVirtualNodeSpecBackendResult(dict):
     def __init__(__self__, *,
                  virtual_services: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceResult']):
         pulumi.set(__self__, "virtual_services", virtual_services)
@@ -11502,7 +11502,7 @@ class GetVirtualNodeSpecBackendResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultResult(dict):
+calass GetVirtualNodeSpecBackendDefaultResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyResult']):
         pulumi.set(__self__, "client_policies", client_policies)
@@ -11514,7 +11514,7 @@ class GetVirtualNodeSpecBackendDefaultResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlResult']):
         pulumi.set(__self__, "tls", tls)
@@ -11526,7 +11526,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(dict):
     def __init__(__self__, *,
                  certificates: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult'],
                  enforce: bool,
@@ -11559,7 +11559,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult']):
@@ -11578,7 +11578,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -11597,7 +11597,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateFileResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -11609,7 +11609,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSdResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult']):
@@ -11628,7 +11628,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
         pulumi.set(__self__, "matches", matches)
@@ -11640,7 +11640,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternative
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         pulumi.set(__self__, "exacts", exacts)
@@ -11652,7 +11652,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationSubjectAlternative
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  acms: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult'],
@@ -11678,7 +11678,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
         pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
@@ -11690,7 +11690,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustAcmResult(dic
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         pulumi.set(__self__, "certificate_chain", certificate_chain)
@@ -11702,7 +11702,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustFileResult(di
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
+calass GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -11714,7 +11714,7 @@ class GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSdResult(dict
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceResult(dict):
     def __init__(__self__, *,
                  client_policies: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult'],
                  virtual_service_name: str):
@@ -11733,7 +11733,7 @@ class GetVirtualNodeSpecBackendVirtualServiceResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult(dict):
     def __init__(__self__, *,
                  tls: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult']):
         pulumi.set(__self__, "tls", tls)
@@ -11745,7 +11745,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult(dict):
     def __init__(__self__, *,
                  certificates: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult'],
                  enforce: bool,
@@ -11778,7 +11778,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult']):
@@ -11797,7 +11797,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateResult(dic
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -11816,7 +11816,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateFileResult
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -11828,7 +11828,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSdResult(d
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult']):
@@ -11847,7 +11847,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult(dict
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult']):
         pulumi.set(__self__, "matches", matches)
@@ -11859,7 +11859,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlte
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         pulumi.set(__self__, "exacts", exacts)
@@ -11871,7 +11871,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationSubjectAlte
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  acms: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult'],
@@ -11897,7 +11897,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustResult
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmResult(dict):
     def __init__(__self__, *,
                  certificate_authority_arns: Sequence[str]):
         pulumi.set(__self__, "certificate_authority_arns", certificate_authority_arns)
@@ -11909,7 +11909,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustAcmRes
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         pulumi.set(__self__, "certificate_chain", certificate_chain)
@@ -11921,7 +11921,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustFileRe
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult(dict):
+calass GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -11933,7 +11933,7 @@ class GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSdResu
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerResult(dict):
+calass GetVirtualNodeSpecListenerResult(dict):
     def __init__(__self__, *,
                  connection_pools: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolResult'],
                  health_checks: Sequence['outputs.GetVirtualNodeSpecListenerHealthCheckResult'],
@@ -11980,7 +11980,7 @@ class GetVirtualNodeSpecListenerResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
+calass GetVirtualNodeSpecListenerConnectionPoolResult(dict):
     def __init__(__self__, *,
                  grpcs: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolGrpcResult'],
                  http2s: Sequence['outputs.GetVirtualNodeSpecListenerConnectionPoolHttp2Result'],
@@ -12013,7 +12013,7 @@ class GetVirtualNodeSpecListenerConnectionPoolResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
+calass GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
     def __init__(__self__, *,
                  max_requests: int):
         pulumi.set(__self__, "max_requests", max_requests)
@@ -12025,7 +12025,7 @@ class GetVirtualNodeSpecListenerConnectionPoolGrpcResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerConnectionPoolHttp2Result(dict):
+calass GetVirtualNodeSpecListenerConnectionPoolHttp2Result(dict):
     def __init__(__self__, *,
                  max_requests: int):
         pulumi.set(__self__, "max_requests", max_requests)
@@ -12037,7 +12037,7 @@ class GetVirtualNodeSpecListenerConnectionPoolHttp2Result(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
+calass GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
     def __init__(__self__, *,
                  max_connections: int,
                  max_pending_requests: int):
@@ -12056,7 +12056,7 @@ class GetVirtualNodeSpecListenerConnectionPoolHttpResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerConnectionPoolTcpResult(dict):
+calass GetVirtualNodeSpecListenerConnectionPoolTcpResult(dict):
     def __init__(__self__, *,
                  max_connections: int):
         pulumi.set(__self__, "max_connections", max_connections)
@@ -12068,7 +12068,7 @@ class GetVirtualNodeSpecListenerConnectionPoolTcpResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerHealthCheckResult(dict):
+calass GetVirtualNodeSpecListenerHealthCheckResult(dict):
     def __init__(__self__, *,
                  healthy_threshold: int,
                  interval_millis: int,
@@ -12122,7 +12122,7 @@ class GetVirtualNodeSpecListenerHealthCheckResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerOutlierDetectionResult(dict):
+calass GetVirtualNodeSpecListenerOutlierDetectionResult(dict):
     def __init__(__self__, *,
                  base_ejection_durations: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult'],
                  intervals: Sequence['outputs.GetVirtualNodeSpecListenerOutlierDetectionIntervalResult'],
@@ -12155,7 +12155,7 @@ class GetVirtualNodeSpecListenerOutlierDetectionResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult(dict):
+calass GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12174,7 +12174,7 @@ class GetVirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationResult(dict)
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerOutlierDetectionIntervalResult(dict):
+calass GetVirtualNodeSpecListenerOutlierDetectionIntervalResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12193,7 +12193,7 @@ class GetVirtualNodeSpecListenerOutlierDetectionIntervalResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerPortMappingResult(dict):
+calass GetVirtualNodeSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
@@ -12212,7 +12212,7 @@ class GetVirtualNodeSpecListenerPortMappingResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutResult(dict):
     def __init__(__self__, *,
                  grpcs: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcResult'],
                  http2s: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2Result'],
@@ -12245,7 +12245,7 @@ class GetVirtualNodeSpecListenerTimeoutResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutGrpcResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutGrpcResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcIdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult']):
@@ -12264,7 +12264,7 @@ class GetVirtualNodeSpecListenerTimeoutGrpcResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutGrpcIdleResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutGrpcIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12283,7 +12283,7 @@ class GetVirtualNodeSpecListenerTimeoutGrpcIdleResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12302,7 +12302,7 @@ class GetVirtualNodeSpecListenerTimeoutGrpcPerRequestResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutHttp2Result(dict):
+calass GetVirtualNodeSpecListenerTimeoutHttp2Result(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2IdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult']):
@@ -12321,7 +12321,7 @@ class GetVirtualNodeSpecListenerTimeoutHttp2Result(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutHttp2IdleResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutHttp2IdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12340,7 +12340,7 @@ class GetVirtualNodeSpecListenerTimeoutHttp2IdleResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12359,7 +12359,7 @@ class GetVirtualNodeSpecListenerTimeoutHttp2PerRequestResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutHttpResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutHttpResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpIdleResult'],
                  per_requests: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult']):
@@ -12378,7 +12378,7 @@ class GetVirtualNodeSpecListenerTimeoutHttpResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutHttpIdleResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutHttpIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12397,7 +12397,7 @@ class GetVirtualNodeSpecListenerTimeoutHttpIdleResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12416,7 +12416,7 @@ class GetVirtualNodeSpecListenerTimeoutHttpPerRequestResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutTcpResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutTcpResult(dict):
     def __init__(__self__, *,
                  idles: Sequence['outputs.GetVirtualNodeSpecListenerTimeoutTcpIdleResult']):
         pulumi.set(__self__, "idles", idles)
@@ -12428,7 +12428,7 @@ class GetVirtualNodeSpecListenerTimeoutTcpResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTimeoutTcpIdleResult(dict):
+calass GetVirtualNodeSpecListenerTimeoutTcpIdleResult(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: int):
@@ -12447,7 +12447,7 @@ class GetVirtualNodeSpecListenerTimeoutTcpIdleResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlResult(dict):
+calass GetVirtualNodeSpecListenerTlResult(dict):
     def __init__(__self__, *,
                  certificates: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateResult'],
                  mode: str,
@@ -12473,7 +12473,7 @@ class GetVirtualNodeSpecListenerTlResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlCertificateResult(dict):
+calass GetVirtualNodeSpecListenerTlCertificateResult(dict):
     def __init__(__self__, *,
                  acms: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateAcmResult'],
                  files: Sequence['outputs.GetVirtualNodeSpecListenerTlCertificateFileResult'],
@@ -12499,7 +12499,7 @@ class GetVirtualNodeSpecListenerTlCertificateResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlCertificateAcmResult(dict):
+calass GetVirtualNodeSpecListenerTlCertificateAcmResult(dict):
     def __init__(__self__, *,
                  certificate_arn: str):
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -12511,7 +12511,7 @@ class GetVirtualNodeSpecListenerTlCertificateAcmResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
+calass GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str,
                  private_key: str):
@@ -12530,7 +12530,7 @@ class GetVirtualNodeSpecListenerTlCertificateFileResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlCertificateSdResult(dict):
+calass GetVirtualNodeSpecListenerTlCertificateSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -12542,7 +12542,7 @@ class GetVirtualNodeSpecListenerTlCertificateSdResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlValidationResult(dict):
+calass GetVirtualNodeSpecListenerTlValidationResult(dict):
     def __init__(__self__, *,
                  subject_alternative_names: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult'],
                  trusts: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustResult']):
@@ -12561,7 +12561,7 @@ class GetVirtualNodeSpecListenerTlValidationResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
+calass GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
     def __init__(__self__, *,
                  matches: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult']):
         pulumi.set(__self__, "matches", matches)
@@ -12573,7 +12573,7 @@ class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
+calass GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult(dict):
     def __init__(__self__, *,
                  exacts: Sequence[str]):
         pulumi.set(__self__, "exacts", exacts)
@@ -12585,7 +12585,7 @@ class GetVirtualNodeSpecListenerTlValidationSubjectAlternativeNameMatchResult(di
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
+calass GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustFileResult'],
                  sds: Sequence['outputs.GetVirtualNodeSpecListenerTlValidationTrustSdResult']):
@@ -12604,7 +12604,7 @@ class GetVirtualNodeSpecListenerTlValidationTrustResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
+calass GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
     def __init__(__self__, *,
                  certificate_chain: str):
         pulumi.set(__self__, "certificate_chain", certificate_chain)
@@ -12616,7 +12616,7 @@ class GetVirtualNodeSpecListenerTlValidationTrustFileResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
+calass GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
     def __init__(__self__, *,
                  secret_name: str):
         pulumi.set(__self__, "secret_name", secret_name)
@@ -12628,7 +12628,7 @@ class GetVirtualNodeSpecListenerTlValidationTrustSdResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecLoggingResult(dict):
+calass GetVirtualNodeSpecLoggingResult(dict):
     def __init__(__self__, *,
                  access_logs: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogResult']):
         pulumi.set(__self__, "access_logs", access_logs)
@@ -12640,7 +12640,7 @@ class GetVirtualNodeSpecLoggingResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecLoggingAccessLogResult(dict):
+calass GetVirtualNodeSpecLoggingAccessLogResult(dict):
     def __init__(__self__, *,
                  files: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileResult']):
         pulumi.set(__self__, "files", files)
@@ -12652,7 +12652,7 @@ class GetVirtualNodeSpecLoggingAccessLogResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecLoggingAccessLogFileResult(dict):
+calass GetVirtualNodeSpecLoggingAccessLogFileResult(dict):
     def __init__(__self__, *,
                  formats: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatResult'],
                  path: str):
@@ -12671,7 +12671,7 @@ class GetVirtualNodeSpecLoggingAccessLogFileResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecLoggingAccessLogFileFormatResult(dict):
+calass GetVirtualNodeSpecLoggingAccessLogFileFormatResult(dict):
     def __init__(__self__, *,
                  jsons: Sequence['outputs.GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult'],
                  text: str):
@@ -12690,7 +12690,7 @@ class GetVirtualNodeSpecLoggingAccessLogFileFormatResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult(dict):
+calass GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -12709,7 +12709,7 @@ class GetVirtualNodeSpecLoggingAccessLogFileFormatJsonResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecServiceDiscoveryResult(dict):
+calass GetVirtualNodeSpecServiceDiscoveryResult(dict):
     def __init__(__self__, *,
                  aws_cloud_maps: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult'],
                  dns: Sequence['outputs.GetVirtualNodeSpecServiceDiscoveryDnResult']):
@@ -12728,7 +12728,7 @@ class GetVirtualNodeSpecServiceDiscoveryResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(dict):
+calass GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(dict):
     def __init__(__self__, *,
                  attributes: Mapping[str, str],
                  namespace_name: str,
@@ -12754,7 +12754,7 @@ class GetVirtualNodeSpecServiceDiscoveryAwsCloudMapResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
+calass GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
     def __init__(__self__, *,
                  hostname: str,
                  ip_preference: str,
@@ -12780,7 +12780,7 @@ class GetVirtualNodeSpecServiceDiscoveryDnResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualRouterSpecResult(dict):
+calass GetVirtualRouterSpecResult(dict):
     def __init__(__self__, *,
                  listeners: Sequence['outputs.GetVirtualRouterSpecListenerResult']):
         pulumi.set(__self__, "listeners", listeners)
@@ -12792,7 +12792,7 @@ class GetVirtualRouterSpecResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualRouterSpecListenerResult(dict):
+calass GetVirtualRouterSpecListenerResult(dict):
     def __init__(__self__, *,
                  port_mappings: Sequence['outputs.GetVirtualRouterSpecListenerPortMappingResult']):
         pulumi.set(__self__, "port_mappings", port_mappings)
@@ -12804,7 +12804,7 @@ class GetVirtualRouterSpecListenerResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualRouterSpecListenerPortMappingResult(dict):
+calass GetVirtualRouterSpecListenerPortMappingResult(dict):
     def __init__(__self__, *,
                  port: int,
                  protocol: str):
@@ -12823,7 +12823,7 @@ class GetVirtualRouterSpecListenerPortMappingResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualServiceSpecResult(dict):
+calass GetVirtualServiceSpecResult(dict):
     def __init__(__self__, *,
                  providers: Sequence['outputs.GetVirtualServiceSpecProviderResult']):
         pulumi.set(__self__, "providers", providers)
@@ -12835,7 +12835,7 @@ class GetVirtualServiceSpecResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualServiceSpecProviderResult(dict):
+calass GetVirtualServiceSpecProviderResult(dict):
     def __init__(__self__, *,
                  virtual_nodes: Sequence['outputs.GetVirtualServiceSpecProviderVirtualNodeResult'],
                  virtual_routers: Sequence['outputs.GetVirtualServiceSpecProviderVirtualRouterResult']):
@@ -12854,7 +12854,7 @@ class GetVirtualServiceSpecProviderResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualServiceSpecProviderVirtualNodeResult(dict):
+calass GetVirtualServiceSpecProviderVirtualNodeResult(dict):
     def __init__(__self__, *,
                  virtual_node_name: str):
         pulumi.set(__self__, "virtual_node_name", virtual_node_name)
@@ -12866,7 +12866,7 @@ class GetVirtualServiceSpecProviderVirtualNodeResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualServiceSpecProviderVirtualRouterResult(dict):
+calass GetVirtualServiceSpecProviderVirtualRouterResult(dict):
     def __init__(__self__, *,
                  virtual_router_name: str):
         pulumi.set(__self__, "virtual_router_name", virtual_router_name)

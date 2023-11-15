@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DataLakeSettingsArgs', 'DataLakeSettings']
+__all__ = ['DataLakeSettingsArrgs', 'DataLakeSettings']
 
 @pulumi.input_type
-class DataLakeSettingsArgs:
+calass DataLakeSettingsArrgs:
     def __init__(__self__, *,
                  admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
+                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]] = None,
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -33,8 +33,8 @@ class DataLakeSettingsArgs:
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArrgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
@@ -110,26 +110,26 @@ class DataLakeSettingsArgs:
 
     @property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
-    def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]:
+    def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]]:
         """
         Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
     @create_database_default_permissions.setter
-    def create_database_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]):
+    def create_database_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]]):
         pulumi.set(self, "create_database_default_permissions", value)
 
     @property
     @pulumi.getter(name="createTableDefaultPermissions")
-    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]:
+    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]]:
         """
         Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
-    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]):
+    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]]):
         pulumi.set(self, "create_table_default_permissions", value)
 
     @property
@@ -170,14 +170,14 @@ class DataLakeSettingsArgs:
 
 
 @pulumi.input_type
-class _DataLakeSettingsState:
+calass _DataLakeSettingsState:
     def __init__(__self__, *,
                  admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] = None,
+                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]] = None,
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -189,8 +189,8 @@ class _DataLakeSettingsState:
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArrgs']]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
@@ -266,26 +266,26 @@ class _DataLakeSettingsState:
 
     @property
     @pulumi.getter(name="createDatabaseDefaultPermissions")
-    def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]:
+    def create_database_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]]:
         """
         Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
         """
         return pulumi.get(self, "create_database_default_permissions")
 
     @create_database_default_permissions.setter
-    def create_database_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]):
+    def create_database_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]]):
         pulumi.set(self, "create_database_default_permissions", value)
 
     @property
     @pulumi.getter(name="createTableDefaultPermissions")
-    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]:
+    def create_table_default_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]]:
         """
         Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         """
         return pulumi.get(self, "create_table_default_permissions")
 
     @create_table_default_permissions.setter
-    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]):
+    def create_table_default_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]]):
         pulumi.set(self, "create_table_default_permissions", value)
 
     @property
@@ -325,7 +325,7 @@ class _DataLakeSettingsState:
         pulumi.set(self, "trusted_resource_owners", value)
 
 
-class DataLakeSettings(pulumi.CustomResource):
+calass DataLakeSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -334,8 +334,8 @@ class DataLakeSettings(pulumi.CustomResource):
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]] = None,
+                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]]] = None,
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -368,7 +368,7 @@ class DataLakeSettings(pulumi.CustomResource):
                 aws_iam_user["test"]["arn"],
                 aws_iam_role["test"]["arn"],
             ],
-            create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs(
+            create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArrgs(
                 permissions=[
                     "SELECT",
                     "ALTER",
@@ -376,7 +376,7 @@ class DataLakeSettings(pulumi.CustomResource):
                 ],
                 principal=aws_iam_user["test"]["arn"],
             )],
-            create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
+            create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArrgs(
                 permissions=["ALL"],
                 principal=aws_iam_role["test"]["arn"],
             )])
@@ -392,7 +392,7 @@ class DataLakeSettings(pulumi.CustomResource):
                 aws_iam_user["test"]["arn"],
                 aws_iam_role["test"]["arn"],
             ],
-            create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs(
+            create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArrgs(
                 permissions=[
                     "SELECT",
                     "ALTER",
@@ -400,7 +400,7 @@ class DataLakeSettings(pulumi.CustomResource):
                 ],
                 principal=aws_iam_user["test"]["arn"],
             )],
-            create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
+            create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArrgs(
                 permissions=["ALL"],
                 principal=aws_iam_role["test"]["arn"],
             )],
@@ -420,8 +420,8 @@ class DataLakeSettings(pulumi.CustomResource):
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).
@@ -430,7 +430,7 @@ class DataLakeSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DataLakeSettingsArgs] = None,
+                 args: Optional[DataLakeSettingsArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
@@ -460,7 +460,7 @@ class DataLakeSettings(pulumi.CustomResource):
                 aws_iam_user["test"]["arn"],
                 aws_iam_role["test"]["arn"],
             ],
-            create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs(
+            create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArrgs(
                 permissions=[
                     "SELECT",
                     "ALTER",
@@ -468,7 +468,7 @@ class DataLakeSettings(pulumi.CustomResource):
                 ],
                 principal=aws_iam_user["test"]["arn"],
             )],
-            create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
+            create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArrgs(
                 permissions=["ALL"],
                 principal=aws_iam_role["test"]["arn"],
             )])
@@ -484,7 +484,7 @@ class DataLakeSettings(pulumi.CustomResource):
                 aws_iam_user["test"]["arn"],
                 aws_iam_role["test"]["arn"],
             ],
-            create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArgs(
+            create_database_default_permissions=[aws.lakeformation.DataLakeSettingsCreateDatabaseDefaultPermissionArrgs(
                 permissions=[
                     "SELECT",
                     "ALTER",
@@ -492,7 +492,7 @@ class DataLakeSettings(pulumi.CustomResource):
                 ],
                 principal=aws_iam_user["test"]["arn"],
             )],
-            create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArgs(
+            create_table_default_permissions=[aws.lakeformation.DataLakeSettingsCreateTableDefaultPermissionArrgs(
                 permissions=["ALL"],
                 principal=aws_iam_role["test"]["arn"],
             )],
@@ -505,12 +505,12 @@ class DataLakeSettings(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataLakeSettingsArgs args: The arguments to use to populate this resource's properties.
+        :param DataLakeSettingsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataLakeSettingsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataLakeSettingsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -523,8 +523,8 @@ class DataLakeSettings(pulumi.CustomResource):
                  allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
                  authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]] = None,
-                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]] = None,
+                 create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]]] = None,
+                 create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]]] = None,
                  external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -535,7 +535,7 @@ class DataLakeSettings(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataLakeSettingsArgs.__new__(DataLakeSettingsArgs)
+            __props__ = DataLakeSettingsArrgs.__new__(DataLakeSettingsArrgs)
 
             __props__.__dict__["admins"] = admins
             __props__.__dict__["allow_external_data_filtering"] = allow_external_data_filtering
@@ -560,8 +560,8 @@ class DataLakeSettings(pulumi.CustomResource):
             allow_external_data_filtering: Optional[pulumi.Input[bool]] = None,
             authorized_session_tag_value_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             catalog_id: Optional[pulumi.Input[str]] = None,
-            create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]]] = None,
-            create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]]] = None,
+            create_database_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]]] = None,
+            create_table_default_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]]] = None,
             external_data_filtering_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             read_only_admins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             trusted_resource_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'DataLakeSettings':
@@ -578,8 +578,8 @@ class DataLakeSettings(pulumi.CustomResource):
                
                > **NOTE:** Although optional, not including `admins`, `create_database_default_permissions`, `create_table_default_permissions`, and/or `trusted_resource_owners` results in the setting being cleared.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArgs']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArgs']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateDatabaseDefaultPermissionArrgs']]]] create_database_default_permissions: Up to three configuration blocks of principal permissions for default create database permissions. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataLakeSettingsCreateTableDefaultPermissionArrgs']]]] create_table_default_permissions: Up to three configuration blocks of principal permissions for default create table permissions. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_data_filtering_allow_lists: A list of the account IDs of Amazon Web Services accounts with Amazon EMR clusters that are to perform data filtering.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] read_only_admins: Set of ARNs of AWS Lake Formation principals (IAM users or roles) with only view access to the resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] trusted_resource_owners: List of the resource-owning account IDs that the caller's account can use to share their user access details (user ARNs).

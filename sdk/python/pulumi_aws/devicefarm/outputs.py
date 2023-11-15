@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DevicePoolRule(dict):
+calass DevicePoolRule(dict):
     def __init__(__self__, *,
                  attribute: Optional[str] = None,
                  operator: Optional[str] = None,
@@ -58,7 +58,7 @@ class DevicePoolRule(dict):
 
 
 @pulumi.output_type
-class TestGridProjectVpcConfig(dict):
+calass TestGridProjectVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

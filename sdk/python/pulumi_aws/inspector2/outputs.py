@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class OrganizationConfigurationAutoEnable(dict):
+calass OrganizationConfigurationAutoEnable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

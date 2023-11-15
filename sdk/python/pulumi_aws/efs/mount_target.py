@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MountTargetArgs', 'MountTarget']
+__all__ = ['MountTargetArrgs', 'MountTarget']
 
 @pulumi.input_type
-class MountTargetArgs:
+calass MountTargetArrgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str],
@@ -86,7 +86,7 @@ class MountTargetArgs:
 
 
 @pulumi.input_type
-class _MountTargetState:
+calass _MountTargetState:
     def __init__(__self__, *,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  availability_zone_name: Optional[pulumi.Input[str]] = None,
@@ -273,7 +273,7 @@ class _MountTargetState:
         pulumi.set(self, "subnet_id", value)
 
 
-class MountTarget(pulumi.CustomResource):
+calass MountTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -323,7 +323,7 @@ class MountTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MountTargetArgs,
+                 args: MountTargetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic File System (EFS) mount target.
@@ -353,12 +353,12 @@ class MountTarget(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MountTargetArgs args: The arguments to use to populate this resource's properties.
+        :param MountTargetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MountTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MountTargetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -378,7 +378,7 @@ class MountTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MountTargetArgs.__new__(MountTargetArgs)
+            __props__ = MountTargetArrgs.__new__(MountTargetArrgs)
 
             if file_system_id is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system_id'")

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetArnResult:
+calass GetArnResult:
     """
     A collection of values returned by getArn.
     """
@@ -97,7 +97,7 @@ class GetArnResult:
         return pulumi.get(self, "service")
 
 
-class AwaitableGetArnResult(GetArnResult):
+calass AwaitableGetArnResult(GetArnResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPortfolioConstraintsResult:
+calass GetPortfolioConstraintsResult:
     """
     A collection of values returned by getPortfolioConstraints.
     """
@@ -77,7 +77,7 @@ class GetPortfolioConstraintsResult:
         return pulumi.get(self, "product_id")
 
 
-class AwaitableGetPortfolioConstraintsResult(GetPortfolioConstraintsResult):
+calass AwaitableGetPortfolioConstraintsResult(GetPortfolioConstraintsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

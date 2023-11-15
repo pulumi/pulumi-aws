@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNatGatewaysResult:
+calass GetNatGatewaysResult:
     """
     A collection of values returned by getNatGateways.
     """
@@ -72,7 +72,7 @@ class GetNatGatewaysResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetNatGatewaysResult(GetNatGatewaysResult):
+calass AwaitableGetNatGatewaysResult(GetNatGatewaysResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -85,7 +85,7 @@ class AwaitableGetNatGatewaysResult(GetNatGatewaysResult):
             vpc_id=self.vpc_id)
 
 
-def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']]] = None,
+def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGatewaysFilterArrgs']]] = None,
                      tags: Optional[Mapping[str, str]] = None,
                      vpc_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNatGatewaysResult:
@@ -93,7 +93,7 @@ def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGateways
     This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
 
 
-    :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetNatGatewaysFilterArrgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
            
@@ -117,7 +117,7 @@ def get_nat_gateways(filters: Optional[Sequence[pulumi.InputType['GetNatGateways
 
 
 @_utilities.lift_output_func(get_nat_gateways)
-def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']]]]] = None,
+def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetNatGatewaysFilterArrgs']]]]] = None,
                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                             vpc_id: Optional[pulumi.Input[Optional[str]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNatGatewaysResult]:
@@ -125,7 +125,7 @@ def get_nat_gateways_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
 
 
-    :param Sequence[pulumi.InputType['GetNatGatewaysFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetNatGatewaysFilterArrgs']] filters: Custom filter block as described below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
            a pair on the desired NAT Gateways.
            

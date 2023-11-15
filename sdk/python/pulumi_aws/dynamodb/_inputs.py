@@ -10,23 +10,23 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GlobalTableReplicaArgs',
-    'TableAttributeArgs',
-    'TableGlobalSecondaryIndexArgs',
-    'TableImportTableArgs',
-    'TableImportTableInputFormatOptionsArgs',
-    'TableImportTableInputFormatOptionsCsvArgs',
-    'TableImportTableS3BucketSourceArgs',
-    'TableLocalSecondaryIndexArgs',
-    'TablePointInTimeRecoveryArgs',
-    'TableReplicaArgs',
-    'TableServerSideEncryptionArgs',
-    'TableTtlArgs',
-    'GetTableServerSideEncryptionArgs',
+    'GlobalTableReplicaArrgs',
+    'TableAttributeArrgs',
+    'TableGlobalSecondaryIndexArrgs',
+    'TableImportTableArrgs',
+    'TableImportTableInputFormatOptionsArrgs',
+    'TableImportTableInputFormatOptionsCsvArrgs',
+    'TableImportTableS3BucketSourceArrgs',
+    'TableLocalSecondaryIndexArrgs',
+    'TablePointInTimeRecoveryArrgs',
+    'TableReplicaArrgs',
+    'TableServerSideEncryptionArrgs',
+    'TableTtlArrgs',
+    'GetTableServerSideEncryptionArrgs',
 ]
 
 @pulumi.input_type
-class GlobalTableReplicaArgs:
+calass GlobalTableReplicaArrgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[str]):
         """
@@ -48,7 +48,7 @@ class GlobalTableReplicaArgs:
 
 
 @pulumi.input_type
-class TableAttributeArgs:
+calass TableAttributeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -85,7 +85,7 @@ class TableAttributeArgs:
 
 
 @pulumi.input_type
-class TableGlobalSecondaryIndexArgs:
+calass TableGlobalSecondaryIndexArrgs:
     def __init__(__self__, *,
                  hash_key: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -201,17 +201,17 @@ class TableGlobalSecondaryIndexArgs:
 
 
 @pulumi.input_type
-class TableImportTableArgs:
+calass TableImportTableArrgs:
     def __init__(__self__, *,
                  input_format: pulumi.Input[str],
-                 s3_bucket_source: pulumi.Input['TableImportTableS3BucketSourceArgs'],
+                 s3_bucket_source: pulumi.Input['TableImportTableS3BucketSourceArrgs'],
                  input_compression_type: Optional[pulumi.Input[str]] = None,
-                 input_format_options: Optional[pulumi.Input['TableImportTableInputFormatOptionsArgs']] = None):
+                 input_format_options: Optional[pulumi.Input['TableImportTableInputFormatOptionsArrgs']] = None):
         """
         :param pulumi.Input[str] input_format: The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
-        :param pulumi.Input['TableImportTableS3BucketSourceArgs'] s3_bucket_source: Values for the S3 bucket the source file is imported from. See below.
+        :param pulumi.Input['TableImportTableS3BucketSourceArrgs'] s3_bucket_source: Values for the S3 bucket the source file is imported from. See below.
         :param pulumi.Input[str] input_compression_type: Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
-        :param pulumi.Input['TableImportTableInputFormatOptionsArgs'] input_format_options: Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+        :param pulumi.Input['TableImportTableInputFormatOptionsArrgs'] input_format_options: Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
         """
         pulumi.set(__self__, "input_format", input_format)
         pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
@@ -234,14 +234,14 @@ class TableImportTableArgs:
 
     @property
     @pulumi.getter(name="s3BucketSource")
-    def s3_bucket_source(self) -> pulumi.Input['TableImportTableS3BucketSourceArgs']:
+    def s3_bucket_source(self) -> pulumi.Input['TableImportTableS3BucketSourceArrgs']:
         """
         Values for the S3 bucket the source file is imported from. See below.
         """
         return pulumi.get(self, "s3_bucket_source")
 
     @s3_bucket_source.setter
-    def s3_bucket_source(self, value: pulumi.Input['TableImportTableS3BucketSourceArgs']):
+    def s3_bucket_source(self, value: pulumi.Input['TableImportTableS3BucketSourceArrgs']):
         pulumi.set(self, "s3_bucket_source", value)
 
     @property
@@ -258,42 +258,42 @@ class TableImportTableArgs:
 
     @property
     @pulumi.getter(name="inputFormatOptions")
-    def input_format_options(self) -> Optional[pulumi.Input['TableImportTableInputFormatOptionsArgs']]:
+    def input_format_options(self) -> Optional[pulumi.Input['TableImportTableInputFormatOptionsArrgs']]:
         """
         Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
         """
         return pulumi.get(self, "input_format_options")
 
     @input_format_options.setter
-    def input_format_options(self, value: Optional[pulumi.Input['TableImportTableInputFormatOptionsArgs']]):
+    def input_format_options(self, value: Optional[pulumi.Input['TableImportTableInputFormatOptionsArrgs']]):
         pulumi.set(self, "input_format_options", value)
 
 
 @pulumi.input_type
-class TableImportTableInputFormatOptionsArgs:
+calass TableImportTableInputFormatOptionsArrgs:
     def __init__(__self__, *,
-                 csv: Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArgs']] = None):
+                 csv: Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArrgs']] = None):
         """
-        :param pulumi.Input['TableImportTableInputFormatOptionsCsvArgs'] csv: This block contains the processing options for the CSV file being imported:
+        :param pulumi.Input['TableImportTableInputFormatOptionsCsvArrgs'] csv: This block contains the processing options for the CSV file being imported:
         """
         if csv is not None:
             pulumi.set(__self__, "csv", csv)
 
     @property
     @pulumi.getter
-    def csv(self) -> Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArgs']]:
+    def csv(self) -> Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArrgs']]:
         """
         This block contains the processing options for the CSV file being imported:
         """
         return pulumi.get(self, "csv")
 
     @csv.setter
-    def csv(self, value: Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArgs']]):
+    def csv(self, value: Optional[pulumi.Input['TableImportTableInputFormatOptionsCsvArrgs']]):
         pulumi.set(self, "csv", value)
 
 
 @pulumi.input_type
-class TableImportTableInputFormatOptionsCsvArgs:
+calass TableImportTableInputFormatOptionsCsvArrgs:
     def __init__(__self__, *,
                  delimiter: Optional[pulumi.Input[str]] = None,
                  header_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -332,7 +332,7 @@ class TableImportTableInputFormatOptionsCsvArgs:
 
 
 @pulumi.input_type
-class TableImportTableS3BucketSourceArgs:
+calass TableImportTableS3BucketSourceArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  bucket_owner: Optional[pulumi.Input[str]] = None,
@@ -386,7 +386,7 @@ class TableImportTableS3BucketSourceArgs:
 
 
 @pulumi.input_type
-class TableLocalSecondaryIndexArgs:
+calass TableLocalSecondaryIndexArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  projection_type: pulumi.Input[str],
@@ -454,7 +454,7 @@ class TableLocalSecondaryIndexArgs:
 
 
 @pulumi.input_type
-class TablePointInTimeRecoveryArgs:
+calass TablePointInTimeRecoveryArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
@@ -476,7 +476,7 @@ class TablePointInTimeRecoveryArgs:
 
 
 @pulumi.input_type
-class TableReplicaArgs:
+calass TableReplicaArrgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[str],
                  arn: Optional[pulumi.Input[str]] = None,
@@ -594,7 +594,7 @@ class TableReplicaArgs:
 
 
 @pulumi.input_type
-class TableServerSideEncryptionArgs:
+calass TableServerSideEncryptionArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  kms_key_arn: Optional[pulumi.Input[str]] = None):
@@ -632,7 +632,7 @@ class TableServerSideEncryptionArgs:
 
 
 @pulumi.input_type
-class TableTtlArgs:
+calass TableTtlArrgs:
     def __init__(__self__, *,
                  attribute_name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -670,7 +670,7 @@ class TableTtlArgs:
 
 
 @pulumi.input_type
-class GetTableServerSideEncryptionArgs:
+calass GetTableServerSideEncryptionArrgs:
     def __init__(__self__, *,
                  enabled: bool,
                  kms_key_arn: str):

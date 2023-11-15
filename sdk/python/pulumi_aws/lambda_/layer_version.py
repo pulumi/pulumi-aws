@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LayerVersionArgs', 'LayerVersion']
+__all__ = ['LayerVersionArrgs', 'LayerVersion']
 
 @pulumi.input_type
-class LayerVersionArgs:
+calass LayerVersionArrgs:
     def __init__(__self__, *,
                  layer_name: pulumi.Input[str],
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
@@ -199,7 +199,7 @@ class LayerVersionArgs:
 
 
 @pulumi.input_type
-class _LayerVersionState:
+calass _LayerVersionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
@@ -498,7 +498,7 @@ class _LayerVersionState:
         pulumi.set(self, "version", value)
 
 
-class LayerVersion(pulumi.CustomResource):
+calass LayerVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -572,7 +572,7 @@ class LayerVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LayerVersionArgs,
+                 args: LayerVersionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Lambda Layer Version resource. Lambda Layers allow you to reuse shared bits of code across multiple lambda functions.
@@ -612,12 +612,12 @@ class LayerVersion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LayerVersionArgs args: The arguments to use to populate this resource's properties.
+        :param LayerVersionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LayerVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LayerVersionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -644,7 +644,7 @@ class LayerVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LayerVersionArgs.__new__(LayerVersionArgs)
+            __props__ = LayerVersionArrgs.__new__(LayerVersionArrgs)
 
             __props__.__dict__["code"] = code
             __props__.__dict__["compatible_architectures"] = compatible_architectures

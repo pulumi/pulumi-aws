@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HsmArgs', 'Hsm']
+__all__ = ['HsmArrgs', 'Hsm']
 
 @pulumi.input_type
-class HsmArgs:
+calass HsmArrgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[str],
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class HsmArgs:
 
 
 @pulumi.input_type
-class _HsmState:
+calass _HsmState:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class _HsmState:
         pulumi.set(self, "subnet_id", value)
 
 
-class Hsm(pulumi.CustomResource):
+calass Hsm(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -248,7 +248,7 @@ class Hsm(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HsmArgs,
+                 args: HsmArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an HSM module in Amazon CloudHSM v2 cluster.
@@ -276,12 +276,12 @@ class Hsm(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HsmArgs args: The arguments to use to populate this resource's properties.
+        :param HsmArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HsmArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HsmArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -301,7 +301,7 @@ class Hsm(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HsmArgs.__new__(HsmArgs)
+            __props__ = HsmArrgs.__new__(HsmArrgs)
 
             __props__.__dict__["availability_zone"] = availability_zone
             if cluster_id is None and not opts.urn:

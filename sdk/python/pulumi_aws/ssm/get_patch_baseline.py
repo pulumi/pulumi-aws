@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPatchBaselineResult:
+calass GetPatchBaselineResult:
     """
     A collection of values returned by getPatchBaseline.
     """
@@ -178,7 +178,7 @@ class GetPatchBaselineResult:
         return pulumi.get(self, "sources")
 
 
-class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
+calass AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

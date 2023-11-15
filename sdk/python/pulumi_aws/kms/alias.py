@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AliasArgs', 'Alias']
+__all__ = ['AliasArrgs', 'Alias']
 
 @pulumi.input_type
-class AliasArgs:
+calass AliasArrgs:
     def __init__(__self__, *,
                  target_key_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -69,7 +69,7 @@ class AliasArgs:
 
 
 @pulumi.input_type
-class _AliasState:
+calass _AliasState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -158,7 +158,7 @@ class _AliasState:
         pulumi.set(self, "target_key_id", value)
 
 
-class Alias(pulumi.CustomResource):
+calass Alias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -201,7 +201,7 @@ class Alias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AliasArgs,
+                 args: AliasArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an alias for a KMS customer master key. AWS Console enforces 1-to-1 mapping between aliases & keys,
@@ -227,12 +227,12 @@ class Alias(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AliasArgs args: The arguments to use to populate this resource's properties.
+        :param AliasArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AliasArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AliasArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -251,7 +251,7 @@ class Alias(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AliasArgs.__new__(AliasArgs)
+            __props__ = AliasArrgs.__new__(AliasArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
