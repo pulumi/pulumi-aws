@@ -17,13 +17,13 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GroupConfiguration(dict):
+calass GroupConfiguration(dict):
     def __init__(__self__, *,
                  type: str,
                  parameters: Optional[Sequence['outputs.GroupConfigurationParameter']] = None):
         """
         :param str type: Specifies the type of group configuration item.
-        :param Sequence['GroupConfigurationParameterArgs'] parameters: A collection of parameters for this group configuration item. See below for details.
+        :param Sequence['GroupConfigurationParameterArrgs'] parameters: A collection of parameters for this group configuration item. See below for details.
         """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -47,7 +47,7 @@ class GroupConfiguration(dict):
 
 
 @pulumi.output_type
-class GroupConfigurationParameter(dict):
+calass GroupConfigurationParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -76,7 +76,7 @@ class GroupConfigurationParameter(dict):
 
 
 @pulumi.output_type
-class GroupResourceQuery(dict):
+calass GroupResourceQuery(dict):
     def __init__(__self__, *,
                  query: str,
                  type: Optional[str] = None):

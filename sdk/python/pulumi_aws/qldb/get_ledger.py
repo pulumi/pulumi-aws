@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLedgerResult:
+calass GetLedgerResult:
     """
     A collection of values returned by getLedger.
     """
@@ -83,7 +83,7 @@ class GetLedgerResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLedgerResult(GetLedgerResult):
+calass AwaitableGetLedgerResult(GetLedgerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

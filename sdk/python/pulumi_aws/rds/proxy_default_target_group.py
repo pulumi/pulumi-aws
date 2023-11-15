@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ProxyDefaultTargetGroupArgs', 'ProxyDefaultTargetGroup']
+__all__ = ['ProxyDefaultTargetGroupArrgs', 'ProxyDefaultTargetGroup']
 
 @pulumi.input_type
-class ProxyDefaultTargetGroupArgs:
+calass ProxyDefaultTargetGroupArrgs:
     def __init__(__self__, *,
                  db_proxy_name: pulumi.Input[str],
-                 connection_pool_config: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] = None):
+                 connection_pool_config: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']] = None):
         """
         The set of arguments for constructing a ProxyDefaultTargetGroup resource.
         :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
-        :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
+        :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArrgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         """
         pulumi.set(__self__, "db_proxy_name", db_proxy_name)
         if connection_pool_config is not None:
@@ -41,28 +41,28 @@ class ProxyDefaultTargetGroupArgs:
 
     @property
     @pulumi.getter(name="connectionPoolConfig")
-    def connection_pool_config(self) -> Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]:
+    def connection_pool_config(self) -> Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']]:
         """
         The settings that determine the size and behavior of the connection pool for the target group.
         """
         return pulumi.get(self, "connection_pool_config")
 
     @connection_pool_config.setter
-    def connection_pool_config(self, value: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]):
+    def connection_pool_config(self, value: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']]):
         pulumi.set(self, "connection_pool_config", value)
 
 
 @pulumi.input_type
-class _ProxyDefaultTargetGroupState:
+calass _ProxyDefaultTargetGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 connection_pool_config: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] = None,
+                 connection_pool_config: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProxyDefaultTargetGroup resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) representing the target group.
-        :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
+        :param pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArrgs'] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
         :param pulumi.Input[str] name: The name of the default target group.
         """
@@ -89,14 +89,14 @@ class _ProxyDefaultTargetGroupState:
 
     @property
     @pulumi.getter(name="connectionPoolConfig")
-    def connection_pool_config(self) -> Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]:
+    def connection_pool_config(self) -> Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']]:
         """
         The settings that determine the size and behavior of the connection pool for the target group.
         """
         return pulumi.get(self, "connection_pool_config")
 
     @connection_pool_config.setter
-    def connection_pool_config(self, value: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]):
+    def connection_pool_config(self, value: Optional[pulumi.Input['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']]):
         pulumi.set(self, "connection_pool_config", value)
 
     @property
@@ -124,12 +124,12 @@ class _ProxyDefaultTargetGroupState:
         pulumi.set(self, "name", value)
 
 
-class ProxyDefaultTargetGroup(pulumi.CustomResource):
+calass ProxyDefaultTargetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]] = None,
+                 connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']]] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -151,7 +151,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
             role_arn=aws_iam_role["example"]["arn"],
             vpc_security_group_ids=[aws_security_group["example"]["id"]],
             vpc_subnet_ids=[aws_subnet["example"]["id"]],
-            auths=[aws.rds.ProxyAuthArgs(
+            auths=[aws.rds.ProxyAuthArrgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
@@ -163,7 +163,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
             })
         example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup",
             db_proxy_name=example_proxy.name,
-            connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs(
+            connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArrgs(
                 connection_borrow_timeout=120,
                 init_query="SET x=1, y=2",
                 max_connections_percent=100,
@@ -182,14 +182,14 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
+        :param pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProxyDefaultTargetGroupArgs,
+                 args: ProxyDefaultTargetGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an RDS DB proxy default target group resource.
@@ -210,7 +210,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
             role_arn=aws_iam_role["example"]["arn"],
             vpc_security_group_ids=[aws_security_group["example"]["id"]],
             vpc_subnet_ids=[aws_subnet["example"]["id"]],
-            auths=[aws.rds.ProxyAuthArgs(
+            auths=[aws.rds.ProxyAuthArrgs(
                 auth_scheme="SECRETS",
                 description="example",
                 iam_auth="DISABLED",
@@ -222,7 +222,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
             })
         example_proxy_default_target_group = aws.rds.ProxyDefaultTargetGroup("exampleProxyDefaultTargetGroup",
             db_proxy_name=example_proxy.name,
-            connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArgs(
+            connection_pool_config=aws.rds.ProxyDefaultTargetGroupConnectionPoolConfigArrgs(
                 connection_borrow_timeout=120,
                 init_query="SET x=1, y=2",
                 max_connections_percent=100,
@@ -240,12 +240,12 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProxyDefaultTargetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ProxyDefaultTargetGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProxyDefaultTargetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProxyDefaultTargetGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -254,7 +254,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]] = None,
+                 connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']]] = None,
                  db_proxy_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -263,7 +263,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProxyDefaultTargetGroupArgs.__new__(ProxyDefaultTargetGroupArgs)
+            __props__ = ProxyDefaultTargetGroupArrgs.__new__(ProxyDefaultTargetGroupArrgs)
 
             __props__.__dict__["connection_pool_config"] = connection_pool_config
             if db_proxy_name is None and not opts.urn:
@@ -282,7 +282,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']]] = None,
+            connection_pool_config: Optional[pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']]] = None,
             db_proxy_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ProxyDefaultTargetGroup':
         """
@@ -293,7 +293,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) representing the target group.
-        :param pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArgs']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
+        :param pulumi.Input[pulumi.InputType['ProxyDefaultTargetGroupConnectionPoolConfigArrgs']] connection_pool_config: The settings that determine the size and behavior of the connection pool for the target group.
         :param pulumi.Input[str] db_proxy_name: Name of the RDS DB Proxy.
         :param pulumi.Input[str] name: The name of the default target group.
         """

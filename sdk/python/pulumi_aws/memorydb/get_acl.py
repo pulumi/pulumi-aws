@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAclResult:
+calass GetAclResult:
     """
     A collection of values returned by getAcl.
     """
@@ -87,7 +87,7 @@ class GetAclResult:
         return pulumi.get(self, "user_names")
 
 
-class AwaitableGetAclResult(GetAclResult):
+calass AwaitableGetAclResult(GetAclResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

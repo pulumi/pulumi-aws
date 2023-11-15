@@ -10,19 +10,19 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GroupConfigurationArgs',
-    'GroupConfigurationParameterArgs',
-    'GroupResourceQueryArgs',
+    'GroupConfigurationArrgs',
+    'GroupConfigurationParameterArrgs',
+    'GroupResourceQueryArrgs',
 ]
 
 @pulumi.input_type
-class GroupConfigurationArgs:
+calass GroupConfigurationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArrgs']]]] = None):
         """
         :param pulumi.Input[str] type: Specifies the type of group configuration item.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]] parameters: A collection of parameters for this group configuration item. See below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArrgs']]] parameters: A collection of parameters for this group configuration item. See below for details.
         """
         pulumi.set(__self__, "type", type)
         if parameters is not None:
@@ -42,19 +42,19 @@ class GroupConfigurationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArrgs']]]]:
         """
         A collection of parameters for this group configuration item. See below for details.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
-class GroupConfigurationParameterArgs:
+calass GroupConfigurationParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -91,7 +91,7 @@ class GroupConfigurationParameterArgs:
 
 
 @pulumi.input_type
-class GroupResourceQueryArgs:
+calass GroupResourceQueryArrgs:
     def __init__(__self__, *,
                  query: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):

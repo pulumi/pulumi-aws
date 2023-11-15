@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCloudFormationTypeResult:
+calass GetCloudFormationTypeResult:
     """
     A collection of values returned by getCloudFormationType.
     """
@@ -197,7 +197,7 @@ class GetCloudFormationTypeResult:
         return pulumi.get(self, "visibility")
 
 
-class AwaitableGetCloudFormationTypeResult(GetCloudFormationTypeResult):
+calass AwaitableGetCloudFormationTypeResult(GetCloudFormationTypeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

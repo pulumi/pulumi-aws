@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResourceShareResult:
+calass GetResourceShareResult:
     """
     A collection of values returned by getResourceShare.
     """
@@ -124,7 +124,7 @@ class GetResourceShareResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetResourceShareResult(GetResourceShareResult):
+calass AwaitableGetResourceShareResult(GetResourceShareResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -142,7 +142,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             tags=self.tags)
 
 
-def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceShareFilterArgs']]] = None,
+def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceShareFilterArrgs']]] = None,
                        name: Optional[str] = None,
                        resource_owner: Optional[str] = None,
                        resource_share_status: Optional[str] = None,
@@ -166,7 +166,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
     import pulumi
     import pulumi_aws as aws
 
-    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArgs(
+    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArrgs(
             name="NameOfTag",
             values=["exampleNameTagValue"],
         )],
@@ -175,7 +175,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[pulumi.InputType['GetResourceShareFilterArrgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: Name of the tag key to filter on.
     :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
@@ -204,7 +204,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
 
 
 @_utilities.lift_output_func(get_resource_share)
-def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetResourceShareFilterArgs']]]]] = None,
+def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetResourceShareFilterArrgs']]]]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_owner: Optional[pulumi.Input[str]] = None,
                               resource_share_status: Optional[pulumi.Input[Optional[str]]] = None,
@@ -228,7 +228,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi
     import pulumi_aws as aws
 
-    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArgs(
+    tag_filter = aws.ram.get_resource_share(filters=[aws.ram.GetResourceShareFilterArrgs(
             name="NameOfTag",
             values=["exampleNameTagValue"],
         )],
@@ -237,7 +237,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[pulumi.InputType['GetResourceShareFilterArrgs']] filters: Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: Name of the tag key to filter on.
     :param str resource_owner: Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
     :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.

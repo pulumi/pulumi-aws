@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TransitGatewayPeeringArgs', 'TransitGatewayPeering']
+__all__ = ['TransitGatewayPeeringArrgs', 'TransitGatewayPeering']
 
 @pulumi.input_type
-class TransitGatewayPeeringArgs:
+calass TransitGatewayPeeringArrgs:
     def __init__(__self__, *,
                  core_network_id: pulumi.Input[str],
                  transit_gateway_arn: pulumi.Input[str],
@@ -66,7 +66,7 @@ class TransitGatewayPeeringArgs:
 
 
 @pulumi.input_type
-class _TransitGatewayPeeringState:
+calass _TransitGatewayPeeringState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  core_network_arn: Optional[pulumi.Input[str]] = None,
@@ -255,7 +255,7 @@ class _TransitGatewayPeeringState:
         pulumi.set(self, "transit_gateway_peering_attachment_id", value)
 
 
-class TransitGatewayPeering(pulumi.CustomResource):
+calass TransitGatewayPeering(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -296,7 +296,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TransitGatewayPeeringArgs,
+                 args: TransitGatewayPeeringArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a peering connection between an AWS Cloud WAN core network and an AWS Transit Gateway.
@@ -321,12 +321,12 @@ class TransitGatewayPeering(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TransitGatewayPeeringArgs args: The arguments to use to populate this resource's properties.
+        :param TransitGatewayPeeringArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayPeeringArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayPeeringArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -345,7 +345,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TransitGatewayPeeringArgs.__new__(TransitGatewayPeeringArgs)
+            __props__ = TransitGatewayPeeringArrgs.__new__(TransitGatewayPeeringArrgs)
 
             if core_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'core_network_id'")

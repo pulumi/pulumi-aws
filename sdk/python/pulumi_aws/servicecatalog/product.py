@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ProductArgs', 'Product']
+__all__ = ['ProductArrgs', 'Product']
 
 @pulumi.input_type
-class ProductArgs:
+calass ProductArrgs:
     def __init__(__self__, *,
                  owner: pulumi.Input[str],
-                 provisioning_artifact_parameters: pulumi.Input['ProductProvisioningArtifactParametersArgs'],
+                 provisioning_artifact_parameters: pulumi.Input['ProductProvisioningArtifactParametersArrgs'],
                  type: pulumi.Input[str],
                  accept_language: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -30,7 +30,7 @@ class ProductArgs:
         """
         The set of arguments for constructing a Product resource.
         :param pulumi.Input[str] owner: Owner of the product.
-        :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        :param pulumi.Input['ProductProvisioningArtifactParametersArrgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] type: Type of product. See [AWS Docs](https://docs.aws.amazon.com/servicecatalog/latest/dg/API_CreateProduct.html#API_CreateProduct_RequestSyntax) for valid list of values.
                
                The following arguments are optional:
@@ -77,14 +77,14 @@ class ProductArgs:
 
     @property
     @pulumi.getter(name="provisioningArtifactParameters")
-    def provisioning_artifact_parameters(self) -> pulumi.Input['ProductProvisioningArtifactParametersArgs']:
+    def provisioning_artifact_parameters(self) -> pulumi.Input['ProductProvisioningArtifactParametersArrgs']:
         """
         Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         """
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @provisioning_artifact_parameters.setter
-    def provisioning_artifact_parameters(self, value: pulumi.Input['ProductProvisioningArtifactParametersArgs']):
+    def provisioning_artifact_parameters(self, value: pulumi.Input['ProductProvisioningArtifactParametersArrgs']):
         pulumi.set(self, "provisioning_artifact_parameters", value)
 
     @property
@@ -199,7 +199,7 @@ class ProductArgs:
 
 
 @pulumi.input_type
-class _ProductState:
+calass _ProductState:
     def __init__(__self__, *,
                  accept_language: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -209,7 +209,7 @@ class _ProductState:
                  has_default_path: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']] = None,
+                 provisioning_artifact_parameters: Optional[pulumi.Input['ProductProvisioningArtifactParametersArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
@@ -227,7 +227,7 @@ class _ProductState:
         :param pulumi.Input[bool] has_default_path: Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
         :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] owner: Owner of the product.
-        :param pulumi.Input['ProductProvisioningArtifactParametersArgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        :param pulumi.Input['ProductProvisioningArtifactParametersArrgs'] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] status: Status of the product.
         :param pulumi.Input[str] support_description: Support information about the product.
         :param pulumi.Input[str] support_email: Contact email for product support.
@@ -372,14 +372,14 @@ class _ProductState:
 
     @property
     @pulumi.getter(name="provisioningArtifactParameters")
-    def provisioning_artifact_parameters(self) -> Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']]:
+    def provisioning_artifact_parameters(self) -> Optional[pulumi.Input['ProductProvisioningArtifactParametersArrgs']]:
         """
         Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         """
         return pulumi.get(self, "provisioning_artifact_parameters")
 
     @provisioning_artifact_parameters.setter
-    def provisioning_artifact_parameters(self, value: Optional[pulumi.Input['ProductProvisioningArtifactParametersArgs']]):
+    def provisioning_artifact_parameters(self, value: Optional[pulumi.Input['ProductProvisioningArtifactParametersArrgs']]):
         pulumi.set(self, "provisioning_artifact_parameters", value)
 
     @property
@@ -472,7 +472,7 @@ class _ProductState:
         pulumi.set(self, "type", value)
 
 
-class Product(pulumi.CustomResource):
+calass Product(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -482,7 +482,7 @@ class Product(pulumi.CustomResource):
                  distributor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']]] = None,
+                 provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArrgs']]] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
                  support_url: Optional[pulumi.Input[str]] = None,
@@ -505,7 +505,7 @@ class Product(pulumi.CustomResource):
 
         example = aws.servicecatalog.Product("example",
             owner="example-owner",
-            provisioning_artifact_parameters=aws.servicecatalog.ProductProvisioningArtifactParametersArgs(
+            provisioning_artifact_parameters=aws.servicecatalog.ProductProvisioningArtifactParametersArrgs(
                 template_url="https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
             ),
             tags={
@@ -529,7 +529,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[str] distributor: Distributor (i.e., vendor) of the product.
         :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] owner: Owner of the product.
-        :param pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArrgs']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] support_description: Support information about the product.
         :param pulumi.Input[str] support_email: Contact email for product support.
         :param pulumi.Input[str] support_url: Contact URL for product support.
@@ -542,7 +542,7 @@ class Product(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProductArgs,
+                 args: ProductArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog Product.
@@ -560,7 +560,7 @@ class Product(pulumi.CustomResource):
 
         example = aws.servicecatalog.Product("example",
             owner="example-owner",
-            provisioning_artifact_parameters=aws.servicecatalog.ProductProvisioningArtifactParametersArgs(
+            provisioning_artifact_parameters=aws.servicecatalog.ProductProvisioningArtifactParametersArrgs(
                 template_url="https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
             ),
             tags={
@@ -578,12 +578,12 @@ class Product(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProductArgs args: The arguments to use to populate this resource's properties.
+        :param ProductArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProductArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProductArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -597,7 +597,7 @@ class Product(pulumi.CustomResource):
                  distributor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
-                 provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']]] = None,
+                 provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArrgs']]] = None,
                  support_description: Optional[pulumi.Input[str]] = None,
                  support_email: Optional[pulumi.Input[str]] = None,
                  support_url: Optional[pulumi.Input[str]] = None,
@@ -610,7 +610,7 @@ class Product(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProductArgs.__new__(ProductArgs)
+            __props__ = ProductArrgs.__new__(ProductArrgs)
 
             __props__.__dict__["accept_language"] = accept_language
             __props__.__dict__["description"] = description
@@ -654,7 +654,7 @@ class Product(pulumi.CustomResource):
             has_default_path: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
-            provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']]] = None,
+            provisioning_artifact_parameters: Optional[pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArrgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             support_description: Optional[pulumi.Input[str]] = None,
             support_email: Optional[pulumi.Input[str]] = None,
@@ -677,7 +677,7 @@ class Product(pulumi.CustomResource):
         :param pulumi.Input[bool] has_default_path: Whether the product has a default path. If the product does not have a default path, call `ListLaunchPaths` to disambiguate between paths.  Otherwise, `ListLaunchPaths` is not required, and the output of ProductViewSummary can be used directly with `DescribeProvisioningParameters`.
         :param pulumi.Input[str] name: Name of the product.
         :param pulumi.Input[str] owner: Owner of the product.
-        :param pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArgs']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ProductProvisioningArtifactParametersArrgs']] provisioning_artifact_parameters: Configuration block for provisioning artifact (i.e., version) parameters. Detailed below.
         :param pulumi.Input[str] status: Status of the product.
         :param pulumi.Input[str] support_description: Support information about the product.
         :param pulumi.Input[str] support_email: Contact email for product support.

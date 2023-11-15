@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FleetIdentityProvider(dict):
+calass FleetIdentityProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -61,7 +61,7 @@ class FleetIdentityProvider(dict):
 
 
 @pulumi.output_type
-class FleetNetwork(dict):
+calass FleetNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

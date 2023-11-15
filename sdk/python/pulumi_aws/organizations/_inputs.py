@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'OrganizationAccountArgs',
-    'OrganizationNonMasterAccountArgs',
-    'OrganizationRootArgs',
-    'OrganizationRootPolicyTypeArgs',
-    'OrganizationalUnitAccountArgs',
+    'OrganizationAccountArrgs',
+    'OrganizationNonMasterAccountArrgs',
+    'OrganizationRootArrgs',
+    'OrganizationRootPolicyTypeArrgs',
+    'OrganizationalUnitAccountArrgs',
 ]
 
 @pulumi.input_type
-class OrganizationAccountArgs:
+calass OrganizationAccountArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class OrganizationAccountArgs:
 
 
 @pulumi.input_type
-class OrganizationNonMasterAccountArgs:
+calass OrganizationNonMasterAccountArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
@@ -192,17 +192,17 @@ class OrganizationNonMasterAccountArgs:
 
 
 @pulumi.input_type
-class OrganizationRootArgs:
+calass OrganizationRootArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 policy_types: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]] = None):
+                 policy_types: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArrgs']]]] = None):
         """
         :param pulumi.Input[str] arn: ARN of the root
         :param pulumi.Input[str] id: Identifier of the root
         :param pulumi.Input[str] name: The name of the policy type
-        :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]] policy_types: List of policy types enabled for this root. All elements have these attributes:
+        :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArrgs']]] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -251,19 +251,19 @@ class OrganizationRootArgs:
 
     @property
     @pulumi.getter(name="policyTypes")
-    def policy_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]]:
+    def policy_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArrgs']]]]:
         """
         List of policy types enabled for this root. All elements have these attributes:
         """
         return pulumi.get(self, "policy_types")
 
     @policy_types.setter
-    def policy_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgs']]]]):
+    def policy_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArrgs']]]]):
         pulumi.set(self, "policy_types", value)
 
 
 @pulumi.input_type
-class OrganizationRootPolicyTypeArgs:
+calass OrganizationRootPolicyTypeArrgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -298,7 +298,7 @@ class OrganizationRootPolicyTypeArgs:
 
 
 @pulumi.input_type
-class OrganizationalUnitAccountArgs:
+calass OrganizationalUnitAccountArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,

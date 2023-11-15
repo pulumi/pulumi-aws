@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcIpamPoolCidrsResult:
+calass GetVpcIpamPoolCidrsResult:
     """
     A collection of values returned by getVpcIpamPoolCidrs.
     """
@@ -64,7 +64,7 @@ class GetVpcIpamPoolCidrsResult:
         return pulumi.get(self, "ipam_pool_id")
 
 
-class AwaitableGetVpcIpamPoolCidrsResult(GetVpcIpamPoolCidrsResult):
+calass AwaitableGetVpcIpamPoolCidrsResult(GetVpcIpamPoolCidrsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -76,7 +76,7 @@ class AwaitableGetVpcIpamPoolCidrsResult(GetVpcIpamPoolCidrsResult):
             ipam_pool_id=self.ipam_pool_id)
 
 
-def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArgs']]] = None,
+def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArrgs']]] = None,
                             ipam_pool_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolCidrsResult:
     """
@@ -85,7 +85,7 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcI
     This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 
 
-    :param Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArrgs']] filters: Custom filter block as described below.
     :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     """
     __args__ = dict()
@@ -102,7 +102,7 @@ def get_vpc_ipam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcI
 
 
 @_utilities.lift_output_func(get_vpc_ipam_pool_cidrs)
-def get_vpc_ipam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArgs']]]]] = None,
+def get_vpc_ipam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArrgs']]]]] = None,
                                    ipam_pool_id: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIpamPoolCidrsResult]:
     """
@@ -111,7 +111,7 @@ def get_vpc_ipam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Seque
     This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 
 
-    :param Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIpamPoolCidrsFilterArrgs']] filters: Custom filter block as described below.
     :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     """
     ...

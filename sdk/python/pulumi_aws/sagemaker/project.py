@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ProjectArgs', 'Project']
+__all__ = ['ProjectArrgs', 'Project']
 
 @pulumi.input_type
-class ProjectArgs:
+calass ProjectArrgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[str],
-                 service_catalog_provisioning_details: pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'],
+                 service_catalog_provisioning_details: pulumi.Input['ProjectServiceCatalogProvisioningDetailsArrgs'],
                  project_description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
         :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+        :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArrgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -48,14 +48,14 @@ class ProjectArgs:
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']:
+    def service_catalog_provisioning_details(self) -> pulumi.Input['ProjectServiceCatalogProvisioningDetailsArrgs']:
         """
         The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @service_catalog_provisioning_details.setter
-    def service_catalog_provisioning_details(self, value: pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']):
+    def service_catalog_provisioning_details(self, value: pulumi.Input['ProjectServiceCatalogProvisioningDetailsArrgs']):
         pulumi.set(self, "service_catalog_provisioning_details", value)
 
     @property
@@ -84,13 +84,13 @@ class ProjectArgs:
 
 
 @pulumi.input_type
-class _ProjectState:
+calass _ProjectState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -99,7 +99,7 @@ class _ProjectState:
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+        :param pulumi.Input['ProjectServiceCatalogProvisioningDetailsArrgs'] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -171,14 +171,14 @@ class _ProjectState:
 
     @property
     @pulumi.getter(name="serviceCatalogProvisioningDetails")
-    def service_catalog_provisioning_details(self) -> Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']]:
+    def service_catalog_provisioning_details(self) -> Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArrgs']]:
         """
         The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         """
         return pulumi.get(self, "service_catalog_provisioning_details")
 
     @service_catalog_provisioning_details.setter
-    def service_catalog_provisioning_details(self, value: Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArgs']]):
+    def service_catalog_provisioning_details(self, value: Optional[pulumi.Input['ProjectServiceCatalogProvisioningDetailsArrgs']]):
         pulumi.set(self, "service_catalog_provisioning_details", value)
 
     @property
@@ -209,14 +209,14 @@ class _ProjectState:
         pulumi.set(self, "tags_all", value)
 
 
-class Project(pulumi.CustomResource):
+calass Project(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']]] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -232,7 +232,7 @@ class Project(pulumi.CustomResource):
 
         example = aws.sagemaker.Project("example",
             project_name="example",
-            service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArgs(
+            service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArrgs(
                 product_id=aws_servicecatalog_product["example"]["id"],
             ))
         ```
@@ -249,14 +249,14 @@ class Project(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+        :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArrgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProjectArgs,
+                 args: ProjectArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker Project resource.
@@ -271,7 +271,7 @@ class Project(pulumi.CustomResource):
 
         example = aws.sagemaker.Project("example",
             project_name="example",
-            service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArgs(
+            service_catalog_provisioning_details=aws.sagemaker.ProjectServiceCatalogProvisioningDetailsArrgs(
                 product_id=aws_servicecatalog_product["example"]["id"],
             ))
         ```
@@ -285,12 +285,12 @@ class Project(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProjectArgs args: The arguments to use to populate this resource's properties.
+        :param ProjectArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -301,7 +301,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  project_description: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
-                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']]] = None,
+                 service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -310,7 +310,7 @@ class Project(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProjectArgs.__new__(ProjectArgs)
+            __props__ = ProjectArrgs.__new__(ProjectArrgs)
 
             __props__.__dict__["project_description"] = project_description
             if project_name is None and not opts.urn:
@@ -339,7 +339,7 @@ class Project(pulumi.CustomResource):
             project_description: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             project_name: Optional[pulumi.Input[str]] = None,
-            service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']]] = None,
+            service_catalog_provisioning_details: Optional[pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Project':
         """
@@ -353,7 +353,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] project_description: A description for the project.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] project_name: The name of the Project.
-        :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
+        :param pulumi.Input[pulumi.InputType['ProjectServiceCatalogProvisioningDetailsArrgs']] service_catalog_provisioning_details: The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

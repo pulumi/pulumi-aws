@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VolumeAttachmentArgs', 'VolumeAttachment']
+__all__ = ['VolumeAttachmentArrgs', 'VolumeAttachment']
 
 @pulumi.input_type
-class VolumeAttachmentArgs:
+calass VolumeAttachmentArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  instance_id: pulumi.Input[str],
@@ -131,7 +131,7 @@ class VolumeAttachmentArgs:
 
 
 @pulumi.input_type
-class _VolumeAttachmentState:
+calass _VolumeAttachmentState:
     def __init__(__self__, *,
                  device_name: Optional[pulumi.Input[str]] = None,
                  force_detach: Optional[pulumi.Input[bool]] = None,
@@ -252,7 +252,7 @@ class _VolumeAttachmentState:
         pulumi.set(self, "volume_id", value)
 
 
-class VolumeAttachment(pulumi.CustomResource):
+calass VolumeAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -322,7 +322,7 @@ class VolumeAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VolumeAttachmentArgs,
+                 args: VolumeAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS EBS Volume Attachment as a top level resource, to attach and
@@ -361,12 +361,12 @@ class VolumeAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VolumeAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param VolumeAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VolumeAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VolumeAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -388,7 +388,7 @@ class VolumeAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VolumeAttachmentArgs.__new__(VolumeAttachmentArgs)
+            __props__ = VolumeAttachmentArrgs.__new__(VolumeAttachmentArrgs)
 
             if device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_name'")

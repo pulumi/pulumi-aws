@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MedicalVocabularyArgs', 'MedicalVocabulary']
+__all__ = ['MedicalVocabularyArrgs', 'MedicalVocabulary']
 
 @pulumi.input_type
-class MedicalVocabularyArgs:
+calass MedicalVocabularyArrgs:
     def __init__(__self__, *,
                  language_code: pulumi.Input[str],
                  vocabulary_file_uri: pulumi.Input[str],
@@ -85,7 +85,7 @@ class MedicalVocabularyArgs:
 
 
 @pulumi.input_type
-class _MedicalVocabularyState:
+calass _MedicalVocabularyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  download_uri: Optional[pulumi.Input[str]] = None,
@@ -210,7 +210,7 @@ class _MedicalVocabularyState:
         pulumi.set(self, "vocabulary_name", value)
 
 
-class MedicalVocabulary(pulumi.CustomResource):
+calass MedicalVocabulary(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -267,7 +267,7 @@ class MedicalVocabulary(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MedicalVocabularyArgs,
+                 args: MedicalVocabularyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Transcribe MedicalVocabulary.
@@ -304,12 +304,12 @@ class MedicalVocabulary(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MedicalVocabularyArgs args: The arguments to use to populate this resource's properties.
+        :param MedicalVocabularyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MedicalVocabularyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MedicalVocabularyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -329,7 +329,7 @@ class MedicalVocabulary(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MedicalVocabularyArgs.__new__(MedicalVocabularyArgs)
+            __props__ = MedicalVocabularyArrgs.__new__(MedicalVocabularyArrgs)
 
             if language_code is None and not opts.urn:
                 raise TypeError("Missing required property 'language_code'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ActiveReceiptRuleSetArgs', 'ActiveReceiptRuleSet']
+__all__ = ['ActiveReceiptRuleSetArrgs', 'ActiveReceiptRuleSet']
 
 @pulumi.input_type
-class ActiveReceiptRuleSetArgs:
+calass ActiveReceiptRuleSetArrgs:
     def __init__(__self__, *,
                  rule_set_name: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class ActiveReceiptRuleSetArgs:
 
 
 @pulumi.input_type
-class _ActiveReceiptRuleSetState:
+calass _ActiveReceiptRuleSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  rule_set_name: Optional[pulumi.Input[str]] = None):
@@ -74,7 +74,7 @@ class _ActiveReceiptRuleSetState:
         pulumi.set(self, "rule_set_name", value)
 
 
-class ActiveReceiptRuleSet(pulumi.CustomResource):
+calass ActiveReceiptRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -109,7 +109,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActiveReceiptRuleSetArgs,
+                 args: ActiveReceiptRuleSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to designate the active SES receipt rule set
@@ -132,12 +132,12 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActiveReceiptRuleSetArgs args: The arguments to use to populate this resource's properties.
+        :param ActiveReceiptRuleSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActiveReceiptRuleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActiveReceiptRuleSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -154,7 +154,7 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActiveReceiptRuleSetArgs.__new__(ActiveReceiptRuleSetArgs)
+            __props__ = ActiveReceiptRuleSetArrgs.__new__(ActiveReceiptRuleSetArrgs)
 
             if rule_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_name'")

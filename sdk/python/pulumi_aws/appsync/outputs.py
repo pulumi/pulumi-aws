@@ -41,7 +41,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DataSourceDynamodbConfig(dict):
+calass DataSourceDynamodbConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -71,7 +71,7 @@ class DataSourceDynamodbConfig(dict):
                  versioned: Optional[bool] = None):
         """
         :param str table_name: Name of the DynamoDB table.
-        :param 'DataSourceDynamodbConfigDeltaSyncConfigArgs' delta_sync_config: The DeltaSyncConfig for a versioned data source. See Delta Sync Config
+        :param 'DataSourceDynamodbConfigDeltaSyncConfigArrgs' delta_sync_config: The DeltaSyncConfig for a versioned data source. See Delta Sync Config
         :param str region: AWS region of the DynamoDB table. Defaults to current region.
         :param bool use_caller_credentials: Set to `true` to use Amazon Cognito credentials with this data source.
         :param bool versioned: Detects Conflict Detection and Resolution with this data source.
@@ -128,7 +128,7 @@ class DataSourceDynamodbConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceDynamodbConfigDeltaSyncConfig(dict):
+calass DataSourceDynamodbConfigDeltaSyncConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -191,7 +191,7 @@ class DataSourceDynamodbConfigDeltaSyncConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceElasticsearchConfig(dict):
+calass DataSourceElasticsearchConfig(dict):
     def __init__(__self__, *,
                  endpoint: str,
                  region: Optional[str] = None):
@@ -221,7 +221,7 @@ class DataSourceElasticsearchConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceEventBridgeConfig(dict):
+calass DataSourceEventBridgeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -256,7 +256,7 @@ class DataSourceEventBridgeConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceHttpConfig(dict):
+calass DataSourceHttpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -279,7 +279,7 @@ class DataSourceHttpConfig(dict):
                  authorization_config: Optional['outputs.DataSourceHttpConfigAuthorizationConfig'] = None):
         """
         :param str endpoint: HTTP URL.
-        :param 'DataSourceHttpConfigAuthorizationConfigArgs' authorization_config: Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
+        :param 'DataSourceHttpConfigAuthorizationConfigArrgs' authorization_config: Authorization configuration in case the HTTP endpoint requires authorization. See Authorization Config.
         """
         pulumi.set(__self__, "endpoint", endpoint)
         if authorization_config is not None:
@@ -303,7 +303,7 @@ class DataSourceHttpConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceHttpConfigAuthorizationConfig(dict):
+calass DataSourceHttpConfigAuthorizationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -328,7 +328,7 @@ class DataSourceHttpConfigAuthorizationConfig(dict):
                  aws_iam_config: Optional['outputs.DataSourceHttpConfigAuthorizationConfigAwsIamConfig'] = None):
         """
         :param str authorization_type: Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-        :param 'DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs' aws_iam_config: Identity and Access Management (IAM) settings. See AWS IAM Config.
+        :param 'DataSourceHttpConfigAuthorizationConfigAwsIamConfigArrgs' aws_iam_config: Identity and Access Management (IAM) settings. See AWS IAM Config.
         """
         if authorization_type is not None:
             pulumi.set(__self__, "authorization_type", authorization_type)
@@ -353,7 +353,7 @@ class DataSourceHttpConfigAuthorizationConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceHttpConfigAuthorizationConfigAwsIamConfig(dict):
+calass DataSourceHttpConfigAuthorizationConfigAwsIamConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -403,7 +403,7 @@ class DataSourceHttpConfigAuthorizationConfigAwsIamConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceLambdaConfig(dict):
+calass DataSourceLambdaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -438,7 +438,7 @@ class DataSourceLambdaConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceOpensearchserviceConfig(dict):
+calass DataSourceOpensearchserviceConfig(dict):
     def __init__(__self__, *,
                  endpoint: str,
                  region: Optional[str] = None):
@@ -468,7 +468,7 @@ class DataSourceOpensearchserviceConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceRelationalDatabaseConfig(dict):
+calass DataSourceRelationalDatabaseConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -492,7 +492,7 @@ class DataSourceRelationalDatabaseConfig(dict):
                  http_endpoint_config: Optional['outputs.DataSourceRelationalDatabaseConfigHttpEndpointConfig'] = None,
                  source_type: Optional[str] = None):
         """
-        :param 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs' http_endpoint_config: Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
+        :param 'DataSourceRelationalDatabaseConfigHttpEndpointConfigArrgs' http_endpoint_config: Amazon RDS HTTP endpoint configuration. See HTTP Endpoint Config.
         :param str source_type: Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
         """
         if http_endpoint_config is not None:
@@ -518,7 +518,7 @@ class DataSourceRelationalDatabaseConfig(dict):
 
 
 @pulumi.output_type
-class DataSourceRelationalDatabaseConfigHttpEndpointConfig(dict):
+calass DataSourceRelationalDatabaseConfigHttpEndpointConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -604,7 +604,7 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfig(dict):
 
 
 @pulumi.output_type
-class FunctionRuntime(dict):
+calass FunctionRuntime(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -650,7 +650,7 @@ class FunctionRuntime(dict):
 
 
 @pulumi.output_type
-class FunctionSyncConfig(dict):
+calass FunctionSyncConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -679,7 +679,7 @@ class FunctionSyncConfig(dict):
         """
         :param str conflict_detection: Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
         :param str conflict_handler: Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-        :param 'FunctionSyncConfigLambdaConflictHandlerConfigArgs' lambda_conflict_handler_config: Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        :param 'FunctionSyncConfigLambdaConflictHandlerConfigArrgs' lambda_conflict_handler_config: Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
         """
         if conflict_detection is not None:
             pulumi.set(__self__, "conflict_detection", conflict_detection)
@@ -714,7 +714,7 @@ class FunctionSyncConfig(dict):
 
 
 @pulumi.output_type
-class FunctionSyncConfigLambdaConflictHandlerConfig(dict):
+calass FunctionSyncConfigLambdaConflictHandlerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -750,7 +750,7 @@ class FunctionSyncConfigLambdaConflictHandlerConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiAdditionalAuthenticationProvider(dict):
+calass GraphQLApiAdditionalAuthenticationProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -781,9 +781,9 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
                  user_pool_config: Optional['outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig'] = None):
         """
         :param str authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param 'GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs' lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
-        :param 'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs' openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
-        :param 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs' user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param 'GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArrgs' lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
+        :param 'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArrgs' openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param 'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArrgs' user_pool_config: Amazon Cognito User Pool configuration. Defined below.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
         if lambda_authorizer_config is not None:
@@ -827,7 +827,7 @@ class GraphQLApiAdditionalAuthenticationProvider(dict):
 
 
 @pulumi.output_type
-class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig(dict):
+calass GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -890,7 +890,7 @@ class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(dict):
+calass GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -965,7 +965,7 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig(dict):
+calass GraphQLApiAdditionalAuthenticationProviderUserPoolConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1028,7 +1028,7 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiLambdaAuthorizerConfig(dict):
+calass GraphQLApiLambdaAuthorizerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1091,7 +1091,7 @@ class GraphQLApiLambdaAuthorizerConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiLogConfig(dict):
+calass GraphQLApiLogConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1153,7 +1153,7 @@ class GraphQLApiLogConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiOpenidConnectConfig(dict):
+calass GraphQLApiOpenidConnectConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1228,7 +1228,7 @@ class GraphQLApiOpenidConnectConfig(dict):
 
 
 @pulumi.output_type
-class GraphQLApiUserPoolConfig(dict):
+calass GraphQLApiUserPoolConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1304,7 +1304,7 @@ class GraphQLApiUserPoolConfig(dict):
 
 
 @pulumi.output_type
-class ResolverCachingConfig(dict):
+calass ResolverCachingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1352,7 +1352,7 @@ class ResolverCachingConfig(dict):
 
 
 @pulumi.output_type
-class ResolverPipelineConfig(dict):
+calass ResolverPipelineConfig(dict):
     def __init__(__self__, *,
                  functions: Optional[Sequence[str]] = None):
         """
@@ -1371,7 +1371,7 @@ class ResolverPipelineConfig(dict):
 
 
 @pulumi.output_type
-class ResolverRuntime(dict):
+calass ResolverRuntime(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1417,7 +1417,7 @@ class ResolverRuntime(dict):
 
 
 @pulumi.output_type
-class ResolverSyncConfig(dict):
+calass ResolverSyncConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1446,7 +1446,7 @@ class ResolverSyncConfig(dict):
         """
         :param str conflict_detection: Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
         :param str conflict_handler: Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-        :param 'ResolverSyncConfigLambdaConflictHandlerConfigArgs' lambda_conflict_handler_config: Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+        :param 'ResolverSyncConfigLambdaConflictHandlerConfigArrgs' lambda_conflict_handler_config: Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
         """
         if conflict_detection is not None:
             pulumi.set(__self__, "conflict_detection", conflict_detection)
@@ -1481,7 +1481,7 @@ class ResolverSyncConfig(dict):
 
 
 @pulumi.output_type
-class ResolverSyncConfigLambdaConflictHandlerConfig(dict):
+calass ResolverSyncConfigLambdaConflictHandlerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetComponentResult:
+calass GetComponentResult:
     """
     A collection of values returned by getComponent.
     """
@@ -186,7 +186,7 @@ class GetComponentResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetComponentResult(GetComponentResult):
+calass AwaitableGetComponentResult(GetComponentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

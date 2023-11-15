@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcLinkResult:
+calass GetVpcLinkResult:
     """
     A collection of values returned by getVpcLink.
     """
@@ -98,7 +98,7 @@ class GetVpcLinkResult:
         return pulumi.get(self, "target_arns")
 
 
-class AwaitableGetVpcLinkResult(GetVpcLinkResult):
+calass AwaitableGetVpcLinkResult(GetVpcLinkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

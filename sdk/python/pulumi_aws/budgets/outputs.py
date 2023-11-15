@@ -35,7 +35,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BudgetActionActionThreshold(dict):
+calass BudgetActionActionThreshold(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -83,7 +83,7 @@ class BudgetActionActionThreshold(dict):
 
 
 @pulumi.output_type
-class BudgetActionDefinition(dict):
+calass BudgetActionDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -110,9 +110,9 @@ class BudgetActionDefinition(dict):
                  scp_action_definition: Optional['outputs.BudgetActionDefinitionScpActionDefinition'] = None,
                  ssm_action_definition: Optional['outputs.BudgetActionDefinitionSsmActionDefinition'] = None):
         """
-        :param 'BudgetActionDefinitionIamActionDefinitionArgs' iam_action_definition: The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-        :param 'BudgetActionDefinitionScpActionDefinitionArgs' scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
-        :param 'BudgetActionDefinitionSsmActionDefinitionArgs' ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+        :param 'BudgetActionDefinitionIamActionDefinitionArrgs' iam_action_definition: The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+        :param 'BudgetActionDefinitionScpActionDefinitionArrgs' scp_action_definition: The service control policies (SCPs) action definition details. See SCP Action Definition.
+        :param 'BudgetActionDefinitionSsmActionDefinitionArrgs' ssm_action_definition: The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
         """
         if iam_action_definition is not None:
             pulumi.set(__self__, "iam_action_definition", iam_action_definition)
@@ -147,7 +147,7 @@ class BudgetActionDefinition(dict):
 
 
 @pulumi.output_type
-class BudgetActionDefinitionIamActionDefinition(dict):
+calass BudgetActionDefinitionIamActionDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -218,7 +218,7 @@ class BudgetActionDefinitionIamActionDefinition(dict):
 
 
 @pulumi.output_type
-class BudgetActionDefinitionScpActionDefinition(dict):
+calass BudgetActionDefinitionScpActionDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -266,7 +266,7 @@ class BudgetActionDefinitionScpActionDefinition(dict):
 
 
 @pulumi.output_type
-class BudgetActionDefinitionSsmActionDefinition(dict):
+calass BudgetActionDefinitionSsmActionDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -325,7 +325,7 @@ class BudgetActionDefinitionSsmActionDefinition(dict):
 
 
 @pulumi.output_type
-class BudgetActionSubscriber(dict):
+calass BudgetActionSubscriber(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -371,7 +371,7 @@ class BudgetActionSubscriber(dict):
 
 
 @pulumi.output_type
-class BudgetAutoAdjustData(dict):
+calass BudgetAutoAdjustData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -420,7 +420,7 @@ class BudgetAutoAdjustData(dict):
 
 
 @pulumi.output_type
-class BudgetAutoAdjustDataHistoricalOptions(dict):
+calass BudgetAutoAdjustDataHistoricalOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -459,7 +459,7 @@ class BudgetAutoAdjustDataHistoricalOptions(dict):
 
 
 @pulumi.output_type
-class BudgetCostFilter(dict):
+calass BudgetCostFilter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -484,7 +484,7 @@ class BudgetCostFilter(dict):
 
 
 @pulumi.output_type
-class BudgetCostTypes(dict):
+calass BudgetCostTypes(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -660,7 +660,7 @@ class BudgetCostTypes(dict):
 
 
 @pulumi.output_type
-class BudgetNotification(dict):
+calass BudgetNotification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -760,7 +760,7 @@ class BudgetNotification(dict):
 
 
 @pulumi.output_type
-class BudgetPlannedLimit(dict):
+calass BudgetPlannedLimit(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -817,14 +817,14 @@ class BudgetPlannedLimit(dict):
 
 
 @pulumi.output_type
-class GetBudgetAutoAdjustDataResult(dict):
+calass GetBudgetAutoAdjustDataResult(dict):
     def __init__(__self__, *,
                  auto_adjust_type: str,
                  historical_options: Sequence['outputs.GetBudgetAutoAdjustDataHistoricalOptionResult'],
                  last_auto_adjust_time: str):
         """
         :param str auto_adjust_type: (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`.
-        :param Sequence['GetBudgetAutoAdjustDataHistoricalOptionArgs'] historical_options: (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+        :param Sequence['GetBudgetAutoAdjustDataHistoricalOptionArrgs'] historical_options: (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
         :param str last_auto_adjust_time: (Optional) - The last time that your budget was auto-adjusted.
         """
         pulumi.set(__self__, "auto_adjust_type", auto_adjust_type)
@@ -857,7 +857,7 @@ class GetBudgetAutoAdjustDataResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetAutoAdjustDataHistoricalOptionResult(dict):
+calass GetBudgetAutoAdjustDataHistoricalOptionResult(dict):
     def __init__(__self__, *,
                  budget_adjustment_period: int,
                  lookback_available_periods: int):
@@ -886,7 +886,7 @@ class GetBudgetAutoAdjustDataHistoricalOptionResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetBudgetLimitResult(dict):
+calass GetBudgetBudgetLimitResult(dict):
     def __init__(__self__, *,
                  amount: str,
                  unit: str):
@@ -915,7 +915,7 @@ class GetBudgetBudgetLimitResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetCalculatedSpendResult(dict):
+calass GetBudgetCalculatedSpendResult(dict):
     def __init__(__self__, *,
                  actual_spends: Sequence['outputs.GetBudgetCalculatedSpendActualSpendResult']):
         pulumi.set(__self__, "actual_spends", actual_spends)
@@ -927,7 +927,7 @@ class GetBudgetCalculatedSpendResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetCalculatedSpendActualSpendResult(dict):
+calass GetBudgetCalculatedSpendActualSpendResult(dict):
     def __init__(__self__, *,
                  amount: str,
                  unit: str):
@@ -956,7 +956,7 @@ class GetBudgetCalculatedSpendActualSpendResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetCostFilterResult(dict):
+calass GetBudgetCostFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -985,7 +985,7 @@ class GetBudgetCostFilterResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetCostTypeResult(dict):
+calass GetBudgetCostTypeResult(dict):
     def __init__(__self__, *,
                  include_credit: bool,
                  include_discount: bool,
@@ -1113,7 +1113,7 @@ class GetBudgetCostTypeResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetNotificationResult(dict):
+calass GetBudgetNotificationResult(dict):
     def __init__(__self__, *,
                  comparison_operator: str,
                  notification_type: str,
@@ -1186,7 +1186,7 @@ class GetBudgetNotificationResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetPlannedLimitResult(dict):
+calass GetBudgetPlannedLimitResult(dict):
     def __init__(__self__, *,
                  amount: str,
                  start_time: str,

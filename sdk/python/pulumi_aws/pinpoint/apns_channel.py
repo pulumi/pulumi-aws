@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApnsChannelArgs', 'ApnsChannel']
+__all__ = ['ApnsChannelArrgs', 'ApnsChannel']
 
 @pulumi.input_type
-class ApnsChannelArgs:
+calass ApnsChannelArrgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  bundle_id: Optional[pulumi.Input[str]] = None,
@@ -181,7 +181,7 @@ class ApnsChannelArgs:
 
 
 @pulumi.input_type
-class _ApnsChannelState:
+calass _ApnsChannelState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  bundle_id: Optional[pulumi.Input[str]] = None,
@@ -350,7 +350,7 @@ class _ApnsChannelState:
         pulumi.set(self, "token_key_id", value)
 
 
-class ApnsChannel(pulumi.CustomResource):
+calass ApnsChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -415,7 +415,7 @@ class ApnsChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApnsChannelArgs,
+                 args: ApnsChannelArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Pinpoint APNs Channel resource.
@@ -443,12 +443,12 @@ class ApnsChannel(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApnsChannelArgs args: The arguments to use to populate this resource's properties.
+        :param ApnsChannelArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApnsChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApnsChannelArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -473,7 +473,7 @@ class ApnsChannel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApnsChannelArgs.__new__(ApnsChannelArgs)
+            __props__ = ApnsChannelArrgs.__new__(ApnsChannelArrgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")

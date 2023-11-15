@@ -11,33 +11,33 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GraphQLApiArgs', 'GraphQLApi']
+__all__ = ['GraphQLApiArrgs', 'GraphQLApi']
 
 @pulumi.input_type
-class GraphQLApiArgs:
+calass GraphQLApiArrgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
-                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
-                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
-                 log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArrgs']]]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArrgs']] = None,
+                 log_config: Optional[pulumi.Input['GraphQLApiLogConfigArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
+                 openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArrgs']] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArrgs']] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GraphQLApi resource.
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
-        :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
-        :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArrgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
+        :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArrgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
+        :param pulumi.Input['GraphQLApiLogConfigArrgs'] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: User-supplied name for the GraphqlApi.
-        :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input['GraphQLApiOpenidConnectConfigArrgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input['GraphQLApiUserPoolConfigArrgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
         :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
@@ -77,38 +77,38 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
+    def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArrgs']]]]:
         """
         One or more additional authentication providers for the GraphqlApi. Defined below.
         """
         return pulumi.get(self, "additional_authentication_providers")
 
     @additional_authentication_providers.setter
-    def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
+    def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArrgs']]]]):
         pulumi.set(self, "additional_authentication_providers", value)
 
     @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
-    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArrgs']]:
         """
         Nested argument containing Lambda authorizer configuration. Defined below.
         """
         return pulumi.get(self, "lambda_authorizer_config")
 
     @lambda_authorizer_config.setter
-    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]):
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArrgs']]):
         pulumi.set(self, "lambda_authorizer_config", value)
 
     @property
     @pulumi.getter(name="logConfig")
-    def log_config(self) -> Optional[pulumi.Input['GraphQLApiLogConfigArgs']]:
+    def log_config(self) -> Optional[pulumi.Input['GraphQLApiLogConfigArrgs']]:
         """
         Nested argument containing logging configuration. Defined below.
         """
         return pulumi.get(self, "log_config")
 
     @log_config.setter
-    def log_config(self, value: Optional[pulumi.Input['GraphQLApiLogConfigArgs']]):
+    def log_config(self, value: Optional[pulumi.Input['GraphQLApiLogConfigArrgs']]):
         pulumi.set(self, "log_config", value)
 
     @property
@@ -125,14 +125,14 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter(name="openidConnectConfig")
-    def openid_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]:
+    def openid_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArrgs']]:
         """
         Nested argument containing OpenID Connect configuration. Defined below.
         """
         return pulumi.get(self, "openid_connect_config")
 
     @openid_connect_config.setter
-    def openid_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]):
+    def openid_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArrgs']]):
         pulumi.set(self, "openid_connect_config", value)
 
     @property
@@ -161,14 +161,14 @@ class GraphQLApiArgs:
 
     @property
     @pulumi.getter(name="userPoolConfig")
-    def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]:
+    def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArrgs']]:
         """
         Amazon Cognito User Pool configuration. Defined below.
         """
         return pulumi.get(self, "user_pool_config")
 
     @user_pool_config.setter
-    def user_pool_config(self, value: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]):
+    def user_pool_config(self, value: Optional[pulumi.Input['GraphQLApiUserPoolConfigArrgs']]):
         pulumi.set(self, "user_pool_config", value)
 
     @property
@@ -197,36 +197,36 @@ class GraphQLApiArgs:
 
 
 @pulumi.input_type
-class _GraphQLApiState:
+calass _GraphQLApiState:
     def __init__(__self__, *,
-                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArrgs']]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
-                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
-                 log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArrgs']] = None,
+                 log_config: Optional[pulumi.Input['GraphQLApiLogConfigArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
+                 openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArrgs']] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']] = None,
+                 user_pool_config: Optional[pulumi.Input['GraphQLApiUserPoolConfigArrgs']] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GraphQLApi resources.
-        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArrgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
-        :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. Defined below.
+        :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArrgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
+        :param pulumi.Input['GraphQLApiLogConfigArrgs'] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: User-supplied name for the GraphqlApi.
-        :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input['GraphQLApiOpenidConnectConfigArrgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-        :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input['GraphQLApiUserPoolConfigArrgs'] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
         :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
@@ -264,14 +264,14 @@ class _GraphQLApiState:
 
     @property
     @pulumi.getter(name="additionalAuthenticationProviders")
-    def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]:
+    def additional_authentication_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArrgs']]]]:
         """
         One or more additional authentication providers for the GraphqlApi. Defined below.
         """
         return pulumi.get(self, "additional_authentication_providers")
 
     @additional_authentication_providers.setter
-    def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
+    def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArrgs']]]]):
         pulumi.set(self, "additional_authentication_providers", value)
 
     @property
@@ -300,26 +300,26 @@ class _GraphQLApiState:
 
     @property
     @pulumi.getter(name="lambdaAuthorizerConfig")
-    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArrgs']]:
         """
         Nested argument containing Lambda authorizer configuration. Defined below.
         """
         return pulumi.get(self, "lambda_authorizer_config")
 
     @lambda_authorizer_config.setter
-    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]):
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArrgs']]):
         pulumi.set(self, "lambda_authorizer_config", value)
 
     @property
     @pulumi.getter(name="logConfig")
-    def log_config(self) -> Optional[pulumi.Input['GraphQLApiLogConfigArgs']]:
+    def log_config(self) -> Optional[pulumi.Input['GraphQLApiLogConfigArrgs']]:
         """
         Nested argument containing logging configuration. Defined below.
         """
         return pulumi.get(self, "log_config")
 
     @log_config.setter
-    def log_config(self, value: Optional[pulumi.Input['GraphQLApiLogConfigArgs']]):
+    def log_config(self, value: Optional[pulumi.Input['GraphQLApiLogConfigArrgs']]):
         pulumi.set(self, "log_config", value)
 
     @property
@@ -336,14 +336,14 @@ class _GraphQLApiState:
 
     @property
     @pulumi.getter(name="openidConnectConfig")
-    def openid_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]:
+    def openid_connect_config(self) -> Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArrgs']]:
         """
         Nested argument containing OpenID Connect configuration. Defined below.
         """
         return pulumi.get(self, "openid_connect_config")
 
     @openid_connect_config.setter
-    def openid_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']]):
+    def openid_connect_config(self, value: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArrgs']]):
         pulumi.set(self, "openid_connect_config", value)
 
     @property
@@ -399,14 +399,14 @@ class _GraphQLApiState:
 
     @property
     @pulumi.getter(name="userPoolConfig")
-    def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]:
+    def user_pool_config(self) -> Optional[pulumi.Input['GraphQLApiUserPoolConfigArrgs']]:
         """
         Amazon Cognito User Pool configuration. Defined below.
         """
         return pulumi.get(self, "user_pool_config")
 
     @user_pool_config.setter
-    def user_pool_config(self, value: Optional[pulumi.Input['GraphQLApiUserPoolConfigArgs']]):
+    def user_pool_config(self, value: Optional[pulumi.Input['GraphQLApiUserPoolConfigArrgs']]):
         pulumi.set(self, "user_pool_config", value)
 
     @property
@@ -434,20 +434,20 @@ class _GraphQLApiState:
         pulumi.set(self, "xray_enabled", value)
 
 
-class GraphQLApi(pulumi.CustomResource):
+calass GraphQLApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArrgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
-                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
-                 log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArrgs']]] = None,
+                 log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
+                 openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArrgs']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArrgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -455,15 +455,15 @@ class GraphQLApi(pulumi.CustomResource):
         Create a GraphQLApi resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArrgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
-        :param pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']] log_config: Nested argument containing logging configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArrgs']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArrgs']] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: User-supplied name for the GraphqlApi.
-        :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArrgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArrgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
         :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
@@ -471,17 +471,17 @@ class GraphQLApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GraphQLApiArgs,
+                 args: GraphQLApiArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a GraphQLApi resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param GraphQLApiArgs args: The arguments to use to populate this resource's properties.
+        :param GraphQLApiArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GraphQLApiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GraphQLApiArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -490,15 +490,15 @@ class GraphQLApi(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
+                 additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArrgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
-                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
-                 log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArrgs']]] = None,
+                 log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
+                 openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArrgs']]] = None,
                  schema: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+                 user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArrgs']]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  xray_enabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -508,7 +508,7 @@ class GraphQLApi(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GraphQLApiArgs.__new__(GraphQLApiArgs)
+            __props__ = GraphQLApiArrgs.__new__(GraphQLApiArrgs)
 
             __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
             if authentication_type is None and not opts.urn:
@@ -538,18 +538,18 @@ class GraphQLApi(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
+            additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArrgs']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             authentication_type: Optional[pulumi.Input[str]] = None,
-            lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
-            log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
+            lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArrgs']]] = None,
+            log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
+            openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArrgs']]] = None,
             schema: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             uris: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']]] = None,
+            user_pool_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArrgs']]] = None,
             visibility: Optional[pulumi.Input[str]] = None,
             xray_enabled: Optional[pulumi.Input[bool]] = None) -> 'GraphQLApi':
         """
@@ -559,18 +559,18 @@ class GraphQLApi(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArrgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
         :param pulumi.Input[str] arn: ARN
         :param pulumi.Input[str] authentication_type: Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        :param pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
-        :param pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']] log_config: Nested argument containing logging configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArrgs']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArrgs']] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: User-supplied name for the GraphqlApi.
-        :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArrgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: Schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
-        :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
+        :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArrgs']] user_pool_config: Amazon Cognito User Pool configuration. Defined below.
         :param pulumi.Input[str] visibility: Sets the value of the GraphQL API to public (`GLOBAL`) or private (`PRIVATE`). If no value is provided, the visibility will be set to `GLOBAL` by default. This value cannot be changed once the API has been created.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """

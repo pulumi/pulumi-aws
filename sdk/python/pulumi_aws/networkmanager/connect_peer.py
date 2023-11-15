@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectPeerArgs', 'ConnectPeer']
+__all__ = ['ConnectPeerArrgs', 'ConnectPeer']
 
 @pulumi.input_type
-class ConnectPeerArgs:
+calass ConnectPeerArrgs:
     def __init__(__self__, *,
                  connect_attachment_id: pulumi.Input[str],
                  peer_address: pulumi.Input[str],
-                 bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
+                 bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArrgs']] = None,
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_arn: Optional[pulumi.Input[str]] = None,
@@ -29,7 +29,7 @@ class ConnectPeerArgs:
         :param pulumi.Input[str] peer_address: The Connect peer address.
                
                The following arguments are optional:
-        :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: The Connect peer BGP options.
+        :param pulumi.Input['ConnectPeerBgpOptionsArrgs'] bgp_options: The Connect peer BGP options.
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
         :param pulumi.Input[str] subnet_arn: The subnet ARN for the Connect peer. Required when the Connect attachment protocol is `NO_ENCAP`. See `networkmanager.ConnectAttachment` for details.
@@ -76,14 +76,14 @@ class ConnectPeerArgs:
 
     @property
     @pulumi.getter(name="bgpOptions")
-    def bgp_options(self) -> Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]:
+    def bgp_options(self) -> Optional[pulumi.Input['ConnectPeerBgpOptionsArrgs']]:
         """
         The Connect peer BGP options.
         """
         return pulumi.get(self, "bgp_options")
 
     @bgp_options.setter
-    def bgp_options(self, value: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]):
+    def bgp_options(self, value: Optional[pulumi.Input['ConnectPeerBgpOptionsArrgs']]):
         pulumi.set(self, "bgp_options", value)
 
     @property
@@ -136,11 +136,11 @@ class ConnectPeerArgs:
 
 
 @pulumi.input_type
-class _ConnectPeerState:
+calass _ConnectPeerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']] = None,
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]] = None,
+                 bgp_options: Optional[pulumi.Input['ConnectPeerBgpOptionsArrgs']] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArrgs']]]] = None,
                  connect_attachment_id: Optional[pulumi.Input[str]] = None,
                  connect_peer_id: Optional[pulumi.Input[str]] = None,
                  core_network_address: Optional[pulumi.Input[str]] = None,
@@ -156,8 +156,8 @@ class _ConnectPeerState:
         """
         Input properties used for looking up and filtering ConnectPeer resources.
         :param pulumi.Input[str] arn: The ARN of the attachment.
-        :param pulumi.Input['ConnectPeerBgpOptionsArgs'] bgp_options: The Connect peer BGP options.
-        :param pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]] configurations: The configuration of the Connect peer.
+        :param pulumi.Input['ConnectPeerBgpOptionsArrgs'] bgp_options: The Connect peer BGP options.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArrgs']]] configurations: The configuration of the Connect peer.
         :param pulumi.Input[str] connect_attachment_id: The ID of the connection attachment.
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[str] core_network_id: The ID of a core network.
@@ -219,26 +219,26 @@ class _ConnectPeerState:
 
     @property
     @pulumi.getter(name="bgpOptions")
-    def bgp_options(self) -> Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]:
+    def bgp_options(self) -> Optional[pulumi.Input['ConnectPeerBgpOptionsArrgs']]:
         """
         The Connect peer BGP options.
         """
         return pulumi.get(self, "bgp_options")
 
     @bgp_options.setter
-    def bgp_options(self, value: Optional[pulumi.Input['ConnectPeerBgpOptionsArgs']]):
+    def bgp_options(self, value: Optional[pulumi.Input['ConnectPeerBgpOptionsArrgs']]):
         pulumi.set(self, "bgp_options", value)
 
     @property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]]:
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArrgs']]]]:
         """
         The configuration of the Connect peer.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArgs']]]]):
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationArrgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @property
@@ -385,12 +385,12 @@ class _ConnectPeerState:
         pulumi.set(self, "tags_all", value)
 
 
-class ConnectPeer(pulumi.CustomResource):
+calass ConnectPeer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: Optional[pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArgs']]] = None,
+                 bgp_options: Optional[pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArrgs']]] = None,
                  connect_attachment_id: Optional[pulumi.Input[str]] = None,
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -413,7 +413,7 @@ class ConnectPeer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArgs']] bgp_options: The Connect peer BGP options.
+        :param pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArrgs']] bgp_options: The Connect peer BGP options.
         :param pulumi.Input[str] connect_attachment_id: The ID of the connection attachment.
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] inside_cidr_blocks: The inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
@@ -427,7 +427,7 @@ class ConnectPeer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectPeerArgs,
+                 args: ConnectPeerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS NetworkManager Connect Peer.
@@ -443,12 +443,12 @@ class ConnectPeer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectPeerArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectPeerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectPeerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectPeerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -457,7 +457,7 @@ class ConnectPeer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: Optional[pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArgs']]] = None,
+                 bgp_options: Optional[pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArrgs']]] = None,
                  connect_attachment_id: Optional[pulumi.Input[str]] = None,
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -471,7 +471,7 @@ class ConnectPeer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectPeerArgs.__new__(ConnectPeerArgs)
+            __props__ = ConnectPeerArrgs.__new__(ConnectPeerArrgs)
 
             __props__.__dict__["bgp_options"] = bgp_options
             if connect_attachment_id is None and not opts.urn:
@@ -505,8 +505,8 @@ class ConnectPeer(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            bgp_options: Optional[pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArgs']]] = None,
-            configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectPeerConfigurationArgs']]]]] = None,
+            bgp_options: Optional[pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArrgs']]] = None,
+            configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectPeerConfigurationArrgs']]]]] = None,
             connect_attachment_id: Optional[pulumi.Input[str]] = None,
             connect_peer_id: Optional[pulumi.Input[str]] = None,
             core_network_address: Optional[pulumi.Input[str]] = None,
@@ -527,8 +527,8 @@ class ConnectPeer(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the attachment.
-        :param pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArgs']] bgp_options: The Connect peer BGP options.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectPeerConfigurationArgs']]]] configurations: The configuration of the Connect peer.
+        :param pulumi.Input[pulumi.InputType['ConnectPeerBgpOptionsArrgs']] bgp_options: The Connect peer BGP options.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectPeerConfigurationArrgs']]]] configurations: The configuration of the Connect peer.
         :param pulumi.Input[str] connect_attachment_id: The ID of the connection attachment.
         :param pulumi.Input[str] core_network_address: A Connect peer core network address.
         :param pulumi.Input[str] core_network_id: The ID of a core network.

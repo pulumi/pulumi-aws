@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NodeGroupArgs', 'NodeGroup']
+__all__ = ['NodeGroupArrgs', 'NodeGroup']
 
 @pulumi.input_type
-class NodeGroupArgs:
+calass NodeGroupArrgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  node_role_arn: pulumi.Input[str],
-                 scaling_config: pulumi.Input['NodeGroupScalingConfigArgs'],
+                 scaling_config: pulumi.Input['NodeGroupScalingConfigArrgs'],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  ami_type: Optional[pulumi.Input[str]] = None,
                  capacity_type: Optional[pulumi.Input[str]] = None,
@@ -26,20 +26,20 @@ class NodeGroupArgs:
                  force_update_version: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']] = None,
+                 launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArrgs']] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
-                 remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
+                 remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
-                 update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArrgs']]]] = None,
+                 update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArrgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NodeGroup resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\\-_]+$`).
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
-        :param pulumi.Input['NodeGroupScalingConfigArgs'] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
+        :param pulumi.Input['NodeGroupScalingConfigArrgs'] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
                
                The following arguments are optional:
@@ -49,14 +49,14 @@ class NodeGroupArgs:
         :param pulumi.Input[bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        :param pulumi.Input['NodeGroupLaunchTemplateArgs'] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details.
+        :param pulumi.Input['NodeGroupLaunchTemplateArrgs'] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details.
+        :param pulumi.Input['NodeGroupRemoteAccessArrgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        :param pulumi.Input['NodeGroupUpdateConfigArgs'] update_config: Configuration block with update settings. See `update_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArrgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+        :param pulumi.Input['NodeGroupUpdateConfigArrgs'] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -120,14 +120,14 @@ class NodeGroupArgs:
 
     @property
     @pulumi.getter(name="scalingConfig")
-    def scaling_config(self) -> pulumi.Input['NodeGroupScalingConfigArgs']:
+    def scaling_config(self) -> pulumi.Input['NodeGroupScalingConfigArrgs']:
         """
         Configuration block with scaling settings. See `scaling_config` below for details.
         """
         return pulumi.get(self, "scaling_config")
 
     @scaling_config.setter
-    def scaling_config(self, value: pulumi.Input['NodeGroupScalingConfigArgs']):
+    def scaling_config(self, value: pulumi.Input['NodeGroupScalingConfigArrgs']):
         pulumi.set(self, "scaling_config", value)
 
     @property
@@ -218,14 +218,14 @@ class NodeGroupArgs:
 
     @property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]:
+    def launch_template(self) -> Optional[pulumi.Input['NodeGroupLaunchTemplateArrgs']]:
         """
         Configuration block with Launch Template settings. See `launch_template` below for details.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]):
+    def launch_template(self, value: Optional[pulumi.Input['NodeGroupLaunchTemplateArrgs']]):
         pulumi.set(self, "launch_template", value)
 
     @property
@@ -266,14 +266,14 @@ class NodeGroupArgs:
 
     @property
     @pulumi.getter(name="remoteAccess")
-    def remote_access(self) -> Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]:
+    def remote_access(self) -> Optional[pulumi.Input['NodeGroupRemoteAccessArrgs']]:
         """
         Configuration block with remote access settings. See `remote_access` below for details.
         """
         return pulumi.get(self, "remote_access")
 
     @remote_access.setter
-    def remote_access(self, value: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]):
+    def remote_access(self, value: Optional[pulumi.Input['NodeGroupRemoteAccessArrgs']]):
         pulumi.set(self, "remote_access", value)
 
     @property
@@ -290,26 +290,26 @@ class NodeGroupArgs:
 
     @property
     @pulumi.getter
-    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
+    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArrgs']]]]:
         """
         The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         """
         return pulumi.get(self, "taints")
 
     @taints.setter
-    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]):
+    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArrgs']]]]):
         pulumi.set(self, "taints", value)
 
     @property
     @pulumi.getter(name="updateConfig")
-    def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]:
+    def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArrgs']]:
         """
         Configuration block with update settings. See `update_config` below for details.
         """
         return pulumi.get(self, "update_config")
 
     @update_config.setter
-    def update_config(self, value: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]):
+    def update_config(self, value: Optional[pulumi.Input['NodeGroupUpdateConfigArrgs']]):
         pulumi.set(self, "update_config", value)
 
     @property
@@ -326,7 +326,7 @@ class NodeGroupArgs:
 
 
 @pulumi.input_type
-class _NodeGroupState:
+calass _NodeGroupState:
     def __init__(__self__, *,
                  ami_type: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -336,20 +336,20 @@ class _NodeGroupState:
                  force_update_version: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']] = None,
+                 launch_template: Optional[pulumi.Input['NodeGroupLaunchTemplateArrgs']] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[str]] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
-                 remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']] = None,
-                 resources: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]]] = None,
-                 scaling_config: Optional[pulumi.Input['NodeGroupScalingConfigArgs']] = None,
+                 remote_access: Optional[pulumi.Input['NodeGroupRemoteAccessArrgs']] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArrgs']]]] = None,
+                 scaling_config: Optional[pulumi.Input['NodeGroupScalingConfigArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]] = None,
-                 update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArrgs']]]] = None,
+                 update_config: Optional[pulumi.Input['NodeGroupUpdateConfigArrgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NodeGroup resources.
@@ -361,22 +361,22 @@ class _NodeGroupState:
         :param pulumi.Input[bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        :param pulumi.Input['NodeGroupLaunchTemplateArgs'] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details.
+        :param pulumi.Input['NodeGroupLaunchTemplateArrgs'] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details.
-        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]] resources: List of objects containing information about underlying resources.
-        :param pulumi.Input['NodeGroupScalingConfigArgs'] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
+        :param pulumi.Input['NodeGroupRemoteAccessArrgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArrgs']]] resources: List of objects containing information about underlying resources.
+        :param pulumi.Input['NodeGroupScalingConfigArrgs'] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
         :param pulumi.Input[str] status: Status of the EKS Node Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        :param pulumi.Input['NodeGroupUpdateConfigArgs'] update_config: Configuration block with update settings. See `update_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArrgs']]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+        :param pulumi.Input['NodeGroupUpdateConfigArrgs'] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         if ami_type is not None:
@@ -527,14 +527,14 @@ class _NodeGroupState:
 
     @property
     @pulumi.getter(name="launchTemplate")
-    def launch_template(self) -> Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]:
+    def launch_template(self) -> Optional[pulumi.Input['NodeGroupLaunchTemplateArrgs']]:
         """
         Configuration block with Launch Template settings. See `launch_template` below for details.
         """
         return pulumi.get(self, "launch_template")
 
     @launch_template.setter
-    def launch_template(self, value: Optional[pulumi.Input['NodeGroupLaunchTemplateArgs']]):
+    def launch_template(self, value: Optional[pulumi.Input['NodeGroupLaunchTemplateArrgs']]):
         pulumi.set(self, "launch_template", value)
 
     @property
@@ -587,38 +587,38 @@ class _NodeGroupState:
 
     @property
     @pulumi.getter(name="remoteAccess")
-    def remote_access(self) -> Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]:
+    def remote_access(self) -> Optional[pulumi.Input['NodeGroupRemoteAccessArrgs']]:
         """
         Configuration block with remote access settings. See `remote_access` below for details.
         """
         return pulumi.get(self, "remote_access")
 
     @remote_access.setter
-    def remote_access(self, value: Optional[pulumi.Input['NodeGroupRemoteAccessArgs']]):
+    def remote_access(self, value: Optional[pulumi.Input['NodeGroupRemoteAccessArrgs']]):
         pulumi.set(self, "remote_access", value)
 
     @property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]]]:
+    def resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArrgs']]]]:
         """
         List of objects containing information about underlying resources.
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArgs']]]]):
+    def resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceArrgs']]]]):
         pulumi.set(self, "resources", value)
 
     @property
     @pulumi.getter(name="scalingConfig")
-    def scaling_config(self) -> Optional[pulumi.Input['NodeGroupScalingConfigArgs']]:
+    def scaling_config(self) -> Optional[pulumi.Input['NodeGroupScalingConfigArrgs']]:
         """
         Configuration block with scaling settings. See `scaling_config` below for details.
         """
         return pulumi.get(self, "scaling_config")
 
     @scaling_config.setter
-    def scaling_config(self, value: Optional[pulumi.Input['NodeGroupScalingConfigArgs']]):
+    def scaling_config(self, value: Optional[pulumi.Input['NodeGroupScalingConfigArrgs']]):
         pulumi.set(self, "scaling_config", value)
 
     @property
@@ -676,26 +676,26 @@ class _NodeGroupState:
 
     @property
     @pulumi.getter
-    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]:
+    def taints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArrgs']]]]:
         """
         The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
         """
         return pulumi.get(self, "taints")
 
     @taints.setter
-    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArgs']]]]):
+    def taints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupTaintArrgs']]]]):
         pulumi.set(self, "taints", value)
 
     @property
     @pulumi.getter(name="updateConfig")
-    def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]:
+    def update_config(self) -> Optional[pulumi.Input['NodeGroupUpdateConfigArrgs']]:
         """
         Configuration block with update settings. See `update_config` below for details.
         """
         return pulumi.get(self, "update_config")
 
     @update_config.setter
-    def update_config(self, value: Optional[pulumi.Input['NodeGroupUpdateConfigArgs']]):
+    def update_config(self, value: Optional[pulumi.Input['NodeGroupUpdateConfigArrgs']]):
         pulumi.set(self, "update_config", value)
 
     @property
@@ -711,7 +711,7 @@ class _NodeGroupState:
         pulumi.set(self, "version", value)
 
 
-class NodeGroup(pulumi.CustomResource):
+calass NodeGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -723,17 +723,17 @@ class NodeGroup(pulumi.CustomResource):
                  force_update_version: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArrgs']]] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[str]] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
-                 remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']]] = None,
-                 scaling_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArgs']]] = None,
+                 remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArrgs']]] = None,
+                 scaling_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArrgs']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
-                 update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArgs']]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArrgs']]]]] = None,
+                 update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArrgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -749,12 +749,12 @@ class NodeGroup(pulumi.CustomResource):
             cluster_name=aws_eks_cluster["example"]["name"],
             node_role_arn=aws_iam_role["example"]["arn"],
             subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
-            scaling_config=aws.eks.NodeGroupScalingConfigArgs(
+            scaling_config=aws.eks.NodeGroupScalingConfigArrgs(
                 desired_size=1,
                 max_size=2,
                 min_size=1,
             ),
-            update_config=aws.eks.NodeGroupUpdateConfigArgs(
+            update_config=aws.eks.NodeGroupUpdateConfigArrgs(
                 max_unavailable=1,
             ),
             opts=pulumi.ResourceOptions(depends_on=[
@@ -772,7 +772,7 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configurations ...
-        example = aws.eks.NodeGroup("example", scaling_config=aws.eks.NodeGroupScalingConfigArgs(
+        example = aws.eks.NodeGroup("example", scaling_config=aws.eks.NodeGroupScalingConfigArrgs(
             desired_size=2,
         ))
         ```
@@ -821,26 +821,26 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        :param pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details.
+        :param pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArrgs']] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        :param pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']] remote_access: Configuration block with remote access settings. See `remote_access` below for details.
-        :param pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArgs']] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
+        :param pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArrgs']] remote_access: Configuration block with remote access settings. See `remote_access` below for details.
+        :param pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArrgs']] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        :param pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArgs']] update_config: Configuration block with update settings. See `update_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArrgs']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+        :param pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArrgs']] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NodeGroupArgs,
+                 args: NodeGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EKS Node Group, which can provision and optionally update an Auto Scaling Group of Kubernetes worker nodes compatible with EKS. Additional documentation about this functionality can be found in the [EKS User Guide](https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html).
@@ -855,12 +855,12 @@ class NodeGroup(pulumi.CustomResource):
             cluster_name=aws_eks_cluster["example"]["name"],
             node_role_arn=aws_iam_role["example"]["arn"],
             subnet_ids=[__item["id"] for __item in aws_subnet["example"]],
-            scaling_config=aws.eks.NodeGroupScalingConfigArgs(
+            scaling_config=aws.eks.NodeGroupScalingConfigArrgs(
                 desired_size=1,
                 max_size=2,
                 min_size=1,
             ),
-            update_config=aws.eks.NodeGroupUpdateConfigArgs(
+            update_config=aws.eks.NodeGroupUpdateConfigArrgs(
                 max_unavailable=1,
             ),
             opts=pulumi.ResourceOptions(depends_on=[
@@ -878,7 +878,7 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         # ... other configurations ...
-        example = aws.eks.NodeGroup("example", scaling_config=aws.eks.NodeGroupScalingConfigArgs(
+        example = aws.eks.NodeGroup("example", scaling_config=aws.eks.NodeGroupScalingConfigArrgs(
             desired_size=2,
         ))
         ```
@@ -919,12 +919,12 @@ class NodeGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NodeGroupArgs args: The arguments to use to populate this resource's properties.
+        :param NodeGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NodeGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NodeGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -940,17 +940,17 @@ class NodeGroup(pulumi.CustomResource):
                  force_update_version: Optional[pulumi.Input[bool]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']]] = None,
+                 launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArrgs']]] = None,
                  node_group_name: Optional[pulumi.Input[str]] = None,
                  node_group_name_prefix: Optional[pulumi.Input[str]] = None,
                  node_role_arn: Optional[pulumi.Input[str]] = None,
                  release_version: Optional[pulumi.Input[str]] = None,
-                 remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']]] = None,
-                 scaling_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArgs']]] = None,
+                 remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArrgs']]] = None,
+                 scaling_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArrgs']]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
-                 update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArgs']]] = None,
+                 taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArrgs']]]]] = None,
+                 update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArrgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -959,7 +959,7 @@ class NodeGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NodeGroupArgs.__new__(NodeGroupArgs)
+            __props__ = NodeGroupArrgs.__new__(NodeGroupArrgs)
 
             __props__.__dict__["ami_type"] = ami_type
             __props__.__dict__["capacity_type"] = capacity_type
@@ -1012,20 +1012,20 @@ class NodeGroup(pulumi.CustomResource):
             force_update_version: Optional[pulumi.Input[bool]] = None,
             instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']]] = None,
+            launch_template: Optional[pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArrgs']]] = None,
             node_group_name: Optional[pulumi.Input[str]] = None,
             node_group_name_prefix: Optional[pulumi.Input[str]] = None,
             node_role_arn: Optional[pulumi.Input[str]] = None,
             release_version: Optional[pulumi.Input[str]] = None,
-            remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']]] = None,
-            resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupResourceArgs']]]]] = None,
-            scaling_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArgs']]] = None,
+            remote_access: Optional[pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArrgs']]] = None,
+            resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupResourceArrgs']]]]] = None,
+            scaling_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArrgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]]] = None,
-            update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArgs']]] = None,
+            taints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArrgs']]]]] = None,
+            update_config: Optional[pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArrgs']]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'NodeGroup':
         """
         Get an existing NodeGroup resource's state with the given name, id, and optional extra
@@ -1042,22 +1042,22 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value map of Kubernetes labels. Only labels that are applied with the EKS API are managed by this argument. Other Kubernetes labels applied to the EKS Node Group will not be managed.
-        :param pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArgs']] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details.
+        :param pulumi.Input[pulumi.InputType['NodeGroupLaunchTemplateArrgs']] launch_template: Configuration block with Launch Template settings. See `launch_template` below for details.
         :param pulumi.Input[str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
-        :param pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArgs']] remote_access: Configuration block with remote access settings. See `remote_access` below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupResourceArgs']]]] resources: List of objects containing information about underlying resources.
-        :param pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArgs']] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
+        :param pulumi.Input[pulumi.InputType['NodeGroupRemoteAccessArrgs']] remote_access: Configuration block with remote access settings. See `remote_access` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupResourceArrgs']]]] resources: List of objects containing information about underlying resources.
+        :param pulumi.Input[pulumi.InputType['NodeGroupScalingConfigArrgs']] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
         :param pulumi.Input[str] status: Status of the EKS Node Group.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArgs']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
-        :param pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArgs']] update_config: Configuration block with update settings. See `update_config` below for details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodeGroupTaintArrgs']]]] taints: The Kubernetes taints to be applied to the nodes in the node group. Maximum of 50 taints per node group. See taint below for details.
+        :param pulumi.Input[pulumi.InputType['NodeGroupUpdateConfigArrgs']] update_config: Configuration block with update settings. See `update_config` below for details.
         :param pulumi.Input[str] version: Kubernetes version. Defaults to EKS Cluster Kubernetes version. The provider will only perform drift detection if a configuration value is provided.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

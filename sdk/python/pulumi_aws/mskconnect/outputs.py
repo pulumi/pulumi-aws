@@ -34,7 +34,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConnectorCapacity(dict):
+calass ConnectorCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -56,8 +56,8 @@ class ConnectorCapacity(dict):
                  autoscaling: Optional['outputs.ConnectorCapacityAutoscaling'] = None,
                  provisioned_capacity: Optional['outputs.ConnectorCapacityProvisionedCapacity'] = None):
         """
-        :param 'ConnectorCapacityAutoscalingArgs' autoscaling: Information about the auto scaling parameters for the connector. See below.
-        :param 'ConnectorCapacityProvisionedCapacityArgs' provisioned_capacity: Details about a fixed capacity allocated to a connector. See below.
+        :param 'ConnectorCapacityAutoscalingArrgs' autoscaling: Information about the auto scaling parameters for the connector. See below.
+        :param 'ConnectorCapacityProvisionedCapacityArrgs' provisioned_capacity: Details about a fixed capacity allocated to a connector. See below.
         """
         if autoscaling is not None:
             pulumi.set(__self__, "autoscaling", autoscaling)
@@ -82,7 +82,7 @@ class ConnectorCapacity(dict):
 
 
 @pulumi.output_type
-class ConnectorCapacityAutoscaling(dict):
+calass ConnectorCapacityAutoscaling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -118,8 +118,8 @@ class ConnectorCapacityAutoscaling(dict):
         :param int max_worker_count: The maximum number of workers allocated to the connector.
         :param int min_worker_count: The minimum number of workers allocated to the connector.
         :param int mcu_count: The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-        :param 'ConnectorCapacityAutoscalingScaleInPolicyArgs' scale_in_policy: The scale-in policy for the connector. See below.
-        :param 'ConnectorCapacityAutoscalingScaleOutPolicyArgs' scale_out_policy: The scale-out policy for the connector. See below.
+        :param 'ConnectorCapacityAutoscalingScaleInPolicyArrgs' scale_in_policy: The scale-in policy for the connector. See below.
+        :param 'ConnectorCapacityAutoscalingScaleOutPolicyArrgs' scale_out_policy: The scale-out policy for the connector. See below.
         """
         pulumi.set(__self__, "max_worker_count", max_worker_count)
         pulumi.set(__self__, "min_worker_count", min_worker_count)
@@ -172,7 +172,7 @@ class ConnectorCapacityAutoscaling(dict):
 
 
 @pulumi.output_type
-class ConnectorCapacityAutoscalingScaleInPolicy(dict):
+calass ConnectorCapacityAutoscalingScaleInPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -208,7 +208,7 @@ class ConnectorCapacityAutoscalingScaleInPolicy(dict):
 
 
 @pulumi.output_type
-class ConnectorCapacityAutoscalingScaleOutPolicy(dict):
+calass ConnectorCapacityAutoscalingScaleOutPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -244,7 +244,7 @@ class ConnectorCapacityAutoscalingScaleOutPolicy(dict):
 
 
 @pulumi.output_type
-class ConnectorCapacityProvisionedCapacity(dict):
+calass ConnectorCapacityProvisionedCapacity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -293,7 +293,7 @@ class ConnectorCapacityProvisionedCapacity(dict):
 
 
 @pulumi.output_type
-class ConnectorKafkaCluster(dict):
+calass ConnectorKafkaCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -314,7 +314,7 @@ class ConnectorKafkaCluster(dict):
     def __init__(__self__, *,
                  apache_kafka_cluster: 'outputs.ConnectorKafkaClusterApacheKafkaCluster'):
         """
-        :param 'ConnectorKafkaClusterApacheKafkaClusterArgs' apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
+        :param 'ConnectorKafkaClusterApacheKafkaClusterArrgs' apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
         """
         pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
 
@@ -328,7 +328,7 @@ class ConnectorKafkaCluster(dict):
 
 
 @pulumi.output_type
-class ConnectorKafkaClusterApacheKafkaCluster(dict):
+calass ConnectorKafkaClusterApacheKafkaCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -351,7 +351,7 @@ class ConnectorKafkaClusterApacheKafkaCluster(dict):
                  vpc: 'outputs.ConnectorKafkaClusterApacheKafkaClusterVpc'):
         """
         :param str bootstrap_servers: The bootstrap servers of the cluster.
-        :param 'ConnectorKafkaClusterApacheKafkaClusterVpcArgs' vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        :param 'ConnectorKafkaClusterApacheKafkaClusterVpcArrgs' vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "bootstrap_servers", bootstrap_servers)
         pulumi.set(__self__, "vpc", vpc)
@@ -374,7 +374,7 @@ class ConnectorKafkaClusterApacheKafkaCluster(dict):
 
 
 @pulumi.output_type
-class ConnectorKafkaClusterApacheKafkaClusterVpc(dict):
+calass ConnectorKafkaClusterApacheKafkaClusterVpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -420,7 +420,7 @@ class ConnectorKafkaClusterApacheKafkaClusterVpc(dict):
 
 
 @pulumi.output_type
-class ConnectorKafkaClusterClientAuthentication(dict):
+calass ConnectorKafkaClusterClientAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -456,7 +456,7 @@ class ConnectorKafkaClusterClientAuthentication(dict):
 
 
 @pulumi.output_type
-class ConnectorKafkaClusterEncryptionInTransit(dict):
+calass ConnectorKafkaClusterEncryptionInTransit(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -492,7 +492,7 @@ class ConnectorKafkaClusterEncryptionInTransit(dict):
 
 
 @pulumi.output_type
-class ConnectorLogDelivery(dict):
+calass ConnectorLogDelivery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -513,7 +513,7 @@ class ConnectorLogDelivery(dict):
     def __init__(__self__, *,
                  worker_log_delivery: 'outputs.ConnectorLogDeliveryWorkerLogDelivery'):
         """
-        :param 'ConnectorLogDeliveryWorkerLogDeliveryArgs' worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+        :param 'ConnectorLogDeliveryWorkerLogDeliveryArrgs' worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
         """
         pulumi.set(__self__, "worker_log_delivery", worker_log_delivery)
 
@@ -527,7 +527,7 @@ class ConnectorLogDelivery(dict):
 
 
 @pulumi.output_type
-class ConnectorLogDeliveryWorkerLogDelivery(dict):
+calass ConnectorLogDeliveryWorkerLogDelivery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -550,9 +550,9 @@ class ConnectorLogDeliveryWorkerLogDelivery(dict):
                  firehose: Optional['outputs.ConnectorLogDeliveryWorkerLogDeliveryFirehose'] = None,
                  s3: Optional['outputs.ConnectorLogDeliveryWorkerLogDeliveryS3'] = None):
         """
-        :param 'ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs' cloudwatch_logs: Details about delivering logs to Amazon CloudWatch Logs. See below.
-        :param 'ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs' firehose: Details about delivering logs to Amazon Kinesis Data Firehose. See below.
-        :param 'ConnectorLogDeliveryWorkerLogDeliveryS3Args' s3: Details about delivering logs to Amazon S3. See below.
+        :param 'ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArrgs' cloudwatch_logs: Details about delivering logs to Amazon CloudWatch Logs. See below.
+        :param 'ConnectorLogDeliveryWorkerLogDeliveryFirehoseArrgs' firehose: Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+        :param 'ConnectorLogDeliveryWorkerLogDeliveryS3Arrgs' s3: Details about delivering logs to Amazon S3. See below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -587,7 +587,7 @@ class ConnectorLogDeliveryWorkerLogDelivery(dict):
 
 
 @pulumi.output_type
-class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs(dict):
+calass ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -634,7 +634,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs(dict):
 
 
 @pulumi.output_type
-class ConnectorLogDeliveryWorkerLogDeliveryFirehose(dict):
+calass ConnectorLogDeliveryWorkerLogDeliveryFirehose(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -681,7 +681,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehose(dict):
 
 
 @pulumi.output_type
-class ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
+calass ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  bucket: Optional[str] = None,
@@ -723,7 +723,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3(dict):
 
 
 @pulumi.output_type
-class ConnectorPlugin(dict):
+calass ConnectorPlugin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -744,7 +744,7 @@ class ConnectorPlugin(dict):
     def __init__(__self__, *,
                  custom_plugin: 'outputs.ConnectorPluginCustomPlugin'):
         """
-        :param 'ConnectorPluginCustomPluginArgs' custom_plugin: Details about a custom plugin. See below.
+        :param 'ConnectorPluginCustomPluginArrgs' custom_plugin: Details about a custom plugin. See below.
         """
         pulumi.set(__self__, "custom_plugin", custom_plugin)
 
@@ -758,7 +758,7 @@ class ConnectorPlugin(dict):
 
 
 @pulumi.output_type
-class ConnectorPluginCustomPlugin(dict):
+calass ConnectorPluginCustomPlugin(dict):
     def __init__(__self__, *,
                  arn: str,
                  revision: int):
@@ -787,7 +787,7 @@ class ConnectorPluginCustomPlugin(dict):
 
 
 @pulumi.output_type
-class ConnectorWorkerConfiguration(dict):
+calass ConnectorWorkerConfiguration(dict):
     def __init__(__self__, *,
                  arn: str,
                  revision: int):
@@ -816,11 +816,11 @@ class ConnectorWorkerConfiguration(dict):
 
 
 @pulumi.output_type
-class CustomPluginLocation(dict):
+calass CustomPluginLocation(dict):
     def __init__(__self__, *,
                  s3: 'outputs.CustomPluginLocationS3'):
         """
-        :param 'CustomPluginLocationS3Args' s3: Information of the plugin file stored in Amazon S3. See below.
+        :param 'CustomPluginLocationS3Arrgs' s3: Information of the plugin file stored in Amazon S3. See below.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -834,7 +834,7 @@ class CustomPluginLocation(dict):
 
 
 @pulumi.output_type
-class CustomPluginLocationS3(dict):
+calass CustomPluginLocationS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PermissionArgs', 'Permission']
+__all__ = ['PermissionArrgs', 'Permission']
 
 @pulumi.input_type
-class PermissionArgs:
+calass PermissionArrgs:
     def __init__(__self__, *,
                  actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  certificate_authority_arn: pulumi.Input[str],
@@ -81,7 +81,7 @@ class PermissionArgs:
 
 
 @pulumi.input_type
-class _PermissionState:
+calass _PermissionState:
     def __init__(__self__, *,
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
@@ -168,7 +168,7 @@ class _PermissionState:
         pulumi.set(self, "source_account", value)
 
 
-class Permission(pulumi.CustomResource):
+calass Permission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -188,10 +188,10 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
             key_algorithm="RSA_4096",
             signing_algorithm="SHA512WITHRSA",
-            subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+            subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                 common_name="example.com",
             ),
         ))
@@ -216,7 +216,7 @@ class Permission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PermissionArgs,
+                 args: PermissionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an AWS Certificate Manager Private Certificate Authorities Permission.
@@ -228,10 +228,10 @@ class Permission(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+        example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority", certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
             key_algorithm="RSA_4096",
             signing_algorithm="SHA512WITHRSA",
-            subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+            subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                 common_name="example.com",
             ),
         ))
@@ -246,12 +246,12 @@ class Permission(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PermissionArgs args: The arguments to use to populate this resource's properties.
+        :param PermissionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PermissionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -271,7 +271,7 @@ class Permission(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PermissionArgs.__new__(PermissionArgs)
+            __props__ = PermissionArrgs.__new__(PermissionArrgs)
 
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")

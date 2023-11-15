@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SharingWithOrganizationArgs', 'SharingWithOrganization']
+__all__ = ['SharingWithOrganizationArrgs', 'SharingWithOrganization']
 
 @pulumi.input_type
-class SharingWithOrganizationArgs:
+calass SharingWithOrganizationArrgs:
     def __init__(__self__):
         """
         The set of arguments for constructing a SharingWithOrganization resource.
@@ -20,7 +20,7 @@ class SharingWithOrganizationArgs:
         pass
 
 
-class SharingWithOrganization(pulumi.CustomResource):
+calass SharingWithOrganization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -55,7 +55,7 @@ class SharingWithOrganization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SharingWithOrganizationArgs] = None,
+                 args: Optional[SharingWithOrganizationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages Resource Access Manager (RAM) Resource Sharing with AWS Organizations. If you enable sharing with your organization, you can share resources without using invitations. Refer to the [AWS RAM user guide](https://docs.aws.amazon.com/ram/latest/userguide/getting-started-sharing.html#getting-started-sharing-orgs) for more details.
@@ -80,12 +80,12 @@ class SharingWithOrganization(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SharingWithOrganizationArgs args: The arguments to use to populate this resource's properties.
+        :param SharingWithOrganizationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SharingWithOrganizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SharingWithOrganizationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -101,7 +101,7 @@ class SharingWithOrganization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SharingWithOrganizationArgs.__new__(SharingWithOrganizationArgs)
+            __props__ = SharingWithOrganizationArrgs.__new__(SharingWithOrganizationArrgs)
 
         super(SharingWithOrganization, __self__).__init__(
             'aws:ram/sharingWithOrganization:SharingWithOrganization',
@@ -123,7 +123,7 @@ class SharingWithOrganization(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = SharingWithOrganizationArgs.__new__(SharingWithOrganizationArgs)
+        __props__ = SharingWithOrganizationArrgs.__new__(SharingWithOrganizationArrgs)
 
         return SharingWithOrganization(resource_name, opts=opts, __props__=__props__)
 

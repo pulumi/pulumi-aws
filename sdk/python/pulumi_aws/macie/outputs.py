@@ -16,11 +16,11 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FindingsFilterFindingCriteria(dict):
+calass FindingsFilterFindingCriteria(dict):
     def __init__(__self__, *,
                  criterions: Optional[Sequence['outputs.FindingsFilterFindingCriteriaCriterion']] = None):
         """
-        :param Sequence['FindingsFilterFindingCriteriaCriterionArgs'] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
+        :param Sequence['FindingsFilterFindingCriteriaCriterionArrgs'] criterions: A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
         """
         if criterions is not None:
             pulumi.set(__self__, "criterions", criterions)
@@ -35,7 +35,7 @@ class FindingsFilterFindingCriteria(dict):
 
 
 @pulumi.output_type
-class FindingsFilterFindingCriteriaCriterion(dict):
+calass FindingsFilterFindingCriteriaCriterion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

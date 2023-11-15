@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFaqResult:
+calass GetFaqResult:
     """
     A collection of values returned by getFaq.
     """
@@ -184,7 +184,7 @@ class GetFaqResult:
         return pulumi.get(self, "updated_at")
 
 
-class AwaitableGetFaqResult(GetFaqResult):
+calass AwaitableGetFaqResult(GetFaqResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

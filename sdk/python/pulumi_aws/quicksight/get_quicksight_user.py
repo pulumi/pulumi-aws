@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetQuicksightUserResult:
+calass GetQuicksightUserResult:
     """
     A collection of values returned by getQuicksightUser.
     """
@@ -125,7 +125,7 @@ class GetQuicksightUserResult:
         return pulumi.get(self, "user_role")
 
 
-class AwaitableGetQuicksightUserResult(GetQuicksightUserResult):
+calass AwaitableGetQuicksightUserResult(GetQuicksightUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

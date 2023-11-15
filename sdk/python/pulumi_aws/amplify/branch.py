@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BranchArgs', 'Branch']
+__all__ = ['BranchArrgs', 'Branch']
 
 @pulumi.input_type
-class BranchArgs:
+calass BranchArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  branch_name: pulumi.Input[str],
@@ -290,7 +290,7 @@ class BranchArgs:
 
 
 @pulumi.input_type
-class _BranchState:
+calass _BranchState:
     def __init__(__self__, *,
                  app_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -671,7 +671,7 @@ class _BranchState:
         pulumi.set(self, "ttl", value)
 
 
-class Branch(pulumi.CustomResource):
+calass Branch(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -747,7 +747,7 @@ class Branch(pulumi.CustomResource):
         amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
             rule=amplify_app_master_event_rule.name,
             arn=amplify_app_master_topic.arn,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
+            input_transformer=aws.cloudwatch.EventTargetInputTransformerArrgs(
                 input_paths={
                     "jobId": "$.detail.jobId",
                     "appId": "$.detail.appId",
@@ -758,11 +758,11 @@ class Branch(pulumi.CustomResource):
                 input_template="\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
             ))
         # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid=f"Allow_Publish_Events {master_arn}",
             effect="Allow",
             actions=["SNS:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["events.amazonaws.com"],
             )],
@@ -809,7 +809,7 @@ class Branch(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BranchArgs,
+                 args: BranchArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amplify Branch resource.
@@ -864,7 +864,7 @@ class Branch(pulumi.CustomResource):
         amplify_app_master_event_target = aws.cloudwatch.EventTarget("amplifyAppMasterEventTarget",
             rule=amplify_app_master_event_rule.name,
             arn=amplify_app_master_topic.arn,
-            input_transformer=aws.cloudwatch.EventTargetInputTransformerArgs(
+            input_transformer=aws.cloudwatch.EventTargetInputTransformerArrgs(
                 input_paths={
                     "jobId": "$.detail.jobId",
                     "appId": "$.detail.appId",
@@ -875,11 +875,11 @@ class Branch(pulumi.CustomResource):
                 input_template="\\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \\"",
             ))
         # SNS Topic for Amplify notifications
-        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        amplify_app_master_policy_document = pulumi.Output.all(master.arn, amplify_app_master_topic.arn).apply(lambda masterArn, amplifyAppMasterTopicArn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid=f"Allow_Publish_Events {master_arn}",
             effect="Allow",
             actions=["SNS:Publish"],
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["events.amazonaws.com"],
             )],
@@ -903,12 +903,12 @@ class Branch(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BranchArgs args: The arguments to use to populate this resource's properties.
+        :param BranchArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BranchArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BranchArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -941,7 +941,7 @@ class Branch(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BranchArgs.__new__(BranchArgs)
+            __props__ = BranchArrgs.__new__(BranchArrgs)
 
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")

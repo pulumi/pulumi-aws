@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRulesPackagesResult:
+calass GetRulesPackagesResult:
     """
     A collection of values returned by getRulesPackages.
     """
@@ -46,7 +46,7 @@ class GetRulesPackagesResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetRulesPackagesResult(GetRulesPackagesResult):
+calass AwaitableGetRulesPackagesResult(GetRulesPackagesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

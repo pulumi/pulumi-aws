@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDistributionResult:
+calass GetDistributionResult:
     """
     A collection of values returned by getDistribution.
     """
@@ -157,7 +157,7 @@ class GetDistributionResult:
         return pulumi.get(self, "web_acl_id")
 
 
-class AwaitableGetDistributionResult(GetDistributionResult):
+calass AwaitableGetDistributionResult(GetDistributionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

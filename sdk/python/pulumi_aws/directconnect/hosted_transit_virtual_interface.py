@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HostedTransitVirtualInterfaceArgs', 'HostedTransitVirtualInterface']
+__all__ = ['HostedTransitVirtualInterfaceArrgs', 'HostedTransitVirtualInterface']
 
 @pulumi.input_type
-class HostedTransitVirtualInterfaceArgs:
+calass HostedTransitVirtualInterfaceArrgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[str],
                  bgp_asn: pulumi.Input[int],
@@ -175,7 +175,7 @@ class HostedTransitVirtualInterfaceArgs:
 
 
 @pulumi.input_type
-class _HostedTransitVirtualInterfaceState:
+calass _HostedTransitVirtualInterfaceState:
     def __init__(__self__, *,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
@@ -402,7 +402,7 @@ class _HostedTransitVirtualInterfaceState:
         pulumi.set(self, "vlan", value)
 
 
-class HostedTransitVirtualInterface(pulumi.CustomResource):
+calass HostedTransitVirtualInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -461,7 +461,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HostedTransitVirtualInterfaceArgs,
+                 args: HostedTransitVirtualInterfaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Direct Connect hosted transit virtual interface resource.
@@ -490,12 +490,12 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HostedTransitVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
+        :param HostedTransitVirtualInterfaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HostedTransitVirtualInterfaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HostedTransitVirtualInterfaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -521,7 +521,7 @@ class HostedTransitVirtualInterface(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HostedTransitVirtualInterfaceArgs.__new__(HostedTransitVirtualInterfaceArgs)
+            __props__ = HostedTransitVirtualInterfaceArrgs.__new__(HostedTransitVirtualInterfaceArrgs)
 
             if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")

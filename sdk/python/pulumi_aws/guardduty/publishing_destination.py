@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PublishingDestinationArgs', 'PublishingDestination']
+__all__ = ['PublishingDestinationArrgs', 'PublishingDestination']
 
 @pulumi.input_type
-class PublishingDestinationArgs:
+calass PublishingDestinationArrgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  detector_id: pulumi.Input[str],
@@ -85,7 +85,7 @@ class PublishingDestinationArgs:
 
 
 @pulumi.input_type
-class _PublishingDestinationState:
+calass _PublishingDestinationState:
     def __init__(__self__, *,
                  destination_arn: Optional[pulumi.Input[str]] = None,
                  destination_type: Optional[pulumi.Input[str]] = None,
@@ -160,7 +160,7 @@ class _PublishingDestinationState:
         pulumi.set(self, "kms_key_arn", value)
 
 
-class PublishingDestination(pulumi.CustomResource):
+calass PublishingDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -183,40 +183,40 @@ class PublishingDestination(pulumi.CustomResource):
         current_region = aws.get_region()
         gd_bucket = aws.s3.BucketV2("gdBucket", force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="Allow PutObject",
                 actions=["s3:PutObject"],
                 resources=[gd_bucket.arn.apply(lambda arn: f"{arn}/*")],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
                 )],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="Allow GetBucketLocation",
                 actions=["s3:GetBucketLocation"],
                 resources=[gd_bucket.arn],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
                 )],
             ),
         ])
         kms_pol = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="Allow GuardDuty to encrypt findings",
                 actions=["kms:GenerateDataKey"],
                 resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
                 )],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="Allow all users to modify/delete key (test only)",
                 actions=["kms:*"],
                 resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
                 )],
@@ -263,7 +263,7 @@ class PublishingDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PublishingDestinationArgs,
+                 args: PublishingDestinationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a GuardDuty PublishingDestination. Requires an existing GuardDuty Detector.
@@ -278,40 +278,40 @@ class PublishingDestination(pulumi.CustomResource):
         current_region = aws.get_region()
         gd_bucket = aws.s3.BucketV2("gdBucket", force_destroy=True)
         bucket_pol = aws.iam.get_policy_document_output(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="Allow PutObject",
                 actions=["s3:PutObject"],
                 resources=[gd_bucket.arn.apply(lambda arn: f"{arn}/*")],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
                 )],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="Allow GetBucketLocation",
                 actions=["s3:GetBucketLocation"],
                 resources=[gd_bucket.arn],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
                 )],
             ),
         ])
         kms_pol = aws.iam.get_policy_document(statements=[
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="Allow GuardDuty to encrypt findings",
                 actions=["kms:GenerateDataKey"],
                 resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="Service",
                     identifiers=["guardduty.amazonaws.com"],
                 )],
             ),
-            aws.iam.GetPolicyDocumentStatementArgs(
+            aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="Allow all users to modify/delete key (test only)",
                 actions=["kms:*"],
                 resources=[f"arn:aws:kms:{current_region.name}:{current_caller_identity.account_id}:key/*"],
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=[f"arn:aws:iam::{current_caller_identity.account_id}:root"],
                 )],
@@ -346,12 +346,12 @@ class PublishingDestination(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PublishingDestinationArgs args: The arguments to use to populate this resource's properties.
+        :param PublishingDestinationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PublishingDestinationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PublishingDestinationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -371,7 +371,7 @@ class PublishingDestination(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PublishingDestinationArgs.__new__(PublishingDestinationArgs)
+            __props__ = PublishingDestinationArrgs.__new__(PublishingDestinationArrgs)
 
             if destination_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_arn'")

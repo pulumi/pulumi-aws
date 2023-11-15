@@ -121,7 +121,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
+calass CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -154,9 +154,9 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
                  enable_accept_encoding_brotli: Optional[bool] = None,
                  enable_accept_encoding_gzip: Optional[bool] = None):
         """
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs' cookies_config: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs' headers_config: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs' query_strings_config: Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrgs' cookies_config: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrgs' headers_config: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrgs' query_strings_config: Whether any URL query strings in viewer requests are included in the cache key. It also automatically includes these query strings in requests that CloudFront sends to the origin. Please refer to the Query String Config for more information.
         :param bool enable_accept_encoding_brotli: Flag determines whether the Accept-Encoding HTTP header is included in the cache key and in requests that CloudFront sends to the origin.
         :param bool enable_accept_encoding_gzip: Whether the Accept-Encoding HTTP header is included in the cache key and in requests sent to the origin by CloudFront.
         """
@@ -210,7 +210,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
 
 
 @pulumi.output_type
-class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
+calass CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -233,7 +233,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
                  cookies: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies'] = None):
         """
         :param str cookie_behavior: Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `cookie_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs' cookies: Object that contains a list of cookie names. See Items for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArrgs' cookies: Object that contains a list of cookie names. See Items for more information.
         """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
         if cookies is not None:
@@ -257,7 +257,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig(dict):
 
 
 @pulumi.output_type
-class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies(dict):
+calass CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         """
@@ -276,7 +276,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies(di
 
 
 @pulumi.output_type
-class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
+calass CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -299,7 +299,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
                  headers: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders'] = None):
         """
         :param str header_behavior: Whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `header_behavior` are `none` and `whitelist`.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs' headers: Object contains a list of header names. See Items for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArrgs' headers: Object contains a list of header names. See Items for more information.
         """
         if header_behavior is not None:
             pulumi.set(__self__, "header_behavior", header_behavior)
@@ -324,7 +324,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig(dict):
 
 
 @pulumi.output_type
-class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders(dict):
+calass CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         """
@@ -343,7 +343,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders(di
 
 
 @pulumi.output_type
-class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict):
+calass CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -368,7 +368,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
                  query_strings: Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings'] = None):
         """
         :param str query_string_behavior: Whether URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values for `query_string_behavior` are `none`, `whitelist`, `allExcept`, and `all`.
-        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs' query_strings: Configuration parameter that contains a list of query string names. See Items for more information.
+        :param 'CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArrgs' query_strings: Configuration parameter that contains a list of query string names. See Items for more information.
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
         if query_strings is not None:
@@ -392,7 +392,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig(dict
 
 
 @pulumi.output_type
-class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings(dict):
+calass CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         """
@@ -411,7 +411,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQuery
 
 
 @pulumi.output_type
-class ContinuousDeploymentPolicyStagingDistributionDnsNames(dict):
+calass ContinuousDeploymentPolicyStagingDistributionDnsNames(dict):
     def __init__(__self__, *,
                  quantity: int,
                  items: Optional[Sequence[str]] = None):
@@ -441,7 +441,7 @@ class ContinuousDeploymentPolicyStagingDistributionDnsNames(dict):
 
 
 @pulumi.output_type
-class ContinuousDeploymentPolicyTrafficConfig(dict):
+calass ContinuousDeploymentPolicyTrafficConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -467,8 +467,8 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
                  single_weight_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig'] = None):
         """
         :param str type: Type of traffic configuration. Valid values are `SingleWeight` and `SingleHeader`.
-        :param 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs' single_header_config: Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
-        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs' single_weight_config: Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArrgs' single_header_config: Determines which HTTP requests are sent to the staging distribution. See `single_header_config`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArrgs' single_weight_config: Contains the percentage of traffic to send to the staging distribution. See `single_weight_config`.
         """
         pulumi.set(__self__, "type", type)
         if single_header_config is not None:
@@ -502,7 +502,7 @@ class ContinuousDeploymentPolicyTrafficConfig(dict):
 
 
 @pulumi.output_type
-class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig(dict):
+calass ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig(dict):
     def __init__(__self__, *,
                  header: str,
                  value: str):
@@ -531,7 +531,7 @@ class ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfig(dict):
 
 
 @pulumi.output_type
-class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig(dict):
+calass ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -554,7 +554,7 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig(dict):
                  session_stickiness_config: Optional['outputs.ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig'] = None):
         """
         :param float weight: The percentage of traffic to send to a staging distribution, expressed as a decimal number between `0` and `.15`.
-        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs' session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
+        :param 'ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArrgs' session_stickiness_config: Session stickiness provides the ability to define multiple requests from a single viewer as a single session. This prevents the potentially inconsistent experience of sending some of a given user's requests to the staging distribution, while others are sent to the primary distribution. Define the session duration using TTL values. See `session_stickiness_config`.
         """
         pulumi.set(__self__, "weight", weight)
         if session_stickiness_config is not None:
@@ -578,7 +578,7 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfig(dict):
 
 
 @pulumi.output_type
-class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig(dict):
+calass ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -626,7 +626,7 @@ class ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickiness
 
 
 @pulumi.output_type
-class DistributionCustomErrorResponse(dict):
+calass DistributionCustomErrorResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -703,7 +703,7 @@ class DistributionCustomErrorResponse(dict):
 
 
 @pulumi.output_type
-class DistributionDefaultCacheBehavior(dict):
+calass DistributionDefaultCacheBehavior(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -784,9 +784,9 @@ class DistributionDefaultCacheBehavior(dict):
         :param bool compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
         :param int default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
         :param str field_level_encryption_id: Field level encryption configuration ID.
-        :param 'DistributionDefaultCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        :param Sequence['DistributionDefaultCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
-        :param Sequence['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
+        :param 'DistributionDefaultCacheBehaviorForwardedValuesArrgs' forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
+        :param Sequence['DistributionDefaultCacheBehaviorFunctionAssociationArrgs'] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
+        :param Sequence['DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrgs'] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
         :param int max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
         :param int min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
         :param str origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
@@ -985,7 +985,7 @@ class DistributionDefaultCacheBehavior(dict):
 
 
 @pulumi.output_type
-class DistributionDefaultCacheBehaviorForwardedValues(dict):
+calass DistributionDefaultCacheBehaviorForwardedValues(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1011,7 +1011,7 @@ class DistributionDefaultCacheBehaviorForwardedValues(dict):
                  headers: Optional[Sequence[str]] = None,
                  query_string_cache_keys: Optional[Sequence[str]] = None):
         """
-        :param 'DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs' cookies: The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
+        :param 'DistributionDefaultCacheBehaviorForwardedValuesCookiesArrgs' cookies: The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
         :param bool query_string: Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
         :param Sequence[str] headers: Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
         :param Sequence[str] query_string_cache_keys: When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
@@ -1057,7 +1057,7 @@ class DistributionDefaultCacheBehaviorForwardedValues(dict):
 
 
 @pulumi.output_type
-class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
+calass DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1104,7 +1104,7 @@ class DistributionDefaultCacheBehaviorForwardedValuesCookies(dict):
 
 
 @pulumi.output_type
-class DistributionDefaultCacheBehaviorFunctionAssociation(dict):
+calass DistributionDefaultCacheBehaviorFunctionAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1152,7 +1152,7 @@ class DistributionDefaultCacheBehaviorFunctionAssociation(dict):
 
 
 @pulumi.output_type
-class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
+calass DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1214,7 +1214,7 @@ class DistributionDefaultCacheBehaviorLambdaFunctionAssociation(dict):
 
 
 @pulumi.output_type
-class DistributionLoggingConfig(dict):
+calass DistributionLoggingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1273,7 +1273,7 @@ class DistributionLoggingConfig(dict):
 
 
 @pulumi.output_type
-class DistributionOrderedCacheBehavior(dict):
+calass DistributionOrderedCacheBehavior(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1358,9 +1358,9 @@ class DistributionOrderedCacheBehavior(dict):
         :param bool compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header (default: `false`).
         :param int default_ttl: Default amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request in the absence of an `Cache-Control max-age` or `Expires` header.
         :param str field_level_encryption_id: Field level encryption configuration ID.
-        :param 'DistributionOrderedCacheBehaviorForwardedValuesArgs' forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
-        :param Sequence['DistributionOrderedCacheBehaviorFunctionAssociationArgs'] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
-        :param Sequence['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArgs'] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
+        :param 'DistributionOrderedCacheBehaviorForwardedValuesArrgs' forwarded_values: The forwarded values configuration that specifies how CloudFront handles query strings, cookies and headers (maximum one).
+        :param Sequence['DistributionOrderedCacheBehaviorFunctionAssociationArrgs'] function_associations: A config block that triggers a cloudfront function with specific actions (maximum 2).
+        :param Sequence['DistributionOrderedCacheBehaviorLambdaFunctionAssociationArrgs'] lambda_function_associations: A config block that triggers a lambda function with specific actions (maximum 4).
         :param int max_ttl: Maximum amount of time (in seconds) that an object is in a CloudFront cache before CloudFront forwards another request to your origin to determine whether the object has been updated. Only effective in the presence of `Cache-Control max-age`, `Cache-Control s-maxage`, and `Expires` headers.
         :param int min_ttl: Minimum amount of time that you want objects to stay in CloudFront caches before CloudFront queries your origin to see whether the object has been updated. Defaults to 0 seconds.
         :param str origin_request_policy_id: Unique identifier of the origin request policy that is attached to the behavior.
@@ -1568,7 +1568,7 @@ class DistributionOrderedCacheBehavior(dict):
 
 
 @pulumi.output_type
-class DistributionOrderedCacheBehaviorForwardedValues(dict):
+calass DistributionOrderedCacheBehaviorForwardedValues(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1594,7 +1594,7 @@ class DistributionOrderedCacheBehaviorForwardedValues(dict):
                  headers: Optional[Sequence[str]] = None,
                  query_string_cache_keys: Optional[Sequence[str]] = None):
         """
-        :param 'DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs' cookies: The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
+        :param 'DistributionOrderedCacheBehaviorForwardedValuesCookiesArrgs' cookies: The forwarded values cookies that specifies how CloudFront handles cookies (maximum one).
         :param bool query_string: Indicates whether you want CloudFront to forward query strings to the origin that is associated with this cache behavior.
         :param Sequence[str] headers: Headers, if any, that you want CloudFront to vary upon for this cache behavior. Specify `*` to include all headers.
         :param Sequence[str] query_string_cache_keys: When specified, along with a value of `true` for `query_string`, all query strings are forwarded, however only the query string keys listed in this argument are cached. When omitted with a value of `true` for `query_string`, all query string keys are cached.
@@ -1640,7 +1640,7 @@ class DistributionOrderedCacheBehaviorForwardedValues(dict):
 
 
 @pulumi.output_type
-class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
+calass DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1687,7 +1687,7 @@ class DistributionOrderedCacheBehaviorForwardedValuesCookies(dict):
 
 
 @pulumi.output_type
-class DistributionOrderedCacheBehaviorFunctionAssociation(dict):
+calass DistributionOrderedCacheBehaviorFunctionAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1735,7 +1735,7 @@ class DistributionOrderedCacheBehaviorFunctionAssociation(dict):
 
 
 @pulumi.output_type
-class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
+calass DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1797,7 +1797,7 @@ class DistributionOrderedCacheBehaviorLambdaFunctionAssociation(dict):
 
 
 @pulumi.output_type
-class DistributionOrigin(dict):
+calass DistributionOrigin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1849,12 +1849,12 @@ class DistributionOrigin(dict):
         :param str origin_id: Unique identifier of the member origin.
         :param int connection_attempts: Number of times that CloudFront attempts to connect to the origin. Must be between 1-3. Defaults to 3.
         :param int connection_timeout: Number of seconds that CloudFront waits when trying to establish a connection to the origin. Must be between 1-10. Defaults to 10.
-        :param Sequence['DistributionOriginCustomHeaderArgs'] custom_headers: One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
-        :param 'DistributionOriginCustomOriginConfigArgs' custom_origin_config: The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
+        :param Sequence['DistributionOriginCustomHeaderArrgs'] custom_headers: One or more sub-resources with `name` and `value` parameters that specify header data that will be sent to the origin (multiples allowed).
+        :param 'DistributionOriginCustomOriginConfigArrgs' custom_origin_config: The CloudFront custom origin configuration information. If an S3 origin is required, use `origin_access_control_id` or `s3_origin_config` instead.
         :param str origin_access_control_id: Unique identifier of a [CloudFront origin access control][8] for this origin.
         :param str origin_path: Optional element that causes CloudFront to request your content from a directory in your Amazon S3 bucket or your custom origin.
-        :param 'DistributionOriginOriginShieldArgs' origin_shield: CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
-        :param 'DistributionOriginS3OriginConfigArgs' s3_origin_config: CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
+        :param 'DistributionOriginOriginShieldArrgs' origin_shield: CloudFront Origin Shield configuration information. Using Origin Shield can help reduce the load on your origin. For more information, see [Using Origin Shield](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html) in the Amazon CloudFront Developer Guide.
+        :param 'DistributionOriginS3OriginConfigArrgs' s3_origin_config: CloudFront S3 origin configuration information. If a custom origin is required, use `custom_origin_config` instead.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "origin_id", origin_id)
@@ -1957,7 +1957,7 @@ class DistributionOrigin(dict):
 
 
 @pulumi.output_type
-class DistributionOriginCustomHeader(dict):
+calass DistributionOriginCustomHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1976,7 +1976,7 @@ class DistributionOriginCustomHeader(dict):
 
 
 @pulumi.output_type
-class DistributionOriginCustomOriginConfig(dict):
+calass DistributionOriginCustomOriginConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2078,7 +2078,7 @@ class DistributionOriginCustomOriginConfig(dict):
 
 
 @pulumi.output_type
-class DistributionOriginGroup(dict):
+calass DistributionOriginGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2103,8 +2103,8 @@ class DistributionOriginGroup(dict):
                  members: Sequence['outputs.DistributionOriginGroupMember'],
                  origin_id: str):
         """
-        :param 'DistributionOriginGroupFailoverCriteriaArgs' failover_criteria: The failover criteria for when to failover to the secondary origin.
-        :param Sequence['DistributionOriginGroupMemberArgs'] members: Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
+        :param 'DistributionOriginGroupFailoverCriteriaArrgs' failover_criteria: The failover criteria for when to failover to the secondary origin.
+        :param Sequence['DistributionOriginGroupMemberArrgs'] members: Ordered member configuration blocks assigned to the origin group, where the first member is the primary origin. You must specify two members.
         :param str origin_id: Unique identifier of the member origin.
         """
         pulumi.set(__self__, "failover_criteria", failover_criteria)
@@ -2137,7 +2137,7 @@ class DistributionOriginGroup(dict):
 
 
 @pulumi.output_type
-class DistributionOriginGroupFailoverCriteria(dict):
+calass DistributionOriginGroupFailoverCriteria(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2172,7 +2172,7 @@ class DistributionOriginGroupFailoverCriteria(dict):
 
 
 @pulumi.output_type
-class DistributionOriginGroupMember(dict):
+calass DistributionOriginGroupMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2207,7 +2207,7 @@ class DistributionOriginGroupMember(dict):
 
 
 @pulumi.output_type
-class DistributionOriginOriginShield(dict):
+calass DistributionOriginOriginShield(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2254,7 +2254,7 @@ class DistributionOriginOriginShield(dict):
 
 
 @pulumi.output_type
-class DistributionOriginS3OriginConfig(dict):
+calass DistributionOriginS3OriginConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2289,7 +2289,7 @@ class DistributionOriginS3OriginConfig(dict):
 
 
 @pulumi.output_type
-class DistributionRestrictions(dict):
+calass DistributionRestrictions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2318,7 +2318,7 @@ class DistributionRestrictions(dict):
 
 
 @pulumi.output_type
-class DistributionRestrictionsGeoRestriction(dict):
+calass DistributionRestrictionsGeoRestriction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2365,13 +2365,13 @@ class DistributionRestrictionsGeoRestriction(dict):
 
 
 @pulumi.output_type
-class DistributionTrustedKeyGroup(dict):
+calass DistributionTrustedKeyGroup(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedKeyGroupItem']] = None):
         """
         :param bool enabled: Whether Origin Shield is enabled.
-        :param Sequence['DistributionTrustedKeyGroupItemArgs'] items: List of nested attributes for each trusted signer
+        :param Sequence['DistributionTrustedKeyGroupItemArrgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2396,7 +2396,7 @@ class DistributionTrustedKeyGroup(dict):
 
 
 @pulumi.output_type
-class DistributionTrustedKeyGroupItem(dict):
+calass DistributionTrustedKeyGroupItem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2446,13 +2446,13 @@ class DistributionTrustedKeyGroupItem(dict):
 
 
 @pulumi.output_type
-class DistributionTrustedSigner(dict):
+calass DistributionTrustedSigner(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  items: Optional[Sequence['outputs.DistributionTrustedSignerItem']] = None):
         """
         :param bool enabled: Whether Origin Shield is enabled.
-        :param Sequence['DistributionTrustedSignerItemArgs'] items: List of nested attributes for each trusted signer
+        :param Sequence['DistributionTrustedSignerItemArrgs'] items: List of nested attributes for each trusted signer
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -2477,7 +2477,7 @@ class DistributionTrustedSigner(dict):
 
 
 @pulumi.output_type
-class DistributionTrustedSignerItem(dict):
+calass DistributionTrustedSignerItem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2527,7 +2527,7 @@ class DistributionTrustedSignerItem(dict):
 
 
 @pulumi.output_type
-class DistributionViewerCertificate(dict):
+calass DistributionViewerCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2619,7 +2619,7 @@ class DistributionViewerCertificate(dict):
 
 
 @pulumi.output_type
-class FieldLevelEncryptionConfigContentTypeProfileConfig(dict):
+calass FieldLevelEncryptionConfigContentTypeProfileConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2643,7 +2643,7 @@ class FieldLevelEncryptionConfigContentTypeProfileConfig(dict):
                  content_type_profiles: 'outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles',
                  forward_when_content_type_is_unknown: bool):
         """
-        :param 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs' content_type_profiles: Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+        :param 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArrgs' content_type_profiles: Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
         :param bool forward_when_content_type_is_unknown: specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
         """
         pulumi.set(__self__, "content_type_profiles", content_type_profiles)
@@ -2667,7 +2667,7 @@ class FieldLevelEncryptionConfigContentTypeProfileConfig(dict):
 
 
 @pulumi.output_type
-class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles(dict):
+calass FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles(dict):
     def __init__(__self__, *,
                  items: Sequence['outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem']):
         pulumi.set(__self__, "items", items)
@@ -2679,7 +2679,7 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles(dict
 
 
 @pulumi.output_type
-class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(dict):
+calass FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2739,7 +2739,7 @@ class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(
 
 
 @pulumi.output_type
-class FieldLevelEncryptionConfigQueryArgProfileConfig(dict):
+calass FieldLevelEncryptionConfigQueryArgProfileConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2764,7 +2764,7 @@ class FieldLevelEncryptionConfigQueryArgProfileConfig(dict):
                  query_arg_profiles: Optional['outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles'] = None):
         """
         :param bool forward_when_query_arg_profile_is_unknown: Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
-        :param 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs' query_arg_profiles: Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+        :param 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArrgs' query_arg_profiles: Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
         """
         pulumi.set(__self__, "forward_when_query_arg_profile_is_unknown", forward_when_query_arg_profile_is_unknown)
         if query_arg_profiles is not None:
@@ -2788,7 +2788,7 @@ class FieldLevelEncryptionConfigQueryArgProfileConfig(dict):
 
 
 @pulumi.output_type
-class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles(dict):
+calass FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence['outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem']] = None):
         if items is not None:
@@ -2801,7 +2801,7 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles(dict):
 
 
 @pulumi.output_type
-class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(dict):
+calass FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2849,7 +2849,7 @@ class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(dict):
 
 
 @pulumi.output_type
-class FieldLevelEncryptionProfileEncryptionEntities(dict):
+calass FieldLevelEncryptionProfileEncryptionEntities(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence['outputs.FieldLevelEncryptionProfileEncryptionEntitiesItem']] = None):
         if items is not None:
@@ -2862,7 +2862,7 @@ class FieldLevelEncryptionProfileEncryptionEntities(dict):
 
 
 @pulumi.output_type
-class FieldLevelEncryptionProfileEncryptionEntitiesItem(dict):
+calass FieldLevelEncryptionProfileEncryptionEntitiesItem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2889,7 +2889,7 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItem(dict):
                  provider_id: str,
                  public_key_id: str):
         """
-        :param 'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs' field_patterns: Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+        :param 'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArrgs' field_patterns: Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
         :param str provider_id: The provider associated with the public key being used for encryption.
         :param str public_key_id: The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
         """
@@ -2923,7 +2923,7 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItem(dict):
 
 
 @pulumi.output_type
-class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns(dict):
+calass FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         if items is not None:
@@ -2936,7 +2936,7 @@ class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns(dict):
 
 
 @pulumi.output_type
-class MonitoringSubscriptionMonitoringSubscription(dict):
+calass MonitoringSubscriptionMonitoringSubscription(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2957,7 +2957,7 @@ class MonitoringSubscriptionMonitoringSubscription(dict):
     def __init__(__self__, *,
                  realtime_metrics_subscription_config: 'outputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig'):
         """
-        :param 'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs' realtime_metrics_subscription_config: A subscription configuration for additional CloudWatch metrics. See below.
+        :param 'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArrgs' realtime_metrics_subscription_config: A subscription configuration for additional CloudWatch metrics. See below.
         """
         pulumi.set(__self__, "realtime_metrics_subscription_config", realtime_metrics_subscription_config)
 
@@ -2971,7 +2971,7 @@ class MonitoringSubscriptionMonitoringSubscription(dict):
 
 
 @pulumi.output_type
-class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig(dict):
+calass MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3006,7 +3006,7 @@ class MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionCon
 
 
 @pulumi.output_type
-class OriginRequestPolicyCookiesConfig(dict):
+calass OriginRequestPolicyCookiesConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3043,7 +3043,7 @@ class OriginRequestPolicyCookiesConfig(dict):
 
 
 @pulumi.output_type
-class OriginRequestPolicyCookiesConfigCookies(dict):
+calass OriginRequestPolicyCookiesConfigCookies(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         if items is not None:
@@ -3056,7 +3056,7 @@ class OriginRequestPolicyCookiesConfigCookies(dict):
 
 
 @pulumi.output_type
-class OriginRequestPolicyHeadersConfig(dict):
+calass OriginRequestPolicyHeadersConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3094,7 +3094,7 @@ class OriginRequestPolicyHeadersConfig(dict):
 
 
 @pulumi.output_type
-class OriginRequestPolicyHeadersConfigHeaders(dict):
+calass OriginRequestPolicyHeadersConfigHeaders(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         if items is not None:
@@ -3107,7 +3107,7 @@ class OriginRequestPolicyHeadersConfigHeaders(dict):
 
 
 @pulumi.output_type
-class OriginRequestPolicyQueryStringsConfig(dict):
+calass OriginRequestPolicyQueryStringsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3146,7 +3146,7 @@ class OriginRequestPolicyQueryStringsConfig(dict):
 
 
 @pulumi.output_type
-class OriginRequestPolicyQueryStringsConfigQueryStrings(dict):
+calass OriginRequestPolicyQueryStringsConfigQueryStrings(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         if items is not None:
@@ -3159,7 +3159,7 @@ class OriginRequestPolicyQueryStringsConfigQueryStrings(dict):
 
 
 @pulumi.output_type
-class RealtimeLogConfigEndpoint(dict):
+calass RealtimeLogConfigEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3183,7 +3183,7 @@ class RealtimeLogConfigEndpoint(dict):
                  kinesis_stream_config: 'outputs.RealtimeLogConfigEndpointKinesisStreamConfig',
                  stream_type: str):
         """
-        :param 'RealtimeLogConfigEndpointKinesisStreamConfigArgs' kinesis_stream_config: The Amazon Kinesis data stream configuration.
+        :param 'RealtimeLogConfigEndpointKinesisStreamConfigArrgs' kinesis_stream_config: The Amazon Kinesis data stream configuration.
         :param str stream_type: The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         """
         pulumi.set(__self__, "kinesis_stream_config", kinesis_stream_config)
@@ -3207,7 +3207,7 @@ class RealtimeLogConfigEndpoint(dict):
 
 
 @pulumi.output_type
-class RealtimeLogConfigEndpointKinesisStreamConfig(dict):
+calass RealtimeLogConfigEndpointKinesisStreamConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3257,7 +3257,7 @@ class RealtimeLogConfigEndpointKinesisStreamConfig(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyCorsConfig(dict):
+calass ResponseHeadersPolicyCorsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3297,11 +3297,11 @@ class ResponseHeadersPolicyCorsConfig(dict):
                  access_control_max_age_sec: Optional[int] = None):
         """
         :param bool access_control_allow_credentials: A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
-        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs' access_control_allow_headers: Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
-        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs' access_control_allow_methods: Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs' access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
+        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArrgs' access_control_allow_headers: Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
+        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArrgs' access_control_allow_methods: Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+        :param 'ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArrgs' access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
         :param bool origin_override: A Boolean value that determines how CloudFront behaves for the HTTP response header.
-        :param 'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs' access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
+        :param 'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArrgs' access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
         :param int access_control_max_age_sec: A number that CloudFront uses as the value for the `Access-Control-Max-Age` HTTP response header.
         """
         pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
@@ -3372,7 +3372,7 @@ class ResponseHeadersPolicyCorsConfig(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders(dict):
+calass ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         if items is not None:
@@ -3385,7 +3385,7 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyCorsConfigAccessControlAllowMethods(dict):
+calass ResponseHeadersPolicyCorsConfigAccessControlAllowMethods(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         if items is not None:
@@ -3398,7 +3398,7 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowMethods(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins(dict):
+calass ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         if items is not None:
@@ -3411,7 +3411,7 @@ class ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders(dict):
+calass ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence[str]] = None):
         if items is not None:
@@ -3424,7 +3424,7 @@ class ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyCustomHeadersConfig(dict):
+calass ResponseHeadersPolicyCustomHeadersConfig(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence['outputs.ResponseHeadersPolicyCustomHeadersConfigItem']] = None):
         if items is not None:
@@ -3437,7 +3437,7 @@ class ResponseHeadersPolicyCustomHeadersConfig(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
+calass ResponseHeadersPolicyCustomHeadersConfigItem(dict):
     def __init__(__self__, *,
                  header: str,
                  override: bool,
@@ -3477,7 +3477,7 @@ class ResponseHeadersPolicyCustomHeadersConfigItem(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyRemoveHeadersConfig(dict):
+calass ResponseHeadersPolicyRemoveHeadersConfig(dict):
     def __init__(__self__, *,
                  items: Optional[Sequence['outputs.ResponseHeadersPolicyRemoveHeadersConfigItem']] = None):
         if items is not None:
@@ -3490,7 +3490,7 @@ class ResponseHeadersPolicyRemoveHeadersConfig(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyRemoveHeadersConfigItem(dict):
+calass ResponseHeadersPolicyRemoveHeadersConfigItem(dict):
     def __init__(__self__, *,
                  header: str):
         """
@@ -3508,7 +3508,7 @@ class ResponseHeadersPolicyRemoveHeadersConfigItem(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicySecurityHeadersConfig(dict):
+calass ResponseHeadersPolicySecurityHeadersConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3544,12 +3544,12 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
                  strict_transport_security: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity'] = None,
                  xss_protection: Optional['outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection'] = None):
         """
-        :param 'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs' content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs' content_type_options: Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs' frame_options: Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs' referrer_policy: Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs' strict_transport_security: Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
-        :param 'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs' xss_protection: Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
+        :param 'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrgs' content_security_policy: The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header. See Content Security Policy for more information.
+        :param 'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArrgs' content_type_options: Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
+        :param 'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArrgs' frame_options: Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
+        :param 'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrgs' referrer_policy: Determines whether CloudFront includes the `Referrer-Policy` HTTP response header and the header’s value. See Referrer Policy for more information.
+        :param 'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrgs' strict_transport_security: Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
+        :param 'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArrgs' xss_protection: Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
         """
         if content_security_policy is not None:
             pulumi.set(__self__, "content_security_policy", content_security_policy)
@@ -3614,7 +3614,7 @@ class ResponseHeadersPolicySecurityHeadersConfig(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
+calass ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3660,7 +3660,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(dict):
+calass ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(dict):
     def __init__(__self__, *,
                  override: bool):
         """
@@ -3678,7 +3678,7 @@ class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicySecurityHeadersConfigFrameOptions(dict):
+calass ResponseHeadersPolicySecurityHeadersConfigFrameOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3724,7 +3724,7 @@ class ResponseHeadersPolicySecurityHeadersConfigFrameOptions(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy(dict):
+calass ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3770,7 +3770,7 @@ class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
+calass ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3842,7 +3842,7 @@ class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
+calass ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3914,7 +3914,7 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
 
 
 @pulumi.output_type
-class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
+calass ResponseHeadersPolicyServerTimingHeadersConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3960,7 +3960,7 @@ class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
 
 
 @pulumi.output_type
-class GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(dict):
+calass GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(dict):
     def __init__(__self__, *,
                  cookies_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult'],
                  enable_accept_encoding_brotli: bool,
@@ -3968,11 +3968,11 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(dict):
                  headers_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult'],
                  query_strings_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult']):
         """
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs'] cookies_configs: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrgs'] cookies_configs: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         :param bool enable_accept_encoding_brotli: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
         :param bool enable_accept_encoding_gzip: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs'] headers_configs: Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs'] query_strings_configs: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrgs'] headers_configs: Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrgs'] query_strings_configs: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         pulumi.set(__self__, "cookies_configs", cookies_configs)
         pulumi.set(__self__, "enable_accept_encoding_brotli", enable_accept_encoding_brotli)
@@ -4022,13 +4022,13 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(dict):
 
 
 @pulumi.output_type
-class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(dict):
+calass GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(dict):
     def __init__(__self__, *,
                  cookie_behavior: str,
                  cookies: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult']):
         """
         :param str cookie_behavior: Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs'] cookies: Object that contains a list of cookie names. See Items for more information.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrgs'] cookies: Object that contains a list of cookie names. See Items for more information.
         """
         pulumi.set(__self__, "cookie_behavior", cookie_behavior)
         pulumi.set(__self__, "cookies", cookies)
@@ -4051,7 +4051,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult(
 
 
 @pulumi.output_type
-class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult(dict):
+calass GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
@@ -4069,13 +4069,13 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieR
 
 
 @pulumi.output_type
-class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult(dict):
+calass GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult(dict):
     def __init__(__self__, *,
                  header_behavior: str,
                  headers: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult']):
         """
         :param str header_behavior: Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs'] headers: Object that contains a list of header names. See Items for more information.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrgs'] headers: Object that contains a list of header names. See Items for more information.
         """
         pulumi.set(__self__, "header_behavior", header_behavior)
         pulumi.set(__self__, "headers", headers)
@@ -4098,7 +4098,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigResult(
 
 
 @pulumi.output_type
-class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult(dict):
+calass GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
@@ -4116,13 +4116,13 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderR
 
 
 @pulumi.output_type
-class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult(dict):
+calass GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigResult(dict):
     def __init__(__self__, *,
                  query_string_behavior: str,
                  query_strings: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult']):
         """
         :param str query_string_behavior: Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs'] query_strings: Object that contains a list of query string names. See Items for more information.
+        :param Sequence['GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrgs'] query_strings: Object that contains a list of query string names. See Items for more information.
         """
         pulumi.set(__self__, "query_string_behavior", query_string_behavior)
         pulumi.set(__self__, "query_strings", query_strings)
@@ -4145,7 +4145,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigRe
 
 
 @pulumi.output_type
-class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult(dict):
+calass GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         """
@@ -4163,7 +4163,7 @@ class GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQu
 
 
 @pulumi.output_type
-class GetOriginRequestPolicyCookiesConfigResult(dict):
+calass GetOriginRequestPolicyCookiesConfigResult(dict):
     def __init__(__self__, *,
                  cookie_behavior: str,
                  cookies: Sequence['outputs.GetOriginRequestPolicyCookiesConfigCookieResult']):
@@ -4182,7 +4182,7 @@ class GetOriginRequestPolicyCookiesConfigResult(dict):
 
 
 @pulumi.output_type
-class GetOriginRequestPolicyCookiesConfigCookieResult(dict):
+calass GetOriginRequestPolicyCookiesConfigCookieResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         pulumi.set(__self__, "items", items)
@@ -4194,7 +4194,7 @@ class GetOriginRequestPolicyCookiesConfigCookieResult(dict):
 
 
 @pulumi.output_type
-class GetOriginRequestPolicyHeadersConfigResult(dict):
+calass GetOriginRequestPolicyHeadersConfigResult(dict):
     def __init__(__self__, *,
                  header_behavior: str,
                  headers: Sequence['outputs.GetOriginRequestPolicyHeadersConfigHeaderResult']):
@@ -4213,7 +4213,7 @@ class GetOriginRequestPolicyHeadersConfigResult(dict):
 
 
 @pulumi.output_type
-class GetOriginRequestPolicyHeadersConfigHeaderResult(dict):
+calass GetOriginRequestPolicyHeadersConfigHeaderResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         pulumi.set(__self__, "items", items)
@@ -4225,7 +4225,7 @@ class GetOriginRequestPolicyHeadersConfigHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetOriginRequestPolicyQueryStringsConfigResult(dict):
+calass GetOriginRequestPolicyQueryStringsConfigResult(dict):
     def __init__(__self__, *,
                  query_string_behavior: str,
                  query_strings: Sequence['outputs.GetOriginRequestPolicyQueryStringsConfigQueryStringResult']):
@@ -4244,7 +4244,7 @@ class GetOriginRequestPolicyQueryStringsConfigResult(dict):
 
 
 @pulumi.output_type
-class GetOriginRequestPolicyQueryStringsConfigQueryStringResult(dict):
+calass GetOriginRequestPolicyQueryStringsConfigQueryStringResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         pulumi.set(__self__, "items", items)
@@ -4256,12 +4256,12 @@ class GetOriginRequestPolicyQueryStringsConfigQueryStringResult(dict):
 
 
 @pulumi.output_type
-class GetRealtimeLogConfigEndpointResult(dict):
+calass GetRealtimeLogConfigEndpointResult(dict):
     def __init__(__self__, *,
                  kinesis_stream_configs: Sequence['outputs.GetRealtimeLogConfigEndpointKinesisStreamConfigResult'],
                  stream_type: str):
         """
-        :param Sequence['GetRealtimeLogConfigEndpointKinesisStreamConfigArgs'] kinesis_stream_configs: (Required) Amazon Kinesis data stream configuration.
+        :param Sequence['GetRealtimeLogConfigEndpointKinesisStreamConfigArrgs'] kinesis_stream_configs: (Required) Amazon Kinesis data stream configuration.
         :param str stream_type: (Required) Type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
         """
         pulumi.set(__self__, "kinesis_stream_configs", kinesis_stream_configs)
@@ -4285,7 +4285,7 @@ class GetRealtimeLogConfigEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetRealtimeLogConfigEndpointKinesisStreamConfigResult(dict):
+calass GetRealtimeLogConfigEndpointKinesisStreamConfigResult(dict):
     def __init__(__self__, *,
                  role_arn: str,
                  stream_arn: str):
@@ -4316,7 +4316,7 @@ class GetRealtimeLogConfigEndpointKinesisStreamConfigResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyCorsConfigResult(dict):
+calass GetResponseHeadersPolicyCorsConfigResult(dict):
     def __init__(__self__, *,
                  access_control_allow_credentials: bool,
                  access_control_allow_headers: Sequence['outputs.GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderResult'],
@@ -4327,10 +4327,10 @@ class GetResponseHeadersPolicyCorsConfigResult(dict):
                  origin_override: bool):
         """
         :param bool access_control_allow_credentials: A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
-        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs'] access_control_allow_headers: Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
-        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs'] access_control_allow_methods: Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs'] access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
-        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs'] access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrgs'] access_control_allow_headers: Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrgs'] access_control_allow_methods: Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrgs'] access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+        :param Sequence['GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrgs'] access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
         :param int access_control_max_age_sec: A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
         """
         pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
@@ -4396,7 +4396,7 @@ class GetResponseHeadersPolicyCorsConfigResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderResult(dict):
+calass GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         pulumi.set(__self__, "items", items)
@@ -4408,7 +4408,7 @@ class GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodResult(dict):
+calass GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         pulumi.set(__self__, "items", items)
@@ -4420,7 +4420,7 @@ class GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginResult(dict):
+calass GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         pulumi.set(__self__, "items", items)
@@ -4432,7 +4432,7 @@ class GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderResult(dict):
+calass GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderResult(dict):
     def __init__(__self__, *,
                  items: Sequence[str]):
         pulumi.set(__self__, "items", items)
@@ -4444,7 +4444,7 @@ class GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyCustomHeadersConfigResult(dict):
+calass GetResponseHeadersPolicyCustomHeadersConfigResult(dict):
     def __init__(__self__, *,
                  items: Sequence['outputs.GetResponseHeadersPolicyCustomHeadersConfigItemResult']):
         pulumi.set(__self__, "items", items)
@@ -4456,7 +4456,7 @@ class GetResponseHeadersPolicyCustomHeadersConfigResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
+calass GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
     def __init__(__self__, *,
                  header: str,
                  override: bool,
@@ -4496,7 +4496,7 @@ class GetResponseHeadersPolicyCustomHeadersConfigItemResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyRemoveHeadersConfigResult(dict):
+calass GetResponseHeadersPolicyRemoveHeadersConfigResult(dict):
     def __init__(__self__, *,
                  items: Sequence['outputs.GetResponseHeadersPolicyRemoveHeadersConfigItemResult']):
         pulumi.set(__self__, "items", items)
@@ -4508,7 +4508,7 @@ class GetResponseHeadersPolicyRemoveHeadersConfigResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyRemoveHeadersConfigItemResult(dict):
+calass GetResponseHeadersPolicyRemoveHeadersConfigItemResult(dict):
     def __init__(__self__, *,
                  header: str):
         """
@@ -4526,7 +4526,7 @@ class GetResponseHeadersPolicyRemoveHeadersConfigItemResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
+calass GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
     def __init__(__self__, *,
                  content_security_policies: Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult'],
                  content_type_options: Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult'],
@@ -4535,12 +4535,12 @@ class GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
                  strict_transport_securities: Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult'],
                  xss_protections: Sequence['outputs.GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult']):
         """
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs'] content_security_policies: The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs'] content_type_options: A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs'] frame_options: Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs'] referrer_policies: Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs'] strict_transport_securities: Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
-        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs'] xss_protections: Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrgs'] content_security_policies: The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrgs'] content_type_options: A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrgs'] frame_options: Setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrgs'] referrer_policies: Value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrgs'] strict_transport_securities: Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
+        :param Sequence['GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrgs'] xss_protections: Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
         """
         pulumi.set(__self__, "content_security_policies", content_security_policies)
         pulumi.set(__self__, "content_type_options", content_type_options)
@@ -4599,7 +4599,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult(dict):
+calass GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult(dict):
     def __init__(__self__, *,
                  content_security_policy: str,
                  override: bool):
@@ -4628,7 +4628,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyResult(d
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult(dict):
+calass GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult(dict):
     def __init__(__self__, *,
                  override: bool):
         """
@@ -4646,7 +4646,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionResult(dict)
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult(dict):
+calass GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult(dict):
     def __init__(__self__, *,
                  frame_option: str,
                  override: bool):
@@ -4675,7 +4675,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigFrameOptionResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult(dict):
+calass GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult(dict):
     def __init__(__self__, *,
                  override: bool,
                  referrer_policy: str):
@@ -4704,7 +4704,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult(dict):
+calass GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult(dict):
     def __init__(__self__, *,
                  access_control_max_age_sec: int,
                  include_subdomains: bool,
@@ -4755,7 +4755,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
+calass GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
     def __init__(__self__, *,
                  mode_block: bool,
                  override: bool,
@@ -4806,7 +4806,7 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
 
 
 @pulumi.output_type
-class GetResponseHeadersPolicyServerTimingHeadersConfigResult(dict):
+calass GetResponseHeadersPolicyServerTimingHeadersConfigResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  sampling_rate: float):

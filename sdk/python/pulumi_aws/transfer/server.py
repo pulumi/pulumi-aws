@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServerArgs', 'Server']
+__all__ = ['ServerArrgs', 'Server']
 
 @pulumi.input_type
-class ServerArgs:
+calass ServerArrgs:
     def __init__(__self__, *,
                  certificate: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
+                 endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArrgs']] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  function: Optional[pulumi.Input[str]] = None,
@@ -29,19 +29,19 @@ class ServerArgs:
                  logging_role: Optional[pulumi.Input[str]] = None,
                  post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-                 protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
+                 protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArrgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
+                 workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArrgs']] = None):
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
-        :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+        :param pulumi.Input['ServerEndpointDetailsArrgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[str] function: The ARN for a lambda function to use for the Identity provider.
@@ -51,13 +51,13 @@ class ServerArgs:
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server.
+        :param pulumi.Input['ServerProtocolDetailsArrgs'] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
+        :param pulumi.Input['ServerWorkflowDetailsArrgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -138,14 +138,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="endpointDetails")
-    def endpoint_details(self) -> Optional[pulumi.Input['ServerEndpointDetailsArgs']]:
+    def endpoint_details(self) -> Optional[pulumi.Input['ServerEndpointDetailsArrgs']]:
         """
         The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         """
         return pulumi.get(self, "endpoint_details")
 
     @endpoint_details.setter
-    def endpoint_details(self, value: Optional[pulumi.Input['ServerEndpointDetailsArgs']]):
+    def endpoint_details(self, value: Optional[pulumi.Input['ServerEndpointDetailsArrgs']]):
         pulumi.set(self, "endpoint_details", value)
 
     @property
@@ -258,14 +258,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="protocolDetails")
-    def protocol_details(self) -> Optional[pulumi.Input['ServerProtocolDetailsArgs']]:
+    def protocol_details(self) -> Optional[pulumi.Input['ServerProtocolDetailsArrgs']]:
         """
         The protocol settings that are configured for your server.
         """
         return pulumi.get(self, "protocol_details")
 
     @protocol_details.setter
-    def protocol_details(self, value: Optional[pulumi.Input['ServerProtocolDetailsArgs']]):
+    def protocol_details(self, value: Optional[pulumi.Input['ServerProtocolDetailsArrgs']]):
         pulumi.set(self, "protocol_details", value)
 
     @property
@@ -330,26 +330,26 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="workflowDetails")
-    def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArgs']]:
+    def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArrgs']]:
         """
         Specifies the workflow details. See Workflow Details below.
         """
         return pulumi.get(self, "workflow_details")
 
     @workflow_details.setter
-    def workflow_details(self, value: Optional[pulumi.Input['ServerWorkflowDetailsArgs']]):
+    def workflow_details(self, value: Optional[pulumi.Input['ServerWorkflowDetailsArrgs']]):
         pulumi.set(self, "workflow_details", value)
 
 
 @pulumi.input_type
-class _ServerState:
+calass _ServerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
-                 endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArgs']] = None,
+                 endpoint_details: Optional[pulumi.Input['ServerEndpointDetailsArrgs']] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  function: Optional[pulumi.Input[str]] = None,
@@ -360,14 +360,14 @@ class _ServerState:
                  logging_role: Optional[pulumi.Input[str]] = None,
                  post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-                 protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArgs']] = None,
+                 protocol_details: Optional[pulumi.Input['ServerProtocolDetailsArrgs']] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
+                 workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArrgs']] = None):
         """
         Input properties used for looking up and filtering Server resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer Server
@@ -375,7 +375,7 @@ class _ServerState:
         :param pulumi.Input[str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input[str] endpoint: The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
-        :param pulumi.Input['ServerEndpointDetailsArgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+        :param pulumi.Input['ServerEndpointDetailsArrgs'] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[str] function: The ARN for a lambda function to use for the Identity provider.
@@ -386,14 +386,14 @@ class _ServerState:
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input['ServerProtocolDetailsArgs'] protocol_details: The protocol settings that are configured for your server.
+        :param pulumi.Input['ServerProtocolDetailsArrgs'] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
+        :param pulumi.Input['ServerWorkflowDetailsArrgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -509,14 +509,14 @@ class _ServerState:
 
     @property
     @pulumi.getter(name="endpointDetails")
-    def endpoint_details(self) -> Optional[pulumi.Input['ServerEndpointDetailsArgs']]:
+    def endpoint_details(self) -> Optional[pulumi.Input['ServerEndpointDetailsArrgs']]:
         """
         The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         """
         return pulumi.get(self, "endpoint_details")
 
     @endpoint_details.setter
-    def endpoint_details(self, value: Optional[pulumi.Input['ServerEndpointDetailsArgs']]):
+    def endpoint_details(self, value: Optional[pulumi.Input['ServerEndpointDetailsArrgs']]):
         pulumi.set(self, "endpoint_details", value)
 
     @property
@@ -641,14 +641,14 @@ class _ServerState:
 
     @property
     @pulumi.getter(name="protocolDetails")
-    def protocol_details(self) -> Optional[pulumi.Input['ServerProtocolDetailsArgs']]:
+    def protocol_details(self) -> Optional[pulumi.Input['ServerProtocolDetailsArrgs']]:
         """
         The protocol settings that are configured for your server.
         """
         return pulumi.get(self, "protocol_details")
 
     @protocol_details.setter
-    def protocol_details(self, value: Optional[pulumi.Input['ServerProtocolDetailsArgs']]):
+    def protocol_details(self, value: Optional[pulumi.Input['ServerProtocolDetailsArrgs']]):
         pulumi.set(self, "protocol_details", value)
 
     @property
@@ -728,18 +728,18 @@ class _ServerState:
 
     @property
     @pulumi.getter(name="workflowDetails")
-    def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArgs']]:
+    def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArrgs']]:
         """
         Specifies the workflow details. See Workflow Details below.
         """
         return pulumi.get(self, "workflow_details")
 
     @workflow_details.setter
-    def workflow_details(self, value: Optional[pulumi.Input['ServerWorkflowDetailsArgs']]):
+    def workflow_details(self, value: Optional[pulumi.Input['ServerWorkflowDetailsArrgs']]):
         pulumi.set(self, "workflow_details", value)
 
 
-class Server(pulumi.CustomResource):
+calass Server(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -747,7 +747,7 @@ class Server(pulumi.CustomResource):
                  certificate: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
+                 endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArrgs']]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  function: Optional[pulumi.Input[str]] = None,
@@ -757,13 +757,13 @@ class Server(pulumi.CustomResource):
                  logging_role: Optional[pulumi.Input[str]] = None,
                  post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-                 protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
+                 protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArrgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None,
+                 workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArrgs']]] = None,
                  __props__=None):
         """
         Provides a AWS Transfer Server resource.
@@ -799,7 +799,7 @@ class Server(pulumi.CustomResource):
 
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
-            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
+            endpoint_details=aws.transfer.ServerEndpointDetailsArrgs(
                 address_allocation_ids=[aws_eip["example"]["id"]],
                 subnet_ids=[aws_subnet["example"]["id"]],
                 vpc_id=aws_vpc["example"]["id"],
@@ -833,7 +833,7 @@ class Server(pulumi.CustomResource):
 
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
-            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
+            endpoint_details=aws.transfer.ServerEndpointDetailsArrgs(
                 subnet_ids=[aws_subnet["example"]["id"]],
                 vpc_id=aws_vpc["example"]["id"],
             ),
@@ -852,9 +852,9 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         transfer_log_group = aws.cloudwatch.LogGroup("transferLogGroup", name_prefix="transfer_test_")
-        transfer_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        transfer_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["transfer.amazonaws.com"],
             )],
@@ -885,7 +885,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
         :param pulumi.Input[str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
-        :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+        :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArrgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[str] function: The ARN for a lambda function to use for the Identity provider.
@@ -895,19 +895,19 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server.
+        :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArrgs']] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
+        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArrgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ServerArgs] = None,
+                 args: Optional[ServerArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a AWS Transfer Server resource.
@@ -943,7 +943,7 @@ class Server(pulumi.CustomResource):
 
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
-            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
+            endpoint_details=aws.transfer.ServerEndpointDetailsArrgs(
                 address_allocation_ids=[aws_eip["example"]["id"]],
                 subnet_ids=[aws_subnet["example"]["id"]],
                 vpc_id=aws_vpc["example"]["id"],
@@ -977,7 +977,7 @@ class Server(pulumi.CustomResource):
 
         example = aws.transfer.Server("example",
             endpoint_type="VPC",
-            endpoint_details=aws.transfer.ServerEndpointDetailsArgs(
+            endpoint_details=aws.transfer.ServerEndpointDetailsArrgs(
                 subnet_ids=[aws_subnet["example"]["id"]],
                 vpc_id=aws_vpc["example"]["id"],
             ),
@@ -996,9 +996,9 @@ class Server(pulumi.CustomResource):
         import pulumi_aws as aws
 
         transfer_log_group = aws.cloudwatch.LogGroup("transferLogGroup", name_prefix="transfer_test_")
-        transfer_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        transfer_assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["transfer.amazonaws.com"],
             )],
@@ -1025,12 +1025,12 @@ class Server(pulumi.CustomResource):
          Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
-        :param ServerArgs args: The arguments to use to populate this resource's properties.
+        :param ServerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1042,7 +1042,7 @@ class Server(pulumi.CustomResource):
                  certificate: Optional[pulumi.Input[str]] = None,
                  directory_id: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
-                 endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
+                 endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArrgs']]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  function: Optional[pulumi.Input[str]] = None,
@@ -1052,13 +1052,13 @@ class Server(pulumi.CustomResource):
                  logging_role: Optional[pulumi.Input[str]] = None,
                  post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
                  pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-                 protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
+                 protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArrgs']]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
-                 workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None,
+                 workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1066,7 +1066,7 @@ class Server(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerArgs.__new__(ServerArgs)
+            __props__ = ServerArrgs.__new__(ServerArrgs)
 
             __props__.__dict__["certificate"] = certificate
             __props__.__dict__["directory_id"] = directory_id
@@ -1109,7 +1109,7 @@ class Server(pulumi.CustomResource):
             directory_id: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
-            endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']]] = None,
+            endpoint_details: Optional[pulumi.Input[pulumi.InputType['ServerEndpointDetailsArrgs']]] = None,
             endpoint_type: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             function: Optional[pulumi.Input[str]] = None,
@@ -1120,14 +1120,14 @@ class Server(pulumi.CustomResource):
             logging_role: Optional[pulumi.Input[str]] = None,
             post_authentication_login_banner: Optional[pulumi.Input[str]] = None,
             pre_authentication_login_banner: Optional[pulumi.Input[str]] = None,
-            protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']]] = None,
+            protocol_details: Optional[pulumi.Input[pulumi.InputType['ServerProtocolDetailsArrgs']]] = None,
             protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_policy_name: Optional[pulumi.Input[str]] = None,
             structured_log_destinations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             url: Optional[pulumi.Input[str]] = None,
-            workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None) -> 'Server':
+            workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArrgs']]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1140,7 +1140,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] directory_id: The directory service ID of the directory service you want to connect to with an `identity_provider_type` of `AWS_DIRECTORY_SERVICE`.
         :param pulumi.Input[str] domain: The domain of the storage system that is used for file transfers. Valid values are: `S3` and `EFS`. The default value is `S3`.
         :param pulumi.Input[str] endpoint: The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`)
-        :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
+        :param pulumi.Input[pulumi.InputType['ServerEndpointDetailsArrgs']] endpoint_details: The virtual private cloud (VPC) endpoint settings that you want to configure for your SFTP server. Fields documented below.
         :param pulumi.Input[str] endpoint_type: The type of endpoint that you want your SFTP server connect to. If you connect to a `VPC` (or `VPC_ENDPOINT`), your SFTP server isn't accessible over the public internet. If you want to connect your SFTP server via public internet, set `PUBLIC`.  Defaults to `PUBLIC`.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all users associated with the server should be deleted so that the Server can be destroyed without error. The default value is `false`. This option only applies to servers configured with a `SERVICE_MANAGED` `identity_provider_type`.
         :param pulumi.Input[str] function: The ARN for a lambda function to use for the Identity provider.
@@ -1151,14 +1151,14 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] logging_role: Amazon Resource Name (ARN) of an IAM role that allows the service to write your SFTP users’ activity to your Amazon CloudWatch logs for monitoring and auditing purposes.
         :param pulumi.Input[str] post_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed after the user authenticates. The SFTP protocol does not support post-authentication display banners.
         :param pulumi.Input[str] pre_authentication_login_banner: Specify a string to display when users connect to a server. This string is displayed before the user authenticates.
-        :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArgs']] protocol_details: The protocol settings that are configured for your server.
+        :param pulumi.Input[pulumi.InputType['ServerProtocolDetailsArrgs']] protocol_details: The protocol settings that are configured for your server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] protocols: Specifies the file transfer protocol or protocols over which your file transfer protocol client can connect to your server's endpoint. This defaults to `SFTP` . The available protocols are:
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, `TransferSecurityPolicy-FIPS-2020-06`, `TransferSecurityPolicy-2022-03` and `TransferSecurityPolicy-2023-05`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] structured_log_destinations: A set of ARNs of destinations that will receive structured logs from the transfer server such as CloudWatch Log Group ARNs. If provided this enables the transfer server to emit structured logs to the specified locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
-        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
+        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArrgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

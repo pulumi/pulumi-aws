@@ -11,286 +11,286 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AmiCopyEbsBlockDeviceArgs',
-    'AmiCopyEphemeralBlockDeviceArgs',
-    'AmiEbsBlockDeviceArgs',
-    'AmiEphemeralBlockDeviceArgs',
-    'AmiFromInstanceEbsBlockDeviceArgs',
-    'AmiFromInstanceEphemeralBlockDeviceArgs',
-    'DefaultNetworkAclEgressArgs',
-    'DefaultNetworkAclIngressArgs',
-    'DefaultRouteTableRouteArgs',
-    'DefaultSecurityGroupEgressArgs',
-    'DefaultSecurityGroupIngressArgs',
-    'FleetFleetInstanceSetArgs',
-    'FleetLaunchTemplateConfigArgs',
-    'FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs',
-    'FleetLaunchTemplateConfigOverrideArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs',
-    'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs',
-    'FleetOnDemandOptionsArgs',
-    'FleetSpotOptionsArgs',
-    'FleetSpotOptionsMaintenanceStrategiesArgs',
-    'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs',
-    'FleetTargetCapacitySpecificationArgs',
-    'FlowLogDestinationOptionsArgs',
-    'InstanceCapacityReservationSpecificationArgs',
-    'InstanceCapacityReservationSpecificationCapacityReservationTargetArgs',
-    'InstanceCpuOptionsArgs',
-    'InstanceCreditSpecificationArgs',
-    'InstanceEbsBlockDeviceArgs',
-    'InstanceEnclaveOptionsArgs',
-    'InstanceEphemeralBlockDeviceArgs',
-    'InstanceInstanceMarketOptionsArgs',
-    'InstanceInstanceMarketOptionsSpotOptionsArgs',
-    'InstanceLaunchTemplateArgs',
-    'InstanceMaintenanceOptionsArgs',
-    'InstanceMetadataOptionsArgs',
-    'InstanceNetworkInterfaceArgs',
-    'InstancePrivateDnsNameOptionsArgs',
-    'InstanceRootBlockDeviceArgs',
-    'LaunchConfigurationEbsBlockDeviceArgs',
-    'LaunchConfigurationEphemeralBlockDeviceArgs',
-    'LaunchConfigurationMetadataOptionsArgs',
-    'LaunchConfigurationRootBlockDeviceArgs',
-    'LaunchTemplateBlockDeviceMappingArgs',
-    'LaunchTemplateBlockDeviceMappingEbsArgs',
-    'LaunchTemplateCapacityReservationSpecificationArgs',
-    'LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs',
-    'LaunchTemplateCpuOptionsArgs',
-    'LaunchTemplateCreditSpecificationArgs',
-    'LaunchTemplateElasticGpuSpecificationArgs',
-    'LaunchTemplateElasticInferenceAcceleratorArgs',
-    'LaunchTemplateEnclaveOptionsArgs',
-    'LaunchTemplateHibernationOptionsArgs',
-    'LaunchTemplateIamInstanceProfileArgs',
-    'LaunchTemplateInstanceMarketOptionsArgs',
-    'LaunchTemplateInstanceMarketOptionsSpotOptionsArgs',
-    'LaunchTemplateInstanceRequirementsArgs',
-    'LaunchTemplateInstanceRequirementsAcceleratorCountArgs',
-    'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs',
-    'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
-    'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs',
-    'LaunchTemplateInstanceRequirementsMemoryMibArgs',
-    'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs',
-    'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs',
-    'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs',
-    'LaunchTemplateInstanceRequirementsVcpuCountArgs',
-    'LaunchTemplateLicenseSpecificationArgs',
-    'LaunchTemplateMaintenanceOptionsArgs',
-    'LaunchTemplateMetadataOptionsArgs',
-    'LaunchTemplateMonitoringArgs',
-    'LaunchTemplateNetworkInterfaceArgs',
-    'LaunchTemplatePlacementArgs',
-    'LaunchTemplatePrivateDnsNameOptionsArgs',
-    'LaunchTemplateTagSpecificationArgs',
-    'ManagedPrefixListEntryArgs',
-    'NetworkAclEgressArgs',
-    'NetworkAclIngressArgs',
-    'NetworkInsightsAnalysisAlternatePathHintArgs',
-    'NetworkInsightsAnalysisExplanationArgs',
-    'NetworkInsightsAnalysisExplanationAclArgs',
-    'NetworkInsightsAnalysisExplanationAclRuleArgs',
-    'NetworkInsightsAnalysisExplanationAclRulePortRangeArgs',
-    'NetworkInsightsAnalysisExplanationAttachedToArgs',
-    'NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs',
-    'NetworkInsightsAnalysisExplanationComponentArgs',
-    'NetworkInsightsAnalysisExplanationCustomerGatewayArgs',
-    'NetworkInsightsAnalysisExplanationDestinationArgs',
-    'NetworkInsightsAnalysisExplanationDestinationVpcArgs',
-    'NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs',
-    'NetworkInsightsAnalysisExplanationIngressRouteTableArgs',
-    'NetworkInsightsAnalysisExplanationInternetGatewayArgs',
-    'NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs',
-    'NetworkInsightsAnalysisExplanationNatGatewayArgs',
-    'NetworkInsightsAnalysisExplanationNetworkInterfaceArgs',
-    'NetworkInsightsAnalysisExplanationPortRangeArgs',
-    'NetworkInsightsAnalysisExplanationPrefixListArgs',
-    'NetworkInsightsAnalysisExplanationRouteTableArgs',
-    'NetworkInsightsAnalysisExplanationRouteTableRouteArgs',
-    'NetworkInsightsAnalysisExplanationSecurityGroupArgs',
-    'NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs',
-    'NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs',
-    'NetworkInsightsAnalysisExplanationSourceVpcArgs',
-    'NetworkInsightsAnalysisExplanationSubnetArgs',
-    'NetworkInsightsAnalysisExplanationSubnetRouteTableArgs',
-    'NetworkInsightsAnalysisExplanationTransitGatewayArgs',
-    'NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs',
-    'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs',
-    'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs',
-    'NetworkInsightsAnalysisExplanationVpcArgs',
-    'NetworkInsightsAnalysisExplanationVpcEndpointArgs',
-    'NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs',
-    'NetworkInsightsAnalysisExplanationVpnConnectionArgs',
-    'NetworkInsightsAnalysisExplanationVpnGatewayArgs',
-    'NetworkInsightsAnalysisForwardPathComponentArgs',
-    'NetworkInsightsAnalysisForwardPathComponentAclRuleArgs',
-    'NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs',
-    'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs',
-    'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs',
-    'NetworkInsightsAnalysisForwardPathComponentAttachedToArgs',
-    'NetworkInsightsAnalysisForwardPathComponentComponentArgs',
-    'NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs',
-    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs',
-    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs',
-    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs',
-    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs',
-    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs',
-    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs',
-    'NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs',
-    'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs',
-    'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs',
-    'NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs',
-    'NetworkInsightsAnalysisForwardPathComponentSubnetArgs',
-    'NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs',
-    'NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs',
-    'NetworkInsightsAnalysisForwardPathComponentVpcArgs',
-    'NetworkInsightsAnalysisReturnPathComponentArgs',
-    'NetworkInsightsAnalysisReturnPathComponentAclRuleArgs',
-    'NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs',
-    'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs',
-    'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs',
-    'NetworkInsightsAnalysisReturnPathComponentAttachedToArgs',
-    'NetworkInsightsAnalysisReturnPathComponentComponentArgs',
-    'NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs',
-    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs',
-    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs',
-    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs',
-    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs',
-    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs',
-    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs',
-    'NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs',
-    'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs',
-    'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs',
-    'NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs',
-    'NetworkInsightsAnalysisReturnPathComponentSubnetArgs',
-    'NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs',
-    'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs',
-    'NetworkInsightsAnalysisReturnPathComponentVpcArgs',
-    'NetworkInterfaceAttachmentArgs',
-    'PeeringConnectionOptionsAccepterArgs',
-    'PeeringConnectionOptionsRequesterArgs',
-    'RouteTableRouteArgs',
-    'SecurityGroupEgressArgs',
-    'SecurityGroupIngressArgs',
-    'SpotFleetRequestLaunchSpecificationArgs',
-    'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs',
-    'SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs',
-    'SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs',
-    'SpotFleetRequestLaunchTemplateConfigArgs',
-    'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs',
-    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs',
-    'SpotFleetRequestSpotMaintenanceStrategiesArgs',
-    'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs',
-    'SpotInstanceRequestCapacityReservationSpecificationArgs',
-    'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs',
-    'SpotInstanceRequestCpuOptionsArgs',
-    'SpotInstanceRequestCreditSpecificationArgs',
-    'SpotInstanceRequestEbsBlockDeviceArgs',
-    'SpotInstanceRequestEnclaveOptionsArgs',
-    'SpotInstanceRequestEphemeralBlockDeviceArgs',
-    'SpotInstanceRequestLaunchTemplateArgs',
-    'SpotInstanceRequestMaintenanceOptionsArgs',
-    'SpotInstanceRequestMetadataOptionsArgs',
-    'SpotInstanceRequestNetworkInterfaceArgs',
-    'SpotInstanceRequestPrivateDnsNameOptionsArgs',
-    'SpotInstanceRequestRootBlockDeviceArgs',
-    'TrafficMirrorFilterRuleDestinationPortRangeArgs',
-    'TrafficMirrorFilterRuleSourcePortRangeArgs',
-    'VpcEndpointDnsEntryArgs',
-    'VpcEndpointDnsOptionsArgs',
-    'VpcEndpointServicePrivateDnsNameConfigurationArgs',
-    'VpcIpamOperatingRegionArgs',
-    'VpcIpamPoolCidrCidrAuthorizationContextArgs',
-    'VpcIpamResourceDiscoveryOperatingRegionArgs',
-    'VpcPeeringConnectionAccepterArgs',
-    'VpcPeeringConnectionAccepterAccepterArgs',
-    'VpcPeeringConnectionAccepterRequesterArgs',
-    'VpcPeeringConnectionRequesterArgs',
-    'VpnConnectionRouteArgs',
-    'VpnConnectionTunnel1LogOptionsArgs',
-    'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs',
-    'VpnConnectionTunnel2LogOptionsArgs',
-    'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs',
-    'VpnConnectionVgwTelemetryArgs',
-    'GetAmiFilterArgs',
-    'GetAmiIdsFilterArgs',
-    'GetCoipPoolFilterArgs',
-    'GetCoipPoolsFilterArgs',
-    'GetCustomerGatewayFilterArgs',
-    'GetDedicatedHostFilterArgs',
-    'GetEipsFilterArgs',
-    'GetElasticIpFilterArgs',
-    'GetInstanceFilterArgs',
-    'GetInstanceTypeOfferingFilterArgs',
-    'GetInstanceTypeOfferingsFilterArgs',
-    'GetInstanceTypesFilterArgs',
-    'GetInstancesFilterArgs',
-    'GetInternetGatewayFilterArgs',
-    'GetKeyPairFilterArgs',
-    'GetLaunchTemplateFilterArgs',
-    'GetLocalGatewayFilterArgs',
-    'GetLocalGatewayRouteTableFilterArgs',
-    'GetLocalGatewayRouteTablesFilterArgs',
-    'GetLocalGatewayVirtualInterfaceFilterArgs',
-    'GetLocalGatewayVirtualInterfaceGroupFilterArgs',
-    'GetLocalGatewayVirtualInterfaceGroupsFilterArgs',
-    'GetLocalGatewaysFilterArgs',
-    'GetManagedPrefixListFilterArgs',
-    'GetManagedPrefixListsFilterArgs',
-    'GetNatGatewayFilterArgs',
-    'GetNatGatewaysFilterArgs',
-    'GetNetworkAclsFilterArgs',
-    'GetNetworkInsightsAnalysisFilterArgs',
-    'GetNetworkInsightsPathFilterArgs',
-    'GetNetworkInterfaceFilterArgs',
-    'GetNetworkInterfacesFilterArgs',
-    'GetPrefixListFilterArgs',
-    'GetPublicIpv4PoolsFilterArgs',
-    'GetRouteTableFilterArgs',
-    'GetRouteTablesFilterArgs',
-    'GetSecurityGroupFilterArgs',
-    'GetSecurityGroupsFilterArgs',
-    'GetSpotPriceFilterArgs',
-    'GetSubnetFilterArgs',
-    'GetSubnetsFilterArgs',
-    'GetTransitGatewayRouteTablesFilterArgs',
-    'GetVpcDhcpOptionsFilterArgs',
-    'GetVpcEndpointFilterArgs',
-    'GetVpcEndpointServiceFilterArgs',
-    'GetVpcFilterArgs',
-    'GetVpcIamPoolCidrsFilterArgs',
-    'GetVpcIamPoolFilterArgs',
-    'GetVpcIamPoolsFilterArgs',
-    'GetVpcIpamPoolCidrsFilterArgs',
-    'GetVpcIpamPoolFilterArgs',
-    'GetVpcIpamPoolsFilterArgs',
-    'GetVpcPeeringConnectionFilterArgs',
-    'GetVpcPeeringConnectionsFilterArgs',
-    'GetVpcsFilterArgs',
-    'GetVpnGatewayFilterArgs',
+    'AmiCopyEbsBlockDeviceArrgs',
+    'AmiCopyEphemeralBlockDeviceArrgs',
+    'AmiEbsBlockDeviceArrgs',
+    'AmiEphemeralBlockDeviceArrgs',
+    'AmiFromInstanceEbsBlockDeviceArrgs',
+    'AmiFromInstanceEphemeralBlockDeviceArrgs',
+    'DefaultNetworkAclEgressArrgs',
+    'DefaultNetworkAclIngressArrgs',
+    'DefaultRouteTableRouteArrgs',
+    'DefaultSecurityGroupEgressArrgs',
+    'DefaultSecurityGroupIngressArrgs',
+    'FleetFleetInstanceSetArrgs',
+    'FleetLaunchTemplateConfigArrgs',
+    'FleetLaunchTemplateConfigLaunchTemplateSpecificationArrgs',
+    'FleetLaunchTemplateConfigOverrideArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs',
+    'FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs',
+    'FleetOnDemandOptionsArrgs',
+    'FleetSpotOptionsArrgs',
+    'FleetSpotOptionsMaintenanceStrategiesArrgs',
+    'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArrgs',
+    'FleetTargetCapacitySpecificationArrgs',
+    'FlowLogDestinationOptionsArrgs',
+    'InstanceCapacityReservationSpecificationArrgs',
+    'InstanceCapacityReservationSpecificationCapacityReservationTargetArrgs',
+    'InstanceCpuOptionsArrgs',
+    'InstanceCreditSpecificationArrgs',
+    'InstanceEbsBlockDeviceArrgs',
+    'InstanceEnclaveOptionsArrgs',
+    'InstanceEphemeralBlockDeviceArrgs',
+    'InstanceInstanceMarketOptionsArrgs',
+    'InstanceInstanceMarketOptionsSpotOptionsArrgs',
+    'InstanceLaunchTemplateArrgs',
+    'InstanceMaintenanceOptionsArrgs',
+    'InstanceMetadataOptionsArrgs',
+    'InstanceNetworkInterfaceArrgs',
+    'InstancePrivateDnsNameOptionsArrgs',
+    'InstanceRootBlockDeviceArrgs',
+    'LaunchConfigurationEbsBlockDeviceArrgs',
+    'LaunchConfigurationEphemeralBlockDeviceArrgs',
+    'LaunchConfigurationMetadataOptionsArrgs',
+    'LaunchConfigurationRootBlockDeviceArrgs',
+    'LaunchTemplateBlockDeviceMappingArrgs',
+    'LaunchTemplateBlockDeviceMappingEbsArrgs',
+    'LaunchTemplateCapacityReservationSpecificationArrgs',
+    'LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArrgs',
+    'LaunchTemplateCpuOptionsArrgs',
+    'LaunchTemplateCreditSpecificationArrgs',
+    'LaunchTemplateElasticGpuSpecificationArrgs',
+    'LaunchTemplateElasticInferenceAcceleratorArrgs',
+    'LaunchTemplateEnclaveOptionsArrgs',
+    'LaunchTemplateHibernationOptionsArrgs',
+    'LaunchTemplateIamInstanceProfileArrgs',
+    'LaunchTemplateInstanceMarketOptionsArrgs',
+    'LaunchTemplateInstanceMarketOptionsSpotOptionsArrgs',
+    'LaunchTemplateInstanceRequirementsArrgs',
+    'LaunchTemplateInstanceRequirementsAcceleratorCountArrgs',
+    'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArrgs',
+    'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArrgs',
+    'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArrgs',
+    'LaunchTemplateInstanceRequirementsMemoryMibArrgs',
+    'LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArrgs',
+    'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArrgs',
+    'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArrgs',
+    'LaunchTemplateInstanceRequirementsVcpuCountArrgs',
+    'LaunchTemplateLicenseSpecificationArrgs',
+    'LaunchTemplateMaintenanceOptionsArrgs',
+    'LaunchTemplateMetadataOptionsArrgs',
+    'LaunchTemplateMonitoringArrgs',
+    'LaunchTemplateNetworkInterfaceArrgs',
+    'LaunchTemplatePlacementArrgs',
+    'LaunchTemplatePrivateDnsNameOptionsArrgs',
+    'LaunchTemplateTagSpecificationArrgs',
+    'ManagedPrefixListEntryArrgs',
+    'NetworkAclEgressArrgs',
+    'NetworkAclIngressArrgs',
+    'NetworkInsightsAnalysisAlternatePathHintArrgs',
+    'NetworkInsightsAnalysisExplanationArrgs',
+    'NetworkInsightsAnalysisExplanationAclArrgs',
+    'NetworkInsightsAnalysisExplanationAclRuleArrgs',
+    'NetworkInsightsAnalysisExplanationAclRulePortRangeArrgs',
+    'NetworkInsightsAnalysisExplanationAttachedToArrgs',
+    'NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArrgs',
+    'NetworkInsightsAnalysisExplanationComponentArrgs',
+    'NetworkInsightsAnalysisExplanationCustomerGatewayArrgs',
+    'NetworkInsightsAnalysisExplanationDestinationArrgs',
+    'NetworkInsightsAnalysisExplanationDestinationVpcArrgs',
+    'NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArrgs',
+    'NetworkInsightsAnalysisExplanationIngressRouteTableArrgs',
+    'NetworkInsightsAnalysisExplanationInternetGatewayArrgs',
+    'NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrgs',
+    'NetworkInsightsAnalysisExplanationNatGatewayArrgs',
+    'NetworkInsightsAnalysisExplanationNetworkInterfaceArrgs',
+    'NetworkInsightsAnalysisExplanationPortRangeArrgs',
+    'NetworkInsightsAnalysisExplanationPrefixListArrgs',
+    'NetworkInsightsAnalysisExplanationRouteTableArrgs',
+    'NetworkInsightsAnalysisExplanationRouteTableRouteArrgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupArrgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupRuleArrgs',
+    'NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArrgs',
+    'NetworkInsightsAnalysisExplanationSourceVpcArrgs',
+    'NetworkInsightsAnalysisExplanationSubnetArrgs',
+    'NetworkInsightsAnalysisExplanationSubnetRouteTableArrgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayArrgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArrgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArrgs',
+    'NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArrgs',
+    'NetworkInsightsAnalysisExplanationVpcArrgs',
+    'NetworkInsightsAnalysisExplanationVpcEndpointArrgs',
+    'NetworkInsightsAnalysisExplanationVpcPeeringConnectionArrgs',
+    'NetworkInsightsAnalysisExplanationVpnConnectionArrgs',
+    'NetworkInsightsAnalysisExplanationVpnGatewayArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentAclRuleArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentAttachedToArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentComponentArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentDestinationVpcArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentSourceVpcArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentSubnetArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentTransitGatewayArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArrgs',
+    'NetworkInsightsAnalysisForwardPathComponentVpcArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentAclRuleArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentAttachedToArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentComponentArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentDestinationVpcArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentSourceVpcArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentSubnetArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentTransitGatewayArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArrgs',
+    'NetworkInsightsAnalysisReturnPathComponentVpcArrgs',
+    'NetworkInterfaceAttachmentArrgs',
+    'PeeringConnectionOptionsAccepterArrgs',
+    'PeeringConnectionOptionsRequesterArrgs',
+    'RouteTableRouteArrgs',
+    'SecurityGroupEgressArrgs',
+    'SecurityGroupIngressArrgs',
+    'SpotFleetRequestLaunchSpecificationArrgs',
+    'SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrgs',
+    'SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrgs',
+    'SpotFleetRequestLaunchSpecificationRootBlockDeviceArrgs',
+    'SpotFleetRequestLaunchTemplateConfigArrgs',
+    'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs',
+    'SpotFleetRequestSpotMaintenanceStrategiesArrgs',
+    'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArrgs',
+    'SpotInstanceRequestCapacityReservationSpecificationArrgs',
+    'SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArrgs',
+    'SpotInstanceRequestCpuOptionsArrgs',
+    'SpotInstanceRequestCreditSpecificationArrgs',
+    'SpotInstanceRequestEbsBlockDeviceArrgs',
+    'SpotInstanceRequestEnclaveOptionsArrgs',
+    'SpotInstanceRequestEphemeralBlockDeviceArrgs',
+    'SpotInstanceRequestLaunchTemplateArrgs',
+    'SpotInstanceRequestMaintenanceOptionsArrgs',
+    'SpotInstanceRequestMetadataOptionsArrgs',
+    'SpotInstanceRequestNetworkInterfaceArrgs',
+    'SpotInstanceRequestPrivateDnsNameOptionsArrgs',
+    'SpotInstanceRequestRootBlockDeviceArrgs',
+    'TrafficMirrorFilterRuleDestinationPortRangeArrgs',
+    'TrafficMirrorFilterRuleSourcePortRangeArrgs',
+    'VpcEndpointDnsEntryArrgs',
+    'VpcEndpointDnsOptionsArrgs',
+    'VpcEndpointServicePrivateDnsNameConfigurationArrgs',
+    'VpcIpamOperatingRegionArrgs',
+    'VpcIpamPoolCidrCidrAuthorizationContextArrgs',
+    'VpcIpamResourceDiscoveryOperatingRegionArrgs',
+    'VpcPeeringConnectionAccepterArrgs',
+    'VpcPeeringConnectionAccepterAccepterArrgs',
+    'VpcPeeringConnectionAccepterRequesterArrgs',
+    'VpcPeeringConnectionRequesterArrgs',
+    'VpnConnectionRouteArrgs',
+    'VpnConnectionTunnel1LogOptionsArrgs',
+    'VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArrgs',
+    'VpnConnectionTunnel2LogOptionsArrgs',
+    'VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArrgs',
+    'VpnConnectionVgwTelemetryArrgs',
+    'GetAmiFilterArrgs',
+    'GetAmiIdsFilterArrgs',
+    'GetCoipPoolFilterArrgs',
+    'GetCoipPoolsFilterArrgs',
+    'GetCustomerGatewayFilterArrgs',
+    'GetDedicatedHostFilterArrgs',
+    'GetEipsFilterArrgs',
+    'GetElasticIpFilterArrgs',
+    'GetInstanceFilterArrgs',
+    'GetInstanceTypeOfferingFilterArrgs',
+    'GetInstanceTypeOfferingsFilterArrgs',
+    'GetInstanceTypesFilterArrgs',
+    'GetInstancesFilterArrgs',
+    'GetInternetGatewayFilterArrgs',
+    'GetKeyPairFilterArrgs',
+    'GetLaunchTemplateFilterArrgs',
+    'GetLocalGatewayFilterArrgs',
+    'GetLocalGatewayRouteTableFilterArrgs',
+    'GetLocalGatewayRouteTablesFilterArrgs',
+    'GetLocalGatewayVirtualInterfaceFilterArrgs',
+    'GetLocalGatewayVirtualInterfaceGroupFilterArrgs',
+    'GetLocalGatewayVirtualInterfaceGroupsFilterArrgs',
+    'GetLocalGatewaysFilterArrgs',
+    'GetManagedPrefixListFilterArrgs',
+    'GetManagedPrefixListsFilterArrgs',
+    'GetNatGatewayFilterArrgs',
+    'GetNatGatewaysFilterArrgs',
+    'GetNetworkAclsFilterArrgs',
+    'GetNetworkInsightsAnalysisFilterArrgs',
+    'GetNetworkInsightsPathFilterArrgs',
+    'GetNetworkInterfaceFilterArrgs',
+    'GetNetworkInterfacesFilterArrgs',
+    'GetPrefixListFilterArrgs',
+    'GetPublicIpv4PoolsFilterArrgs',
+    'GetRouteTableFilterArrgs',
+    'GetRouteTablesFilterArrgs',
+    'GetSecurityGroupFilterArrgs',
+    'GetSecurityGroupsFilterArrgs',
+    'GetSpotPriceFilterArrgs',
+    'GetSubnetFilterArrgs',
+    'GetSubnetsFilterArrgs',
+    'GetTransitGatewayRouteTablesFilterArrgs',
+    'GetVpcDhcpOptionsFilterArrgs',
+    'GetVpcEndpointFilterArrgs',
+    'GetVpcEndpointServiceFilterArrgs',
+    'GetVpcFilterArrgs',
+    'GetVpcIamPoolCidrsFilterArrgs',
+    'GetVpcIamPoolFilterArrgs',
+    'GetVpcIamPoolsFilterArrgs',
+    'GetVpcIpamPoolCidrsFilterArrgs',
+    'GetVpcIpamPoolFilterArrgs',
+    'GetVpcIpamPoolsFilterArrgs',
+    'GetVpcPeeringConnectionFilterArrgs',
+    'GetVpcPeeringConnectionsFilterArrgs',
+    'GetVpcsFilterArrgs',
+    'GetVpnGatewayFilterArrgs',
 ]
 
 @pulumi.input_type
-class AmiCopyEbsBlockDeviceArgs:
+calass AmiCopyEbsBlockDeviceArrgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -457,7 +457,7 @@ class AmiCopyEbsBlockDeviceArgs:
 
 
 @pulumi.input_type
-class AmiCopyEphemeralBlockDeviceArgs:
+calass AmiCopyEphemeralBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: Optional[pulumi.Input[str]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
@@ -498,7 +498,7 @@ class AmiCopyEphemeralBlockDeviceArgs:
 
 
 @pulumi.input_type
-class AmiEbsBlockDeviceArgs:
+calass AmiEbsBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -664,7 +664,7 @@ class AmiEbsBlockDeviceArgs:
 
 
 @pulumi.input_type
-class AmiEphemeralBlockDeviceArgs:
+calass AmiEphemeralBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  virtual_name: pulumi.Input[str]):
@@ -703,7 +703,7 @@ class AmiEphemeralBlockDeviceArgs:
 
 
 @pulumi.input_type
-class AmiFromInstanceEbsBlockDeviceArgs:
+calass AmiFromInstanceEbsBlockDeviceArrgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -870,7 +870,7 @@ class AmiFromInstanceEbsBlockDeviceArgs:
 
 
 @pulumi.input_type
-class AmiFromInstanceEphemeralBlockDeviceArgs:
+calass AmiFromInstanceEphemeralBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: Optional[pulumi.Input[str]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
@@ -911,7 +911,7 @@ class AmiFromInstanceEphemeralBlockDeviceArgs:
 
 
 @pulumi.input_type
-class DefaultNetworkAclEgressArgs:
+calass DefaultNetworkAclEgressArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  from_port: pulumi.Input[int],
@@ -1065,7 +1065,7 @@ class DefaultNetworkAclEgressArgs:
 
 
 @pulumi.input_type
-class DefaultNetworkAclIngressArgs:
+calass DefaultNetworkAclIngressArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  from_port: pulumi.Input[int],
@@ -1219,7 +1219,7 @@ class DefaultNetworkAclIngressArgs:
 
 
 @pulumi.input_type
-class DefaultRouteTableRouteArgs:
+calass DefaultRouteTableRouteArrgs:
     def __init__(__self__, *,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  core_network_arn: Optional[pulumi.Input[str]] = None,
@@ -1426,7 +1426,7 @@ class DefaultRouteTableRouteArgs:
 
 
 @pulumi.input_type
-class DefaultSecurityGroupEgressArgs:
+calass DefaultSecurityGroupEgressArrgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
@@ -1574,7 +1574,7 @@ class DefaultSecurityGroupEgressArgs:
 
 
 @pulumi.input_type
-class DefaultSecurityGroupIngressArgs:
+calass DefaultSecurityGroupIngressArrgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
@@ -1722,7 +1722,7 @@ class DefaultSecurityGroupIngressArgs:
 
 
 @pulumi.input_type
-class FleetFleetInstanceSetArgs:
+calass FleetFleetInstanceSetArrgs:
     def __init__(__self__, *,
                  instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
@@ -1793,13 +1793,13 @@ class FleetFleetInstanceSetArgs:
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigArgs:
+calass FleetLaunchTemplateConfigArrgs:
     def __init__(__self__, *,
-                 launch_template_specification: Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgs']]]] = None):
+                 launch_template_specification: Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArrgs']] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArrgs']]]] = None):
         """
-        :param pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs'] launch_template_specification: Nested argument containing EC2 Launch Template to use. Defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgs']]] overrides: Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
+        :param pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArrgs'] launch_template_specification: Nested argument containing EC2 Launch Template to use. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArrgs']]] overrides: Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
         """
         if launch_template_specification is not None:
             pulumi.set(__self__, "launch_template_specification", launch_template_specification)
@@ -1808,31 +1808,31 @@ class FleetLaunchTemplateConfigArgs:
 
     @property
     @pulumi.getter(name="launchTemplateSpecification")
-    def launch_template_specification(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']]:
+    def launch_template_specification(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArrgs']]:
         """
         Nested argument containing EC2 Launch Template to use. Defined below.
         """
         return pulumi.get(self, "launch_template_specification")
 
     @launch_template_specification.setter
-    def launch_template_specification(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs']]):
+    def launch_template_specification(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigLaunchTemplateSpecificationArrgs']]):
         pulumi.set(self, "launch_template_specification", value)
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgs']]]]:
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArrgs']]]]:
         """
         Nested argument(s) containing parameters to override the same parameters in the Launch Template. Defined below.
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArgs']]]]):
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetLaunchTemplateConfigOverrideArrgs']]]]):
         pulumi.set(self, "overrides", value)
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs:
+calass FleetLaunchTemplateConfigLaunchTemplateSpecificationArrgs:
     def __init__(__self__, *,
                  version: pulumi.Input[str],
                  launch_template_id: Optional[pulumi.Input[str]] = None,
@@ -1886,10 +1886,10 @@ class FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs:
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideArgs:
+calass FleetLaunchTemplateConfigOverrideArrgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 instance_requirements: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs']] = None,
+                 instance_requirements: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArrgs']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  max_price: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[float]] = None,
@@ -1897,7 +1897,7 @@ class FleetLaunchTemplateConfigOverrideArgs:
                  weighted_capacity: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] availability_zone: Availability Zone in which to launch the instances.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs'] instance_requirements: Override the instance type in the Launch Template with instance types that satisfy the requirements.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArrgs'] instance_requirements: Override the instance type in the Launch Template with instance types that satisfy the requirements.
         :param pulumi.Input[str] instance_type: Instance type.
         :param pulumi.Input[str] max_price: Maximum price per unit hour that you are willing to pay for a Spot Instance.
         :param pulumi.Input[float] priority: Priority for the launch template override. If `on_demand_options` `allocation_strategy` is set to `prioritized`, EC2 Fleet uses priority to determine which launch template override to use first in fulfilling On-Demand capacity. The highest priority is launched first. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority. Valid values are whole numbers starting at 0.
@@ -1933,14 +1933,14 @@ class FleetLaunchTemplateConfigOverrideArgs:
 
     @property
     @pulumi.getter(name="instanceRequirements")
-    def instance_requirements(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs']]:
+    def instance_requirements(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArrgs']]:
         """
         Override the instance type in the Launch Template with instance types that satisfy the requirements.
         """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
-    def instance_requirements(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs']]):
+    def instance_requirements(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsArrgs']]):
         pulumi.set(self, "instance_requirements", value)
 
     @property
@@ -2005,44 +2005,44 @@ class FleetLaunchTemplateConfigOverrideArgs:
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsArrgs:
     def __init__(__self__, *,
-                 memory_mib: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'],
-                 vcpu_count: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs'],
-                 accelerator_count: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']] = None,
+                 memory_mib: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs'],
+                 vcpu_count: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs'],
+                 accelerator_count: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs']] = None,
                  accelerator_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 accelerator_total_memory_mib: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']] = None,
+                 accelerator_total_memory_mib: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
-                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']] = None,
+                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
                  cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  local_storage: Optional[pulumi.Input[str]] = None,
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 memory_gib_per_vcpu: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
-                 network_bandwidth_gbps: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']] = None,
-                 network_interface_count: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']] = None,
+                 memory_gib_per_vcpu: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs']] = None,
+                 network_interface_count: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
-                 total_local_storage_gb: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']] = None):
+                 total_local_storage_gb: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs']] = None):
         """
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs'] memory_mib: The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: The accelerator types that must be on the instance type. Default is any accelerator type.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes. You can use strings with one or more wild cards,represented by an asterisk (\\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types. Default is any instance type.
                
                If you specify `AllowedInstanceTypes`, you can't specify `ExcludedInstanceTypes`.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[str] burstable_performance: Indicates whether burstable performance T instance types are `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: The CPU manufacturers to include. Default is any manufacturer.
                > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
@@ -2052,9 +2052,9 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: Indicates whether current or previous generation instance types are included. The current generation instance types are recommended for use. Valid values are `current` and `previous`. Default is `current` and `previous` generation instance types.
         :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Valid values are `hdd` and `ssd`. Default any storage type.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs'] network_bandwidth_gbps: The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
                
                If you set `target_capacity_unit_type` to `vcpu` or `memory-mib`, the price protection threshold is applied based on the per-vCPU or per-memory price instead of the per-instance price.
@@ -2062,7 +2062,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        :param pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         pulumi.set(__self__, "memory_mib", memory_mib)
         pulumi.set(__self__, "vcpu_count", vcpu_count)
@@ -2111,38 +2111,38 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="memoryMib")
-    def memory_mib(self) -> pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']:
+    def memory_mib(self) -> pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs']:
         """
         The minimum and maximum amount of memory per vCPU, in GiB. Default is no minimum or maximum limits.
         """
         return pulumi.get(self, "memory_mib")
 
     @memory_mib.setter
-    def memory_mib(self, value: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']):
+    def memory_mib(self, value: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs']):
         pulumi.set(self, "memory_mib", value)
 
     @property
     @pulumi.getter(name="vcpuCount")
-    def vcpu_count(self) -> pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']:
+    def vcpu_count(self) -> pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs']:
         """
         Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
         return pulumi.get(self, "vcpu_count")
 
     @vcpu_count.setter
-    def vcpu_count(self, value: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']):
+    def vcpu_count(self, value: pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs']):
         pulumi.set(self, "vcpu_count", value)
 
     @property
     @pulumi.getter(name="acceleratorCount")
-    def accelerator_count(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]:
+    def accelerator_count(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs']]:
         """
         Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum limits.
         """
         return pulumi.get(self, "accelerator_count")
 
     @accelerator_count.setter
-    def accelerator_count(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]):
+    def accelerator_count(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs']]):
         pulumi.set(self, "accelerator_count", value)
 
     @property
@@ -2171,14 +2171,14 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMib")
-    def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]:
+    def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs']]:
         """
         Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         """
         return pulumi.get(self, "accelerator_total_memory_mib")
 
     @accelerator_total_memory_mib.setter
-    def accelerator_total_memory_mib(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]):
+    def accelerator_total_memory_mib(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs']]):
         pulumi.set(self, "accelerator_total_memory_mib", value)
 
     @property
@@ -2221,14 +2221,14 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
-    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]:
+    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']]:
         """
         Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
     @baseline_ebs_bandwidth_mbps.setter
-    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]):
+    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']]):
         pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
 
     @property
@@ -2308,38 +2308,38 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="memoryGibPerVcpu")
-    def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]:
+    def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs']]:
         """
         Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         """
         return pulumi.get(self, "memory_gib_per_vcpu")
 
     @memory_gib_per_vcpu.setter
-    def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]):
+    def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs']]):
         pulumi.set(self, "memory_gib_per_vcpu", value)
 
     @property
     @pulumi.getter(name="networkBandwidthGbps")
-    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]:
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs']]:
         """
         The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is No minimum or maximum.
         """
         return pulumi.get(self, "network_bandwidth_gbps")
 
     @network_bandwidth_gbps.setter
-    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]):
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs']]):
         pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
-    def network_interface_count(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']]:
+    def network_interface_count(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs']]:
         """
         Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         """
         return pulumi.get(self, "network_interface_count")
 
     @network_interface_count.setter
-    def network_interface_count(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']]):
+    def network_interface_count(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs']]):
         pulumi.set(self, "network_interface_count", value)
 
     @property
@@ -2384,19 +2384,19 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
-    def total_local_storage_gb(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']]:
+    def total_local_storage_gb(self) -> Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs']]:
         """
         Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         return pulumi.get(self, "total_local_storage_gb")
 
     @total_local_storage_gb.setter
-    def total_local_storage_gb(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']]):
+    def total_local_storage_gb(self, value: Optional[pulumi.Input['FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs']]):
         pulumi.set(self, "total_local_storage_gb", value)
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -2435,7 +2435,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -2474,7 +2474,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemor
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -2513,7 +2513,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthM
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -2552,7 +2552,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs:
     def __init__(__self__, *,
                  min: pulumi.Input[int],
                  max: Optional[pulumi.Input[int]] = None):
@@ -2590,7 +2590,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -2629,7 +2629,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsA
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -2668,7 +2668,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -2707,7 +2707,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbAr
 
 
 @pulumi.input_type
-class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
+calass FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs:
     def __init__(__self__, *,
                  min: pulumi.Input[int],
                  max: Optional[pulumi.Input[int]] = None):
@@ -2745,7 +2745,7 @@ class FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
 
 
 @pulumi.input_type
-class FleetOnDemandOptionsArgs:
+calass FleetOnDemandOptionsArrgs:
     def __init__(__self__, *,
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
                  max_total_price: Optional[pulumi.Input[str]] = None,
@@ -2834,17 +2834,17 @@ class FleetOnDemandOptionsArgs:
 
 
 @pulumi.input_type
-class FleetSpotOptionsArgs:
+calass FleetSpotOptionsArrgs:
     def __init__(__self__, *,
                  allocation_strategy: Optional[pulumi.Input[str]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
                  instance_pools_to_use_count: Optional[pulumi.Input[int]] = None,
-                 maintenance_strategies: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']] = None):
+                 maintenance_strategies: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArrgs']] = None):
         """
         :param pulumi.Input[str] allocation_strategy: How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized`, `capacity-optimized-prioritized` and `price-capacity-optimized`. Default: `lowestPrice`.
         :param pulumi.Input[str] instance_interruption_behavior: Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
         :param pulumi.Input[int] instance_pools_to_use_count: Number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot `allocation_strategy` is set to `lowestPrice`. Default: `1`.
-        :param pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs'] maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
+        :param pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArrgs'] maintenance_strategies: Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         """
         if allocation_strategy is not None:
             pulumi.set(__self__, "allocation_strategy", allocation_strategy)
@@ -2893,42 +2893,42 @@ class FleetSpotOptionsArgs:
 
     @property
     @pulumi.getter(name="maintenanceStrategies")
-    def maintenance_strategies(self) -> Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']]:
+    def maintenance_strategies(self) -> Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArrgs']]:
         """
         Nested argument containing maintenance strategies for managing your Spot Instances that are at an elevated risk of being interrupted. Defined below.
         """
         return pulumi.get(self, "maintenance_strategies")
 
     @maintenance_strategies.setter
-    def maintenance_strategies(self, value: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArgs']]):
+    def maintenance_strategies(self, value: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesArrgs']]):
         pulumi.set(self, "maintenance_strategies", value)
 
 
 @pulumi.input_type
-class FleetSpotOptionsMaintenanceStrategiesArgs:
+calass FleetSpotOptionsMaintenanceStrategiesArrgs:
     def __init__(__self__, *,
-                 capacity_rebalance: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs']] = None):
+                 capacity_rebalance: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArrgs']] = None):
         """
-        :param pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs'] capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        :param pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArrgs'] capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
         """
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
 
     @property
     @pulumi.getter(name="capacityRebalance")
-    def capacity_rebalance(self) -> Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs']]:
+    def capacity_rebalance(self) -> Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArrgs']]:
         """
         Nested argument containing the capacity rebalance for your fleet request. Defined below.
         """
         return pulumi.get(self, "capacity_rebalance")
 
     @capacity_rebalance.setter
-    def capacity_rebalance(self, value: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs']]):
+    def capacity_rebalance(self, value: Optional[pulumi.Input['FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArrgs']]):
         pulumi.set(self, "capacity_rebalance", value)
 
 
 @pulumi.input_type
-class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs:
+calass FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArrgs:
     def __init__(__self__, *,
                  replacement_strategy: Optional[pulumi.Input[str]] = None,
                  termination_delay: Optional[pulumi.Input[int]] = None):
@@ -2963,7 +2963,7 @@ class FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs:
 
 
 @pulumi.input_type
-class FleetTargetCapacitySpecificationArgs:
+calass FleetTargetCapacitySpecificationArrgs:
     def __init__(__self__, *,
                  default_target_capacity_type: pulumi.Input[str],
                  total_target_capacity: pulumi.Input[int],
@@ -3050,7 +3050,7 @@ class FleetTargetCapacitySpecificationArgs:
 
 
 @pulumi.input_type
-class FlowLogDestinationOptionsArgs:
+calass FlowLogDestinationOptionsArrgs:
     def __init__(__self__, *,
                  file_format: Optional[pulumi.Input[str]] = None,
                  hive_compatible_partitions: Optional[pulumi.Input[bool]] = None,
@@ -3105,13 +3105,13 @@ class FlowLogDestinationOptionsArgs:
 
 
 @pulumi.input_type
-class InstanceCapacityReservationSpecificationArgs:
+calass InstanceCapacityReservationSpecificationArrgs:
     def __init__(__self__, *,
                  capacity_reservation_preference: Optional[pulumi.Input[str]] = None,
-                 capacity_reservation_target: Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs']] = None):
+                 capacity_reservation_target: Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArrgs']] = None):
         """
         :param pulumi.Input[str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
-        :param pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs'] capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        :param pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArrgs'] capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
                
                For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
@@ -3134,7 +3134,7 @@ class InstanceCapacityReservationSpecificationArgs:
 
     @property
     @pulumi.getter(name="capacityReservationTarget")
-    def capacity_reservation_target(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs']]:
+    def capacity_reservation_target(self) -> Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArrgs']]:
         """
         Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
 
@@ -3143,12 +3143,12 @@ class InstanceCapacityReservationSpecificationArgs:
         return pulumi.get(self, "capacity_reservation_target")
 
     @capacity_reservation_target.setter
-    def capacity_reservation_target(self, value: Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArgs']]):
+    def capacity_reservation_target(self, value: Optional[pulumi.Input['InstanceCapacityReservationSpecificationCapacityReservationTargetArrgs']]):
         pulumi.set(self, "capacity_reservation_target", value)
 
 
 @pulumi.input_type
-class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
+calass InstanceCapacityReservationSpecificationCapacityReservationTargetArrgs:
     def __init__(__self__, *,
                  capacity_reservation_id: Optional[pulumi.Input[str]] = None,
                  capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
@@ -3187,7 +3187,7 @@ class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
 
 
 @pulumi.input_type
-class InstanceCpuOptionsArgs:
+calass InstanceCpuOptionsArrgs:
     def __init__(__self__, *,
                  amd_sev_snp: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
@@ -3246,7 +3246,7 @@ class InstanceCpuOptionsArgs:
 
 
 @pulumi.input_type
-class InstanceCreditSpecificationArgs:
+calass InstanceCreditSpecificationArrgs:
     def __init__(__self__, *,
                  cpu_credits: Optional[pulumi.Input[str]] = None):
         """
@@ -3269,7 +3269,7 @@ class InstanceCreditSpecificationArgs:
 
 
 @pulumi.input_type
-class InstanceEbsBlockDeviceArgs:
+calass InstanceEbsBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -3455,7 +3455,7 @@ class InstanceEbsBlockDeviceArgs:
 
 
 @pulumi.input_type
-class InstanceEnclaveOptionsArgs:
+calass InstanceEnclaveOptionsArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -3482,7 +3482,7 @@ class InstanceEnclaveOptionsArgs:
 
 
 @pulumi.input_type
-class InstanceEphemeralBlockDeviceArgs:
+calass InstanceEphemeralBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  no_device: Optional[pulumi.Input[bool]] = None,
@@ -3540,13 +3540,13 @@ class InstanceEphemeralBlockDeviceArgs:
 
 
 @pulumi.input_type
-class InstanceInstanceMarketOptionsArgs:
+calass InstanceInstanceMarketOptionsArrgs:
     def __init__(__self__, *,
                  market_type: Optional[pulumi.Input[str]] = None,
-                 spot_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']] = None):
+                 spot_options: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArrgs']] = None):
         """
         :param pulumi.Input[str] market_type: Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
-        :param pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs'] spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
+        :param pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArrgs'] spot_options: Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         """
         if market_type is not None:
             pulumi.set(__self__, "market_type", market_type)
@@ -3567,19 +3567,19 @@ class InstanceInstanceMarketOptionsArgs:
 
     @property
     @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']]:
+    def spot_options(self) -> Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArrgs']]:
         """
         Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
         """
         return pulumi.get(self, "spot_options")
 
     @spot_options.setter
-    def spot_options(self, value: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArgs']]):
+    def spot_options(self, value: Optional[pulumi.Input['InstanceInstanceMarketOptionsSpotOptionsArrgs']]):
         pulumi.set(self, "spot_options", value)
 
 
 @pulumi.input_type
-class InstanceInstanceMarketOptionsSpotOptionsArgs:
+calass InstanceInstanceMarketOptionsSpotOptionsArrgs:
     def __init__(__self__, *,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
                  max_price: Optional[pulumi.Input[str]] = None,
@@ -3650,7 +3650,7 @@ class InstanceInstanceMarketOptionsSpotOptionsArgs:
 
 
 @pulumi.input_type
-class InstanceLaunchTemplateArgs:
+calass InstanceLaunchTemplateArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -3705,7 +3705,7 @@ class InstanceLaunchTemplateArgs:
 
 
 @pulumi.input_type
-class InstanceMaintenanceOptionsArgs:
+calass InstanceMaintenanceOptionsArrgs:
     def __init__(__self__, *,
                  auto_recovery: Optional[pulumi.Input[str]] = None):
         """
@@ -3728,7 +3728,7 @@ class InstanceMaintenanceOptionsArgs:
 
 
 @pulumi.input_type
-class InstanceMetadataOptionsArgs:
+calass InstanceMetadataOptionsArrgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_protocol_ipv6: Optional[pulumi.Input[str]] = None,
@@ -3819,7 +3819,7 @@ class InstanceMetadataOptionsArgs:
 
 
 @pulumi.input_type
-class InstanceNetworkInterfaceArgs:
+calass InstanceNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[int],
                  network_interface_id: pulumi.Input[str],
@@ -3888,7 +3888,7 @@ class InstanceNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class InstancePrivateDnsNameOptionsArgs:
+calass InstancePrivateDnsNameOptionsArrgs:
     def __init__(__self__, *,
                  enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
@@ -3943,7 +3943,7 @@ class InstancePrivateDnsNameOptionsArgs:
 
 
 @pulumi.input_type
-class InstanceRootBlockDeviceArgs:
+calass InstanceRootBlockDeviceArrgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -4114,7 +4114,7 @@ class InstanceRootBlockDeviceArgs:
 
 
 @pulumi.input_type
-class LaunchConfigurationEbsBlockDeviceArgs:
+calass LaunchConfigurationEbsBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -4226,7 +4226,7 @@ class LaunchConfigurationEbsBlockDeviceArgs:
 
 
 @pulumi.input_type
-class LaunchConfigurationEphemeralBlockDeviceArgs:
+calass LaunchConfigurationEphemeralBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  no_device: Optional[pulumi.Input[bool]] = None,
@@ -4266,7 +4266,7 @@ class LaunchConfigurationEphemeralBlockDeviceArgs:
 
 
 @pulumi.input_type
-class LaunchConfigurationMetadataOptionsArgs:
+calass LaunchConfigurationMetadataOptionsArrgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
@@ -4321,7 +4321,7 @@ class LaunchConfigurationMetadataOptionsArgs:
 
 
 @pulumi.input_type
-class LaunchConfigurationRootBlockDeviceArgs:
+calass LaunchConfigurationRootBlockDeviceArrgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
@@ -4398,15 +4398,15 @@ class LaunchConfigurationRootBlockDeviceArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateBlockDeviceMappingArgs:
+calass LaunchTemplateBlockDeviceMappingArrgs:
     def __init__(__self__, *,
                  device_name: Optional[pulumi.Input[str]] = None,
-                 ebs: Optional[pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArgs']] = None,
+                 ebs: Optional[pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArrgs']] = None,
                  no_device: Optional[pulumi.Input[str]] = None,
                  virtual_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] device_name: The name of the device to mount.
-        :param pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArgs'] ebs: Configure EBS volume properties.
+        :param pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArrgs'] ebs: Configure EBS volume properties.
         :param pulumi.Input[str] no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param pulumi.Input[str] virtual_name: The [Instance Store Device
                Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
@@ -4435,14 +4435,14 @@ class LaunchTemplateBlockDeviceMappingArgs:
 
     @property
     @pulumi.getter
-    def ebs(self) -> Optional[pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArgs']]:
+    def ebs(self) -> Optional[pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArrgs']]:
         """
         Configure EBS volume properties.
         """
         return pulumi.get(self, "ebs")
 
     @ebs.setter
-    def ebs(self, value: Optional[pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArgs']]):
+    def ebs(self, value: Optional[pulumi.Input['LaunchTemplateBlockDeviceMappingEbsArrgs']]):
         pulumi.set(self, "ebs", value)
 
     @property
@@ -4473,7 +4473,7 @@ class LaunchTemplateBlockDeviceMappingArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateBlockDeviceMappingEbsArgs:
+calass LaunchTemplateBlockDeviceMappingEbsArrgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[str]] = None,
@@ -4618,13 +4618,13 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateCapacityReservationSpecificationArgs:
+calass LaunchTemplateCapacityReservationSpecificationArrgs:
     def __init__(__self__, *,
                  capacity_reservation_preference: Optional[pulumi.Input[str]] = None,
-                 capacity_reservation_target: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs']] = None):
+                 capacity_reservation_target: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArrgs']] = None):
         """
         :param pulumi.Input[str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `open` or `none`. (Default `none`).
-        :param pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs'] capacity_reservation_target: Used to target a specific Capacity Reservation:
+        :param pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArrgs'] capacity_reservation_target: Used to target a specific Capacity Reservation:
         """
         if capacity_reservation_preference is not None:
             pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
@@ -4645,19 +4645,19 @@ class LaunchTemplateCapacityReservationSpecificationArgs:
 
     @property
     @pulumi.getter(name="capacityReservationTarget")
-    def capacity_reservation_target(self) -> Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs']]:
+    def capacity_reservation_target(self) -> Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArrgs']]:
         """
         Used to target a specific Capacity Reservation:
         """
         return pulumi.get(self, "capacity_reservation_target")
 
     @capacity_reservation_target.setter
-    def capacity_reservation_target(self, value: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs']]):
+    def capacity_reservation_target(self, value: Optional[pulumi.Input['LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArrgs']]):
         pulumi.set(self, "capacity_reservation_target", value)
 
 
 @pulumi.input_type
-class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArgs:
+calass LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArrgs:
     def __init__(__self__, *,
                  capacity_reservation_id: Optional[pulumi.Input[str]] = None,
                  capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
@@ -4696,7 +4696,7 @@ class LaunchTemplateCapacityReservationSpecificationCapacityReservationTargetArg
 
 
 @pulumi.input_type
-class LaunchTemplateCpuOptionsArgs:
+calass LaunchTemplateCpuOptionsArrgs:
     def __init__(__self__, *,
                  amd_sev_snp: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
@@ -4759,7 +4759,7 @@ class LaunchTemplateCpuOptionsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateCreditSpecificationArgs:
+calass LaunchTemplateCreditSpecificationArrgs:
     def __init__(__self__, *,
                  cpu_credits: Optional[pulumi.Input[str]] = None):
         """
@@ -4788,7 +4788,7 @@ class LaunchTemplateCreditSpecificationArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateElasticGpuSpecificationArgs:
+calass LaunchTemplateElasticGpuSpecificationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -4810,7 +4810,7 @@ class LaunchTemplateElasticGpuSpecificationArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateElasticInferenceAcceleratorArgs:
+calass LaunchTemplateElasticInferenceAcceleratorArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -4832,7 +4832,7 @@ class LaunchTemplateElasticInferenceAcceleratorArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateEnclaveOptionsArgs:
+calass LaunchTemplateEnclaveOptionsArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -4859,7 +4859,7 @@ class LaunchTemplateEnclaveOptionsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateHibernationOptionsArgs:
+calass LaunchTemplateHibernationOptionsArrgs:
     def __init__(__self__, *,
                  configured: pulumi.Input[bool]):
         """
@@ -4881,7 +4881,7 @@ class LaunchTemplateHibernationOptionsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateIamInstanceProfileArgs:
+calass LaunchTemplateIamInstanceProfileArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -4920,13 +4920,13 @@ class LaunchTemplateIamInstanceProfileArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceMarketOptionsArgs:
+calass LaunchTemplateInstanceMarketOptionsArrgs:
     def __init__(__self__, *,
                  market_type: Optional[pulumi.Input[str]] = None,
-                 spot_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArgs']] = None):
+                 spot_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArrgs']] = None):
         """
         :param pulumi.Input[str] market_type: The market type. Can be `spot`.
-        :param pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArgs'] spot_options: The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        :param pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArrgs'] spot_options: The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
         """
         if market_type is not None:
             pulumi.set(__self__, "market_type", market_type)
@@ -4947,19 +4947,19 @@ class LaunchTemplateInstanceMarketOptionsArgs:
 
     @property
     @pulumi.getter(name="spotOptions")
-    def spot_options(self) -> Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArgs']]:
+    def spot_options(self) -> Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArrgs']]:
         """
         The options for [Spot Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
         """
         return pulumi.get(self, "spot_options")
 
     @spot_options.setter
-    def spot_options(self, value: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArgs']]):
+    def spot_options(self, value: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsSpotOptionsArrgs']]):
         pulumi.set(self, "spot_options", value)
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs:
+calass LaunchTemplateInstanceMarketOptionsSpotOptionsArrgs:
     def __init__(__self__, *,
                  block_duration_minutes: Optional[pulumi.Input[int]] = None,
                  instance_interruption_behavior: Optional[pulumi.Input[str]] = None,
@@ -5048,35 +5048,35 @@ class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsArgs:
+calass LaunchTemplateInstanceRequirementsArrgs:
     def __init__(__self__, *,
-                 memory_mib: pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgs'],
-                 vcpu_count: pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs'],
-                 accelerator_count: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs']] = None,
+                 memory_mib: pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArrgs'],
+                 vcpu_count: pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArrgs'],
+                 accelerator_count: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArrgs']] = None,
                  accelerator_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 accelerator_total_memory_mib: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs']] = None,
+                 accelerator_total_memory_mib: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArrgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
-                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs']] = None,
+                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
                  cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  local_storage: Optional[pulumi.Input[str]] = None,
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 memory_gib_per_vcpu: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
-                 network_bandwidth_gbps: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs']] = None,
-                 network_interface_count: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs']] = None,
+                 memory_gib_per_vcpu: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArrgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArrgs']] = None,
+                 network_interface_count: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArrgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
-                 total_local_storage_gb: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs']] = None):
+                 total_local_storage_gb: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArrgs']] = None):
         """
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArrgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArrgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArrgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
                
                ```python
@@ -5087,7 +5087,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                ```python
                import pulumi
                ```
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArrgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
                
                ```python
@@ -5097,7 +5097,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArrgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
@@ -5120,9 +5120,9 @@ class LaunchTemplateInstanceRequirementsArgs:
                ```python
                import pulumi
                ```
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArrgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArrgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArrgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
@@ -5130,7 +5130,7 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArrgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         pulumi.set(__self__, "memory_mib", memory_mib)
         pulumi.set(__self__, "vcpu_count", vcpu_count)
@@ -5179,38 +5179,38 @@ class LaunchTemplateInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="memoryMib")
-    def memory_mib(self) -> pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgs']:
+    def memory_mib(self) -> pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArrgs']:
         """
         Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         """
         return pulumi.get(self, "memory_mib")
 
     @memory_mib.setter
-    def memory_mib(self, value: pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgs']):
+    def memory_mib(self, value: pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArrgs']):
         pulumi.set(self, "memory_mib", value)
 
     @property
     @pulumi.getter(name="vcpuCount")
-    def vcpu_count(self) -> pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs']:
+    def vcpu_count(self) -> pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArrgs']:
         """
         Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
         return pulumi.get(self, "vcpu_count")
 
     @vcpu_count.setter
-    def vcpu_count(self, value: pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs']):
+    def vcpu_count(self, value: pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArrgs']):
         pulumi.set(self, "vcpu_count", value)
 
     @property
     @pulumi.getter(name="acceleratorCount")
-    def accelerator_count(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs']]:
+    def accelerator_count(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArrgs']]:
         """
         Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         """
         return pulumi.get(self, "accelerator_count")
 
     @accelerator_count.setter
-    def accelerator_count(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs']]):
+    def accelerator_count(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArrgs']]):
         pulumi.set(self, "accelerator_count", value)
 
     @property
@@ -5247,14 +5247,14 @@ class LaunchTemplateInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMib")
-    def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs']]:
+    def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArrgs']]:
         """
         Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         """
         return pulumi.get(self, "accelerator_total_memory_mib")
 
     @accelerator_total_memory_mib.setter
-    def accelerator_total_memory_mib(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs']]):
+    def accelerator_total_memory_mib(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArrgs']]):
         pulumi.set(self, "accelerator_total_memory_mib", value)
 
     @property
@@ -5301,14 +5301,14 @@ class LaunchTemplateInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
-    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]:
+    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']]:
         """
         Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
     @baseline_ebs_bandwidth_mbps.setter
-    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]):
+    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']]):
         pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
 
     @property
@@ -5401,38 +5401,38 @@ class LaunchTemplateInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="memoryGibPerVcpu")
-    def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']]:
+    def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArrgs']]:
         """
         Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         """
         return pulumi.get(self, "memory_gib_per_vcpu")
 
     @memory_gib_per_vcpu.setter
-    def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']]):
+    def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArrgs']]):
         pulumi.set(self, "memory_gib_per_vcpu", value)
 
     @property
     @pulumi.getter(name="networkBandwidthGbps")
-    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs']]:
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArrgs']]:
         """
         Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         """
         return pulumi.get(self, "network_bandwidth_gbps")
 
     @network_bandwidth_gbps.setter
-    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs']]):
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArrgs']]):
         pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
-    def network_interface_count(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs']]:
+    def network_interface_count(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArrgs']]:
         """
         Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         """
         return pulumi.get(self, "network_interface_count")
 
     @network_interface_count.setter
-    def network_interface_count(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs']]):
+    def network_interface_count(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArrgs']]):
         pulumi.set(self, "network_interface_count", value)
 
     @property
@@ -5477,19 +5477,19 @@ class LaunchTemplateInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
-    def total_local_storage_gb(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs']]:
+    def total_local_storage_gb(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArrgs']]:
         """
         Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         return pulumi.get(self, "total_local_storage_gb")
 
     @total_local_storage_gb.setter
-    def total_local_storage_gb(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs']]):
+    def total_local_storage_gb(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArrgs']]):
         pulumi.set(self, "total_local_storage_gb", value)
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
+calass LaunchTemplateInstanceRequirementsAcceleratorCountArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -5528,7 +5528,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs:
+calass LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -5567,7 +5567,7 @@ class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
+calass LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -5606,7 +5606,7 @@ class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
+calass LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -5645,7 +5645,7 @@ class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsMemoryMibArgs:
+calass LaunchTemplateInstanceRequirementsMemoryMibArrgs:
     def __init__(__self__, *,
                  min: pulumi.Input[int],
                  max: Optional[pulumi.Input[int]] = None):
@@ -5683,7 +5683,7 @@ class LaunchTemplateInstanceRequirementsMemoryMibArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs:
+calass LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -5722,7 +5722,7 @@ class LaunchTemplateInstanceRequirementsNetworkBandwidthGbpsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs:
+calass LaunchTemplateInstanceRequirementsNetworkInterfaceCountArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -5761,7 +5761,7 @@ class LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
+calass LaunchTemplateInstanceRequirementsTotalLocalStorageGbArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -5800,7 +5800,7 @@ class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateInstanceRequirementsVcpuCountArgs:
+calass LaunchTemplateInstanceRequirementsVcpuCountArrgs:
     def __init__(__self__, *,
                  min: pulumi.Input[int],
                  max: Optional[pulumi.Input[int]] = None):
@@ -5838,7 +5838,7 @@ class LaunchTemplateInstanceRequirementsVcpuCountArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateLicenseSpecificationArgs:
+calass LaunchTemplateLicenseSpecificationArrgs:
     def __init__(__self__, *,
                  license_configuration_arn: pulumi.Input[str]):
         """
@@ -5860,7 +5860,7 @@ class LaunchTemplateLicenseSpecificationArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateMaintenanceOptionsArgs:
+calass LaunchTemplateMaintenanceOptionsArrgs:
     def __init__(__self__, *,
                  auto_recovery: Optional[pulumi.Input[str]] = None):
         """
@@ -5883,7 +5883,7 @@ class LaunchTemplateMaintenanceOptionsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateMetadataOptionsArgs:
+calass LaunchTemplateMetadataOptionsArrgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_protocol_ipv6: Optional[pulumi.Input[str]] = None,
@@ -5974,7 +5974,7 @@ class LaunchTemplateMetadataOptionsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateMonitoringArgs:
+calass LaunchTemplateMonitoringArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -5997,7 +5997,7 @@ class LaunchTemplateMonitoringArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateNetworkInterfaceArgs:
+calass LaunchTemplateNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  associate_carrier_ip_address: Optional[pulumi.Input[str]] = None,
                  associate_public_ip_address: Optional[pulumi.Input[str]] = None,
@@ -6314,7 +6314,7 @@ class LaunchTemplateNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class LaunchTemplatePlacementArgs:
+calass LaunchTemplatePlacementArrgs:
     def __init__(__self__, *,
                  affinity: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -6449,7 +6449,7 @@ class LaunchTemplatePlacementArgs:
 
 
 @pulumi.input_type
-class LaunchTemplatePrivateDnsNameOptionsArgs:
+calass LaunchTemplatePrivateDnsNameOptionsArrgs:
     def __init__(__self__, *,
                  enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
@@ -6504,7 +6504,7 @@ class LaunchTemplatePrivateDnsNameOptionsArgs:
 
 
 @pulumi.input_type
-class LaunchTemplateTagSpecificationArgs:
+calass LaunchTemplateTagSpecificationArrgs:
     def __init__(__self__, *,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -6543,7 +6543,7 @@ class LaunchTemplateTagSpecificationArgs:
 
 
 @pulumi.input_type
-class ManagedPrefixListEntryArgs:
+calass ManagedPrefixListEntryArrgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
@@ -6581,7 +6581,7 @@ class ManagedPrefixListEntryArgs:
 
 
 @pulumi.input_type
-class NetworkAclEgressArgs:
+calass NetworkAclEgressArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  from_port: pulumi.Input[int],
@@ -6735,7 +6735,7 @@ class NetworkAclEgressArgs:
 
 
 @pulumi.input_type
-class NetworkAclIngressArgs:
+calass NetworkAclIngressArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  from_port: pulumi.Input[int],
@@ -6889,7 +6889,7 @@ class NetworkAclIngressArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisAlternatePathHintArgs:
+calass NetworkInsightsAnalysisAlternatePathHintArrgs:
     def __init__(__self__, *,
                  component_arn: Optional[pulumi.Input[str]] = None,
                  component_id: Optional[pulumi.Input[str]] = None):
@@ -6928,56 +6928,56 @@ class NetworkInsightsAnalysisAlternatePathHintArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationArgs:
+calass NetworkInsightsAnalysisExplanationArrgs:
     def __init__(__self__, *,
-                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgs']]]] = None,
-                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgs']]]] = None,
+                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArrgs']]]] = None,
+                 acls: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArrgs']]]] = None,
                  address: Optional[pulumi.Input[str]] = None,
                  addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgs']]]] = None,
+                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArrgs']]]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 classic_load_balancer_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs']]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgs']]]] = None,
-                 customer_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgs']]]] = None,
-                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgs']]]] = None,
-                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgs']]]] = None,
+                 classic_load_balancer_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArrgs']]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArrgs']]]] = None,
+                 customer_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArrgs']]]] = None,
+                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArrgs']]]] = None,
+                 destinations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArrgs']]]] = None,
                  direction: Optional[pulumi.Input[str]] = None,
-                 elastic_load_balancer_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs']]]] = None,
+                 elastic_load_balancer_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArrgs']]]] = None,
                  explanation_code: Optional[pulumi.Input[str]] = None,
-                 ingress_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgs']]]] = None,
-                 internet_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgs']]]] = None,
+                 ingress_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArrgs']]]] = None,
+                 internet_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArrgs']]]] = None,
                  load_balancer_arn: Optional[pulumi.Input[str]] = None,
                  load_balancer_listener_port: Optional[pulumi.Input[int]] = None,
-                 load_balancer_target_group: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]] = None,
-                 load_balancer_target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]] = None,
+                 load_balancer_target_group: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrgs']]]] = None,
+                 load_balancer_target_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrgs']]]] = None,
                  load_balancer_target_port: Optional[pulumi.Input[int]] = None,
                  missing_component: Optional[pulumi.Input[str]] = None,
-                 nat_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgs']]]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgs']]]] = None,
+                 nat_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArrgs']]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArrgs']]]] = None,
                  packet_field: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgs']]]] = None,
-                 prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgs']]]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArrgs']]]] = None,
+                 prefix_lists: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArrgs']]]] = None,
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgs']]]] = None,
-                 route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]] = None,
-                 security_group: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]] = None,
-                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs']]]] = None,
-                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]] = None,
-                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgs']]]] = None,
+                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArrgs']]]] = None,
+                 route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArrgs']]]] = None,
+                 security_group: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArrgs']]]] = None,
+                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArrgs']]]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArrgs']]]] = None,
+                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArrgs']]]] = None,
                  state: Optional[pulumi.Input[str]] = None,
-                 subnet_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgs']]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgs']]]] = None,
-                 transit_gateway_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs']]]] = None,
-                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs']]]] = None,
-                 transit_gateway_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs']]]] = None,
-                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgs']]]] = None,
-                 vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgs']]]] = None,
-                 vpc_peering_connections: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs']]]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgs']]]] = None,
-                 vpn_connections: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgs']]]] = None,
-                 vpn_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgs']]]] = None):
+                 subnet_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArrgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArrgs']]]] = None,
+                 transit_gateway_attachments: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArrgs']]]] = None,
+                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArrgs']]]] = None,
+                 transit_gateway_route_tables: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArrgs']]]] = None,
+                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArrgs']]]] = None,
+                 vpc_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArrgs']]]] = None,
+                 vpc_peering_connections: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArrgs']]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArrgs']]]] = None,
+                 vpn_connections: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArrgs']]]] = None,
+                 vpn_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArrgs']]]] = None):
         if acl_rules is not None:
             pulumi.set(__self__, "acl_rules", acl_rules)
         if acls is not None:
@@ -7077,20 +7077,20 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="aclRules")
-    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgs']]]]:
+    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArrgs']]]]:
         return pulumi.get(self, "acl_rules")
 
     @acl_rules.setter
-    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArgs']]]]):
+    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRuleArrgs']]]]):
         pulumi.set(self, "acl_rules", value)
 
     @property
     @pulumi.getter
-    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgs']]]]:
+    def acls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArrgs']]]]:
         return pulumi.get(self, "acls")
 
     @acls.setter
-    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArgs']]]]):
+    def acls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclArrgs']]]]):
         pulumi.set(self, "acls", value)
 
     @property
@@ -7113,11 +7113,11 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="attachedTos")
-    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgs']]]]:
+    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArrgs']]]]:
         return pulumi.get(self, "attached_tos")
 
     @attached_tos.setter
-    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArgs']]]]):
+    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAttachedToArrgs']]]]):
         pulumi.set(self, "attached_tos", value)
 
     @property
@@ -7140,47 +7140,47 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="classicLoadBalancerListeners")
-    def classic_load_balancer_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs']]]]:
+    def classic_load_balancer_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArrgs']]]]:
         return pulumi.get(self, "classic_load_balancer_listeners")
 
     @classic_load_balancer_listeners.setter
-    def classic_load_balancer_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs']]]]):
+    def classic_load_balancer_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArrgs']]]]):
         pulumi.set(self, "classic_load_balancer_listeners", value)
 
     @property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgs']]]]:
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArrgs']]]]:
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArgs']]]]):
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationComponentArrgs']]]]):
         pulumi.set(self, "components", value)
 
     @property
     @pulumi.getter(name="customerGateways")
-    def customer_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgs']]]]:
+    def customer_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArrgs']]]]:
         return pulumi.get(self, "customer_gateways")
 
     @customer_gateways.setter
-    def customer_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArgs']]]]):
+    def customer_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationCustomerGatewayArrgs']]]]):
         pulumi.set(self, "customer_gateways", value)
 
     @property
     @pulumi.getter(name="destinationVpcs")
-    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgs']]]]:
+    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArrgs']]]]:
         return pulumi.get(self, "destination_vpcs")
 
     @destination_vpcs.setter
-    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArgs']]]]):
+    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationVpcArrgs']]]]):
         pulumi.set(self, "destination_vpcs", value)
 
     @property
     @pulumi.getter
-    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgs']]]]:
+    def destinations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArrgs']]]]:
         return pulumi.get(self, "destinations")
 
     @destinations.setter
-    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArgs']]]]):
+    def destinations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationDestinationArrgs']]]]):
         pulumi.set(self, "destinations", value)
 
     @property
@@ -7194,11 +7194,11 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="elasticLoadBalancerListeners")
-    def elastic_load_balancer_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs']]]]:
+    def elastic_load_balancer_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArrgs']]]]:
         return pulumi.get(self, "elastic_load_balancer_listeners")
 
     @elastic_load_balancer_listeners.setter
-    def elastic_load_balancer_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs']]]]):
+    def elastic_load_balancer_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArrgs']]]]):
         pulumi.set(self, "elastic_load_balancer_listeners", value)
 
     @property
@@ -7212,20 +7212,20 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="ingressRouteTables")
-    def ingress_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgs']]]]:
+    def ingress_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArrgs']]]]:
         return pulumi.get(self, "ingress_route_tables")
 
     @ingress_route_tables.setter
-    def ingress_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArgs']]]]):
+    def ingress_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationIngressRouteTableArrgs']]]]):
         pulumi.set(self, "ingress_route_tables", value)
 
     @property
     @pulumi.getter(name="internetGateways")
-    def internet_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgs']]]]:
+    def internet_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArrgs']]]]:
         return pulumi.get(self, "internet_gateways")
 
     @internet_gateways.setter
-    def internet_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArgs']]]]):
+    def internet_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationInternetGatewayArrgs']]]]):
         pulumi.set(self, "internet_gateways", value)
 
     @property
@@ -7248,20 +7248,20 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="loadBalancerTargetGroup")
-    def load_balancer_target_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]:
+    def load_balancer_target_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrgs']]]]:
         return pulumi.get(self, "load_balancer_target_group")
 
     @load_balancer_target_group.setter
-    def load_balancer_target_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]):
+    def load_balancer_target_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrgs']]]]):
         pulumi.set(self, "load_balancer_target_group", value)
 
     @property
     @pulumi.getter(name="loadBalancerTargetGroups")
-    def load_balancer_target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]:
+    def load_balancer_target_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrgs']]]]:
         return pulumi.get(self, "load_balancer_target_groups")
 
     @load_balancer_target_groups.setter
-    def load_balancer_target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs']]]]):
+    def load_balancer_target_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrgs']]]]):
         pulumi.set(self, "load_balancer_target_groups", value)
 
     @property
@@ -7284,20 +7284,20 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="natGateways")
-    def nat_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgs']]]]:
+    def nat_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArrgs']]]]:
         return pulumi.get(self, "nat_gateways")
 
     @nat_gateways.setter
-    def nat_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArgs']]]]):
+    def nat_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNatGatewayArrgs']]]]):
         pulumi.set(self, "nat_gateways", value)
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArrgs']]]]:
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationNetworkInterfaceArrgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @property
@@ -7320,20 +7320,20 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgs']]]]:
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArrgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArgs']]]]):
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPortRangeArrgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @property
     @pulumi.getter(name="prefixLists")
-    def prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgs']]]]:
+    def prefix_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArrgs']]]]:
         return pulumi.get(self, "prefix_lists")
 
     @prefix_lists.setter
-    def prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArgs']]]]):
+    def prefix_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationPrefixListArrgs']]]]):
         pulumi.set(self, "prefix_lists", value)
 
     @property
@@ -7347,56 +7347,56 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="routeTableRoutes")
-    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgs']]]]:
+    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArrgs']]]]:
         return pulumi.get(self, "route_table_routes")
 
     @route_table_routes.setter
-    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArgs']]]]):
+    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableRouteArrgs']]]]):
         pulumi.set(self, "route_table_routes", value)
 
     @property
     @pulumi.getter(name="routeTables")
-    def route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]]:
+    def route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArrgs']]]]:
         return pulumi.get(self, "route_tables")
 
     @route_tables.setter
-    def route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArgs']]]]):
+    def route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationRouteTableArrgs']]]]):
         pulumi.set(self, "route_tables", value)
 
     @property
     @pulumi.getter(name="securityGroup")
-    def security_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]:
+    def security_group(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArrgs']]]]:
         return pulumi.get(self, "security_group")
 
     @security_group.setter
-    def security_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]):
+    def security_group(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArrgs']]]]):
         pulumi.set(self, "security_group", value)
 
     @property
     @pulumi.getter(name="securityGroupRules")
-    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs']]]]:
+    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArrgs']]]]:
         return pulumi.get(self, "security_group_rules")
 
     @security_group_rules.setter
-    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs']]]]):
+    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRuleArrgs']]]]):
         pulumi.set(self, "security_group_rules", value)
 
     @property
     @pulumi.getter(name="securityGroups")
-    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]:
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArrgs']]]]:
         return pulumi.get(self, "security_groups")
 
     @security_groups.setter
-    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArgs']]]]):
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupArrgs']]]]):
         pulumi.set(self, "security_groups", value)
 
     @property
     @pulumi.getter(name="sourceVpcs")
-    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgs']]]]:
+    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArrgs']]]]:
         return pulumi.get(self, "source_vpcs")
 
     @source_vpcs.setter
-    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArgs']]]]):
+    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSourceVpcArrgs']]]]):
         pulumi.set(self, "source_vpcs", value)
 
     @property
@@ -7410,106 +7410,106 @@ class NetworkInsightsAnalysisExplanationArgs:
 
     @property
     @pulumi.getter(name="subnetRouteTables")
-    def subnet_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgs']]]]:
+    def subnet_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArrgs']]]]:
         return pulumi.get(self, "subnet_route_tables")
 
     @subnet_route_tables.setter
-    def subnet_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArgs']]]]):
+    def subnet_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetRouteTableArrgs']]]]):
         pulumi.set(self, "subnet_route_tables", value)
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgs']]]]:
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArrgs']]]]:
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArgs']]]]):
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSubnetArrgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @property
     @pulumi.getter(name="transitGatewayAttachments")
-    def transit_gateway_attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs']]]]:
+    def transit_gateway_attachments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArrgs']]]]:
         return pulumi.get(self, "transit_gateway_attachments")
 
     @transit_gateway_attachments.setter
-    def transit_gateway_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs']]]]):
+    def transit_gateway_attachments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArrgs']]]]):
         pulumi.set(self, "transit_gateway_attachments", value)
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableRoutes")
-    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs']]]]:
+    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArrgs']]]]:
         return pulumi.get(self, "transit_gateway_route_table_routes")
 
     @transit_gateway_route_table_routes.setter
-    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs']]]]):
+    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArrgs']]]]):
         pulumi.set(self, "transit_gateway_route_table_routes", value)
 
     @property
     @pulumi.getter(name="transitGatewayRouteTables")
-    def transit_gateway_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs']]]]:
+    def transit_gateway_route_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArrgs']]]]:
         return pulumi.get(self, "transit_gateway_route_tables")
 
     @transit_gateway_route_tables.setter
-    def transit_gateway_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs']]]]):
+    def transit_gateway_route_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArrgs']]]]):
         pulumi.set(self, "transit_gateway_route_tables", value)
 
     @property
     @pulumi.getter(name="transitGateways")
-    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgs']]]]:
+    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArrgs']]]]:
         return pulumi.get(self, "transit_gateways")
 
     @transit_gateways.setter
-    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArgs']]]]):
+    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationTransitGatewayArrgs']]]]):
         pulumi.set(self, "transit_gateways", value)
 
     @property
     @pulumi.getter(name="vpcEndpoints")
-    def vpc_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgs']]]]:
+    def vpc_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArrgs']]]]:
         return pulumi.get(self, "vpc_endpoints")
 
     @vpc_endpoints.setter
-    def vpc_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArgs']]]]):
+    def vpc_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcEndpointArrgs']]]]):
         pulumi.set(self, "vpc_endpoints", value)
 
     @property
     @pulumi.getter(name="vpcPeeringConnections")
-    def vpc_peering_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs']]]]:
+    def vpc_peering_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArrgs']]]]:
         return pulumi.get(self, "vpc_peering_connections")
 
     @vpc_peering_connections.setter
-    def vpc_peering_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs']]]]):
+    def vpc_peering_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcPeeringConnectionArrgs']]]]):
         pulumi.set(self, "vpc_peering_connections", value)
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgs']]]]:
+    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArrgs']]]]:
         return pulumi.get(self, "vpcs")
 
     @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArgs']]]]):
+    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpcArrgs']]]]):
         pulumi.set(self, "vpcs", value)
 
     @property
     @pulumi.getter(name="vpnConnections")
-    def vpn_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgs']]]]:
+    def vpn_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArrgs']]]]:
         return pulumi.get(self, "vpn_connections")
 
     @vpn_connections.setter
-    def vpn_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArgs']]]]):
+    def vpn_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnConnectionArrgs']]]]):
         pulumi.set(self, "vpn_connections", value)
 
     @property
     @pulumi.getter(name="vpnGateways")
-    def vpn_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgs']]]]:
+    def vpn_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArrgs']]]]:
         return pulumi.get(self, "vpn_gateways")
 
     @vpn_gateways.setter
-    def vpn_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArgs']]]]):
+    def vpn_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationVpnGatewayArrgs']]]]):
         pulumi.set(self, "vpn_gateways", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationAclArgs:
+calass NetworkInsightsAnalysisExplanationAclArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -7560,11 +7560,11 @@ class NetworkInsightsAnalysisExplanationAclArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationAclRuleArgs:
+calass NetworkInsightsAnalysisExplanationAclRuleArrgs:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  egress: Optional[pulumi.Input[bool]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgs']]]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArrgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  rule_action: Optional[pulumi.Input[str]] = None,
                  rule_number: Optional[pulumi.Input[int]] = None):
@@ -7601,11 +7601,11 @@ class NetworkInsightsAnalysisExplanationAclRuleArgs:
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgs']]]]:
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArrgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArgs']]]]):
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationAclRulePortRangeArrgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @property
@@ -7637,7 +7637,7 @@ class NetworkInsightsAnalysisExplanationAclRuleArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationAclRulePortRangeArgs:
+calass NetworkInsightsAnalysisExplanationAclRulePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -7666,7 +7666,7 @@ class NetworkInsightsAnalysisExplanationAclRulePortRangeArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationAttachedToArgs:
+calass NetworkInsightsAnalysisExplanationAttachedToArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -7717,7 +7717,7 @@ class NetworkInsightsAnalysisExplanationAttachedToArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs:
+calass NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArrgs:
     def __init__(__self__, *,
                  instance_port: Optional[pulumi.Input[int]] = None,
                  load_balancer_port: Optional[pulumi.Input[int]] = None):
@@ -7746,7 +7746,7 @@ class NetworkInsightsAnalysisExplanationClassicLoadBalancerListenerArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationComponentArgs:
+calass NetworkInsightsAnalysisExplanationComponentArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -7797,7 +7797,7 @@ class NetworkInsightsAnalysisExplanationComponentArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationCustomerGatewayArgs:
+calass NetworkInsightsAnalysisExplanationCustomerGatewayArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -7848,7 +7848,7 @@ class NetworkInsightsAnalysisExplanationCustomerGatewayArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationDestinationArgs:
+calass NetworkInsightsAnalysisExplanationDestinationArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -7899,7 +7899,7 @@ class NetworkInsightsAnalysisExplanationDestinationArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationDestinationVpcArgs:
+calass NetworkInsightsAnalysisExplanationDestinationVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -7950,7 +7950,7 @@ class NetworkInsightsAnalysisExplanationDestinationVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs:
+calass NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8001,7 +8001,7 @@ class NetworkInsightsAnalysisExplanationElasticLoadBalancerListenerArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationIngressRouteTableArgs:
+calass NetworkInsightsAnalysisExplanationIngressRouteTableArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8052,7 +8052,7 @@ class NetworkInsightsAnalysisExplanationIngressRouteTableArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationInternetGatewayArgs:
+calass NetworkInsightsAnalysisExplanationInternetGatewayArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8103,7 +8103,7 @@ class NetworkInsightsAnalysisExplanationInternetGatewayArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs:
+calass NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8154,7 +8154,7 @@ class NetworkInsightsAnalysisExplanationLoadBalancerTargetGroupArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationNatGatewayArgs:
+calass NetworkInsightsAnalysisExplanationNatGatewayArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8205,7 +8205,7 @@ class NetworkInsightsAnalysisExplanationNatGatewayArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationNetworkInterfaceArgs:
+calass NetworkInsightsAnalysisExplanationNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8256,7 +8256,7 @@ class NetworkInsightsAnalysisExplanationNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationPortRangeArgs:
+calass NetworkInsightsAnalysisExplanationPortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -8285,7 +8285,7 @@ class NetworkInsightsAnalysisExplanationPortRangeArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationPrefixListArgs:
+calass NetworkInsightsAnalysisExplanationPrefixListArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8336,7 +8336,7 @@ class NetworkInsightsAnalysisExplanationPrefixListArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationRouteTableArgs:
+calass NetworkInsightsAnalysisExplanationRouteTableArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8387,7 +8387,7 @@ class NetworkInsightsAnalysisExplanationRouteTableArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationRouteTableRouteArgs:
+calass NetworkInsightsAnalysisExplanationRouteTableRouteArrgs:
     def __init__(__self__, *,
                  destination_cidr: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -8512,7 +8512,7 @@ class NetworkInsightsAnalysisExplanationRouteTableRouteArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationSecurityGroupArgs:
+calass NetworkInsightsAnalysisExplanationSecurityGroupArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8563,11 +8563,11 @@ class NetworkInsightsAnalysisExplanationSecurityGroupArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs:
+calass NetworkInsightsAnalysisExplanationSecurityGroupRuleArrgs:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  direction: Optional[pulumi.Input[str]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs']]]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArrgs']]]] = None,
                  prefix_list_id: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None):
@@ -8604,11 +8604,11 @@ class NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs:
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs']]]]:
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArrgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs']]]]):
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArrgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @property
@@ -8640,7 +8640,7 @@ class NetworkInsightsAnalysisExplanationSecurityGroupRuleArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs:
+calass NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -8669,7 +8669,7 @@ class NetworkInsightsAnalysisExplanationSecurityGroupRulePortRangeArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationSourceVpcArgs:
+calass NetworkInsightsAnalysisExplanationSourceVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8720,7 +8720,7 @@ class NetworkInsightsAnalysisExplanationSourceVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationSubnetArgs:
+calass NetworkInsightsAnalysisExplanationSubnetArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8771,7 +8771,7 @@ class NetworkInsightsAnalysisExplanationSubnetArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationSubnetRouteTableArgs:
+calass NetworkInsightsAnalysisExplanationSubnetRouteTableArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8822,7 +8822,7 @@ class NetworkInsightsAnalysisExplanationSubnetRouteTableArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationTransitGatewayArgs:
+calass NetworkInsightsAnalysisExplanationTransitGatewayArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8873,7 +8873,7 @@ class NetworkInsightsAnalysisExplanationTransitGatewayArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs:
+calass NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8924,7 +8924,7 @@ class NetworkInsightsAnalysisExplanationTransitGatewayAttachmentArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs:
+calass NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -8975,7 +8975,7 @@ class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs:
+calass NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArrgs:
     def __init__(__self__, *,
                  attachment_id: Optional[pulumi.Input[str]] = None,
                  destination_cidr: Optional[pulumi.Input[str]] = None,
@@ -9064,7 +9064,7 @@ class NetworkInsightsAnalysisExplanationTransitGatewayRouteTableRouteArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationVpcArgs:
+calass NetworkInsightsAnalysisExplanationVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9115,7 +9115,7 @@ class NetworkInsightsAnalysisExplanationVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationVpcEndpointArgs:
+calass NetworkInsightsAnalysisExplanationVpcEndpointArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9166,7 +9166,7 @@ class NetworkInsightsAnalysisExplanationVpcEndpointArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs:
+calass NetworkInsightsAnalysisExplanationVpcPeeringConnectionArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9217,7 +9217,7 @@ class NetworkInsightsAnalysisExplanationVpcPeeringConnectionArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationVpnConnectionArgs:
+calass NetworkInsightsAnalysisExplanationVpnConnectionArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9268,7 +9268,7 @@ class NetworkInsightsAnalysisExplanationVpnConnectionArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisExplanationVpnGatewayArgs:
+calass NetworkInsightsAnalysisExplanationVpnGatewayArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9319,23 +9319,23 @@ class NetworkInsightsAnalysisExplanationVpnGatewayArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentArgs:
+calass NetworkInsightsAnalysisForwardPathComponentArrgs:
     def __init__(__self__, *,
-                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgs']]]] = None,
-                 additional_details: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs']]]] = None,
-                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgs']]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgs']]]] = None,
-                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs']]]] = None,
-                 inbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs']]]] = None,
-                 outbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs']]]] = None,
-                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs']]]] = None,
-                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs']]]] = None,
+                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArrgs']]]] = None,
+                 additional_details: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArrgs']]]] = None,
+                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArrgs']]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArrgs']]]] = None,
+                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArrgs']]]] = None,
+                 inbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArrgs']]]] = None,
+                 outbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArrgs']]]] = None,
+                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArrgs']]]] = None,
+                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArrgs']]]] = None,
                  sequence_number: Optional[pulumi.Input[int]] = None,
-                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs']]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgs']]]] = None,
-                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs']]]] = None,
-                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs']]]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgs']]]] = None):
+                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArrgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArrgs']]]] = None,
+                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArrgs']]]] = None,
+                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArrgs']]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArrgs']]]] = None):
         if acl_rules is not None:
             pulumi.set(__self__, "acl_rules", acl_rules)
         if additional_details is not None:
@@ -9369,83 +9369,83 @@ class NetworkInsightsAnalysisForwardPathComponentArgs:
 
     @property
     @pulumi.getter(name="aclRules")
-    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgs']]]]:
+    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArrgs']]]]:
         return pulumi.get(self, "acl_rules")
 
     @acl_rules.setter
-    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArgs']]]]):
+    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRuleArrgs']]]]):
         pulumi.set(self, "acl_rules", value)
 
     @property
     @pulumi.getter(name="additionalDetails")
-    def additional_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs']]]]:
+    def additional_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArrgs']]]]:
         return pulumi.get(self, "additional_details")
 
     @additional_details.setter
-    def additional_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs']]]]):
+    def additional_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArrgs']]]]):
         pulumi.set(self, "additional_details", value)
 
     @property
     @pulumi.getter(name="attachedTos")
-    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgs']]]]:
+    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArrgs']]]]:
         return pulumi.get(self, "attached_tos")
 
     @attached_tos.setter
-    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArgs']]]]):
+    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAttachedToArrgs']]]]):
         pulumi.set(self, "attached_tos", value)
 
     @property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgs']]]]:
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArrgs']]]]:
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArgs']]]]):
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentComponentArrgs']]]]):
         pulumi.set(self, "components", value)
 
     @property
     @pulumi.getter(name="destinationVpcs")
-    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs']]]]:
+    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArrgs']]]]:
         return pulumi.get(self, "destination_vpcs")
 
     @destination_vpcs.setter
-    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs']]]]):
+    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentDestinationVpcArrgs']]]]):
         pulumi.set(self, "destination_vpcs", value)
 
     @property
     @pulumi.getter(name="inboundHeaders")
-    def inbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs']]]]:
+    def inbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArrgs']]]]:
         return pulumi.get(self, "inbound_headers")
 
     @inbound_headers.setter
-    def inbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs']]]]):
+    def inbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderArrgs']]]]):
         pulumi.set(self, "inbound_headers", value)
 
     @property
     @pulumi.getter(name="outboundHeaders")
-    def outbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs']]]]:
+    def outbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArrgs']]]]:
         return pulumi.get(self, "outbound_headers")
 
     @outbound_headers.setter
-    def outbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs']]]]):
+    def outbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArrgs']]]]):
         pulumi.set(self, "outbound_headers", value)
 
     @property
     @pulumi.getter(name="routeTableRoutes")
-    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs']]]]:
+    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArrgs']]]]:
         return pulumi.get(self, "route_table_routes")
 
     @route_table_routes.setter
-    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs']]]]):
+    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArrgs']]]]):
         pulumi.set(self, "route_table_routes", value)
 
     @property
     @pulumi.getter(name="securityGroupRules")
-    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs']]]]:
+    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArrgs']]]]:
         return pulumi.get(self, "security_group_rules")
 
     @security_group_rules.setter
-    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs']]]]):
+    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArrgs']]]]):
         pulumi.set(self, "security_group_rules", value)
 
     @property
@@ -9459,56 +9459,56 @@ class NetworkInsightsAnalysisForwardPathComponentArgs:
 
     @property
     @pulumi.getter(name="sourceVpcs")
-    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs']]]]:
+    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArrgs']]]]:
         return pulumi.get(self, "source_vpcs")
 
     @source_vpcs.setter
-    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs']]]]):
+    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSourceVpcArrgs']]]]):
         pulumi.set(self, "source_vpcs", value)
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgs']]]]:
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArrgs']]]]:
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArgs']]]]):
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSubnetArrgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableRoutes")
-    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs']]]]:
+    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArrgs']]]]:
         return pulumi.get(self, "transit_gateway_route_table_routes")
 
     @transit_gateway_route_table_routes.setter
-    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs']]]]):
+    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArrgs']]]]):
         pulumi.set(self, "transit_gateway_route_table_routes", value)
 
     @property
     @pulumi.getter(name="transitGateways")
-    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs']]]]:
+    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArrgs']]]]:
         return pulumi.get(self, "transit_gateways")
 
     @transit_gateways.setter
-    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs']]]]):
+    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentTransitGatewayArrgs']]]]):
         pulumi.set(self, "transit_gateways", value)
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgs']]]]:
+    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArrgs']]]]:
         return pulumi.get(self, "vpcs")
 
     @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArgs']]]]):
+    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentVpcArrgs']]]]):
         pulumi.set(self, "vpcs", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentAclRuleArgs:
+calass NetworkInsightsAnalysisForwardPathComponentAclRuleArrgs:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  egress: Optional[pulumi.Input[bool]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs']]]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArrgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  rule_action: Optional[pulumi.Input[str]] = None,
                  rule_number: Optional[pulumi.Input[int]] = None):
@@ -9545,11 +9545,11 @@ class NetworkInsightsAnalysisForwardPathComponentAclRuleArgs:
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs']]]]:
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArrgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs']]]]):
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArrgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @property
@@ -9581,7 +9581,7 @@ class NetworkInsightsAnalysisForwardPathComponentAclRuleArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs:
+calass NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -9610,10 +9610,10 @@ class NetworkInsightsAnalysisForwardPathComponentAclRulePortRangeArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs:
+calass NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArrgs:
     def __init__(__self__, *,
                  additional_detail_type: Optional[pulumi.Input[str]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs']]]] = None):
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArrgs']]]] = None):
         if additional_detail_type is not None:
             pulumi.set(__self__, "additional_detail_type", additional_detail_type)
         if components is not None:
@@ -9630,16 +9630,16 @@ class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailArgs:
 
     @property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs']]]]:
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArrgs']]]]:
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs']]]]):
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArrgs']]]]):
         pulumi.set(self, "components", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs:
+calass NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9690,7 +9690,7 @@ class NetworkInsightsAnalysisForwardPathComponentAdditionalDetailComponentArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentAttachedToArgs:
+calass NetworkInsightsAnalysisForwardPathComponentAttachedToArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9741,7 +9741,7 @@ class NetworkInsightsAnalysisForwardPathComponentAttachedToArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentComponentArgs:
+calass NetworkInsightsAnalysisForwardPathComponentComponentArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9792,7 +9792,7 @@ class NetworkInsightsAnalysisForwardPathComponentComponentArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs:
+calass NetworkInsightsAnalysisForwardPathComponentDestinationVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -9843,13 +9843,13 @@ class NetworkInsightsAnalysisForwardPathComponentDestinationVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs:
+calass NetworkInsightsAnalysisForwardPathComponentInboundHeaderArrgs:
     def __init__(__self__, *,
                  destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs']]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArrgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs']]]] = None):
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArrgs']]]] = None):
         if destination_addresses is not None:
             pulumi.set(__self__, "destination_addresses", destination_addresses)
         if destination_port_ranges is not None:
@@ -9872,11 +9872,11 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs:
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs']]]]:
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArrgs']]]]:
         return pulumi.get(self, "destination_port_ranges")
 
     @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs']]]]):
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArrgs']]]]):
         pulumi.set(self, "destination_port_ranges", value)
 
     @property
@@ -9899,16 +9899,16 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderArgs:
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs']]]]:
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArrgs']]]]:
         return pulumi.get(self, "source_port_ranges")
 
     @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs']]]]):
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArrgs']]]]):
         pulumi.set(self, "source_port_ranges", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArgs:
+calass NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -9937,7 +9937,7 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderDestinationPortRan
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArgs:
+calass NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -9966,13 +9966,13 @@ class NetworkInsightsAnalysisForwardPathComponentInboundHeaderSourcePortRangeArg
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs:
+calass NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArrgs:
     def __init__(__self__, *,
                  destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs']]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArrgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs']]]] = None):
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArrgs']]]] = None):
         if destination_addresses is not None:
             pulumi.set(__self__, "destination_addresses", destination_addresses)
         if destination_port_ranges is not None:
@@ -9995,11 +9995,11 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs:
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs']]]]:
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArrgs']]]]:
         return pulumi.get(self, "destination_port_ranges")
 
     @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs']]]]):
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArrgs']]]]):
         pulumi.set(self, "destination_port_ranges", value)
 
     @property
@@ -10022,16 +10022,16 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderArgs:
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs']]]]:
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArrgs']]]]:
         return pulumi.get(self, "source_port_ranges")
 
     @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs']]]]):
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArrgs']]]]):
         pulumi.set(self, "source_port_ranges", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArgs:
+calass NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -10060,7 +10060,7 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderDestinationPortRa
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArgs:
+calass NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -10089,7 +10089,7 @@ class NetworkInsightsAnalysisForwardPathComponentOutboundHeaderSourcePortRangeAr
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs:
+calass NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArrgs:
     def __init__(__self__, *,
                  destination_cidr: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -10214,11 +10214,11 @@ class NetworkInsightsAnalysisForwardPathComponentRouteTableRouteArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs:
+calass NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArrgs:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  direction: Optional[pulumi.Input[str]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs']]]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArrgs']]]] = None,
                  prefix_list_id: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None):
@@ -10255,11 +10255,11 @@ class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs:
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs']]]]:
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArrgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs']]]]):
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArrgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @property
@@ -10291,7 +10291,7 @@ class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRuleArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs:
+calass NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -10320,7 +10320,7 @@ class NetworkInsightsAnalysisForwardPathComponentSecurityGroupRulePortRangeArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs:
+calass NetworkInsightsAnalysisForwardPathComponentSourceVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -10371,7 +10371,7 @@ class NetworkInsightsAnalysisForwardPathComponentSourceVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentSubnetArgs:
+calass NetworkInsightsAnalysisForwardPathComponentSubnetArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -10422,7 +10422,7 @@ class NetworkInsightsAnalysisForwardPathComponentSubnetArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs:
+calass NetworkInsightsAnalysisForwardPathComponentTransitGatewayArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -10473,7 +10473,7 @@ class NetworkInsightsAnalysisForwardPathComponentTransitGatewayArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArgs:
+calass NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteArrgs:
     def __init__(__self__, *,
                  attachment_id: Optional[pulumi.Input[str]] = None,
                  destination_cidr: Optional[pulumi.Input[str]] = None,
@@ -10562,7 +10562,7 @@ class NetworkInsightsAnalysisForwardPathComponentTransitGatewayRouteTableRouteAr
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisForwardPathComponentVpcArgs:
+calass NetworkInsightsAnalysisForwardPathComponentVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -10613,23 +10613,23 @@ class NetworkInsightsAnalysisForwardPathComponentVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentArgs:
+calass NetworkInsightsAnalysisReturnPathComponentArrgs:
     def __init__(__self__, *,
-                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgs']]]] = None,
-                 additional_details: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs']]]] = None,
-                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgs']]]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgs']]]] = None,
-                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs']]]] = None,
-                 inbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs']]]] = None,
-                 outbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs']]]] = None,
-                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs']]]] = None,
-                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs']]]] = None,
+                 acl_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArrgs']]]] = None,
+                 additional_details: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArrgs']]]] = None,
+                 attached_tos: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArrgs']]]] = None,
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArrgs']]]] = None,
+                 destination_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArrgs']]]] = None,
+                 inbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArrgs']]]] = None,
+                 outbound_headers: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArrgs']]]] = None,
+                 route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArrgs']]]] = None,
+                 security_group_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArrgs']]]] = None,
                  sequence_number: Optional[pulumi.Input[int]] = None,
-                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs']]]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgs']]]] = None,
-                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs']]]] = None,
-                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs']]]] = None,
-                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgs']]]] = None):
+                 source_vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArrgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArrgs']]]] = None,
+                 transit_gateway_route_table_routes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArrgs']]]] = None,
+                 transit_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArrgs']]]] = None,
+                 vpcs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArrgs']]]] = None):
         if acl_rules is not None:
             pulumi.set(__self__, "acl_rules", acl_rules)
         if additional_details is not None:
@@ -10663,83 +10663,83 @@ class NetworkInsightsAnalysisReturnPathComponentArgs:
 
     @property
     @pulumi.getter(name="aclRules")
-    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgs']]]]:
+    def acl_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArrgs']]]]:
         return pulumi.get(self, "acl_rules")
 
     @acl_rules.setter
-    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArgs']]]]):
+    def acl_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRuleArrgs']]]]):
         pulumi.set(self, "acl_rules", value)
 
     @property
     @pulumi.getter(name="additionalDetails")
-    def additional_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs']]]]:
+    def additional_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArrgs']]]]:
         return pulumi.get(self, "additional_details")
 
     @additional_details.setter
-    def additional_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs']]]]):
+    def additional_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArrgs']]]]):
         pulumi.set(self, "additional_details", value)
 
     @property
     @pulumi.getter(name="attachedTos")
-    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgs']]]]:
+    def attached_tos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArrgs']]]]:
         return pulumi.get(self, "attached_tos")
 
     @attached_tos.setter
-    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArgs']]]]):
+    def attached_tos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAttachedToArrgs']]]]):
         pulumi.set(self, "attached_tos", value)
 
     @property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgs']]]]:
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArrgs']]]]:
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArgs']]]]):
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentComponentArrgs']]]]):
         pulumi.set(self, "components", value)
 
     @property
     @pulumi.getter(name="destinationVpcs")
-    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs']]]]:
+    def destination_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArrgs']]]]:
         return pulumi.get(self, "destination_vpcs")
 
     @destination_vpcs.setter
-    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs']]]]):
+    def destination_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentDestinationVpcArrgs']]]]):
         pulumi.set(self, "destination_vpcs", value)
 
     @property
     @pulumi.getter(name="inboundHeaders")
-    def inbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs']]]]:
+    def inbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArrgs']]]]:
         return pulumi.get(self, "inbound_headers")
 
     @inbound_headers.setter
-    def inbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs']]]]):
+    def inbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderArrgs']]]]):
         pulumi.set(self, "inbound_headers", value)
 
     @property
     @pulumi.getter(name="outboundHeaders")
-    def outbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs']]]]:
+    def outbound_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArrgs']]]]:
         return pulumi.get(self, "outbound_headers")
 
     @outbound_headers.setter
-    def outbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs']]]]):
+    def outbound_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArrgs']]]]):
         pulumi.set(self, "outbound_headers", value)
 
     @property
     @pulumi.getter(name="routeTableRoutes")
-    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs']]]]:
+    def route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArrgs']]]]:
         return pulumi.get(self, "route_table_routes")
 
     @route_table_routes.setter
-    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs']]]]):
+    def route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArrgs']]]]):
         pulumi.set(self, "route_table_routes", value)
 
     @property
     @pulumi.getter(name="securityGroupRules")
-    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs']]]]:
+    def security_group_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArrgs']]]]:
         return pulumi.get(self, "security_group_rules")
 
     @security_group_rules.setter
-    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs']]]]):
+    def security_group_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArrgs']]]]):
         pulumi.set(self, "security_group_rules", value)
 
     @property
@@ -10753,56 +10753,56 @@ class NetworkInsightsAnalysisReturnPathComponentArgs:
 
     @property
     @pulumi.getter(name="sourceVpcs")
-    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs']]]]:
+    def source_vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArrgs']]]]:
         return pulumi.get(self, "source_vpcs")
 
     @source_vpcs.setter
-    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs']]]]):
+    def source_vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSourceVpcArrgs']]]]):
         pulumi.set(self, "source_vpcs", value)
 
     @property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgs']]]]:
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArrgs']]]]:
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArgs']]]]):
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSubnetArrgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @property
     @pulumi.getter(name="transitGatewayRouteTableRoutes")
-    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs']]]]:
+    def transit_gateway_route_table_routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArrgs']]]]:
         return pulumi.get(self, "transit_gateway_route_table_routes")
 
     @transit_gateway_route_table_routes.setter
-    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs']]]]):
+    def transit_gateway_route_table_routes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArrgs']]]]):
         pulumi.set(self, "transit_gateway_route_table_routes", value)
 
     @property
     @pulumi.getter(name="transitGateways")
-    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs']]]]:
+    def transit_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArrgs']]]]:
         return pulumi.get(self, "transit_gateways")
 
     @transit_gateways.setter
-    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs']]]]):
+    def transit_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentTransitGatewayArrgs']]]]):
         pulumi.set(self, "transit_gateways", value)
 
     @property
     @pulumi.getter
-    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgs']]]]:
+    def vpcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArrgs']]]]:
         return pulumi.get(self, "vpcs")
 
     @vpcs.setter
-    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArgs']]]]):
+    def vpcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentVpcArrgs']]]]):
         pulumi.set(self, "vpcs", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentAclRuleArgs:
+calass NetworkInsightsAnalysisReturnPathComponentAclRuleArrgs:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  egress: Optional[pulumi.Input[bool]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs']]]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArrgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  rule_action: Optional[pulumi.Input[str]] = None,
                  rule_number: Optional[pulumi.Input[int]] = None):
@@ -10839,11 +10839,11 @@ class NetworkInsightsAnalysisReturnPathComponentAclRuleArgs:
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs']]]]:
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArrgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs']]]]):
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArrgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @property
@@ -10875,7 +10875,7 @@ class NetworkInsightsAnalysisReturnPathComponentAclRuleArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs:
+calass NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -10904,10 +10904,10 @@ class NetworkInsightsAnalysisReturnPathComponentAclRulePortRangeArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs:
+calass NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArrgs:
     def __init__(__self__, *,
                  additional_detail_type: Optional[pulumi.Input[str]] = None,
-                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs']]]] = None):
+                 components: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArrgs']]]] = None):
         if additional_detail_type is not None:
             pulumi.set(__self__, "additional_detail_type", additional_detail_type)
         if components is not None:
@@ -10924,16 +10924,16 @@ class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailArgs:
 
     @property
     @pulumi.getter
-    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs']]]]:
+    def components(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArrgs']]]]:
         return pulumi.get(self, "components")
 
     @components.setter
-    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs']]]]):
+    def components(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArrgs']]]]):
         pulumi.set(self, "components", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs:
+calass NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -10984,7 +10984,7 @@ class NetworkInsightsAnalysisReturnPathComponentAdditionalDetailComponentArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentAttachedToArgs:
+calass NetworkInsightsAnalysisReturnPathComponentAttachedToArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -11035,7 +11035,7 @@ class NetworkInsightsAnalysisReturnPathComponentAttachedToArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentComponentArgs:
+calass NetworkInsightsAnalysisReturnPathComponentComponentArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -11086,7 +11086,7 @@ class NetworkInsightsAnalysisReturnPathComponentComponentArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs:
+calass NetworkInsightsAnalysisReturnPathComponentDestinationVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -11137,13 +11137,13 @@ class NetworkInsightsAnalysisReturnPathComponentDestinationVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs:
+calass NetworkInsightsAnalysisReturnPathComponentInboundHeaderArrgs:
     def __init__(__self__, *,
                  destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs']]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArrgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs']]]] = None):
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArrgs']]]] = None):
         if destination_addresses is not None:
             pulumi.set(__self__, "destination_addresses", destination_addresses)
         if destination_port_ranges is not None:
@@ -11166,11 +11166,11 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs:
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs']]]]:
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArrgs']]]]:
         return pulumi.get(self, "destination_port_ranges")
 
     @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs']]]]):
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArrgs']]]]):
         pulumi.set(self, "destination_port_ranges", value)
 
     @property
@@ -11193,16 +11193,16 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderArgs:
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs']]]]:
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArrgs']]]]:
         return pulumi.get(self, "source_port_ranges")
 
     @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs']]]]):
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArrgs']]]]):
         pulumi.set(self, "source_port_ranges", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArgs:
+calass NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -11231,7 +11231,7 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderDestinationPortRang
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs:
+calass NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -11260,13 +11260,13 @@ class NetworkInsightsAnalysisReturnPathComponentInboundHeaderSourcePortRangeArgs
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs:
+calass NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArrgs:
     def __init__(__self__, *,
                  destination_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs']]]] = None,
+                 destination_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArrgs']]]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  source_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs']]]] = None):
+                 source_port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArrgs']]]] = None):
         if destination_addresses is not None:
             pulumi.set(__self__, "destination_addresses", destination_addresses)
         if destination_port_ranges is not None:
@@ -11289,11 +11289,11 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs:
 
     @property
     @pulumi.getter(name="destinationPortRanges")
-    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs']]]]:
+    def destination_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArrgs']]]]:
         return pulumi.get(self, "destination_port_ranges")
 
     @destination_port_ranges.setter
-    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs']]]]):
+    def destination_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArrgs']]]]):
         pulumi.set(self, "destination_port_ranges", value)
 
     @property
@@ -11316,16 +11316,16 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderArgs:
 
     @property
     @pulumi.getter(name="sourcePortRanges")
-    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs']]]]:
+    def source_port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArrgs']]]]:
         return pulumi.get(self, "source_port_ranges")
 
     @source_port_ranges.setter
-    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs']]]]):
+    def source_port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArrgs']]]]):
         pulumi.set(self, "source_port_ranges", value)
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArgs:
+calass NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -11354,7 +11354,7 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderDestinationPortRan
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArgs:
+calass NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -11383,7 +11383,7 @@ class NetworkInsightsAnalysisReturnPathComponentOutboundHeaderSourcePortRangeArg
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs:
+calass NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArrgs:
     def __init__(__self__, *,
                  destination_cidr: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -11508,11 +11508,11 @@ class NetworkInsightsAnalysisReturnPathComponentRouteTableRouteArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs:
+calass NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArrgs:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  direction: Optional[pulumi.Input[str]] = None,
-                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs']]]] = None,
+                 port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArrgs']]]] = None,
                  prefix_list_id: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None):
@@ -11549,11 +11549,11 @@ class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs:
 
     @property
     @pulumi.getter(name="portRanges")
-    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs']]]]:
+    def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArrgs']]]]:
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
-    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs']]]]):
+    def port_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArrgs']]]]):
         pulumi.set(self, "port_ranges", value)
 
     @property
@@ -11585,7 +11585,7 @@ class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRuleArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs:
+calass NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArrgs:
     def __init__(__self__, *,
                  from_: Optional[pulumi.Input[int]] = None,
                  to: Optional[pulumi.Input[int]] = None):
@@ -11614,7 +11614,7 @@ class NetworkInsightsAnalysisReturnPathComponentSecurityGroupRulePortRangeArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs:
+calass NetworkInsightsAnalysisReturnPathComponentSourceVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -11665,7 +11665,7 @@ class NetworkInsightsAnalysisReturnPathComponentSourceVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentSubnetArgs:
+calass NetworkInsightsAnalysisReturnPathComponentSubnetArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -11716,7 +11716,7 @@ class NetworkInsightsAnalysisReturnPathComponentSubnetArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs:
+calass NetworkInsightsAnalysisReturnPathComponentTransitGatewayArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -11767,7 +11767,7 @@ class NetworkInsightsAnalysisReturnPathComponentTransitGatewayArgs:
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArgs:
+calass NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArrgs:
     def __init__(__self__, *,
                  attachment_id: Optional[pulumi.Input[str]] = None,
                  destination_cidr: Optional[pulumi.Input[str]] = None,
@@ -11856,7 +11856,7 @@ class NetworkInsightsAnalysisReturnPathComponentTransitGatewayRouteTableRouteArg
 
 
 @pulumi.input_type
-class NetworkInsightsAnalysisReturnPathComponentVpcArgs:
+calass NetworkInsightsAnalysisReturnPathComponentVpcArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -11907,7 +11907,7 @@ class NetworkInsightsAnalysisReturnPathComponentVpcArgs:
 
 
 @pulumi.input_type
-class NetworkInterfaceAttachmentArgs:
+calass NetworkInterfaceAttachmentArrgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[int],
                  instance: pulumi.Input[str],
@@ -11956,7 +11956,7 @@ class NetworkInterfaceAttachmentArgs:
 
 
 @pulumi.input_type
-class PeeringConnectionOptionsAccepterArgs:
+calass PeeringConnectionOptionsAccepterArrgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
@@ -11979,7 +11979,7 @@ class PeeringConnectionOptionsAccepterArgs:
 
 
 @pulumi.input_type
-class PeeringConnectionOptionsRequesterArgs:
+calass PeeringConnectionOptionsRequesterArrgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
@@ -12002,7 +12002,7 @@ class PeeringConnectionOptionsRequesterArgs:
 
 
 @pulumi.input_type
-class RouteTableRouteArgs:
+calass RouteTableRouteArrgs:
     def __init__(__self__, *,
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
@@ -12225,7 +12225,7 @@ class RouteTableRouteArgs:
 
 
 @pulumi.input_type
-class SecurityGroupEgressArgs:
+calass SecurityGroupEgressArrgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
@@ -12381,7 +12381,7 @@ class SecurityGroupEgressArgs:
 
 
 @pulumi.input_type
-class SecurityGroupIngressArgs:
+calass SecurityGroupIngressArrgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
@@ -12537,22 +12537,22 @@ class SecurityGroupIngressArgs:
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchSpecificationArgs:
+calass SpotFleetRequestLaunchSpecificationArrgs:
     def __init__(__self__, *,
                  ami: pulumi.Input[str],
                  instance_type: pulumi.Input[str],
                  associate_public_ip_address: Optional[pulumi.Input[bool]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs']]]] = None,
+                 ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrgs']]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
-                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs']]]] = None,
+                 ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrgs']]]] = None,
                  iam_instance_profile: Optional[pulumi.Input[str]] = None,
                  iam_instance_profile_arn: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  placement_tenancy: Optional[pulumi.Input[str]] = None,
-                 root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs']]]] = None,
+                 root_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArrgs']]]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -12650,11 +12650,11 @@ class SpotFleetRequestLaunchSpecificationArgs:
 
     @property
     @pulumi.getter(name="ebsBlockDevices")
-    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs']]]]:
+    def ebs_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrgs']]]]:
         return pulumi.get(self, "ebs_block_devices")
 
     @ebs_block_devices.setter
-    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs']]]]):
+    def ebs_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrgs']]]]):
         pulumi.set(self, "ebs_block_devices", value)
 
     @property
@@ -12668,11 +12668,11 @@ class SpotFleetRequestLaunchSpecificationArgs:
 
     @property
     @pulumi.getter(name="ephemeralBlockDevices")
-    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs']]]]:
+    def ephemeral_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrgs']]]]:
         return pulumi.get(self, "ephemeral_block_devices")
 
     @ephemeral_block_devices.setter
-    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs']]]]):
+    def ephemeral_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrgs']]]]):
         pulumi.set(self, "ephemeral_block_devices", value)
 
     @property
@@ -12731,11 +12731,11 @@ class SpotFleetRequestLaunchSpecificationArgs:
 
     @property
     @pulumi.getter(name="rootBlockDevices")
-    def root_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs']]]]:
+    def root_block_devices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArrgs']]]]:
         return pulumi.get(self, "root_block_devices")
 
     @root_block_devices.setter
-    def root_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs']]]]):
+    def root_block_devices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchSpecificationRootBlockDeviceArrgs']]]]):
         pulumi.set(self, "root_block_devices", value)
 
     @property
@@ -12806,7 +12806,7 @@ class SpotFleetRequestLaunchSpecificationArgs:
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs:
+calass SpotFleetRequestLaunchSpecificationEbsBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -12918,7 +12918,7 @@ class SpotFleetRequestLaunchSpecificationEbsBlockDeviceArgs:
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs:
+calass SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  virtual_name: pulumi.Input[str]):
@@ -12945,7 +12945,7 @@ class SpotFleetRequestLaunchSpecificationEphemeralBlockDeviceArgs:
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs:
+calass SpotFleetRequestLaunchSpecificationRootBlockDeviceArrgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
@@ -13034,13 +13034,13 @@ class SpotFleetRequestLaunchSpecificationRootBlockDeviceArgs:
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigArgs:
+calass SpotFleetRequestLaunchTemplateConfigArrgs:
     def __init__(__self__, *,
-                 launch_template_specification: pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs'],
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArgs']]]] = None):
+                 launch_template_specification: pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArrgs'],
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArrgs']]]] = None):
         """
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs'] launch_template_specification: Launch template specification. See Launch Template Specification below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArgs']]] overrides: One or more override configurations. See Overrides below for more details.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArrgs'] launch_template_specification: Launch template specification. See Launch Template Specification below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArrgs']]] overrides: One or more override configurations. See Overrides below for more details.
         """
         pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -13048,31 +13048,31 @@ class SpotFleetRequestLaunchTemplateConfigArgs:
 
     @property
     @pulumi.getter(name="launchTemplateSpecification")
-    def launch_template_specification(self) -> pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs']:
+    def launch_template_specification(self) -> pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArrgs']:
         """
         Launch template specification. See Launch Template Specification below for more details.
         """
         return pulumi.get(self, "launch_template_specification")
 
     @launch_template_specification.setter
-    def launch_template_specification(self, value: pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs']):
+    def launch_template_specification(self, value: pulumi.Input['SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArrgs']):
         pulumi.set(self, "launch_template_specification", value)
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArgs']]]]:
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArrgs']]]]:
         """
         One or more override configurations. See Overrides below for more details.
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArgs']]]]):
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideArrgs']]]]):
         pulumi.set(self, "overrides", value)
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
+calass SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -13135,10 +13135,10 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideArrgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
-                 instance_requirements: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs']] = None,
+                 instance_requirements: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArrgs']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[float]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
@@ -13146,7 +13146,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
                  weighted_capacity: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] availability_zone: The availability zone in which to place the request.
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs'] instance_requirements: The instance requirements. See below.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArrgs'] instance_requirements: The instance requirements. See below.
         :param pulumi.Input[str] instance_type: The type of instance to request.
         :param pulumi.Input[float] priority: The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
@@ -13182,14 +13182,14 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
 
     @property
     @pulumi.getter(name="instanceRequirements")
-    def instance_requirements(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs']]:
+    def instance_requirements(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArrgs']]:
         """
         The instance requirements. See below.
         """
         return pulumi.get(self, "instance_requirements")
 
     @instance_requirements.setter
-    def instance_requirements(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs']]):
+    def instance_requirements(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArrgs']]):
         pulumi.set(self, "instance_requirements", value)
 
     @property
@@ -13254,33 +13254,33 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArrgs:
     def __init__(__self__, *,
-                 accelerator_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']] = None,
+                 accelerator_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs']] = None,
                  accelerator_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 accelerator_total_memory_mib: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']] = None,
+                 accelerator_total_memory_mib: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs']] = None,
                  accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input[str]] = None,
-                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']] = None,
+                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']] = None,
                  burstable_performance: Optional[pulumi.Input[str]] = None,
                  cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  local_storage: Optional[pulumi.Input[str]] = None,
                  local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 memory_gib_per_vcpu: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
-                 memory_mib: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']] = None,
-                 network_bandwidth_gbps: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']] = None,
-                 network_interface_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']] = None,
+                 memory_gib_per_vcpu: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs']] = None,
+                 memory_mib: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs']] = None,
+                 network_bandwidth_gbps: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs']] = None,
+                 network_interface_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs']] = None,
                  on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
                  require_hibernate_support: Optional[pulumi.Input[bool]] = None,
                  spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
-                 total_local_storage_gb: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']] = None,
-                 vcpu_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']] = None):
+                 total_local_storage_gb: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs']] = None,
+                 vcpu_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs']] = None):
         """
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
                
                ```python
@@ -13291,7 +13291,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
                ```python
                import pulumi
                ```
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
                
                ```python
@@ -13301,7 +13301,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
@@ -13324,10 +13324,10 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
                ```python
                import pulumi
                ```
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs'] network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
@@ -13335,8 +13335,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
         :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
@@ -13387,14 +13387,14 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="acceleratorCount")
-    def accelerator_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]:
+    def accelerator_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs']]:
         """
         Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         """
         return pulumi.get(self, "accelerator_count")
 
     @accelerator_count.setter
-    def accelerator_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]):
+    def accelerator_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs']]):
         pulumi.set(self, "accelerator_count", value)
 
     @property
@@ -13431,14 +13431,14 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="acceleratorTotalMemoryMib")
-    def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]:
+    def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs']]:
         """
         Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         """
         return pulumi.get(self, "accelerator_total_memory_mib")
 
     @accelerator_total_memory_mib.setter
-    def accelerator_total_memory_mib(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]):
+    def accelerator_total_memory_mib(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs']]):
         pulumi.set(self, "accelerator_total_memory_mib", value)
 
     @property
@@ -13485,14 +13485,14 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="baselineEbsBandwidthMbps")
-    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]:
+    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']]:
         """
         Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         """
         return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
 
     @baseline_ebs_bandwidth_mbps.setter
-    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]):
+    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs']]):
         pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
 
     @property
@@ -13585,50 +13585,50 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="memoryGibPerVcpu")
-    def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]:
+    def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs']]:
         """
         Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
         """
         return pulumi.get(self, "memory_gib_per_vcpu")
 
     @memory_gib_per_vcpu.setter
-    def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]):
+    def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs']]):
         pulumi.set(self, "memory_gib_per_vcpu", value)
 
     @property
     @pulumi.getter(name="memoryMib")
-    def memory_mib(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']]:
+    def memory_mib(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs']]:
         """
         Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
         """
         return pulumi.get(self, "memory_mib")
 
     @memory_mib.setter
-    def memory_mib(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']]):
+    def memory_mib(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs']]):
         pulumi.set(self, "memory_mib", value)
 
     @property
     @pulumi.getter(name="networkBandwidthGbps")
-    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]:
+    def network_bandwidth_gbps(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs']]:
         """
         Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
         """
         return pulumi.get(self, "network_bandwidth_gbps")
 
     @network_bandwidth_gbps.setter
-    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs']]):
+    def network_bandwidth_gbps(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs']]):
         pulumi.set(self, "network_bandwidth_gbps", value)
 
     @property
     @pulumi.getter(name="networkInterfaceCount")
-    def network_interface_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']]:
+    def network_interface_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs']]:
         """
         Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         """
         return pulumi.get(self, "network_interface_count")
 
     @network_interface_count.setter
-    def network_interface_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']]):
+    def network_interface_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs']]):
         pulumi.set(self, "network_interface_count", value)
 
     @property
@@ -13673,31 +13673,31 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
 
     @property
     @pulumi.getter(name="totalLocalStorageGb")
-    def total_local_storage_gb(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']]:
+    def total_local_storage_gb(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs']]:
         """
         Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
         """
         return pulumi.get(self, "total_local_storage_gb")
 
     @total_local_storage_gb.setter
-    def total_local_storage_gb(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']]):
+    def total_local_storage_gb(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs']]):
         pulumi.set(self, "total_local_storage_gb", value)
 
     @property
     @pulumi.getter(name="vcpuCount")
-    def vcpu_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']]:
+    def vcpu_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs']]:
         """
         Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
         return pulumi.get(self, "vcpu_count")
 
     @vcpu_count.setter
-    def vcpu_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']]):
+    def vcpu_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs']]):
         pulumi.set(self, "vcpu_count", value)
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -13736,7 +13736,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -13775,7 +13775,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAccelerato
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -13814,7 +13814,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEb
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -13853,7 +13853,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibP
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -13892,7 +13892,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibA
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -13931,7 +13931,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkBan
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -13970,7 +13970,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInt
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[float]] = None,
                  min: Optional[pulumi.Input[float]] = None):
@@ -14009,7 +14009,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocal
 
 
 @pulumi.input_type
-class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
+calass SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArrgs:
     def __init__(__self__, *,
                  max: Optional[pulumi.Input[int]] = None,
                  min: Optional[pulumi.Input[int]] = None):
@@ -14048,30 +14048,30 @@ class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountA
 
 
 @pulumi.input_type
-class SpotFleetRequestSpotMaintenanceStrategiesArgs:
+calass SpotFleetRequestSpotMaintenanceStrategiesArrgs:
     def __init__(__self__, *,
-                 capacity_rebalance: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs']] = None):
+                 capacity_rebalance: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArrgs']] = None):
         """
-        :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs'] capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
+        :param pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArrgs'] capacity_rebalance: Nested argument containing the capacity rebalance for your fleet request. Defined below.
         """
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
 
     @property
     @pulumi.getter(name="capacityRebalance")
-    def capacity_rebalance(self) -> Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs']]:
+    def capacity_rebalance(self) -> Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArrgs']]:
         """
         Nested argument containing the capacity rebalance for your fleet request. Defined below.
         """
         return pulumi.get(self, "capacity_rebalance")
 
     @capacity_rebalance.setter
-    def capacity_rebalance(self, value: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs']]):
+    def capacity_rebalance(self, value: Optional[pulumi.Input['SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArrgs']]):
         pulumi.set(self, "capacity_rebalance", value)
 
 
 @pulumi.input_type
-class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs:
+calass SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArrgs:
     def __init__(__self__, *,
                  replacement_strategy: Optional[pulumi.Input[str]] = None):
         """
@@ -14094,13 +14094,13 @@ class SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestCapacityReservationSpecificationArgs:
+calass SpotInstanceRequestCapacityReservationSpecificationArrgs:
     def __init__(__self__, *,
                  capacity_reservation_preference: Optional[pulumi.Input[str]] = None,
-                 capacity_reservation_target: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs']] = None):
+                 capacity_reservation_target: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArrgs']] = None):
         """
         :param pulumi.Input[str] capacity_reservation_preference: Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
-        :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs'] capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
+        :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArrgs'] capacity_reservation_target: Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
                
                For more information, see the documentation on [Capacity Reservations](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html).
         """
@@ -14123,7 +14123,7 @@ class SpotInstanceRequestCapacityReservationSpecificationArgs:
 
     @property
     @pulumi.getter(name="capacityReservationTarget")
-    def capacity_reservation_target(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs']]:
+    def capacity_reservation_target(self) -> Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArrgs']]:
         """
         Information about the target Capacity Reservation. See Capacity Reservation Target below for more details.
 
@@ -14132,12 +14132,12 @@ class SpotInstanceRequestCapacityReservationSpecificationArgs:
         return pulumi.get(self, "capacity_reservation_target")
 
     @capacity_reservation_target.setter
-    def capacity_reservation_target(self, value: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs']]):
+    def capacity_reservation_target(self, value: Optional[pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArrgs']]):
         pulumi.set(self, "capacity_reservation_target", value)
 
 
 @pulumi.input_type
-class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs:
+calass SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArrgs:
     def __init__(__self__, *,
                  capacity_reservation_id: Optional[pulumi.Input[str]] = None,
                  capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
@@ -14176,7 +14176,7 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
 
 
 @pulumi.input_type
-class SpotInstanceRequestCpuOptionsArgs:
+calass SpotInstanceRequestCpuOptionsArrgs:
     def __init__(__self__, *,
                  amd_sev_snp: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
@@ -14235,7 +14235,7 @@ class SpotInstanceRequestCpuOptionsArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestCreditSpecificationArgs:
+calass SpotInstanceRequestCreditSpecificationArrgs:
     def __init__(__self__, *,
                  cpu_credits: Optional[pulumi.Input[str]] = None):
         """
@@ -14258,7 +14258,7 @@ class SpotInstanceRequestCreditSpecificationArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestEbsBlockDeviceArgs:
+calass SpotInstanceRequestEbsBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -14440,7 +14440,7 @@ class SpotInstanceRequestEbsBlockDeviceArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestEnclaveOptionsArgs:
+calass SpotInstanceRequestEnclaveOptionsArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -14467,7 +14467,7 @@ class SpotInstanceRequestEnclaveOptionsArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestEphemeralBlockDeviceArgs:
+calass SpotInstanceRequestEphemeralBlockDeviceArrgs:
     def __init__(__self__, *,
                  device_name: pulumi.Input[str],
                  no_device: Optional[pulumi.Input[bool]] = None,
@@ -14525,7 +14525,7 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestLaunchTemplateArgs:
+calass SpotInstanceRequestLaunchTemplateArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -14580,7 +14580,7 @@ class SpotInstanceRequestLaunchTemplateArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestMaintenanceOptionsArgs:
+calass SpotInstanceRequestMaintenanceOptionsArrgs:
     def __init__(__self__, *,
                  auto_recovery: Optional[pulumi.Input[str]] = None):
         """
@@ -14603,7 +14603,7 @@ class SpotInstanceRequestMaintenanceOptionsArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestMetadataOptionsArgs:
+calass SpotInstanceRequestMetadataOptionsArrgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
                  http_protocol_ipv6: Optional[pulumi.Input[str]] = None,
@@ -14694,7 +14694,7 @@ class SpotInstanceRequestMetadataOptionsArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestNetworkInterfaceArgs:
+calass SpotInstanceRequestNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[int],
                  network_interface_id: pulumi.Input[str],
@@ -14763,7 +14763,7 @@ class SpotInstanceRequestNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestPrivateDnsNameOptionsArgs:
+calass SpotInstanceRequestPrivateDnsNameOptionsArrgs:
     def __init__(__self__, *,
                  enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
                  enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
@@ -14818,7 +14818,7 @@ class SpotInstanceRequestPrivateDnsNameOptionsArgs:
 
 
 @pulumi.input_type
-class SpotInstanceRequestRootBlockDeviceArgs:
+calass SpotInstanceRequestRootBlockDeviceArrgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -14985,7 +14985,7 @@ class SpotInstanceRequestRootBlockDeviceArgs:
 
 
 @pulumi.input_type
-class TrafficMirrorFilterRuleDestinationPortRangeArgs:
+calass TrafficMirrorFilterRuleDestinationPortRangeArrgs:
     def __init__(__self__, *,
                  from_port: Optional[pulumi.Input[int]] = None,
                  to_port: Optional[pulumi.Input[int]] = None):
@@ -15024,7 +15024,7 @@ class TrafficMirrorFilterRuleDestinationPortRangeArgs:
 
 
 @pulumi.input_type
-class TrafficMirrorFilterRuleSourcePortRangeArgs:
+calass TrafficMirrorFilterRuleSourcePortRangeArrgs:
     def __init__(__self__, *,
                  from_port: Optional[pulumi.Input[int]] = None,
                  to_port: Optional[pulumi.Input[int]] = None):
@@ -15063,7 +15063,7 @@ class TrafficMirrorFilterRuleSourcePortRangeArgs:
 
 
 @pulumi.input_type
-class VpcEndpointDnsEntryArgs:
+calass VpcEndpointDnsEntryArrgs:
     def __init__(__self__, *,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None):
@@ -15102,7 +15102,7 @@ class VpcEndpointDnsEntryArgs:
 
 
 @pulumi.input_type
-class VpcEndpointDnsOptionsArgs:
+calass VpcEndpointDnsOptionsArrgs:
     def __init__(__self__, *,
                  dns_record_ip_type: Optional[pulumi.Input[str]] = None,
                  private_dns_only_for_inbound_resolver_endpoint: Optional[pulumi.Input[bool]] = None):
@@ -15141,7 +15141,7 @@ class VpcEndpointDnsOptionsArgs:
 
 
 @pulumi.input_type
-class VpcEndpointServicePrivateDnsNameConfigurationArgs:
+calass VpcEndpointServicePrivateDnsNameConfigurationArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -15212,7 +15212,7 @@ class VpcEndpointServicePrivateDnsNameConfigurationArgs:
 
 
 @pulumi.input_type
-class VpcIpamOperatingRegionArgs:
+calass VpcIpamOperatingRegionArrgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[str]):
         """
@@ -15234,7 +15234,7 @@ class VpcIpamOperatingRegionArgs:
 
 
 @pulumi.input_type
-class VpcIpamPoolCidrCidrAuthorizationContextArgs:
+calass VpcIpamPoolCidrCidrAuthorizationContextArrgs:
     def __init__(__self__, *,
                  message: Optional[pulumi.Input[str]] = None,
                  signature: Optional[pulumi.Input[str]] = None):
@@ -15273,7 +15273,7 @@ class VpcIpamPoolCidrCidrAuthorizationContextArgs:
 
 
 @pulumi.input_type
-class VpcIpamResourceDiscoveryOperatingRegionArgs:
+calass VpcIpamResourceDiscoveryOperatingRegionArrgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[str]):
         """
@@ -15295,7 +15295,7 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
 
 
 @pulumi.input_type
-class VpcPeeringConnectionAccepterArgs:
+calass VpcPeeringConnectionAccepterArrgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
@@ -15320,7 +15320,7 @@ class VpcPeeringConnectionAccepterArgs:
 
 
 @pulumi.input_type
-class VpcPeeringConnectionAccepterAccepterArgs:
+calass VpcPeeringConnectionAccepterAccepterArrgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
@@ -15345,7 +15345,7 @@ class VpcPeeringConnectionAccepterAccepterArgs:
 
 
 @pulumi.input_type
-class VpcPeeringConnectionAccepterRequesterArgs:
+calass VpcPeeringConnectionAccepterRequesterArrgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
@@ -15370,7 +15370,7 @@ class VpcPeeringConnectionAccepterRequesterArgs:
 
 
 @pulumi.input_type
-class VpcPeeringConnectionRequesterArgs:
+calass VpcPeeringConnectionRequesterArrgs:
     def __init__(__self__, *,
                  allow_remote_vpc_dns_resolution: Optional[pulumi.Input[bool]] = None):
         """
@@ -15395,7 +15395,7 @@ class VpcPeeringConnectionRequesterArgs:
 
 
 @pulumi.input_type
-class VpnConnectionRouteArgs:
+calass VpnConnectionRouteArrgs:
     def __init__(__self__, *,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -15450,30 +15450,30 @@ class VpnConnectionRouteArgs:
 
 
 @pulumi.input_type
-class VpnConnectionTunnel1LogOptionsArgs:
+calass VpnConnectionTunnel1LogOptionsArrgs:
     def __init__(__self__, *,
-                 cloudwatch_log_options: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs']] = None):
+                 cloudwatch_log_options: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArrgs']] = None):
         """
-        :param pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs'] cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        :param pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArrgs'] cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
         """
         if cloudwatch_log_options is not None:
             pulumi.set(__self__, "cloudwatch_log_options", cloudwatch_log_options)
 
     @property
     @pulumi.getter(name="cloudwatchLogOptions")
-    def cloudwatch_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs']]:
+    def cloudwatch_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArrgs']]:
         """
         Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
         """
         return pulumi.get(self, "cloudwatch_log_options")
 
     @cloudwatch_log_options.setter
-    def cloudwatch_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs']]):
+    def cloudwatch_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArrgs']]):
         pulumi.set(self, "cloudwatch_log_options", value)
 
 
 @pulumi.input_type
-class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
+calass VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArrgs:
     def __init__(__self__, *,
                  log_enabled: Optional[pulumi.Input[bool]] = None,
                  log_group_arn: Optional[pulumi.Input[str]] = None,
@@ -15528,30 +15528,30 @@ class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs:
 
 
 @pulumi.input_type
-class VpnConnectionTunnel2LogOptionsArgs:
+calass VpnConnectionTunnel2LogOptionsArrgs:
     def __init__(__self__, *,
-                 cloudwatch_log_options: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs']] = None):
+                 cloudwatch_log_options: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArrgs']] = None):
         """
-        :param pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs'] cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
+        :param pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArrgs'] cloudwatch_log_options: Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
         """
         if cloudwatch_log_options is not None:
             pulumi.set(__self__, "cloudwatch_log_options", cloudwatch_log_options)
 
     @property
     @pulumi.getter(name="cloudwatchLogOptions")
-    def cloudwatch_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs']]:
+    def cloudwatch_log_options(self) -> Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArrgs']]:
         """
         Options for sending VPN tunnel logs to CloudWatch. See CloudWatch Log Options below for more details.
         """
         return pulumi.get(self, "cloudwatch_log_options")
 
     @cloudwatch_log_options.setter
-    def cloudwatch_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs']]):
+    def cloudwatch_log_options(self, value: Optional[pulumi.Input['VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArrgs']]):
         pulumi.set(self, "cloudwatch_log_options", value)
 
 
 @pulumi.input_type
-class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
+calass VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArrgs:
     def __init__(__self__, *,
                  log_enabled: Optional[pulumi.Input[bool]] = None,
                  log_group_arn: Optional[pulumi.Input[str]] = None,
@@ -15606,7 +15606,7 @@ class VpnConnectionTunnel2LogOptionsCloudwatchLogOptionsArgs:
 
 
 @pulumi.input_type
-class VpnConnectionVgwTelemetryArgs:
+calass VpnConnectionVgwTelemetryArrgs:
     def __init__(__self__, *,
                  accepted_route_count: Optional[pulumi.Input[int]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
@@ -15709,7 +15709,7 @@ class VpnConnectionVgwTelemetryArgs:
 
 
 @pulumi.input_type
-class GetAmiFilterArgs:
+calass GetAmiFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15742,7 +15742,7 @@ class GetAmiFilterArgs:
 
 
 @pulumi.input_type
-class GetAmiIdsFilterArgs:
+calass GetAmiIdsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15769,48 +15769,7 @@ class GetAmiIdsFilterArgs:
 
 
 @pulumi.input_type
-class GetCoipPoolFilterArgs:
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: Name of the field to filter by, as defined by
-               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
-        :param Sequence[str] values: Set of values that are accepted for the given field.
-               A COIP Pool will be selected if any one of the given values matches.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        Set of values that are accepted for the given field.
-        A COIP Pool will be selected if any one of the given values matches.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[str]):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class GetCoipPoolsFilterArgs:
+calass GetCoipPoolFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15851,7 +15810,48 @@ class GetCoipPoolsFilterArgs:
 
 
 @pulumi.input_type
-class GetCustomerGatewayFilterArgs:
+calass GetCoipPoolsFilterArrgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               A COIP Pool will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        A COIP Pool will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+calass GetCustomerGatewayFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15878,7 +15878,7 @@ class GetCustomerGatewayFilterArgs:
 
 
 @pulumi.input_type
-class GetDedicatedHostFilterArgs:
+calass GetDedicatedHostFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15915,7 +15915,7 @@ class GetDedicatedHostFilterArgs:
 
 
 @pulumi.input_type
-class GetEipsFilterArgs:
+calass GetEipsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15954,7 +15954,7 @@ class GetEipsFilterArgs:
 
 
 @pulumi.input_type
-class GetElasticIpFilterArgs:
+calass GetElasticIpFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -15981,7 +15981,7 @@ class GetElasticIpFilterArgs:
 
 
 @pulumi.input_type
-class GetInstanceFilterArgs:
+calass GetInstanceFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16008,44 +16008,7 @@ class GetInstanceFilterArgs:
 
 
 @pulumi.input_type
-class GetInstanceTypeOfferingFilterArgs:
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
-        :param Sequence[str] values: List of one or more values for the filter.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        List of one or more values for the filter.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[str]):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class GetInstanceTypeOfferingsFilterArgs:
+calass GetInstanceTypeOfferingFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16082,7 +16045,44 @@ class GetInstanceTypeOfferingsFilterArgs:
 
 
 @pulumi.input_type
-class GetInstanceTypesFilterArgs:
+calass GetInstanceTypeOfferingsFilterArrgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+calass GetInstanceTypesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16119,7 +16119,7 @@ class GetInstanceTypesFilterArgs:
 
 
 @pulumi.input_type
-class GetInstancesFilterArgs:
+calass GetInstancesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16146,7 +16146,7 @@ class GetInstancesFilterArgs:
 
 
 @pulumi.input_type
-class GetInternetGatewayFilterArgs:
+calass GetInternetGatewayFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16187,7 +16187,7 @@ class GetInternetGatewayFilterArgs:
 
 
 @pulumi.input_type
-class GetKeyPairFilterArgs:
+calass GetKeyPairFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16224,7 +16224,7 @@ class GetKeyPairFilterArgs:
 
 
 @pulumi.input_type
-class GetLaunchTemplateFilterArgs:
+calass GetLaunchTemplateFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16261,7 +16261,7 @@ class GetLaunchTemplateFilterArgs:
 
 
 @pulumi.input_type
-class GetLocalGatewayFilterArgs:
+calass GetLocalGatewayFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16302,7 +16302,7 @@ class GetLocalGatewayFilterArgs:
 
 
 @pulumi.input_type
-class GetLocalGatewayRouteTableFilterArgs:
+calass GetLocalGatewayRouteTableFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16343,7 +16343,7 @@ class GetLocalGatewayRouteTableFilterArgs:
 
 
 @pulumi.input_type
-class GetLocalGatewayRouteTablesFilterArgs:
+calass GetLocalGatewayRouteTablesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16384,7 +16384,7 @@ class GetLocalGatewayRouteTablesFilterArgs:
 
 
 @pulumi.input_type
-class GetLocalGatewayVirtualInterfaceFilterArgs:
+calass GetLocalGatewayVirtualInterfaceFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16421,7 +16421,7 @@ class GetLocalGatewayVirtualInterfaceFilterArgs:
 
 
 @pulumi.input_type
-class GetLocalGatewayVirtualInterfaceGroupFilterArgs:
+calass GetLocalGatewayVirtualInterfaceGroupFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16458,7 +16458,7 @@ class GetLocalGatewayVirtualInterfaceGroupFilterArgs:
 
 
 @pulumi.input_type
-class GetLocalGatewayVirtualInterfaceGroupsFilterArgs:
+calass GetLocalGatewayVirtualInterfaceGroupsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16495,7 +16495,7 @@ class GetLocalGatewayVirtualInterfaceGroupsFilterArgs:
 
 
 @pulumi.input_type
-class GetLocalGatewaysFilterArgs:
+calass GetLocalGatewaysFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16536,7 +16536,7 @@ class GetLocalGatewaysFilterArgs:
 
 
 @pulumi.input_type
-class GetManagedPrefixListFilterArgs:
+calass GetManagedPrefixListFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16573,7 +16573,7 @@ class GetManagedPrefixListFilterArgs:
 
 
 @pulumi.input_type
-class GetManagedPrefixListsFilterArgs:
+calass GetManagedPrefixListsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16614,7 +16614,7 @@ class GetManagedPrefixListsFilterArgs:
 
 
 @pulumi.input_type
-class GetNatGatewayFilterArgs:
+calass GetNatGatewayFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16655,7 +16655,7 @@ class GetNatGatewayFilterArgs:
 
 
 @pulumi.input_type
-class GetNatGatewaysFilterArgs:
+calass GetNatGatewaysFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16696,7 +16696,7 @@ class GetNatGatewaysFilterArgs:
 
 
 @pulumi.input_type
-class GetNetworkAclsFilterArgs:
+calass GetNetworkAclsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16737,7 +16737,7 @@ class GetNetworkAclsFilterArgs:
 
 
 @pulumi.input_type
-class GetNetworkInsightsAnalysisFilterArgs:
+calass GetNetworkInsightsAnalysisFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16774,7 +16774,7 @@ class GetNetworkInsightsAnalysisFilterArgs:
 
 
 @pulumi.input_type
-class GetNetworkInsightsPathFilterArgs:
+calass GetNetworkInsightsPathFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16811,7 +16811,7 @@ class GetNetworkInsightsPathFilterArgs:
 
 
 @pulumi.input_type
-class GetNetworkInterfaceFilterArgs:
+calass GetNetworkInterfaceFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16838,7 +16838,7 @@ class GetNetworkInterfaceFilterArgs:
 
 
 @pulumi.input_type
-class GetNetworkInterfacesFilterArgs:
+calass GetNetworkInterfacesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16877,7 +16877,7 @@ class GetNetworkInterfacesFilterArgs:
 
 
 @pulumi.input_type
-class GetPrefixListFilterArgs:
+calass GetPrefixListFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16914,7 +16914,7 @@ class GetPrefixListFilterArgs:
 
 
 @pulumi.input_type
-class GetPublicIpv4PoolsFilterArgs:
+calass GetPublicIpv4PoolsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16951,7 +16951,7 @@ class GetPublicIpv4PoolsFilterArgs:
 
 
 @pulumi.input_type
-class GetRouteTableFilterArgs:
+calass GetRouteTableFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -16988,7 +16988,7 @@ class GetRouteTableFilterArgs:
 
 
 @pulumi.input_type
-class GetRouteTablesFilterArgs:
+calass GetRouteTablesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17029,7 +17029,7 @@ class GetRouteTablesFilterArgs:
 
 
 @pulumi.input_type
-class GetSecurityGroupFilterArgs:
+calass GetSecurityGroupFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17070,7 +17070,7 @@ class GetSecurityGroupFilterArgs:
 
 
 @pulumi.input_type
-class GetSecurityGroupsFilterArgs:
+calass GetSecurityGroupsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17097,7 +17097,7 @@ class GetSecurityGroupsFilterArgs:
 
 
 @pulumi.input_type
-class GetSpotPriceFilterArgs:
+calass GetSpotPriceFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17134,7 +17134,7 @@ class GetSpotPriceFilterArgs:
 
 
 @pulumi.input_type
-class GetSubnetFilterArgs:
+calass GetSubnetFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17171,7 +17171,7 @@ class GetSubnetFilterArgs:
 
 
 @pulumi.input_type
-class GetSubnetsFilterArgs:
+calass GetSubnetsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17184,7 +17184,7 @@ class GetSubnetsFilterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+               selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArrgs(
                    name="tag:Name",
                    values=[""],
                )])
@@ -17207,7 +17207,7 @@ class GetSubnetsFilterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArgs(
+        selected = aws.ec2.get_subnets(filters=[aws.ec2.GetSubnetsFilterArrgs(
             name="tag:Name",
             values=[""],
         )])
@@ -17234,7 +17234,7 @@ class GetSubnetsFilterArgs:
 
 
 @pulumi.input_type
-class GetTransitGatewayRouteTablesFilterArgs:
+calass GetTransitGatewayRouteTablesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17275,7 +17275,7 @@ class GetTransitGatewayRouteTablesFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcDhcpOptionsFilterArgs:
+calass GetVpcDhcpOptionsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17312,7 +17312,7 @@ class GetVpcDhcpOptionsFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcEndpointFilterArgs:
+calass GetVpcEndpointFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17353,7 +17353,7 @@ class GetVpcEndpointFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcEndpointServiceFilterArgs:
+calass GetVpcEndpointServiceFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17390,7 +17390,7 @@ class GetVpcEndpointServiceFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcFilterArgs:
+calass GetVpcFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17431,7 +17431,7 @@ class GetVpcFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcIamPoolCidrsFilterArgs:
+calass GetVpcIamPoolCidrsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17458,44 +17458,7 @@ class GetVpcIamPoolCidrsFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcIamPoolFilterArgs:
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        """
-        :param str name: The name of the filter. Filter names are case-sensitive.
-        :param Sequence[str] values: The filter values. Filter values are case-sensitive.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the filter. Filter names are case-sensitive.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        """
-        The filter values. Filter values are case-sensitive.
-        """
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[str]):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class GetVpcIamPoolsFilterArgs:
+calass GetVpcIamPoolFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17532,34 +17495,7 @@ class GetVpcIamPoolsFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcIpamPoolCidrsFilterArgs:
-    def __init__(__self__, *,
-                 name: str,
-                 values: Sequence[str]):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "values", values)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def values(self) -> Sequence[str]:
-        return pulumi.get(self, "values")
-
-    @values.setter
-    def values(self, value: Sequence[str]):
-        pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class GetVpcIpamPoolFilterArgs:
+calass GetVpcIamPoolsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17596,7 +17532,34 @@ class GetVpcIpamPoolFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcIpamPoolsFilterArgs:
+calass GetVpcIpamPoolCidrsFilterArrgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+calass GetVpcIpamPoolFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17633,7 +17596,44 @@ class GetVpcIpamPoolsFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcPeeringConnectionFilterArgs:
+calass GetVpcIpamPoolsFilterArrgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter. Filter names are case-sensitive.
+        :param Sequence[str] values: The filter values. Filter values are case-sensitive.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter. Filter names are case-sensitive.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The filter values. Filter values are case-sensitive.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+calass GetVpcPeeringConnectionFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17674,7 +17674,7 @@ class GetVpcPeeringConnectionFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcPeeringConnectionsFilterArgs:
+calass GetVpcPeeringConnectionsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17715,7 +17715,7 @@ class GetVpcPeeringConnectionsFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcsFilterArgs:
+calass GetVpcsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -17756,7 +17756,7 @@ class GetVpcsFilterArgs:
 
 
 @pulumi.input_type
-class GetVpnGatewayFilterArgs:
+calass GetVpnGatewayFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class MapConfiguration(dict):
+calass MapConfiguration(dict):
     def __init__(__self__, *,
                  style: str):
         """
@@ -35,7 +35,7 @@ class MapConfiguration(dict):
 
 
 @pulumi.output_type
-class PlaceIndexDataSourceConfiguration(dict):
+calass PlaceIndexDataSourceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -71,7 +71,7 @@ class PlaceIndexDataSourceConfiguration(dict):
 
 
 @pulumi.output_type
-class GetMapConfigurationResult(dict):
+calass GetMapConfigurationResult(dict):
     def __init__(__self__, *,
                  style: str):
         """
@@ -89,7 +89,7 @@ class GetMapConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetPlaceIndexDataSourceConfigurationResult(dict):
+calass GetPlaceIndexDataSourceConfigurationResult(dict):
     def __init__(__self__, *,
                  intended_use: str):
         pulumi.set(__self__, "intended_use", intended_use)

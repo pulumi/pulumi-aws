@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['InboundConnectionAccepterArgs', 'InboundConnectionAccepter']
+__all__ = ['InboundConnectionAccepterArrgs', 'InboundConnectionAccepter']
 
 @pulumi.input_type
-class InboundConnectionAccepterArgs:
+calass InboundConnectionAccepterArrgs:
     def __init__(__self__, *,
                  connection_id: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class InboundConnectionAccepterArgs:
 
 
 @pulumi.input_type
-class _InboundConnectionAccepterState:
+calass _InboundConnectionAccepterState:
     def __init__(__self__, *,
                  connection_id: Optional[pulumi.Input[str]] = None,
                  connection_status: Optional[pulumi.Input[str]] = None):
@@ -74,7 +74,7 @@ class _InboundConnectionAccepterState:
         pulumi.set(self, "connection_status", value)
 
 
-class InboundConnectionAccepter(pulumi.CustomResource):
+calass InboundConnectionAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -95,12 +95,12 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         current_region = aws.get_region()
         foo_outbound_connection = aws.opensearch.OutboundConnection("fooOutboundConnection",
             connection_alias="outbound_connection",
-            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
+            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArrgs(
                 owner_id=current_caller_identity.account_id,
                 region=current_region.name,
                 domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
             ),
-            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
+            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArrgs(
                 owner_id=current_caller_identity.account_id,
                 region=current_region.name,
                 domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
@@ -124,7 +124,7 @@ class InboundConnectionAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InboundConnectionAccepterArgs,
+                 args: InboundConnectionAccepterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
@@ -140,12 +140,12 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         current_region = aws.get_region()
         foo_outbound_connection = aws.opensearch.OutboundConnection("fooOutboundConnection",
             connection_alias="outbound_connection",
-            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArgs(
+            local_domain_info=aws.opensearch.OutboundConnectionLocalDomainInfoArrgs(
                 owner_id=current_caller_identity.account_id,
                 region=current_region.name,
                 domain_name=aws_opensearch_domain["local_domain"]["domain_name"],
             ),
-            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArgs(
+            remote_domain_info=aws.opensearch.OutboundConnectionRemoteDomainInfoArrgs(
                 owner_id=current_caller_identity.account_id,
                 region=current_region.name,
                 domain_name=aws_opensearch_domain["remote_domain"]["domain_name"],
@@ -162,12 +162,12 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InboundConnectionAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param InboundConnectionAccepterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InboundConnectionAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InboundConnectionAccepterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -184,7 +184,7 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InboundConnectionAccepterArgs.__new__(InboundConnectionAccepterArgs)
+            __props__ = InboundConnectionAccepterArrgs.__new__(InboundConnectionAccepterArrgs)
 
             if connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_id'")

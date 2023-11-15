@@ -71,7 +71,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DataRepositoryAssociationS3(dict):
+calass DataRepositoryAssociationS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -95,8 +95,8 @@ class DataRepositoryAssociationS3(dict):
                  auto_export_policy: Optional['outputs.DataRepositoryAssociationS3AutoExportPolicy'] = None,
                  auto_import_policy: Optional['outputs.DataRepositoryAssociationS3AutoImportPolicy'] = None):
         """
-        :param 'DataRepositoryAssociationS3AutoExportPolicyArgs' auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
-        :param 'DataRepositoryAssociationS3AutoImportPolicyArgs' auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
+        :param 'DataRepositoryAssociationS3AutoExportPolicyArrgs' auto_export_policy: Specifies the type of updated objects that will be automatically exported from your file system to the linked S3 bucket. See the `events` configuration block.
+        :param 'DataRepositoryAssociationS3AutoImportPolicyArrgs' auto_import_policy: Specifies the type of updated objects that will be automatically imported from the linked S3 bucket to your file system. See the `events` configuration block.
         """
         if auto_export_policy is not None:
             pulumi.set(__self__, "auto_export_policy", auto_export_policy)
@@ -121,7 +121,7 @@ class DataRepositoryAssociationS3(dict):
 
 
 @pulumi.output_type
-class DataRepositoryAssociationS3AutoExportPolicy(dict):
+calass DataRepositoryAssociationS3AutoExportPolicy(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[str]] = None):
         """
@@ -140,7 +140,7 @@ class DataRepositoryAssociationS3AutoExportPolicy(dict):
 
 
 @pulumi.output_type
-class DataRepositoryAssociationS3AutoImportPolicy(dict):
+calass DataRepositoryAssociationS3AutoImportPolicy(dict):
     def __init__(__self__, *,
                  events: Optional[Sequence[str]] = None):
         """
@@ -159,7 +159,7 @@ class DataRepositoryAssociationS3AutoImportPolicy(dict):
 
 
 @pulumi.output_type
-class FileCacheDataRepositoryAssociation(dict):
+calass FileCacheDataRepositoryAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -210,7 +210,7 @@ class FileCacheDataRepositoryAssociation(dict):
         :param str file_cache_path: A path on the cache that points to a high-level directory (such as /ns1/) or subdirectory (such as /ns1/subdir/) that will be mapped 1-1 with DataRepositoryPath. The leading forward slash in the name is required. Two data repository associations cannot have overlapping cache paths. For example, if a data repository is associated with cache path /ns1/, then you cannot link another data repository with cache path /ns1/ns2. This path specifies where in your cache files will be exported from. This cache directory can be linked to only one data repository, and no data repository other can be linked to the directory. Note: The cache path can only be set to root (/) on an NFS DRA when DataRepositorySubdirectories is specified. If you specify root (/) as the cache path, you can create only one DRA on the cache. The cache path cannot be set to root (/) for an S3 DRA.
         :param Sequence[str] data_repository_subdirectories: A list of NFS Exports that will be linked with this data repository association. The Export paths are in the format /exportpath1. To use this parameter, you must configure DataRepositoryPath as the domain name of the NFS file system. The NFS file system domain name in effect is the root of the subdirectories. Note that DataRepositorySubdirectories is not supported for S3 data repositories. Max of 500.
         :param str file_cache_id: The system-generated, unique ID of the cache.
-        :param Sequence['FileCacheDataRepositoryAssociationNfArgs'] nfs: (Optional) See the `nfs` configuration block.
+        :param Sequence['FileCacheDataRepositoryAssociationNfArrgs'] nfs: (Optional) See the `nfs` configuration block.
         :param Mapping[str, str] tags: A map of tags to assign to the file cache. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "data_repository_path", data_repository_path)
@@ -309,7 +309,7 @@ class FileCacheDataRepositoryAssociation(dict):
 
 
 @pulumi.output_type
-class FileCacheDataRepositoryAssociationNf(dict):
+calass FileCacheDataRepositoryAssociationNf(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -356,7 +356,7 @@ class FileCacheDataRepositoryAssociationNf(dict):
 
 
 @pulumi.output_type
-class FileCacheLustreConfiguration(dict):
+calass FileCacheLustreConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -393,7 +393,7 @@ class FileCacheLustreConfiguration(dict):
                  weekly_maintenance_start_time: Optional[str] = None):
         """
         :param str deployment_type: Specifies the cache deployment type. The only supported value is `CACHE_1`.
-        :param Sequence['FileCacheLustreConfigurationMetadataConfigurationArgs'] metadata_configurations: The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
+        :param Sequence['FileCacheLustreConfigurationMetadataConfigurationArrgs'] metadata_configurations: The configuration for a Lustre MDT (Metadata Target) storage volume. See the `metadata_configuration` block.
         :param int per_unit_storage_throughput: Provisions the amount of read and write throughput for each 1 tebibyte (TiB) of cache storage capacity, in MB/s/TiB. The only supported value is `1000`.
         :param str weekly_maintenance_start_time: A recurring weekly time, in the format `D:HH:MM`. `D` is the day of the week, for which `1` represents Monday and `7` represents Sunday. `HH` is the zero-padded hour of the day (0-23), and `MM` is the zero-padded minute of the hour. For example, 1:05:00 specifies maintenance at 5 AM Monday. See the [ISO week date](https://en.wikipedia.org/wiki/ISO_week_date) for more information.
         """
@@ -451,7 +451,7 @@ class FileCacheLustreConfiguration(dict):
 
 
 @pulumi.output_type
-class FileCacheLustreConfigurationLogConfiguration(dict):
+calass FileCacheLustreConfigurationLogConfiguration(dict):
     def __init__(__self__, *,
                  destination: Optional[str] = None,
                  level: Optional[str] = None):
@@ -472,7 +472,7 @@ class FileCacheLustreConfigurationLogConfiguration(dict):
 
 
 @pulumi.output_type
-class FileCacheLustreConfigurationMetadataConfiguration(dict):
+calass FileCacheLustreConfigurationMetadataConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -507,7 +507,7 @@ class FileCacheLustreConfigurationMetadataConfiguration(dict):
 
 
 @pulumi.output_type
-class LustreFileSystemLogConfiguration(dict):
+calass LustreFileSystemLogConfiguration(dict):
     def __init__(__self__, *,
                  destination: Optional[str] = None,
                  level: Optional[str] = None):
@@ -538,7 +538,7 @@ class LustreFileSystemLogConfiguration(dict):
 
 
 @pulumi.output_type
-class LustreFileSystemRootSquashConfiguration(dict):
+calass LustreFileSystemRootSquashConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -588,7 +588,7 @@ class LustreFileSystemRootSquashConfiguration(dict):
 
 
 @pulumi.output_type
-class OntapFileSystemDiskIopsConfiguration(dict):
+calass OntapFileSystemDiskIopsConfiguration(dict):
     def __init__(__self__, *,
                  iops: Optional[int] = None,
                  mode: Optional[str] = None):
@@ -619,13 +619,13 @@ class OntapFileSystemDiskIopsConfiguration(dict):
 
 
 @pulumi.output_type
-class OntapFileSystemEndpoint(dict):
+calass OntapFileSystemEndpoint(dict):
     def __init__(__self__, *,
                  interclusters: Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']] = None,
                  managements: Optional[Sequence['outputs.OntapFileSystemEndpointManagement']] = None):
         """
-        :param Sequence['OntapFileSystemEndpointInterclusterArgs'] interclusters: An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
-        :param Sequence['OntapFileSystemEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param Sequence['OntapFileSystemEndpointInterclusterArrgs'] interclusters: An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        :param Sequence['OntapFileSystemEndpointManagementArrgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
         """
         if interclusters is not None:
             pulumi.set(__self__, "interclusters", interclusters)
@@ -650,7 +650,7 @@ class OntapFileSystemEndpoint(dict):
 
 
 @pulumi.output_type
-class OntapFileSystemEndpointIntercluster(dict):
+calass OntapFileSystemEndpointIntercluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -700,7 +700,7 @@ class OntapFileSystemEndpointIntercluster(dict):
 
 
 @pulumi.output_type
-class OntapFileSystemEndpointManagement(dict):
+calass OntapFileSystemEndpointManagement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -750,7 +750,7 @@ class OntapFileSystemEndpointManagement(dict):
 
 
 @pulumi.output_type
-class OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
+calass OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -796,7 +796,7 @@ class OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
 
 
 @pulumi.output_type
-class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration(dict):
+calass OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -894,17 +894,17 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
 
 
 @pulumi.output_type
-class OntapStorageVirtualMachineEndpoint(dict):
+calass OntapStorageVirtualMachineEndpoint(dict):
     def __init__(__self__, *,
                  iscsis: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscsi']] = None,
                  managements: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']] = None,
                  nfs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']] = None,
                  smbs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']] = None):
         """
-        :param Sequence['OntapStorageVirtualMachineEndpointIscsiArgs'] iscsis: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
-        :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointIscsiArrgs'] iscsis: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointManagementArrgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointNfArrgs'] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointSmbArrgs'] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
         """
         if iscsis is not None:
             pulumi.set(__self__, "iscsis", iscsis)
@@ -949,7 +949,7 @@ class OntapStorageVirtualMachineEndpoint(dict):
 
 
 @pulumi.output_type
-class OntapStorageVirtualMachineEndpointIscsi(dict):
+calass OntapStorageVirtualMachineEndpointIscsi(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -999,7 +999,7 @@ class OntapStorageVirtualMachineEndpointIscsi(dict):
 
 
 @pulumi.output_type
-class OntapStorageVirtualMachineEndpointManagement(dict):
+calass OntapStorageVirtualMachineEndpointManagement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1049,7 +1049,7 @@ class OntapStorageVirtualMachineEndpointManagement(dict):
 
 
 @pulumi.output_type
-class OntapStorageVirtualMachineEndpointNf(dict):
+calass OntapStorageVirtualMachineEndpointNf(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1099,7 +1099,7 @@ class OntapStorageVirtualMachineEndpointNf(dict):
 
 
 @pulumi.output_type
-class OntapStorageVirtualMachineEndpointSmb(dict):
+calass OntapStorageVirtualMachineEndpointSmb(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1149,7 +1149,7 @@ class OntapStorageVirtualMachineEndpointSmb(dict):
 
 
 @pulumi.output_type
-class OntapVolumeSnaplockConfiguration(dict):
+calass OntapVolumeSnaplockConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1187,9 +1187,9 @@ class OntapVolumeSnaplockConfiguration(dict):
         """
         :param str snaplock_type: Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. Valid values: `COMPLIANCE`, `ENTERPRISE`.
         :param bool audit_log_volume: Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false`.
-        :param 'OntapVolumeSnaplockConfigurationAutocommitPeriodArgs' autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
+        :param 'OntapVolumeSnaplockConfigurationAutocommitPeriodArrgs' autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume. See Autocommit Period below.
         :param str privileged_delete: Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Valid values: `DISABLED`, `ENABLED`, `PERMANENTLY_DISABLED`. The default value is `DISABLED`.
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodArgs' retention_period: The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
+        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodArrgs' retention_period: The retention period of an FSx for ONTAP SnapLock volume. See SnapLock Retention Period below.
         :param bool volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. The default value is `false`.
         """
         pulumi.set(__self__, "snaplock_type", snaplock_type)
@@ -1254,7 +1254,7 @@ class OntapVolumeSnaplockConfiguration(dict):
 
 
 @pulumi.output_type
-class OntapVolumeSnaplockConfigurationAutocommitPeriod(dict):
+calass OntapVolumeSnaplockConfigurationAutocommitPeriod(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[int] = None):
@@ -1285,7 +1285,7 @@ class OntapVolumeSnaplockConfigurationAutocommitPeriod(dict):
 
 
 @pulumi.output_type
-class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
+calass OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1312,9 +1312,9 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
                  maximum_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention'] = None,
                  minimum_retention: Optional['outputs.OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention'] = None):
         """
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArgs' default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArgs' maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
-        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArgs' minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetentionArrgs' default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period. See Retention Period below.
+        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetentionArrgs' maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
+        :param 'OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetentionArrgs' minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume. See Retention Period below.
         """
         if default_retention is not None:
             pulumi.set(__self__, "default_retention", default_retention)
@@ -1349,7 +1349,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriod(dict):
 
 
 @pulumi.output_type
-class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
+calass OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[int] = None):
@@ -1380,7 +1380,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodDefaultRetention(dict):
 
 
 @pulumi.output_type
-class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
+calass OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[int] = None):
@@ -1411,7 +1411,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMaximumRetention(dict):
 
 
 @pulumi.output_type
-class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
+calass OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None,
                  value: Optional[int] = None):
@@ -1442,7 +1442,7 @@ class OntapVolumeSnaplockConfigurationRetentionPeriodMinimumRetention(dict):
 
 
 @pulumi.output_type
-class OntapVolumeTieringPolicy(dict):
+calass OntapVolumeTieringPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1490,7 +1490,7 @@ class OntapVolumeTieringPolicy(dict):
 
 
 @pulumi.output_type
-class OpenZfsFileSystemDiskIopsConfiguration(dict):
+calass OpenZfsFileSystemDiskIopsConfiguration(dict):
     def __init__(__self__, *,
                  iops: Optional[int] = None,
                  mode: Optional[str] = None):
@@ -1521,7 +1521,7 @@ class OpenZfsFileSystemDiskIopsConfiguration(dict):
 
 
 @pulumi.output_type
-class OpenZfsFileSystemRootVolumeConfiguration(dict):
+calass OpenZfsFileSystemRootVolumeConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1559,10 +1559,10 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
         """
         :param bool copy_tags_to_snapshots: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param str data_compression_type: Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
-        :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs' nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
+        :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArrgs' nfs_exports: NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param bool read_only: specifies whether the volume is read-only. Default is false.
         :param int record_size_kib: Specifies the record size of an OpenZFS root volume, in kibibytes (KiB). Valid values are `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, or `1024` KiB. The default is `128` KiB.
-        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArrgs'] user_and_group_quotas: Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
         """
         if copy_tags_to_snapshots is not None:
             pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
@@ -1627,7 +1627,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
 
 
 @pulumi.output_type
-class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
+calass OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1648,7 +1648,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration']):
         """
-        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param Sequence['OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfigurationArrgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -1662,7 +1662,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExports(dict):
 
 
 @pulumi.output_type
-class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict):
+calass OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict):
     def __init__(__self__, *,
                  clients: str,
                  options: Sequence[str]):
@@ -1691,7 +1691,7 @@ class OpenZfsFileSystemRootVolumeConfigurationNfsExportsClientConfiguration(dict
 
 
 @pulumi.output_type
-class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
+calass OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1748,7 +1748,7 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
 
 
 @pulumi.output_type
-class OpenZfsVolumeNfsExports(dict):
+calass OpenZfsVolumeNfsExports(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1769,7 +1769,7 @@ class OpenZfsVolumeNfsExports(dict):
     def __init__(__self__, *,
                  client_configurations: Sequence['outputs.OpenZfsVolumeNfsExportsClientConfiguration']):
         """
-        :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
+        :param Sequence['OpenZfsVolumeNfsExportsClientConfigurationArrgs'] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system. Maximum of 25 items. See Client Configurations Below.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -1783,7 +1783,7 @@ class OpenZfsVolumeNfsExports(dict):
 
 
 @pulumi.output_type
-class OpenZfsVolumeNfsExportsClientConfiguration(dict):
+calass OpenZfsVolumeNfsExportsClientConfiguration(dict):
     def __init__(__self__, *,
                  clients: str,
                  options: Sequence[str]):
@@ -1812,7 +1812,7 @@ class OpenZfsVolumeNfsExportsClientConfiguration(dict):
 
 
 @pulumi.output_type
-class OpenZfsVolumeOriginSnapshot(dict):
+calass OpenZfsVolumeOriginSnapshot(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1850,7 +1850,7 @@ class OpenZfsVolumeOriginSnapshot(dict):
 
 
 @pulumi.output_type
-class OpenZfsVolumeUserAndGroupQuota(dict):
+calass OpenZfsVolumeUserAndGroupQuota(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1903,7 +1903,7 @@ class OpenZfsVolumeUserAndGroupQuota(dict):
 
 
 @pulumi.output_type
-class WindowsFileSystemAuditLogConfiguration(dict):
+calass WindowsFileSystemAuditLogConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1967,7 +1967,7 @@ class WindowsFileSystemAuditLogConfiguration(dict):
 
 
 @pulumi.output_type
-class WindowsFileSystemDiskIopsConfiguration(dict):
+calass WindowsFileSystemDiskIopsConfiguration(dict):
     def __init__(__self__, *,
                  iops: Optional[int] = None,
                  mode: Optional[str] = None):
@@ -1998,7 +1998,7 @@ class WindowsFileSystemDiskIopsConfiguration(dict):
 
 
 @pulumi.output_type
-class WindowsFileSystemSelfManagedActiveDirectory(dict):
+calass WindowsFileSystemSelfManagedActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2096,7 +2096,7 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
 
 
 @pulumi.output_type
-class GetOntapFileSystemDiskIopsConfigurationResult(dict):
+calass GetOntapFileSystemDiskIopsConfigurationResult(dict):
     def __init__(__self__, *,
                  iops: int,
                  mode: str):
@@ -2125,13 +2125,13 @@ class GetOntapFileSystemDiskIopsConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetOntapFileSystemEndpointResult(dict):
+calass GetOntapFileSystemEndpointResult(dict):
     def __init__(__self__, *,
                  interclusters: Sequence['outputs.GetOntapFileSystemEndpointInterclusterResult'],
                  managements: Sequence['outputs.GetOntapFileSystemEndpointManagementResult']):
         """
-        :param Sequence['GetOntapFileSystemEndpointInterclusterArgs'] interclusters: A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
-        :param Sequence['GetOntapFileSystemEndpointManagementArgs'] managements: A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
+        :param Sequence['GetOntapFileSystemEndpointInterclusterArrgs'] interclusters: A FileSystemEndpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See FileSystemEndpoint below.
+        :param Sequence['GetOntapFileSystemEndpointManagementArrgs'] managements: A FileSystemEndpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See FileSystemEndpoint below.
         """
         pulumi.set(__self__, "interclusters", interclusters)
         pulumi.set(__self__, "managements", managements)
@@ -2154,7 +2154,7 @@ class GetOntapFileSystemEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetOntapFileSystemEndpointInterclusterResult(dict):
+calass GetOntapFileSystemEndpointInterclusterResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
@@ -2179,7 +2179,7 @@ class GetOntapFileSystemEndpointInterclusterResult(dict):
 
 
 @pulumi.output_type
-class GetOntapFileSystemEndpointManagementResult(dict):
+calass GetOntapFileSystemEndpointManagementResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
@@ -2204,7 +2204,7 @@ class GetOntapFileSystemEndpointManagementResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult(dict):
+calass GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult(dict):
     def __init__(__self__, *,
                  netbios_name: str,
                  self_managed_active_directory_configurations: Sequence['outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult']):
@@ -2229,7 +2229,7 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult(dict):
+calass GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationResult(dict):
     def __init__(__self__, *,
                  dns_ips: Sequence[str],
                  domain_name: str,
@@ -2291,16 +2291,16 @@ class GetOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActive
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineEndpointResult(dict):
+calass GetOntapStorageVirtualMachineEndpointResult(dict):
     def __init__(__self__, *,
                  iscsis: Sequence['outputs.GetOntapStorageVirtualMachineEndpointIscsiResult'],
                  managements: Sequence['outputs.GetOntapStorageVirtualMachineEndpointManagementResult'],
                  nfs: Sequence['outputs.GetOntapStorageVirtualMachineEndpointNfResult'],
                  smbs: Sequence['outputs.GetOntapStorageVirtualMachineEndpointSmbResult']):
         """
-        :param Sequence['GetOntapStorageVirtualMachineEndpointManagementArgs'] managements: An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
-        :param Sequence['GetOntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
-        :param Sequence['GetOntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
+        :param Sequence['GetOntapStorageVirtualMachineEndpointManagementArrgs'] managements: An endpoint for managing SVMs using the NetApp ONTAP CLI, NetApp ONTAP API, or NetApp CloudManager. See SVM Endpoint below.
+        :param Sequence['GetOntapStorageVirtualMachineEndpointNfArrgs'] nfs: An endpoint for connecting using the Network File System (NFS) protocol. See SVM Endpoint below.
+        :param Sequence['GetOntapStorageVirtualMachineEndpointSmbArrgs'] smbs: An endpoint for connecting using the Server Message Block (SMB) protocol. See SVM Endpoint below.
         """
         pulumi.set(__self__, "iscsis", iscsis)
         pulumi.set(__self__, "managements", managements)
@@ -2338,7 +2338,7 @@ class GetOntapStorageVirtualMachineEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineEndpointIscsiResult(dict):
+calass GetOntapStorageVirtualMachineEndpointIscsiResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
@@ -2357,7 +2357,7 @@ class GetOntapStorageVirtualMachineEndpointIscsiResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineEndpointManagementResult(dict):
+calass GetOntapStorageVirtualMachineEndpointManagementResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
@@ -2376,7 +2376,7 @@ class GetOntapStorageVirtualMachineEndpointManagementResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineEndpointNfResult(dict):
+calass GetOntapStorageVirtualMachineEndpointNfResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
@@ -2395,7 +2395,7 @@ class GetOntapStorageVirtualMachineEndpointNfResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineEndpointSmbResult(dict):
+calass GetOntapStorageVirtualMachineEndpointSmbResult(dict):
     def __init__(__self__, *,
                  dns_name: str,
                  ip_addresses: Sequence[str]):
@@ -2414,7 +2414,7 @@ class GetOntapStorageVirtualMachineEndpointSmbResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineFilterResult(dict):
+calass GetOntapStorageVirtualMachineFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -2443,7 +2443,7 @@ class GetOntapStorageVirtualMachineFilterResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(dict):
+calass GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(dict):
     def __init__(__self__, *,
                  message: str):
         """
@@ -2461,7 +2461,7 @@ class GetOntapStorageVirtualMachineLifecycleTransitionReasonResult(dict):
 
 
 @pulumi.output_type
-class GetOntapStorageVirtualMachinesFilterResult(dict):
+calass GetOntapStorageVirtualMachinesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -2490,7 +2490,7 @@ class GetOntapStorageVirtualMachinesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetOpenZfsSnapshotFilterResult(dict):
+calass GetOpenZfsSnapshotFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -2515,7 +2515,7 @@ class GetOpenZfsSnapshotFilterResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFileSystemAuditLogConfigurationResult(dict):
+calass GetWindowsFileSystemAuditLogConfigurationResult(dict):
     def __init__(__self__, *,
                  audit_log_destination: str,
                  file_access_audit_log_level: str,
@@ -2541,7 +2541,7 @@ class GetWindowsFileSystemAuditLogConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetWindowsFileSystemDiskIopsConfigurationResult(dict):
+calass GetWindowsFileSystemDiskIopsConfigurationResult(dict):
     def __init__(__self__, *,
                  iops: int,
                  mode: str):

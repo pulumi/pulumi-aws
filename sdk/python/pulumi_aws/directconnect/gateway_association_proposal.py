@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GatewayAssociationProposalArgs', 'GatewayAssociationProposal']
+__all__ = ['GatewayAssociationProposalArrgs', 'GatewayAssociationProposal']
 
 @pulumi.input_type
-class GatewayAssociationProposalArgs:
+calass GatewayAssociationProposalArrgs:
     def __init__(__self__, *,
                  associated_gateway_id: pulumi.Input[str],
                  dx_gateway_id: pulumi.Input[str],
@@ -81,7 +81,7 @@ class GatewayAssociationProposalArgs:
 
 
 @pulumi.input_type
-class _GatewayAssociationProposalState:
+calass _GatewayAssociationProposalState:
     def __init__(__self__, *,
                  allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  associated_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _GatewayAssociationProposalState:
         pulumi.set(self, "dx_gateway_owner_account_id", value)
 
 
-class GatewayAssociationProposal(pulumi.CustomResource):
+calass GatewayAssociationProposal(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -238,7 +238,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GatewayAssociationProposalArgs,
+                 args: GatewayAssociationProposalArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Direct Connect Gateway Association Proposal, typically for enabling cross-account associations. For single account associations, see the `directconnect.GatewayAssociation` resource.
@@ -274,12 +274,12 @@ class GatewayAssociationProposal(pulumi.CustomResource):
          The latter case is useful when a previous proposal has been accepted and deleted by AWS. The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
 
         :param str resource_name: The name of the resource.
-        :param GatewayAssociationProposalArgs args: The arguments to use to populate this resource's properties.
+        :param GatewayAssociationProposalArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GatewayAssociationProposalArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GatewayAssociationProposalArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -299,7 +299,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GatewayAssociationProposalArgs.__new__(GatewayAssociationProposalArgs)
+            __props__ = GatewayAssociationProposalArrgs.__new__(GatewayAssociationProposalArrgs)
 
             __props__.__dict__["allowed_prefixes"] = allowed_prefixes
             if associated_gateway_id is None and not opts.urn:

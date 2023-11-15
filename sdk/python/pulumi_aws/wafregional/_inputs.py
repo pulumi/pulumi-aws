@@ -10,40 +10,40 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ByteMatchSetByteMatchTupleArgs',
-    'ByteMatchSetByteMatchTupleFieldToMatchArgs',
-    'GeoMatchSetGeoMatchConstraintArgs',
-    'IpSetIpSetDescriptorArgs',
-    'RateBasedRulePredicateArgs',
-    'RegexMatchSetRegexMatchTupleArgs',
-    'RegexMatchSetRegexMatchTupleFieldToMatchArgs',
-    'RuleGroupActivatedRuleArgs',
-    'RuleGroupActivatedRuleActionArgs',
-    'RulePredicateArgs',
-    'SizeConstraintSetSizeConstraintArgs',
-    'SizeConstraintSetSizeConstraintFieldToMatchArgs',
-    'SqlInjectionMatchSetSqlInjectionMatchTupleArgs',
-    'SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs',
-    'WebAclDefaultActionArgs',
-    'WebAclLoggingConfigurationArgs',
-    'WebAclLoggingConfigurationRedactedFieldsArgs',
-    'WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs',
-    'WebAclRuleArgs',
-    'WebAclRuleActionArgs',
-    'WebAclRuleOverrideActionArgs',
-    'XssMatchSetXssMatchTupleArgs',
-    'XssMatchSetXssMatchTupleFieldToMatchArgs',
+    'ByteMatchSetByteMatchTupleArrgs',
+    'ByteMatchSetByteMatchTupleFieldToMatchArrgs',
+    'GeoMatchSetGeoMatchConstraintArrgs',
+    'IpSetIpSetDescriptorArrgs',
+    'RateBasedRulePredicateArrgs',
+    'RegexMatchSetRegexMatchTupleArrgs',
+    'RegexMatchSetRegexMatchTupleFieldToMatchArrgs',
+    'RuleGroupActivatedRuleArrgs',
+    'RuleGroupActivatedRuleActionArrgs',
+    'RulePredicateArrgs',
+    'SizeConstraintSetSizeConstraintArrgs',
+    'SizeConstraintSetSizeConstraintFieldToMatchArrgs',
+    'SqlInjectionMatchSetSqlInjectionMatchTupleArrgs',
+    'SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArrgs',
+    'WebAclDefaultActionArrgs',
+    'WebAclLoggingConfigurationArrgs',
+    'WebAclLoggingConfigurationRedactedFieldsArrgs',
+    'WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrgs',
+    'WebAclRuleArrgs',
+    'WebAclRuleActionArrgs',
+    'WebAclRuleOverrideActionArrgs',
+    'XssMatchSetXssMatchTupleArrgs',
+    'XssMatchSetXssMatchTupleFieldToMatchArrgs',
 ]
 
 @pulumi.input_type
-class ByteMatchSetByteMatchTupleArgs:
+calass ByteMatchSetByteMatchTupleArrgs:
     def __init__(__self__, *,
-                 field_to_match: pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArgs'],
+                 field_to_match: pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArrgs'],
                  positional_constraint: pulumi.Input[str],
                  text_transformation: pulumi.Input[str],
                  target_string: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArgs'] field_to_match: Settings for the ByteMatchTuple. FieldToMatch documented below.
+        :param pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArrgs'] field_to_match: Settings for the ByteMatchTuple. FieldToMatch documented below.
         :param pulumi.Input[str] positional_constraint: Within the portion of a web request that you want to search.
         :param pulumi.Input[str] text_transformation: The formatting way for web request.
                
@@ -58,14 +58,14 @@ class ByteMatchSetByteMatchTupleArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArrgs']:
         """
         Settings for the ByteMatchTuple. FieldToMatch documented below.
         """
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['ByteMatchSetByteMatchTupleFieldToMatchArrgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
@@ -108,7 +108,7 @@ class ByteMatchSetByteMatchTupleArgs:
 
 
 @pulumi.input_type
-class ByteMatchSetByteMatchTupleFieldToMatchArgs:
+calass ByteMatchSetByteMatchTupleFieldToMatchArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
@@ -146,7 +146,7 @@ class ByteMatchSetByteMatchTupleFieldToMatchArgs:
 
 
 @pulumi.input_type
-class GeoMatchSetGeoMatchConstraintArgs:
+calass GeoMatchSetGeoMatchConstraintArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -187,7 +187,7 @@ class GeoMatchSetGeoMatchConstraintArgs:
 
 
 @pulumi.input_type
-class IpSetIpSetDescriptorArgs:
+calass IpSetIpSetDescriptorArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -224,7 +224,7 @@ class IpSetIpSetDescriptorArgs:
 
 
 @pulumi.input_type
-class RateBasedRulePredicateArgs:
+calass RateBasedRulePredicateArrgs:
     def __init__(__self__, *,
                  data_id: pulumi.Input[str],
                  negated: pulumi.Input[bool],
@@ -282,13 +282,13 @@ class RateBasedRulePredicateArgs:
 
 
 @pulumi.input_type
-class RegexMatchSetRegexMatchTupleArgs:
+calass RegexMatchSetRegexMatchTupleArrgs:
     def __init__(__self__, *,
-                 field_to_match: pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArgs'],
+                 field_to_match: pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArrgs'],
                  regex_pattern_set_id: pulumi.Input[str],
                  text_transformation: pulumi.Input[str]):
         """
-        :param pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArgs'] field_to_match: The part of a web request that you want to search, such as a specified header or a query string.
+        :param pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArrgs'] field_to_match: The part of a web request that you want to search, such as a specified header or a query string.
         :param pulumi.Input[str] regex_pattern_set_id: The ID of a Regex Pattern Set.
         :param pulumi.Input[str] text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
@@ -301,14 +301,14 @@ class RegexMatchSetRegexMatchTupleArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArrgs']:
         """
         The part of a web request that you want to search, such as a specified header or a query string.
         """
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['RegexMatchSetRegexMatchTupleFieldToMatchArrgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
@@ -340,7 +340,7 @@ class RegexMatchSetRegexMatchTupleArgs:
 
 
 @pulumi.input_type
-class RegexMatchSetRegexMatchTupleFieldToMatchArgs:
+calass RegexMatchSetRegexMatchTupleFieldToMatchArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
@@ -386,14 +386,14 @@ class RegexMatchSetRegexMatchTupleFieldToMatchArgs:
 
 
 @pulumi.input_type
-class RuleGroupActivatedRuleArgs:
+calass RuleGroupActivatedRuleArrgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['RuleGroupActivatedRuleActionArgs'],
+                 action: pulumi.Input['RuleGroupActivatedRuleActionArrgs'],
                  priority: pulumi.Input[int],
                  rule_id: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['RuleGroupActivatedRuleActionArgs'] action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+        :param pulumi.Input['RuleGroupActivatedRuleActionArrgs'] action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         :param pulumi.Input[int] priority: Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
         :param pulumi.Input[str] rule_id: The ID of a rule
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
@@ -406,14 +406,14 @@ class RuleGroupActivatedRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['RuleGroupActivatedRuleActionArgs']:
+    def action(self) -> pulumi.Input['RuleGroupActivatedRuleActionArrgs']:
         """
         Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['RuleGroupActivatedRuleActionArgs']):
+    def action(self, value: pulumi.Input['RuleGroupActivatedRuleActionArrgs']):
         pulumi.set(self, "action", value)
 
     @property
@@ -454,7 +454,7 @@ class RuleGroupActivatedRuleArgs:
 
 
 @pulumi.input_type
-class RuleGroupActivatedRuleActionArgs:
+calass RuleGroupActivatedRuleActionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -476,7 +476,7 @@ class RuleGroupActivatedRuleActionArgs:
 
 
 @pulumi.input_type
-class RulePredicateArgs:
+calass RulePredicateArrgs:
     def __init__(__self__, *,
                  data_id: pulumi.Input[str],
                  negated: pulumi.Input[bool],
@@ -514,17 +514,17 @@ class RulePredicateArgs:
 
 
 @pulumi.input_type
-class SizeConstraintSetSizeConstraintArgs:
+calass SizeConstraintSetSizeConstraintArrgs:
     def __init__(__self__, *,
                  comparison_operator: pulumi.Input[str],
-                 field_to_match: pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArgs'],
+                 field_to_match: pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArrgs'],
                  size: pulumi.Input[int],
                  text_transformation: pulumi.Input[str]):
         """
         :param pulumi.Input[str] comparison_operator: The type of comparison you want to perform.
                e.g., `EQ`, `NE`, `LT`, `GT`.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
-        :param pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArgs'] field_to_match: Specifies where in a web request to look for the size constraint.
+        :param pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArrgs'] field_to_match: Specifies where in a web request to look for the size constraint.
         :param pulumi.Input[int] size: The size in bytes that you want to compare against the size of the specified `field_to_match`.
                Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
         :param pulumi.Input[str] text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
@@ -555,14 +555,14 @@ class SizeConstraintSetSizeConstraintArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArrgs']:
         """
         Specifies where in a web request to look for the size constraint.
         """
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['SizeConstraintSetSizeConstraintFieldToMatchArrgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
@@ -597,7 +597,7 @@ class SizeConstraintSetSizeConstraintArgs:
 
 
 @pulumi.input_type
-class SizeConstraintSetSizeConstraintFieldToMatchArgs:
+calass SizeConstraintSetSizeConstraintFieldToMatchArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
@@ -643,12 +643,12 @@ class SizeConstraintSetSizeConstraintFieldToMatchArgs:
 
 
 @pulumi.input_type
-class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
+calass SqlInjectionMatchSetSqlInjectionMatchTupleArrgs:
     def __init__(__self__, *,
-                 field_to_match: pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs'],
+                 field_to_match: pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArrgs'],
                  text_transformation: pulumi.Input[str]):
         """
-        :param pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs'] field_to_match: Specifies where in a web request to look for snippets of malicious SQL code.
+        :param pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArrgs'] field_to_match: Specifies where in a web request to look for snippets of malicious SQL code.
         :param pulumi.Input[str] text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
                e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
@@ -660,14 +660,14 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArrgs']:
         """
         Specifies where in a web request to look for snippets of malicious SQL code.
         """
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArrgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
@@ -688,7 +688,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleArgs:
 
 
 @pulumi.input_type
-class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs:
+calass SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
@@ -734,7 +734,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs:
 
 
 @pulumi.input_type
-class WebAclDefaultActionArgs:
+calass WebAclDefaultActionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -756,13 +756,13 @@ class WebAclDefaultActionArgs:
 
 
 @pulumi.input_type
-class WebAclLoggingConfigurationArgs:
+calass WebAclLoggingConfigurationArrgs:
     def __init__(__self__, *,
                  log_destination: pulumi.Input[str],
-                 redacted_fields: Optional[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArgs']] = None):
+                 redacted_fields: Optional[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArrgs']] = None):
         """
         :param pulumi.Input[str] log_destination: Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-        :param pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArgs'] redacted_fields: Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
+        :param pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArrgs'] redacted_fields: Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         """
         pulumi.set(__self__, "log_destination", log_destination)
         if redacted_fields is not None:
@@ -782,41 +782,41 @@ class WebAclLoggingConfigurationArgs:
 
     @property
     @pulumi.getter(name="redactedFields")
-    def redacted_fields(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArgs']]:
+    def redacted_fields(self) -> Optional[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArrgs']]:
         """
         Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         """
         return pulumi.get(self, "redacted_fields")
 
     @redacted_fields.setter
-    def redacted_fields(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArgs']]):
+    def redacted_fields(self, value: Optional[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsArrgs']]):
         pulumi.set(self, "redacted_fields", value)
 
 
 @pulumi.input_type
-class WebAclLoggingConfigurationRedactedFieldsArgs:
+calass WebAclLoggingConfigurationRedactedFieldsArrgs:
     def __init__(__self__, *,
-                 field_to_matches: pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]):
+                 field_to_matches: pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]] field_to_matches: Set of configuration blocks for fields to redact. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrgs']]] field_to_matches: Set of configuration blocks for fields to redact. Detailed below.
         """
         pulumi.set(__self__, "field_to_matches", field_to_matches)
 
     @property
     @pulumi.getter(name="fieldToMatches")
-    def field_to_matches(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]:
+    def field_to_matches(self) -> pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrgs']]]:
         """
         Set of configuration blocks for fields to redact. Detailed below.
         """
         return pulumi.get(self, "field_to_matches")
 
     @field_to_matches.setter
-    def field_to_matches(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs']]]):
+    def field_to_matches(self, value: pulumi.Input[Sequence[pulumi.Input['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrgs']]]):
         pulumi.set(self, "field_to_matches", value)
 
 
 @pulumi.input_type
-class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs:
+calass WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):
@@ -854,19 +854,19 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs:
 
 
 @pulumi.input_type
-class WebAclRuleArgs:
+calass WebAclRuleArrgs:
     def __init__(__self__, *,
                  priority: pulumi.Input[int],
                  rule_id: pulumi.Input[str],
-                 action: Optional[pulumi.Input['WebAclRuleActionArgs']] = None,
-                 override_action: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']] = None,
+                 action: Optional[pulumi.Input['WebAclRuleActionArrgs']] = None,
+                 override_action: Optional[pulumi.Input['WebAclRuleOverrideActionArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] priority: Specifies the order in which the rules in a WebACL are evaluated.
                Rules with a lower value are evaluated before rules with a higher value.
         :param pulumi.Input[str] rule_id: ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
-        :param pulumi.Input['WebAclRuleActionArgs'] action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-        :param pulumi.Input['WebAclRuleOverrideActionArgs'] override_action: Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
+        :param pulumi.Input['WebAclRuleActionArrgs'] action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
+        :param pulumi.Input['WebAclRuleOverrideActionArrgs'] override_action: Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
         :param pulumi.Input[str] type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         pulumi.set(__self__, "priority", priority)
@@ -905,26 +905,26 @@ class WebAclRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['WebAclRuleActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['WebAclRuleActionArrgs']]:
         """
         Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['WebAclRuleActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['WebAclRuleActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter(name="overrideAction")
-    def override_action(self) -> Optional[pulumi.Input['WebAclRuleOverrideActionArgs']]:
+    def override_action(self) -> Optional[pulumi.Input['WebAclRuleOverrideActionArrgs']]:
         """
         Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
         """
         return pulumi.get(self, "override_action")
 
     @override_action.setter
-    def override_action(self, value: Optional[pulumi.Input['WebAclRuleOverrideActionArgs']]):
+    def override_action(self, value: Optional[pulumi.Input['WebAclRuleOverrideActionArrgs']]):
         pulumi.set(self, "override_action", value)
 
     @property
@@ -941,7 +941,7 @@ class WebAclRuleArgs:
 
 
 @pulumi.input_type
-class WebAclRuleActionArgs:
+calass WebAclRuleActionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -963,7 +963,7 @@ class WebAclRuleActionArgs:
 
 
 @pulumi.input_type
-class WebAclRuleOverrideActionArgs:
+calass WebAclRuleOverrideActionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -985,12 +985,12 @@ class WebAclRuleOverrideActionArgs:
 
 
 @pulumi.input_type
-class XssMatchSetXssMatchTupleArgs:
+calass XssMatchSetXssMatchTupleArrgs:
     def __init__(__self__, *,
-                 field_to_match: pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArgs'],
+                 field_to_match: pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArrgs'],
                  text_transformation: pulumi.Input[str]):
         """
-        :param pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArgs'] field_to_match: Specifies where in a web request to look for cross-site scripting attacks.
+        :param pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArrgs'] field_to_match: Specifies where in a web request to look for cross-site scripting attacks.
         :param pulumi.Input[str] text_transformation: Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -998,14 +998,14 @@ class XssMatchSetXssMatchTupleArgs:
 
     @property
     @pulumi.getter(name="fieldToMatch")
-    def field_to_match(self) -> pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArgs']:
+    def field_to_match(self) -> pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArrgs']:
         """
         Specifies where in a web request to look for cross-site scripting attacks.
         """
         return pulumi.get(self, "field_to_match")
 
     @field_to_match.setter
-    def field_to_match(self, value: pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArgs']):
+    def field_to_match(self, value: pulumi.Input['XssMatchSetXssMatchTupleFieldToMatchArrgs']):
         pulumi.set(self, "field_to_match", value)
 
     @property
@@ -1022,7 +1022,7 @@ class XssMatchSetXssMatchTupleArgs:
 
 
 @pulumi.input_type
-class XssMatchSetXssMatchTupleFieldToMatchArgs:
+calass XssMatchSetXssMatchTupleFieldToMatchArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  data: Optional[pulumi.Input[str]] = None):

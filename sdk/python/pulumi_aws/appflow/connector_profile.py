@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectorProfileArgs', 'ConnectorProfile']
+__all__ = ['ConnectorProfileArrgs', 'ConnectorProfile']
 
 @pulumi.input_type
-class ConnectorProfileArgs:
+calass ConnectorProfileArrgs:
     def __init__(__self__, *,
                  connection_mode: pulumi.Input[str],
-                 connector_profile_config: pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'],
+                 connector_profile_config: pulumi.Input['ConnectorProfileConnectorProfileConfigArrgs'],
                  connector_type: pulumi.Input[str],
                  connector_label: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class ConnectorProfileArgs:
         """
         The set of arguments for constructing a ConnectorProfile resource.
         :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArrgs'] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
@@ -54,14 +54,14 @@ class ConnectorProfileArgs:
 
     @property
     @pulumi.getter(name="connectorProfileConfig")
-    def connector_profile_config(self) -> pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']:
+    def connector_profile_config(self) -> pulumi.Input['ConnectorProfileConnectorProfileConfigArrgs']:
         """
         Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         """
         return pulumi.get(self, "connector_profile_config")
 
     @connector_profile_config.setter
-    def connector_profile_config(self, value: pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']):
+    def connector_profile_config(self, value: pulumi.Input['ConnectorProfileConnectorProfileConfigArrgs']):
         pulumi.set(self, "connector_profile_config", value)
 
     @property
@@ -111,12 +111,12 @@ class ConnectorProfileArgs:
 
 
 @pulumi.input_type
-class _ConnectorProfileState:
+calass _ConnectorProfileState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connector_label: Optional[pulumi.Input[str]] = None,
-                 connector_profile_config: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']] = None,
+                 connector_profile_config: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArrgs']] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class _ConnectorProfileState:
         :param pulumi.Input[str] arn: ARN of the connector profile.
         :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArgs'] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input['ConnectorProfileConnectorProfileConfigArrgs'] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[str] credentials_arn: ARN of the connector profile credentials.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
@@ -186,14 +186,14 @@ class _ConnectorProfileState:
 
     @property
     @pulumi.getter(name="connectorProfileConfig")
-    def connector_profile_config(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]:
+    def connector_profile_config(self) -> Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArrgs']]:
         """
         Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         """
         return pulumi.get(self, "connector_profile_config")
 
     @connector_profile_config.setter
-    def connector_profile_config(self, value: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArgs']]):
+    def connector_profile_config(self, value: Optional[pulumi.Input['ConnectorProfileConnectorProfileConfigArrgs']]):
         pulumi.set(self, "connector_profile_config", value)
 
     @property
@@ -242,14 +242,14 @@ class _ConnectorProfileState:
         pulumi.set(self, "name", value)
 
 
-class ConnectorProfile(pulumi.CustomResource):
+calass ConnectorProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connector_label: Optional[pulumi.Input[str]] = None,
-                 connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
+                 connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArrgs']]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -273,7 +273,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArrgs']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
         """
@@ -281,7 +281,7 @@ class ConnectorProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectorProfileArgs,
+                 args: ConnectorProfileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppFlow connector profile resource.
@@ -299,12 +299,12 @@ class ConnectorProfile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectorProfileArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectorProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectorProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectorProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -315,7 +315,7 @@ class ConnectorProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_mode: Optional[pulumi.Input[str]] = None,
                  connector_label: Optional[pulumi.Input[str]] = None,
-                 connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
+                 connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArrgs']]] = None,
                  connector_type: Optional[pulumi.Input[str]] = None,
                  kms_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -326,7 +326,7 @@ class ConnectorProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectorProfileArgs.__new__(ConnectorProfileArgs)
+            __props__ = ConnectorProfileArrgs.__new__(ConnectorProfileArrgs)
 
             if connection_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_mode'")
@@ -355,7 +355,7 @@ class ConnectorProfile(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             connection_mode: Optional[pulumi.Input[str]] = None,
             connector_label: Optional[pulumi.Input[str]] = None,
-            connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']]] = None,
+            connector_profile_config: Optional[pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArrgs']]] = None,
             connector_type: Optional[pulumi.Input[str]] = None,
             credentials_arn: Optional[pulumi.Input[str]] = None,
             kms_arn: Optional[pulumi.Input[str]] = None,
@@ -370,7 +370,7 @@ class ConnectorProfile(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN of the connector profile.
         :param pulumi.Input[str] connection_mode: Indicates the connection mode and specifies whether it is public or private. Private flows use AWS PrivateLink to route data over AWS infrastructure without exposing it to the public internet. One of: `Public`, `Private`.
         :param pulumi.Input[str] connector_label: The label of the connector. The label is unique for each ConnectorRegistration in your AWS account. Only needed if calling for `CustomConnector` connector type.
-        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArgs']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
+        :param pulumi.Input[pulumi.InputType['ConnectorProfileConnectorProfileConfigArrgs']] connector_profile_config: Defines the connector-specific configuration and credentials. See Connector Profile Config for more details.
         :param pulumi.Input[str] connector_type: The type of connector. One of: `Amplitude`, `CustomConnector`, `CustomerProfiles`, `Datadog`, `Dynatrace`, `EventBridge`, `Googleanalytics`, `Honeycode`, `Infornexus`, `LookoutMetrics`, `Marketo`, `Redshift`, `S3`, `Salesforce`, `SAPOData`, `Servicenow`, `Singular`, `Slack`, `Snowflake`, `Trendmicro`, `Upsolver`, `Veeva`, `Zendesk`.
         :param pulumi.Input[str] credentials_arn: ARN of the connector profile credentials.
         :param pulumi.Input[str] kms_arn: ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.

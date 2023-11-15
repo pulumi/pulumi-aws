@@ -10,28 +10,28 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CustomDomainAssociationCertificateValidationRecordArgs',
-    'ObservabilityConfigurationTraceConfigurationArgs',
-    'ServiceEncryptionConfigurationArgs',
-    'ServiceHealthCheckConfigurationArgs',
-    'ServiceInstanceConfigurationArgs',
-    'ServiceNetworkConfigurationArgs',
-    'ServiceNetworkConfigurationEgressConfigurationArgs',
-    'ServiceNetworkConfigurationIngressConfigurationArgs',
-    'ServiceObservabilityConfigurationArgs',
-    'ServiceSourceConfigurationArgs',
-    'ServiceSourceConfigurationAuthenticationConfigurationArgs',
-    'ServiceSourceConfigurationCodeRepositoryArgs',
-    'ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs',
-    'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs',
-    'ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs',
-    'ServiceSourceConfigurationImageRepositoryArgs',
-    'ServiceSourceConfigurationImageRepositoryImageConfigurationArgs',
-    'VpcIngressConnectionIngressVpcConfigurationArgs',
+    'CustomDomainAssociationCertificateValidationRecordArrgs',
+    'ObservabilityConfigurationTraceConfigurationArrgs',
+    'ServiceEncryptionConfigurationArrgs',
+    'ServiceHealthCheckConfigurationArrgs',
+    'ServiceInstanceConfigurationArrgs',
+    'ServiceNetworkConfigurationArrgs',
+    'ServiceNetworkConfigurationEgressConfigurationArrgs',
+    'ServiceNetworkConfigurationIngressConfigurationArrgs',
+    'ServiceObservabilityConfigurationArrgs',
+    'ServiceSourceConfigurationArrgs',
+    'ServiceSourceConfigurationAuthenticationConfigurationArrgs',
+    'ServiceSourceConfigurationCodeRepositoryArrgs',
+    'ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs',
+    'ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs',
+    'ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs',
+    'ServiceSourceConfigurationImageRepositoryArrgs',
+    'ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs',
+    'VpcIngressConnectionIngressVpcConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class CustomDomainAssociationCertificateValidationRecordArgs:
+calass CustomDomainAssociationCertificateValidationRecordArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
 
 
 @pulumi.input_type
-class ObservabilityConfigurationTraceConfigurationArgs:
+calass ObservabilityConfigurationTraceConfigurationArrgs:
     def __init__(__self__, *,
                  vendor: Optional[pulumi.Input[str]] = None):
         """
@@ -125,7 +125,7 @@ class ObservabilityConfigurationTraceConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceEncryptionConfigurationArgs:
+calass ServiceEncryptionConfigurationArrgs:
     def __init__(__self__, *,
                  kms_key: pulumi.Input[str]):
         """
@@ -147,7 +147,7 @@ class ServiceEncryptionConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceHealthCheckConfigurationArgs:
+calass ServiceHealthCheckConfigurationArrgs:
     def __init__(__self__, *,
                  healthy_threshold: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -250,7 +250,7 @@ class ServiceHealthCheckConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceInstanceConfigurationArgs:
+calass ServiceInstanceConfigurationArrgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
@@ -305,13 +305,13 @@ class ServiceInstanceConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceNetworkConfigurationArgs:
+calass ServiceNetworkConfigurationArrgs:
     def __init__(__self__, *,
-                 egress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']] = None,
-                 ingress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs']] = None):
+                 egress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArrgs']] = None,
+                 ingress_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs'] egress_configuration: Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
-        :param pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs'] ingress_configuration: Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
+        :param pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArrgs'] egress_configuration: Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
+        :param pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArrgs'] ingress_configuration: Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
         """
         if egress_configuration is not None:
             pulumi.set(__self__, "egress_configuration", egress_configuration)
@@ -320,31 +320,31 @@ class ServiceNetworkConfigurationArgs:
 
     @property
     @pulumi.getter(name="egressConfiguration")
-    def egress_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']]:
+    def egress_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArrgs']]:
         """
         Network configuration settings for outbound message traffic. See Egress Configuration below for more details.
         """
         return pulumi.get(self, "egress_configuration")
 
     @egress_configuration.setter
-    def egress_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArgs']]):
+    def egress_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationEgressConfigurationArrgs']]):
         pulumi.set(self, "egress_configuration", value)
 
     @property
     @pulumi.getter(name="ingressConfiguration")
-    def ingress_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs']]:
+    def ingress_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArrgs']]:
         """
         Network configuration settings for inbound network traffic. See Ingress Configuration below for more details.
         """
         return pulumi.get(self, "ingress_configuration")
 
     @ingress_configuration.setter
-    def ingress_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArgs']]):
+    def ingress_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationIngressConfigurationArrgs']]):
         pulumi.set(self, "ingress_configuration", value)
 
 
 @pulumi.input_type
-class ServiceNetworkConfigurationEgressConfigurationArgs:
+calass ServiceNetworkConfigurationEgressConfigurationArrgs:
     def __init__(__self__, *,
                  egress_type: Optional[pulumi.Input[str]] = None,
                  vpc_connector_arn: Optional[pulumi.Input[str]] = None):
@@ -383,7 +383,7 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceNetworkConfigurationIngressConfigurationArgs:
+calass ServiceNetworkConfigurationIngressConfigurationArrgs:
     def __init__(__self__, *,
                  is_publicly_accessible: Optional[pulumi.Input[bool]] = None):
         """
@@ -406,7 +406,7 @@ class ServiceNetworkConfigurationIngressConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceObservabilityConfigurationArgs:
+calass ServiceObservabilityConfigurationArrgs:
     def __init__(__self__, *,
                  observability_enabled: pulumi.Input[bool],
                  observability_configuration_arn: Optional[pulumi.Input[str]] = None):
@@ -444,17 +444,17 @@ class ServiceObservabilityConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceSourceConfigurationArgs:
+calass ServiceSourceConfigurationArrgs:
     def __init__(__self__, *,
-                 authentication_configuration: Optional[pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArgs']] = None,
+                 authentication_configuration: Optional[pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArrgs']] = None,
                  auto_deployments_enabled: Optional[pulumi.Input[bool]] = None,
-                 code_repository: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryArgs']] = None,
-                 image_repository: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryArgs']] = None):
+                 code_repository: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryArrgs']] = None,
+                 image_repository: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryArrgs']] = None):
         """
-        :param pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArgs'] authentication_configuration: Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArrgs'] authentication_configuration: Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
         :param pulumi.Input[bool] auto_deployments_enabled: Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryArgs'] code_repository: Description of a source code repository. See Code Repository below for more details.
-        :param pulumi.Input['ServiceSourceConfigurationImageRepositoryArgs'] image_repository: Description of a source image repository. See Image Repository below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryArrgs'] code_repository: Description of a source code repository. See Code Repository below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationImageRepositoryArrgs'] image_repository: Description of a source image repository. See Image Repository below for more details.
         """
         if authentication_configuration is not None:
             pulumi.set(__self__, "authentication_configuration", authentication_configuration)
@@ -467,14 +467,14 @@ class ServiceSourceConfigurationArgs:
 
     @property
     @pulumi.getter(name="authenticationConfiguration")
-    def authentication_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArgs']]:
+    def authentication_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArrgs']]:
         """
         Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
         """
         return pulumi.get(self, "authentication_configuration")
 
     @authentication_configuration.setter
-    def authentication_configuration(self, value: Optional[pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArgs']]):
+    def authentication_configuration(self, value: Optional[pulumi.Input['ServiceSourceConfigurationAuthenticationConfigurationArrgs']]):
         pulumi.set(self, "authentication_configuration", value)
 
     @property
@@ -491,31 +491,31 @@ class ServiceSourceConfigurationArgs:
 
     @property
     @pulumi.getter(name="codeRepository")
-    def code_repository(self) -> Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryArgs']]:
+    def code_repository(self) -> Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryArrgs']]:
         """
         Description of a source code repository. See Code Repository below for more details.
         """
         return pulumi.get(self, "code_repository")
 
     @code_repository.setter
-    def code_repository(self, value: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryArgs']]):
+    def code_repository(self, value: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryArrgs']]):
         pulumi.set(self, "code_repository", value)
 
     @property
     @pulumi.getter(name="imageRepository")
-    def image_repository(self) -> Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryArgs']]:
+    def image_repository(self) -> Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryArrgs']]:
         """
         Description of a source image repository. See Image Repository below for more details.
         """
         return pulumi.get(self, "image_repository")
 
     @image_repository.setter
-    def image_repository(self, value: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryArgs']]):
+    def image_repository(self, value: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryArrgs']]):
         pulumi.set(self, "image_repository", value)
 
 
 @pulumi.input_type
-class ServiceSourceConfigurationAuthenticationConfigurationArgs:
+calass ServiceSourceConfigurationAuthenticationConfigurationArrgs:
     def __init__(__self__, *,
                  access_role_arn: Optional[pulumi.Input[str]] = None,
                  connection_arn: Optional[pulumi.Input[str]] = None):
@@ -554,15 +554,15 @@ class ServiceSourceConfigurationAuthenticationConfigurationArgs:
 
 
 @pulumi.input_type
-class ServiceSourceConfigurationCodeRepositoryArgs:
+calass ServiceSourceConfigurationCodeRepositoryArrgs:
     def __init__(__self__, *,
                  repository_url: pulumi.Input[str],
-                 source_code_version: pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs'],
-                 code_configuration: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs']] = None):
+                 source_code_version: pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs'],
+                 code_configuration: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs']] = None):
         """
         :param pulumi.Input[str] repository_url: Location of the repository that contains the source code.
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs'] source_code_version: Version that should be used within the source code repository. See Source Code Version below for more details.
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs'] code_configuration: Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs'] source_code_version: Version that should be used within the source code repository. See Source Code Version below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs'] code_configuration: Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
         """
         pulumi.set(__self__, "repository_url", repository_url)
         pulumi.set(__self__, "source_code_version", source_code_version)
@@ -583,37 +583,37 @@ class ServiceSourceConfigurationCodeRepositoryArgs:
 
     @property
     @pulumi.getter(name="sourceCodeVersion")
-    def source_code_version(self) -> pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs']:
+    def source_code_version(self) -> pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs']:
         """
         Version that should be used within the source code repository. See Source Code Version below for more details.
         """
         return pulumi.get(self, "source_code_version")
 
     @source_code_version.setter
-    def source_code_version(self, value: pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs']):
+    def source_code_version(self, value: pulumi.Input['ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs']):
         pulumi.set(self, "source_code_version", value)
 
     @property
     @pulumi.getter(name="codeConfiguration")
-    def code_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs']]:
+    def code_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs']]:
         """
         Configuration for building and running the service from a source code repository. See Code Configuration below for more details.
         """
         return pulumi.get(self, "code_configuration")
 
     @code_configuration.setter
-    def code_configuration(self, value: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs']]):
+    def code_configuration(self, value: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs']]):
         pulumi.set(self, "code_configuration", value)
 
 
 @pulumi.input_type
-class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
+calass ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs:
     def __init__(__self__, *,
                  configuration_source: pulumi.Input[str],
-                 code_configuration_values: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs']] = None):
+                 code_configuration_values: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs']] = None):
         """
         :param pulumi.Input[str] configuration_source: Source of the App Runner configuration. Valid values: `REPOSITORY`, `API`. Values are interpreted as follows:
-        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs'] code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs'] code_configuration_values: Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
         """
         pulumi.set(__self__, "configuration_source", configuration_source)
         if code_configuration_values is not None:
@@ -633,19 +633,19 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs:
 
     @property
     @pulumi.getter(name="codeConfigurationValues")
-    def code_configuration_values(self) -> Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs']]:
+    def code_configuration_values(self) -> Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs']]:
         """
         Basic configuration for building and running the App Runner service. Use this parameter to quickly launch an App Runner service without providing an apprunner.yaml file in the source code repository (or ignoring the file if it exists). See Code Configuration Values below for more details.
         """
         return pulumi.get(self, "code_configuration_values")
 
     @code_configuration_values.setter
-    def code_configuration_values(self, value: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs']]):
+    def code_configuration_values(self, value: Optional[pulumi.Input['ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs']]):
         pulumi.set(self, "code_configuration_values", value)
 
 
 @pulumi.input_type
-class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs:
+calass ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs:
     def __init__(__self__, *,
                  runtime: pulumi.Input[str],
                  build_command: Optional[pulumi.Input[str]] = None,
@@ -747,7 +747,7 @@ class ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfiguration
 
 
 @pulumi.input_type
-class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs:
+calass ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -784,16 +784,16 @@ class ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs:
 
 
 @pulumi.input_type
-class ServiceSourceConfigurationImageRepositoryArgs:
+calass ServiceSourceConfigurationImageRepositoryArrgs:
     def __init__(__self__, *,
                  image_identifier: pulumi.Input[str],
                  image_repository_type: pulumi.Input[str],
-                 image_configuration: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs']] = None):
+                 image_configuration: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs']] = None):
         """
         :param pulumi.Input[str] image_identifier: Identifier of an image. For an image in Amazon Elastic Container Registry (Amazon ECR), this is an image name. For the
                image name format, see Pulling an image in the Amazon ECR User Guide.
         :param pulumi.Input[str] image_repository_type: Type of the image repository. This reflects the repository provider and whether the repository is private or public. Valid values: `ECR` , `ECR_PUBLIC`.
-        :param pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs'] image_configuration: Configuration for running the identified image. See Image Configuration below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs'] image_configuration: Configuration for running the identified image. See Image Configuration below for more details.
         """
         pulumi.set(__self__, "image_identifier", image_identifier)
         pulumi.set(__self__, "image_repository_type", image_repository_type)
@@ -827,19 +827,19 @@ class ServiceSourceConfigurationImageRepositoryArgs:
 
     @property
     @pulumi.getter(name="imageConfiguration")
-    def image_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs']]:
+    def image_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs']]:
         """
         Configuration for running the identified image. See Image Configuration below for more details.
         """
         return pulumi.get(self, "image_configuration")
 
     @image_configuration.setter
-    def image_configuration(self, value: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArgs']]):
+    def image_configuration(self, value: Optional[pulumi.Input['ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs']]):
         pulumi.set(self, "image_configuration", value)
 
 
 @pulumi.input_type
-class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs:
+calass ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs:
     def __init__(__self__, *,
                  port: Optional[pulumi.Input[str]] = None,
                  runtime_environment_secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -910,7 +910,7 @@ class ServiceSourceConfigurationImageRepositoryImageConfigurationArgs:
 
 
 @pulumi.input_type
-class VpcIngressConnectionIngressVpcConfigurationArgs:
+calass VpcIngressConnectionIngressVpcConfigurationArrgs:
     def __init__(__self__, *,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):

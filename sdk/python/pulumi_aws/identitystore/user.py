@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserArgs', 'User']
+__all__ = ['UserArrgs', 'User']
 
 @pulumi.input_type
-class UserArgs:
+calass UserArrgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
                  identity_store_id: pulumi.Input[str],
                  user_name: pulumi.Input[str],
-                 addresses: Optional[pulumi.Input['UserAddressesArgs']] = None,
-                 emails: Optional[pulumi.Input['UserEmailsArgs']] = None,
+                 addresses: Optional[pulumi.Input['UserAddressesArrgs']] = None,
+                 emails: Optional[pulumi.Input['UserEmailsArrgs']] = None,
                  locale: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input['UserNameArgs']] = None,
+                 name: Optional[pulumi.Input['UserNameArrgs']] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
-                 phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArgs']] = None,
+                 phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArrgs']] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  profile_url: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -37,12 +37,12 @@ class UserArgs:
         :param pulumi.Input[str] user_name: A unique string used to identify the user. This value can consist of letters, accented characters, symbols, numbers, and punctuation. This value is specified at the time the user is created and stored as an attribute of the user object in the identity store. The limit is 128 characters.
                
                The following arguments are optional:
-        :param pulumi.Input['UserAddressesArgs'] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
-        :param pulumi.Input['UserEmailsArgs'] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
+        :param pulumi.Input['UserAddressesArrgs'] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
+        :param pulumi.Input['UserEmailsArrgs'] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
         :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input['UserNameArgs'] name: Details about the user's full name. Detailed below.
+        :param pulumi.Input['UserNameArrgs'] name: Details about the user's full name. Detailed below.
         :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input['UserPhoneNumbersArgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+        :param pulumi.Input['UserPhoneNumbersArrgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[str] preferred_language: The preferred language of the user.
         :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
         :param pulumi.Input[str] timezone: The user's time zone.
@@ -115,26 +115,26 @@ class UserArgs:
 
     @property
     @pulumi.getter
-    def addresses(self) -> Optional[pulumi.Input['UserAddressesArgs']]:
+    def addresses(self) -> Optional[pulumi.Input['UserAddressesArrgs']]:
         """
         Details about the user's address. At most 1 address is allowed. Detailed below.
         """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
-    def addresses(self, value: Optional[pulumi.Input['UserAddressesArgs']]):
+    def addresses(self, value: Optional[pulumi.Input['UserAddressesArrgs']]):
         pulumi.set(self, "addresses", value)
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input['UserEmailsArgs']]:
+    def emails(self) -> Optional[pulumi.Input['UserEmailsArrgs']]:
         """
         Details about the user's email. At most 1 email is allowed. Detailed below.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input['UserEmailsArgs']]):
+    def emails(self, value: Optional[pulumi.Input['UserEmailsArrgs']]):
         pulumi.set(self, "emails", value)
 
     @property
@@ -151,14 +151,14 @@ class UserArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input['UserNameArgs']]:
+    def name(self) -> Optional[pulumi.Input['UserNameArrgs']]:
         """
         Details about the user's full name. Detailed below.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input['UserNameArgs']]):
+    def name(self, value: Optional[pulumi.Input['UserNameArrgs']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -175,14 +175,14 @@ class UserArgs:
 
     @property
     @pulumi.getter(name="phoneNumbers")
-    def phone_numbers(self) -> Optional[pulumi.Input['UserPhoneNumbersArgs']]:
+    def phone_numbers(self) -> Optional[pulumi.Input['UserPhoneNumbersArrgs']]:
         """
         Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         """
         return pulumi.get(self, "phone_numbers")
 
     @phone_numbers.setter
-    def phone_numbers(self, value: Optional[pulumi.Input['UserPhoneNumbersArgs']]):
+    def phone_numbers(self, value: Optional[pulumi.Input['UserPhoneNumbersArrgs']]):
         pulumi.set(self, "phone_numbers", value)
 
     @property
@@ -247,17 +247,17 @@ class UserArgs:
 
 
 @pulumi.input_type
-class _UserState:
+calass _UserState:
     def __init__(__self__, *,
-                 addresses: Optional[pulumi.Input['UserAddressesArgs']] = None,
+                 addresses: Optional[pulumi.Input['UserAddressesArrgs']] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 emails: Optional[pulumi.Input['UserEmailsArgs']] = None,
-                 external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]]] = None,
+                 emails: Optional[pulumi.Input['UserEmailsArrgs']] = None,
+                 external_ids: Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArrgs']]]] = None,
                  identity_store_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input['UserNameArgs']] = None,
+                 name: Optional[pulumi.Input['UserNameArrgs']] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
-                 phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArgs']] = None,
+                 phone_numbers: Optional[pulumi.Input['UserPhoneNumbersArrgs']] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  profile_url: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -267,15 +267,15 @@ class _UserState:
                  user_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering User resources.
-        :param pulumi.Input['UserAddressesArgs'] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
+        :param pulumi.Input['UserAddressesArrgs'] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
         :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input['UserEmailsArgs'] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]] external_ids: A list of identifiers issued to this resource by an external identity provider.
+        :param pulumi.Input['UserEmailsArrgs'] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserExternalIdArrgs']]] external_ids: A list of identifiers issued to this resource by an external identity provider.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
         :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input['UserNameArgs'] name: Details about the user's full name. Detailed below.
+        :param pulumi.Input['UserNameArrgs'] name: Details about the user's full name. Detailed below.
         :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input['UserPhoneNumbersArgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+        :param pulumi.Input['UserPhoneNumbersArrgs'] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[str] preferred_language: The preferred language of the user.
         :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
         :param pulumi.Input[str] timezone: The user's time zone.
@@ -321,14 +321,14 @@ class _UserState:
 
     @property
     @pulumi.getter
-    def addresses(self) -> Optional[pulumi.Input['UserAddressesArgs']]:
+    def addresses(self) -> Optional[pulumi.Input['UserAddressesArrgs']]:
         """
         Details about the user's address. At most 1 address is allowed. Detailed below.
         """
         return pulumi.get(self, "addresses")
 
     @addresses.setter
-    def addresses(self, value: Optional[pulumi.Input['UserAddressesArgs']]):
+    def addresses(self, value: Optional[pulumi.Input['UserAddressesArrgs']]):
         pulumi.set(self, "addresses", value)
 
     @property
@@ -345,26 +345,26 @@ class _UserState:
 
     @property
     @pulumi.getter
-    def emails(self) -> Optional[pulumi.Input['UserEmailsArgs']]:
+    def emails(self) -> Optional[pulumi.Input['UserEmailsArrgs']]:
         """
         Details about the user's email. At most 1 email is allowed. Detailed below.
         """
         return pulumi.get(self, "emails")
 
     @emails.setter
-    def emails(self, value: Optional[pulumi.Input['UserEmailsArgs']]):
+    def emails(self, value: Optional[pulumi.Input['UserEmailsArrgs']]):
         pulumi.set(self, "emails", value)
 
     @property
     @pulumi.getter(name="externalIds")
-    def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]]]:
+    def external_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArrgs']]]]:
         """
         A list of identifiers issued to this resource by an external identity provider.
         """
         return pulumi.get(self, "external_ids")
 
     @external_ids.setter
-    def external_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArgs']]]]):
+    def external_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserExternalIdArrgs']]]]):
         pulumi.set(self, "external_ids", value)
 
     @property
@@ -393,14 +393,14 @@ class _UserState:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input['UserNameArgs']]:
+    def name(self) -> Optional[pulumi.Input['UserNameArrgs']]:
         """
         Details about the user's full name. Detailed below.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input['UserNameArgs']]):
+    def name(self, value: Optional[pulumi.Input['UserNameArrgs']]):
         pulumi.set(self, "name", value)
 
     @property
@@ -417,14 +417,14 @@ class _UserState:
 
     @property
     @pulumi.getter(name="phoneNumbers")
-    def phone_numbers(self) -> Optional[pulumi.Input['UserPhoneNumbersArgs']]:
+    def phone_numbers(self) -> Optional[pulumi.Input['UserPhoneNumbersArrgs']]:
         """
         Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         """
         return pulumi.get(self, "phone_numbers")
 
     @phone_numbers.setter
-    def phone_numbers(self, value: Optional[pulumi.Input['UserPhoneNumbersArgs']]):
+    def phone_numbers(self, value: Optional[pulumi.Input['UserPhoneNumbersArrgs']]):
         pulumi.set(self, "phone_numbers", value)
 
     @property
@@ -514,19 +514,19 @@ class _UserState:
         pulumi.set(self, "user_type", value)
 
 
-class User(pulumi.CustomResource):
+calass User(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArgs']]] = None,
+                 addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArrgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArgs']]] = None,
+                 emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArrgs']]] = None,
                  identity_store_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[pulumi.InputType['UserNameArgs']]] = None,
+                 name: Optional[pulumi.Input[pulumi.InputType['UserNameArrgs']]] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
-                 phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']]] = None,
+                 phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArrgs']]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  profile_url: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -554,14 +554,14 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserAddressesArgs']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserAddressesArrgs']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
         :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input[pulumi.InputType['UserEmailsArgs']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserEmailsArrgs']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
         :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input[pulumi.InputType['UserNameArgs']] name: Details about the user's full name. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserNameArrgs']] name: Details about the user's full name. Detailed below.
         :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserPhoneNumbersArrgs']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[str] preferred_language: The preferred language of the user.
         :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
         :param pulumi.Input[str] timezone: The user's time zone.
@@ -575,7 +575,7 @@ class User(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserArgs,
+                 args: UserArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource manages a User resource within an Identity Store.
@@ -596,12 +596,12 @@ class User(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserArgs args: The arguments to use to populate this resource's properties.
+        :param UserArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -610,14 +610,14 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArgs']]] = None,
+                 addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArrgs']]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArgs']]] = None,
+                 emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArrgs']]] = None,
                  identity_store_id: Optional[pulumi.Input[str]] = None,
                  locale: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[pulumi.InputType['UserNameArgs']]] = None,
+                 name: Optional[pulumi.Input[pulumi.InputType['UserNameArrgs']]] = None,
                  nickname: Optional[pulumi.Input[str]] = None,
-                 phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']]] = None,
+                 phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArrgs']]] = None,
                  preferred_language: Optional[pulumi.Input[str]] = None,
                  profile_url: Optional[pulumi.Input[str]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
@@ -631,7 +631,7 @@ class User(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserArgs.__new__(UserArgs)
+            __props__ = UserArrgs.__new__(UserArrgs)
 
             __props__.__dict__["addresses"] = addresses
             if display_name is None and not opts.urn:
@@ -665,15 +665,15 @@ class User(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArgs']]] = None,
+            addresses: Optional[pulumi.Input[pulumi.InputType['UserAddressesArrgs']]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArgs']]] = None,
-            external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserExternalIdArgs']]]]] = None,
+            emails: Optional[pulumi.Input[pulumi.InputType['UserEmailsArrgs']]] = None,
+            external_ids: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserExternalIdArrgs']]]]] = None,
             identity_store_id: Optional[pulumi.Input[str]] = None,
             locale: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[pulumi.InputType['UserNameArgs']]] = None,
+            name: Optional[pulumi.Input[pulumi.InputType['UserNameArrgs']]] = None,
             nickname: Optional[pulumi.Input[str]] = None,
-            phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']]] = None,
+            phone_numbers: Optional[pulumi.Input[pulumi.InputType['UserPhoneNumbersArrgs']]] = None,
             preferred_language: Optional[pulumi.Input[str]] = None,
             profile_url: Optional[pulumi.Input[str]] = None,
             timezone: Optional[pulumi.Input[str]] = None,
@@ -688,15 +688,15 @@ class User(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserAddressesArgs']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserAddressesArrgs']] addresses: Details about the user's address. At most 1 address is allowed. Detailed below.
         :param pulumi.Input[str] display_name: The name that is typically displayed when the user is referenced.
-        :param pulumi.Input[pulumi.InputType['UserEmailsArgs']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserExternalIdArgs']]]] external_ids: A list of identifiers issued to this resource by an external identity provider.
+        :param pulumi.Input[pulumi.InputType['UserEmailsArrgs']] emails: Details about the user's email. At most 1 email is allowed. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UserExternalIdArrgs']]]] external_ids: A list of identifiers issued to this resource by an external identity provider.
         :param pulumi.Input[str] identity_store_id: The globally unique identifier for the identity store that this user is in.
         :param pulumi.Input[str] locale: The user's geographical region or location.
-        :param pulumi.Input[pulumi.InputType['UserNameArgs']] name: Details about the user's full name. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserNameArrgs']] name: Details about the user's full name. Detailed below.
         :param pulumi.Input[str] nickname: An alternate name for the user.
-        :param pulumi.Input[pulumi.InputType['UserPhoneNumbersArgs']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
+        :param pulumi.Input[pulumi.InputType['UserPhoneNumbersArrgs']] phone_numbers: Details about the user's phone number. At most 1 phone number is allowed. Detailed below.
         :param pulumi.Input[str] preferred_language: The preferred language of the user.
         :param pulumi.Input[str] profile_url: An URL that may be associated with the user.
         :param pulumi.Input[str] timezone: The user's time zone.

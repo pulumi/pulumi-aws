@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDirectoryResult:
+calass GetDirectoryResult:
     """
     A collection of values returned by getDirectory.
     """
@@ -200,7 +200,7 @@ class GetDirectoryResult:
         return pulumi.get(self, "vpc_settings")
 
 
-class AwaitableGetDirectoryResult(GetDirectoryResult):
+calass AwaitableGetDirectoryResult(GetDirectoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

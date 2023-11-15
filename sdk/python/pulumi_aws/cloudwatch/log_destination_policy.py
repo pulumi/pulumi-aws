@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LogDestinationPolicyArgs', 'LogDestinationPolicy']
+__all__ = ['LogDestinationPolicyArrgs', 'LogDestinationPolicy']
 
 @pulumi.input_type
-class LogDestinationPolicyArgs:
+calass LogDestinationPolicyArrgs:
     def __init__(__self__, *,
                  access_policy: pulumi.Input[str],
                  destination_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class LogDestinationPolicyArgs:
 
 
 @pulumi.input_type
-class _LogDestinationPolicyState:
+calass _LogDestinationPolicyState:
     def __init__(__self__, *,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  destination_name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _LogDestinationPolicyState:
         pulumi.set(self, "force_update", value)
 
 
-class LogDestinationPolicy(pulumi.CustomResource):
+calass LogDestinationPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -142,9 +142,9 @@ class LogDestinationPolicy(pulumi.CustomResource):
         test_destination = aws.cloudwatch.LogDestination("testDestination",
             role_arn=aws_iam_role["iam_for_cloudwatch"]["arn"],
             target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
-        test_destination_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_destination_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["123456789012"],
             )],
@@ -174,7 +174,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LogDestinationPolicyArgs,
+                 args: LogDestinationPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudWatch Logs destination policy resource.
@@ -188,9 +188,9 @@ class LogDestinationPolicy(pulumi.CustomResource):
         test_destination = aws.cloudwatch.LogDestination("testDestination",
             role_arn=aws_iam_role["iam_for_cloudwatch"]["arn"],
             target_arn=aws_kinesis_stream["kinesis_for_cloudwatch"]["arn"])
-        test_destination_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_destination_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["123456789012"],
             )],
@@ -211,12 +211,12 @@ class LogDestinationPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogDestinationPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LogDestinationPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogDestinationPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogDestinationPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -235,7 +235,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogDestinationPolicyArgs.__new__(LogDestinationPolicyArgs)
+            __props__ = LogDestinationPolicyArrgs.__new__(LogDestinationPolicyArrgs)
 
             if access_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy'")

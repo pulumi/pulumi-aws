@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ClusterSnapshotArgs', 'ClusterSnapshot']
+__all__ = ['ClusterSnapshotArrgs', 'ClusterSnapshot']
 
 @pulumi.input_type
-class ClusterSnapshotArgs:
+calass ClusterSnapshotArrgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[str],
                  db_cluster_snapshot_identifier: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ClusterSnapshotArgs:
 
 
 @pulumi.input_type
-class _ClusterSnapshotState:
+calass _ClusterSnapshotState:
     def __init__(__self__, *,
                  allocated_storage: Optional[pulumi.Input[int]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -289,7 +289,7 @@ class _ClusterSnapshotState:
         pulumi.set(self, "vpc_id", value)
 
 
-class ClusterSnapshot(pulumi.CustomResource):
+calass ClusterSnapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -328,7 +328,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterSnapshotArgs,
+                 args: ClusterSnapshotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Neptune database cluster snapshot.
@@ -353,12 +353,12 @@ class ClusterSnapshot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterSnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterSnapshotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterSnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterSnapshotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -376,7 +376,7 @@ class ClusterSnapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterSnapshotArgs.__new__(ClusterSnapshotArgs)
+            __props__ = ClusterSnapshotArrgs.__new__(ClusterSnapshotArrgs)
 
             if db_cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_cluster_identifier'")

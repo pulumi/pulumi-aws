@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEngineVersionResult:
+calass GetEngineVersionResult:
     """
     A collection of values returned by getEngineVersion.
     """
@@ -247,7 +247,7 @@ class GetEngineVersionResult:
         return pulumi.get(self, "version_description")
 
 
-class AwaitableGetEngineVersionResult(GetEngineVersionResult):
+calass AwaitableGetEngineVersionResult(GetEngineVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -279,7 +279,7 @@ class AwaitableGetEngineVersionResult(GetEngineVersionResult):
 
 def get_engine_version(default_only: Optional[bool] = None,
                        engine: Optional[str] = None,
-                       filters: Optional[Sequence[pulumi.InputType['GetEngineVersionFilterArgs']]] = None,
+                       filters: Optional[Sequence[pulumi.InputType['GetEngineVersionFilterArrgs']]] = None,
                        include_all: Optional[bool] = None,
                        parameter_group_family: Optional[str] = None,
                        preferred_versions: Optional[Sequence[str]] = None,
@@ -308,7 +308,7 @@ def get_engine_version(default_only: Optional[bool] = None,
     import pulumi_aws as aws
 
     test = aws.rds.get_engine_version(engine="aurora-postgresql",
-        filters=[aws.rds.GetEngineVersionFilterArgs(
+        filters=[aws.rds.GetEngineVersionFilterArrgs(
             name="engine-mode",
             values=["serverless"],
         )],
@@ -319,7 +319,7 @@ def get_engine_version(default_only: Optional[bool] = None,
 
     :param bool default_only: When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param Sequence[pulumi.InputType['GetEngineVersionFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+    :param Sequence[pulumi.InputType['GetEngineVersionFilterArrgs']] filters: One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
     :param bool include_all: When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
     :param str parameter_group_family: Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
     :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
@@ -364,7 +364,7 @@ def get_engine_version(default_only: Optional[bool] = None,
 @_utilities.lift_output_func(get_engine_version)
 def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]]] = None,
                               engine: Optional[pulumi.Input[str]] = None,
-                              filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEngineVersionFilterArgs']]]]] = None,
+                              filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEngineVersionFilterArrgs']]]]] = None,
                               include_all: Optional[pulumi.Input[Optional[bool]]] = None,
                               parameter_group_family: Optional[pulumi.Input[Optional[str]]] = None,
                               preferred_versions: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
@@ -393,7 +393,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
     import pulumi_aws as aws
 
     test = aws.rds.get_engine_version(engine="aurora-postgresql",
-        filters=[aws.rds.GetEngineVersionFilterArgs(
+        filters=[aws.rds.GetEngineVersionFilterArrgs(
             name="engine-mode",
             values=["serverless"],
         )],
@@ -404,7 +404,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
 
     :param bool default_only: When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
     :param str engine: DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
-    :param Sequence[pulumi.InputType['GetEngineVersionFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+    :param Sequence[pulumi.InputType['GetEngineVersionFilterArrgs']] filters: One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
     :param bool include_all: When set to `true`, the specified `version` or member of `preferred_versions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
     :param str parameter_group_family: Name of a specific DB parameter group family. Examples of parameter group families are `mysql8.0`, `mariadb10.4`, and `postgres12`.
     :param Sequence[str] preferred_versions: Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.

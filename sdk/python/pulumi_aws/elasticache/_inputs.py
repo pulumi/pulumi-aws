@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterCacheNodeArgs',
-    'ClusterLogDeliveryConfigurationArgs',
-    'GlobalReplicationGroupGlobalNodeGroupArgs',
-    'ParameterGroupParameterArgs',
-    'ReplicationGroupLogDeliveryConfigurationArgs',
-    'UserAuthenticationModeArgs',
-    'GetUserAuthenticationModeArgs',
+    'ClusterCacheNodeArrgs',
+    'ClusterLogDeliveryConfigurationArrgs',
+    'GlobalReplicationGroupGlobalNodeGroupArrgs',
+    'ParameterGroupParameterArrgs',
+    'ReplicationGroupLogDeliveryConfigurationArrgs',
+    'UserAuthenticationModeArrgs',
+    'GetUserAuthenticationModeArrgs',
 ]
 
 @pulumi.input_type
-class ClusterCacheNodeArgs:
+calass ClusterCacheNodeArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,7 @@ class ClusterCacheNodeArgs:
 
 
 @pulumi.input_type
-class ClusterLogDeliveryConfigurationArgs:
+calass ClusterLogDeliveryConfigurationArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  destination_type: pulumi.Input[str],
@@ -162,7 +162,7 @@ class ClusterLogDeliveryConfigurationArgs:
 
 
 @pulumi.input_type
-class GlobalReplicationGroupGlobalNodeGroupArgs:
+calass GlobalReplicationGroupGlobalNodeGroupArrgs:
     def __init__(__self__, *,
                  global_node_group_id: Optional[pulumi.Input[str]] = None,
                  slots: Optional[pulumi.Input[str]] = None):
@@ -201,7 +201,7 @@ class GlobalReplicationGroupGlobalNodeGroupArgs:
 
 
 @pulumi.input_type
-class ParameterGroupParameterArgs:
+calass ParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -238,7 +238,7 @@ class ParameterGroupParameterArgs:
 
 
 @pulumi.input_type
-class ReplicationGroupLogDeliveryConfigurationArgs:
+calass ReplicationGroupLogDeliveryConfigurationArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  destination_type: pulumi.Input[str],
@@ -305,7 +305,7 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
 
 
 @pulumi.input_type
-class UserAuthenticationModeArgs:
+calass UserAuthenticationModeArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  password_count: Optional[pulumi.Input[int]] = None,
@@ -355,7 +355,7 @@ class UserAuthenticationModeArgs:
 
 
 @pulumi.input_type
-class GetUserAuthenticationModeArgs:
+calass GetUserAuthenticationModeArrgs:
     def __init__(__self__, *,
                  password_count: Optional[int] = None,
                  type: Optional[str] = None):

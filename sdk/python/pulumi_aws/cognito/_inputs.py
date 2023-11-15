@@ -10,49 +10,49 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'IdentityPoolCognitoIdentityProviderArgs',
-    'IdentityPoolRoleAttachmentRoleMappingArgs',
-    'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs',
-    'ManagedUserPoolClientAnalyticsConfigurationArgs',
-    'ManagedUserPoolClientTokenValidityUnitsArgs',
-    'ResourceServerScopeArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs',
-    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs',
-    'RiskConfigurationCompromisedCredentialsRiskConfigurationArgs',
-    'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs',
-    'RiskConfigurationRiskExceptionConfigurationArgs',
-    'UserPoolAccountRecoverySettingArgs',
-    'UserPoolAccountRecoverySettingRecoveryMechanismArgs',
-    'UserPoolAdminCreateUserConfigArgs',
-    'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs',
-    'UserPoolClientAnalyticsConfigurationArgs',
-    'UserPoolClientTokenValidityUnitsArgs',
-    'UserPoolDeviceConfigurationArgs',
-    'UserPoolEmailConfigurationArgs',
-    'UserPoolLambdaConfigArgs',
-    'UserPoolLambdaConfigCustomEmailSenderArgs',
-    'UserPoolLambdaConfigCustomSmsSenderArgs',
-    'UserPoolPasswordPolicyArgs',
-    'UserPoolSchemaArgs',
-    'UserPoolSchemaNumberAttributeConstraintsArgs',
-    'UserPoolSchemaStringAttributeConstraintsArgs',
-    'UserPoolSmsConfigurationArgs',
-    'UserPoolSoftwareTokenMfaConfigurationArgs',
-    'UserPoolUserAttributeUpdateSettingsArgs',
-    'UserPoolUserPoolAddOnsArgs',
-    'UserPoolUsernameConfigurationArgs',
-    'UserPoolVerificationMessageTemplateArgs',
+    'IdentityPoolCognitoIdentityProviderArrgs',
+    'IdentityPoolRoleAttachmentRoleMappingArrgs',
+    'IdentityPoolRoleAttachmentRoleMappingMappingRuleArrgs',
+    'ManagedUserPoolClientAnalyticsConfigurationArrgs',
+    'ManagedUserPoolClientTokenValidityUnitsArrgs',
+    'ResourceServerScopeArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArrgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArrgs',
+    'RiskConfigurationCompromisedCredentialsRiskConfigurationArrgs',
+    'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArrgs',
+    'RiskConfigurationRiskExceptionConfigurationArrgs',
+    'UserPoolAccountRecoverySettingArrgs',
+    'UserPoolAccountRecoverySettingRecoveryMechanismArrgs',
+    'UserPoolAdminCreateUserConfigArrgs',
+    'UserPoolAdminCreateUserConfigInviteMessageTemplateArrgs',
+    'UserPoolClientAnalyticsConfigurationArrgs',
+    'UserPoolClientTokenValidityUnitsArrgs',
+    'UserPoolDeviceConfigurationArrgs',
+    'UserPoolEmailConfigurationArrgs',
+    'UserPoolLambdaConfigArrgs',
+    'UserPoolLambdaConfigCustomEmailSenderArrgs',
+    'UserPoolLambdaConfigCustomSmsSenderArrgs',
+    'UserPoolPasswordPolicyArrgs',
+    'UserPoolSchemaArrgs',
+    'UserPoolSchemaNumberAttributeConstraintsArrgs',
+    'UserPoolSchemaStringAttributeConstraintsArrgs',
+    'UserPoolSmsConfigurationArrgs',
+    'UserPoolSoftwareTokenMfaConfigurationArrgs',
+    'UserPoolUserAttributeUpdateSettingsArrgs',
+    'UserPoolUserPoolAddOnsArrgs',
+    'UserPoolUsernameConfigurationArrgs',
+    'UserPoolVerificationMessageTemplateArrgs',
 ]
 
 @pulumi.input_type
-class IdentityPoolCognitoIdentityProviderArgs:
+calass IdentityPoolCognitoIdentityProviderArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
@@ -107,17 +107,17 @@ class IdentityPoolCognitoIdentityProviderArgs:
 
 
 @pulumi.input_type
-class IdentityPoolRoleAttachmentRoleMappingArgs:
+calass IdentityPoolRoleAttachmentRoleMappingArrgs:
     def __init__(__self__, *,
                  identity_provider: pulumi.Input[str],
                  type: pulumi.Input[str],
                  ambiguous_role_resolution: Optional[pulumi.Input[str]] = None,
-                 mapping_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]]] = None):
+                 mapping_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArrgs']]]] = None):
         """
         :param pulumi.Input[str] identity_provider: A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
         :param pulumi.Input[str] type: The role mapping type.
         :param pulumi.Input[str] ambiguous_role_resolution: Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        :param pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArrgs']]] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
         """
         pulumi.set(__self__, "identity_provider", identity_provider)
         pulumi.set(__self__, "type", type)
@@ -164,19 +164,19 @@ class IdentityPoolRoleAttachmentRoleMappingArgs:
 
     @property
     @pulumi.getter(name="mappingRules")
-    def mapping_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]]]:
+    def mapping_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArrgs']]]]:
         """
         The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
         """
         return pulumi.get(self, "mapping_rules")
 
     @mapping_rules.setter
-    def mapping_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs']]]]):
+    def mapping_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IdentityPoolRoleAttachmentRoleMappingMappingRuleArrgs']]]]):
         pulumi.set(self, "mapping_rules", value)
 
 
 @pulumi.input_type
-class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
+calass IdentityPoolRoleAttachmentRoleMappingMappingRuleArrgs:
     def __init__(__self__, *,
                  claim: pulumi.Input[str],
                  match_type: pulumi.Input[str],
@@ -243,7 +243,7 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs:
 
 
 @pulumi.input_type
-class ManagedUserPoolClientAnalyticsConfigurationArgs:
+calass ManagedUserPoolClientAnalyticsConfigurationArrgs:
     def __init__(__self__, *,
                  application_arn: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
@@ -330,7 +330,7 @@ class ManagedUserPoolClientAnalyticsConfigurationArgs:
 
 
 @pulumi.input_type
-class ManagedUserPoolClientTokenValidityUnitsArgs:
+calass ManagedUserPoolClientTokenValidityUnitsArrgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
                  id_token: Optional[pulumi.Input[str]] = None,
@@ -385,7 +385,7 @@ class ManagedUserPoolClientTokenValidityUnitsArgs:
 
 
 @pulumi.input_type
-class ResourceServerScopeArgs:
+calass ResourceServerScopeArrgs:
     def __init__(__self__, *,
                  scope_description: pulumi.Input[str],
                  scope_name: pulumi.Input[str]):
@@ -422,52 +422,52 @@ class ResourceServerScopeArgs:
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationArrgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'],
-                 notify_configuration: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
+                 actions: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArrgs'],
+                 notify_configuration: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArrgs']):
         """
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'] actions: Account takeover risk configuration actions. See details below.
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs'] notify_configuration: The notify configuration used to construct email notifications. See details below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArrgs'] actions: Account takeover risk configuration actions. See details below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArrgs'] notify_configuration: The notify configuration used to construct email notifications. See details below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "notify_configuration", notify_configuration)
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs']:
+    def actions(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArrgs']:
         """
         Account takeover risk configuration actions. See details below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs']):
+    def actions(self, value: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArrgs']):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter(name="notifyConfiguration")
-    def notify_configuration(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']:
+    def notify_configuration(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArrgs']:
         """
         The notify configuration used to construct email notifications. See details below.
         """
         return pulumi.get(self, "notify_configuration")
 
     @notify_configuration.setter
-    def notify_configuration(self, value: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
+    def notify_configuration(self, value: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArrgs']):
         pulumi.set(self, "notify_configuration", value)
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationActionsArrgs:
     def __init__(__self__, *,
-                 high_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']] = None,
-                 low_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']] = None,
-                 medium_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']] = None):
+                 high_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArrgs']] = None,
+                 low_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArrgs']] = None,
+                 medium_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArrgs']] = None):
         """
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs'] high_action: Action to take for a high risk. See action block below.
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs'] low_action: Action to take for a low risk. See action block below.
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs'] medium_action: Action to take for a medium risk. See action block below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArrgs'] high_action: Action to take for a high risk. See action block below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArrgs'] low_action: Action to take for a low risk. See action block below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArrgs'] medium_action: Action to take for a medium risk. See action block below.
         """
         if high_action is not None:
             pulumi.set(__self__, "high_action", high_action)
@@ -478,43 +478,43 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
 
     @property
     @pulumi.getter(name="highAction")
-    def high_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']]:
+    def high_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArrgs']]:
         """
         Action to take for a high risk. See action block below.
         """
         return pulumi.get(self, "high_action")
 
     @high_action.setter
-    def high_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']]):
+    def high_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArrgs']]):
         pulumi.set(self, "high_action", value)
 
     @property
     @pulumi.getter(name="lowAction")
-    def low_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']]:
+    def low_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArrgs']]:
         """
         Action to take for a low risk. See action block below.
         """
         return pulumi.get(self, "low_action")
 
     @low_action.setter
-    def low_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']]):
+    def low_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArrgs']]):
         pulumi.set(self, "low_action", value)
 
     @property
     @pulumi.getter(name="mediumAction")
-    def medium_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']]:
+    def medium_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArrgs']]:
         """
         Action to take for a medium risk. See action block below.
         """
         return pulumi.get(self, "medium_action")
 
     @medium_action.setter
-    def medium_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']]):
+    def medium_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArrgs']]):
         pulumi.set(self, "medium_action", value)
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArrgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
@@ -551,7 +551,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArrgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
@@ -588,7 +588,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArrgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str],
                  notify: pulumi.Input[bool]):
@@ -625,20 +625,20 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArrgs:
     def __init__(__self__, *,
                  source_arn: pulumi.Input[str],
-                 block_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs']] = None,
+                 block_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArrgs']] = None,
                  from_: Optional[pulumi.Input[str]] = None,
-                 mfa_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']] = None,
-                 no_action_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']] = None,
+                 mfa_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArrgs']] = None,
+                 no_action_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArrgs']] = None,
                  reply_to: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs'] block_email: Email template used when a detected risk event is blocked. See notify email type below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArrgs'] block_email: Email template used when a detected risk event is blocked. See notify email type below.
         :param pulumi.Input[str] from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs'] mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs'] no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArrgs'] mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArrgs'] no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
         :param pulumi.Input[str] reply_to: The destination to which the receiver of an email should reply to.
         """
         pulumi.set(__self__, "source_arn", source_arn)
@@ -667,14 +667,14 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
 
     @property
     @pulumi.getter(name="blockEmail")
-    def block_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs']]:
+    def block_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArrgs']]:
         """
         Email template used when a detected risk event is blocked. See notify email type below.
         """
         return pulumi.get(self, "block_email")
 
     @block_email.setter
-    def block_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs']]):
+    def block_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArrgs']]):
         pulumi.set(self, "block_email", value)
 
     @property
@@ -691,26 +691,26 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
 
     @property
     @pulumi.getter(name="mfaEmail")
-    def mfa_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']]:
+    def mfa_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArrgs']]:
         """
         The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
         """
         return pulumi.get(self, "mfa_email")
 
     @mfa_email.setter
-    def mfa_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']]):
+    def mfa_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArrgs']]):
         pulumi.set(self, "mfa_email", value)
 
     @property
     @pulumi.getter(name="noActionEmail")
-    def no_action_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']]:
+    def no_action_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArrgs']]:
         """
         The email template used when a detected risk event is allowed. See notify email type below.
         """
         return pulumi.get(self, "no_action_email")
 
     @no_action_email.setter
-    def no_action_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']]):
+    def no_action_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArrgs']]):
         pulumi.set(self, "no_action_email", value)
 
     @property
@@ -727,7 +727,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArrgs:
     def __init__(__self__, *,
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
@@ -779,7 +779,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArrgs:
     def __init__(__self__, *,
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
@@ -831,7 +831,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
 
 
 @pulumi.input_type
-class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs:
+calass RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArrgs:
     def __init__(__self__, *,
                  html_body: pulumi.Input[str],
                  subject: pulumi.Input[str],
@@ -883,12 +883,12 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
 
 
 @pulumi.input_type
-class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
+calass RiskConfigurationCompromisedCredentialsRiskConfigurationArrgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs'],
+                 actions: pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArrgs'],
                  event_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs'] actions: The compromised credentials risk configuration actions. See details below.
+        :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArrgs'] actions: The compromised credentials risk configuration actions. See details below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_filters: Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
         """
         pulumi.set(__self__, "actions", actions)
@@ -897,14 +897,14 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs']:
+    def actions(self) -> pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArrgs']:
         """
         The compromised credentials risk configuration actions. See details below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs']):
+    def actions(self, value: pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArrgs']):
         pulumi.set(self, "actions", value)
 
     @property
@@ -921,7 +921,7 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
 
 
 @pulumi.input_type
-class RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs:
+calass RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArrgs:
     def __init__(__self__, *,
                  event_action: pulumi.Input[str]):
         """
@@ -943,7 +943,7 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs:
 
 
 @pulumi.input_type
-class RiskConfigurationRiskExceptionConfigurationArgs:
+calass RiskConfigurationRiskExceptionConfigurationArrgs:
     def __init__(__self__, *,
                  blocked_ip_range_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skipped_ip_range_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -990,30 +990,30 @@ class RiskConfigurationRiskExceptionConfigurationArgs:
 
 
 @pulumi.input_type
-class UserPoolAccountRecoverySettingArgs:
+calass UserPoolAccountRecoverySettingArrgs:
     def __init__(__self__, *,
-                 recovery_mechanisms: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]] = None):
+                 recovery_mechanisms: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]] recovery_mechanisms: List of Account Recovery Options of the following structure:
+        :param pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArrgs']]] recovery_mechanisms: List of Account Recovery Options of the following structure:
         """
         if recovery_mechanisms is not None:
             pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
 
     @property
     @pulumi.getter(name="recoveryMechanisms")
-    def recovery_mechanisms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]]:
+    def recovery_mechanisms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArrgs']]]]:
         """
         List of Account Recovery Options of the following structure:
         """
         return pulumi.get(self, "recovery_mechanisms")
 
     @recovery_mechanisms.setter
-    def recovery_mechanisms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArgs']]]]):
+    def recovery_mechanisms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserPoolAccountRecoverySettingRecoveryMechanismArrgs']]]]):
         pulumi.set(self, "recovery_mechanisms", value)
 
 
 @pulumi.input_type
-class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
+calass UserPoolAccountRecoverySettingRecoveryMechanismArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int]):
@@ -1054,13 +1054,13 @@ class UserPoolAccountRecoverySettingRecoveryMechanismArgs:
 
 
 @pulumi.input_type
-class UserPoolAdminCreateUserConfigArgs:
+calass UserPoolAdminCreateUserConfigArrgs:
     def __init__(__self__, *,
                  allow_admin_create_user_only: Optional[pulumi.Input[bool]] = None,
-                 invite_message_template: Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs']] = None):
+                 invite_message_template: Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArrgs']] = None):
         """
         :param pulumi.Input[bool] allow_admin_create_user_only: Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        :param pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs'] invite_message_template: Invite message template structure. Detailed below.
+        :param pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArrgs'] invite_message_template: Invite message template structure. Detailed below.
         """
         if allow_admin_create_user_only is not None:
             pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
@@ -1081,19 +1081,19 @@ class UserPoolAdminCreateUserConfigArgs:
 
     @property
     @pulumi.getter(name="inviteMessageTemplate")
-    def invite_message_template(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs']]:
+    def invite_message_template(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArrgs']]:
         """
         Invite message template structure. Detailed below.
         """
         return pulumi.get(self, "invite_message_template")
 
     @invite_message_template.setter
-    def invite_message_template(self, value: Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArgs']]):
+    def invite_message_template(self, value: Optional[pulumi.Input['UserPoolAdminCreateUserConfigInviteMessageTemplateArrgs']]):
         pulumi.set(self, "invite_message_template", value)
 
 
 @pulumi.input_type
-class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
+calass UserPoolAdminCreateUserConfigInviteMessageTemplateArrgs:
     def __init__(__self__, *,
                  email_message: Optional[pulumi.Input[str]] = None,
                  email_subject: Optional[pulumi.Input[str]] = None,
@@ -1148,7 +1148,7 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplateArgs:
 
 
 @pulumi.input_type
-class UserPoolClientAnalyticsConfigurationArgs:
+calass UserPoolClientAnalyticsConfigurationArrgs:
     def __init__(__self__, *,
                  application_arn: Optional[pulumi.Input[str]] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
@@ -1235,7 +1235,7 @@ class UserPoolClientAnalyticsConfigurationArgs:
 
 
 @pulumi.input_type
-class UserPoolClientTokenValidityUnitsArgs:
+calass UserPoolClientTokenValidityUnitsArrgs:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
                  id_token: Optional[pulumi.Input[str]] = None,
@@ -1290,7 +1290,7 @@ class UserPoolClientTokenValidityUnitsArgs:
 
 
 @pulumi.input_type
-class UserPoolDeviceConfigurationArgs:
+calass UserPoolDeviceConfigurationArrgs:
     def __init__(__self__, *,
                  challenge_required_on_new_device: Optional[pulumi.Input[bool]] = None,
                  device_only_remembered_on_user_prompt: Optional[pulumi.Input[bool]] = None):
@@ -1329,7 +1329,7 @@ class UserPoolDeviceConfigurationArgs:
 
 
 @pulumi.input_type
-class UserPoolEmailConfigurationArgs:
+calass UserPoolEmailConfigurationArrgs:
     def __init__(__self__, *,
                  configuration_set: Optional[pulumi.Input[str]] = None,
                  email_sending_account: Optional[pulumi.Input[str]] = None,
@@ -1416,12 +1416,12 @@ class UserPoolEmailConfigurationArgs:
 
 
 @pulumi.input_type
-class UserPoolLambdaConfigArgs:
+calass UserPoolLambdaConfigArrgs:
     def __init__(__self__, *,
                  create_auth_challenge: Optional[pulumi.Input[str]] = None,
-                 custom_email_sender: Optional[pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArgs']] = None,
+                 custom_email_sender: Optional[pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArrgs']] = None,
                  custom_message: Optional[pulumi.Input[str]] = None,
-                 custom_sms_sender: Optional[pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArgs']] = None,
+                 custom_sms_sender: Optional[pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArrgs']] = None,
                  define_auth_challenge: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  post_authentication: Optional[pulumi.Input[str]] = None,
@@ -1433,9 +1433,9 @@ class UserPoolLambdaConfigArgs:
                  verify_auth_challenge_response: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] create_auth_challenge: ARN of the lambda creating an authentication challenge.
-        :param pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArgs'] custom_email_sender: A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        :param pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArrgs'] custom_email_sender: A custom email sender AWS Lambda trigger. See custom_email_sender Below.
         :param pulumi.Input[str] custom_message: Custom Message AWS Lambda trigger.
-        :param pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArgs'] custom_sms_sender: A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        :param pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArrgs'] custom_sms_sender: A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
         :param pulumi.Input[str] define_auth_challenge: Defines the authentication challenge.
         :param pulumi.Input[str] kms_key_id: The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
         :param pulumi.Input[str] post_authentication: Post-authentication AWS Lambda trigger.
@@ -1487,14 +1487,14 @@ class UserPoolLambdaConfigArgs:
 
     @property
     @pulumi.getter(name="customEmailSender")
-    def custom_email_sender(self) -> Optional[pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArgs']]:
+    def custom_email_sender(self) -> Optional[pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArrgs']]:
         """
         A custom email sender AWS Lambda trigger. See custom_email_sender Below.
         """
         return pulumi.get(self, "custom_email_sender")
 
     @custom_email_sender.setter
-    def custom_email_sender(self, value: Optional[pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArgs']]):
+    def custom_email_sender(self, value: Optional[pulumi.Input['UserPoolLambdaConfigCustomEmailSenderArrgs']]):
         pulumi.set(self, "custom_email_sender", value)
 
     @property
@@ -1511,14 +1511,14 @@ class UserPoolLambdaConfigArgs:
 
     @property
     @pulumi.getter(name="customSmsSender")
-    def custom_sms_sender(self) -> Optional[pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArgs']]:
+    def custom_sms_sender(self) -> Optional[pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArrgs']]:
         """
         A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
         """
         return pulumi.get(self, "custom_sms_sender")
 
     @custom_sms_sender.setter
-    def custom_sms_sender(self, value: Optional[pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArgs']]):
+    def custom_sms_sender(self, value: Optional[pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArrgs']]):
         pulumi.set(self, "custom_sms_sender", value)
 
     @property
@@ -1631,7 +1631,7 @@ class UserPoolLambdaConfigArgs:
 
 
 @pulumi.input_type
-class UserPoolLambdaConfigCustomEmailSenderArgs:
+calass UserPoolLambdaConfigCustomEmailSenderArrgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[str],
                  lambda_version: pulumi.Input[str]):
@@ -1668,7 +1668,7 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
 
 
 @pulumi.input_type
-class UserPoolLambdaConfigCustomSmsSenderArgs:
+calass UserPoolLambdaConfigCustomSmsSenderArrgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[str],
                  lambda_version: pulumi.Input[str]):
@@ -1705,7 +1705,7 @@ class UserPoolLambdaConfigCustomSmsSenderArgs:
 
 
 @pulumi.input_type
-class UserPoolPasswordPolicyArgs:
+calass UserPoolPasswordPolicyArrgs:
     def __init__(__self__, *,
                  minimum_length: Optional[pulumi.Input[int]] = None,
                  require_lowercase: Optional[pulumi.Input[bool]] = None,
@@ -1808,23 +1808,23 @@ class UserPoolPasswordPolicyArgs:
 
 
 @pulumi.input_type
-class UserPoolSchemaArgs:
+calass UserPoolSchemaArrgs:
     def __init__(__self__, *,
                  attribute_data_type: pulumi.Input[str],
                  name: pulumi.Input[str],
                  developer_only_attribute: Optional[pulumi.Input[bool]] = None,
                  mutable: Optional[pulumi.Input[bool]] = None,
-                 number_attribute_constraints: Optional[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgs']] = None,
+                 number_attribute_constraints: Optional[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArrgs']] = None,
                  required: Optional[pulumi.Input[bool]] = None,
-                 string_attribute_constraints: Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgs']] = None):
+                 string_attribute_constraints: Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArrgs']] = None):
         """
         :param pulumi.Input[str] attribute_data_type: Attribute data type. Must be one of `Boolean`, `Number`, `String`, `DateTime`.
         :param pulumi.Input[str] name: Name of the attribute.
         :param pulumi.Input[bool] developer_only_attribute: Whether the attribute type is developer only.
         :param pulumi.Input[bool] mutable: Whether the attribute can be changed once it has been created.
-        :param pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgs'] number_attribute_constraints: Configuration block for the constraints for an attribute of the number type. Detailed below.
+        :param pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArrgs'] number_attribute_constraints: Configuration block for the constraints for an attribute of the number type. Detailed below.
         :param pulumi.Input[bool] required: Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-        :param pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgs'] string_attribute_constraints: Constraints for an attribute of the string type. Detailed below.
+        :param pulumi.Input['UserPoolSchemaStringAttributeConstraintsArrgs'] string_attribute_constraints: Constraints for an attribute of the string type. Detailed below.
         """
         pulumi.set(__self__, "attribute_data_type", attribute_data_type)
         pulumi.set(__self__, "name", name)
@@ -1889,14 +1889,14 @@ class UserPoolSchemaArgs:
 
     @property
     @pulumi.getter(name="numberAttributeConstraints")
-    def number_attribute_constraints(self) -> Optional[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgs']]:
+    def number_attribute_constraints(self) -> Optional[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArrgs']]:
         """
         Configuration block for the constraints for an attribute of the number type. Detailed below.
         """
         return pulumi.get(self, "number_attribute_constraints")
 
     @number_attribute_constraints.setter
-    def number_attribute_constraints(self, value: Optional[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArgs']]):
+    def number_attribute_constraints(self, value: Optional[pulumi.Input['UserPoolSchemaNumberAttributeConstraintsArrgs']]):
         pulumi.set(self, "number_attribute_constraints", value)
 
     @property
@@ -1913,19 +1913,19 @@ class UserPoolSchemaArgs:
 
     @property
     @pulumi.getter(name="stringAttributeConstraints")
-    def string_attribute_constraints(self) -> Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgs']]:
+    def string_attribute_constraints(self) -> Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArrgs']]:
         """
         Constraints for an attribute of the string type. Detailed below.
         """
         return pulumi.get(self, "string_attribute_constraints")
 
     @string_attribute_constraints.setter
-    def string_attribute_constraints(self, value: Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArgs']]):
+    def string_attribute_constraints(self, value: Optional[pulumi.Input['UserPoolSchemaStringAttributeConstraintsArrgs']]):
         pulumi.set(self, "string_attribute_constraints", value)
 
 
 @pulumi.input_type
-class UserPoolSchemaNumberAttributeConstraintsArgs:
+calass UserPoolSchemaNumberAttributeConstraintsArrgs:
     def __init__(__self__, *,
                  max_value: Optional[pulumi.Input[str]] = None,
                  min_value: Optional[pulumi.Input[str]] = None):
@@ -1964,7 +1964,7 @@ class UserPoolSchemaNumberAttributeConstraintsArgs:
 
 
 @pulumi.input_type
-class UserPoolSchemaStringAttributeConstraintsArgs:
+calass UserPoolSchemaStringAttributeConstraintsArrgs:
     def __init__(__self__, *,
                  max_length: Optional[pulumi.Input[str]] = None,
                  min_length: Optional[pulumi.Input[str]] = None):
@@ -2003,7 +2003,7 @@ class UserPoolSchemaStringAttributeConstraintsArgs:
 
 
 @pulumi.input_type
-class UserPoolSmsConfigurationArgs:
+calass UserPoolSmsConfigurationArrgs:
     def __init__(__self__, *,
                  external_id: pulumi.Input[str],
                  sns_caller_arn: pulumi.Input[str],
@@ -2056,7 +2056,7 @@ class UserPoolSmsConfigurationArgs:
 
 
 @pulumi.input_type
-class UserPoolSoftwareTokenMfaConfigurationArgs:
+calass UserPoolSoftwareTokenMfaConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
@@ -2078,7 +2078,7 @@ class UserPoolSoftwareTokenMfaConfigurationArgs:
 
 
 @pulumi.input_type
-class UserPoolUserAttributeUpdateSettingsArgs:
+calass UserPoolUserAttributeUpdateSettingsArrgs:
     def __init__(__self__, *,
                  attributes_require_verification_before_updates: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -2100,7 +2100,7 @@ class UserPoolUserAttributeUpdateSettingsArgs:
 
 
 @pulumi.input_type
-class UserPoolUserPoolAddOnsArgs:
+calass UserPoolUserPoolAddOnsArrgs:
     def __init__(__self__, *,
                  advanced_security_mode: pulumi.Input[str]):
         """
@@ -2122,7 +2122,7 @@ class UserPoolUserPoolAddOnsArgs:
 
 
 @pulumi.input_type
-class UserPoolUsernameConfigurationArgs:
+calass UserPoolUsernameConfigurationArrgs:
     def __init__(__self__, *,
                  case_sensitive: pulumi.Input[bool]):
         """
@@ -2144,7 +2144,7 @@ class UserPoolUsernameConfigurationArgs:
 
 
 @pulumi.input_type
-class UserPoolVerificationMessageTemplateArgs:
+calass UserPoolVerificationMessageTemplateArrgs:
     def __init__(__self__, *,
                  default_email_option: Optional[pulumi.Input[str]] = None,
                  email_message: Optional[pulumi.Input[str]] = None,

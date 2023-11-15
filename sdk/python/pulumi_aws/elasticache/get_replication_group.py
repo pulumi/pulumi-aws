@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReplicationGroupResult:
+calass GetReplicationGroupResult:
     """
     A collection of values returned by getReplicationGroup.
     """
@@ -231,7 +231,7 @@ class GetReplicationGroupResult:
         return pulumi.get(self, "snapshot_window")
 
 
-class AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
+calass AwaitableGetReplicationGroupResult(GetReplicationGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

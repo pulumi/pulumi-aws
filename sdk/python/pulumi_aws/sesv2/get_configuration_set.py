@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConfigurationSetResult:
+calass GetConfigurationSetResult:
     """
     A collection of values returned by getConfigurationSet.
     """
@@ -129,7 +129,7 @@ class GetConfigurationSetResult:
         return pulumi.get(self, "vdm_options")
 
 
-class AwaitableGetConfigurationSetResult(GetConfigurationSetResult):
+calass AwaitableGetConfigurationSetResult(GetConfigurationSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

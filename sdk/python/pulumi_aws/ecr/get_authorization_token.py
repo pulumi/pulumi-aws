@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAuthorizationTokenResult:
+calass GetAuthorizationTokenResult:
     """
     A collection of values returned by getAuthorizationToken.
     """
@@ -98,7 +98,7 @@ class GetAuthorizationTokenResult:
         return pulumi.get(self, "user_name")
 
 
-class AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
+calass AwaitableGetAuthorizationTokenResult(GetAuthorizationTokenResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

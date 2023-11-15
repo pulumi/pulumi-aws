@@ -37,7 +37,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ByteMatchSetByteMatchTuple(dict):
+calass ByteMatchSetByteMatchTuple(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -67,7 +67,7 @@ class ByteMatchSetByteMatchTuple(dict):
                  text_transformation: str,
                  target_string: Optional[str] = None):
         """
-        :param 'ByteMatchSetByteMatchTupleFieldToMatchArgs' field_to_match: Settings for the ByteMatchTuple. FieldToMatch documented below.
+        :param 'ByteMatchSetByteMatchTupleFieldToMatchArrgs' field_to_match: Settings for the ByteMatchTuple. FieldToMatch documented below.
         :param str positional_constraint: Within the portion of a web request that you want to search.
         :param str text_transformation: The formatting way for web request.
                
@@ -116,7 +116,7 @@ class ByteMatchSetByteMatchTuple(dict):
 
 
 @pulumi.output_type
-class ByteMatchSetByteMatchTupleFieldToMatch(dict):
+calass ByteMatchSetByteMatchTupleFieldToMatch(dict):
     def __init__(__self__, *,
                  type: str,
                  data: Optional[str] = None):
@@ -146,7 +146,7 @@ class ByteMatchSetByteMatchTupleFieldToMatch(dict):
 
 
 @pulumi.output_type
-class GeoMatchSetGeoMatchConstraint(dict):
+calass GeoMatchSetGeoMatchConstraint(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -179,7 +179,7 @@ class GeoMatchSetGeoMatchConstraint(dict):
 
 
 @pulumi.output_type
-class IpSetIpSetDescriptor(dict):
+calass IpSetIpSetDescriptor(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -208,7 +208,7 @@ class IpSetIpSetDescriptor(dict):
 
 
 @pulumi.output_type
-class RateBasedRulePredicate(dict):
+calass RateBasedRulePredicate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -271,7 +271,7 @@ class RateBasedRulePredicate(dict):
 
 
 @pulumi.output_type
-class RegexMatchSetRegexMatchTuple(dict):
+calass RegexMatchSetRegexMatchTuple(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -298,7 +298,7 @@ class RegexMatchSetRegexMatchTuple(dict):
                  regex_pattern_set_id: str,
                  text_transformation: str):
         """
-        :param 'RegexMatchSetRegexMatchTupleFieldToMatchArgs' field_to_match: The part of a web request that you want to search, such as a specified header or a query string.
+        :param 'RegexMatchSetRegexMatchTupleFieldToMatchArrgs' field_to_match: The part of a web request that you want to search, such as a specified header or a query string.
         :param str regex_pattern_set_id: The ID of a Regex Pattern Set.
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
@@ -338,7 +338,7 @@ class RegexMatchSetRegexMatchTuple(dict):
 
 
 @pulumi.output_type
-class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
+calass RegexMatchSetRegexMatchTupleFieldToMatch(dict):
     def __init__(__self__, *,
                  type: str,
                  data: Optional[str] = None):
@@ -376,7 +376,7 @@ class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
 
 
 @pulumi.output_type
-class RuleGroupActivatedRule(dict):
+calass RuleGroupActivatedRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -400,7 +400,7 @@ class RuleGroupActivatedRule(dict):
                  rule_id: str,
                  type: Optional[str] = None):
         """
-        :param 'RuleGroupActivatedRuleActionArgs' action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
+        :param 'RuleGroupActivatedRuleActionArrgs' action: Specifies the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.
         :param int priority: Specifies the order in which the rules are evaluated. Rules with a lower value are evaluated before rules with a higher value.
         :param str rule_id: The ID of a rule
         :param str type: The rule type, either `REGULAR`, `RATE_BASED`, or `GROUP`. Defaults to `REGULAR`.
@@ -445,7 +445,7 @@ class RuleGroupActivatedRule(dict):
 
 
 @pulumi.output_type
-class RuleGroupActivatedRuleAction(dict):
+calass RuleGroupActivatedRuleAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -463,7 +463,7 @@ class RuleGroupActivatedRuleAction(dict):
 
 
 @pulumi.output_type
-class RulePredicate(dict):
+calass RulePredicate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -506,7 +506,7 @@ class RulePredicate(dict):
 
 
 @pulumi.output_type
-class SizeConstraintSetSizeConstraint(dict):
+calass SizeConstraintSetSizeConstraint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -537,7 +537,7 @@ class SizeConstraintSetSizeConstraint(dict):
         :param str comparison_operator: The type of comparison you want to perform.
                e.g., `EQ`, `NE`, `LT`, `GT`.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
-        :param 'SizeConstraintSetSizeConstraintFieldToMatchArgs' field_to_match: Specifies where in a web request to look for the size constraint.
+        :param 'SizeConstraintSetSizeConstraintFieldToMatchArrgs' field_to_match: Specifies where in a web request to look for the size constraint.
         :param int size: The size in bytes that you want to compare against the size of the specified `field_to_match`.
                Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
@@ -594,7 +594,7 @@ class SizeConstraintSetSizeConstraint(dict):
 
 
 @pulumi.output_type
-class SizeConstraintSetSizeConstraintFieldToMatch(dict):
+calass SizeConstraintSetSizeConstraintFieldToMatch(dict):
     def __init__(__self__, *,
                  type: str,
                  data: Optional[str] = None):
@@ -632,7 +632,7 @@ class SizeConstraintSetSizeConstraintFieldToMatch(dict):
 
 
 @pulumi.output_type
-class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
+calass SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -656,7 +656,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
                  field_to_match: 'outputs.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch',
                  text_transformation: str):
         """
-        :param 'SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs' field_to_match: Specifies where in a web request to look for snippets of malicious SQL code.
+        :param 'SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArrgs' field_to_match: Specifies where in a web request to look for snippets of malicious SQL code.
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
                e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
@@ -688,7 +688,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
 
 
 @pulumi.output_type
-class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
+calass SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
     def __init__(__self__, *,
                  type: str,
                  data: Optional[str] = None):
@@ -726,7 +726,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebAclDefaultAction(dict):
+calass WebAclDefaultAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -744,7 +744,7 @@ class WebAclDefaultAction(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfiguration(dict):
+calass WebAclLoggingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -769,7 +769,7 @@ class WebAclLoggingConfiguration(dict):
                  redacted_fields: Optional['outputs.WebAclLoggingConfigurationRedactedFields'] = None):
         """
         :param str log_destination: Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
-        :param 'WebAclLoggingConfigurationRedactedFieldsArgs' redacted_fields: Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
+        :param 'WebAclLoggingConfigurationRedactedFieldsArrgs' redacted_fields: Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
         """
         pulumi.set(__self__, "log_destination", log_destination)
         if redacted_fields is not None:
@@ -793,7 +793,7 @@ class WebAclLoggingConfiguration(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationRedactedFields(dict):
+calass WebAclLoggingConfigurationRedactedFields(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -814,7 +814,7 @@ class WebAclLoggingConfigurationRedactedFields(dict):
     def __init__(__self__, *,
                  field_to_matches: Sequence['outputs.WebAclLoggingConfigurationRedactedFieldsFieldToMatch']):
         """
-        :param Sequence['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArgs'] field_to_matches: Set of configuration blocks for fields to redact. Detailed below.
+        :param Sequence['WebAclLoggingConfigurationRedactedFieldsFieldToMatchArrgs'] field_to_matches: Set of configuration blocks for fields to redact. Detailed below.
         """
         pulumi.set(__self__, "field_to_matches", field_to_matches)
 
@@ -828,7 +828,7 @@ class WebAclLoggingConfigurationRedactedFields(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
+calass WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
     def __init__(__self__, *,
                  type: str,
                  data: Optional[str] = None):
@@ -858,7 +858,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebAclRule(dict):
+calass WebAclRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -888,8 +888,8 @@ class WebAclRule(dict):
         :param int priority: Specifies the order in which the rules in a WebACL are evaluated.
                Rules with a lower value are evaluated before rules with a higher value.
         :param str rule_id: ID of the associated WAF (Regional) rule (e.g., `wafregional.Rule`). WAF (Global) rules cannot be used.
-        :param 'WebAclRuleActionArgs' action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
-        :param 'WebAclRuleOverrideActionArgs' override_action: Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
+        :param 'WebAclRuleActionArrgs' action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
+        :param 'WebAclRuleOverrideActionArrgs' override_action: Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
         :param str type: The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
         """
         pulumi.set(__self__, "priority", priority)
@@ -944,7 +944,7 @@ class WebAclRule(dict):
 
 
 @pulumi.output_type
-class WebAclRuleAction(dict):
+calass WebAclRuleAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -962,7 +962,7 @@ class WebAclRuleAction(dict):
 
 
 @pulumi.output_type
-class WebAclRuleOverrideAction(dict):
+calass WebAclRuleOverrideAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -980,7 +980,7 @@ class WebAclRuleOverrideAction(dict):
 
 
 @pulumi.output_type
-class XssMatchSetXssMatchTuple(dict):
+calass XssMatchSetXssMatchTuple(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1004,7 +1004,7 @@ class XssMatchSetXssMatchTuple(dict):
                  field_to_match: 'outputs.XssMatchSetXssMatchTupleFieldToMatch',
                  text_transformation: str):
         """
-        :param 'XssMatchSetXssMatchTupleFieldToMatchArgs' field_to_match: Specifies where in a web request to look for cross-site scripting attacks.
+        :param 'XssMatchSetXssMatchTupleFieldToMatchArrgs' field_to_match: Specifies where in a web request to look for cross-site scripting attacks.
         :param str text_transformation: Which text transformation, if any, to perform on the web request before inspecting the request for cross-site scripting attacks.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -1028,7 +1028,7 @@ class XssMatchSetXssMatchTuple(dict):
 
 
 @pulumi.output_type
-class XssMatchSetXssMatchTupleFieldToMatch(dict):
+calass XssMatchSetXssMatchTupleFieldToMatch(dict):
     def __init__(__self__, *,
                  type: str,
                  data: Optional[str] = None):

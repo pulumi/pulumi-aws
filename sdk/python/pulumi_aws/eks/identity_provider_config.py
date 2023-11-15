@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IdentityProviderConfigArgs', 'IdentityProviderConfig']
+__all__ = ['IdentityProviderConfigArrgs', 'IdentityProviderConfig']
 
 @pulumi.input_type
-class IdentityProviderConfigArgs:
+calass IdentityProviderConfigArrgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
-                 oidc: pulumi.Input['IdentityProviderConfigOidcArgs'],
+                 oidc: pulumi.Input['IdentityProviderConfigOidcArrgs'],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a IdentityProviderConfig resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input['IdentityProviderConfigOidcArgs'] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        :param pulumi.Input['IdentityProviderConfigOidcArrgs'] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -44,14 +44,14 @@ class IdentityProviderConfigArgs:
 
     @property
     @pulumi.getter
-    def oidc(self) -> pulumi.Input['IdentityProviderConfigOidcArgs']:
+    def oidc(self) -> pulumi.Input['IdentityProviderConfigOidcArrgs']:
         """
         Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         """
         return pulumi.get(self, "oidc")
 
     @oidc.setter
-    def oidc(self, value: pulumi.Input['IdentityProviderConfigOidcArgs']):
+    def oidc(self, value: pulumi.Input['IdentityProviderConfigOidcArrgs']):
         pulumi.set(self, "oidc", value)
 
     @property
@@ -68,11 +68,11 @@ class IdentityProviderConfigArgs:
 
 
 @pulumi.input_type
-class _IdentityProviderConfigState:
+calass _IdentityProviderConfigState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 oidc: Optional[pulumi.Input['IdentityProviderConfigOidcArgs']] = None,
+                 oidc: Optional[pulumi.Input['IdentityProviderConfigOidcArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -80,7 +80,7 @@ class _IdentityProviderConfigState:
         Input properties used for looking up and filtering IdentityProviderConfig resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input['IdentityProviderConfigOidcArgs'] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        :param pulumi.Input['IdentityProviderConfigOidcArrgs'] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         :param pulumi.Input[str] status: Status of the EKS Identity Provider Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -127,14 +127,14 @@ class _IdentityProviderConfigState:
 
     @property
     @pulumi.getter
-    def oidc(self) -> Optional[pulumi.Input['IdentityProviderConfigOidcArgs']]:
+    def oidc(self) -> Optional[pulumi.Input['IdentityProviderConfigOidcArrgs']]:
         """
         Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         """
         return pulumi.get(self, "oidc")
 
     @oidc.setter
-    def oidc(self, value: Optional[pulumi.Input['IdentityProviderConfigOidcArgs']]):
+    def oidc(self, value: Optional[pulumi.Input['IdentityProviderConfigOidcArrgs']]):
         pulumi.set(self, "oidc", value)
 
     @property
@@ -177,13 +177,13 @@ class _IdentityProviderConfigState:
         pulumi.set(self, "tags_all", value)
 
 
-class IdentityProviderConfig(pulumi.CustomResource):
+calass IdentityProviderConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 oidc: Optional[pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArgs']]] = None,
+                 oidc: Optional[pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -197,7 +197,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         example = aws.eks.IdentityProviderConfig("example",
             cluster_name=aws_eks_cluster["example"]["name"],
-            oidc=aws.eks.IdentityProviderConfigOidcArgs(
+            oidc=aws.eks.IdentityProviderConfigOidcArrgs(
                 client_id="your client_id",
                 identity_provider_config_name="example",
                 issuer_url="your issuer_url",
@@ -215,14 +215,14 @@ class IdentityProviderConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArgs']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        :param pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArrgs']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IdentityProviderConfigArgs,
+                 args: IdentityProviderConfigArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EKS Identity Provider Configuration.
@@ -235,7 +235,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
 
         example = aws.eks.IdentityProviderConfig("example",
             cluster_name=aws_eks_cluster["example"]["name"],
-            oidc=aws.eks.IdentityProviderConfigOidcArgs(
+            oidc=aws.eks.IdentityProviderConfigOidcArrgs(
                 client_id="your client_id",
                 identity_provider_config_name="example",
                 issuer_url="your issuer_url",
@@ -251,12 +251,12 @@ class IdentityProviderConfig(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IdentityProviderConfigArgs args: The arguments to use to populate this resource's properties.
+        :param IdentityProviderConfigArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderConfigArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -266,7 +266,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cluster_name: Optional[pulumi.Input[str]] = None,
-                 oidc: Optional[pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArgs']]] = None,
+                 oidc: Optional[pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -275,7 +275,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IdentityProviderConfigArgs.__new__(IdentityProviderConfigArgs)
+            __props__ = IdentityProviderConfigArrgs.__new__(IdentityProviderConfigArrgs)
 
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
@@ -301,7 +301,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             cluster_name: Optional[pulumi.Input[str]] = None,
-            oidc: Optional[pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArgs']]] = None,
+            oidc: Optional[pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArrgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'IdentityProviderConfig':
@@ -314,7 +314,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
         :param pulumi.Input[str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArgs']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        :param pulumi.Input[pulumi.InputType['IdentityProviderConfigOidcArrgs']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         :param pulumi.Input[str] status: Status of the EKS Identity Provider Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

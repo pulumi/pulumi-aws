@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpnGatewayArgs', 'VpnGateway']
+__all__ = ['VpnGatewayArrgs', 'VpnGateway']
 
 @pulumi.input_type
-class VpnGatewayArgs:
+calass VpnGatewayArrgs:
     def __init__(__self__, *,
                  amazon_side_asn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -84,7 +84,7 @@ class VpnGatewayArgs:
 
 
 @pulumi.input_type
-class _VpnGatewayState:
+calass _VpnGatewayState:
     def __init__(__self__, *,
                  amazon_side_asn: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -193,7 +193,7 @@ class _VpnGatewayState:
         pulumi.set(self, "vpc_id", value)
 
 
-class VpnGateway(pulumi.CustomResource):
+calass VpnGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -238,7 +238,7 @@ class VpnGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VpnGatewayArgs] = None,
+                 args: Optional[VpnGatewayArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create a VPC VPN Gateway.
@@ -265,12 +265,12 @@ class VpnGateway(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpnGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param VpnGatewayArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpnGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnGatewayArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -290,7 +290,7 @@ class VpnGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpnGatewayArgs.__new__(VpnGatewayArgs)
+            __props__ = VpnGatewayArrgs.__new__(VpnGatewayArrgs)
 
             __props__.__dict__["amazon_side_asn"] = amazon_side_asn
             __props__.__dict__["availability_zone"] = availability_zone

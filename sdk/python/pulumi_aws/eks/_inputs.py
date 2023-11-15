@@ -10,28 +10,28 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterCertificateAuthorityArgs',
-    'ClusterEncryptionConfigArgs',
-    'ClusterEncryptionConfigProviderArgs',
-    'ClusterIdentityArgs',
-    'ClusterIdentityOidcArgs',
-    'ClusterKubernetesNetworkConfigArgs',
-    'ClusterOutpostConfigArgs',
-    'ClusterOutpostConfigControlPlanePlacementArgs',
-    'ClusterVpcConfigArgs',
-    'FargateProfileSelectorArgs',
-    'IdentityProviderConfigOidcArgs',
-    'NodeGroupLaunchTemplateArgs',
-    'NodeGroupRemoteAccessArgs',
-    'NodeGroupResourceArgs',
-    'NodeGroupResourceAutoscalingGroupArgs',
-    'NodeGroupScalingConfigArgs',
-    'NodeGroupTaintArgs',
-    'NodeGroupUpdateConfigArgs',
+    'ClusterCertificateAuthorityArrgs',
+    'ClusterEncryptionConfigArrgs',
+    'ClusterEncryptionConfigProviderArrgs',
+    'ClusterIdentityArrgs',
+    'ClusterIdentityOidcArrgs',
+    'ClusterKubernetesNetworkConfigArrgs',
+    'ClusterOutpostConfigArrgs',
+    'ClusterOutpostConfigControlPlanePlacementArrgs',
+    'ClusterVpcConfigArrgs',
+    'FargateProfileSelectorArrgs',
+    'IdentityProviderConfigOidcArrgs',
+    'NodeGroupLaunchTemplateArrgs',
+    'NodeGroupRemoteAccessArrgs',
+    'NodeGroupResourceArrgs',
+    'NodeGroupResourceAutoscalingGroupArrgs',
+    'NodeGroupScalingConfigArrgs',
+    'NodeGroupTaintArrgs',
+    'NodeGroupUpdateConfigArrgs',
 ]
 
 @pulumi.input_type
-class ClusterCertificateAuthorityArgs:
+calass ClusterCertificateAuthorityArrgs:
     def __init__(__self__, *,
                  data: Optional[pulumi.Input[str]] = None):
         """
@@ -54,12 +54,12 @@ class ClusterCertificateAuthorityArgs:
 
 
 @pulumi.input_type
-class ClusterEncryptionConfigArgs:
+calass ClusterEncryptionConfigArrgs:
     def __init__(__self__, *,
-                 provider: pulumi.Input['ClusterEncryptionConfigProviderArgs'],
+                 provider: pulumi.Input['ClusterEncryptionConfigProviderArrgs'],
                  resources: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
-        :param pulumi.Input['ClusterEncryptionConfigProviderArgs'] provider: Configuration block with provider for encryption. Detailed below.
+        :param pulumi.Input['ClusterEncryptionConfigProviderArrgs'] provider: Configuration block with provider for encryption. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: List of strings with resources to be encrypted. Valid values: `secrets`.
         """
         pulumi.set(__self__, "provider", provider)
@@ -67,14 +67,14 @@ class ClusterEncryptionConfigArgs:
 
     @property
     @pulumi.getter
-    def provider(self) -> pulumi.Input['ClusterEncryptionConfigProviderArgs']:
+    def provider(self) -> pulumi.Input['ClusterEncryptionConfigProviderArrgs']:
         """
         Configuration block with provider for encryption. Detailed below.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: pulumi.Input['ClusterEncryptionConfigProviderArgs']):
+    def provider(self, value: pulumi.Input['ClusterEncryptionConfigProviderArrgs']):
         pulumi.set(self, "provider", value)
 
     @property
@@ -91,7 +91,7 @@ class ClusterEncryptionConfigArgs:
 
 
 @pulumi.input_type
-class ClusterEncryptionConfigProviderArgs:
+calass ClusterEncryptionConfigProviderArrgs:
     def __init__(__self__, *,
                  key_arn: pulumi.Input[str]):
         """
@@ -113,30 +113,30 @@ class ClusterEncryptionConfigProviderArgs:
 
 
 @pulumi.input_type
-class ClusterIdentityArgs:
+calass ClusterIdentityArrgs:
     def __init__(__self__, *,
-                 oidcs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]]] = None):
+                 oidcs: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]] oidcs: Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArrgs']]] oidcs: Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         """
         if oidcs is not None:
             pulumi.set(__self__, "oidcs", oidcs)
 
     @property
     @pulumi.getter
-    def oidcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]]]:
+    def oidcs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArrgs']]]]:
         """
         Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         """
         return pulumi.get(self, "oidcs")
 
     @oidcs.setter
-    def oidcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArgs']]]]):
+    def oidcs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterIdentityOidcArrgs']]]]):
         pulumi.set(self, "oidcs", value)
 
 
 @pulumi.input_type
-class ClusterIdentityOidcArgs:
+calass ClusterIdentityOidcArrgs:
     def __init__(__self__, *,
                  issuer: Optional[pulumi.Input[str]] = None):
         """
@@ -159,7 +159,7 @@ class ClusterIdentityOidcArgs:
 
 
 @pulumi.input_type
-class ClusterKubernetesNetworkConfigArgs:
+calass ClusterKubernetesNetworkConfigArrgs:
     def __init__(__self__, *,
                  ip_family: Optional[pulumi.Input[str]] = None,
                  service_ipv4_cidr: Optional[pulumi.Input[str]] = None,
@@ -222,11 +222,11 @@ class ClusterKubernetesNetworkConfigArgs:
 
 
 @pulumi.input_type
-class ClusterOutpostConfigArgs:
+calass ClusterOutpostConfigArrgs:
     def __init__(__self__, *,
                  control_plane_instance_type: pulumi.Input[str],
                  outpost_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 control_plane_placement: Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs']] = None):
+                 control_plane_placement: Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArrgs']] = None):
         """
         :param pulumi.Input[str] control_plane_instance_type: The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all Kubernetes control plane instances. The instance type can't be changed after cluster creation. Choose an instance type based on the number of nodes that your cluster will have. If your cluster will have:
                
@@ -238,7 +238,7 @@ class ClusterOutpostConfigArgs:
                
                For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-        :param pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs'] control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        :param pulumi.Input['ClusterOutpostConfigControlPlanePlacementArrgs'] control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
                The `control_plane_placement` configuration block supports the following arguments:
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
@@ -280,7 +280,7 @@ class ClusterOutpostConfigArgs:
 
     @property
     @pulumi.getter(name="controlPlanePlacement")
-    def control_plane_placement(self) -> Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs']]:
+    def control_plane_placement(self) -> Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArrgs']]:
         """
         An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
         The `control_plane_placement` configuration block supports the following arguments:
@@ -288,12 +288,12 @@ class ClusterOutpostConfigArgs:
         return pulumi.get(self, "control_plane_placement")
 
     @control_plane_placement.setter
-    def control_plane_placement(self, value: Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArgs']]):
+    def control_plane_placement(self, value: Optional[pulumi.Input['ClusterOutpostConfigControlPlanePlacementArrgs']]):
         pulumi.set(self, "control_plane_placement", value)
 
 
 @pulumi.input_type
-class ClusterOutpostConfigControlPlanePlacementArgs:
+calass ClusterOutpostConfigControlPlanePlacementArrgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[str]):
         """
@@ -315,7 +315,7 @@ class ClusterOutpostConfigControlPlanePlacementArgs:
 
 
 @pulumi.input_type
-class ClusterVpcConfigArgs:
+calass ClusterVpcConfigArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  cluster_security_group_id: Optional[pulumi.Input[str]] = None,
@@ -433,7 +433,7 @@ class ClusterVpcConfigArgs:
 
 
 @pulumi.input_type
-class FargateProfileSelectorArgs:
+calass FargateProfileSelectorArrgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str],
                  labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -475,7 +475,7 @@ class FargateProfileSelectorArgs:
 
 
 @pulumi.input_type
-class IdentityProviderConfigOidcArgs:
+calass IdentityProviderConfigOidcArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  identity_provider_config_name: pulumi.Input[str],
@@ -607,7 +607,7 @@ class IdentityProviderConfigOidcArgs:
 
 
 @pulumi.input_type
-class NodeGroupLaunchTemplateArgs:
+calass NodeGroupLaunchTemplateArrgs:
     def __init__(__self__, *,
                  version: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None,
@@ -661,7 +661,7 @@ class NodeGroupLaunchTemplateArgs:
 
 
 @pulumi.input_type
-class NodeGroupRemoteAccessArgs:
+calass NodeGroupRemoteAccessArrgs:
     def __init__(__self__, *,
                  ec2_ssh_key: Optional[pulumi.Input[str]] = None,
                  source_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -700,12 +700,12 @@ class NodeGroupRemoteAccessArgs:
 
 
 @pulumi.input_type
-class NodeGroupResourceArgs:
+calass NodeGroupResourceArrgs:
     def __init__(__self__, *,
-                 autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]]] = None,
+                 autoscaling_groups: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArrgs']]]] = None,
                  remote_access_security_group_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]] autoscaling_groups: List of objects containing information about AutoScaling Groups.
+        :param pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArrgs']]] autoscaling_groups: List of objects containing information about AutoScaling Groups.
         :param pulumi.Input[str] remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
         """
         if autoscaling_groups is not None:
@@ -715,14 +715,14 @@ class NodeGroupResourceArgs:
 
     @property
     @pulumi.getter(name="autoscalingGroups")
-    def autoscaling_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]]]:
+    def autoscaling_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArrgs']]]]:
         """
         List of objects containing information about AutoScaling Groups.
         """
         return pulumi.get(self, "autoscaling_groups")
 
     @autoscaling_groups.setter
-    def autoscaling_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArgs']]]]):
+    def autoscaling_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeGroupResourceAutoscalingGroupArrgs']]]]):
         pulumi.set(self, "autoscaling_groups", value)
 
     @property
@@ -739,7 +739,7 @@ class NodeGroupResourceArgs:
 
 
 @pulumi.input_type
-class NodeGroupResourceAutoscalingGroupArgs:
+calass NodeGroupResourceAutoscalingGroupArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -762,7 +762,7 @@ class NodeGroupResourceAutoscalingGroupArgs:
 
 
 @pulumi.input_type
-class NodeGroupScalingConfigArgs:
+calass NodeGroupScalingConfigArrgs:
     def __init__(__self__, *,
                  desired_size: pulumi.Input[int],
                  max_size: pulumi.Input[int],
@@ -814,7 +814,7 @@ class NodeGroupScalingConfigArgs:
 
 
 @pulumi.input_type
-class NodeGroupTaintArgs:
+calass NodeGroupTaintArrgs:
     def __init__(__self__, *,
                  effect: pulumi.Input[str],
                  key: pulumi.Input[str],
@@ -867,7 +867,7 @@ class NodeGroupTaintArgs:
 
 
 @pulumi.input_type
-class NodeGroupUpdateConfigArgs:
+calass NodeGroupUpdateConfigArrgs:
     def __init__(__self__, *,
                  max_unavailable: Optional[pulumi.Input[int]] = None,
                  max_unavailable_percentage: Optional[pulumi.Input[int]] = None):

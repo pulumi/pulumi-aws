@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPlaceIndexResult:
+calass GetPlaceIndexResult:
     """
     A collection of values returned by getPlaceIndex.
     """
@@ -121,7 +121,7 @@ class GetPlaceIndexResult:
         return pulumi.get(self, "update_time")
 
 
-class AwaitableGetPlaceIndexResult(GetPlaceIndexResult):
+calass AwaitableGetPlaceIndexResult(GetPlaceIndexResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

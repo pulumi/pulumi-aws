@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRegexPatternSetResult:
+calass GetRegexPatternSetResult:
     """
     A collection of values returned by getRegexPatternSet.
     """
@@ -85,7 +85,7 @@ class GetRegexPatternSetResult:
         return pulumi.get(self, "scope")
 
 
-class AwaitableGetRegexPatternSetResult(GetRegexPatternSetResult):
+calass AwaitableGetRegexPatternSetResult(GetRegexPatternSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

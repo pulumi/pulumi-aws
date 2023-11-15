@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RegistryScanningConfigurationRule(dict):
+calass RegistryScanningConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -48,7 +48,7 @@ class RegistryScanningConfigurationRule(dict):
                  repository_filters: Sequence['outputs.RegistryScanningConfigurationRuleRepositoryFilter'],
                  scan_frequency: str):
         """
-        :param Sequence['RegistryScanningConfigurationRuleRepositoryFilterArgs'] repository_filters: One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+        :param Sequence['RegistryScanningConfigurationRuleRepositoryFilterArrgs'] repository_filters: One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
         :param str scan_frequency: The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
         """
         pulumi.set(__self__, "repository_filters", repository_filters)
@@ -72,7 +72,7 @@ class RegistryScanningConfigurationRule(dict):
 
 
 @pulumi.output_type
-class RegistryScanningConfigurationRuleRepositoryFilter(dict):
+calass RegistryScanningConfigurationRuleRepositoryFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -108,11 +108,11 @@ class RegistryScanningConfigurationRuleRepositoryFilter(dict):
 
 
 @pulumi.output_type
-class ReplicationConfigurationReplicationConfiguration(dict):
+calass ReplicationConfigurationReplicationConfiguration(dict):
     def __init__(__self__, *,
                  rules: Sequence['outputs.ReplicationConfigurationReplicationConfigurationRule']):
         """
-        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleArgs'] rules: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
+        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleArrgs'] rules: The replication rules for a replication configuration. A maximum of 10 are allowed per `replication_configuration`. See Rule
         """
         pulumi.set(__self__, "rules", rules)
 
@@ -126,7 +126,7 @@ class ReplicationConfigurationReplicationConfiguration(dict):
 
 
 @pulumi.output_type
-class ReplicationConfigurationReplicationConfigurationRule(dict):
+calass ReplicationConfigurationReplicationConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -148,8 +148,8 @@ class ReplicationConfigurationReplicationConfigurationRule(dict):
                  destinations: Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleDestination'],
                  repository_filters: Optional[Sequence['outputs.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter']] = None):
         """
-        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleDestinationArgs'] destinations: the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
-        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArgs'] repository_filters: filters for a replication rule. See Repository Filter.
+        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleDestinationArrgs'] destinations: the details of a replication destination. A maximum of 25 are allowed per `rule`. See Destination.
+        :param Sequence['ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArrgs'] repository_filters: filters for a replication rule. See Repository Filter.
         """
         pulumi.set(__self__, "destinations", destinations)
         if repository_filters is not None:
@@ -173,7 +173,7 @@ class ReplicationConfigurationReplicationConfigurationRule(dict):
 
 
 @pulumi.output_type
-class ReplicationConfigurationReplicationConfigurationRuleDestination(dict):
+calass ReplicationConfigurationReplicationConfigurationRuleDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -219,7 +219,7 @@ class ReplicationConfigurationReplicationConfigurationRuleDestination(dict):
 
 
 @pulumi.output_type
-class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter(dict):
+calass ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -265,7 +265,7 @@ class ReplicationConfigurationReplicationConfigurationRuleRepositoryFilter(dict)
 
 
 @pulumi.output_type
-class RepositoryEncryptionConfiguration(dict):
+calass RepositoryEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -315,7 +315,7 @@ class RepositoryEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class RepositoryImageScanningConfiguration(dict):
+calass RepositoryImageScanningConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -350,7 +350,7 @@ class RepositoryImageScanningConfiguration(dict):
 
 
 @pulumi.output_type
-class GetRepositoryEncryptionConfigurationResult(dict):
+calass GetRepositoryEncryptionConfigurationResult(dict):
     def __init__(__self__, *,
                  encryption_type: str,
                  kms_key: str):
@@ -379,7 +379,7 @@ class GetRepositoryEncryptionConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetRepositoryImageScanningConfigurationResult(dict):
+calass GetRepositoryImageScanningConfigurationResult(dict):
     def __init__(__self__, *,
                  scan_on_push: bool):
         """

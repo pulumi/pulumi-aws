@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TopicPolicyArgs', 'TopicPolicy']
+__all__ = ['TopicPolicyArrgs', 'TopicPolicy']
 
 @pulumi.input_type
-class TopicPolicyArgs:
+calass TopicPolicyArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  policy: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class TopicPolicyArgs:
 
 
 @pulumi.input_type
-class _TopicPolicyState:
+calass _TopicPolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class _TopicPolicyState:
         pulumi.set(self, "policy", value)
 
 
-class TopicPolicy(pulumi.CustomResource):
+calass TopicPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -126,7 +126,7 @@ class TopicPolicy(pulumi.CustomResource):
 
         test = aws.sns.Topic("test")
         sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            statements=[aws.iam.GetPolicyDocumentStatementArrgs(
                 actions=[
                     "SNS:Subscribe",
                     "SNS:SetTopicAttributes",
@@ -138,13 +138,13 @@ class TopicPolicy(pulumi.CustomResource):
                     "SNS:DeleteTopic",
                     "SNS:AddPermission",
                 ],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="StringEquals",
                     variable="AWS:SourceOwner",
                     values=[var["account-id"]],
                 )],
                 effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=["*"],
                 )],
@@ -173,7 +173,7 @@ class TopicPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TopicPolicyArgs,
+                 args: TopicPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SNS topic policy resource
@@ -188,7 +188,7 @@ class TopicPolicy(pulumi.CustomResource):
 
         test = aws.sns.Topic("test")
         sns_topic_policy = test.arn.apply(lambda arn: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            statements=[aws.iam.GetPolicyDocumentStatementArrgs(
                 actions=[
                     "SNS:Subscribe",
                     "SNS:SetTopicAttributes",
@@ -200,13 +200,13 @@ class TopicPolicy(pulumi.CustomResource):
                     "SNS:DeleteTopic",
                     "SNS:AddPermission",
                 ],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="StringEquals",
                     variable="AWS:SourceOwner",
                     values=[var["account-id"]],
                 )],
                 effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=["*"],
                 )],
@@ -227,12 +227,12 @@ class TopicPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TopicPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param TopicPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TopicPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TopicPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -250,7 +250,7 @@ class TopicPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TopicPolicyArgs.__new__(TopicPolicyArgs)
+            __props__ = TopicPolicyArrgs.__new__(TopicPolicyArrgs)
 
             if arn is None and not opts.urn:
                 raise TypeError("Missing required property 'arn'")

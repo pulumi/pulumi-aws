@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetClusterCredentialsResult:
+calass GetClusterCredentialsResult:
     """
     A collection of values returned by getClusterCredentials.
     """
@@ -105,7 +105,7 @@ class GetClusterCredentialsResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetClusterCredentialsResult(GetClusterCredentialsResult):
+calass AwaitableGetClusterCredentialsResult(GetClusterCredentialsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

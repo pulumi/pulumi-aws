@@ -11,32 +11,32 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ImageBuilderArgs', 'ImageBuilder']
+__all__ = ['ImageBuilderArrgs', 'ImageBuilder']
 
 @pulumi.input_type
-class ImageBuilderArgs:
+calass ImageBuilderArrgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
+                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArrgs']]]] = None,
                  appstream_agent_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']] = None,
+                 domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArrgs']] = None,
                  enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  image_arn: Optional[pulumi.Input[str]] = None,
                  image_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArrgs']] = None):
         """
         The set of arguments for constructing a ImageBuilder resource.
         :param pulumi.Input[str] instance_type: Instance type to use when launching the image builder.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArrgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         :param pulumi.Input[str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[str] description: Description to display.
         :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream image builder.
-        :param pulumi.Input['ImageBuilderDomainJoinInfoArgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
+        :param pulumi.Input['ImageBuilderDomainJoinInfoArrgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the image builder.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
@@ -45,7 +45,7 @@ class ImageBuilderArgs:
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
+        :param pulumi.Input['ImageBuilderVpcConfigArrgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         if access_endpoints is not None:
@@ -87,14 +87,14 @@ class ImageBuilderArgs:
 
     @property
     @pulumi.getter(name="accessEndpoints")
-    def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
+    def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArrgs']]]]:
         """
         Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
-    def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
+    def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArrgs']]]]):
         pulumi.set(self, "access_endpoints", value)
 
     @property
@@ -135,14 +135,14 @@ class ImageBuilderArgs:
 
     @property
     @pulumi.getter(name="domainJoinInfo")
-    def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]:
+    def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArrgs']]:
         """
         Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
-    def domain_join_info(self, value: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]):
+    def domain_join_info(self, value: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArrgs']]):
         pulumi.set(self, "domain_join_info", value)
 
     @property
@@ -221,27 +221,27 @@ class ImageBuilderArgs:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArrgs']]:
         """
         Configuration block for the VPC configuration for the image builder. See below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['ImageBuilderVpcConfigArrgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
-class _ImageBuilderState:
+calass _ImageBuilderState:
     def __init__(__self__, *,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
+                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArrgs']]]] = None,
                  appstream_agent_version: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']] = None,
+                 domain_join_info: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArrgs']] = None,
                  enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  image_arn: Optional[pulumi.Input[str]] = None,
@@ -251,16 +251,16 @@ class _ImageBuilderState:
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']] = None):
+                 vpc_config: Optional[pulumi.Input['ImageBuilderVpcConfigArrgs']] = None):
         """
         Input properties used for looking up and filtering ImageBuilder resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArrgs']]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         :param pulumi.Input[str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[str] arn: ARN of the appstream image builder.
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         :param pulumi.Input[str] description: Description to display.
         :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream image builder.
-        :param pulumi.Input['ImageBuilderDomainJoinInfoArgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
+        :param pulumi.Input['ImageBuilderDomainJoinInfoArrgs'] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the image builder.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
@@ -272,7 +272,7 @@ class _ImageBuilderState:
         :param pulumi.Input[str] state: State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['ImageBuilderVpcConfigArgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
+        :param pulumi.Input['ImageBuilderVpcConfigArrgs'] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         if access_endpoints is not None:
             pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -314,14 +314,14 @@ class _ImageBuilderState:
 
     @property
     @pulumi.getter(name="accessEndpoints")
-    def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]:
+    def access_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArrgs']]]]:
         """
         Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         """
         return pulumi.get(self, "access_endpoints")
 
     @access_endpoints.setter
-    def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]]):
+    def access_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageBuilderAccessEndpointArrgs']]]]):
         pulumi.set(self, "access_endpoints", value)
 
     @property
@@ -386,14 +386,14 @@ class _ImageBuilderState:
 
     @property
     @pulumi.getter(name="domainJoinInfo")
-    def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]:
+    def domain_join_info(self) -> Optional[pulumi.Input['ImageBuilderDomainJoinInfoArrgs']]:
         """
         Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         """
         return pulumi.get(self, "domain_join_info")
 
     @domain_join_info.setter
-    def domain_join_info(self, value: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArgs']]):
+    def domain_join_info(self, value: Optional[pulumi.Input['ImageBuilderDomainJoinInfoArrgs']]):
         pulumi.set(self, "domain_join_info", value)
 
     @property
@@ -511,27 +511,27 @@ class _ImageBuilderState:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['ImageBuilderVpcConfigArrgs']]:
         """
         Configuration block for the VPC configuration for the image builder. See below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['ImageBuilderVpcConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['ImageBuilderVpcConfigArrgs']]):
         pulumi.set(self, "vpc_config", value)
 
 
-class ImageBuilder(pulumi.CustomResource):
+calass ImageBuilder(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]]] = None,
+                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArrgs']]]]] = None,
                  appstream_agent_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 domain_join_info: Optional[pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArgs']]] = None,
+                 domain_join_info: Optional[pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArrgs']]] = None,
                  enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  image_arn: Optional[pulumi.Input[str]] = None,
@@ -539,7 +539,7 @@ class ImageBuilder(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArrgs']]] = None,
                  __props__=None):
         """
         Provides an AppStream image builder.
@@ -556,7 +556,7 @@ class ImageBuilder(pulumi.CustomResource):
             enable_default_internet_access=False,
             image_name="AppStream-WinServer2019-10-05-2022",
             instance_type="stream.standard.large",
-            vpc_config=aws.appstream.ImageBuilderVpcConfigArgs(
+            vpc_config=aws.appstream.ImageBuilderVpcConfigArrgs(
                 subnet_ids=[aws_subnet["example"]["id"]],
             ),
             tags={
@@ -574,11 +574,11 @@ class ImageBuilder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArrgs']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         :param pulumi.Input[str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[str] description: Description to display.
         :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream image builder.
-        :param pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArgs']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
+        :param pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArrgs']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the image builder.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
@@ -588,13 +588,13 @@ class ImageBuilder(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
+        :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArrgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ImageBuilderArgs,
+                 args: ImageBuilderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppStream image builder.
@@ -611,7 +611,7 @@ class ImageBuilder(pulumi.CustomResource):
             enable_default_internet_access=False,
             image_name="AppStream-WinServer2019-10-05-2022",
             instance_type="stream.standard.large",
-            vpc_config=aws.appstream.ImageBuilderVpcConfigArgs(
+            vpc_config=aws.appstream.ImageBuilderVpcConfigArrgs(
                 subnet_ids=[aws_subnet["example"]["id"]],
             ),
             tags={
@@ -628,12 +628,12 @@ class ImageBuilder(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ImageBuilderArgs args: The arguments to use to populate this resource's properties.
+        :param ImageBuilderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ImageBuilderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ImageBuilderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -642,11 +642,11 @@ class ImageBuilder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]]] = None,
+                 access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArrgs']]]]] = None,
                  appstream_agent_version: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 domain_join_info: Optional[pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArgs']]] = None,
+                 domain_join_info: Optional[pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArrgs']]] = None,
                  enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  image_arn: Optional[pulumi.Input[str]] = None,
@@ -654,7 +654,7 @@ class ImageBuilder(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -662,7 +662,7 @@ class ImageBuilder(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ImageBuilderArgs.__new__(ImageBuilderArgs)
+            __props__ = ImageBuilderArrgs.__new__(ImageBuilderArrgs)
 
             __props__.__dict__["access_endpoints"] = access_endpoints
             __props__.__dict__["appstream_agent_version"] = appstream_agent_version
@@ -695,13 +695,13 @@ class ImageBuilder(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]]] = None,
+            access_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArrgs']]]]] = None,
             appstream_agent_version: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             created_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            domain_join_info: Optional[pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArgs']]] = None,
+            domain_join_info: Optional[pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArrgs']]] = None,
             enable_default_internet_access: Optional[pulumi.Input[bool]] = None,
             iam_role_arn: Optional[pulumi.Input[str]] = None,
             image_arn: Optional[pulumi.Input[str]] = None,
@@ -711,7 +711,7 @@ class ImageBuilder(pulumi.CustomResource):
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']]] = None) -> 'ImageBuilder':
+            vpc_config: Optional[pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArrgs']]] = None) -> 'ImageBuilder':
         """
         Get an existing ImageBuilder resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -719,13 +719,13 @@ class ImageBuilder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArgs']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageBuilderAccessEndpointArrgs']]]] access_endpoints: Set of interface VPC endpoint (interface endpoint) objects. Maximum of 4. See below.
         :param pulumi.Input[str] appstream_agent_version: Version of the AppStream 2.0 agent to use for this image builder.
         :param pulumi.Input[str] arn: ARN of the appstream image builder.
         :param pulumi.Input[str] created_time: Date and time, in UTC and extended RFC 3339 format, when the image builder was created.
         :param pulumi.Input[str] description: Description to display.
         :param pulumi.Input[str] display_name: Human-readable friendly name for the AppStream image builder.
-        :param pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArgs']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
+        :param pulumi.Input[pulumi.InputType['ImageBuilderDomainJoinInfoArrgs']] domain_join_info: Configuration block for the name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain. See below.
         :param pulumi.Input[bool] enable_default_internet_access: Enables or disables default internet access for the image builder.
         :param pulumi.Input[str] iam_role_arn: ARN of the IAM role to apply to the image builder.
         :param pulumi.Input[str] image_arn: ARN of the public, private, or shared image to use.
@@ -737,7 +737,7 @@ class ImageBuilder(pulumi.CustomResource):
         :param pulumi.Input[str] state: State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
+        :param pulumi.Input[pulumi.InputType['ImageBuilderVpcConfigArrgs']] vpc_config: Configuration block for the VPC configuration for the image builder. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

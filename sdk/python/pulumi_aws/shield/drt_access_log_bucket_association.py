@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DrtAccessLogBucketAssociationArgs', 'DrtAccessLogBucketAssociation']
+__all__ = ['DrtAccessLogBucketAssociationArrgs', 'DrtAccessLogBucketAssociation']
 
 @pulumi.input_type
-class DrtAccessLogBucketAssociationArgs:
+calass DrtAccessLogBucketAssociationArrgs:
     def __init__(__self__, *,
                  log_bucket: pulumi.Input[str],
                  role_arn_association_id: pulumi.Input[str],
-                 timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a DrtAccessLogBucketAssociation resource.
         :param pulumi.Input[str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
@@ -55,20 +55,20 @@ class DrtAccessLogBucketAssociationArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _DrtAccessLogBucketAssociationState:
+calass _DrtAccessLogBucketAssociationState:
     def __init__(__self__, *,
                  log_bucket: Optional[pulumi.Input[str]] = None,
                  role_arn_association_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArrgs']] = None):
         """
         Input properties used for looking up and filtering DrtAccessLogBucketAssociation resources.
         :param pulumi.Input[str] log_bucket: The Amazon S3 bucket that contains the logs that you want to share.
@@ -107,22 +107,22 @@ class _DrtAccessLogBucketAssociationState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['DrtAccessLogBucketAssociationTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
-class DrtAccessLogBucketAssociation(pulumi.CustomResource):
+calass DrtAccessLogBucketAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_bucket: Optional[pulumi.Input[str]] = None,
                  role_arn_association_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArrgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Shield DRT Access Log Bucket Association. Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
@@ -149,7 +149,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DrtAccessLogBucketAssociationArgs,
+                 args: DrtAccessLogBucketAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Shield DRT Access Log Bucket Association. Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
@@ -168,12 +168,12 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DrtAccessLogBucketAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param DrtAccessLogBucketAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DrtAccessLogBucketAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DrtAccessLogBucketAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -184,7 +184,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_bucket: Optional[pulumi.Input[str]] = None,
                  role_arn_association_id: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -192,7 +192,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DrtAccessLogBucketAssociationArgs.__new__(DrtAccessLogBucketAssociationArgs)
+            __props__ = DrtAccessLogBucketAssociationArrgs.__new__(DrtAccessLogBucketAssociationArrgs)
 
             if log_bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'log_bucket'")
@@ -213,7 +213,7 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             log_bucket: Optional[pulumi.Input[str]] = None,
             role_arn_association_id: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArgs']]] = None) -> 'DrtAccessLogBucketAssociation':
+            timeouts: Optional[pulumi.Input[pulumi.InputType['DrtAccessLogBucketAssociationTimeoutsArrgs']]] = None) -> 'DrtAccessLogBucketAssociation':
         """
         Get an existing DrtAccessLogBucketAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

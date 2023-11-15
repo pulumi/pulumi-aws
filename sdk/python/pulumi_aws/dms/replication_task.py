@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ReplicationTaskArgs', 'ReplicationTask']
+__all__ = ['ReplicationTaskArrgs', 'ReplicationTask']
 
 @pulumi.input_type
-class ReplicationTaskArgs:
+calass ReplicationTaskArrgs:
     def __init__(__self__, *,
                  migration_type: pulumi.Input[str],
                  replication_instance_arn: pulumi.Input[str],
@@ -200,7 +200,7 @@ class ReplicationTaskArgs:
 
 
 @pulumi.input_type
-class _ReplicationTaskState:
+calass _ReplicationTaskState:
     def __init__(__self__, *,
                  cdc_start_position: Optional[pulumi.Input[str]] = None,
                  cdc_start_time: Optional[pulumi.Input[str]] = None,
@@ -447,7 +447,7 @@ class _ReplicationTaskState:
         pulumi.set(self, "target_endpoint_arn", value)
 
 
-class ReplicationTask(pulumi.CustomResource):
+calass ReplicationTask(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -521,7 +521,7 @@ class ReplicationTask(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ReplicationTaskArgs,
+                 args: ReplicationTaskArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
@@ -558,12 +558,12 @@ class ReplicationTask(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ReplicationTaskArgs args: The arguments to use to populate this resource's properties.
+        :param ReplicationTaskArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ReplicationTaskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ReplicationTaskArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -590,7 +590,7 @@ class ReplicationTask(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ReplicationTaskArgs.__new__(ReplicationTaskArgs)
+            __props__ = ReplicationTaskArrgs.__new__(ReplicationTaskArrgs)
 
             __props__.__dict__["cdc_start_position"] = cdc_start_position
             __props__.__dict__["cdc_start_time"] = cdc_start_time

@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EnvironmentLastUpdated(dict):
+calass EnvironmentLastUpdated(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -81,7 +81,7 @@ class EnvironmentLastUpdated(dict):
 
 
 @pulumi.output_type
-class EnvironmentLastUpdatedError(dict):
+calass EnvironmentLastUpdatedError(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -121,7 +121,7 @@ class EnvironmentLastUpdatedError(dict):
 
 
 @pulumi.output_type
-class EnvironmentLoggingConfiguration(dict):
+calass EnvironmentLoggingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -154,11 +154,11 @@ class EnvironmentLoggingConfiguration(dict):
                  webserver_logs: Optional['outputs.EnvironmentLoggingConfigurationWebserverLogs'] = None,
                  worker_logs: Optional['outputs.EnvironmentLoggingConfigurationWorkerLogs'] = None):
         """
-        :param 'EnvironmentLoggingConfigurationDagProcessingLogsArgs' dag_processing_logs: (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
-        :param 'EnvironmentLoggingConfigurationSchedulerLogsArgs' scheduler_logs: Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
-        :param 'EnvironmentLoggingConfigurationTaskLogsArgs' task_logs: Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
-        :param 'EnvironmentLoggingConfigurationWebserverLogsArgs' webserver_logs: Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
-        :param 'EnvironmentLoggingConfigurationWorkerLogsArgs' worker_logs: Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
+        :param 'EnvironmentLoggingConfigurationDagProcessingLogsArrgs' dag_processing_logs: (Optional) Log configuration options for processing DAGs. See Module logging configuration for more information. Disabled by default.
+        :param 'EnvironmentLoggingConfigurationSchedulerLogsArrgs' scheduler_logs: Log configuration options for the schedulers. See Module logging configuration for more information. Disabled by default.
+        :param 'EnvironmentLoggingConfigurationTaskLogsArrgs' task_logs: Log configuration options for DAG tasks. See Module logging configuration for more information. Enabled by default with `INFO` log level.
+        :param 'EnvironmentLoggingConfigurationWebserverLogsArrgs' webserver_logs: Log configuration options for the webservers. See Module logging configuration for more information. Disabled by default.
+        :param 'EnvironmentLoggingConfigurationWorkerLogsArrgs' worker_logs: Log configuration options for the workers. See Module logging configuration for more information. Disabled by default.
         """
         if dag_processing_logs is not None:
             pulumi.set(__self__, "dag_processing_logs", dag_processing_logs)
@@ -213,7 +213,7 @@ class EnvironmentLoggingConfiguration(dict):
 
 
 @pulumi.output_type
-class EnvironmentLoggingConfigurationDagProcessingLogs(dict):
+calass EnvironmentLoggingConfigurationDagProcessingLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -271,7 +271,7 @@ class EnvironmentLoggingConfigurationDagProcessingLogs(dict):
 
 
 @pulumi.output_type
-class EnvironmentLoggingConfigurationSchedulerLogs(dict):
+calass EnvironmentLoggingConfigurationSchedulerLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -329,7 +329,7 @@ class EnvironmentLoggingConfigurationSchedulerLogs(dict):
 
 
 @pulumi.output_type
-class EnvironmentLoggingConfigurationTaskLogs(dict):
+calass EnvironmentLoggingConfigurationTaskLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -387,7 +387,7 @@ class EnvironmentLoggingConfigurationTaskLogs(dict):
 
 
 @pulumi.output_type
-class EnvironmentLoggingConfigurationWebserverLogs(dict):
+calass EnvironmentLoggingConfigurationWebserverLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -445,7 +445,7 @@ class EnvironmentLoggingConfigurationWebserverLogs(dict):
 
 
 @pulumi.output_type
-class EnvironmentLoggingConfigurationWorkerLogs(dict):
+calass EnvironmentLoggingConfigurationWorkerLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -503,7 +503,7 @@ class EnvironmentLoggingConfigurationWorkerLogs(dict):
 
 
 @pulumi.output_type
-class EnvironmentNetworkConfiguration(dict):
+calass EnvironmentNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

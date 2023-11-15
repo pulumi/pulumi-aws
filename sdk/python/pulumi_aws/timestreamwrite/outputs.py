@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class TableMagneticStoreWriteProperties(dict):
+calass TableMagneticStoreWriteProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -45,7 +45,7 @@ class TableMagneticStoreWriteProperties(dict):
                  magnetic_store_rejected_data_location: Optional['outputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation'] = None):
         """
         :param bool enable_magnetic_store_writes: A flag to enable magnetic store writes.
-        :param 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArgs' magnetic_store_rejected_data_location: The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
+        :param 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationArrgs' magnetic_store_rejected_data_location: The location to write error reports for records rejected asynchronously during magnetic store writes. See Magnetic Store Rejected Data Location below for more details.
         """
         if enable_magnetic_store_writes is not None:
             pulumi.set(__self__, "enable_magnetic_store_writes", enable_magnetic_store_writes)
@@ -70,7 +70,7 @@ class TableMagneticStoreWriteProperties(dict):
 
 
 @pulumi.output_type
-class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation(dict):
+calass TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -91,7 +91,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation(dict):
     def __init__(__self__, *,
                  s3_configuration: Optional['outputs.TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration'] = None):
         """
-        :param 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArgs' s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
+        :param 'TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3ConfigurationArrgs' s3_configuration: Configuration of an S3 location to write error reports for records rejected, asynchronously, during magnetic store writes. See S3 Configuration below for more details.
         """
         if s3_configuration is not None:
             pulumi.set(__self__, "s3_configuration", s3_configuration)
@@ -106,7 +106,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocation(dict):
 
 
 @pulumi.output_type
-class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration(dict):
+calass TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Configuration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -184,7 +184,7 @@ class TableMagneticStoreWritePropertiesMagneticStoreRejectedDataLocationS3Config
 
 
 @pulumi.output_type
-class TableRetentionProperties(dict):
+calass TableRetentionProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -232,7 +232,7 @@ class TableRetentionProperties(dict):
 
 
 @pulumi.output_type
-class TableSchema(dict):
+calass TableSchema(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -253,7 +253,7 @@ class TableSchema(dict):
     def __init__(__self__, *,
                  composite_partition_key: Optional['outputs.TableSchemaCompositePartitionKey'] = None):
         """
-        :param 'TableSchemaCompositePartitionKeyArgs' composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
+        :param 'TableSchemaCompositePartitionKeyArrgs' composite_partition_key: A non-empty list of partition keys defining the attributes used to partition the table data. The order of the list determines the partition hierarchy. The name and type of each partition key as well as the partition key order cannot be changed after the table is created. However, the enforcement level of each partition key can be changed. See Composite Partition Key below for more details.
         """
         if composite_partition_key is not None:
             pulumi.set(__self__, "composite_partition_key", composite_partition_key)
@@ -268,7 +268,7 @@ class TableSchema(dict):
 
 
 @pulumi.output_type
-class TableSchemaCompositePartitionKey(dict):
+calass TableSchemaCompositePartitionKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

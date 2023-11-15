@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSigningJobResult:
+calass GetSigningJobResult:
     """
     A collection of values returned by getSigningJob.
     """
@@ -209,7 +209,7 @@ class GetSigningJobResult:
         return pulumi.get(self, "status_reason")
 
 
-class AwaitableGetSigningJobResult(GetSigningJobResult):
+calass AwaitableGetSigningJobResult(GetSigningJobResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

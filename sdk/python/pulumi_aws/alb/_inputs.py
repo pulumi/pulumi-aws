@@ -11,58 +11,58 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ListenerDefaultActionArgs',
-    'ListenerDefaultActionAuthenticateCognitoArgs',
-    'ListenerDefaultActionAuthenticateOidcArgs',
-    'ListenerDefaultActionFixedResponseArgs',
-    'ListenerDefaultActionForwardArgs',
-    'ListenerDefaultActionForwardStickinessArgs',
-    'ListenerDefaultActionForwardTargetGroupArgs',
-    'ListenerDefaultActionRedirectArgs',
-    'ListenerRuleActionArgs',
-    'ListenerRuleActionAuthenticateCognitoArgs',
-    'ListenerRuleActionAuthenticateOidcArgs',
-    'ListenerRuleActionFixedResponseArgs',
-    'ListenerRuleActionForwardArgs',
-    'ListenerRuleActionForwardStickinessArgs',
-    'ListenerRuleActionForwardTargetGroupArgs',
-    'ListenerRuleActionRedirectArgs',
-    'ListenerRuleConditionArgs',
-    'ListenerRuleConditionHostHeaderArgs',
-    'ListenerRuleConditionHttpHeaderArgs',
-    'ListenerRuleConditionHttpRequestMethodArgs',
-    'ListenerRuleConditionPathPatternArgs',
-    'ListenerRuleConditionQueryStringArgs',
-    'ListenerRuleConditionSourceIpArgs',
-    'LoadBalancerAccessLogsArgs',
-    'LoadBalancerSubnetMappingArgs',
-    'TargetGroupHealthCheckArgs',
-    'TargetGroupStickinessArgs',
-    'TargetGroupTargetFailoverArgs',
-    'TargetGroupTargetHealthStateArgs',
+    'ListenerDefaultActionArrgs',
+    'ListenerDefaultActionAuthenticateCognitoArrgs',
+    'ListenerDefaultActionAuthenticateOidcArrgs',
+    'ListenerDefaultActionFixedResponseArrgs',
+    'ListenerDefaultActionForwardArrgs',
+    'ListenerDefaultActionForwardStickinessArrgs',
+    'ListenerDefaultActionForwardTargetGroupArrgs',
+    'ListenerDefaultActionRedirectArrgs',
+    'ListenerRuleActionArrgs',
+    'ListenerRuleActionAuthenticateCognitoArrgs',
+    'ListenerRuleActionAuthenticateOidcArrgs',
+    'ListenerRuleActionFixedResponseArrgs',
+    'ListenerRuleActionForwardArrgs',
+    'ListenerRuleActionForwardStickinessArrgs',
+    'ListenerRuleActionForwardTargetGroupArrgs',
+    'ListenerRuleActionRedirectArrgs',
+    'ListenerRuleConditionArrgs',
+    'ListenerRuleConditionHostHeaderArrgs',
+    'ListenerRuleConditionHttpHeaderArrgs',
+    'ListenerRuleConditionHttpRequestMethodArrgs',
+    'ListenerRuleConditionPathPatternArrgs',
+    'ListenerRuleConditionQueryStringArrgs',
+    'ListenerRuleConditionSourceIpArrgs',
+    'LoadBalancerAccessLogsArrgs',
+    'LoadBalancerSubnetMappingArrgs',
+    'TargetGroupHealthCheckArrgs',
+    'TargetGroupStickinessArrgs',
+    'TargetGroupTargetFailoverArrgs',
+    'TargetGroupTargetHealthStateArrgs',
 ]
 
 @pulumi.input_type
-class ListenerDefaultActionArgs:
+calass ListenerDefaultActionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authenticate_cognito: Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs']] = None,
-                 authenticate_oidc: Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs']] = None,
-                 fixed_response: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']] = None,
-                 forward: Optional[pulumi.Input['ListenerDefaultActionForwardArgs']] = None,
+                 authenticate_cognito: Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArrgs']] = None,
+                 authenticate_oidc: Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArrgs']] = None,
+                 fixed_response: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArrgs']] = None,
+                 forward: Optional[pulumi.Input['ListenerDefaultActionForwardArrgs']] = None,
                  order: Optional[pulumi.Input[int]] = None,
-                 redirect: Optional[pulumi.Input['ListenerDefaultActionRedirectArgs']] = None,
+                 redirect: Optional[pulumi.Input['ListenerDefaultActionRedirectArrgs']] = None,
                  target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
                
                The following arguments are optional:
-        :param pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs'] authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
-        :param pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs'] authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
-        :param pulumi.Input['ListenerDefaultActionFixedResponseArgs'] fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param pulumi.Input['ListenerDefaultActionForwardArgs'] forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionAuthenticateCognitoArrgs'] authenticate_cognito: Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionAuthenticateOidcArrgs'] authenticate_oidc: Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionFixedResponseArrgs'] fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+        :param pulumi.Input['ListenerDefaultActionForwardArrgs'] forward: Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
         :param pulumi.Input[int] order: Order for the action. This value is required for rules with multiple actions. The action with the lowest value for order is performed first. Valid values are between `1` and `50000`.
-        :param pulumi.Input['ListenerDefaultActionRedirectArgs'] redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionRedirectArrgs'] redirect: Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
         :param pulumi.Input[str] target_group_arn: ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         pulumi.set(__self__, "type", type)
@@ -97,50 +97,50 @@ class ListenerDefaultActionArgs:
 
     @property
     @pulumi.getter(name="authenticateCognito")
-    def authenticate_cognito(self) -> Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs']]:
+    def authenticate_cognito(self) -> Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArrgs']]:
         """
         Configuration block for using Amazon Cognito to authenticate users. Specify only when `type` is `authenticate-cognito`. Detailed below.
         """
         return pulumi.get(self, "authenticate_cognito")
 
     @authenticate_cognito.setter
-    def authenticate_cognito(self, value: Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArgs']]):
+    def authenticate_cognito(self, value: Optional[pulumi.Input['ListenerDefaultActionAuthenticateCognitoArrgs']]):
         pulumi.set(self, "authenticate_cognito", value)
 
     @property
     @pulumi.getter(name="authenticateOidc")
-    def authenticate_oidc(self) -> Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs']]:
+    def authenticate_oidc(self) -> Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArrgs']]:
         """
         Configuration block for an identity provider that is compliant with OpenID Connect (OIDC). Specify only when `type` is `authenticate-oidc`. Detailed below.
         """
         return pulumi.get(self, "authenticate_oidc")
 
     @authenticate_oidc.setter
-    def authenticate_oidc(self, value: Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArgs']]):
+    def authenticate_oidc(self, value: Optional[pulumi.Input['ListenerDefaultActionAuthenticateOidcArrgs']]):
         pulumi.set(self, "authenticate_oidc", value)
 
     @property
     @pulumi.getter(name="fixedResponse")
-    def fixed_response(self) -> Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']]:
+    def fixed_response(self) -> Optional[pulumi.Input['ListenerDefaultActionFixedResponseArrgs']]:
         """
         Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
         """
         return pulumi.get(self, "fixed_response")
 
     @fixed_response.setter
-    def fixed_response(self, value: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArgs']]):
+    def fixed_response(self, value: Optional[pulumi.Input['ListenerDefaultActionFixedResponseArrgs']]):
         pulumi.set(self, "fixed_response", value)
 
     @property
     @pulumi.getter
-    def forward(self) -> Optional[pulumi.Input['ListenerDefaultActionForwardArgs']]:
+    def forward(self) -> Optional[pulumi.Input['ListenerDefaultActionForwardArrgs']]:
         """
         Configuration block for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`. Detailed below.
         """
         return pulumi.get(self, "forward")
 
     @forward.setter
-    def forward(self, value: Optional[pulumi.Input['ListenerDefaultActionForwardArgs']]):
+    def forward(self, value: Optional[pulumi.Input['ListenerDefaultActionForwardArrgs']]):
         pulumi.set(self, "forward", value)
 
     @property
@@ -157,14 +157,14 @@ class ListenerDefaultActionArgs:
 
     @property
     @pulumi.getter
-    def redirect(self) -> Optional[pulumi.Input['ListenerDefaultActionRedirectArgs']]:
+    def redirect(self) -> Optional[pulumi.Input['ListenerDefaultActionRedirectArrgs']]:
         """
         Configuration block for creating a redirect action. Required if `type` is `redirect`. Detailed below.
         """
         return pulumi.get(self, "redirect")
 
     @redirect.setter
-    def redirect(self, value: Optional[pulumi.Input['ListenerDefaultActionRedirectArgs']]):
+    def redirect(self, value: Optional[pulumi.Input['ListenerDefaultActionRedirectArrgs']]):
         pulumi.set(self, "redirect", value)
 
     @property
@@ -181,7 +181,7 @@ class ListenerDefaultActionArgs:
 
 
 @pulumi.input_type
-class ListenerDefaultActionAuthenticateCognitoArgs:
+calass ListenerDefaultActionAuthenticateCognitoArrgs:
     def __init__(__self__, *,
                  user_pool_arn: pulumi.Input[str],
                  user_pool_client_id: pulumi.Input[str],
@@ -317,7 +317,7 @@ class ListenerDefaultActionAuthenticateCognitoArgs:
 
 
 @pulumi.input_type
-class ListenerDefaultActionAuthenticateOidcArgs:
+calass ListenerDefaultActionAuthenticateOidcArrgs:
     def __init__(__self__, *,
                  authorization_endpoint: pulumi.Input[str],
                  client_id: pulumi.Input[str],
@@ -498,7 +498,7 @@ class ListenerDefaultActionAuthenticateOidcArgs:
 
 
 @pulumi.input_type
-class ListenerDefaultActionFixedResponseArgs:
+calass ListenerDefaultActionFixedResponseArrgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str],
                  message_body: Optional[pulumi.Input[str]] = None,
@@ -556,15 +556,15 @@ class ListenerDefaultActionFixedResponseArgs:
 
 
 @pulumi.input_type
-class ListenerDefaultActionForwardArgs:
+calass ListenerDefaultActionForwardArrgs:
     def __init__(__self__, *,
-                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]],
-                 stickiness: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']] = None):
+                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArrgs']]],
+                 stickiness: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]] target_groups: Set of 1-5 target group blocks. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArrgs']]] target_groups: Set of 1-5 target group blocks. Detailed below.
                
                The following arguments are optional:
-        :param pulumi.Input['ListenerDefaultActionForwardStickinessArgs'] stickiness: Configuration block for target group stickiness for the rule. Detailed below.
+        :param pulumi.Input['ListenerDefaultActionForwardStickinessArrgs'] stickiness: Configuration block for target group stickiness for the rule. Detailed below.
         """
         pulumi.set(__self__, "target_groups", target_groups)
         if stickiness is not None:
@@ -572,7 +572,7 @@ class ListenerDefaultActionForwardArgs:
 
     @property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]:
+    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArrgs']]]:
         """
         Set of 1-5 target group blocks. Detailed below.
 
@@ -581,24 +581,24 @@ class ListenerDefaultActionForwardArgs:
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArgs']]]):
+    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerDefaultActionForwardTargetGroupArrgs']]]):
         pulumi.set(self, "target_groups", value)
 
     @property
     @pulumi.getter
-    def stickiness(self) -> Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']]:
+    def stickiness(self) -> Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArrgs']]:
         """
         Configuration block for target group stickiness for the rule. Detailed below.
         """
         return pulumi.get(self, "stickiness")
 
     @stickiness.setter
-    def stickiness(self, value: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArgs']]):
+    def stickiness(self, value: Optional[pulumi.Input['ListenerDefaultActionForwardStickinessArrgs']]):
         pulumi.set(self, "stickiness", value)
 
 
 @pulumi.input_type
-class ListenerDefaultActionForwardStickinessArgs:
+calass ListenerDefaultActionForwardStickinessArrgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[int],
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -640,7 +640,7 @@ class ListenerDefaultActionForwardStickinessArgs:
 
 
 @pulumi.input_type
-class ListenerDefaultActionForwardTargetGroupArgs:
+calass ListenerDefaultActionForwardTargetGroupArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  weight: Optional[pulumi.Input[int]] = None):
@@ -682,7 +682,7 @@ class ListenerDefaultActionForwardTargetGroupArgs:
 
 
 @pulumi.input_type
-class ListenerDefaultActionRedirectArgs:
+calass ListenerDefaultActionRedirectArrgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[str],
                  host: Optional[pulumi.Input[str]] = None,
@@ -788,23 +788,23 @@ class ListenerDefaultActionRedirectArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionArgs:
+calass ListenerRuleActionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 authenticate_cognito: Optional[pulumi.Input['ListenerRuleActionAuthenticateCognitoArgs']] = None,
-                 authenticate_oidc: Optional[pulumi.Input['ListenerRuleActionAuthenticateOidcArgs']] = None,
-                 fixed_response: Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']] = None,
-                 forward: Optional[pulumi.Input['ListenerRuleActionForwardArgs']] = None,
+                 authenticate_cognito: Optional[pulumi.Input['ListenerRuleActionAuthenticateCognitoArrgs']] = None,
+                 authenticate_oidc: Optional[pulumi.Input['ListenerRuleActionAuthenticateOidcArrgs']] = None,
+                 fixed_response: Optional[pulumi.Input['ListenerRuleActionFixedResponseArrgs']] = None,
+                 forward: Optional[pulumi.Input['ListenerRuleActionForwardArrgs']] = None,
                  order: Optional[pulumi.Input[int]] = None,
-                 redirect: Optional[pulumi.Input['ListenerRuleActionRedirectArgs']] = None,
+                 redirect: Optional[pulumi.Input['ListenerRuleActionRedirectArrgs']] = None,
                  target_group_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: The type of routing action. Valid values are `forward`, `redirect`, `fixed-response`, `authenticate-cognito` and `authenticate-oidc`.
-        :param pulumi.Input['ListenerRuleActionAuthenticateCognitoArgs'] authenticate_cognito: Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
-        :param pulumi.Input['ListenerRuleActionAuthenticateOidcArgs'] authenticate_oidc: Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
-        :param pulumi.Input['ListenerRuleActionFixedResponseArgs'] fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
-        :param pulumi.Input['ListenerRuleActionForwardArgs'] forward: Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
-        :param pulumi.Input['ListenerRuleActionRedirectArgs'] redirect: Information for creating a redirect action. Required if `type` is `redirect`.
+        :param pulumi.Input['ListenerRuleActionAuthenticateCognitoArrgs'] authenticate_cognito: Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
+        :param pulumi.Input['ListenerRuleActionAuthenticateOidcArrgs'] authenticate_oidc: Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
+        :param pulumi.Input['ListenerRuleActionFixedResponseArrgs'] fixed_response: Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
+        :param pulumi.Input['ListenerRuleActionForwardArrgs'] forward: Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
+        :param pulumi.Input['ListenerRuleActionRedirectArrgs'] redirect: Information for creating a redirect action. Required if `type` is `redirect`.
         :param pulumi.Input[str] target_group_arn: The ARN of the Target Group to which to route traffic. Specify only if `type` is `forward` and you want to route to a single target group. To route to one or more target groups, use a `forward` block instead.
         """
         pulumi.set(__self__, "type", type)
@@ -837,50 +837,50 @@ class ListenerRuleActionArgs:
 
     @property
     @pulumi.getter(name="authenticateCognito")
-    def authenticate_cognito(self) -> Optional[pulumi.Input['ListenerRuleActionAuthenticateCognitoArgs']]:
+    def authenticate_cognito(self) -> Optional[pulumi.Input['ListenerRuleActionAuthenticateCognitoArrgs']]:
         """
         Information for creating an authenticate action using Cognito. Required if `type` is `authenticate-cognito`.
         """
         return pulumi.get(self, "authenticate_cognito")
 
     @authenticate_cognito.setter
-    def authenticate_cognito(self, value: Optional[pulumi.Input['ListenerRuleActionAuthenticateCognitoArgs']]):
+    def authenticate_cognito(self, value: Optional[pulumi.Input['ListenerRuleActionAuthenticateCognitoArrgs']]):
         pulumi.set(self, "authenticate_cognito", value)
 
     @property
     @pulumi.getter(name="authenticateOidc")
-    def authenticate_oidc(self) -> Optional[pulumi.Input['ListenerRuleActionAuthenticateOidcArgs']]:
+    def authenticate_oidc(self) -> Optional[pulumi.Input['ListenerRuleActionAuthenticateOidcArrgs']]:
         """
         Information for creating an authenticate action using OIDC. Required if `type` is `authenticate-oidc`.
         """
         return pulumi.get(self, "authenticate_oidc")
 
     @authenticate_oidc.setter
-    def authenticate_oidc(self, value: Optional[pulumi.Input['ListenerRuleActionAuthenticateOidcArgs']]):
+    def authenticate_oidc(self, value: Optional[pulumi.Input['ListenerRuleActionAuthenticateOidcArrgs']]):
         pulumi.set(self, "authenticate_oidc", value)
 
     @property
     @pulumi.getter(name="fixedResponse")
-    def fixed_response(self) -> Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']]:
+    def fixed_response(self) -> Optional[pulumi.Input['ListenerRuleActionFixedResponseArrgs']]:
         """
         Information for creating an action that returns a custom HTTP response. Required if `type` is `fixed-response`.
         """
         return pulumi.get(self, "fixed_response")
 
     @fixed_response.setter
-    def fixed_response(self, value: Optional[pulumi.Input['ListenerRuleActionFixedResponseArgs']]):
+    def fixed_response(self, value: Optional[pulumi.Input['ListenerRuleActionFixedResponseArrgs']]):
         pulumi.set(self, "fixed_response", value)
 
     @property
     @pulumi.getter
-    def forward(self) -> Optional[pulumi.Input['ListenerRuleActionForwardArgs']]:
+    def forward(self) -> Optional[pulumi.Input['ListenerRuleActionForwardArrgs']]:
         """
         Information for creating an action that distributes requests among one or more target groups. Specify only if `type` is `forward`. If you specify both `forward` block and `target_group_arn` attribute, you can specify only one target group using `forward` and it must be the same target group specified in `target_group_arn`.
         """
         return pulumi.get(self, "forward")
 
     @forward.setter
-    def forward(self, value: Optional[pulumi.Input['ListenerRuleActionForwardArgs']]):
+    def forward(self, value: Optional[pulumi.Input['ListenerRuleActionForwardArrgs']]):
         pulumi.set(self, "forward", value)
 
     @property
@@ -894,14 +894,14 @@ class ListenerRuleActionArgs:
 
     @property
     @pulumi.getter
-    def redirect(self) -> Optional[pulumi.Input['ListenerRuleActionRedirectArgs']]:
+    def redirect(self) -> Optional[pulumi.Input['ListenerRuleActionRedirectArrgs']]:
         """
         Information for creating a redirect action. Required if `type` is `redirect`.
         """
         return pulumi.get(self, "redirect")
 
     @redirect.setter
-    def redirect(self, value: Optional[pulumi.Input['ListenerRuleActionRedirectArgs']]):
+    def redirect(self, value: Optional[pulumi.Input['ListenerRuleActionRedirectArrgs']]):
         pulumi.set(self, "redirect", value)
 
     @property
@@ -918,7 +918,7 @@ class ListenerRuleActionArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionAuthenticateCognitoArgs:
+calass ListenerRuleActionAuthenticateCognitoArrgs:
     def __init__(__self__, *,
                  user_pool_arn: pulumi.Input[str],
                  user_pool_client_id: pulumi.Input[str],
@@ -1050,7 +1050,7 @@ class ListenerRuleActionAuthenticateCognitoArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionAuthenticateOidcArgs:
+calass ListenerRuleActionAuthenticateOidcArrgs:
     def __init__(__self__, *,
                  authorization_endpoint: pulumi.Input[str],
                  client_id: pulumi.Input[str],
@@ -1227,7 +1227,7 @@ class ListenerRuleActionAuthenticateOidcArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionFixedResponseArgs:
+calass ListenerRuleActionFixedResponseArrgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str],
                  message_body: Optional[pulumi.Input[str]] = None,
@@ -1281,13 +1281,13 @@ class ListenerRuleActionFixedResponseArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionForwardArgs:
+calass ListenerRuleActionForwardArrgs:
     def __init__(__self__, *,
-                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]],
-                 stickiness: Optional[pulumi.Input['ListenerRuleActionForwardStickinessArgs']] = None):
+                 target_groups: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArrgs']]],
+                 stickiness: Optional[pulumi.Input['ListenerRuleActionForwardStickinessArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]] target_groups: One or more target groups block.
-        :param pulumi.Input['ListenerRuleActionForwardStickinessArgs'] stickiness: The target group stickiness for the rule.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArrgs']]] target_groups: One or more target groups block.
+        :param pulumi.Input['ListenerRuleActionForwardStickinessArrgs'] stickiness: The target group stickiness for the rule.
         """
         pulumi.set(__self__, "target_groups", target_groups)
         if stickiness is not None:
@@ -1295,31 +1295,31 @@ class ListenerRuleActionForwardArgs:
 
     @property
     @pulumi.getter(name="targetGroups")
-    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]:
+    def target_groups(self) -> pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArrgs']]]:
         """
         One or more target groups block.
         """
         return pulumi.get(self, "target_groups")
 
     @target_groups.setter
-    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArgs']]]):
+    def target_groups(self, value: pulumi.Input[Sequence[pulumi.Input['ListenerRuleActionForwardTargetGroupArrgs']]]):
         pulumi.set(self, "target_groups", value)
 
     @property
     @pulumi.getter
-    def stickiness(self) -> Optional[pulumi.Input['ListenerRuleActionForwardStickinessArgs']]:
+    def stickiness(self) -> Optional[pulumi.Input['ListenerRuleActionForwardStickinessArrgs']]:
         """
         The target group stickiness for the rule.
         """
         return pulumi.get(self, "stickiness")
 
     @stickiness.setter
-    def stickiness(self, value: Optional[pulumi.Input['ListenerRuleActionForwardStickinessArgs']]):
+    def stickiness(self, value: Optional[pulumi.Input['ListenerRuleActionForwardStickinessArrgs']]):
         pulumi.set(self, "stickiness", value)
 
 
 @pulumi.input_type
-class ListenerRuleActionForwardStickinessArgs:
+calass ListenerRuleActionForwardStickinessArrgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[int],
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -1357,7 +1357,7 @@ class ListenerRuleActionForwardStickinessArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionForwardTargetGroupArgs:
+calass ListenerRuleActionForwardTargetGroupArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  weight: Optional[pulumi.Input[int]] = None):
@@ -1395,7 +1395,7 @@ class ListenerRuleActionForwardTargetGroupArgs:
 
 
 @pulumi.input_type
-class ListenerRuleActionRedirectArgs:
+calass ListenerRuleActionRedirectArrgs:
     def __init__(__self__, *,
                  status_code: pulumi.Input[str],
                  host: Optional[pulumi.Input[str]] = None,
@@ -1497,21 +1497,21 @@ class ListenerRuleActionRedirectArgs:
 
 
 @pulumi.input_type
-class ListenerRuleConditionArgs:
+calass ListenerRuleConditionArrgs:
     def __init__(__self__, *,
-                 host_header: Optional[pulumi.Input['ListenerRuleConditionHostHeaderArgs']] = None,
-                 http_header: Optional[pulumi.Input['ListenerRuleConditionHttpHeaderArgs']] = None,
-                 http_request_method: Optional[pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs']] = None,
-                 path_pattern: Optional[pulumi.Input['ListenerRuleConditionPathPatternArgs']] = None,
-                 query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]] = None,
-                 source_ip: Optional[pulumi.Input['ListenerRuleConditionSourceIpArgs']] = None):
+                 host_header: Optional[pulumi.Input['ListenerRuleConditionHostHeaderArrgs']] = None,
+                 http_header: Optional[pulumi.Input['ListenerRuleConditionHttpHeaderArrgs']] = None,
+                 http_request_method: Optional[pulumi.Input['ListenerRuleConditionHttpRequestMethodArrgs']] = None,
+                 path_pattern: Optional[pulumi.Input['ListenerRuleConditionPathPatternArrgs']] = None,
+                 query_strings: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArrgs']]]] = None,
+                 source_ip: Optional[pulumi.Input['ListenerRuleConditionSourceIpArrgs']] = None):
         """
-        :param pulumi.Input['ListenerRuleConditionHostHeaderArgs'] host_header: Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
-        :param pulumi.Input['ListenerRuleConditionHttpHeaderArgs'] http_header: HTTP headers to match. HTTP Header block fields documented below.
-        :param pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs'] http_request_method: Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
-        :param pulumi.Input['ListenerRuleConditionPathPatternArgs'] path_pattern: Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
-        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]] query_strings: Query strings to match. Query String block fields documented below.
-        :param pulumi.Input['ListenerRuleConditionSourceIpArgs'] source_ip: Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
+        :param pulumi.Input['ListenerRuleConditionHostHeaderArrgs'] host_header: Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
+        :param pulumi.Input['ListenerRuleConditionHttpHeaderArrgs'] http_header: HTTP headers to match. HTTP Header block fields documented below.
+        :param pulumi.Input['ListenerRuleConditionHttpRequestMethodArrgs'] http_request_method: Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
+        :param pulumi.Input['ListenerRuleConditionPathPatternArrgs'] path_pattern: Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
+        :param pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArrgs']]] query_strings: Query strings to match. Query String block fields documented below.
+        :param pulumi.Input['ListenerRuleConditionSourceIpArrgs'] source_ip: Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
                
                > **NOTE::** Exactly one of `host_header`, `http_header`, `http_request_method`, `path_pattern`, `query_string` or `source_ip` must be set per condition.
         """
@@ -1530,67 +1530,67 @@ class ListenerRuleConditionArgs:
 
     @property
     @pulumi.getter(name="hostHeader")
-    def host_header(self) -> Optional[pulumi.Input['ListenerRuleConditionHostHeaderArgs']]:
+    def host_header(self) -> Optional[pulumi.Input['ListenerRuleConditionHostHeaderArrgs']]:
         """
         Contains a single `values` item which is a list of host header patterns to match. The maximum size of each pattern is 128 characters. Comparison is case insensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied.
         """
         return pulumi.get(self, "host_header")
 
     @host_header.setter
-    def host_header(self, value: Optional[pulumi.Input['ListenerRuleConditionHostHeaderArgs']]):
+    def host_header(self, value: Optional[pulumi.Input['ListenerRuleConditionHostHeaderArrgs']]):
         pulumi.set(self, "host_header", value)
 
     @property
     @pulumi.getter(name="httpHeader")
-    def http_header(self) -> Optional[pulumi.Input['ListenerRuleConditionHttpHeaderArgs']]:
+    def http_header(self) -> Optional[pulumi.Input['ListenerRuleConditionHttpHeaderArrgs']]:
         """
         HTTP headers to match. HTTP Header block fields documented below.
         """
         return pulumi.get(self, "http_header")
 
     @http_header.setter
-    def http_header(self, value: Optional[pulumi.Input['ListenerRuleConditionHttpHeaderArgs']]):
+    def http_header(self, value: Optional[pulumi.Input['ListenerRuleConditionHttpHeaderArrgs']]):
         pulumi.set(self, "http_header", value)
 
     @property
     @pulumi.getter(name="httpRequestMethod")
-    def http_request_method(self) -> Optional[pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs']]:
+    def http_request_method(self) -> Optional[pulumi.Input['ListenerRuleConditionHttpRequestMethodArrgs']]:
         """
         Contains a single `values` item which is a list of HTTP request methods or verbs to match. Maximum size is 40 characters. Only allowed characters are A-Z, hyphen (-) and underscore (\\_). Comparison is case sensitive. Wildcards are not supported. Only one needs to match for the condition to be satisfied. AWS recommends that GET and HEAD requests are routed in the same way because the response to a HEAD request may be cached.
         """
         return pulumi.get(self, "http_request_method")
 
     @http_request_method.setter
-    def http_request_method(self, value: Optional[pulumi.Input['ListenerRuleConditionHttpRequestMethodArgs']]):
+    def http_request_method(self, value: Optional[pulumi.Input['ListenerRuleConditionHttpRequestMethodArrgs']]):
         pulumi.set(self, "http_request_method", value)
 
     @property
     @pulumi.getter(name="pathPattern")
-    def path_pattern(self) -> Optional[pulumi.Input['ListenerRuleConditionPathPatternArgs']]:
+    def path_pattern(self) -> Optional[pulumi.Input['ListenerRuleConditionPathPatternArrgs']]:
         """
         Contains a single `values` item which is a list of path patterns to match against the request URL. Maximum size of each pattern is 128 characters. Comparison is case sensitive. Wildcard characters supported: * (matches 0 or more characters) and ? (matches exactly 1 character). Only one pattern needs to match for the condition to be satisfied. Path pattern is compared only to the path of the URL, not to its query string. To compare against the query string, use a `query_string` condition.
         """
         return pulumi.get(self, "path_pattern")
 
     @path_pattern.setter
-    def path_pattern(self, value: Optional[pulumi.Input['ListenerRuleConditionPathPatternArgs']]):
+    def path_pattern(self, value: Optional[pulumi.Input['ListenerRuleConditionPathPatternArrgs']]):
         pulumi.set(self, "path_pattern", value)
 
     @property
     @pulumi.getter(name="queryStrings")
-    def query_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]]:
+    def query_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArrgs']]]]:
         """
         Query strings to match. Query String block fields documented below.
         """
         return pulumi.get(self, "query_strings")
 
     @query_strings.setter
-    def query_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArgs']]]]):
+    def query_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ListenerRuleConditionQueryStringArrgs']]]]):
         pulumi.set(self, "query_strings", value)
 
     @property
     @pulumi.getter(name="sourceIp")
-    def source_ip(self) -> Optional[pulumi.Input['ListenerRuleConditionSourceIpArgs']]:
+    def source_ip(self) -> Optional[pulumi.Input['ListenerRuleConditionSourceIpArrgs']]:
         """
         Contains a single `values` item which is a list of source IP CIDR notations to match. You can use both IPv4 and IPv6 addresses. Wildcards are not supported. Condition is satisfied if the source IP address of the request matches one of the CIDR blocks. Condition is not satisfied by the addresses in the `X-Forwarded-For` header, use `http_header` condition instead.
 
@@ -1599,12 +1599,12 @@ class ListenerRuleConditionArgs:
         return pulumi.get(self, "source_ip")
 
     @source_ip.setter
-    def source_ip(self, value: Optional[pulumi.Input['ListenerRuleConditionSourceIpArgs']]):
+    def source_ip(self, value: Optional[pulumi.Input['ListenerRuleConditionSourceIpArrgs']]):
         pulumi.set(self, "source_ip", value)
 
 
 @pulumi.input_type
-class ListenerRuleConditionHostHeaderArgs:
+calass ListenerRuleConditionHostHeaderArrgs:
     def __init__(__self__, *,
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1626,7 +1626,7 @@ class ListenerRuleConditionHostHeaderArgs:
 
 
 @pulumi.input_type
-class ListenerRuleConditionHttpHeaderArgs:
+calass ListenerRuleConditionHttpHeaderArrgs:
     def __init__(__self__, *,
                  http_header_name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -1663,7 +1663,7 @@ class ListenerRuleConditionHttpHeaderArgs:
 
 
 @pulumi.input_type
-class ListenerRuleConditionHttpRequestMethodArgs:
+calass ListenerRuleConditionHttpRequestMethodArrgs:
     def __init__(__self__, *,
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1685,7 +1685,7 @@ class ListenerRuleConditionHttpRequestMethodArgs:
 
 
 @pulumi.input_type
-class ListenerRuleConditionPathPatternArgs:
+calass ListenerRuleConditionPathPatternArrgs:
     def __init__(__self__, *,
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1707,7 +1707,7 @@ class ListenerRuleConditionPathPatternArgs:
 
 
 @pulumi.input_type
-class ListenerRuleConditionQueryStringArgs:
+calass ListenerRuleConditionQueryStringArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
                  key: Optional[pulumi.Input[str]] = None):
@@ -1745,7 +1745,7 @@ class ListenerRuleConditionQueryStringArgs:
 
 
 @pulumi.input_type
-class ListenerRuleConditionSourceIpArgs:
+calass ListenerRuleConditionSourceIpArrgs:
     def __init__(__self__, *,
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -1767,7 +1767,7 @@ class ListenerRuleConditionSourceIpArgs:
 
 
 @pulumi.input_type
-class LoadBalancerAccessLogsArgs:
+calass LoadBalancerAccessLogsArrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -1821,7 +1821,7 @@ class LoadBalancerAccessLogsArgs:
 
 
 @pulumi.input_type
-class LoadBalancerSubnetMappingArgs:
+calass LoadBalancerSubnetMappingArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  allocation_id: Optional[pulumi.Input[str]] = None,
@@ -1903,7 +1903,7 @@ class LoadBalancerSubnetMappingArgs:
 
 
 @pulumi.input_type
-class TargetGroupHealthCheckArgs:
+calass TargetGroupHealthCheckArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  healthy_threshold: Optional[pulumi.Input[int]] = None,
@@ -2054,7 +2054,7 @@ class TargetGroupHealthCheckArgs:
 
 
 @pulumi.input_type
-class TargetGroupStickinessArgs:
+calass TargetGroupStickinessArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  cookie_duration: Optional[pulumi.Input[int]] = None,
@@ -2124,7 +2124,7 @@ class TargetGroupStickinessArgs:
 
 
 @pulumi.input_type
-class TargetGroupTargetFailoverArgs:
+calass TargetGroupTargetFailoverArrgs:
     def __init__(__self__, *,
                  on_deregistration: pulumi.Input[str],
                  on_unhealthy: pulumi.Input[str]):
@@ -2161,7 +2161,7 @@ class TargetGroupTargetFailoverArgs:
 
 
 @pulumi.input_type
-class TargetGroupTargetHealthStateArgs:
+calass TargetGroupTargetHealthStateArrgs:
     def __init__(__self__, *,
                  enable_unhealthy_connection_termination: pulumi.Input[bool]):
         """

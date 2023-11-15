@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NotebookInstanceLifecycleConfigurationArgs', 'NotebookInstanceLifecycleConfiguration']
+__all__ = ['NotebookInstanceLifecycleConfigurationArrgs', 'NotebookInstanceLifecycleConfiguration']
 
 @pulumi.input_type
-class NotebookInstanceLifecycleConfigurationArgs:
+calass NotebookInstanceLifecycleConfigurationArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  on_create: Optional[pulumi.Input[str]] = None,
@@ -68,7 +68,7 @@ class NotebookInstanceLifecycleConfigurationArgs:
 
 
 @pulumi.input_type
-class _NotebookInstanceLifecycleConfigurationState:
+calass _NotebookInstanceLifecycleConfigurationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -139,7 +139,7 @@ class _NotebookInstanceLifecycleConfigurationState:
         pulumi.set(self, "on_start", value)
 
 
-class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
+calass NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -169,7 +169,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[NotebookInstanceLifecycleConfigurationArgs] = None,
+                 args: Optional[NotebookInstanceLifecycleConfigurationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a lifecycle configuration for SageMaker Notebook Instances.
@@ -183,12 +183,12 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NotebookInstanceLifecycleConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param NotebookInstanceLifecycleConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NotebookInstanceLifecycleConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NotebookInstanceLifecycleConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -207,7 +207,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NotebookInstanceLifecycleConfigurationArgs.__new__(NotebookInstanceLifecycleConfigurationArgs)
+            __props__ = NotebookInstanceLifecycleConfigurationArrgs.__new__(NotebookInstanceLifecycleConfigurationArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["on_create"] = on_create

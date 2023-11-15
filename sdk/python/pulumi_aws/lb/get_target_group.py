@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTargetGroupResult:
+calass GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
@@ -188,7 +188,7 @@ class GetTargetGroupResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetTargetGroupResult(GetTargetGroupResult):
+calass AwaitableGetTargetGroupResult(GetTargetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

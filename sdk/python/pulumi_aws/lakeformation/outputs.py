@@ -36,7 +36,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DataLakeSettingsCreateDatabaseDefaultPermission(dict):
+calass DataLakeSettingsCreateDatabaseDefaultPermission(dict):
     def __init__(__self__, *,
                  permissions: Optional[Sequence[str]] = None,
                  principal: Optional[str] = None):
@@ -67,7 +67,7 @@ class DataLakeSettingsCreateDatabaseDefaultPermission(dict):
 
 
 @pulumi.output_type
-class DataLakeSettingsCreateTableDefaultPermission(dict):
+calass DataLakeSettingsCreateTableDefaultPermission(dict):
     def __init__(__self__, *,
                  permissions: Optional[Sequence[str]] = None,
                  principal: Optional[str] = None):
@@ -98,7 +98,7 @@ class DataLakeSettingsCreateTableDefaultPermission(dict):
 
 
 @pulumi.output_type
-class PermissionsDataLocation(dict):
+calass PermissionsDataLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -149,7 +149,7 @@ class PermissionsDataLocation(dict):
 
 
 @pulumi.output_type
-class PermissionsDatabase(dict):
+calass PermissionsDatabase(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -200,7 +200,7 @@ class PermissionsDatabase(dict):
 
 
 @pulumi.output_type
-class PermissionsLfTag(dict):
+calass PermissionsLfTag(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -262,7 +262,7 @@ class PermissionsLfTag(dict):
 
 
 @pulumi.output_type
-class PermissionsLfTagPolicy(dict):
+calass PermissionsLfTagPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -287,7 +287,7 @@ class PermissionsLfTagPolicy(dict):
                  resource_type: str,
                  catalog_id: Optional[str] = None):
         """
-        :param Sequence['PermissionsLfTagPolicyExpressionArgs'] expressions: A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        :param Sequence['PermissionsLfTagPolicyExpressionArrgs'] expressions: A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
                
                The following argument is optional:
         :param str resource_type: The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
@@ -326,7 +326,7 @@ class PermissionsLfTagPolicy(dict):
 
 
 @pulumi.output_type
-class PermissionsLfTagPolicyExpression(dict):
+calass PermissionsLfTagPolicyExpression(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -355,7 +355,7 @@ class PermissionsLfTagPolicyExpression(dict):
 
 
 @pulumi.output_type
-class PermissionsTable(dict):
+calass PermissionsTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -432,7 +432,7 @@ class PermissionsTable(dict):
 
 
 @pulumi.output_type
-class PermissionsTableWithColumns(dict):
+calass PermissionsTableWithColumns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -536,7 +536,7 @@ class PermissionsTableWithColumns(dict):
 
 
 @pulumi.output_type
-class ResourceLfTagsDatabase(dict):
+calass ResourceLfTagsDatabase(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -587,7 +587,7 @@ class ResourceLfTagsDatabase(dict):
 
 
 @pulumi.output_type
-class ResourceLfTagsLfTag(dict):
+calass ResourceLfTagsLfTag(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -649,7 +649,7 @@ class ResourceLfTagsLfTag(dict):
 
 
 @pulumi.output_type
-class ResourceLfTagsTable(dict):
+calass ResourceLfTagsTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -726,7 +726,7 @@ class ResourceLfTagsTable(dict):
 
 
 @pulumi.output_type
-class ResourceLfTagsTableWithColumns(dict):
+calass ResourceLfTagsTableWithColumns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -830,7 +830,7 @@ class ResourceLfTagsTableWithColumns(dict):
 
 
 @pulumi.output_type
-class GetDataLakeSettingsCreateDatabaseDefaultPermissionResult(dict):
+calass GetDataLakeSettingsCreateDatabaseDefaultPermissionResult(dict):
     def __init__(__self__, *,
                  permissions: Sequence[str],
                  principal: str):
@@ -859,7 +859,7 @@ class GetDataLakeSettingsCreateDatabaseDefaultPermissionResult(dict):
 
 
 @pulumi.output_type
-class GetDataLakeSettingsCreateTableDefaultPermissionResult(dict):
+calass GetDataLakeSettingsCreateTableDefaultPermissionResult(dict):
     def __init__(__self__, *,
                  permissions: Sequence[str],
                  principal: str):
@@ -888,7 +888,7 @@ class GetDataLakeSettingsCreateTableDefaultPermissionResult(dict):
 
 
 @pulumi.output_type
-class GetPermissionsDataLocationResult(dict):
+calass GetPermissionsDataLocationResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  catalog_id: str):
@@ -921,7 +921,7 @@ class GetPermissionsDataLocationResult(dict):
 
 
 @pulumi.output_type
-class GetPermissionsDatabaseResult(dict):
+calass GetPermissionsDatabaseResult(dict):
     def __init__(__self__, *,
                  catalog_id: str,
                  name: str):
@@ -954,7 +954,7 @@ class GetPermissionsDatabaseResult(dict):
 
 
 @pulumi.output_type
-class GetPermissionsLfTagResult(dict):
+calass GetPermissionsLfTagResult(dict):
     def __init__(__self__, *,
                  catalog_id: str,
                  key: str,
@@ -998,14 +998,14 @@ class GetPermissionsLfTagResult(dict):
 
 
 @pulumi.output_type
-class GetPermissionsLfTagPolicyResult(dict):
+calass GetPermissionsLfTagPolicyResult(dict):
     def __init__(__self__, *,
                  catalog_id: str,
                  expressions: Sequence['outputs.GetPermissionsLfTagPolicyExpressionResult'],
                  resource_type: str):
         """
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param Sequence['GetPermissionsLfTagPolicyExpressionArgs'] expressions: List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        :param Sequence['GetPermissionsLfTagPolicyExpressionArrgs'] expressions: List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
                
                The following argument is optional:
         :param str resource_type: Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
@@ -1042,7 +1042,7 @@ class GetPermissionsLfTagPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetPermissionsLfTagPolicyExpressionResult(dict):
+calass GetPermissionsLfTagPolicyExpressionResult(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1071,7 +1071,7 @@ class GetPermissionsLfTagPolicyExpressionResult(dict):
 
 
 @pulumi.output_type
-class GetPermissionsTableResult(dict):
+calass GetPermissionsTableResult(dict):
     def __init__(__self__, *,
                  catalog_id: str,
                  database_name: str,
@@ -1127,7 +1127,7 @@ class GetPermissionsTableResult(dict):
 
 
 @pulumi.output_type
-class GetPermissionsTableWithColumnsResult(dict):
+calass GetPermissionsTableWithColumnsResult(dict):
     def __init__(__self__, *,
                  catalog_id: str,
                  database_name: str,

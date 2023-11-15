@@ -9,7 +9,7 @@ __all__ = [
 ]
 
 
-class CannedAcl(str, Enum):
+calass CannedAcl(str, Enum):
     """
     See https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl
     """

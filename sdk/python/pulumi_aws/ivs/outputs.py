@@ -17,11 +17,11 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RecordingConfigurationDestinationConfiguration(dict):
+calass RecordingConfigurationDestinationConfiguration(dict):
     def __init__(__self__, *,
                  s3: 'outputs.RecordingConfigurationDestinationConfigurationS3'):
         """
-        :param 'RecordingConfigurationDestinationConfigurationS3Args' s3: S3 destination configuration where recorded videos will be stored.
+        :param 'RecordingConfigurationDestinationConfigurationS3Arrgs' s3: S3 destination configuration where recorded videos will be stored.
         """
         pulumi.set(__self__, "s3", s3)
 
@@ -35,7 +35,7 @@ class RecordingConfigurationDestinationConfiguration(dict):
 
 
 @pulumi.output_type
-class RecordingConfigurationDestinationConfigurationS3(dict):
+calass RecordingConfigurationDestinationConfigurationS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -74,7 +74,7 @@ class RecordingConfigurationDestinationConfigurationS3(dict):
 
 
 @pulumi.output_type
-class RecordingConfigurationThumbnailConfiguration(dict):
+calass RecordingConfigurationThumbnailConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

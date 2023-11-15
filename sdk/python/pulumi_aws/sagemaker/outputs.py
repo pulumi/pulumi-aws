@@ -153,7 +153,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AppImageConfigKernelGatewayImageConfig(dict):
+calass AppImageConfigKernelGatewayImageConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -177,8 +177,8 @@ class AppImageConfigKernelGatewayImageConfig(dict):
                  kernel_spec: 'outputs.AppImageConfigKernelGatewayImageConfigKernelSpec',
                  file_system_config: Optional['outputs.AppImageConfigKernelGatewayImageConfigFileSystemConfig'] = None):
         """
-        :param 'AppImageConfigKernelGatewayImageConfigKernelSpecArgs' kernel_spec: The default branch for the Git repository. See Kernel Spec details below.
-        :param 'AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs' file_system_config: The URL where the Git repository is located. See File System Config details below.
+        :param 'AppImageConfigKernelGatewayImageConfigKernelSpecArrgs' kernel_spec: The default branch for the Git repository. See Kernel Spec details below.
+        :param 'AppImageConfigKernelGatewayImageConfigFileSystemConfigArrgs' file_system_config: The URL where the Git repository is located. See File System Config details below.
         """
         pulumi.set(__self__, "kernel_spec", kernel_spec)
         if file_system_config is not None:
@@ -202,7 +202,7 @@ class AppImageConfigKernelGatewayImageConfig(dict):
 
 
 @pulumi.output_type
-class AppImageConfigKernelGatewayImageConfigFileSystemConfig(dict):
+calass AppImageConfigKernelGatewayImageConfigFileSystemConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -270,7 +270,7 @@ class AppImageConfigKernelGatewayImageConfigFileSystemConfig(dict):
 
 
 @pulumi.output_type
-class AppImageConfigKernelGatewayImageConfigKernelSpec(dict):
+calass AppImageConfigKernelGatewayImageConfigKernelSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -317,7 +317,7 @@ class AppImageConfigKernelGatewayImageConfigKernelSpec(dict):
 
 
 @pulumi.output_type
-class AppResourceSpec(dict):
+calass AppResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -395,7 +395,7 @@ class AppResourceSpec(dict):
 
 
 @pulumi.output_type
-class CodeRepositoryGitConfig(dict):
+calass CodeRepositoryGitConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -456,7 +456,7 @@ class CodeRepositoryGitConfig(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityAppSpecification(dict):
+calass DataQualityJobDefinitionDataQualityAppSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -531,7 +531,7 @@ class DataQualityJobDefinitionDataQualityAppSpecification(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
+calass DataQualityJobDefinitionDataQualityBaselineConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -555,8 +555,8 @@ class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
                  constraints_resource: Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource'] = None,
                  statistics_resource: Optional['outputs.DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource'] = None):
         """
-        :param 'DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArgs' constraints_resource: The constraints resource for a monitoring job. Fields are documented below.
-        :param 'DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArgs' statistics_resource: The statistics resource for a monitoring job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResourceArrgs' constraints_resource: The constraints resource for a monitoring job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResourceArrgs' statistics_resource: The statistics resource for a monitoring job. Fields are documented below.
         """
         if constraints_resource is not None:
             pulumi.set(__self__, "constraints_resource", constraints_resource)
@@ -581,7 +581,7 @@ class DataQualityJobDefinitionDataQualityBaselineConfig(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource(dict):
+calass DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -617,7 +617,7 @@ class DataQualityJobDefinitionDataQualityBaselineConfigConstraintsResource(dict)
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource(dict):
+calass DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -653,7 +653,7 @@ class DataQualityJobDefinitionDataQualityBaselineConfigStatisticsResource(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobInput(dict):
+calass DataQualityJobDefinitionDataQualityJobInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -677,8 +677,8 @@ class DataQualityJobDefinitionDataQualityJobInput(dict):
                  batch_transform_input: Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInput'] = None,
                  endpoint_input: Optional['outputs.DataQualityJobDefinitionDataQualityJobInputEndpointInput'] = None):
         """
-        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArgs' batch_transform_input: Input object for the batch transform job. Fields are documented below.
-        :param 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArgs' endpoint_input: Input object for the endpoint. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputArrgs' batch_transform_input: Input object for the batch transform job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobInputEndpointInputArrgs' endpoint_input: Input object for the endpoint. Fields are documented below.
         """
         if batch_transform_input is not None:
             pulumi.set(__self__, "batch_transform_input", batch_transform_input)
@@ -703,7 +703,7 @@ class DataQualityJobDefinitionDataQualityJobInput(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobInputBatchTransformInput(dict):
+calass DataQualityJobDefinitionDataQualityJobInputBatchTransformInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -737,7 +737,7 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInput(dict):
                  s3_input_mode: Optional[str] = None):
         """
         :param str data_captured_destination_s3_uri: The Amazon S3 location being used to capture the data.
-        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArgs' dataset_format: The dataset format for your batch transform job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatArrgs' dataset_format: The dataset format for your batch transform job. Fields are documented below.
         :param str local_path: Path to the filesystem where the batch transform data is available to the container. Defaults to `/opt/ml/processing/input`.
         :param str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Defaults to `FullyReplicated`. Valid values are `FullyReplicated` or `ShardedByS3Key`
         :param str s3_input_mode: Whether the `Pipe` or `File` is used as the input mode for transferring data for the monitoring job. `Pipe` mode is recommended for large datasets. `File` mode is useful for small files that fit in memory. Defaults to `File`.  Valid values are `Pipe` or `File`
@@ -793,13 +793,13 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInput(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat(dict):
+calass DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormat(dict):
     def __init__(__self__, *,
                  csv: Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv'] = None,
                  json: Optional['outputs.DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson'] = None):
         """
-        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArgs' csv: The CSV dataset used in the monitoring job. Fields are documented below.
-        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArgs' json: The JSON dataset used in the monitoring job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsvArrgs' csv: The CSV dataset used in the monitoring job. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJsonArrgs' json: The JSON dataset used in the monitoring job. Fields are documented below.
         """
         if csv is not None:
             pulumi.set(__self__, "csv", csv)
@@ -824,7 +824,7 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv(dict):
+calass DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatCsv(dict):
     def __init__(__self__, *,
                  header: Optional[bool] = None):
         """
@@ -843,7 +843,7 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson(dict):
+calass DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetFormatJson(dict):
     def __init__(__self__, *,
                  line: Optional[bool] = None):
         """
@@ -862,7 +862,7 @@ class DataQualityJobDefinitionDataQualityJobInputBatchTransformInputDatasetForma
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobInputEndpointInput(dict):
+calass DataQualityJobDefinitionDataQualityJobInputEndpointInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -939,7 +939,7 @@ class DataQualityJobDefinitionDataQualityJobInputEndpointInput(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobOutputConfig(dict):
+calass DataQualityJobDefinitionDataQualityJobOutputConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -963,7 +963,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfig(dict):
                  monitoring_outputs: 'outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs',
                  kms_key_id: Optional[str] = None):
         """
-        :param 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArgs' monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsArrgs' monitoring_outputs: Monitoring outputs for monitoring jobs. This is where the output of the periodic monitoring jobs is uploaded. Fields are documented below.
         :param str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         """
         pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
@@ -988,7 +988,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfig(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs(dict):
+calass DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1009,7 +1009,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs(dict):
     def __init__(__self__, *,
                  s3_output: 'outputs.DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output'):
         """
-        :param 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArgs' s3_output: The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+        :param 'DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3OutputArrgs' s3_output: The Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
         """
         pulumi.set(__self__, "s3_output", s3_output)
 
@@ -1023,7 +1023,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputs(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output(dict):
+calass DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Output(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1086,7 +1086,7 @@ class DataQualityJobDefinitionDataQualityJobOutputConfigMonitoringOutputsS3Outpu
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionJobResources(dict):
+calass DataQualityJobDefinitionJobResources(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1107,7 +1107,7 @@ class DataQualityJobDefinitionJobResources(dict):
     def __init__(__self__, *,
                  cluster_config: 'outputs.DataQualityJobDefinitionJobResourcesClusterConfig'):
         """
-        :param 'DataQualityJobDefinitionJobResourcesClusterConfigArgs' cluster_config: The configuration for the cluster resources used to run the processing job. Fields are documented below.
+        :param 'DataQualityJobDefinitionJobResourcesClusterConfigArrgs' cluster_config: The configuration for the cluster resources used to run the processing job. Fields are documented below.
         """
         pulumi.set(__self__, "cluster_config", cluster_config)
 
@@ -1121,7 +1121,7 @@ class DataQualityJobDefinitionJobResources(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionJobResourcesClusterConfig(dict):
+calass DataQualityJobDefinitionJobResourcesClusterConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1196,7 +1196,7 @@ class DataQualityJobDefinitionJobResourcesClusterConfig(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionNetworkConfig(dict):
+calass DataQualityJobDefinitionNetworkConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1225,7 +1225,7 @@ class DataQualityJobDefinitionNetworkConfig(dict):
         """
         :param bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between the instances used for the monitoring jobs. Choose `true` to encrypt communications. Encryption provides greater security for distributed jobs, but the processing might take longer.
         :param bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the monitoring job.
-        :param 'DataQualityJobDefinitionNetworkConfigVpcConfigArgs' vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
+        :param 'DataQualityJobDefinitionNetworkConfigVpcConfigArrgs' vpc_config: Specifies a VPC that your training jobs and hosted models have access to. Control access to and from your training and model containers by configuring the VPC. Fields are documented below.
         """
         if enable_inter_container_traffic_encryption is not None:
             pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
@@ -1260,7 +1260,7 @@ class DataQualityJobDefinitionNetworkConfig(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionNetworkConfigVpcConfig(dict):
+calass DataQualityJobDefinitionNetworkConfigVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1306,7 +1306,7 @@ class DataQualityJobDefinitionNetworkConfigVpcConfig(dict):
 
 
 @pulumi.output_type
-class DataQualityJobDefinitionStoppingCondition(dict):
+calass DataQualityJobDefinitionStoppingCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1342,7 +1342,7 @@ class DataQualityJobDefinitionStoppingCondition(dict):
 
 
 @pulumi.output_type
-class DeviceDevice(dict):
+calass DeviceDevice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1403,7 +1403,7 @@ class DeviceDevice(dict):
 
 
 @pulumi.output_type
-class DeviceFleetOutputConfig(dict):
+calass DeviceFleetOutputConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1452,7 +1452,7 @@ class DeviceFleetOutputConfig(dict):
 
 
 @pulumi.output_type
-class DomainDefaultSpaceSettings(dict):
+calass DomainDefaultSpaceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1483,8 +1483,8 @@ class DomainDefaultSpaceSettings(dict):
                  security_groups: Optional[Sequence[str]] = None):
         """
         :param str execution_role: The execution role for the space.
-        :param 'DomainDefaultSpaceSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
-        :param 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
+        :param 'DomainDefaultSpaceSettingsJupyterServerAppSettingsArrgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
+        :param 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsArrgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         :param Sequence[str] security_groups: The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
         """
         pulumi.set(__self__, "execution_role", execution_role)
@@ -1529,7 +1529,7 @@ class DomainDefaultSpaceSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultSpaceSettingsJupyterServerAppSettings(dict):
+calass DomainDefaultSpaceSettingsJupyterServerAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1556,8 +1556,8 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettings(dict):
                  default_resource_spec: Optional['outputs.DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param Sequence['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param 'DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param 'DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -1593,7 +1593,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository(dict):
+calass DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1628,7 +1628,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository(dict):
 
 
 @pulumi.output_type
-class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
+calass DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1706,7 +1706,7 @@ class DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec(dict
 
 
 @pulumi.output_type
-class DomainDefaultSpaceSettingsKernelGatewayAppSettings(dict):
+calass DomainDefaultSpaceSettingsKernelGatewayAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1733,8 +1733,8 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettings(dict):
                  default_resource_spec: Optional['outputs.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param Sequence['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImageArrgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param 'DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
@@ -1770,7 +1770,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage(dict):
+calass DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1832,7 +1832,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage(dict):
 
 
 @pulumi.output_type
-class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
+calass DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1910,7 +1910,7 @@ class DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict
 
 
 @pulumi.output_type
-class DomainDefaultUserSettings(dict):
+calass DomainDefaultUserSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1956,14 +1956,14 @@ class DomainDefaultUserSettings(dict):
                  tensor_board_app_settings: Optional['outputs.DomainDefaultUserSettingsTensorBoardAppSettings'] = None):
         """
         :param str execution_role: The execution role ARN for the user.
-        :param 'DomainDefaultUserSettingsCanvasAppSettingsArgs' canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
-        :param 'DomainDefaultUserSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
-        :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
-        :param 'DomainDefaultUserSettingsRSessionAppSettingsArgs' r_session_app_settings: The RSession app settings. See RSession App Settings below.
-        :param 'DomainDefaultUserSettingsRStudioServerProAppSettingsArgs' r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
+        :param 'DomainDefaultUserSettingsCanvasAppSettingsArrgs' canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
+        :param 'DomainDefaultUserSettingsJupyterServerAppSettingsArrgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
+        :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsArrgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
+        :param 'DomainDefaultUserSettingsRSessionAppSettingsArrgs' r_session_app_settings: The RSession app settings. See RSession App Settings below.
+        :param 'DomainDefaultUserSettingsRStudioServerProAppSettingsArrgs' r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudioServerProAppSettings below.
         :param Sequence[str] security_groups: A list of security group IDs that will be attached to the user.
-        :param 'DomainDefaultUserSettingsSharingSettingsArgs' sharing_settings: The sharing settings. See Sharing Settings below.
-        :param 'DomainDefaultUserSettingsTensorBoardAppSettingsArgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
+        :param 'DomainDefaultUserSettingsSharingSettingsArrgs' sharing_settings: The sharing settings. See Sharing Settings below.
+        :param 'DomainDefaultUserSettingsTensorBoardAppSettingsArrgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         if canvas_app_settings is not None:
@@ -2057,7 +2057,7 @@ class DomainDefaultUserSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsCanvasAppSettings(dict):
+calass DomainDefaultUserSettingsCanvasAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2084,9 +2084,9 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
                  time_series_forecasting_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings'] = None,
                  workspace_settings: Optional['outputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings'] = None):
         """
-        :param 'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs' model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
-        :param 'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs' time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
-        :param 'DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs' workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        :param 'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArrgs' model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        :param 'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArrgs' time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
+        :param 'DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArrgs' workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
         if model_register_settings is not None:
             pulumi.set(__self__, "model_register_settings", model_register_settings)
@@ -2121,7 +2121,7 @@ class DomainDefaultUserSettingsCanvasAppSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings(dict):
+calass DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2169,7 +2169,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings(dict):
+calass DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2217,7 +2217,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings(di
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings(dict):
+calass DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2267,7 +2267,7 @@ class DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsJupyterServerAppSettings(dict):
+calass DomainDefaultUserSettingsJupyterServerAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2294,8 +2294,8 @@ class DomainDefaultUserSettingsJupyterServerAppSettings(dict):
                  default_resource_spec: Optional['outputs.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param Sequence['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param 'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepositoryArrgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param 'DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -2331,7 +2331,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository(dict):
+calass DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2366,7 +2366,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
+calass DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2444,7 +2444,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict)
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsKernelGatewayAppSettings(dict):
+calass DomainDefaultUserSettingsKernelGatewayAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2471,8 +2471,8 @@ class DomainDefaultUserSettingsKernelGatewayAppSettings(dict):
                  default_resource_spec: Optional['outputs.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param Sequence['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param 'DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
@@ -2508,7 +2508,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage(dict):
+calass DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2570,7 +2570,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
+calass DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2648,7 +2648,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict)
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsRSessionAppSettings(dict):
+calass DomainDefaultUserSettingsRSessionAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2672,8 +2672,8 @@ class DomainDefaultUserSettingsRSessionAppSettings(dict):
                  custom_images: Optional[Sequence['outputs.DomainDefaultUserSettingsRSessionAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec'] = None):
         """
-        :param Sequence['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param 'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['DomainDefaultUserSettingsRSessionAppSettingsCustomImageArrgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param 'DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
@@ -2698,7 +2698,7 @@ class DomainDefaultUserSettingsRSessionAppSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsRSessionAppSettingsCustomImage(dict):
+calass DomainDefaultUserSettingsRSessionAppSettingsCustomImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2760,7 +2760,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsCustomImage(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec(dict):
+calass DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2838,7 +2838,7 @@ class DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsRStudioServerProAppSettings(dict):
+calass DomainDefaultUserSettingsRStudioServerProAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2888,7 +2888,7 @@ class DomainDefaultUserSettingsRStudioServerProAppSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsSharingSettings(dict):
+calass DomainDefaultUserSettingsSharingSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2952,7 +2952,7 @@ class DomainDefaultUserSettingsSharingSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsTensorBoardAppSettings(dict):
+calass DomainDefaultUserSettingsTensorBoardAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2973,7 +2973,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettings(dict):
     def __init__(__self__, *,
                  default_resource_spec: Optional['outputs.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec'] = None):
         """
-        :param 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param 'DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -2988,7 +2988,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettings(dict):
 
 
 @pulumi.output_type
-class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
+calass DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3066,7 +3066,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class DomainDomainSettings(dict):
+calass DomainDomainSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3094,7 +3094,7 @@ class DomainDomainSettings(dict):
                  security_group_ids: Optional[Sequence[str]] = None):
         """
         :param str execution_role_identity_config: The configuration for attaching a SageMaker user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
-        :param 'DomainDomainSettingsRStudioServerProDomainSettingsArgs' r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
+        :param 'DomainDomainSettingsRStudioServerProDomainSettingsArrgs' r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see RStudioServerProDomainSettings below.
         :param Sequence[str] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
         if execution_role_identity_config is not None:
@@ -3130,7 +3130,7 @@ class DomainDomainSettings(dict):
 
 
 @pulumi.output_type
-class DomainDomainSettingsRStudioServerProDomainSettings(dict):
+calass DomainDomainSettingsRStudioServerProDomainSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3161,7 +3161,7 @@ class DomainDomainSettingsRStudioServerProDomainSettings(dict):
                  r_studio_package_manager_url: Optional[str] = None):
         """
         :param str domain_execution_role_arn: The ARN of the execution role for the RStudioServerPro Domain-level app.
-        :param 'DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param 'DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param str r_studio_connect_url: A URL pointing to an RStudio Connect server.
         :param str r_studio_package_manager_url: A URL pointing to an RStudio Package Manager server.
         """
@@ -3207,7 +3207,7 @@ class DomainDomainSettingsRStudioServerProDomainSettings(dict):
 
 
 @pulumi.output_type
-class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec(dict):
+calass DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3285,7 +3285,7 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec(dict
 
 
 @pulumi.output_type
-class DomainRetentionPolicy(dict):
+calass DomainRetentionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3321,7 +3321,7 @@ class DomainRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationAsyncInferenceConfig(dict):
+calass EndpointConfigurationAsyncInferenceConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3345,8 +3345,8 @@ class EndpointConfigurationAsyncInferenceConfig(dict):
                  output_config: 'outputs.EndpointConfigurationAsyncInferenceConfigOutputConfig',
                  client_config: Optional['outputs.EndpointConfigurationAsyncInferenceConfigClientConfig'] = None):
         """
-        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigArgs' output_config: Specifies the configuration for asynchronous inference invocation outputs.
-        :param 'EndpointConfigurationAsyncInferenceConfigClientConfigArgs' client_config: Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
+        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigArrgs' output_config: Specifies the configuration for asynchronous inference invocation outputs.
+        :param 'EndpointConfigurationAsyncInferenceConfigClientConfigArrgs' client_config: Configures the behavior of the client used by Amazon SageMaker to interact with the model container during asynchronous inference.
         """
         pulumi.set(__self__, "output_config", output_config)
         if client_config is not None:
@@ -3370,7 +3370,7 @@ class EndpointConfigurationAsyncInferenceConfig(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationAsyncInferenceConfigClientConfig(dict):
+calass EndpointConfigurationAsyncInferenceConfigClientConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3406,7 +3406,7 @@ class EndpointConfigurationAsyncInferenceConfigClientConfig(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
+calass EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3438,7 +3438,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
         """
         :param str s3_output_path: The Amazon S3 location to upload inference responses to.
         :param str kms_key_id: The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
-        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArgs' notification_config: Specifies the configuration for notifications of inference results for asynchronous inference.
+        :param 'EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfigArrgs' notification_config: Specifies the configuration for notifications of inference results for asynchronous inference.
         :param str s3_failure_path: The Amazon S3 location to upload failure inference responses to.
         """
         pulumi.set(__self__, "s3_output_path", s3_output_path)
@@ -3483,7 +3483,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfig(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(dict):
+calass EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3547,7 +3547,7 @@ class EndpointConfigurationAsyncInferenceConfigOutputConfigNotificationConfig(di
 
 
 @pulumi.output_type
-class EndpointConfigurationDataCaptureConfig(dict):
+calass EndpointConfigurationDataCaptureConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3583,10 +3583,10 @@ class EndpointConfigurationDataCaptureConfig(dict):
                  enable_capture: Optional[bool] = None,
                  kms_key_id: Optional[str] = None):
         """
-        :param Sequence['EndpointConfigurationDataCaptureConfigCaptureOptionArgs'] capture_options: Specifies what data to capture. Fields are documented below.
+        :param Sequence['EndpointConfigurationDataCaptureConfigCaptureOptionArrgs'] capture_options: Specifies what data to capture. Fields are documented below.
         :param str destination_s3_uri: The URL for S3 location where the captured data is stored.
         :param int initial_sampling_percentage: Portion of data to capture. Should be between 0 and 100.
-        :param 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs' capture_content_type_header: The content type headers to capture. Fields are documented below.
+        :param 'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArrgs' capture_content_type_header: The content type headers to capture. Fields are documented below.
         :param bool enable_capture: Flag to enable data capture. Defaults to `false`.
         :param str kms_key_id: Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt the captured data on Amazon S3.
         """
@@ -3650,7 +3650,7 @@ class EndpointConfigurationDataCaptureConfig(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
+calass EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3700,7 +3700,7 @@ class EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationDataCaptureConfigCaptureOption(dict):
+calass EndpointConfigurationDataCaptureConfigCaptureOption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3735,7 +3735,7 @@ class EndpointConfigurationDataCaptureConfigCaptureOption(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationProductionVariant(dict):
+calass EndpointConfigurationProductionVariant(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3792,13 +3792,13 @@ class EndpointConfigurationProductionVariant(dict):
         :param str model_name: The name of the model to use.
         :param str accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
         :param int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-        :param 'EndpointConfigurationProductionVariantCoreDumpConfigArgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        :param 'EndpointConfigurationProductionVariantCoreDumpConfigArrgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         :param bool enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         :param int initial_instance_count: Initial number of instances used for auto-scaling.
         :param float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param str instance_type: The type of instance to start.
         :param int model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-        :param 'EndpointConfigurationProductionVariantServerlessConfigArgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
+        :param 'EndpointConfigurationProductionVariantServerlessConfigArrgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param str variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         :param int volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         """
@@ -3924,7 +3924,7 @@ class EndpointConfigurationProductionVariant(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationProductionVariantCoreDumpConfig(dict):
+calass EndpointConfigurationProductionVariantCoreDumpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3973,7 +3973,7 @@ class EndpointConfigurationProductionVariantCoreDumpConfig(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationProductionVariantServerlessConfig(dict):
+calass EndpointConfigurationProductionVariantServerlessConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4035,7 +4035,7 @@ class EndpointConfigurationProductionVariantServerlessConfig(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationShadowProductionVariant(dict):
+calass EndpointConfigurationShadowProductionVariant(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4092,13 +4092,13 @@ class EndpointConfigurationShadowProductionVariant(dict):
         :param str model_name: The name of the model to use.
         :param str accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
         :param int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting. For more information about health check, see [How Your Container Should Respond to Health Check (Ping) Requests](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-inference-code.html#your-algorithms-inference-algo-ping-requests). Valid values between `60` and `3600`.
-        :param 'EndpointConfigurationShadowProductionVariantCoreDumpConfigArgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
+        :param 'EndpointConfigurationShadowProductionVariantCoreDumpConfigArrgs' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes. Fields are documented below.
         :param bool enable_ssm_access: You can use this parameter to turn on native Amazon Web Services Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoints.
         :param int initial_instance_count: Initial number of instances used for auto-scaling.
         :param float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         :param str instance_type: The type of instance to start.
         :param int model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant. Valid values between `60` and `3600`.
-        :param 'EndpointConfigurationShadowProductionVariantServerlessConfigArgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
+        :param 'EndpointConfigurationShadowProductionVariantServerlessConfigArrgs' serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param str variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         :param int volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Valid values between `1` and `512`.
         """
@@ -4224,7 +4224,7 @@ class EndpointConfigurationShadowProductionVariant(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationShadowProductionVariantCoreDumpConfig(dict):
+calass EndpointConfigurationShadowProductionVariantCoreDumpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4272,7 +4272,7 @@ class EndpointConfigurationShadowProductionVariantCoreDumpConfig(dict):
 
 
 @pulumi.output_type
-class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
+calass EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4334,7 +4334,7 @@ class EndpointConfigurationShadowProductionVariantServerlessConfig(dict):
 
 
 @pulumi.output_type
-class EndpointDeploymentConfig(dict):
+calass EndpointDeploymentConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4361,9 +4361,9 @@ class EndpointDeploymentConfig(dict):
                  blue_green_update_policy: Optional['outputs.EndpointDeploymentConfigBlueGreenUpdatePolicy'] = None,
                  rolling_update_policy: Optional['outputs.EndpointDeploymentConfigRollingUpdatePolicy'] = None):
         """
-        :param 'EndpointDeploymentConfigAutoRollbackConfigurationArgs' auto_rollback_configuration: Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
-        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyArgs' blue_green_update_policy: Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
-        :param 'EndpointDeploymentConfigRollingUpdatePolicyArgs' rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
+        :param 'EndpointDeploymentConfigAutoRollbackConfigurationArrgs' auto_rollback_configuration: Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyArrgs' blue_green_update_policy: Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. SageMaker flips traffic to the new fleet according to the specified traffic routing configuration. Only one update policy should be used in the deployment configuration. If no update policy is specified, SageMaker uses a blue/green deployment strategy with all at once traffic shifting by default. See Blue Green Update Config.
+        :param 'EndpointDeploymentConfigRollingUpdatePolicyArrgs' rolling_update_policy: Specifies a rolling deployment strategy for updating a SageMaker endpoint. See Rolling Update Policy.
         """
         if auto_rollback_configuration is not None:
             pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
@@ -4398,11 +4398,11 @@ class EndpointDeploymentConfig(dict):
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigAutoRollbackConfiguration(dict):
+calass EndpointDeploymentConfigAutoRollbackConfiguration(dict):
     def __init__(__self__, *,
                  alarms: Optional[Sequence['outputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarm']] = None):
         """
-        :param Sequence['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs'] alarms: List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+        :param Sequence['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrgs'] alarms: List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
         """
         if alarms is not None:
             pulumi.set(__self__, "alarms", alarms)
@@ -4417,7 +4417,7 @@ class EndpointDeploymentConfigAutoRollbackConfiguration(dict):
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigAutoRollbackConfigurationAlarm(dict):
+calass EndpointDeploymentConfigAutoRollbackConfigurationAlarm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4452,7 +4452,7 @@ class EndpointDeploymentConfigAutoRollbackConfigurationAlarm(dict):
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigBlueGreenUpdatePolicy(dict):
+calass EndpointDeploymentConfigBlueGreenUpdatePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4479,7 +4479,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicy(dict):
                  maximum_execution_timeout_in_seconds: Optional[int] = None,
                  termination_wait_in_seconds: Optional[int] = None):
         """
-        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs' traffic_routing_configuration: Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArrgs' traffic_routing_configuration: Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
         :param int maximum_execution_timeout_in_seconds: Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
         :param int termination_wait_in_seconds: Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
         """
@@ -4515,7 +4515,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicy(dict):
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(dict):
+calass EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4545,8 +4545,8 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(d
         """
         :param str type: Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
         :param int wait_interval_in_seconds: The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
-        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs' canary_size: Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
-        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs' linear_step_size: Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArrgs' canary_size: Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArrgs' linear_step_size: Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
@@ -4589,7 +4589,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(d
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize(dict):
+calass EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
@@ -4618,7 +4618,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCa
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize(dict):
+calass EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
@@ -4647,7 +4647,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLi
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigRollingUpdatePolicy(dict):
+calass EndpointDeploymentConfigRollingUpdatePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4677,10 +4677,10 @@ class EndpointDeploymentConfigRollingUpdatePolicy(dict):
                  maximum_execution_timeout_in_seconds: Optional[int] = None,
                  rollback_maximum_batch_size: Optional['outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize'] = None):
         """
-        :param 'EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs' maximum_batch_size: Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+        :param 'EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArrgs' maximum_batch_size: Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
         :param int wait_interval_in_seconds: The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
         :param int maximum_execution_timeout_in_seconds: The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
-        :param 'EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs' rollback_maximum_batch_size: Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+        :param 'EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArrgs' rollback_maximum_batch_size: Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
         """
         pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
         pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
@@ -4723,7 +4723,7 @@ class EndpointDeploymentConfigRollingUpdatePolicy(dict):
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize(dict):
+calass EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
@@ -4752,7 +4752,7 @@ class EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize(dict):
 
 
 @pulumi.output_type
-class EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize(dict):
+calass EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize(dict):
     def __init__(__self__, *,
                  type: str,
                  value: int):
@@ -4781,7 +4781,7 @@ class EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize(dict):
 
 
 @pulumi.output_type
-class FeatureGroupFeatureDefinition(dict):
+calass FeatureGroupFeatureDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4831,7 +4831,7 @@ class FeatureGroupFeatureDefinition(dict):
 
 
 @pulumi.output_type
-class FeatureGroupOfflineStoreConfig(dict):
+calass FeatureGroupOfflineStoreConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4861,8 +4861,8 @@ class FeatureGroupOfflineStoreConfig(dict):
                  disable_glue_table_creation: Optional[bool] = None,
                  table_format: Optional[str] = None):
         """
-        :param 'FeatureGroupOfflineStoreConfigS3StorageConfigArgs' s3_storage_config: The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
-        :param 'FeatureGroupOfflineStoreConfigDataCatalogConfigArgs' data_catalog_config: The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
+        :param 'FeatureGroupOfflineStoreConfigS3StorageConfigArrgs' s3_storage_config: The Amazon Simple Storage (Amazon S3) location of OfflineStore. See S3 Storage Config Below.
+        :param 'FeatureGroupOfflineStoreConfigDataCatalogConfigArrgs' data_catalog_config: The meta data of the Glue table that is autogenerated when an OfflineStore is created. See Data Catalog Config Below.
         :param bool disable_glue_table_creation: Set to `true` to turn Online Store On.
         :param str table_format: Format for the offline store table. Supported formats are `Glue` (Default) and Apache `Iceberg` (https://iceberg.apache.org/).
         """
@@ -4908,7 +4908,7 @@ class FeatureGroupOfflineStoreConfig(dict):
 
 
 @pulumi.output_type
-class FeatureGroupOfflineStoreConfigDataCatalogConfig(dict):
+calass FeatureGroupOfflineStoreConfigDataCatalogConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4968,7 +4968,7 @@ class FeatureGroupOfflineStoreConfigDataCatalogConfig(dict):
 
 
 @pulumi.output_type
-class FeatureGroupOfflineStoreConfigS3StorageConfig(dict):
+calass FeatureGroupOfflineStoreConfigS3StorageConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5017,7 +5017,7 @@ class FeatureGroupOfflineStoreConfigS3StorageConfig(dict):
 
 
 @pulumi.output_type
-class FeatureGroupOnlineStoreConfig(dict):
+calass FeatureGroupOnlineStoreConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5042,7 +5042,7 @@ class FeatureGroupOnlineStoreConfig(dict):
                  security_config: Optional['outputs.FeatureGroupOnlineStoreConfigSecurityConfig'] = None):
         """
         :param bool enable_online_store: Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
-        :param 'FeatureGroupOnlineStoreConfigSecurityConfigArgs' security_config: Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+        :param 'FeatureGroupOnlineStoreConfigSecurityConfigArrgs' security_config: Security config for at-rest encryption of your OnlineStore. See Security Config Below.
         """
         if enable_online_store is not None:
             pulumi.set(__self__, "enable_online_store", enable_online_store)
@@ -5067,7 +5067,7 @@ class FeatureGroupOnlineStoreConfig(dict):
 
 
 @pulumi.output_type
-class FeatureGroupOnlineStoreConfigSecurityConfig(dict):
+calass FeatureGroupOnlineStoreConfigSecurityConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5103,7 +5103,7 @@ class FeatureGroupOnlineStoreConfigSecurityConfig(dict):
 
 
 @pulumi.output_type
-class FlowDefinitionHumanLoopActivationConfig(dict):
+calass FlowDefinitionHumanLoopActivationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5124,7 +5124,7 @@ class FlowDefinitionHumanLoopActivationConfig(dict):
     def __init__(__self__, *,
                  human_loop_activation_conditions_config: Optional['outputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig'] = None):
         """
-        :param 'FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs' human_loop_activation_conditions_config: defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+        :param 'FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArrgs' human_loop_activation_conditions_config: defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
         """
         if human_loop_activation_conditions_config is not None:
             pulumi.set(__self__, "human_loop_activation_conditions_config", human_loop_activation_conditions_config)
@@ -5139,7 +5139,7 @@ class FlowDefinitionHumanLoopActivationConfig(dict):
 
 
 @pulumi.output_type
-class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig(dict):
+calass FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5174,7 +5174,7 @@ class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig
 
 
 @pulumi.output_type
-class FlowDefinitionHumanLoopConfig(dict):
+calass FlowDefinitionHumanLoopConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5224,7 +5224,7 @@ class FlowDefinitionHumanLoopConfig(dict):
         :param str task_description: A description for the human worker task.
         :param str task_title: A title for the human worker task.
         :param str workteam_arn: The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
-        :param 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs' public_workforce_task_price: Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+        :param 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArrgs' public_workforce_task_price: Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
         :param int task_availability_lifetime_in_seconds: The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
         :param Sequence[str] task_keywords: An array of keywords used to describe the task so that workers can discover the task.
         :param int task_time_limit_in_seconds: The amount of time that a worker has to complete a task. The default value is `3600` seconds.
@@ -5317,7 +5317,7 @@ class FlowDefinitionHumanLoopConfig(dict):
 
 
 @pulumi.output_type
-class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice(dict):
+calass FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5338,7 +5338,7 @@ class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice(dict):
     def __init__(__self__, *,
                  amount_in_usd: Optional['outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd'] = None):
         """
-        :param 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs' amount_in_usd: Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+        :param 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArrgs' amount_in_usd: Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
         """
         if amount_in_usd is not None:
             pulumi.set(__self__, "amount_in_usd", amount_in_usd)
@@ -5353,7 +5353,7 @@ class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice(dict):
 
 
 @pulumi.output_type
-class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd(dict):
+calass FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5413,7 +5413,7 @@ class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd(dict):
 
 
 @pulumi.output_type
-class FlowDefinitionHumanLoopRequestSource(dict):
+calass FlowDefinitionHumanLoopRequestSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5448,7 +5448,7 @@ class FlowDefinitionHumanLoopRequestSource(dict):
 
 
 @pulumi.output_type
-class FlowDefinitionOutputConfig(dict):
+calass FlowDefinitionOutputConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5497,7 +5497,7 @@ class FlowDefinitionOutputConfig(dict):
 
 
 @pulumi.output_type
-class HumanTaskUIUiTemplate(dict):
+calass HumanTaskUIUiTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5557,7 +5557,7 @@ class HumanTaskUIUiTemplate(dict):
 
 
 @pulumi.output_type
-class ModelContainer(dict):
+calass ModelContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5594,7 +5594,7 @@ class ModelContainer(dict):
         :param Mapping[str, str] environment: Environment variables for the Docker container.
                A list of key value pairs.
         :param str image: The registry path where the inference code image is stored in Amazon ECR.
-        :param 'ModelContainerImageConfigArgs' image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        :param 'ModelContainerImageConfigArrgs' image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param str model_data_url: The URL for the S3 location where model artifacts are stored.
         :param str model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
@@ -5673,7 +5673,7 @@ class ModelContainer(dict):
 
 
 @pulumi.output_type
-class ModelContainerImageConfig(dict):
+calass ModelContainerImageConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5698,7 +5698,7 @@ class ModelContainerImageConfig(dict):
                  repository_auth_config: Optional['outputs.ModelContainerImageConfigRepositoryAuthConfig'] = None):
         """
         :param str repository_access_mode: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-        :param 'ModelContainerImageConfigRepositoryAuthConfigArgs' repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+        :param 'ModelContainerImageConfigRepositoryAuthConfigArrgs' repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
         pulumi.set(__self__, "repository_access_mode", repository_access_mode)
         if repository_auth_config is not None:
@@ -5722,7 +5722,7 @@ class ModelContainerImageConfig(dict):
 
 
 @pulumi.output_type
-class ModelContainerImageConfigRepositoryAuthConfig(dict):
+calass ModelContainerImageConfigRepositoryAuthConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5757,7 +5757,7 @@ class ModelContainerImageConfigRepositoryAuthConfig(dict):
 
 
 @pulumi.output_type
-class ModelInferenceExecutionConfig(dict):
+calass ModelInferenceExecutionConfig(dict):
     def __init__(__self__, *,
                  mode: str):
         """
@@ -5775,7 +5775,7 @@ class ModelInferenceExecutionConfig(dict):
 
 
 @pulumi.output_type
-class ModelPrimaryContainer(dict):
+calass ModelPrimaryContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5812,7 +5812,7 @@ class ModelPrimaryContainer(dict):
         :param Mapping[str, str] environment: Environment variables for the Docker container.
                A list of key value pairs.
         :param str image: The registry path where the inference code image is stored in Amazon ECR.
-        :param 'ModelPrimaryContainerImageConfigArgs' image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+        :param 'ModelPrimaryContainerImageConfigArrgs' image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param str mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
         :param str model_data_url: The URL for the S3 location where model artifacts are stored.
         :param str model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
@@ -5891,7 +5891,7 @@ class ModelPrimaryContainer(dict):
 
 
 @pulumi.output_type
-class ModelPrimaryContainerImageConfig(dict):
+calass ModelPrimaryContainerImageConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5916,7 +5916,7 @@ class ModelPrimaryContainerImageConfig(dict):
                  repository_auth_config: Optional['outputs.ModelPrimaryContainerImageConfigRepositoryAuthConfig'] = None):
         """
         :param str repository_access_mode: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
-        :param 'ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs' repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+        :param 'ModelPrimaryContainerImageConfigRepositoryAuthConfigArrgs' repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
         pulumi.set(__self__, "repository_access_mode", repository_access_mode)
         if repository_auth_config is not None:
@@ -5940,7 +5940,7 @@ class ModelPrimaryContainerImageConfig(dict):
 
 
 @pulumi.output_type
-class ModelPrimaryContainerImageConfigRepositoryAuthConfig(dict):
+calass ModelPrimaryContainerImageConfigRepositoryAuthConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5975,7 +5975,7 @@ class ModelPrimaryContainerImageConfigRepositoryAuthConfig(dict):
 
 
 @pulumi.output_type
-class ModelVpcConfig(dict):
+calass ModelVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6011,7 +6011,7 @@ class ModelVpcConfig(dict):
 
 
 @pulumi.output_type
-class MonitoringScheduleMonitoringScheduleConfig(dict):
+calass MonitoringScheduleMonitoringScheduleConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6040,7 +6040,7 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
         """
         :param str monitoring_job_definition_name: The name of the monitoring job definition to schedule.
         :param str monitoring_type: The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
-        :param 'MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs' schedule_config: Configures the monitoring schedule. Fields are documented below.
+        :param 'MonitoringScheduleMonitoringScheduleConfigScheduleConfigArrgs' schedule_config: Configures the monitoring schedule. Fields are documented below.
         """
         pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
         pulumi.set(__self__, "monitoring_type", monitoring_type)
@@ -6073,7 +6073,7 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
 
 
 @pulumi.output_type
-class MonitoringScheduleMonitoringScheduleConfigScheduleConfig(dict):
+calass MonitoringScheduleMonitoringScheduleConfigScheduleConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6108,7 +6108,7 @@ class MonitoringScheduleMonitoringScheduleConfigScheduleConfig(dict):
 
 
 @pulumi.output_type
-class NotebookInstanceInstanceMetadataServiceConfiguration(dict):
+calass NotebookInstanceInstanceMetadataServiceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6144,7 +6144,7 @@ class NotebookInstanceInstanceMetadataServiceConfiguration(dict):
 
 
 @pulumi.output_type
-class PipelineParallelismConfiguration(dict):
+calass PipelineParallelismConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6179,7 +6179,7 @@ class PipelineParallelismConfiguration(dict):
 
 
 @pulumi.output_type
-class PipelinePipelineDefinitionS3Location(dict):
+calass PipelinePipelineDefinitionS3Location(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6239,7 +6239,7 @@ class PipelinePipelineDefinitionS3Location(dict):
 
 
 @pulumi.output_type
-class ProjectServiceCatalogProvisioningDetails(dict):
+calass ProjectServiceCatalogProvisioningDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6272,7 +6272,7 @@ class ProjectServiceCatalogProvisioningDetails(dict):
         :param str product_id: The ID of the product to provision.
         :param str path_id: The path identifier of the product. This value is optional if the product has a default path, and required if the product has more than one path.
         :param str provisioning_artifact_id: The ID of the provisioning artifact.
-        :param Sequence['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs'] provisioning_parameters: A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
+        :param Sequence['ProjectServiceCatalogProvisioningDetailsProvisioningParameterArrgs'] provisioning_parameters: A list of key value pairs that you specify when you provision a product. See Provisioning Parameter below.
         """
         pulumi.set(__self__, "product_id", product_id)
         if path_id is not None:
@@ -6316,7 +6316,7 @@ class ProjectServiceCatalogProvisioningDetails(dict):
 
 
 @pulumi.output_type
-class ProjectServiceCatalogProvisioningDetailsProvisioningParameter(dict):
+calass ProjectServiceCatalogProvisioningDetailsProvisioningParameter(dict):
     def __init__(__self__, *,
                  key: str,
                  value: Optional[str] = None):
@@ -6346,7 +6346,7 @@ class ProjectServiceCatalogProvisioningDetailsProvisioningParameter(dict):
 
 
 @pulumi.output_type
-class SpaceSpaceSettings(dict):
+calass SpaceSpaceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6370,8 +6370,8 @@ class SpaceSpaceSettings(dict):
                  jupyter_server_app_settings: Optional['outputs.SpaceSpaceSettingsJupyterServerAppSettings'] = None,
                  kernel_gateway_app_settings: Optional['outputs.SpaceSpaceSettingsKernelGatewayAppSettings'] = None):
         """
-        :param 'SpaceSpaceSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
-        :param 'SpaceSpaceSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
+        :param 'SpaceSpaceSettingsJupyterServerAppSettingsArrgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
+        :param 'SpaceSpaceSettingsKernelGatewayAppSettingsArrgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
         """
         if jupyter_server_app_settings is not None:
             pulumi.set(__self__, "jupyter_server_app_settings", jupyter_server_app_settings)
@@ -6396,7 +6396,7 @@ class SpaceSpaceSettings(dict):
 
 
 @pulumi.output_type
-class SpaceSpaceSettingsJupyterServerAppSettings(dict):
+calass SpaceSpaceSettingsJupyterServerAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6423,8 +6423,8 @@ class SpaceSpaceSettingsJupyterServerAppSettings(dict):
                  code_repositories: Optional[Sequence['outputs.SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository']] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param 'SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param Sequence['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param 'SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['SpaceSpaceSettingsJupyterServerAppSettingsCodeRepositoryArrgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -6459,7 +6459,7 @@ class SpaceSpaceSettingsJupyterServerAppSettings(dict):
 
 
 @pulumi.output_type
-class SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository(dict):
+calass SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6494,7 +6494,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository(dict):
 
 
 @pulumi.output_type
-class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
+calass SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6572,7 +6572,7 @@ class SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class SpaceSpaceSettingsKernelGatewayAppSettings(dict):
+calass SpaceSpaceSettingsKernelGatewayAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6599,8 +6599,8 @@ class SpaceSpaceSettingsKernelGatewayAppSettings(dict):
                  custom_images: Optional[Sequence['outputs.SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage']] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param 'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
-        :param Sequence['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param 'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['SpaceSpaceSettingsKernelGatewayAppSettingsCustomImageArrgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
@@ -6635,7 +6635,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettings(dict):
 
 
 @pulumi.output_type
-class SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage(dict):
+calass SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6697,7 +6697,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage(dict):
 
 
 @pulumi.output_type
-class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
+calass SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6775,7 +6775,7 @@ class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettings(dict):
+calass UserProfileUserSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6821,14 +6821,14 @@ class UserProfileUserSettings(dict):
                  tensor_board_app_settings: Optional['outputs.UserProfileUserSettingsTensorBoardAppSettings'] = None):
         """
         :param str execution_role: The execution role ARN for the user.
-        :param 'UserProfileUserSettingsCanvasAppSettingsArgs' canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
-        :param 'UserProfileUserSettingsJupyterServerAppSettingsArgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
-        :param 'UserProfileUserSettingsKernelGatewayAppSettingsArgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
-        :param 'UserProfileUserSettingsRSessionAppSettingsArgs' r_session_app_settings: The RSession app settings. See RSession App Settings below.
-        :param 'UserProfileUserSettingsRStudioServerProAppSettingsArgs' r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
+        :param 'UserProfileUserSettingsCanvasAppSettingsArrgs' canvas_app_settings: The Canvas app settings. See Canvas App Settings below.
+        :param 'UserProfileUserSettingsJupyterServerAppSettingsArrgs' jupyter_server_app_settings: The Jupyter server's app settings. See Jupyter Server App Settings below.
+        :param 'UserProfileUserSettingsKernelGatewayAppSettingsArrgs' kernel_gateway_app_settings: The kernel gateway app settings. See Kernel Gateway App Settings below.
+        :param 'UserProfileUserSettingsRSessionAppSettingsArrgs' r_session_app_settings: The RSession app settings. See RSession App Settings below.
+        :param 'UserProfileUserSettingsRStudioServerProAppSettingsArrgs' r_studio_server_pro_app_settings: A collection of settings that configure user interaction with the RStudioServerPro app. See RStudio Server Pro App Settings below.
         :param Sequence[str] security_groups: The security groups.
-        :param 'UserProfileUserSettingsSharingSettingsArgs' sharing_settings: The sharing settings. See Sharing Settings below.
-        :param 'UserProfileUserSettingsTensorBoardAppSettingsArgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
+        :param 'UserProfileUserSettingsSharingSettingsArrgs' sharing_settings: The sharing settings. See Sharing Settings below.
+        :param 'UserProfileUserSettingsTensorBoardAppSettingsArrgs' tensor_board_app_settings: The TensorBoard app settings. See TensorBoard App Settings below.
         """
         pulumi.set(__self__, "execution_role", execution_role)
         if canvas_app_settings is not None:
@@ -6922,7 +6922,7 @@ class UserProfileUserSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsCanvasAppSettings(dict):
+calass UserProfileUserSettingsCanvasAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6949,9 +6949,9 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
                  time_series_forecasting_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings'] = None,
                  workspace_settings: Optional['outputs.UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings'] = None):
         """
-        :param 'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs' model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
-        :param 'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs' time_series_forecasting_settings: Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
-        :param 'UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs' workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
+        :param 'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArrgs' model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
+        :param 'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArrgs' time_series_forecasting_settings: Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
+        :param 'UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArrgs' workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
         if model_register_settings is not None:
             pulumi.set(__self__, "model_register_settings", model_register_settings)
@@ -6986,7 +6986,7 @@ class UserProfileUserSettingsCanvasAppSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings(dict):
+calass UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7034,7 +7034,7 @@ class UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings(dict):
+calass UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7082,7 +7082,7 @@ class UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings(dict
 
 
 @pulumi.output_type
-class UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings(dict):
+calass UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7132,7 +7132,7 @@ class UserProfileUserSettingsCanvasAppSettingsWorkspaceSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsJupyterServerAppSettings(dict):
+calass UserProfileUserSettingsJupyterServerAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7159,8 +7159,8 @@ class UserProfileUserSettingsJupyterServerAppSettings(dict):
                  default_resource_spec: Optional['outputs.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param Sequence['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
-        :param 'UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['UserProfileUserSettingsJupyterServerAppSettingsCodeRepositoryArrgs'] code_repositories: A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application. see Code Repository below.
+        :param 'UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if code_repositories is not None:
@@ -7196,7 +7196,7 @@ class UserProfileUserSettingsJupyterServerAppSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsJupyterServerAppSettingsCodeRepository(dict):
+calass UserProfileUserSettingsJupyterServerAppSettingsCodeRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7231,7 +7231,7 @@ class UserProfileUserSettingsJupyterServerAppSettingsCodeRepository(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
+calass UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7309,7 +7309,7 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsKernelGatewayAppSettings(dict):
+calass UserProfileUserSettingsKernelGatewayAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7336,8 +7336,8 @@ class UserProfileUserSettingsKernelGatewayAppSettings(dict):
                  default_resource_spec: Optional['outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec'] = None,
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
-        :param Sequence['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param 'UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArrgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param 'UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param Sequence[str] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
@@ -7373,7 +7373,7 @@ class UserProfileUserSettingsKernelGatewayAppSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsKernelGatewayAppSettingsCustomImage(dict):
+calass UserProfileUserSettingsKernelGatewayAppSettingsCustomImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7435,7 +7435,7 @@ class UserProfileUserSettingsKernelGatewayAppSettingsCustomImage(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
+calass UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7513,7 +7513,7 @@ class UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsRSessionAppSettings(dict):
+calass UserProfileUserSettingsRSessionAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7537,8 +7537,8 @@ class UserProfileUserSettingsRSessionAppSettings(dict):
                  custom_images: Optional[Sequence['outputs.UserProfileUserSettingsRSessionAppSettingsCustomImage']] = None,
                  default_resource_spec: Optional['outputs.UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec'] = None):
         """
-        :param Sequence['UserProfileUserSettingsRSessionAppSettingsCustomImageArgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
-        :param 'UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param Sequence['UserProfileUserSettingsRSessionAppSettingsCustomImageArrgs'] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param 'UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
@@ -7563,7 +7563,7 @@ class UserProfileUserSettingsRSessionAppSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsRSessionAppSettingsCustomImage(dict):
+calass UserProfileUserSettingsRSessionAppSettingsCustomImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7625,7 +7625,7 @@ class UserProfileUserSettingsRSessionAppSettingsCustomImage(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec(dict):
+calass UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7703,7 +7703,7 @@ class UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsRStudioServerProAppSettings(dict):
+calass UserProfileUserSettingsRStudioServerProAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7753,7 +7753,7 @@ class UserProfileUserSettingsRStudioServerProAppSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsSharingSettings(dict):
+calass UserProfileUserSettingsSharingSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7817,7 +7817,7 @@ class UserProfileUserSettingsSharingSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsTensorBoardAppSettings(dict):
+calass UserProfileUserSettingsTensorBoardAppSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7838,7 +7838,7 @@ class UserProfileUserSettingsTensorBoardAppSettings(dict):
     def __init__(__self__, *,
                  default_resource_spec: 'outputs.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec'):
         """
-        :param 'UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param 'UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpecArrgs' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
 
@@ -7852,7 +7852,7 @@ class UserProfileUserSettingsTensorBoardAppSettings(dict):
 
 
 @pulumi.output_type
-class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
+calass UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7930,7 +7930,7 @@ class UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec(dict):
 
 
 @pulumi.output_type
-class WorkforceCognitoConfig(dict):
+calass WorkforceCognitoConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7978,7 +7978,7 @@ class WorkforceCognitoConfig(dict):
 
 
 @pulumi.output_type
-class WorkforceOidcConfig(dict):
+calass WorkforceOidcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8102,7 +8102,7 @@ class WorkforceOidcConfig(dict):
 
 
 @pulumi.output_type
-class WorkforceSourceIpConfig(dict):
+calass WorkforceSourceIpConfig(dict):
     def __init__(__self__, *,
                  cidrs: Sequence[str]):
         """
@@ -8120,7 +8120,7 @@ class WorkforceSourceIpConfig(dict):
 
 
 @pulumi.output_type
-class WorkforceWorkforceVpcConfig(dict):
+calass WorkforceWorkforceVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8192,7 +8192,7 @@ class WorkforceWorkforceVpcConfig(dict):
 
 
 @pulumi.output_type
-class WorkteamMemberDefinition(dict):
+calass WorkteamMemberDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8216,8 +8216,8 @@ class WorkteamMemberDefinition(dict):
                  cognito_member_definition: Optional['outputs.WorkteamMemberDefinitionCognitoMemberDefinition'] = None,
                  oidc_member_definition: Optional['outputs.WorkteamMemberDefinitionOidcMemberDefinition'] = None):
         """
-        :param 'WorkteamMemberDefinitionCognitoMemberDefinitionArgs' cognito_member_definition: The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
-        :param 'WorkteamMemberDefinitionOidcMemberDefinitionArgs' oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
+        :param 'WorkteamMemberDefinitionCognitoMemberDefinitionArrgs' cognito_member_definition: The Amazon Cognito user group that is part of the work team. See Cognito Member Definition details below.
+        :param 'WorkteamMemberDefinitionOidcMemberDefinitionArrgs' oidc_member_definition: A list user groups that exist in your OIDC Identity Provider (IdP). One to ten groups can be used to create a single private work team. See Cognito Member Definition details below.
         """
         if cognito_member_definition is not None:
             pulumi.set(__self__, "cognito_member_definition", cognito_member_definition)
@@ -8242,7 +8242,7 @@ class WorkteamMemberDefinition(dict):
 
 
 @pulumi.output_type
-class WorkteamMemberDefinitionCognitoMemberDefinition(dict):
+calass WorkteamMemberDefinitionCognitoMemberDefinition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8303,7 +8303,7 @@ class WorkteamMemberDefinitionCognitoMemberDefinition(dict):
 
 
 @pulumi.output_type
-class WorkteamMemberDefinitionOidcMemberDefinition(dict):
+calass WorkteamMemberDefinitionOidcMemberDefinition(dict):
     def __init__(__self__, *,
                  groups: Sequence[str]):
         """
@@ -8321,7 +8321,7 @@ class WorkteamMemberDefinitionOidcMemberDefinition(dict):
 
 
 @pulumi.output_type
-class WorkteamNotificationConfiguration(dict):
+calass WorkteamNotificationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

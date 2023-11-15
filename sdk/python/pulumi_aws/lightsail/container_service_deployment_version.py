@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ContainerServiceDeploymentVersionArgs', 'ContainerServiceDeploymentVersion']
+__all__ = ['ContainerServiceDeploymentVersionArrgs', 'ContainerServiceDeploymentVersion']
 
 @pulumi.input_type
-class ContainerServiceDeploymentVersionArgs:
+calass ContainerServiceDeploymentVersionArrgs:
     def __init__(__self__, *,
-                 containers: pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]],
+                 containers: pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArrgs']]],
                  service_name: pulumi.Input[str],
-                 public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None):
+                 public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArrgs']] = None):
         """
         The set of arguments for constructing a ContainerServiceDeploymentVersion resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArrgs']]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         :param pulumi.Input[str] service_name: The name for the container service.
-        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArrgs'] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         """
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "service_name", service_name)
@@ -32,14 +32,14 @@ class ContainerServiceDeploymentVersionArgs:
 
     @property
     @pulumi.getter
-    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]:
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArrgs']]]:
         """
         A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         """
         return pulumi.get(self, "containers")
 
     @containers.setter
-    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]):
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArrgs']]]):
         pulumi.set(self, "containers", value)
 
     @property
@@ -56,31 +56,31 @@ class ContainerServiceDeploymentVersionArgs:
 
     @property
     @pulumi.getter(name="publicEndpoint")
-    def public_endpoint(self) -> Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]:
+    def public_endpoint(self) -> Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArrgs']]:
         """
         A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         """
         return pulumi.get(self, "public_endpoint")
 
     @public_endpoint.setter
-    def public_endpoint(self, value: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]):
+    def public_endpoint(self, value: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArrgs']]):
         pulumi.set(self, "public_endpoint", value)
 
 
 @pulumi.input_type
-class _ContainerServiceDeploymentVersionState:
+calass _ContainerServiceDeploymentVersionState:
     def __init__(__self__, *,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArrgs']]]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
-                 public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']] = None,
+                 public_endpoint: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArrgs']] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering ContainerServiceDeploymentVersion resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArrgs']]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         :param pulumi.Input[str] created_at: The timestamp when the deployment was created.
-        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs'] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArrgs'] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         :param pulumi.Input[str] service_name: The name for the container service.
         :param pulumi.Input[str] state: The current state of the container service.
         :param pulumi.Input[int] version: The version number of the deployment.
@@ -100,14 +100,14 @@ class _ContainerServiceDeploymentVersionState:
 
     @property
     @pulumi.getter
-    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]]:
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArrgs']]]]:
         """
         A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         """
         return pulumi.get(self, "containers")
 
     @containers.setter
-    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArgs']]]]):
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerServiceDeploymentVersionContainerArrgs']]]]):
         pulumi.set(self, "containers", value)
 
     @property
@@ -124,14 +124,14 @@ class _ContainerServiceDeploymentVersionState:
 
     @property
     @pulumi.getter(name="publicEndpoint")
-    def public_endpoint(self) -> Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]:
+    def public_endpoint(self) -> Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArrgs']]:
         """
         A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         """
         return pulumi.get(self, "public_endpoint")
 
     @public_endpoint.setter
-    def public_endpoint(self, value: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArgs']]):
+    def public_endpoint(self, value: Optional[pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointArrgs']]):
         pulumi.set(self, "public_endpoint", value)
 
     @property
@@ -171,13 +171,13 @@ class _ContainerServiceDeploymentVersionState:
         pulumi.set(self, "version", value)
 
 
-class ContainerServiceDeploymentVersion(pulumi.CustomResource):
+calass ContainerServiceDeploymentVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArgs']]]]] = None,
-                 public_endpoint: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArgs']]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArrgs']]]]] = None,
+                 public_endpoint: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArrgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -195,7 +195,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lightsail.ContainerServiceDeploymentVersion("example",
-            containers=[aws.lightsail.ContainerServiceDeploymentVersionContainerArgs(
+            containers=[aws.lightsail.ContainerServiceDeploymentVersionContainerArrgs(
                 container_name="hello-world",
                 image="amazon/amazon-lightsail:hello-world",
                 commands=[],
@@ -206,10 +206,10 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                     "80": "HTTP",
                 },
             )],
-            public_endpoint=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs(
+            public_endpoint=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointArrgs(
                 container_name="hello-world",
                 container_port=80,
-                health_check=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs(
+                health_check=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs(
                     healthy_threshold=2,
                     unhealthy_threshold=2,
                     timeout_seconds=2,
@@ -231,15 +231,15 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArgs']]]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
-        :param pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArgs']] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArrgs']]]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArrgs']] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         :param pulumi.Input[str] service_name: The name for the container service.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContainerServiceDeploymentVersionArgs,
+                 args: ContainerServiceDeploymentVersionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a deployment version for your Amazon Lightsail container service.
@@ -256,7 +256,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lightsail.ContainerServiceDeploymentVersion("example",
-            containers=[aws.lightsail.ContainerServiceDeploymentVersionContainerArgs(
+            containers=[aws.lightsail.ContainerServiceDeploymentVersionContainerArrgs(
                 container_name="hello-world",
                 image="amazon/amazon-lightsail:hello-world",
                 commands=[],
@@ -267,10 +267,10 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
                     "80": "HTTP",
                 },
             )],
-            public_endpoint=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointArgs(
+            public_endpoint=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointArrgs(
                 container_name="hello-world",
                 container_port=80,
-                health_check=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs(
+                health_check=aws.lightsail.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs(
                     healthy_threshold=2,
                     unhealthy_threshold=2,
                     timeout_seconds=2,
@@ -291,12 +291,12 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContainerServiceDeploymentVersionArgs args: The arguments to use to populate this resource's properties.
+        :param ContainerServiceDeploymentVersionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContainerServiceDeploymentVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerServiceDeploymentVersionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -305,8 +305,8 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArgs']]]]] = None,
-                 public_endpoint: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArgs']]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArrgs']]]]] = None,
+                 public_endpoint: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArrgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -315,7 +315,7 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContainerServiceDeploymentVersionArgs.__new__(ContainerServiceDeploymentVersionArgs)
+            __props__ = ContainerServiceDeploymentVersionArrgs.__new__(ContainerServiceDeploymentVersionArrgs)
 
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")
@@ -337,9 +337,9 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArgs']]]]] = None,
+            containers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArrgs']]]]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
-            public_endpoint: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArgs']]] = None,
+            public_endpoint: Optional[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArrgs']]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             version: Optional[pulumi.Input[int]] = None) -> 'ContainerServiceDeploymentVersion':
@@ -350,9 +350,9 @@ class ContainerServiceDeploymentVersion(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArgs']]]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionContainerArrgs']]]] containers: A set of configuration blocks that describe the settings of the containers that will be launched on the container service. Maximum of 53. Detailed below.
         :param pulumi.Input[str] created_at: The timestamp when the deployment was created.
-        :param pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArgs']] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ContainerServiceDeploymentVersionPublicEndpointArrgs']] public_endpoint: A configuration block that describes the settings of the public endpoint for the container service. Detailed below.
         :param pulumi.Input[str] service_name: The name for the container service.
         :param pulumi.Input[str] state: The current state of the container service.
         :param pulumi.Input[int] version: The version number of the deployment.

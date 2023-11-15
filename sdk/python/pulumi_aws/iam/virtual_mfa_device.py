@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VirtualMfaDeviceArgs', 'VirtualMfaDevice']
+__all__ = ['VirtualMfaDeviceArrgs', 'VirtualMfaDevice']
 
 @pulumi.input_type
-class VirtualMfaDeviceArgs:
+calass VirtualMfaDeviceArrgs:
     def __init__(__self__, *,
                  virtual_mfa_device_name: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class VirtualMfaDeviceArgs:
 
 
 @pulumi.input_type
-class _VirtualMfaDeviceState:
+calass _VirtualMfaDeviceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  base32_string_seed: Optional[pulumi.Input[str]] = None,
@@ -224,7 +224,7 @@ class _VirtualMfaDeviceState:
         pulumi.set(self, "virtual_mfa_device_name", value)
 
 
-class VirtualMfaDevice(pulumi.CustomResource):
+calass VirtualMfaDevice(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -270,7 +270,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VirtualMfaDeviceArgs,
+                 args: VirtualMfaDeviceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM Virtual MFA Device.
@@ -300,12 +300,12 @@ class VirtualMfaDevice(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VirtualMfaDeviceArgs args: The arguments to use to populate this resource's properties.
+        :param VirtualMfaDeviceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VirtualMfaDeviceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VirtualMfaDeviceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -324,7 +324,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VirtualMfaDeviceArgs.__new__(VirtualMfaDeviceArgs)
+            __props__ = VirtualMfaDeviceArrgs.__new__(VirtualMfaDeviceArrgs)
 
             __props__.__dict__["path"] = path
             __props__.__dict__["tags"] = tags

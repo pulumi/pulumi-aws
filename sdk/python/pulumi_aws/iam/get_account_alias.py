@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAccountAliasResult:
+calass GetAccountAliasResult:
     """
     A collection of values returned by getAccountAlias.
     """
@@ -46,7 +46,7 @@ class GetAccountAliasResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetAccountAliasResult(GetAccountAliasResult):
+calass AwaitableGetAccountAliasResult(GetAccountAliasResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

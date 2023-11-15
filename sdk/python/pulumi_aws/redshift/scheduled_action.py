@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScheduledActionArgs', 'ScheduledAction']
+__all__ = ['ScheduledActionArrgs', 'ScheduledAction']
 
 @pulumi.input_type
-class ScheduledActionArgs:
+calass ScheduledActionArrgs:
     def __init__(__self__, *,
                  iam_role: pulumi.Input[str],
                  schedule: pulumi.Input[str],
-                 target_action: pulumi.Input['ScheduledActionTargetActionArgs'],
+                 target_action: pulumi.Input['ScheduledActionTargetActionArrgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class ScheduledActionArgs:
         The set of arguments for constructing a ScheduledAction resource.
         :param pulumi.Input[str] iam_role: The IAM role to assume to run the scheduled action.
         :param pulumi.Input[str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
-        :param pulumi.Input['ScheduledActionTargetActionArgs'] target_action: Target action. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionArrgs'] target_action: Target action. Documented below.
         :param pulumi.Input[str] description: The description of the scheduled action.
         :param pulumi.Input[bool] enable: Whether to enable the scheduled action. Default is `true` .
         :param pulumi.Input[str] end_time: The end time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
@@ -75,14 +75,14 @@ class ScheduledActionArgs:
 
     @property
     @pulumi.getter(name="targetAction")
-    def target_action(self) -> pulumi.Input['ScheduledActionTargetActionArgs']:
+    def target_action(self) -> pulumi.Input['ScheduledActionTargetActionArrgs']:
         """
         Target action. Documented below.
         """
         return pulumi.get(self, "target_action")
 
     @target_action.setter
-    def target_action(self, value: pulumi.Input['ScheduledActionTargetActionArgs']):
+    def target_action(self, value: pulumi.Input['ScheduledActionTargetActionArrgs']):
         pulumi.set(self, "target_action", value)
 
     @property
@@ -147,7 +147,7 @@ class ScheduledActionArgs:
 
 
 @pulumi.input_type
-class _ScheduledActionState:
+calass _ScheduledActionState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
@@ -156,7 +156,7 @@ class _ScheduledActionState:
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 target_action: Optional[pulumi.Input['ScheduledActionTargetActionArgs']] = None):
+                 target_action: Optional[pulumi.Input['ScheduledActionTargetActionArrgs']] = None):
         """
         Input properties used for looking up and filtering ScheduledAction resources.
         :param pulumi.Input[str] description: The description of the scheduled action.
@@ -166,7 +166,7 @@ class _ScheduledActionState:
         :param pulumi.Input[str] name: The scheduled action name.
         :param pulumi.Input[str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-        :param pulumi.Input['ScheduledActionTargetActionArgs'] target_action: Target action. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionArrgs'] target_action: Target action. Documented below.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -271,18 +271,18 @@ class _ScheduledActionState:
 
     @property
     @pulumi.getter(name="targetAction")
-    def target_action(self) -> Optional[pulumi.Input['ScheduledActionTargetActionArgs']]:
+    def target_action(self) -> Optional[pulumi.Input['ScheduledActionTargetActionArrgs']]:
         """
         Target action. Documented below.
         """
         return pulumi.get(self, "target_action")
 
     @target_action.setter
-    def target_action(self, value: Optional[pulumi.Input['ScheduledActionTargetActionArgs']]):
+    def target_action(self, value: Optional[pulumi.Input['ScheduledActionTargetActionArrgs']]):
         pulumi.set(self, "target_action", value)
 
 
-class ScheduledAction(pulumi.CustomResource):
+calass ScheduledAction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -294,7 +294,7 @@ class ScheduledAction(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArgs']]] = None,
+                 target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArrgs']]] = None,
                  __props__=None):
         """
         ## Example Usage
@@ -304,16 +304,16 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["scheduler.redshift.amazonaws.com"],
             )],
             actions=["sts:AssumeRole"],
         )])
         example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "redshift:PauseCluster",
@@ -329,8 +329,8 @@ class ScheduledAction(pulumi.CustomResource):
         example_scheduled_action = aws.redshift.ScheduledAction("exampleScheduledAction",
             schedule="cron(00 23 * * ? *)",
             iam_role=example_role.arn,
-            target_action=aws.redshift.ScheduledActionTargetActionArgs(
-                pause_cluster=aws.redshift.ScheduledActionTargetActionPauseClusterArgs(
+            target_action=aws.redshift.ScheduledActionTargetActionArrgs(
+                pause_cluster=aws.redshift.ScheduledActionTargetActionPauseClusterArrgs(
                     cluster_identifier="tf-redshift001",
                 ),
             ))
@@ -344,8 +344,8 @@ class ScheduledAction(pulumi.CustomResource):
         example = aws.redshift.ScheduledAction("example",
             schedule="cron(00 23 * * ? *)",
             iam_role=aws_iam_role["example"]["arn"],
-            target_action=aws.redshift.ScheduledActionTargetActionArgs(
-                resize_cluster=aws.redshift.ScheduledActionTargetActionResizeClusterArgs(
+            target_action=aws.redshift.ScheduledActionTargetActionArrgs(
+                resize_cluster=aws.redshift.ScheduledActionTargetActionResizeClusterArrgs(
                     cluster_identifier="tf-redshift001",
                     cluster_type="multi-node",
                     node_type="dc1.large",
@@ -371,13 +371,13 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[str] name: The scheduled action name.
         :param pulumi.Input[str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-        :param pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArgs']] target_action: Target action. Documented below.
+        :param pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArrgs']] target_action: Target action. Documented below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScheduledActionArgs,
+                 args: ScheduledActionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -387,16 +387,16 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["scheduler.redshift.amazonaws.com"],
             )],
             actions=["sts:AssumeRole"],
         )])
         example_role = aws.iam.Role("exampleRole", assume_role_policy=assume_role.json)
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "redshift:PauseCluster",
@@ -412,8 +412,8 @@ class ScheduledAction(pulumi.CustomResource):
         example_scheduled_action = aws.redshift.ScheduledAction("exampleScheduledAction",
             schedule="cron(00 23 * * ? *)",
             iam_role=example_role.arn,
-            target_action=aws.redshift.ScheduledActionTargetActionArgs(
-                pause_cluster=aws.redshift.ScheduledActionTargetActionPauseClusterArgs(
+            target_action=aws.redshift.ScheduledActionTargetActionArrgs(
+                pause_cluster=aws.redshift.ScheduledActionTargetActionPauseClusterArrgs(
                     cluster_identifier="tf-redshift001",
                 ),
             ))
@@ -427,8 +427,8 @@ class ScheduledAction(pulumi.CustomResource):
         example = aws.redshift.ScheduledAction("example",
             schedule="cron(00 23 * * ? *)",
             iam_role=aws_iam_role["example"]["arn"],
-            target_action=aws.redshift.ScheduledActionTargetActionArgs(
-                resize_cluster=aws.redshift.ScheduledActionTargetActionResizeClusterArgs(
+            target_action=aws.redshift.ScheduledActionTargetActionArrgs(
+                resize_cluster=aws.redshift.ScheduledActionTargetActionResizeClusterArrgs(
                     cluster_identifier="tf-redshift001",
                     cluster_type="multi-node",
                     node_type="dc1.large",
@@ -446,12 +446,12 @@ class ScheduledAction(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.
+        :param ScheduledActionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduledActionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduledActionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -467,7 +467,7 @@ class ScheduledAction(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
-                 target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArgs']]] = None,
+                 target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -475,7 +475,7 @@ class ScheduledAction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduledActionArgs.__new__(ScheduledActionArgs)
+            __props__ = ScheduledActionArrgs.__new__(ScheduledActionArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["enable"] = enable
@@ -508,7 +508,7 @@ class ScheduledAction(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             schedule: Optional[pulumi.Input[str]] = None,
             start_time: Optional[pulumi.Input[str]] = None,
-            target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArgs']]] = None) -> 'ScheduledAction':
+            target_action: Optional[pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArrgs']]] = None) -> 'ScheduledAction':
         """
         Get an existing ScheduledAction resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -523,7 +523,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[str] name: The scheduled action name.
         :param pulumi.Input[str] schedule: The schedule of action. The schedule is defined format of "at expression" or "cron expression", for example `at(2016-03-04T17:27:00)` or `cron(0 10 ? * MON *)`. See [Scheduled Action](https://docs.aws.amazon.com/redshift/latest/APIReference/API_ScheduledAction.html) for more information.
         :param pulumi.Input[str] start_time: The start time in UTC when the schedule is active, in UTC RFC3339 format(for example, YYYY-MM-DDTHH:MM:SSZ).
-        :param pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArgs']] target_action: Target action. Documented below.
+        :param pulumi.Input[pulumi.InputType['ScheduledActionTargetActionArrgs']] target_action: Target action. Documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

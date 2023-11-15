@@ -11,32 +11,32 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceArgs', 'Service']
+__all__ = ['ServiceArrgs', 'Service']
 
 @pulumi.input_type
-class ServiceArgs:
+calass ServiceArrgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[str],
-                 source_configuration: pulumi.Input['ServiceSourceConfigurationArgs'],
+                 source_configuration: pulumi.Input['ServiceSourceConfigurationArrgs'],
                  auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']] = None,
-                 health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
-                 instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
-                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
-                 observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
+                 encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArrgs']] = None,
+                 health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArrgs']] = None,
+                 instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArrgs']] = None,
+                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']] = None,
+                 observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[str] service_name: Name of the service.
-        :param pulumi.Input['ServiceSourceConfigurationArgs'] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationArrgs'] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
                
                The following arguments are optional:
         :param pulumi.Input[str] auto_scaling_configuration_arn: ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-        :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
-        :param pulumi.Input['ServiceHealthCheckConfigurationArgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
-        :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
-        :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
+        :param pulumi.Input['ServiceEncryptionConfigurationArrgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+        :param pulumi.Input['ServiceHealthCheckConfigurationArrgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+        :param pulumi.Input['ServiceInstanceConfigurationArrgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+        :param pulumi.Input['ServiceNetworkConfigurationArrgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        :param pulumi.Input['ServiceObservabilityConfigurationArrgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "service_name", service_name)
@@ -70,7 +70,7 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="sourceConfiguration")
-    def source_configuration(self) -> pulumi.Input['ServiceSourceConfigurationArgs']:
+    def source_configuration(self) -> pulumi.Input['ServiceSourceConfigurationArrgs']:
         """
         The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
 
@@ -79,7 +79,7 @@ class ServiceArgs:
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
-    def source_configuration(self, value: pulumi.Input['ServiceSourceConfigurationArgs']):
+    def source_configuration(self, value: pulumi.Input['ServiceSourceConfigurationArrgs']):
         pulumi.set(self, "source_configuration", value)
 
     @property
@@ -96,62 +96,62 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> Optional[pulumi.Input['ServiceEncryptionConfigurationArrgs']]:
         """
         An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: Optional[pulumi.Input['ServiceEncryptionConfigurationArrgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="healthCheckConfiguration")
-    def health_check_configuration(self) -> Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']]:
+    def health_check_configuration(self) -> Optional[pulumi.Input['ServiceHealthCheckConfigurationArrgs']]:
         """
         Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         """
         return pulumi.get(self, "health_check_configuration")
 
     @health_check_configuration.setter
-    def health_check_configuration(self, value: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']]):
+    def health_check_configuration(self, value: Optional[pulumi.Input['ServiceHealthCheckConfigurationArrgs']]):
         pulumi.set(self, "health_check_configuration", value)
 
     @property
     @pulumi.getter(name="instanceConfiguration")
-    def instance_configuration(self) -> Optional[pulumi.Input['ServiceInstanceConfigurationArgs']]:
+    def instance_configuration(self) -> Optional[pulumi.Input['ServiceInstanceConfigurationArrgs']]:
         """
         The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         """
         return pulumi.get(self, "instance_configuration")
 
     @instance_configuration.setter
-    def instance_configuration(self, value: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']]):
+    def instance_configuration(self, value: Optional[pulumi.Input['ServiceInstanceConfigurationArrgs']]):
         pulumi.set(self, "instance_configuration", value)
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']]:
         """
         Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @property
     @pulumi.getter(name="observabilityConfiguration")
-    def observability_configuration(self) -> Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]:
+    def observability_configuration(self) -> Optional[pulumi.Input['ServiceObservabilityConfigurationArrgs']]:
         """
         The observability configuration of your service. See Observability Configuration below for more details.
         """
         return pulumi.get(self, "observability_configuration")
 
     @observability_configuration.setter
-    def observability_configuration(self, value: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]):
+    def observability_configuration(self, value: Optional[pulumi.Input['ServiceObservabilityConfigurationArrgs']]):
         pulumi.set(self, "observability_configuration", value)
 
     @property
@@ -168,19 +168,19 @@ class ServiceArgs:
 
 
 @pulumi.input_type
-class _ServiceState:
+calass _ServiceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']] = None,
-                 health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
-                 instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
-                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
-                 observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
+                 encryption_configuration: Optional[pulumi.Input['ServiceEncryptionConfigurationArrgs']] = None,
+                 health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArrgs']] = None,
+                 instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArrgs']] = None,
+                 network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']] = None,
+                 observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArrgs']] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
-                 source_configuration: Optional[pulumi.Input['ServiceSourceConfigurationArgs']] = None,
+                 source_configuration: Optional[pulumi.Input['ServiceSourceConfigurationArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -188,15 +188,15 @@ class _ServiceState:
         Input properties used for looking up and filtering Service resources.
         :param pulumi.Input[str] arn: ARN of the App Runner service.
         :param pulumi.Input[str] auto_scaling_configuration_arn: ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-        :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
-        :param pulumi.Input['ServiceHealthCheckConfigurationArgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
-        :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
-        :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
+        :param pulumi.Input['ServiceEncryptionConfigurationArrgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+        :param pulumi.Input['ServiceHealthCheckConfigurationArrgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+        :param pulumi.Input['ServiceInstanceConfigurationArrgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+        :param pulumi.Input['ServiceNetworkConfigurationArrgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        :param pulumi.Input['ServiceObservabilityConfigurationArrgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[str] service_url: Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
-        :param pulumi.Input['ServiceSourceConfigurationArgs'] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+        :param pulumi.Input['ServiceSourceConfigurationArrgs'] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
                
                The following arguments are optional:
         :param pulumi.Input[str] status: Current state of the App Runner service.
@@ -261,62 +261,62 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> Optional[pulumi.Input['ServiceEncryptionConfigurationArrgs']]:
         """
         An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['ServiceEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: Optional[pulumi.Input['ServiceEncryptionConfigurationArrgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
     @pulumi.getter(name="healthCheckConfiguration")
-    def health_check_configuration(self) -> Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']]:
+    def health_check_configuration(self) -> Optional[pulumi.Input['ServiceHealthCheckConfigurationArrgs']]:
         """
         Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         """
         return pulumi.get(self, "health_check_configuration")
 
     @health_check_configuration.setter
-    def health_check_configuration(self, value: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']]):
+    def health_check_configuration(self, value: Optional[pulumi.Input['ServiceHealthCheckConfigurationArrgs']]):
         pulumi.set(self, "health_check_configuration", value)
 
     @property
     @pulumi.getter(name="instanceConfiguration")
-    def instance_configuration(self) -> Optional[pulumi.Input['ServiceInstanceConfigurationArgs']]:
+    def instance_configuration(self) -> Optional[pulumi.Input['ServiceInstanceConfigurationArrgs']]:
         """
         The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
         """
         return pulumi.get(self, "instance_configuration")
 
     @instance_configuration.setter
-    def instance_configuration(self, value: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']]):
+    def instance_configuration(self, value: Optional[pulumi.Input['ServiceInstanceConfigurationArrgs']]):
         pulumi.set(self, "instance_configuration", value)
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
+    def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']]:
         """
         Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
+    def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArrgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @property
     @pulumi.getter(name="observabilityConfiguration")
-    def observability_configuration(self) -> Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]:
+    def observability_configuration(self) -> Optional[pulumi.Input['ServiceObservabilityConfigurationArrgs']]:
         """
         The observability configuration of your service. See Observability Configuration below for more details.
         """
         return pulumi.get(self, "observability_configuration")
 
     @observability_configuration.setter
-    def observability_configuration(self, value: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]):
+    def observability_configuration(self, value: Optional[pulumi.Input['ServiceObservabilityConfigurationArrgs']]):
         pulumi.set(self, "observability_configuration", value)
 
     @property
@@ -357,7 +357,7 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="sourceConfiguration")
-    def source_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationArgs']]:
+    def source_configuration(self) -> Optional[pulumi.Input['ServiceSourceConfigurationArrgs']]:
         """
         The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
 
@@ -366,7 +366,7 @@ class _ServiceState:
         return pulumi.get(self, "source_configuration")
 
     @source_configuration.setter
-    def source_configuration(self, value: Optional[pulumi.Input['ServiceSourceConfigurationArgs']]):
+    def source_configuration(self, value: Optional[pulumi.Input['ServiceSourceConfigurationArrgs']]):
         pulumi.set(self, "source_configuration", value)
 
     @property
@@ -409,19 +409,19 @@ class _ServiceState:
         pulumi.set(self, "tags_all", value)
 
 
-class Service(pulumi.CustomResource):
+calass Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
-                 health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
-                 instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
-                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArrgs']]] = None,
+                 health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArrgs']]] = None,
+                 instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArrgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']]] = None,
+                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArrgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
+                 source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -436,13 +436,13 @@ class Service(pulumi.CustomResource):
 
         example = aws.apprunner.Service("example",
             service_name="example",
-            source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
-                authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs(
+            source_configuration=aws.apprunner.ServiceSourceConfigurationArrgs(
+                authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArrgs(
                     connection_arn=aws_apprunner_connection["example"]["arn"],
                 ),
-                code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
-                    code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
-                        code_configuration_values=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs(
+                code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArrgs(
+                    code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs(
+                        code_configuration_values=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs(
                             build_command="python setup.py develop",
                             port="8000",
                             runtime="PYTHON_3",
@@ -451,14 +451,14 @@ class Service(pulumi.CustomResource):
                         configuration_source="API",
                     ),
                     repository_url="https://github.com/example/my-example-python-app",
-                    source_code_version=aws.apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs(
+                    source_code_version=aws.apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs(
                         type="BRANCH",
                         value="main",
                     ),
                 ),
             ),
-            network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
-                egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
+            network_configuration=aws.apprunner.ServiceNetworkConfigurationArrgs(
+                egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArrgs(
                     egress_type="VPC",
                     vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
                 ),
@@ -475,10 +475,10 @@ class Service(pulumi.CustomResource):
 
         example = aws.apprunner.Service("example",
             service_name="example",
-            source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
+            source_configuration=aws.apprunner.ServiceSourceConfigurationArrgs(
                 auto_deployments_enabled=False,
-                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArgs(
-                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(
+                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArrgs(
+                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs(
                         port="8000",
                     ),
                     image_identifier="public.ecr.aws/aws-containers/hello-app-runner:latest",
@@ -497,18 +497,18 @@ class Service(pulumi.CustomResource):
 
         example_observability_configuration = aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration",
             observability_configuration_name="example",
-            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
+            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArrgs(
                 vendor="AWSXRAY",
             ))
         example_service = aws.apprunner.Service("exampleService",
             service_name="example",
-            observability_configuration=aws.apprunner.ServiceObservabilityConfigurationArgs(
+            observability_configuration=aws.apprunner.ServiceObservabilityConfigurationArrgs(
                 observability_configuration_arn=example_observability_configuration.arn,
                 observability_enabled=True,
             ),
-            source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
-                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArgs(
-                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(
+            source_configuration=aws.apprunner.ServiceSourceConfigurationArrgs(
+                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArrgs(
+                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs(
                         port="8000",
                     ),
                     image_identifier="public.ecr.aws/aws-containers/hello-app-runner:latest",
@@ -532,13 +532,13 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_scaling_configuration_arn: ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-        :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArrgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArrgs']] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArrgs']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArrgs']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_name: Name of the service.
-        :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArrgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -547,7 +547,7 @@ class Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceArgs,
+                 args: ServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Runner Service.
@@ -561,13 +561,13 @@ class Service(pulumi.CustomResource):
 
         example = aws.apprunner.Service("example",
             service_name="example",
-            source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
-                authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArgs(
+            source_configuration=aws.apprunner.ServiceSourceConfigurationArrgs(
+                authentication_configuration=aws.apprunner.ServiceSourceConfigurationAuthenticationConfigurationArrgs(
                     connection_arn=aws_apprunner_connection["example"]["arn"],
                 ),
-                code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArgs(
-                    code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs(
-                        code_configuration_values=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs(
+                code_repository=aws.apprunner.ServiceSourceConfigurationCodeRepositoryArrgs(
+                    code_configuration=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArrgs(
+                        code_configuration_values=aws.apprunner.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArrgs(
                             build_command="python setup.py develop",
                             port="8000",
                             runtime="PYTHON_3",
@@ -576,14 +576,14 @@ class Service(pulumi.CustomResource):
                         configuration_source="API",
                     ),
                     repository_url="https://github.com/example/my-example-python-app",
-                    source_code_version=aws.apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs(
+                    source_code_version=aws.apprunner.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArrgs(
                         type="BRANCH",
                         value="main",
                     ),
                 ),
             ),
-            network_configuration=aws.apprunner.ServiceNetworkConfigurationArgs(
-                egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArgs(
+            network_configuration=aws.apprunner.ServiceNetworkConfigurationArrgs(
+                egress_configuration=aws.apprunner.ServiceNetworkConfigurationEgressConfigurationArrgs(
                     egress_type="VPC",
                     vpc_connector_arn=aws_apprunner_vpc_connector["connector"]["arn"],
                 ),
@@ -600,10 +600,10 @@ class Service(pulumi.CustomResource):
 
         example = aws.apprunner.Service("example",
             service_name="example",
-            source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
+            source_configuration=aws.apprunner.ServiceSourceConfigurationArrgs(
                 auto_deployments_enabled=False,
-                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArgs(
-                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(
+                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArrgs(
+                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs(
                         port="8000",
                     ),
                     image_identifier="public.ecr.aws/aws-containers/hello-app-runner:latest",
@@ -622,18 +622,18 @@ class Service(pulumi.CustomResource):
 
         example_observability_configuration = aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration",
             observability_configuration_name="example",
-            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
+            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArrgs(
                 vendor="AWSXRAY",
             ))
         example_service = aws.apprunner.Service("exampleService",
             service_name="example",
-            observability_configuration=aws.apprunner.ServiceObservabilityConfigurationArgs(
+            observability_configuration=aws.apprunner.ServiceObservabilityConfigurationArrgs(
                 observability_configuration_arn=example_observability_configuration.arn,
                 observability_enabled=True,
             ),
-            source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
-                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArgs(
-                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(
+            source_configuration=aws.apprunner.ServiceSourceConfigurationArrgs(
+                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArrgs(
+                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArrgs(
                         port="8000",
                     ),
                     image_identifier="public.ecr.aws/aws-containers/hello-app-runner:latest",
@@ -655,12 +655,12 @@ class Service(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -670,13 +670,13 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
-                 health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
-                 instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
-                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArrgs']]] = None,
+                 health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArrgs']]] = None,
+                 instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArrgs']]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']]] = None,
+                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArrgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
-                 source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
+                 source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -685,7 +685,7 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceArgs.__new__(ServiceArgs)
+            __props__ = ServiceArrgs.__new__(ServiceArrgs)
 
             __props__.__dict__["auto_scaling_configuration_arn"] = auto_scaling_configuration_arn
             __props__.__dict__["encryption_configuration"] = encryption_configuration
@@ -719,15 +719,15 @@ class Service(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
-            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']]] = None,
-            health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
-            instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
-            network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
-            observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
+            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArrgs']]] = None,
+            health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArrgs']]] = None,
+            instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArrgs']]] = None,
+            network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']]] = None,
+            observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArrgs']]] = None,
             service_id: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             service_url: Optional[pulumi.Input[str]] = None,
-            source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
+            source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArrgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Service':
@@ -740,15 +740,15 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the App Runner service.
         :param pulumi.Input[str] auto_scaling_configuration_arn: ARN of an App Runner automatic scaling configuration resource that you want to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
-        :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArrgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArrgs']] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArrgs']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArrgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArrgs']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[str] service_url: Subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
-        :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArrgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
                
                The following arguments are optional:
         :param pulumi.Input[str] status: Current state of the App Runner service.

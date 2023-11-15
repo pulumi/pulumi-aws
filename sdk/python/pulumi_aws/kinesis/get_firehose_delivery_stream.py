@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFirehoseDeliveryStreamResult:
+calass GetFirehoseDeliveryStreamResult:
     """
     A collection of values returned by getFirehoseDeliveryStream.
     """
@@ -54,7 +54,7 @@ class GetFirehoseDeliveryStreamResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetFirehoseDeliveryStreamResult(GetFirehoseDeliveryStreamResult):
+calass AwaitableGetFirehoseDeliveryStreamResult(GetFirehoseDeliveryStreamResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

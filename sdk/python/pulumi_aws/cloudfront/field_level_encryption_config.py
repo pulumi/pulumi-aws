@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FieldLevelEncryptionConfigArgs', 'FieldLevelEncryptionConfig']
+__all__ = ['FieldLevelEncryptionConfigArrgs', 'FieldLevelEncryptionConfig']
 
 @pulumi.input_type
-class FieldLevelEncryptionConfigArgs:
+calass FieldLevelEncryptionConfigArrgs:
     def __init__(__self__, *,
-                 content_type_profile_config: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs'],
-                 query_arg_profile_config: pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs'],
+                 content_type_profile_config: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs'],
+                 query_arg_profile_config: pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs'],
                  comment: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FieldLevelEncryptionConfig resource.
-        :param pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs'] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
-        :param pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs'] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+        :param pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs'] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+        :param pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs'] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Config.
         """
         pulumi.set(__self__, "content_type_profile_config", content_type_profile_config)
@@ -32,26 +32,26 @@ class FieldLevelEncryptionConfigArgs:
 
     @property
     @pulumi.getter(name="contentTypeProfileConfig")
-    def content_type_profile_config(self) -> pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']:
+    def content_type_profile_config(self) -> pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']:
         """
         Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         """
         return pulumi.get(self, "content_type_profile_config")
 
     @content_type_profile_config.setter
-    def content_type_profile_config(self, value: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']):
+    def content_type_profile_config(self, value: pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']):
         pulumi.set(self, "content_type_profile_config", value)
 
     @property
     @pulumi.getter(name="queryArgProfileConfig")
-    def query_arg_profile_config(self) -> pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']:
+    def query_arg_profile_config(self) -> pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']:
         """
         Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         """
         return pulumi.get(self, "query_arg_profile_config")
 
     @query_arg_profile_config.setter
-    def query_arg_profile_config(self, value: pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']):
+    def query_arg_profile_config(self, value: pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']):
         pulumi.set(self, "query_arg_profile_config", value)
 
     @property
@@ -68,20 +68,20 @@ class FieldLevelEncryptionConfigArgs:
 
 
 @pulumi.input_type
-class _FieldLevelEncryptionConfigState:
+calass _FieldLevelEncryptionConfigState:
     def __init__(__self__, *,
                  caller_reference: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 content_type_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']] = None,
+                 content_type_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']] = None,
                  etag: Optional[pulumi.Input[str]] = None,
-                 query_arg_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']] = None):
+                 query_arg_profile_config: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']] = None):
         """
         Input properties used for looking up and filtering FieldLevelEncryptionConfig resources.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Config.
-        :param pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs'] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+        :param pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs'] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         :param pulumi.Input[str] etag: The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-        :param pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs'] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+        :param pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs'] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         """
         if caller_reference is not None:
             pulumi.set(__self__, "caller_reference", caller_reference)
@@ -120,14 +120,14 @@ class _FieldLevelEncryptionConfigState:
 
     @property
     @pulumi.getter(name="contentTypeProfileConfig")
-    def content_type_profile_config(self) -> Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]:
+    def content_type_profile_config(self) -> Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']]:
         """
         Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         """
         return pulumi.get(self, "content_type_profile_config")
 
     @content_type_profile_config.setter
-    def content_type_profile_config(self, value: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]):
+    def content_type_profile_config(self, value: Optional[pulumi.Input['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']]):
         pulumi.set(self, "content_type_profile_config", value)
 
     @property
@@ -144,25 +144,25 @@ class _FieldLevelEncryptionConfigState:
 
     @property
     @pulumi.getter(name="queryArgProfileConfig")
-    def query_arg_profile_config(self) -> Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]:
+    def query_arg_profile_config(self) -> Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']]:
         """
         Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         """
         return pulumi.get(self, "query_arg_profile_config")
 
     @query_arg_profile_config.setter
-    def query_arg_profile_config(self, value: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]):
+    def query_arg_profile_config(self, value: Optional[pulumi.Input['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']]):
         pulumi.set(self, "query_arg_profile_config", value)
 
 
-class FieldLevelEncryptionConfig(pulumi.CustomResource):
+calass FieldLevelEncryptionConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 content_type_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]] = None,
-                 query_arg_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]] = None,
+                 content_type_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']]] = None,
+                 query_arg_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']]] = None,
                  __props__=None):
         """
         Provides a CloudFront Field-level Encryption Config resource.
@@ -175,19 +175,19 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
 
         test = aws.cloudfront.FieldLevelEncryptionConfig("test",
             comment="test comment",
-            content_type_profile_config=aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArgs(
+            content_type_profile_config=aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArrgs(
                 forward_when_content_type_is_unknown=True,
-                content_type_profiles=aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs(
-                    items=[aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs(
+                content_type_profiles=aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArrgs(
+                    items=[aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrgs(
                         content_type="application/x-www-form-urlencoded",
                         format="URLEncoded",
                     )],
                 ),
             ),
-            query_arg_profile_config=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArgs(
+            query_arg_profile_config=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArrgs(
                 forward_when_query_arg_profile_is_unknown=True,
-                query_arg_profiles=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs(
-                    items=[aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs(
+                query_arg_profiles=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArrgs(
+                    items=[aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrgs(
                         profile_id=aws_cloudfront_field_level_encryption_profile["test"]["id"],
                         query_arg="Arg1",
                     )],
@@ -206,14 +206,14 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Config.
-        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
-        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FieldLevelEncryptionConfigArgs,
+                 args: FieldLevelEncryptionConfigArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudFront Field-level Encryption Config resource.
@@ -226,19 +226,19 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
 
         test = aws.cloudfront.FieldLevelEncryptionConfig("test",
             comment="test comment",
-            content_type_profile_config=aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArgs(
+            content_type_profile_config=aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArrgs(
                 forward_when_content_type_is_unknown=True,
-                content_type_profiles=aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs(
-                    items=[aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs(
+                content_type_profiles=aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArrgs(
+                    items=[aws.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrgs(
                         content_type="application/x-www-form-urlencoded",
                         format="URLEncoded",
                     )],
                 ),
             ),
-            query_arg_profile_config=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArgs(
+            query_arg_profile_config=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArrgs(
                 forward_when_query_arg_profile_is_unknown=True,
-                query_arg_profiles=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs(
-                    items=[aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs(
+                query_arg_profiles=aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArrgs(
+                    items=[aws.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrgs(
                         profile_id=aws_cloudfront_field_level_encryption_profile["test"]["id"],
                         query_arg="Arg1",
                     )],
@@ -255,12 +255,12 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FieldLevelEncryptionConfigArgs args: The arguments to use to populate this resource's properties.
+        :param FieldLevelEncryptionConfigArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FieldLevelEncryptionConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FieldLevelEncryptionConfigArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -270,8 +270,8 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 content_type_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]] = None,
-                 query_arg_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]] = None,
+                 content_type_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']]] = None,
+                 query_arg_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -279,7 +279,7 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FieldLevelEncryptionConfigArgs.__new__(FieldLevelEncryptionConfigArgs)
+            __props__ = FieldLevelEncryptionConfigArrgs.__new__(FieldLevelEncryptionConfigArrgs)
 
             __props__.__dict__["comment"] = comment
             if content_type_profile_config is None and not opts.urn:
@@ -302,9 +302,9 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             caller_reference: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            content_type_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']]] = None,
+            content_type_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']]] = None,
             etag: Optional[pulumi.Input[str]] = None,
-            query_arg_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']]] = None) -> 'FieldLevelEncryptionConfig':
+            query_arg_profile_config: Optional[pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']]] = None) -> 'FieldLevelEncryptionConfig':
         """
         Get an existing FieldLevelEncryptionConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -314,9 +314,9 @@ class FieldLevelEncryptionConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] caller_reference: Internal value used by CloudFront to allow future updates to the Field Level Encryption Config.
         :param pulumi.Input[str] comment: An optional comment about the Field Level Encryption Config.
-        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArgs']] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
+        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigContentTypeProfileConfigArrgs']] content_type_profile_config: Content Type Profile Config specifies when to forward content if a content type isn't recognized and profiles to use as by default in a request if a query argument doesn't specify a profile to use.
         :param pulumi.Input[str] etag: The current version of the Field Level Encryption Config. For example: `E2QWRUHAPOMQZL`.
-        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArgs']] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
+        :param pulumi.Input[pulumi.InputType['FieldLevelEncryptionConfigQueryArgProfileConfigArrgs']] query_arg_profile_config: Query Arg Profile Config that specifies when to forward content if a profile isn't found and the profile that can be provided as a query argument in a request.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

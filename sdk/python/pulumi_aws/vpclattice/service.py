@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceArgs', 'Service']
+__all__ = ['ServiceArrgs', 'Service']
 
 @pulumi.input_type
-class ServiceArgs:
+calass ServiceArrgs:
     def __init__(__self__, *,
                  auth_type: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
@@ -106,13 +106,13 @@ class ServiceArgs:
 
 
 @pulumi.input_type
-class _ServiceState:
+calass _ServiceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auth_type: Optional[pulumi.Input[str]] = None,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  custom_domain_name: Optional[pulumi.Input[str]] = None,
-                 dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]]] = None,
+                 dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -123,7 +123,7 @@ class _ServiceState:
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]] dns_entries: Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArrgs']]] dns_entries: Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:
@@ -203,14 +203,14 @@ class _ServiceState:
 
     @property
     @pulumi.getter(name="dnsEntries")
-    def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]]]:
+    def dns_entries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArrgs']]]]:
         """
         Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         """
         return pulumi.get(self, "dns_entries")
 
     @dns_entries.setter
-    def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]]]):
+    def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArrgs']]]]):
         pulumi.set(self, "dns_entries", value)
 
     @property
@@ -267,7 +267,7 @@ class _ServiceState:
         pulumi.set(self, "tags_all", value)
 
 
-class Service(pulumi.CustomResource):
+calass Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -315,7 +315,7 @@ class Service(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ServiceArgs] = None,
+                 args: Optional[ServiceArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS VPC Lattice Service.
@@ -341,12 +341,12 @@ class Service(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -367,7 +367,7 @@ class Service(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceArgs.__new__(ServiceArgs)
+            __props__ = ServiceArrgs.__new__(ServiceArrgs)
 
             __props__.__dict__["auth_type"] = auth_type
             __props__.__dict__["certificate_arn"] = certificate_arn
@@ -394,7 +394,7 @@ class Service(pulumi.CustomResource):
             auth_type: Optional[pulumi.Input[str]] = None,
             certificate_arn: Optional[pulumi.Input[str]] = None,
             custom_domain_name: Optional[pulumi.Input[str]] = None,
-            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']]]]] = None,
+            dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -410,7 +410,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
         :param pulumi.Input[str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[str] custom_domain_name: Custom domain name of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArgs']]]] dns_entries: Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceDnsEntryArrgs']]]] dns_entries: Concise description. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
         :param pulumi.Input[str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
                
                The following arguments are optional:

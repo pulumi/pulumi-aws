@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ListenerArgs', 'Listener']
+__all__ = ['ListenerArrgs', 'Listener']
 
 @pulumi.input_type
-class ListenerArgs:
+calass ListenerArrgs:
     def __init__(__self__, *,
-                 default_action: pulumi.Input['ListenerDefaultActionArgs'],
+                 default_action: pulumi.Input['ListenerDefaultActionArrgs'],
                  protocol: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
@@ -25,7 +25,7 @@ class ListenerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Listener resource.
-        :param pulumi.Input['ListenerDefaultActionArgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
+        :param pulumi.Input['ListenerDefaultActionArrgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
         :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP` or `HTTPS`
         :param pulumi.Input[str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
@@ -49,14 +49,14 @@ class ListenerArgs:
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> pulumi.Input['ListenerDefaultActionArgs']:
+    def default_action(self) -> pulumi.Input['ListenerDefaultActionArrgs']:
         """
         Default action block for the default listener rule. Default action blocks are defined below.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: pulumi.Input['ListenerDefaultActionArgs']):
+    def default_action(self, value: pulumi.Input['ListenerDefaultActionArrgs']):
         pulumi.set(self, "default_action", value)
 
     @property
@@ -134,11 +134,11 @@ class ListenerArgs:
 
 
 @pulumi.input_type
-class _ListenerState:
+calass _ListenerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
-                 default_action: Optional[pulumi.Input['ListenerDefaultActionArgs']] = None,
+                 default_action: Optional[pulumi.Input['ListenerDefaultActionArrgs']] = None,
                  last_updated_at: Optional[pulumi.Input[str]] = None,
                  listener_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _ListenerState:
         Input properties used for looking up and filtering Listener resources.
         :param pulumi.Input[str] arn: ARN of the listener.
         :param pulumi.Input[str] created_at: Date and time that the listener was created, specified in ISO-8601 format.
-        :param pulumi.Input['ListenerDefaultActionArgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
+        :param pulumi.Input['ListenerDefaultActionArrgs'] default_action: Default action block for the default listener rule. Default action blocks are defined below.
         :param pulumi.Input[str] listener_id: Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         :param pulumi.Input[str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
@@ -216,14 +216,14 @@ class _ListenerState:
 
     @property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input['ListenerDefaultActionArgs']]:
+    def default_action(self) -> Optional[pulumi.Input['ListenerDefaultActionArrgs']]:
         """
         Default action block for the default listener rule. Default action blocks are defined below.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input['ListenerDefaultActionArgs']]):
+    def default_action(self, value: Optional[pulumi.Input['ListenerDefaultActionArrgs']]):
         pulumi.set(self, "default_action", value)
 
     @property
@@ -333,12 +333,12 @@ class _ListenerState:
         pulumi.set(self, "tags_all", value)
 
 
-class Listener(pulumi.CustomResource):
+calass Listener(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -359,7 +359,7 @@ class Listener(pulumi.CustomResource):
         test = aws.vpclattice.Service("test")
         example_target_group = aws.vpclattice.TargetGroup("exampleTargetGroup",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 port=80,
                 protocol="HTTP",
                 vpc_identifier=aws_vpc["test"]["id"],
@@ -367,9 +367,9 @@ class Listener(pulumi.CustomResource):
         example_listener = aws.vpclattice.Listener("exampleListener",
             protocol="HTTP",
             service_identifier=aws_vpclattice_service["example"]["id"],
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
-                    target_groups=[aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
+            default_action=aws.vpclattice.ListenerDefaultActionArrgs(
+                forwards=[aws.vpclattice.ListenerDefaultActionForwardArrgs(
+                    target_groups=[aws.vpclattice.ListenerDefaultActionForwardTargetGroupArrgs(
                         target_group_identifier=example_target_group.id,
                     )],
                 )],
@@ -384,14 +384,14 @@ class Listener(pulumi.CustomResource):
         test = aws.vpclattice.Service("test")
         example1 = aws.vpclattice.TargetGroup("example1",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 port=80,
                 protocol="HTTP",
                 vpc_identifier=aws_vpc["test"]["id"],
             ))
         example2 = aws.vpclattice.TargetGroup("example2",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 port=8080,
                 protocol="HTTP",
                 vpc_identifier=aws_vpc["test"]["id"],
@@ -399,14 +399,14 @@ class Listener(pulumi.CustomResource):
         example = aws.vpclattice.Listener("example",
             protocol="HTTP",
             service_identifier=aws_vpclattice_service["example"]["id"],
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
+            default_action=aws.vpclattice.ListenerDefaultActionArrgs(
+                forwards=[aws.vpclattice.ListenerDefaultActionForwardArrgs(
                     target_groups=[
-                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
+                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArrgs(
                             target_group_identifier=example1.id,
                             weight=80,
                         ),
-                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
+                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArrgs(
                             target_group_identifier=example2.id,
                             weight=20,
                         ),
@@ -425,7 +425,7 @@ class Listener(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
+        :param pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
         :param pulumi.Input[str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[str] protocol: Protocol for the listener. Supported values are `HTTP` or `HTTPS`
@@ -438,7 +438,7 @@ class Listener(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ListenerArgs,
+                 args: ListenerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS VPC Lattice Listener.
@@ -453,7 +453,7 @@ class Listener(pulumi.CustomResource):
         test = aws.vpclattice.Service("test")
         example_target_group = aws.vpclattice.TargetGroup("exampleTargetGroup",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 port=80,
                 protocol="HTTP",
                 vpc_identifier=aws_vpc["test"]["id"],
@@ -461,9 +461,9 @@ class Listener(pulumi.CustomResource):
         example_listener = aws.vpclattice.Listener("exampleListener",
             protocol="HTTP",
             service_identifier=aws_vpclattice_service["example"]["id"],
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
-                    target_groups=[aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
+            default_action=aws.vpclattice.ListenerDefaultActionArrgs(
+                forwards=[aws.vpclattice.ListenerDefaultActionForwardArrgs(
+                    target_groups=[aws.vpclattice.ListenerDefaultActionForwardTargetGroupArrgs(
                         target_group_identifier=example_target_group.id,
                     )],
                 )],
@@ -478,14 +478,14 @@ class Listener(pulumi.CustomResource):
         test = aws.vpclattice.Service("test")
         example1 = aws.vpclattice.TargetGroup("example1",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 port=80,
                 protocol="HTTP",
                 vpc_identifier=aws_vpc["test"]["id"],
             ))
         example2 = aws.vpclattice.TargetGroup("example2",
             type="INSTANCE",
-            config=aws.vpclattice.TargetGroupConfigArgs(
+            config=aws.vpclattice.TargetGroupConfigArrgs(
                 port=8080,
                 protocol="HTTP",
                 vpc_identifier=aws_vpc["test"]["id"],
@@ -493,14 +493,14 @@ class Listener(pulumi.CustomResource):
         example = aws.vpclattice.Listener("example",
             protocol="HTTP",
             service_identifier=aws_vpclattice_service["example"]["id"],
-            default_action=aws.vpclattice.ListenerDefaultActionArgs(
-                forwards=[aws.vpclattice.ListenerDefaultActionForwardArgs(
+            default_action=aws.vpclattice.ListenerDefaultActionArrgs(
+                forwards=[aws.vpclattice.ListenerDefaultActionForwardArrgs(
                     target_groups=[
-                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
+                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArrgs(
                             target_group_identifier=example1.id,
                             weight=80,
                         ),
-                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArgs(
+                        aws.vpclattice.ListenerDefaultActionForwardTargetGroupArrgs(
                             target_group_identifier=example2.id,
                             weight=20,
                         ),
@@ -518,12 +518,12 @@ class Listener(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ListenerArgs args: The arguments to use to populate this resource's properties.
+        :param ListenerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ListenerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ListenerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -532,7 +532,7 @@ class Listener(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default_action: Optional[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]] = None,
+                 default_action: Optional[pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -546,7 +546,7 @@ class Listener(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ListenerArgs.__new__(ListenerArgs)
+            __props__ = ListenerArrgs.__new__(ListenerArrgs)
 
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
@@ -578,7 +578,7 @@ class Listener(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
-            default_action: Optional[pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']]] = None,
+            default_action: Optional[pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']]] = None,
             last_updated_at: Optional[pulumi.Input[str]] = None,
             listener_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -597,7 +597,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the listener.
         :param pulumi.Input[str] created_at: Date and time that the listener was created, specified in ISO-8601 format.
-        :param pulumi.Input[pulumi.InputType['ListenerDefaultActionArgs']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
+        :param pulumi.Input[pulumi.InputType['ListenerDefaultActionArrgs']] default_action: Default action block for the default listener rule. Default action blocks are defined below.
         :param pulumi.Input[str] listener_id: Standalone ID of the listener, e.g. `listener-0a1b2c3d4e5f6g`.
         :param pulumi.Input[str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.

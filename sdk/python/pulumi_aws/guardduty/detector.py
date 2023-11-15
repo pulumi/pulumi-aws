@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DetectorArgs', 'Detector']
+__all__ = ['DetectorArrgs', 'Detector']
 
 @pulumi.input_type
-class DetectorArgs:
+calass DetectorArrgs:
     def __init__(__self__, *,
-                 datasources: Optional[pulumi.Input['DetectorDatasourcesArgs']] = None,
+                 datasources: Optional[pulumi.Input['DetectorDatasourcesArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Detector resource.
-        :param pulumi.Input['DetectorDatasourcesArgs'] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
+        :param pulumi.Input['DetectorDatasourcesArrgs'] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -38,14 +38,14 @@ class DetectorArgs:
 
     @property
     @pulumi.getter
-    def datasources(self) -> Optional[pulumi.Input['DetectorDatasourcesArgs']]:
+    def datasources(self) -> Optional[pulumi.Input['DetectorDatasourcesArrgs']]:
         """
         Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         """
         return pulumi.get(self, "datasources")
 
     @datasources.setter
-    def datasources(self, value: Optional[pulumi.Input['DetectorDatasourcesArgs']]):
+    def datasources(self, value: Optional[pulumi.Input['DetectorDatasourcesArrgs']]):
         pulumi.set(self, "datasources", value)
 
     @property
@@ -86,11 +86,11 @@ class DetectorArgs:
 
 
 @pulumi.input_type
-class _DetectorState:
+calass _DetectorState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
-                 datasources: Optional[pulumi.Input['DetectorDatasourcesArgs']] = None,
+                 datasources: Optional[pulumi.Input['DetectorDatasourcesArrgs']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -99,7 +99,7 @@ class _DetectorState:
         Input properties used for looking up and filtering Detector resources.
         :param pulumi.Input[str] account_id: The AWS account ID of the GuardDuty detector
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty detector
-        :param pulumi.Input['DetectorDatasourcesArgs'] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
+        :param pulumi.Input['DetectorDatasourcesArrgs'] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -149,14 +149,14 @@ class _DetectorState:
 
     @property
     @pulumi.getter
-    def datasources(self) -> Optional[pulumi.Input['DetectorDatasourcesArgs']]:
+    def datasources(self) -> Optional[pulumi.Input['DetectorDatasourcesArrgs']]:
         """
         Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         """
         return pulumi.get(self, "datasources")
 
     @datasources.setter
-    def datasources(self, value: Optional[pulumi.Input['DetectorDatasourcesArgs']]):
+    def datasources(self, value: Optional[pulumi.Input['DetectorDatasourcesArrgs']]):
         pulumi.set(self, "datasources", value)
 
     @property
@@ -211,12 +211,12 @@ class _DetectorState:
         pulumi.set(self, "tags_all", value)
 
 
-class Detector(pulumi.CustomResource):
+calass Detector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']]] = None,
+                 datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArrgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -233,20 +233,20 @@ class Detector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_detector = aws.guardduty.Detector("myDetector",
-            datasources=aws.guardduty.DetectorDatasourcesArgs(
-                kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
+            datasources=aws.guardduty.DetectorDatasourcesArrgs(
+                kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArrgs(
+                    audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArrgs(
                         enable=False,
                     ),
                 ),
-                malware_protection=aws.guardduty.DetectorDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
+                malware_protection=aws.guardduty.DetectorDatasourcesMalwareProtectionArrgs(
+                    scan_ec2_instance_with_findings=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs(
+                        ebs_volumes=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs(
                             enable=True,
                         ),
                     ),
                 ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
+                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArrgs(
                     enable=True,
                 ),
             ),
@@ -264,7 +264,7 @@ class Detector(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
+        :param pulumi.Input[pulumi.InputType['DetectorDatasourcesArrgs']] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -273,7 +273,7 @@ class Detector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DetectorArgs] = None,
+                 args: Optional[DetectorArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an Amazon GuardDuty detector.
@@ -287,20 +287,20 @@ class Detector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_detector = aws.guardduty.Detector("myDetector",
-            datasources=aws.guardduty.DetectorDatasourcesArgs(
-                kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArgs(
-                    audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArgs(
+            datasources=aws.guardduty.DetectorDatasourcesArrgs(
+                kubernetes=aws.guardduty.DetectorDatasourcesKubernetesArrgs(
+                    audit_logs=aws.guardduty.DetectorDatasourcesKubernetesAuditLogsArrgs(
                         enable=False,
                     ),
                 ),
-                malware_protection=aws.guardduty.DetectorDatasourcesMalwareProtectionArgs(
-                    scan_ec2_instance_with_findings=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs(
-                        ebs_volumes=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs(
+                malware_protection=aws.guardduty.DetectorDatasourcesMalwareProtectionArrgs(
+                    scan_ec2_instance_with_findings=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArrgs(
+                        ebs_volumes=aws.guardduty.DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArrgs(
                             enable=True,
                         ),
                     ),
                 ),
-                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArgs(
+                s3_logs=aws.guardduty.DetectorDatasourcesS3LogsArrgs(
                     enable=True,
                 ),
             ),
@@ -317,12 +317,12 @@ class Detector(pulumi.CustomResource):
          The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
 
         :param str resource_name: The name of the resource.
-        :param DetectorArgs args: The arguments to use to populate this resource's properties.
+        :param DetectorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DetectorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DetectorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -331,7 +331,7 @@ class Detector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']]] = None,
+                 datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArrgs']]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -342,7 +342,7 @@ class Detector(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DetectorArgs.__new__(DetectorArgs)
+            __props__ = DetectorArrgs.__new__(DetectorArrgs)
 
             __props__.__dict__["datasources"] = datasources
             __props__.__dict__["enable"] = enable
@@ -365,7 +365,7 @@ class Detector(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']]] = None,
+            datasources: Optional[pulumi.Input[pulumi.InputType['DetectorDatasourcesArrgs']]] = None,
             enable: Optional[pulumi.Input[bool]] = None,
             finding_publishing_frequency: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -379,7 +379,7 @@ class Detector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID of the GuardDuty detector
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the GuardDuty detector
-        :param pulumi.Input[pulumi.InputType['DetectorDatasourcesArgs']] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
+        :param pulumi.Input[pulumi.InputType['DetectorDatasourcesArrgs']] datasources: Describes which data sources will be enabled for the detector. See Data Sources below for more details. [Deprecated](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-feature-object-api-changes-march2023.html) in favor of `guardduty.DetectorFeature` resources.
         :param pulumi.Input[bool] enable: Enable monitoring and feedback reporting. Setting to `false` is equivalent to "suspending" GuardDuty. Defaults to `true`.
         :param pulumi.Input[str] finding_publishing_frequency: Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

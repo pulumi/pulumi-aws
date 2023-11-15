@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CertificateValidationArgs', 'CertificateValidation']
+__all__ = ['CertificateValidationArrgs', 'CertificateValidation']
 
 @pulumi.input_type
-class CertificateValidationArgs:
+calass CertificateValidationArrgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[str],
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -51,7 +51,7 @@ class CertificateValidationArgs:
 
 
 @pulumi.input_type
-class _CertificateValidationState:
+calass _CertificateValidationState:
     def __init__(__self__, *,
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  validation_record_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -90,7 +90,7 @@ class _CertificateValidationState:
         pulumi.set(self, "validation_record_fqdns", value)
 
 
-class CertificateValidation(pulumi.CustomResource):
+calass CertificateValidation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +154,7 @@ class CertificateValidation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CertificateValidationArgs,
+                 args: CertificateValidationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This resource represents a successful validation of an ACM certificate in concert
@@ -204,12 +204,12 @@ class CertificateValidation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CertificateValidationArgs args: The arguments to use to populate this resource's properties.
+        :param CertificateValidationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CertificateValidationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateValidationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -227,7 +227,7 @@ class CertificateValidation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CertificateValidationArgs.__new__(CertificateValidationArgs)
+            __props__ = CertificateValidationArrgs.__new__(CertificateValidationArrgs)
 
             if certificate_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_arn'")

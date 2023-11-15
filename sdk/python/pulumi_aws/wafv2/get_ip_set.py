@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIpSetResult:
+calass GetIpSetResult:
     """
     A collection of values returned by getIpSet.
     """
@@ -95,7 +95,7 @@ class GetIpSetResult:
         return pulumi.get(self, "scope")
 
 
-class AwaitableGetIpSetResult(GetIpSetResult):
+calass AwaitableGetIpSetResult(GetIpSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetUserPoolSigningCertificateResult:
+calass GetUserPoolSigningCertificateResult:
     """
     A collection of values returned by getUserPoolSigningCertificate.
     """
@@ -54,7 +54,7 @@ class GetUserPoolSigningCertificateResult:
         return pulumi.get(self, "user_pool_id")
 
 
-class AwaitableGetUserPoolSigningCertificateResult(GetUserPoolSigningCertificateResult):
+calass AwaitableGetUserPoolSigningCertificateResult(GetUserPoolSigningCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

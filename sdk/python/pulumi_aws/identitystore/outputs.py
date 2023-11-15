@@ -34,7 +34,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GroupExternalId(dict):
+calass GroupExternalId(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  issuer: Optional[str] = None):
@@ -65,7 +65,7 @@ class GroupExternalId(dict):
 
 
 @pulumi.output_type
-class UserAddresses(dict):
+calass UserAddresses(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -187,7 +187,7 @@ class UserAddresses(dict):
 
 
 @pulumi.output_type
-class UserEmails(dict):
+calass UserEmails(dict):
     def __init__(__self__, *,
                  primary: Optional[bool] = None,
                  type: Optional[str] = None,
@@ -230,7 +230,7 @@ class UserEmails(dict):
 
 
 @pulumi.output_type
-class UserExternalId(dict):
+calass UserExternalId(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  issuer: Optional[str] = None):
@@ -261,7 +261,7 @@ class UserExternalId(dict):
 
 
 @pulumi.output_type
-class UserName(dict):
+calass UserName(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -367,7 +367,7 @@ class UserName(dict):
 
 
 @pulumi.output_type
-class UserPhoneNumbers(dict):
+calass UserPhoneNumbers(dict):
     def __init__(__self__, *,
                  primary: Optional[bool] = None,
                  type: Optional[str] = None,
@@ -410,13 +410,13 @@ class UserPhoneNumbers(dict):
 
 
 @pulumi.output_type
-class GetGroupAlternateIdentifierResult(dict):
+calass GetGroupAlternateIdentifierResult(dict):
     def __init__(__self__, *,
                  external_id: Optional['outputs.GetGroupAlternateIdentifierExternalIdResult'] = None,
                  unique_attribute: Optional['outputs.GetGroupAlternateIdentifierUniqueAttributeResult'] = None):
         """
-        :param 'GetGroupAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        :param 'GetGroupAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
+        :param 'GetGroupAlternateIdentifierExternalIdArrgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+        :param 'GetGroupAlternateIdentifierUniqueAttributeArrgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
                
                > Exactly one of the above arguments must be provided.
         """
@@ -445,7 +445,7 @@ class GetGroupAlternateIdentifierResult(dict):
 
 
 @pulumi.output_type
-class GetGroupAlternateIdentifierExternalIdResult(dict):
+calass GetGroupAlternateIdentifierExternalIdResult(dict):
     def __init__(__self__, *,
                  id: str,
                  issuer: str):
@@ -474,7 +474,7 @@ class GetGroupAlternateIdentifierExternalIdResult(dict):
 
 
 @pulumi.output_type
-class GetGroupAlternateIdentifierUniqueAttributeResult(dict):
+calass GetGroupAlternateIdentifierUniqueAttributeResult(dict):
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):
@@ -503,7 +503,7 @@ class GetGroupAlternateIdentifierUniqueAttributeResult(dict):
 
 
 @pulumi.output_type
-class GetGroupExternalIdResult(dict):
+calass GetGroupExternalIdResult(dict):
     def __init__(__self__, *,
                  id: str,
                  issuer: str):
@@ -532,7 +532,7 @@ class GetGroupExternalIdResult(dict):
 
 
 @pulumi.output_type
-class GetGroupFilterResult(dict):
+calass GetGroupFilterResult(dict):
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):
@@ -561,7 +561,7 @@ class GetGroupFilterResult(dict):
 
 
 @pulumi.output_type
-class GetUserAddressResult(dict):
+calass GetUserAddressResult(dict):
     def __init__(__self__, *,
                  country: str,
                  formatted: str,
@@ -656,13 +656,13 @@ class GetUserAddressResult(dict):
 
 
 @pulumi.output_type
-class GetUserAlternateIdentifierResult(dict):
+calass GetUserAlternateIdentifierResult(dict):
     def __init__(__self__, *,
                  external_id: Optional['outputs.GetUserAlternateIdentifierExternalIdResult'] = None,
                  unique_attribute: Optional['outputs.GetUserAlternateIdentifierUniqueAttributeResult'] = None):
         """
-        :param 'GetUserAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        :param 'GetUserAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
+        :param 'GetUserAlternateIdentifierExternalIdArrgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+        :param 'GetUserAlternateIdentifierUniqueAttributeArrgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
                
                > Exactly one of the above arguments must be provided.
         """
@@ -691,7 +691,7 @@ class GetUserAlternateIdentifierResult(dict):
 
 
 @pulumi.output_type
-class GetUserAlternateIdentifierExternalIdResult(dict):
+calass GetUserAlternateIdentifierExternalIdResult(dict):
     def __init__(__self__, *,
                  id: str,
                  issuer: str):
@@ -720,7 +720,7 @@ class GetUserAlternateIdentifierExternalIdResult(dict):
 
 
 @pulumi.output_type
-class GetUserAlternateIdentifierUniqueAttributeResult(dict):
+calass GetUserAlternateIdentifierUniqueAttributeResult(dict):
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):
@@ -749,7 +749,7 @@ class GetUserAlternateIdentifierUniqueAttributeResult(dict):
 
 
 @pulumi.output_type
-class GetUserEmailResult(dict):
+calass GetUserEmailResult(dict):
     def __init__(__self__, *,
                  primary: bool,
                  type: str,
@@ -789,7 +789,7 @@ class GetUserEmailResult(dict):
 
 
 @pulumi.output_type
-class GetUserExternalIdResult(dict):
+calass GetUserExternalIdResult(dict):
     def __init__(__self__, *,
                  id: str,
                  issuer: str):
@@ -818,7 +818,7 @@ class GetUserExternalIdResult(dict):
 
 
 @pulumi.output_type
-class GetUserFilterResult(dict):
+calass GetUserFilterResult(dict):
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):
@@ -847,7 +847,7 @@ class GetUserFilterResult(dict):
 
 
 @pulumi.output_type
-class GetUserNameResult(dict):
+calass GetUserNameResult(dict):
     def __init__(__self__, *,
                  family_name: str,
                  formatted: str,
@@ -920,7 +920,7 @@ class GetUserNameResult(dict):
 
 
 @pulumi.output_type
-class GetUserPhoneNumberResult(dict):
+calass GetUserPhoneNumberResult(dict):
     def __init__(__self__, *,
                  primary: bool,
                  type: str,

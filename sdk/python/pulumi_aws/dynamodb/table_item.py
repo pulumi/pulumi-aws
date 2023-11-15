@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TableItemArgs', 'TableItem']
+__all__ = ['TableItemArrgs', 'TableItem']
 
 @pulumi.input_type
-class TableItemArgs:
+calass TableItemArrgs:
     def __init__(__self__, *,
                  hash_key: pulumi.Input[str],
                  item: pulumi.Input[str],
@@ -81,7 +81,7 @@ class TableItemArgs:
 
 
 @pulumi.input_type
-class _TableItemState:
+calass _TableItemState:
     def __init__(__self__, *,
                  hash_key: Optional[pulumi.Input[str]] = None,
                  item: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _TableItemState:
         pulumi.set(self, "table_name", value)
 
 
-class TableItem(pulumi.CustomResource):
+calass TableItem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -178,7 +178,7 @@ class TableItem(pulumi.CustomResource):
             read_capacity=10,
             write_capacity=10,
             hash_key="exampleHashKey",
-            attributes=[aws.dynamodb.TableAttributeArgs(
+            attributes=[aws.dynamodb.TableAttributeArrgs(
                 name="exampleHashKey",
                 type="S",
             )])
@@ -210,7 +210,7 @@ class TableItem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TableItemArgs,
+                 args: TableItemArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DynamoDB table item resource
@@ -228,7 +228,7 @@ class TableItem(pulumi.CustomResource):
             read_capacity=10,
             write_capacity=10,
             hash_key="exampleHashKey",
-            attributes=[aws.dynamodb.TableAttributeArgs(
+            attributes=[aws.dynamodb.TableAttributeArrgs(
                 name="exampleHashKey",
                 type="S",
             )])
@@ -250,12 +250,12 @@ class TableItem(pulumi.CustomResource):
         You cannot import DynamoDB table items.
 
         :param str resource_name: The name of the resource.
-        :param TableItemArgs args: The arguments to use to populate this resource's properties.
+        :param TableItemArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TableItemArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TableItemArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -275,7 +275,7 @@ class TableItem(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TableItemArgs.__new__(TableItemArgs)
+            __props__ = TableItemArrgs.__new__(TableItemArrgs)
 
             if hash_key is None and not opts.urn:
                 raise TypeError("Missing required property 'hash_key'")

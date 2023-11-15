@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class OrganizationAccount(dict):
+calass OrganizationAccount(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  email: Optional[str] = None,
@@ -95,7 +95,7 @@ class OrganizationAccount(dict):
 
 
 @pulumi.output_type
-class OrganizationNonMasterAccount(dict):
+calass OrganizationNonMasterAccount(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  email: Optional[str] = None,
@@ -162,7 +162,7 @@ class OrganizationNonMasterAccount(dict):
 
 
 @pulumi.output_type
-class OrganizationRoot(dict):
+calass OrganizationRoot(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -189,7 +189,7 @@ class OrganizationRoot(dict):
         :param str arn: ARN of the root
         :param str id: Identifier of the root
         :param str name: The name of the policy type
-        :param Sequence['OrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
+        :param Sequence['OrganizationRootPolicyTypeArrgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -234,7 +234,7 @@ class OrganizationRoot(dict):
 
 
 @pulumi.output_type
-class OrganizationRootPolicyType(dict):
+calass OrganizationRootPolicyType(dict):
     def __init__(__self__, *,
                  status: Optional[str] = None,
                  type: Optional[str] = None):
@@ -261,7 +261,7 @@ class OrganizationRootPolicyType(dict):
 
 
 @pulumi.output_type
-class OrganizationalUnitAccount(dict):
+calass OrganizationalUnitAccount(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  email: Optional[str] = None,
@@ -316,7 +316,7 @@ class OrganizationalUnitAccount(dict):
 
 
 @pulumi.output_type
-class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
+calass GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  delegation_enabled_date: str,
@@ -411,7 +411,7 @@ class GetDelegatedAdministratorsDelegatedAdministratorResult(dict):
 
 
 @pulumi.output_type
-class GetDelegatedServicesDelegatedServiceResult(dict):
+calass GetDelegatedServicesDelegatedServiceResult(dict):
     def __init__(__self__, *,
                  delegation_enabled_date: str,
                  service_principal: str):
@@ -440,7 +440,7 @@ class GetDelegatedServicesDelegatedServiceResult(dict):
 
 
 @pulumi.output_type
-class GetOrganizationAccountResult(dict):
+calass GetOrganizationAccountResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  email: str,
@@ -502,7 +502,7 @@ class GetOrganizationAccountResult(dict):
 
 
 @pulumi.output_type
-class GetOrganizationNonMasterAccountResult(dict):
+calass GetOrganizationNonMasterAccountResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  email: str,
@@ -564,7 +564,7 @@ class GetOrganizationNonMasterAccountResult(dict):
 
 
 @pulumi.output_type
-class GetOrganizationRootResult(dict):
+calass GetOrganizationRootResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -574,7 +574,7 @@ class GetOrganizationRootResult(dict):
         :param str arn: ARN of the root
         :param str id: Identifier of the root
         :param str name: The name of the policy type
-        :param Sequence['GetOrganizationRootPolicyTypeArgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
+        :param Sequence['GetOrganizationRootPolicyTypeArrgs'] policy_types: List of policy types enabled for this root. All elements have these attributes:
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "id", id)
@@ -615,7 +615,7 @@ class GetOrganizationRootResult(dict):
 
 
 @pulumi.output_type
-class GetOrganizationRootPolicyTypeResult(dict):
+calass GetOrganizationRootPolicyTypeResult(dict):
     def __init__(__self__, *,
                  status: str,
                  type: str):
@@ -640,7 +640,7 @@ class GetOrganizationRootPolicyTypeResult(dict):
 
 
 @pulumi.output_type
-class GetOrganizationalUnitChildAccountsAccountResult(dict):
+calass GetOrganizationalUnitChildAccountsAccountResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  email: str,
@@ -702,7 +702,7 @@ class GetOrganizationalUnitChildAccountsAccountResult(dict):
 
 
 @pulumi.output_type
-class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
+calass GetOrganizationalUnitDescendantAccountsAccountResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  email: str,
@@ -764,7 +764,7 @@ class GetOrganizationalUnitDescendantAccountsAccountResult(dict):
 
 
 @pulumi.output_type
-class GetOrganizationalUnitsChildResult(dict):
+calass GetOrganizationalUnitsChildResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,

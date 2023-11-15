@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ImageVersionArgs', 'ImageVersion']
+__all__ = ['ImageVersionArrgs', 'ImageVersion']
 
 @pulumi.input_type
-class ImageVersionArgs:
+calass ImageVersionArrgs:
     def __init__(__self__, *,
                  base_image: pulumi.Input[str],
                  image_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ImageVersionArgs:
 
 
 @pulumi.input_type
-class _ImageVersionState:
+calass _ImageVersionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  base_image: Optional[pulumi.Input[str]] = None,
@@ -149,7 +149,7 @@ class _ImageVersionState:
         pulumi.set(self, "version", value)
 
 
-class ImageVersion(pulumi.CustomResource):
+calass ImageVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -189,7 +189,7 @@ class ImageVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ImageVersionArgs,
+                 args: ImageVersionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker Image Version resource.
@@ -215,12 +215,12 @@ class ImageVersion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ImageVersionArgs args: The arguments to use to populate this resource's properties.
+        :param ImageVersionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ImageVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ImageVersionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -238,7 +238,7 @@ class ImageVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ImageVersionArgs.__new__(ImageVersionArgs)
+            __props__ = ImageVersionArrgs.__new__(ImageVersionArrgs)
 
             if base_image is None and not opts.urn:
                 raise TypeError("Missing required property 'base_image'")

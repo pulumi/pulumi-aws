@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NetworkAclArgs', 'NetworkAcl']
+__all__ = ['NetworkAclArrgs', 'NetworkAcl']
 
 @pulumi.input_type
-class NetworkAclArgs:
+calass NetworkAclArrgs:
     def __init__(__self__, *,
                  vpc_id: pulumi.Input[str],
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArrgs']]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArrgs']]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a NetworkAcl resource.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArrgs']]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArrgs']]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -53,26 +53,26 @@ class NetworkAclArgs:
 
     @property
     @pulumi.getter
-    def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]]:
+    def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArrgs']]]]:
         """
         Specifies an egress rule. Parameters defined below.
         """
         return pulumi.get(self, "egress")
 
     @egress.setter
-    def egress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]]):
+    def egress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArrgs']]]]):
         pulumi.set(self, "egress", value)
 
     @property
     @pulumi.getter
-    def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]]:
+    def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArrgs']]]]:
         """
         Specifies an ingress rule. Parameters defined below.
         """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
-    def ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]]):
+    def ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArrgs']]]]):
         pulumi.set(self, "ingress", value)
 
     @property
@@ -101,11 +101,11 @@ class NetworkAclArgs:
 
 
 @pulumi.input_type
-class _NetworkAclState:
+calass _NetworkAclState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArrgs']]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArrgs']]]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -114,8 +114,8 @@ class _NetworkAclState:
         """
         Input properties used for looking up and filtering NetworkAcl resources.
         :param pulumi.Input[str] arn: The ARN of the network ACL
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArrgs']]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArrgs']]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the network ACL.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -156,26 +156,26 @@ class _NetworkAclState:
 
     @property
     @pulumi.getter
-    def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]]:
+    def egress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArrgs']]]]:
         """
         Specifies an egress rule. Parameters defined below.
         """
         return pulumi.get(self, "egress")
 
     @egress.setter
-    def egress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArgs']]]]):
+    def egress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclEgressArrgs']]]]):
         pulumi.set(self, "egress", value)
 
     @property
     @pulumi.getter
-    def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]]:
+    def ingress(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArrgs']]]]:
         """
         Specifies an ingress rule. Parameters defined below.
         """
         return pulumi.get(self, "ingress")
 
     @ingress.setter
-    def ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArgs']]]]):
+    def ingress(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkAclIngressArrgs']]]]):
         pulumi.set(self, "ingress", value)
 
     @property
@@ -242,13 +242,13 @@ class _NetworkAclState:
         pulumi.set(self, "vpc_id", value)
 
 
-class NetworkAcl(pulumi.CustomResource):
+calass NetworkAcl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArrgs']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArrgs']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -275,7 +275,7 @@ class NetworkAcl(pulumi.CustomResource):
 
         main = aws.ec2.NetworkAcl("main",
             vpc_id=aws_vpc["main"]["id"],
-            egress=[aws.ec2.NetworkAclEgressArgs(
+            egress=[aws.ec2.NetworkAclEgressArrgs(
                 protocol="tcp",
                 rule_no=200,
                 action="allow",
@@ -283,7 +283,7 @@ class NetworkAcl(pulumi.CustomResource):
                 from_port=443,
                 to_port=443,
             )],
-            ingress=[aws.ec2.NetworkAclIngressArgs(
+            ingress=[aws.ec2.NetworkAclIngressArrgs(
                 protocol="tcp",
                 rule_no=100,
                 action="allow",
@@ -306,8 +306,8 @@ class NetworkAcl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArrgs']]]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArrgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] vpc_id: The ID of the associated VPC.
@@ -316,7 +316,7 @@ class NetworkAcl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkAclArgs,
+                 args: NetworkAclArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an network ACL resource. You might set up network ACLs with rules similar
@@ -340,7 +340,7 @@ class NetworkAcl(pulumi.CustomResource):
 
         main = aws.ec2.NetworkAcl("main",
             vpc_id=aws_vpc["main"]["id"],
-            egress=[aws.ec2.NetworkAclEgressArgs(
+            egress=[aws.ec2.NetworkAclEgressArrgs(
                 protocol="tcp",
                 rule_no=200,
                 action="allow",
@@ -348,7 +348,7 @@ class NetworkAcl(pulumi.CustomResource):
                 from_port=443,
                 to_port=443,
             )],
-            ingress=[aws.ec2.NetworkAclIngressArgs(
+            ingress=[aws.ec2.NetworkAclIngressArrgs(
                 protocol="tcp",
                 rule_no=100,
                 action="allow",
@@ -370,12 +370,12 @@ class NetworkAcl(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkAclArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkAclArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkAclArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkAclArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -384,8 +384,8 @@ class NetworkAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]]] = None,
-                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]]] = None,
+                 egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArrgs']]]]] = None,
+                 ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArrgs']]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -396,7 +396,7 @@ class NetworkAcl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkAclArgs.__new__(NetworkAclArgs)
+            __props__ = NetworkAclArrgs.__new__(NetworkAclArrgs)
 
             __props__.__dict__["egress"] = egress
             __props__.__dict__["ingress"] = ingress
@@ -421,8 +421,8 @@ class NetworkAcl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]]] = None,
-            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]]] = None,
+            egress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArrgs']]]]] = None,
+            ingress: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArrgs']]]]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -436,8 +436,8 @@ class NetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the network ACL
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArgs']]]] egress: Specifies an egress rule. Parameters defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclEgressArrgs']]]] egress: Specifies an egress rule. Parameters defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkAclIngressArrgs']]]] ingress: Specifies an ingress rule. Parameters defined below.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the network ACL.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of Subnet IDs to apply the ACL to
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

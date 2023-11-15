@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FileSystemPolicyArgs', 'FileSystemPolicy']
+__all__ = ['FileSystemPolicyArrgs', 'FileSystemPolicy']
 
 @pulumi.input_type
-class FileSystemPolicyArgs:
+calass FileSystemPolicyArrgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
                  policy: pulumi.Input[str],
@@ -70,7 +70,7 @@ class FileSystemPolicyArgs:
 
 
 @pulumi.input_type
-class _FileSystemPolicyState:
+calass _FileSystemPolicyState:
     def __init__(__self__, *,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class _FileSystemPolicyState:
         pulumi.set(self, "policy", value)
 
 
-class FileSystemPolicy(pulumi.CustomResource):
+calass FileSystemPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -148,10 +148,10 @@ class FileSystemPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="ExampleStatement01",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["*"],
             )],
@@ -160,7 +160,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                 "elasticfilesystem:ClientWrite",
             ],
             resources=[fs.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="Bool",
                 variable="aws:SecureTransport",
                 values=["true"],
@@ -191,7 +191,7 @@ class FileSystemPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FileSystemPolicyArgs,
+                 args: FileSystemPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic File System (EFS) File System Policy resource.
@@ -203,10 +203,10 @@ class FileSystemPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fs = aws.efs.FileSystem("fs")
-        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="ExampleStatement01",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["*"],
             )],
@@ -215,7 +215,7 @@ class FileSystemPolicy(pulumi.CustomResource):
                 "elasticfilesystem:ClientWrite",
             ],
             resources=[fs.arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="Bool",
                 variable="aws:SecureTransport",
                 values=["true"],
@@ -235,12 +235,12 @@ class FileSystemPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FileSystemPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param FileSystemPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FileSystemPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FileSystemPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -259,7 +259,7 @@ class FileSystemPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FileSystemPolicyArgs.__new__(FileSystemPolicyArgs)
+            __props__ = FileSystemPolicyArrgs.__new__(FileSystemPolicyArrgs)
 
             __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             if file_system_id is None and not opts.urn:

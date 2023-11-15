@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BucketArgs', 'Bucket']
+__all__ = ['BucketArrgs', 'Bucket']
 
 @pulumi.input_type
-class BucketArgs:
+calass BucketArrgs:
     def __init__(__self__, *,
                  bundle_id: pulumi.Input[str],
                  force_delete: Optional[pulumi.Input[bool]] = None,
@@ -83,7 +83,7 @@ class BucketArgs:
 
 
 @pulumi.input_type
-class _BucketState:
+calass _BucketState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -268,7 +268,7 @@ class _BucketState:
         pulumi.set(self, "url", value)
 
 
-class Bucket(pulumi.CustomResource):
+calass Bucket(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -309,7 +309,7 @@ class Bucket(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BucketArgs,
+                 args: BucketArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a lightsail bucket.
@@ -332,12 +332,12 @@ class Bucket(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BucketArgs args: The arguments to use to populate this resource's properties.
+        :param BucketArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BucketArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BucketArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -357,7 +357,7 @@ class Bucket(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BucketArgs.__new__(BucketArgs)
+            __props__ = BucketArrgs.__new__(BucketArrgs)
 
             if bundle_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bundle_id'")

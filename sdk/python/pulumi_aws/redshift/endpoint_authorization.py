@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EndpointAuthorizationArgs', 'EndpointAuthorization']
+__all__ = ['EndpointAuthorizationArrgs', 'EndpointAuthorization']
 
 @pulumi.input_type
-class EndpointAuthorizationArgs:
+calass EndpointAuthorizationArrgs:
     def __init__(__self__, *,
                  account: pulumi.Input[str],
                  cluster_identifier: pulumi.Input[str],
@@ -82,7 +82,7 @@ class EndpointAuthorizationArgs:
 
 
 @pulumi.input_type
-class _EndpointAuthorizationState:
+calass _EndpointAuthorizationState:
     def __init__(__self__, *,
                  account: Optional[pulumi.Input[str]] = None,
                  allowed_all_vpcs: Optional[pulumi.Input[bool]] = None,
@@ -217,7 +217,7 @@ class _EndpointAuthorizationState:
         pulumi.set(self, "vpc_ids", value)
 
 
-class EndpointAuthorization(pulumi.CustomResource):
+calass EndpointAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -260,7 +260,7 @@ class EndpointAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointAuthorizationArgs,
+                 args: EndpointAuthorizationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a new Amazon Redshift endpoint authorization.
@@ -285,12 +285,12 @@ class EndpointAuthorization(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointAuthorizationArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointAuthorizationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointAuthorizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointAuthorizationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -310,7 +310,7 @@ class EndpointAuthorization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointAuthorizationArgs.__new__(EndpointAuthorizationArgs)
+            __props__ = EndpointAuthorizationArrgs.__new__(EndpointAuthorizationArrgs)
 
             if account is None and not opts.urn:
                 raise TypeError("Missing required property 'account'")

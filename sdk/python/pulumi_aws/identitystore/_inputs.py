@@ -10,24 +10,24 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GroupExternalIdArgs',
-    'UserAddressesArgs',
-    'UserEmailsArgs',
-    'UserExternalIdArgs',
-    'UserNameArgs',
-    'UserPhoneNumbersArgs',
-    'GetGroupAlternateIdentifierArgs',
-    'GetGroupAlternateIdentifierExternalIdArgs',
-    'GetGroupAlternateIdentifierUniqueAttributeArgs',
-    'GetGroupFilterArgs',
-    'GetUserAlternateIdentifierArgs',
-    'GetUserAlternateIdentifierExternalIdArgs',
-    'GetUserAlternateIdentifierUniqueAttributeArgs',
-    'GetUserFilterArgs',
+    'GroupExternalIdArrgs',
+    'UserAddressesArrgs',
+    'UserEmailsArrgs',
+    'UserExternalIdArrgs',
+    'UserNameArrgs',
+    'UserPhoneNumbersArrgs',
+    'GetGroupAlternateIdentifierArrgs',
+    'GetGroupAlternateIdentifierExternalIdArrgs',
+    'GetGroupAlternateIdentifierUniqueAttributeArrgs',
+    'GetGroupFilterArrgs',
+    'GetUserAlternateIdentifierArrgs',
+    'GetUserAlternateIdentifierExternalIdArrgs',
+    'GetUserAlternateIdentifierUniqueAttributeArrgs',
+    'GetUserFilterArrgs',
 ]
 
 @pulumi.input_type
-class GroupExternalIdArgs:
+calass GroupExternalIdArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None):
@@ -66,7 +66,7 @@ class GroupExternalIdArgs:
 
 
 @pulumi.input_type
-class UserAddressesArgs:
+calass UserAddressesArrgs:
     def __init__(__self__, *,
                  country: Optional[pulumi.Input[str]] = None,
                  formatted: Optional[pulumi.Input[str]] = None,
@@ -201,7 +201,7 @@ class UserAddressesArgs:
 
 
 @pulumi.input_type
-class UserEmailsArgs:
+calass UserEmailsArrgs:
     def __init__(__self__, *,
                  primary: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -256,7 +256,7 @@ class UserEmailsArgs:
 
 
 @pulumi.input_type
-class UserExternalIdArgs:
+calass UserExternalIdArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  issuer: Optional[pulumi.Input[str]] = None):
@@ -295,7 +295,7 @@ class UserExternalIdArgs:
 
 
 @pulumi.input_type
-class UserNameArgs:
+calass UserNameArrgs:
     def __init__(__self__, *,
                  family_name: pulumi.Input[str],
                  given_name: pulumi.Input[str],
@@ -400,7 +400,7 @@ class UserNameArgs:
 
 
 @pulumi.input_type
-class UserPhoneNumbersArgs:
+calass UserPhoneNumbersArrgs:
     def __init__(__self__, *,
                  primary: Optional[pulumi.Input[bool]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -455,13 +455,13 @@ class UserPhoneNumbersArgs:
 
 
 @pulumi.input_type
-class GetGroupAlternateIdentifierArgs:
+calass GetGroupAlternateIdentifierArrgs:
     def __init__(__self__, *,
-                 external_id: Optional['GetGroupAlternateIdentifierExternalIdArgs'] = None,
-                 unique_attribute: Optional['GetGroupAlternateIdentifierUniqueAttributeArgs'] = None):
+                 external_id: Optional['GetGroupAlternateIdentifierExternalIdArrgs'] = None,
+                 unique_attribute: Optional['GetGroupAlternateIdentifierUniqueAttributeArrgs'] = None):
         """
-        :param 'GetGroupAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        :param 'GetGroupAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
+        :param 'GetGroupAlternateIdentifierExternalIdArrgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+        :param 'GetGroupAlternateIdentifierUniqueAttributeArrgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
                
                > Exactly one of the above arguments must be provided.
         """
@@ -472,19 +472,19 @@ class GetGroupAlternateIdentifierArgs:
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional['GetGroupAlternateIdentifierExternalIdArgs']:
+    def external_id(self) -> Optional['GetGroupAlternateIdentifierExternalIdArrgs']:
         """
         Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional['GetGroupAlternateIdentifierExternalIdArgs']):
+    def external_id(self, value: Optional['GetGroupAlternateIdentifierExternalIdArrgs']):
         pulumi.set(self, "external_id", value)
 
     @property
     @pulumi.getter(name="uniqueAttribute")
-    def unique_attribute(self) -> Optional['GetGroupAlternateIdentifierUniqueAttributeArgs']:
+    def unique_attribute(self) -> Optional['GetGroupAlternateIdentifierUniqueAttributeArrgs']:
         """
         An entity attribute that's unique to a specific entity. Detailed below.
 
@@ -493,12 +493,12 @@ class GetGroupAlternateIdentifierArgs:
         return pulumi.get(self, "unique_attribute")
 
     @unique_attribute.setter
-    def unique_attribute(self, value: Optional['GetGroupAlternateIdentifierUniqueAttributeArgs']):
+    def unique_attribute(self, value: Optional['GetGroupAlternateIdentifierUniqueAttributeArrgs']):
         pulumi.set(self, "unique_attribute", value)
 
 
 @pulumi.input_type
-class GetGroupAlternateIdentifierExternalIdArgs:
+calass GetGroupAlternateIdentifierExternalIdArrgs:
     def __init__(__self__, *,
                  id: str,
                  issuer: str):
@@ -535,7 +535,7 @@ class GetGroupAlternateIdentifierExternalIdArgs:
 
 
 @pulumi.input_type
-class GetGroupAlternateIdentifierUniqueAttributeArgs:
+calass GetGroupAlternateIdentifierUniqueAttributeArrgs:
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):
@@ -572,7 +572,7 @@ class GetGroupAlternateIdentifierUniqueAttributeArgs:
 
 
 @pulumi.input_type
-class GetGroupFilterArgs:
+calass GetGroupFilterArrgs:
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):
@@ -609,13 +609,13 @@ class GetGroupFilterArgs:
 
 
 @pulumi.input_type
-class GetUserAlternateIdentifierArgs:
+calass GetUserAlternateIdentifierArrgs:
     def __init__(__self__, *,
-                 external_id: Optional['GetUserAlternateIdentifierExternalIdArgs'] = None,
-                 unique_attribute: Optional['GetUserAlternateIdentifierUniqueAttributeArgs'] = None):
+                 external_id: Optional['GetUserAlternateIdentifierExternalIdArrgs'] = None,
+                 unique_attribute: Optional['GetUserAlternateIdentifierUniqueAttributeArrgs'] = None):
         """
-        :param 'GetUserAlternateIdentifierExternalIdArgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        :param 'GetUserAlternateIdentifierUniqueAttributeArgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
+        :param 'GetUserAlternateIdentifierExternalIdArrgs' external_id: Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+        :param 'GetUserAlternateIdentifierUniqueAttributeArrgs' unique_attribute: An entity attribute that's unique to a specific entity. Detailed below.
                
                > Exactly one of the above arguments must be provided.
         """
@@ -626,19 +626,19 @@ class GetUserAlternateIdentifierArgs:
 
     @property
     @pulumi.getter(name="externalId")
-    def external_id(self) -> Optional['GetUserAlternateIdentifierExternalIdArgs']:
+    def external_id(self) -> Optional['GetUserAlternateIdentifierExternalIdArrgs']:
         """
         Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
         """
         return pulumi.get(self, "external_id")
 
     @external_id.setter
-    def external_id(self, value: Optional['GetUserAlternateIdentifierExternalIdArgs']):
+    def external_id(self, value: Optional['GetUserAlternateIdentifierExternalIdArrgs']):
         pulumi.set(self, "external_id", value)
 
     @property
     @pulumi.getter(name="uniqueAttribute")
-    def unique_attribute(self) -> Optional['GetUserAlternateIdentifierUniqueAttributeArgs']:
+    def unique_attribute(self) -> Optional['GetUserAlternateIdentifierUniqueAttributeArrgs']:
         """
         An entity attribute that's unique to a specific entity. Detailed below.
 
@@ -647,12 +647,12 @@ class GetUserAlternateIdentifierArgs:
         return pulumi.get(self, "unique_attribute")
 
     @unique_attribute.setter
-    def unique_attribute(self, value: Optional['GetUserAlternateIdentifierUniqueAttributeArgs']):
+    def unique_attribute(self, value: Optional['GetUserAlternateIdentifierUniqueAttributeArrgs']):
         pulumi.set(self, "unique_attribute", value)
 
 
 @pulumi.input_type
-class GetUserAlternateIdentifierExternalIdArgs:
+calass GetUserAlternateIdentifierExternalIdArrgs:
     def __init__(__self__, *,
                  id: str,
                  issuer: str):
@@ -689,7 +689,7 @@ class GetUserAlternateIdentifierExternalIdArgs:
 
 
 @pulumi.input_type
-class GetUserAlternateIdentifierUniqueAttributeArgs:
+calass GetUserAlternateIdentifierUniqueAttributeArrgs:
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):
@@ -726,7 +726,7 @@ class GetUserAlternateIdentifierUniqueAttributeArgs:
 
 
 @pulumi.input_type
-class GetUserFilterArgs:
+calass GetUserFilterArrgs:
     def __init__(__self__, *,
                  attribute_path: str,
                  attribute_value: str):

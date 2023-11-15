@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RolePolicyArgs', 'RolePolicy']
+__all__ = ['RolePolicyArrgs', 'RolePolicy']
 
 @pulumi.input_type
-class RolePolicyArgs:
+calass RolePolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  role: pulumi.Input[str],
@@ -86,7 +86,7 @@ class RolePolicyArgs:
 
 
 @pulumi.input_type
-class _RolePolicyState:
+calass _RolePolicyState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -161,7 +161,7 @@ class _RolePolicyState:
         pulumi.set(self, "role", value)
 
 
-class RolePolicy(pulumi.CustomResource):
+calass RolePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,7 +227,7 @@ class RolePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RolePolicyArgs,
+                 args: RolePolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM role inline policy.
@@ -273,12 +273,12 @@ class RolePolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RolePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param RolePolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RolePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RolePolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -298,7 +298,7 @@ class RolePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RolePolicyArgs.__new__(RolePolicyArgs)
+            __props__ = RolePolicyArrgs.__new__(RolePolicyArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix

@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DeploymentConfigArgs', 'DeploymentConfig']
+__all__ = ['DeploymentConfigArrgs', 'DeploymentConfig']
 
 @pulumi.input_type
-class DeploymentConfigArgs:
+calass DeploymentConfigArrgs:
     def __init__(__self__, *,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
-                 minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
-                 traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None):
+                 minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArrgs']] = None,
+                 traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArrgs']] = None):
         """
         The set of arguments for constructing a DeploymentConfig resource.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
+        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArrgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArrgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         """
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
@@ -62,44 +62,44 @@ class DeploymentConfigArgs:
 
     @property
     @pulumi.getter(name="minimumHealthyHosts")
-    def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]:
+    def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArrgs']]:
         """
         A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @minimum_healthy_hosts.setter
-    def minimum_healthy_hosts(self, value: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]):
+    def minimum_healthy_hosts(self, value: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArrgs']]):
         pulumi.set(self, "minimum_healthy_hosts", value)
 
     @property
     @pulumi.getter(name="trafficRoutingConfig")
-    def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
+    def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArrgs']]:
         """
         A traffic_routing_config block. Traffic Routing Config is documented below.
         """
         return pulumi.get(self, "traffic_routing_config")
 
     @traffic_routing_config.setter
-    def traffic_routing_config(self, value: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]):
+    def traffic_routing_config(self, value: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArrgs']]):
         pulumi.set(self, "traffic_routing_config", value)
 
 
 @pulumi.input_type
-class _DeploymentConfigState:
+calass _DeploymentConfigState:
     def __init__(__self__, *,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  deployment_config_id: Optional[pulumi.Input[str]] = None,
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
-                 minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']] = None,
-                 traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']] = None):
+                 minimum_healthy_hosts: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArrgs']] = None,
+                 traffic_routing_config: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArrgs']] = None):
         """
         Input properties used for looking up and filtering DeploymentConfig resources.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
+        :param pulumi.Input['DeploymentConfigMinimumHealthyHostsArrgs'] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input['DeploymentConfigTrafficRoutingConfigArrgs'] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         """
         if compute_platform is not None:
             pulumi.set(__self__, "compute_platform", compute_platform)
@@ -150,38 +150,38 @@ class _DeploymentConfigState:
 
     @property
     @pulumi.getter(name="minimumHealthyHosts")
-    def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]:
+    def minimum_healthy_hosts(self) -> Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArrgs']]:
         """
         A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
         """
         return pulumi.get(self, "minimum_healthy_hosts")
 
     @minimum_healthy_hosts.setter
-    def minimum_healthy_hosts(self, value: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArgs']]):
+    def minimum_healthy_hosts(self, value: Optional[pulumi.Input['DeploymentConfigMinimumHealthyHostsArrgs']]):
         pulumi.set(self, "minimum_healthy_hosts", value)
 
     @property
     @pulumi.getter(name="trafficRoutingConfig")
-    def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]:
+    def traffic_routing_config(self) -> Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArrgs']]:
         """
         A traffic_routing_config block. Traffic Routing Config is documented below.
         """
         return pulumi.get(self, "traffic_routing_config")
 
     @traffic_routing_config.setter
-    def traffic_routing_config(self, value: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArgs']]):
+    def traffic_routing_config(self, value: Optional[pulumi.Input['DeploymentConfigTrafficRoutingConfigArrgs']]):
         pulumi.set(self, "traffic_routing_config", value)
 
 
-class DeploymentConfig(pulumi.CustomResource):
+calass DeploymentConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
-                 minimum_healthy_hosts: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArgs']]] = None,
-                 traffic_routing_config: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArgs']]] = None,
+                 minimum_healthy_hosts: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArrgs']]] = None,
+                 traffic_routing_config: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArrgs']]] = None,
                  __props__=None):
         """
         Provides a CodeDeploy deployment config for an application
@@ -195,7 +195,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
         foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
             deployment_config_name="test-deployment-config",
-            minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArgs(
+            minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArrgs(
                 type="HOST_COUNT",
                 value=2,
             ))
@@ -204,21 +204,21 @@ class DeploymentConfig(pulumi.CustomResource):
             deployment_group_name="bar",
             service_role_arn=aws_iam_role["foo_role"]["arn"],
             deployment_config_name=foo_deployment_config.id,
-            ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArgs(
+            ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArrgs(
                 key="filterkey",
                 type="KEY_AND_VALUE",
                 value="filtervalue",
             )],
-            trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArgs(
+            trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArrgs(
                 trigger_events=["DeploymentFailure"],
                 trigger_name="foo-trigger",
                 trigger_target_arn="foo-topic-arn",
             )],
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
+            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArrgs(
                 enabled=True,
                 events=["DEPLOYMENT_FAILURE"],
             ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
+            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArrgs(
                 alarms=["my-alarm-name"],
                 enabled=True,
             ))
@@ -232,9 +232,9 @@ class DeploymentConfig(pulumi.CustomResource):
         foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
             deployment_config_name="test-deployment-config",
             compute_platform="Lambda",
-            traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArgs(
+            traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArrgs(
                 type="TimeBasedLinear",
-                time_based_linear=aws.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs(
+                time_based_linear=aws.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArrgs(
                     interval=10,
                     percentage=10,
                 ),
@@ -244,11 +244,11 @@ class DeploymentConfig(pulumi.CustomResource):
             deployment_group_name="bar",
             service_role_arn=aws_iam_role["foo_role"]["arn"],
             deployment_config_name=foo_deployment_config.id,
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
+            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArrgs(
                 enabled=True,
                 events=["DEPLOYMENT_STOP_ON_ALARM"],
             ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
+            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArrgs(
                 alarms=["my-alarm-name"],
                 enabled=True,
             ))
@@ -266,14 +266,14 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArgs']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArgs']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
+        :param pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArrgs']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArrgs']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DeploymentConfigArgs] = None,
+                 args: Optional[DeploymentConfigArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeDeploy deployment config for an application
@@ -287,7 +287,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
         foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
             deployment_config_name="test-deployment-config",
-            minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArgs(
+            minimum_healthy_hosts=aws.codedeploy.DeploymentConfigMinimumHealthyHostsArrgs(
                 type="HOST_COUNT",
                 value=2,
             ))
@@ -296,21 +296,21 @@ class DeploymentConfig(pulumi.CustomResource):
             deployment_group_name="bar",
             service_role_arn=aws_iam_role["foo_role"]["arn"],
             deployment_config_name=foo_deployment_config.id,
-            ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArgs(
+            ec2_tag_filters=[aws.codedeploy.DeploymentGroupEc2TagFilterArrgs(
                 key="filterkey",
                 type="KEY_AND_VALUE",
                 value="filtervalue",
             )],
-            trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArgs(
+            trigger_configurations=[aws.codedeploy.DeploymentGroupTriggerConfigurationArrgs(
                 trigger_events=["DeploymentFailure"],
                 trigger_name="foo-trigger",
                 trigger_target_arn="foo-topic-arn",
             )],
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
+            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArrgs(
                 enabled=True,
                 events=["DEPLOYMENT_FAILURE"],
             ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
+            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArrgs(
                 alarms=["my-alarm-name"],
                 enabled=True,
             ))
@@ -324,9 +324,9 @@ class DeploymentConfig(pulumi.CustomResource):
         foo_deployment_config = aws.codedeploy.DeploymentConfig("fooDeploymentConfig",
             deployment_config_name="test-deployment-config",
             compute_platform="Lambda",
-            traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArgs(
+            traffic_routing_config=aws.codedeploy.DeploymentConfigTrafficRoutingConfigArrgs(
                 type="TimeBasedLinear",
-                time_based_linear=aws.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs(
+                time_based_linear=aws.codedeploy.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArrgs(
                     interval=10,
                     percentage=10,
                 ),
@@ -336,11 +336,11 @@ class DeploymentConfig(pulumi.CustomResource):
             deployment_group_name="bar",
             service_role_arn=aws_iam_role["foo_role"]["arn"],
             deployment_config_name=foo_deployment_config.id,
-            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArgs(
+            auto_rollback_configuration=aws.codedeploy.DeploymentGroupAutoRollbackConfigurationArrgs(
                 enabled=True,
                 events=["DEPLOYMENT_STOP_ON_ALARM"],
             ),
-            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArgs(
+            alarm_configuration=aws.codedeploy.DeploymentGroupAlarmConfigurationArrgs(
                 alarms=["my-alarm-name"],
                 enabled=True,
             ))
@@ -355,12 +355,12 @@ class DeploymentConfig(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DeploymentConfigArgs args: The arguments to use to populate this resource's properties.
+        :param DeploymentConfigArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DeploymentConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DeploymentConfigArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -371,8 +371,8 @@ class DeploymentConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compute_platform: Optional[pulumi.Input[str]] = None,
                  deployment_config_name: Optional[pulumi.Input[str]] = None,
-                 minimum_healthy_hosts: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArgs']]] = None,
-                 traffic_routing_config: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArgs']]] = None,
+                 minimum_healthy_hosts: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArrgs']]] = None,
+                 traffic_routing_config: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -380,7 +380,7 @@ class DeploymentConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DeploymentConfigArgs.__new__(DeploymentConfigArgs)
+            __props__ = DeploymentConfigArrgs.__new__(DeploymentConfigArrgs)
 
             __props__.__dict__["compute_platform"] = compute_platform
             __props__.__dict__["deployment_config_name"] = deployment_config_name
@@ -400,8 +400,8 @@ class DeploymentConfig(pulumi.CustomResource):
             compute_platform: Optional[pulumi.Input[str]] = None,
             deployment_config_id: Optional[pulumi.Input[str]] = None,
             deployment_config_name: Optional[pulumi.Input[str]] = None,
-            minimum_healthy_hosts: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArgs']]] = None,
-            traffic_routing_config: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArgs']]] = None) -> 'DeploymentConfig':
+            minimum_healthy_hosts: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArrgs']]] = None,
+            traffic_routing_config: Optional[pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArrgs']]] = None) -> 'DeploymentConfig':
         """
         Get an existing DeploymentConfig resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -412,8 +412,8 @@ class DeploymentConfig(pulumi.CustomResource):
         :param pulumi.Input[str] compute_platform: The compute platform can be `Server`, `Lambda`, or `ECS`. Default is `Server`.
         :param pulumi.Input[str] deployment_config_id: The AWS Assigned deployment config id
         :param pulumi.Input[str] deployment_config_name: The name of the deployment config.
-        :param pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArgs']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
-        :param pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArgs']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
+        :param pulumi.Input[pulumi.InputType['DeploymentConfigMinimumHealthyHostsArrgs']] minimum_healthy_hosts: A minimum_healthy_hosts block. Required for `Server` compute platform. Minimum Healthy Hosts are documented below.
+        :param pulumi.Input[pulumi.InputType['DeploymentConfigTrafficRoutingConfigArrgs']] traffic_routing_config: A traffic_routing_config block. Traffic Routing Config is documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

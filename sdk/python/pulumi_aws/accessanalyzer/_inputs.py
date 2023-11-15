@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ArchiveRuleFilterArgs',
+    'ArchiveRuleFilterArrgs',
 ]
 
 @pulumi.input_type
-class ArchiveRuleFilterArgs:
+calass ArchiveRuleFilterArrgs:
     def __init__(__self__, *,
                  criteria: pulumi.Input[str],
                  contains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

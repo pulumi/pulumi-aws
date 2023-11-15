@@ -11,18 +11,18 @@ from . import _utilities
 from ._enums import *
 
 __all__ = [
-    'ProviderAssumeRoleArgs',
-    'ProviderAssumeRoleWithWebIdentityArgs',
-    'ProviderDefaultTagsArgs',
-    'ProviderEndpointArgs',
-    'ProviderIgnoreTagsArgs',
-    'GetAvailabilityZoneFilterArgs',
-    'GetAvailabilityZonesFilterArgs',
-    'GetRegionsFilterArgs',
+    'ProviderAssumeRoleArrgs',
+    'ProviderAssumeRoleWithWebIdentityArrgs',
+    'ProviderDefaultTagsArrgs',
+    'ProviderEndpointArrgs',
+    'ProviderIgnoreTagsArrgs',
+    'GetAvailabilityZoneFilterArrgs',
+    'GetAvailabilityZonesFilterArrgs',
+    'GetRegionsFilterArrgs',
 ]
 
 @pulumi.input_type
-class ProviderAssumeRoleArgs:
+calass ProviderAssumeRoleArrgs:
     def __init__(__self__, *,
                  duration: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class ProviderAssumeRoleArgs:
 
 
 @pulumi.input_type
-class ProviderAssumeRoleWithWebIdentityArgs:
+calass ProviderAssumeRoleWithWebIdentityArrgs:
     def __init__(__self__, *,
                  duration: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
@@ -224,7 +224,7 @@ class ProviderAssumeRoleWithWebIdentityArgs:
 
 
 @pulumi.input_type
-class ProviderDefaultTagsArgs:
+calass ProviderDefaultTagsArrgs:
     def __init__(__self__, *,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         if tags is not None:
@@ -241,7 +241,7 @@ class ProviderDefaultTagsArgs:
 
 
 @pulumi.input_type
-class ProviderEndpointArgs:
+calass ProviderEndpointArrgs:
     def __init__(__self__, *,
                  accessanalyzer: Optional[pulumi.Input[str]] = None,
                  account: Optional[pulumi.Input[str]] = None,
@@ -3246,7 +3246,7 @@ class ProviderEndpointArgs:
 
 
 @pulumi.input_type
-class ProviderIgnoreTagsArgs:
+calass ProviderIgnoreTagsArrgs:
     def __init__(__self__, *,
                  key_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -3275,7 +3275,7 @@ class ProviderIgnoreTagsArgs:
 
 
 @pulumi.input_type
-class GetAvailabilityZoneFilterArgs:
+calass GetAvailabilityZoneFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -3312,7 +3312,7 @@ class GetAvailabilityZoneFilterArgs:
 
 
 @pulumi.input_type
-class GetAvailabilityZonesFilterArgs:
+calass GetAvailabilityZonesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -3349,7 +3349,7 @@ class GetAvailabilityZonesFilterArgs:
 
 
 @pulumi.input_type
-class GetRegionsFilterArgs:
+calass GetRegionsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

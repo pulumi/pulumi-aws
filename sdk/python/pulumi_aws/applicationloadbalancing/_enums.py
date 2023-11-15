@@ -10,11 +10,11 @@ __all__ = [
 ]
 
 
-class IpAddressType(str, Enum):
+calass IpAddressType(str, Enum):
     IPV4 = "ipv4"
     DUALSTACK = "dualstack"
 
 
-class LoadBalancerType(str, Enum):
+calass LoadBalancerType(str, Enum):
     APPLICATION = "application"
     NETWORK = "network"

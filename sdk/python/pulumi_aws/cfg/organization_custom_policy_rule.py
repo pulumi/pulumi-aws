@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OrganizationCustomPolicyRuleArgs', 'OrganizationCustomPolicyRule']
+__all__ = ['OrganizationCustomPolicyRuleArrgs', 'OrganizationCustomPolicyRule']
 
 @pulumi.input_type
-class OrganizationCustomPolicyRuleArgs:
+calass OrganizationCustomPolicyRuleArrgs:
     def __init__(__self__, *,
                  policy_runtime: pulumi.Input[str],
                  policy_text: pulumi.Input[str],
@@ -229,7 +229,7 @@ class OrganizationCustomPolicyRuleArgs:
 
 
 @pulumi.input_type
-class _OrganizationCustomPolicyRuleState:
+calass _OrganizationCustomPolicyRuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  debug_log_delivery_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -464,7 +464,7 @@ class _OrganizationCustomPolicyRuleState:
         pulumi.set(self, "trigger_types", value)
 
 
-class OrganizationCustomPolicyRule(pulumi.CustomResource):
+calass OrganizationCustomPolicyRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -545,7 +545,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OrganizationCustomPolicyRuleArgs,
+                 args: OrganizationCustomPolicyRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Config Organization Custom Policy Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Managed Rules (those invoking an AWS managed rule), see the `aws_config_organization_managed__rule` resource.
@@ -588,12 +588,12 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OrganizationCustomPolicyRuleArgs args: The arguments to use to populate this resource's properties.
+        :param OrganizationCustomPolicyRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OrganizationCustomPolicyRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationCustomPolicyRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -622,7 +622,7 @@ class OrganizationCustomPolicyRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OrganizationCustomPolicyRuleArgs.__new__(OrganizationCustomPolicyRuleArgs)
+            __props__ = OrganizationCustomPolicyRuleArrgs.__new__(OrganizationCustomPolicyRuleArrgs)
 
             __props__.__dict__["debug_log_delivery_accounts"] = debug_log_delivery_accounts
             __props__.__dict__["description"] = description

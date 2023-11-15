@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetClustersResult:
+calass GetClustersResult:
     """
     A collection of values returned by getClusters.
     """
@@ -67,7 +67,7 @@ class GetClustersResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetClustersResult(GetClustersResult):
+calass AwaitableGetClustersResult(GetClustersResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -79,7 +79,7 @@ class AwaitableGetClustersResult(GetClustersResult):
             id=self.id)
 
 
-def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterArgs']]] = None,
+def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterArrgs']]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClustersResult:
     """
     Data source for managing an AWS RDS (Relational Database) Clusters.
@@ -91,14 +91,14 @@ def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterA
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.rds.get_clusters(filters=[aws.rds.GetClustersFilterArgs(
+    example = aws.rds.get_clusters(filters=[aws.rds.GetClustersFilterArrgs(
         name="engine",
         values=["aurora-postgresql"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetClustersFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetClustersFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -113,7 +113,7 @@ def get_clusters(filters: Optional[Sequence[pulumi.InputType['GetClustersFilterA
 
 
 @_utilities.lift_output_func(get_clusters)
-def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetClustersFilterArgs']]]]] = None,
+def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetClustersFilterArrgs']]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClustersResult]:
     """
     Data source for managing an AWS RDS (Relational Database) Clusters.
@@ -125,13 +125,13 @@ def get_clusters_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.rds.get_clusters(filters=[aws.rds.GetClustersFilterArgs(
+    example = aws.rds.get_clusters(filters=[aws.rds.GetClustersFilterArrgs(
         name="engine",
         values=["aurora-postgresql"],
     )])
     ```
 
 
-    :param Sequence[pulumi.InputType['GetClustersFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetClustersFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     """
     ...

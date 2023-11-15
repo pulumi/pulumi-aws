@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AdmChannelArgs', 'AdmChannel']
+__all__ = ['AdmChannelArrgs', 'AdmChannel']
 
 @pulumi.input_type
-class AdmChannelArgs:
+calass AdmChannelArrgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  client_id: pulumi.Input[str],
@@ -81,7 +81,7 @@ class AdmChannelArgs:
 
 
 @pulumi.input_type
-class _AdmChannelState:
+calass _AdmChannelState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _AdmChannelState:
         pulumi.set(self, "enabled", value)
 
 
-class AdmChannel(pulumi.CustomResource):
+calass AdmChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -199,7 +199,7 @@ class AdmChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AdmChannelArgs,
+                 args: AdmChannelArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
@@ -228,12 +228,12 @@ class AdmChannel(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AdmChannelArgs args: The arguments to use to populate this resource's properties.
+        :param AdmChannelArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AdmChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AdmChannelArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -253,7 +253,7 @@ class AdmChannel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AdmChannelArgs.__new__(AdmChannelArgs)
+            __props__ = AdmChannelArrgs.__new__(AdmChannelArrgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")

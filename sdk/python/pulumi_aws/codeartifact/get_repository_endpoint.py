@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRepositoryEndpointResult:
+calass GetRepositoryEndpointResult:
     """
     A collection of values returned by getRepositoryEndpoint.
     """
@@ -78,7 +78,7 @@ class GetRepositoryEndpointResult:
         return pulumi.get(self, "repository_endpoint")
 
 
-class AwaitableGetRepositoryEndpointResult(GetRepositoryEndpointResult):
+calass AwaitableGetRepositoryEndpointResult(GetRepositoryEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

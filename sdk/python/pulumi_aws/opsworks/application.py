@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApplicationArgs', 'Application']
+__all__ = ['ApplicationArrgs', 'Application']
 
 @pulumi.input_type
-class ApplicationArgs:
+calass ApplicationArrgs:
     def __init__(__self__, *,
                  stack_id: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 app_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]]] = None,
+                 app_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArrgs']]]] = None,
                  auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
                  aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
                  data_source_arn: Optional[pulumi.Input[str]] = None,
@@ -28,16 +28,16 @@ class ApplicationArgs:
                  document_root: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_ssl: Optional[pulumi.Input[bool]] = None,
-                 environments: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]]] = None,
+                 environments: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rails_env: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
-                 ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]] = None):
+                 ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArrgs']]]] = None):
         """
         The set of arguments for constructing a Application resource.
         :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]] app_sources: SCM configuration of the app as described below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArrgs']]] app_sources: SCM configuration of the app as described below.
         :param pulumi.Input[str] auto_bundle_on_deploy: Run bundle install when deploying for application of type `rails`.
         :param pulumi.Input[str] aws_flow_ruby_settings: Specify activity and workflow workers for your app using the aws-flow gem.
         :param pulumi.Input[str] data_source_arn: The data source's ARN.
@@ -47,11 +47,11 @@ class ApplicationArgs:
         :param pulumi.Input[str] document_root: Subfolder for the document root for application of type `rails`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A list of virtual host alias.
         :param pulumi.Input[bool] enable_ssl: Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]] environments: Object to define environment variables.  Object is described below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArrgs']]] environments: Object to define environment variables.  Object is described below.
         :param pulumi.Input[str] name: A human-readable name for the application.
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]] ssl_configurations: The SSL configuration of the app. Object is described below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArrgs']]] ssl_configurations: The SSL configuration of the app. Object is described below.
         """
         pulumi.set(__self__, "stack_id", stack_id)
         pulumi.set(__self__, "type", type)
@@ -112,14 +112,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter(name="appSources")
-    def app_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]]]:
+    def app_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArrgs']]]]:
         """
         SCM configuration of the app as described below.
         """
         return pulumi.get(self, "app_sources")
 
     @app_sources.setter
-    def app_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]]]):
+    def app_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArrgs']]]]):
         pulumi.set(self, "app_sources", value)
 
     @property
@@ -232,14 +232,14 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter
-    def environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]]]:
+    def environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArrgs']]]]:
         """
         Object to define environment variables.  Object is described below.
         """
         return pulumi.get(self, "environments")
 
     @environments.setter
-    def environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]]]):
+    def environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArrgs']]]]):
         pulumi.set(self, "environments", value)
 
     @property
@@ -280,21 +280,21 @@ class ApplicationArgs:
 
     @property
     @pulumi.getter(name="sslConfigurations")
-    def ssl_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]]:
+    def ssl_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArrgs']]]]:
         """
         The SSL configuration of the app. Object is described below.
         """
         return pulumi.get(self, "ssl_configurations")
 
     @ssl_configurations.setter
-    def ssl_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]]):
+    def ssl_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArrgs']]]]):
         pulumi.set(self, "ssl_configurations", value)
 
 
 @pulumi.input_type
-class _ApplicationState:
+calass _ApplicationState:
     def __init__(__self__, *,
-                 app_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]]] = None,
+                 app_sources: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArrgs']]]] = None,
                  auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
                  aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
                  data_source_arn: Optional[pulumi.Input[str]] = None,
@@ -304,16 +304,16 @@ class _ApplicationState:
                  document_root: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_ssl: Optional[pulumi.Input[bool]] = None,
-                 environments: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]]] = None,
+                 environments: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rails_env: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
-                 ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]] = None,
+                 ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArrgs']]]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Application resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]] app_sources: SCM configuration of the app as described below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArrgs']]] app_sources: SCM configuration of the app as described below.
         :param pulumi.Input[str] auto_bundle_on_deploy: Run bundle install when deploying for application of type `rails`.
         :param pulumi.Input[str] aws_flow_ruby_settings: Specify activity and workflow workers for your app using the aws-flow gem.
         :param pulumi.Input[str] data_source_arn: The data source's ARN.
@@ -323,11 +323,11 @@ class _ApplicationState:
         :param pulumi.Input[str] document_root: Subfolder for the document root for application of type `rails`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A list of virtual host alias.
         :param pulumi.Input[bool] enable_ssl: Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]] environments: Object to define environment variables.  Object is described below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArrgs']]] environments: Object to define environment variables.  Object is described below.
         :param pulumi.Input[str] name: A human-readable name for the application.
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]] ssl_configurations: The SSL configuration of the app. Object is described below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArrgs']]] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         """
@@ -368,14 +368,14 @@ class _ApplicationState:
 
     @property
     @pulumi.getter(name="appSources")
-    def app_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]]]:
+    def app_sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArrgs']]]]:
         """
         SCM configuration of the app as described below.
         """
         return pulumi.get(self, "app_sources")
 
     @app_sources.setter
-    def app_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArgs']]]]):
+    def app_sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationAppSourceArrgs']]]]):
         pulumi.set(self, "app_sources", value)
 
     @property
@@ -488,14 +488,14 @@ class _ApplicationState:
 
     @property
     @pulumi.getter
-    def environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]]]:
+    def environments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArrgs']]]]:
         """
         Object to define environment variables.  Object is described below.
         """
         return pulumi.get(self, "environments")
 
     @environments.setter
-    def environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArgs']]]]):
+    def environments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationEnvironmentArrgs']]]]):
         pulumi.set(self, "environments", value)
 
     @property
@@ -536,14 +536,14 @@ class _ApplicationState:
 
     @property
     @pulumi.getter(name="sslConfigurations")
-    def ssl_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]]:
+    def ssl_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArrgs']]]]:
         """
         The SSL configuration of the app. Object is described below.
         """
         return pulumi.get(self, "ssl_configurations")
 
     @ssl_configurations.setter
-    def ssl_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArgs']]]]):
+    def ssl_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSslConfigurationArrgs']]]]):
         pulumi.set(self, "ssl_configurations", value)
 
     @property
@@ -571,12 +571,12 @@ class _ApplicationState:
         pulumi.set(self, "type", value)
 
 
-class Application(pulumi.CustomResource):
+calass Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]]] = None,
+                 app_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArrgs']]]]] = None,
                  auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
                  aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
                  data_source_arn: Optional[pulumi.Input[str]] = None,
@@ -586,11 +586,11 @@ class Application(pulumi.CustomResource):
                  document_root: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_ssl: Optional[pulumi.Input[bool]] = None,
-                 environments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]]] = None,
+                 environments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rails_env: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
-                 ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]]] = None,
+                 ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArrgs']]]]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -612,18 +612,18 @@ class Application(pulumi.CustomResource):
                 "example.com",
                 "sub.example.com",
             ],
-            environments=[aws.opsworks.ApplicationEnvironmentArgs(
+            environments=[aws.opsworks.ApplicationEnvironmentArrgs(
                 key="key",
                 value="value",
                 secure=False,
             )],
-            app_sources=[aws.opsworks.ApplicationAppSourceArgs(
+            app_sources=[aws.opsworks.ApplicationAppSourceArrgs(
                 type="git",
                 revision="master",
                 url="https://github.com/example.git",
             )],
             enable_ssl=True,
-            ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArgs(
+            ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArrgs(
                 private_key=(lambda path: open(path).read())("./foobar.key"),
                 certificate=(lambda path: open(path).read())("./foobar.crt"),
             )],
@@ -642,7 +642,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]] app_sources: SCM configuration of the app as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArrgs']]]] app_sources: SCM configuration of the app as described below.
         :param pulumi.Input[str] auto_bundle_on_deploy: Run bundle install when deploying for application of type `rails`.
         :param pulumi.Input[str] aws_flow_ruby_settings: Specify activity and workflow workers for your app using the aws-flow gem.
         :param pulumi.Input[str] data_source_arn: The data source's ARN.
@@ -652,11 +652,11 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] document_root: Subfolder for the document root for application of type `rails`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A list of virtual host alias.
         :param pulumi.Input[bool] enable_ssl: Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]] environments: Object to define environment variables.  Object is described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArrgs']]]] environments: Object to define environment variables.  Object is described below.
         :param pulumi.Input[str] name: A human-readable name for the application.
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]] ssl_configurations: The SSL configuration of the app. Object is described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArrgs']]]] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         """
@@ -664,7 +664,7 @@ class Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationArgs,
+                 args: ApplicationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an OpsWorks application resource.
@@ -684,18 +684,18 @@ class Application(pulumi.CustomResource):
                 "example.com",
                 "sub.example.com",
             ],
-            environments=[aws.opsworks.ApplicationEnvironmentArgs(
+            environments=[aws.opsworks.ApplicationEnvironmentArrgs(
                 key="key",
                 value="value",
                 secure=False,
             )],
-            app_sources=[aws.opsworks.ApplicationAppSourceArgs(
+            app_sources=[aws.opsworks.ApplicationAppSourceArrgs(
                 type="git",
                 revision="master",
                 url="https://github.com/example.git",
             )],
             enable_ssl=True,
-            ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArgs(
+            ssl_configurations=[aws.opsworks.ApplicationSslConfigurationArrgs(
                 private_key=(lambda path: open(path).read())("./foobar.key"),
                 certificate=(lambda path: open(path).read())("./foobar.crt"),
             )],
@@ -713,12 +713,12 @@ class Application(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -727,7 +727,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]]] = None,
+                 app_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArrgs']]]]] = None,
                  auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
                  aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
                  data_source_arn: Optional[pulumi.Input[str]] = None,
@@ -737,11 +737,11 @@ class Application(pulumi.CustomResource):
                  document_root: Optional[pulumi.Input[str]] = None,
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_ssl: Optional[pulumi.Input[bool]] = None,
-                 environments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]]] = None,
+                 environments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rails_env: Optional[pulumi.Input[str]] = None,
                  short_name: Optional[pulumi.Input[str]] = None,
-                 ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]]] = None,
+                 ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArrgs']]]]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -751,7 +751,7 @@ class Application(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationArgs.__new__(ApplicationArgs)
+            __props__ = ApplicationArrgs.__new__(ApplicationArrgs)
 
             __props__.__dict__["app_sources"] = app_sources
             __props__.__dict__["auto_bundle_on_deploy"] = auto_bundle_on_deploy
@@ -784,7 +784,7 @@ class Application(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            app_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]]] = None,
+            app_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArrgs']]]]] = None,
             auto_bundle_on_deploy: Optional[pulumi.Input[str]] = None,
             aws_flow_ruby_settings: Optional[pulumi.Input[str]] = None,
             data_source_arn: Optional[pulumi.Input[str]] = None,
@@ -794,11 +794,11 @@ class Application(pulumi.CustomResource):
             document_root: Optional[pulumi.Input[str]] = None,
             domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enable_ssl: Optional[pulumi.Input[bool]] = None,
-            environments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]]] = None,
+            environments: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rails_env: Optional[pulumi.Input[str]] = None,
             short_name: Optional[pulumi.Input[str]] = None,
-            ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]]] = None,
+            ssl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArrgs']]]]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'Application':
         """
@@ -808,7 +808,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArgs']]]] app_sources: SCM configuration of the app as described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationAppSourceArrgs']]]] app_sources: SCM configuration of the app as described below.
         :param pulumi.Input[str] auto_bundle_on_deploy: Run bundle install when deploying for application of type `rails`.
         :param pulumi.Input[str] aws_flow_ruby_settings: Specify activity and workflow workers for your app using the aws-flow gem.
         :param pulumi.Input[str] data_source_arn: The data source's ARN.
@@ -818,11 +818,11 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] document_root: Subfolder for the document root for application of type `rails`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] domains: A list of virtual host alias.
         :param pulumi.Input[bool] enable_ssl: Whether to enable SSL for the app. This must be set in order to let `ssl_configuration.private_key`, `ssl_configuration.certificate` and `ssl_configuration.chain` take effect.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArgs']]]] environments: Object to define environment variables.  Object is described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationEnvironmentArrgs']]]] environments: Object to define environment variables.  Object is described below.
         :param pulumi.Input[str] name: A human-readable name for the application.
         :param pulumi.Input[str] rails_env: The name of the Rails environment for application of type `rails`.
         :param pulumi.Input[str] short_name: A short, machine-readable name for the application. This can only be defined on resource creation and ignored on resource update.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArgs']]]] ssl_configurations: The SSL configuration of the app. Object is described below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSslConfigurationArrgs']]]] ssl_configurations: The SSL configuration of the app. Object is described below.
         :param pulumi.Input[str] stack_id: ID of the stack the application will belong to.
         :param pulumi.Input[str] type: Opsworks application type. One of `aws-flow-ruby`, `java`, `rails`, `php`, `nodejs`, `static` or `other`.
         """

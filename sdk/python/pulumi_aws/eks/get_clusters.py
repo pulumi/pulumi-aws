@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetClustersResult:
+calass GetClustersResult:
     """
     A collection of values returned by getClusters.
     """
@@ -46,7 +46,7 @@ class GetClustersResult:
         return pulumi.get(self, "names")
 
 
-class AwaitableGetClustersResult(GetClustersResult):
+calass AwaitableGetClustersResult(GetClustersResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

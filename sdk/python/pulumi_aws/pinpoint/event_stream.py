@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventStreamArgs', 'EventStream']
+__all__ = ['EventStreamArrgs', 'EventStream']
 
 @pulumi.input_type
-class EventStreamArgs:
+calass EventStreamArrgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  destination_stream_arn: pulumi.Input[str],
@@ -65,7 +65,7 @@ class EventStreamArgs:
 
 
 @pulumi.input_type
-class _EventStreamState:
+calass _EventStreamState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  destination_stream_arn: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _EventStreamState:
         pulumi.set(self, "role_arn", value)
 
 
-class EventStream(pulumi.CustomResource):
+calass EventStream(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -140,9 +140,9 @@ class EventStream(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["pinpoint.us-east-1.amazonaws.com"],
             )],
@@ -153,7 +153,7 @@ class EventStream(pulumi.CustomResource):
             application_id=app.application_id,
             destination_stream_arn=test_stream.arn,
             role_arn=test_role.arn)
-        test_role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "kinesis:PutRecords",
@@ -184,7 +184,7 @@ class EventStream(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventStreamArgs,
+                 args: EventStreamArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Pinpoint Event Stream resource.
@@ -197,9 +197,9 @@ class EventStream(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         test_stream = aws.kinesis.Stream("testStream", shard_count=1)
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["pinpoint.us-east-1.amazonaws.com"],
             )],
@@ -210,7 +210,7 @@ class EventStream(pulumi.CustomResource):
             application_id=app.application_id,
             destination_stream_arn=test_stream.arn,
             role_arn=test_role.arn)
-        test_role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "kinesis:PutRecords",
@@ -232,12 +232,12 @@ class EventStream(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventStreamArgs args: The arguments to use to populate this resource's properties.
+        :param EventStreamArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventStreamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventStreamArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -256,7 +256,7 @@ class EventStream(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventStreamArgs.__new__(EventStreamArgs)
+            __props__ = EventStreamArrgs.__new__(EventStreamArrgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")

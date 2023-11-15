@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSecretRotationResult:
+calass GetSecretRotationResult:
     """
     A collection of values returned by getSecretRotation.
     """
@@ -77,7 +77,7 @@ class GetSecretRotationResult:
         return pulumi.get(self, "secret_id")
 
 
-class AwaitableGetSecretRotationResult(GetSecretRotationResult):
+calass AwaitableGetSecretRotationResult(GetSecretRotationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

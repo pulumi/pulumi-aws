@@ -10,36 +10,36 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'RuleLockConfigurationArgs',
-    'RuleLockConfigurationUnlockDelayArgs',
-    'RuleResourceTagArgs',
-    'RuleRetentionPeriodArgs',
+    'RuleLockConfigurationArrgs',
+    'RuleLockConfigurationUnlockDelayArrgs',
+    'RuleResourceTagArrgs',
+    'RuleRetentionPeriodArrgs',
 ]
 
 @pulumi.input_type
-class RuleLockConfigurationArgs:
+calass RuleLockConfigurationArrgs:
     def __init__(__self__, *,
-                 unlock_delay: pulumi.Input['RuleLockConfigurationUnlockDelayArgs']):
+                 unlock_delay: pulumi.Input['RuleLockConfigurationUnlockDelayArrgs']):
         """
-        :param pulumi.Input['RuleLockConfigurationUnlockDelayArgs'] unlock_delay: Information about the retention rule unlock delay. See `unlock_delay` below.
+        :param pulumi.Input['RuleLockConfigurationUnlockDelayArrgs'] unlock_delay: Information about the retention rule unlock delay. See `unlock_delay` below.
         """
         pulumi.set(__self__, "unlock_delay", unlock_delay)
 
     @property
     @pulumi.getter(name="unlockDelay")
-    def unlock_delay(self) -> pulumi.Input['RuleLockConfigurationUnlockDelayArgs']:
+    def unlock_delay(self) -> pulumi.Input['RuleLockConfigurationUnlockDelayArrgs']:
         """
         Information about the retention rule unlock delay. See `unlock_delay` below.
         """
         return pulumi.get(self, "unlock_delay")
 
     @unlock_delay.setter
-    def unlock_delay(self, value: pulumi.Input['RuleLockConfigurationUnlockDelayArgs']):
+    def unlock_delay(self, value: pulumi.Input['RuleLockConfigurationUnlockDelayArrgs']):
         pulumi.set(self, "unlock_delay", value)
 
 
 @pulumi.input_type
-class RuleLockConfigurationUnlockDelayArgs:
+calass RuleLockConfigurationUnlockDelayArrgs:
     def __init__(__self__, *,
                  unlock_delay_unit: pulumi.Input[str],
                  unlock_delay_value: pulumi.Input[int]):
@@ -76,7 +76,7 @@ class RuleLockConfigurationUnlockDelayArgs:
 
 
 @pulumi.input_type
-class RuleResourceTagArgs:
+calass RuleResourceTagArrgs:
     def __init__(__self__, *,
                  resource_tag_key: pulumi.Input[str],
                  resource_tag_value: Optional[pulumi.Input[str]] = None):
@@ -118,7 +118,7 @@ class RuleResourceTagArgs:
 
 
 @pulumi.input_type
-class RuleRetentionPeriodArgs:
+calass RuleRetentionPeriodArrgs:
     def __init__(__self__, *,
                  retention_period_unit: pulumi.Input[str],
                  retention_period_value: pulumi.Input[int]):

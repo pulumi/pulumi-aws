@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterParameterGroupParameterArgs',
-    'GlobalClusterGlobalClusterMemberArgs',
+    'ClusterParameterGroupParameterArrgs',
+    'GlobalClusterGlobalClusterMemberArrgs',
 ]
 
 @pulumi.input_type
-class ClusterParameterGroupParameterArgs:
+calass ClusterParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -68,7 +68,7 @@ class ClusterParameterGroupParameterArgs:
 
 
 @pulumi.input_type
-class GlobalClusterGlobalClusterMemberArgs:
+calass GlobalClusterGlobalClusterMemberArrgs:
     def __init__(__self__, *,
                  db_cluster_arn: Optional[pulumi.Input[str]] = None,
                  is_writer: Optional[pulumi.Input[bool]] = None):

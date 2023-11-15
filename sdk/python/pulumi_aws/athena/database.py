@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatabaseArgs', 'Database']
+__all__ = ['DatabaseArrgs', 'Database']
 
 @pulumi.input_type
-class DatabaseArgs:
+calass DatabaseArrgs:
     def __init__(__self__, *,
-                 acl_configuration: Optional[pulumi.Input['DatabaseAclConfigurationArgs']] = None,
+                 acl_configuration: Optional[pulumi.Input['DatabaseAclConfigurationArrgs']] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
+                 encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArrgs']] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Database resource.
-        :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param pulumi.Input['DatabaseAclConfigurationArrgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[str] comment: Description of the database.
-        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        :param pulumi.Input['DatabaseEncryptionConfigurationArrgs'] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
@@ -54,14 +54,14 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter(name="aclConfiguration")
-    def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArgs']]:
+    def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArrgs']]:
         """
         That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
-    def acl_configuration(self, value: Optional[pulumi.Input['DatabaseAclConfigurationArgs']]):
+    def acl_configuration(self, value: Optional[pulumi.Input['DatabaseAclConfigurationArrgs']]):
         pulumi.set(self, "acl_configuration", value)
 
     @property
@@ -90,14 +90,14 @@ class DatabaseArgs:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArrgs']]:
         """
         Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: Optional[pulumi.Input['DatabaseEncryptionConfigurationArrgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
@@ -150,22 +150,22 @@ class DatabaseArgs:
 
 
 @pulumi.input_type
-class _DatabaseState:
+calass _DatabaseState:
     def __init__(__self__, *,
-                 acl_configuration: Optional[pulumi.Input['DatabaseAclConfigurationArgs']] = None,
+                 acl_configuration: Optional[pulumi.Input['DatabaseAclConfigurationArrgs']] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
+                 encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArrgs']] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
-        :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param pulumi.Input['DatabaseAclConfigurationArrgs'] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[str] comment: Description of the database.
-        :param pulumi.Input['DatabaseEncryptionConfigurationArgs'] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        :param pulumi.Input['DatabaseEncryptionConfigurationArrgs'] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
@@ -190,14 +190,14 @@ class _DatabaseState:
 
     @property
     @pulumi.getter(name="aclConfiguration")
-    def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArgs']]:
+    def acl_configuration(self) -> Optional[pulumi.Input['DatabaseAclConfigurationArrgs']]:
         """
         That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         """
         return pulumi.get(self, "acl_configuration")
 
     @acl_configuration.setter
-    def acl_configuration(self, value: Optional[pulumi.Input['DatabaseAclConfigurationArgs']]):
+    def acl_configuration(self, value: Optional[pulumi.Input['DatabaseAclConfigurationArrgs']]):
         pulumi.set(self, "acl_configuration", value)
 
     @property
@@ -226,14 +226,14 @@ class _DatabaseState:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> Optional[pulumi.Input['DatabaseEncryptionConfigurationArrgs']]:
         """
         Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: Optional[pulumi.Input['DatabaseEncryptionConfigurationArrgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
@@ -285,15 +285,15 @@ class _DatabaseState:
         pulumi.set(self, "properties", value)
 
 
-class Database(pulumi.CustomResource):
+calass Database(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']]] = None,
+                 acl_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArrgs']]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArrgs']]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -325,10 +325,10 @@ class Database(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArrgs']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[str] comment: Description of the database.
-        :param pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        :param pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArrgs']] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
@@ -338,7 +338,7 @@ class Database(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DatabaseArgs] = None,
+                 args: Optional[DatabaseArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Athena database.
@@ -365,12 +365,12 @@ class Database(pulumi.CustomResource):
          Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
-        :param DatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param DatabaseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatabaseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -379,10 +379,10 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 acl_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']]] = None,
+                 acl_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArrgs']]] = None,
                  bucket: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArrgs']]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -394,7 +394,7 @@ class Database(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatabaseArgs.__new__(DatabaseArgs)
+            __props__ = DatabaseArrgs.__new__(DatabaseArrgs)
 
             __props__.__dict__["acl_configuration"] = acl_configuration
             __props__.__dict__["bucket"] = bucket
@@ -414,10 +414,10 @@ class Database(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            acl_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']]] = None,
+            acl_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArrgs']]] = None,
             bucket: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
-            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']]] = None,
+            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArrgs']]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -429,10 +429,10 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArrgs']] acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
         :param pulumi.Input[str] bucket: Name of S3 bucket to save the results of the query execution.
         :param pulumi.Input[str] comment: Description of the database.
-        :param pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+        :param pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArrgs']] encryption_configuration: Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
         :param pulumi.Input[str] expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[bool] force_destroy: Boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.

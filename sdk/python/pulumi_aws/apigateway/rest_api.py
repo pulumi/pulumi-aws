@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RestApiArgs', 'RestApi']
+__all__ = ['RestApiArrgs', 'RestApi']
 
 @pulumi.input_type
-class RestApiArgs:
+calass RestApiArrgs:
     def __init__(__self__, *,
                  api_key_source: Optional[pulumi.Input[str]] = None,
                  binary_media_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
+                 endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArrgs']] = None,
                  fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class RestApiArgs:
         :param pulumi.Input[str] body: OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         :param pulumi.Input[str] description: Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-        :param pulumi.Input['RestApiEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
+        :param pulumi.Input['RestApiEndpointConfigurationArrgs'] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[bool] fail_on_warnings: Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         :param pulumi.Input[str] minimum_compression_size: Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[str] name: Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -134,14 +134,14 @@ class RestApiArgs:
 
     @property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]:
+    def endpoint_configuration(self) -> Optional[pulumi.Input['RestApiEndpointConfigurationArrgs']]:
         """
         Configuration block defining API endpoint configuration including endpoint type. Defined below.
         """
         return pulumi.get(self, "endpoint_configuration")
 
     @endpoint_configuration.setter
-    def endpoint_configuration(self, value: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]):
+    def endpoint_configuration(self, value: Optional[pulumi.Input['RestApiEndpointConfigurationArrgs']]):
         pulumi.set(self, "endpoint_configuration", value)
 
     @property
@@ -230,7 +230,7 @@ class RestApiArgs:
 
 
 @pulumi.input_type
-class _RestApiState:
+calass _RestApiState:
     def __init__(__self__, *,
                  api_key_source: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -239,7 +239,7 @@ class _RestApiState:
                  created_date: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']] = None,
+                 endpoint_configuration: Optional[pulumi.Input['RestApiEndpointConfigurationArrgs']] = None,
                  execution_arn: Optional[pulumi.Input[str]] = None,
                  fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[str]] = None,
@@ -259,7 +259,7 @@ class _RestApiState:
         :param pulumi.Input[str] created_date: Creation date of the REST API
         :param pulumi.Input[str] description: Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-        :param pulumi.Input['RestApiEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
+        :param pulumi.Input['RestApiEndpointConfigurationArrgs'] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[str] execution_arn: Execution ARN part to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
@@ -399,14 +399,14 @@ class _RestApiState:
 
     @property
     @pulumi.getter(name="endpointConfiguration")
-    def endpoint_configuration(self) -> Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]:
+    def endpoint_configuration(self) -> Optional[pulumi.Input['RestApiEndpointConfigurationArrgs']]:
         """
         Configuration block defining API endpoint configuration including endpoint type. Defined below.
         """
         return pulumi.get(self, "endpoint_configuration")
 
     @endpoint_configuration.setter
-    def endpoint_configuration(self, value: Optional[pulumi.Input['RestApiEndpointConfigurationArgs']]):
+    def endpoint_configuration(self, value: Optional[pulumi.Input['RestApiEndpointConfigurationArrgs']]):
         pulumi.set(self, "endpoint_configuration", value)
 
     @property
@@ -535,7 +535,7 @@ class _RestApiState:
         pulumi.set(self, "tags_all", value)
 
 
-class RestApi(pulumi.CustomResource):
+calass RestApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -545,7 +545,7 @@ class RestApi(pulumi.CustomResource):
                  body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
+                 endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArrgs']]] = None,
                  fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -616,7 +616,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[str] body: OpenAPI specification that defines the set of routes and integrations to create as part of the REST API. This configuration, and any updates to it, will replace all REST API configuration except values overridden in this resource configuration and other resource updates applied after this resource but before any `apigateway.Deployment` creation. More information about REST API OpenAPI support can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
         :param pulumi.Input[str] description: Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-        :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
+        :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArrgs']] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[bool] fail_on_warnings: Whether warnings while API Gateway is creating or updating the resource should return an error or not. Defaults to `false`
         :param pulumi.Input[str] minimum_compression_size: Minimum response size to compress for the REST API. String containing an integer value between `-1` and `10485760` (10MB). `-1` will disable an existing compression configuration, and all other values will enable compression with the configured size. New resources can simply omit this argument to disable compression, rather than setting the value to `-1`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[str] name: Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
@@ -629,7 +629,7 @@ class RestApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[RestApiArgs] = None,
+                 args: Optional[RestApiArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Gateway REST API. The REST API can be configured via [importing an OpenAPI specification](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html) in the `body` argument (with other arguments serving as overrides) or via other provider resources to manage the resources (`apigateway.Resource` resource), methods (`apigateway.Method` resource), integrations (`apigateway.Integration` resource), etc. of the REST API. Once the REST API is configured, the `apigateway.Deployment` resource can be used along with the `apigateway.Stage` resource to publish the REST API.
@@ -687,12 +687,12 @@ class RestApi(pulumi.CustomResource):
          ~> __NOTE:__ Resource import does not currently support the `body` attribute.
 
         :param str resource_name: The name of the resource.
-        :param RestApiArgs args: The arguments to use to populate this resource's properties.
+        :param RestApiArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RestApiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RestApiArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -706,7 +706,7 @@ class RestApi(pulumi.CustomResource):
                  body: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-                 endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
+                 endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArrgs']]] = None,
                  fail_on_warnings: Optional[pulumi.Input[bool]] = None,
                  minimum_compression_size: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -721,7 +721,7 @@ class RestApi(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RestApiArgs.__new__(RestApiArgs)
+            __props__ = RestApiArrgs.__new__(RestApiArrgs)
 
             __props__.__dict__["api_key_source"] = api_key_source
             __props__.__dict__["binary_media_types"] = binary_media_types
@@ -760,7 +760,7 @@ class RestApi(pulumi.CustomResource):
             created_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
-            endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']]] = None,
+            endpoint_configuration: Optional[pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArrgs']]] = None,
             execution_arn: Optional[pulumi.Input[str]] = None,
             fail_on_warnings: Optional[pulumi.Input[bool]] = None,
             minimum_compression_size: Optional[pulumi.Input[str]] = None,
@@ -785,7 +785,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[str] created_date: Creation date of the REST API
         :param pulumi.Input[str] description: Description of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.description` field. If the argument value is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke your API by using the default execute-api endpoint. By default, clients can invoke your API with the default https://{api_id}.execute-api.{region}.amazonaws.com endpoint. To require that clients use a custom domain name to invoke your API, disable the default endpoint. Defaults to `false`. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `disableExecuteApiEndpoint` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is `true` and is different than the OpenAPI value, the argument value will override the OpenAPI value.
-        :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
+        :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArrgs']] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[str] execution_arn: Execution ARN part to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
                e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.

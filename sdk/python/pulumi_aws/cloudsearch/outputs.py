@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DomainEndpointOptions(dict):
+calass DomainEndpointOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -66,7 +66,7 @@ class DomainEndpointOptions(dict):
 
 
 @pulumi.output_type
-class DomainIndexField(dict):
+calass DomainIndexField(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -214,7 +214,7 @@ class DomainIndexField(dict):
 
 
 @pulumi.output_type
-class DomainScalingParameters(dict):
+calass DomainScalingParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

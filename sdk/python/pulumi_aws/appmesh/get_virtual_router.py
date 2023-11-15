@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualRouterResult:
+calass GetVirtualRouterResult:
     """
     A collection of values returned by getVirtualRouter.
     """
@@ -126,7 +126,7 @@ class GetVirtualRouterResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetVirtualRouterResult(GetVirtualRouterResult):
+calass AwaitableGetVirtualRouterResult(GetVirtualRouterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

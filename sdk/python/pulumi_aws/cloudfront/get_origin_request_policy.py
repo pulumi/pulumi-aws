@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOriginRequestPolicyResult:
+calass GetOriginRequestPolicyResult:
     """
     A collection of values returned by getOriginRequestPolicy.
     """
@@ -96,7 +96,7 @@ class GetOriginRequestPolicyResult:
         return pulumi.get(self, "query_strings_configs")
 
 
-class AwaitableGetOriginRequestPolicyResult(GetOriginRequestPolicyResult):
+calass AwaitableGetOriginRequestPolicyResult(GetOriginRequestPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

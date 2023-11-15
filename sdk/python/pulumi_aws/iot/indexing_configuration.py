@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IndexingConfigurationArgs', 'IndexingConfiguration']
+__all__ = ['IndexingConfigurationArrgs', 'IndexingConfiguration']
 
 @pulumi.input_type
-class IndexingConfigurationArgs:
+calass IndexingConfigurationArrgs:
     def __init__(__self__, *,
-                 thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
-                 thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']] = None):
+                 thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArrgs']] = None,
+                 thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArrgs']] = None):
         """
         The set of arguments for constructing a IndexingConfiguration resource.
-        :param pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs'] thing_group_indexing_configuration: Thing group indexing configuration. See below.
-        :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs'] thing_indexing_configuration: Thing indexing configuration. See below.
+        :param pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArrgs'] thing_group_indexing_configuration: Thing group indexing configuration. See below.
+        :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationArrgs'] thing_indexing_configuration: Thing indexing configuration. See below.
         """
         if thing_group_indexing_configuration is not None:
             pulumi.set(__self__, "thing_group_indexing_configuration", thing_group_indexing_configuration)
@@ -30,38 +30,38 @@ class IndexingConfigurationArgs:
 
     @property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
-    def thing_group_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']]:
+    def thing_group_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArrgs']]:
         """
         Thing group indexing configuration. See below.
         """
         return pulumi.get(self, "thing_group_indexing_configuration")
 
     @thing_group_indexing_configuration.setter
-    def thing_group_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']]):
+    def thing_group_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArrgs']]):
         pulumi.set(self, "thing_group_indexing_configuration", value)
 
     @property
     @pulumi.getter(name="thingIndexingConfiguration")
-    def thing_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']]:
+    def thing_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArrgs']]:
         """
         Thing indexing configuration. See below.
         """
         return pulumi.get(self, "thing_indexing_configuration")
 
     @thing_indexing_configuration.setter
-    def thing_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']]):
+    def thing_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArrgs']]):
         pulumi.set(self, "thing_indexing_configuration", value)
 
 
 @pulumi.input_type
-class _IndexingConfigurationState:
+calass _IndexingConfigurationState:
     def __init__(__self__, *,
-                 thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']] = None,
-                 thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']] = None):
+                 thing_group_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArrgs']] = None,
+                 thing_indexing_configuration: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArrgs']] = None):
         """
         Input properties used for looking up and filtering IndexingConfiguration resources.
-        :param pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs'] thing_group_indexing_configuration: Thing group indexing configuration. See below.
-        :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs'] thing_indexing_configuration: Thing indexing configuration. See below.
+        :param pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArrgs'] thing_group_indexing_configuration: Thing group indexing configuration. See below.
+        :param pulumi.Input['IndexingConfigurationThingIndexingConfigurationArrgs'] thing_indexing_configuration: Thing indexing configuration. See below.
         """
         if thing_group_indexing_configuration is not None:
             pulumi.set(__self__, "thing_group_indexing_configuration", thing_group_indexing_configuration)
@@ -70,36 +70,36 @@ class _IndexingConfigurationState:
 
     @property
     @pulumi.getter(name="thingGroupIndexingConfiguration")
-    def thing_group_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']]:
+    def thing_group_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArrgs']]:
         """
         Thing group indexing configuration. See below.
         """
         return pulumi.get(self, "thing_group_indexing_configuration")
 
     @thing_group_indexing_configuration.setter
-    def thing_group_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArgs']]):
+    def thing_group_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationArrgs']]):
         pulumi.set(self, "thing_group_indexing_configuration", value)
 
     @property
     @pulumi.getter(name="thingIndexingConfiguration")
-    def thing_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']]:
+    def thing_indexing_configuration(self) -> Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArrgs']]:
         """
         Thing indexing configuration. See below.
         """
         return pulumi.get(self, "thing_indexing_configuration")
 
     @thing_indexing_configuration.setter
-    def thing_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArgs']]):
+    def thing_indexing_configuration(self, value: Optional[pulumi.Input['IndexingConfigurationThingIndexingConfigurationArrgs']]):
         pulumi.set(self, "thing_indexing_configuration", value)
 
 
-class IndexingConfiguration(pulumi.CustomResource):
+calass IndexingConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 thing_group_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArgs']]] = None,
-                 thing_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArgs']]] = None,
+                 thing_group_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArrgs']]] = None,
+                 thing_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArrgs']]] = None,
                  __props__=None):
         """
         Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
@@ -110,27 +110,27 @@ class IndexingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration=aws.iot.IndexingConfigurationThingIndexingConfigurationArgs(
+        example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration=aws.iot.IndexingConfigurationThingIndexingConfigurationArrgs(
             custom_fields=[
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
+                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs(
                     name="shadow.desired.power",
                     type="Boolean",
                 ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
+                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs(
                     name="attributes.version",
                     type="Number",
                 ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
+                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs(
                     name="shadow.name.thing1shadow.desired.DefaultDesired",
                     type="String",
                 ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
+                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs(
                     name="deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
                     type="Number",
                 ),
             ],
             device_defender_indexing_mode="VIOLATIONS",
-            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
+            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArrgs(
                 named_shadow_names=["thing1shadow"],
             ),
             named_shadow_indexing_mode="ON",
@@ -141,14 +141,14 @@ class IndexingConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArgs']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
-        :param pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArgs']] thing_indexing_configuration: Thing indexing configuration. See below.
+        :param pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArrgs']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
+        :param pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArrgs']] thing_indexing_configuration: Thing indexing configuration. See below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[IndexingConfigurationArgs] = None,
+                 args: Optional[IndexingConfigurationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managing [IoT Thing indexing](https://docs.aws.amazon.com/iot/latest/developerguide/managing-index.html).
@@ -159,27 +159,27 @@ class IndexingConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration=aws.iot.IndexingConfigurationThingIndexingConfigurationArgs(
+        example = aws.iot.IndexingConfiguration("example", thing_indexing_configuration=aws.iot.IndexingConfigurationThingIndexingConfigurationArrgs(
             custom_fields=[
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
+                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs(
                     name="shadow.desired.power",
                     type="Boolean",
                 ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
+                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs(
                     name="attributes.version",
                     type="Number",
                 ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
+                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs(
                     name="shadow.name.thing1shadow.desired.DefaultDesired",
                     type="String",
                 ),
-                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArgs(
+                aws.iot.IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs(
                     name="deviceDefender.securityProfile1.NUMBER_VALUE_BEHAVIOR.lastViolationValue.number",
                     type="Number",
                 ),
             ],
             device_defender_indexing_mode="VIOLATIONS",
-            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArgs(
+            filter=aws.iot.IndexingConfigurationThingIndexingConfigurationFilterArrgs(
                 named_shadow_names=["thing1shadow"],
             ),
             named_shadow_indexing_mode="ON",
@@ -189,12 +189,12 @@ class IndexingConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IndexingConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param IndexingConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IndexingConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IndexingConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -203,8 +203,8 @@ class IndexingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 thing_group_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArgs']]] = None,
-                 thing_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArgs']]] = None,
+                 thing_group_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArrgs']]] = None,
+                 thing_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -212,7 +212,7 @@ class IndexingConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IndexingConfigurationArgs.__new__(IndexingConfigurationArgs)
+            __props__ = IndexingConfigurationArrgs.__new__(IndexingConfigurationArrgs)
 
             __props__.__dict__["thing_group_indexing_configuration"] = thing_group_indexing_configuration
             __props__.__dict__["thing_indexing_configuration"] = thing_indexing_configuration
@@ -226,8 +226,8 @@ class IndexingConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            thing_group_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArgs']]] = None,
-            thing_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArgs']]] = None) -> 'IndexingConfiguration':
+            thing_group_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArrgs']]] = None,
+            thing_indexing_configuration: Optional[pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArrgs']]] = None) -> 'IndexingConfiguration':
         """
         Get an existing IndexingConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -235,8 +235,8 @@ class IndexingConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArgs']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
-        :param pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArgs']] thing_indexing_configuration: Thing indexing configuration. See below.
+        :param pulumi.Input[pulumi.InputType['IndexingConfigurationThingGroupIndexingConfigurationArrgs']] thing_group_indexing_configuration: Thing group indexing configuration. See below.
+        :param pulumi.Input[pulumi.InputType['IndexingConfigurationThingIndexingConfigurationArrgs']] thing_indexing_configuration: Thing indexing configuration. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

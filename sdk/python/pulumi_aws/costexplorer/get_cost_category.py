@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCostCategoryResult:
+calass GetCostCategoryResult:
     """
     A collection of values returned by getCostCategory.
     """
@@ -129,7 +129,7 @@ class GetCostCategoryResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetCostCategoryResult(GetCostCategoryResult):
+calass AwaitableGetCostCategoryResult(GetCostCategoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPartitionResult:
+calass GetPartitionResult:
     """
     A collection of values returned by getPartition.
     """
@@ -68,7 +68,7 @@ class GetPartitionResult:
         return pulumi.get(self, "reverse_dns_prefix")
 
 
-class AwaitableGetPartitionResult(GetPartitionResult):
+calass AwaitableGetPartitionResult(GetPartitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -93,7 +93,7 @@ def get_partition(id: Optional[str] = None,
     import pulumi_aws as aws
 
     current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         actions=["s3:ListBucket"],
         resources=[f"arn:{current.partition}:s3:::my-bucket"],
         sid="1",
@@ -129,7 +129,7 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi_aws as aws
 
     current = aws.get_partition()
-    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    s3_policy = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         actions=["s3:ListBucket"],
         resources=[f"arn:{current.partition}:s3:::my-bucket"],
         sid="1",

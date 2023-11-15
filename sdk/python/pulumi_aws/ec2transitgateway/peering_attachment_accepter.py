@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PeeringAttachmentAccepterArgs', 'PeeringAttachmentAccepter']
+__all__ = ['PeeringAttachmentAccepterArrgs', 'PeeringAttachmentAccepter']
 
 @pulumi.input_type
-class PeeringAttachmentAccepterArgs:
+calass PeeringAttachmentAccepterArrgs:
     def __init__(__self__, *,
                  transit_gateway_attachment_id: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -51,7 +51,7 @@ class PeeringAttachmentAccepterArgs:
 
 
 @pulumi.input_type
-class _PeeringAttachmentAccepterState:
+calass _PeeringAttachmentAccepterState:
     def __init__(__self__, *,
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class _PeeringAttachmentAccepterState:
         pulumi.set(self, "transit_gateway_id", value)
 
 
-class PeeringAttachmentAccepter(pulumi.CustomResource):
+calass PeeringAttachmentAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -213,7 +213,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PeeringAttachmentAccepterArgs,
+                 args: PeeringAttachmentAccepterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
@@ -240,12 +240,12 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PeeringAttachmentAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param PeeringAttachmentAccepterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PeeringAttachmentAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PeeringAttachmentAccepterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -263,7 +263,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PeeringAttachmentAccepterArgs.__new__(PeeringAttachmentAccepterArgs)
+            __props__ = PeeringAttachmentAccepterArrgs.__new__(PeeringAttachmentAccepterArrgs)
 
             __props__.__dict__["tags"] = tags
             if transit_gateway_attachment_id is None and not opts.urn:

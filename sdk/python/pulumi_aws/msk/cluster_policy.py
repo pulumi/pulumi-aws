@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ClusterPolicyArgs', 'ClusterPolicy']
+__all__ = ['ClusterPolicyArrgs', 'ClusterPolicy']
 
 @pulumi.input_type
-class ClusterPolicyArgs:
+calass ClusterPolicyArrgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[str],
                  policy: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ClusterPolicyArgs:
 
 
 @pulumi.input_type
-class _ClusterPolicyState:
+calass _ClusterPolicyState:
     def __init__(__self__, *,
                  cluster_arn: Optional[pulumi.Input[str]] = None,
                  current_version: Optional[pulumi.Input[str]] = None,
@@ -101,7 +101,7 @@ class _ClusterPolicyState:
         pulumi.set(self, "policy", value)
 
 
-class ClusterPolicy(pulumi.CustomResource):
+calass ClusterPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -160,7 +160,7 @@ class ClusterPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterPolicyArgs,
+                 args: ClusterPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Managed Streaming for Kafka Cluster Policy.
@@ -205,12 +205,12 @@ class ClusterPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -228,7 +228,7 @@ class ClusterPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterPolicyArgs.__new__(ClusterPolicyArgs)
+            __props__ = ClusterPolicyArrgs.__new__(ClusterPolicyArrgs)
 
             if cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_arn'")

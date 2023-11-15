@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetContainerDefinitionResult:
+calass GetContainerDefinitionResult:
     """
     A collection of values returned by getContainerDefinition.
     """
@@ -139,7 +139,7 @@ class GetContainerDefinitionResult:
         return pulumi.get(self, "task_definition")
 
 
-class AwaitableGetContainerDefinitionResult(GetContainerDefinitionResult):
+calass AwaitableGetContainerDefinitionResult(GetContainerDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

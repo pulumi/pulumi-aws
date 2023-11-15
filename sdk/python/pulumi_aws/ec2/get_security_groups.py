@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSecurityGroupsResult:
+calass GetSecurityGroupsResult:
     """
     A collection of values returned by getSecurityGroups.
     """
@@ -86,7 +86,7 @@ class GetSecurityGroupsResult:
         return pulumi.get(self, "vpc_ids")
 
 
-class AwaitableGetSecurityGroupsResult(GetSecurityGroupsResult):
+calass AwaitableGetSecurityGroupsResult(GetSecurityGroupsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -100,7 +100,7 @@ class AwaitableGetSecurityGroupsResult(GetSecurityGroupsResult):
             vpc_ids=self.vpc_ids)
 
 
-def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']]] = None,
+def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurityGroupsFilterArrgs']]] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupsResult:
     """
@@ -123,11 +123,11 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
     import pulumi_aws as aws
 
     test = aws.ec2.get_security_groups(filters=[
-        aws.ec2.GetSecurityGroupsFilterArgs(
+        aws.ec2.GetSecurityGroupsFilterArrgs(
             name="group-name",
             values=["*nodes*"],
         ),
-        aws.ec2.GetSecurityGroupsFilterArgs(
+        aws.ec2.GetSecurityGroupsFilterArrgs(
             name="vpc-id",
             values=[var["vpc_id"]],
         ),
@@ -135,7 +135,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArrgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match for desired security groups.
     """
     __args__ = dict()
@@ -154,7 +154,7 @@ def get_security_groups(filters: Optional[Sequence[pulumi.InputType['GetSecurity
 
 
 @_utilities.lift_output_func(get_security_groups)
-def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']]]]] = None,
+def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSecurityGroupsFilterArrgs']]]]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupsResult]:
     """
@@ -177,11 +177,11 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
     import pulumi_aws as aws
 
     test = aws.ec2.get_security_groups(filters=[
-        aws.ec2.GetSecurityGroupsFilterArgs(
+        aws.ec2.GetSecurityGroupsFilterArrgs(
             name="group-name",
             values=["*nodes*"],
         ),
-        aws.ec2.GetSecurityGroupsFilterArgs(
+        aws.ec2.GetSecurityGroupsFilterArrgs(
             name="vpc-id",
             values=[var["vpc_id"]],
         ),
@@ -189,7 +189,7 @@ def get_security_groups_output(filters: Optional[pulumi.Input[Optional[Sequence[
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+    :param Sequence[pulumi.InputType['GetSecurityGroupsFilterArrgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match for desired security groups.
     """
     ...

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DomainServiceAccessPolicyArgs', 'DomainServiceAccessPolicy']
+__all__ = ['DomainServiceAccessPolicyArrgs', 'DomainServiceAccessPolicy']
 
 @pulumi.input_type
-class DomainServiceAccessPolicyArgs:
+calass DomainServiceAccessPolicyArrgs:
     def __init__(__self__, *,
                  access_policy: pulumi.Input[str],
                  domain_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class DomainServiceAccessPolicyArgs:
 
 
 @pulumi.input_type
-class _DomainServiceAccessPolicyState:
+calass _DomainServiceAccessPolicyState:
     def __init__(__self__, *,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _DomainServiceAccessPolicyState:
         pulumi.set(self, "domain_name", value)
 
 
-class DomainServiceAccessPolicy(pulumi.CustomResource):
+calass DomainServiceAccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -109,10 +109,10 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_domain = aws.cloudsearch.Domain("exampleDomain")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="search_only",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="*",
                 identifiers=["*"],
             )],
@@ -120,7 +120,7 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                 "cloudsearch:search",
                 "cloudsearch:document",
             ],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="IpAddress",
                 variable="aws:SourceIp",
                 values=["192.0.2.0/32"],
@@ -148,7 +148,7 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainServiceAccessPolicyArgs,
+                 args: DomainServiceAccessPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an CloudSearch domain service access policy resource.
@@ -162,10 +162,10 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_domain = aws.cloudsearch.Domain("exampleDomain")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="search_only",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="*",
                 identifiers=["*"],
             )],
@@ -173,7 +173,7 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
                 "cloudsearch:search",
                 "cloudsearch:document",
             ],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="IpAddress",
                 variable="aws:SourceIp",
                 values=["192.0.2.0/32"],
@@ -193,12 +193,12 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DomainServiceAccessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param DomainServiceAccessPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DomainServiceAccessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DomainServiceAccessPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,7 +216,7 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DomainServiceAccessPolicyArgs.__new__(DomainServiceAccessPolicyArgs)
+            __props__ = DomainServiceAccessPolicyArrgs.__new__(DomainServiceAccessPolicyArrgs)
 
             if access_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy'")

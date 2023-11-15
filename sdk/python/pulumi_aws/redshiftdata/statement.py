@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StatementArgs', 'Statement']
+__all__ = ['StatementArrgs', 'Statement']
 
 @pulumi.input_type
-class StatementArgs:
+calass StatementArrgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
                  sql: pulumi.Input[str],
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArrgs']]]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
                  with_event: Optional[pulumi.Input[bool]] = None,
@@ -107,11 +107,11 @@ class StatementArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArrgs']]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -164,12 +164,12 @@ class StatementArgs:
 
 
 @pulumi.input_type
-class _StatementState:
+calass _StatementState:
     def __init__(__self__, *,
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArrgs']]]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -245,11 +245,11 @@ class _StatementState:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArrgs']]]]:
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StatementParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -315,7 +315,7 @@ class _StatementState:
         pulumi.set(self, "workgroup_name", value)
 
 
-class Statement(pulumi.CustomResource):
+calass Statement(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -323,7 +323,7 @@ class Statement(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArrgs']]]]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -383,7 +383,7 @@ class Statement(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StatementArgs,
+                 args: StatementArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Executes a Redshift Data Statement.
@@ -422,12 +422,12 @@ class Statement(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StatementArgs args: The arguments to use to populate this resource's properties.
+        :param StatementArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StatementArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StatementArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -439,7 +439,7 @@ class Statement(pulumi.CustomResource):
                  cluster_identifier: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  db_user: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArgs']]]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArrgs']]]]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
                  sql: Optional[pulumi.Input[str]] = None,
                  statement_name: Optional[pulumi.Input[str]] = None,
@@ -452,7 +452,7 @@ class Statement(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StatementArgs.__new__(StatementArgs)
+            __props__ = StatementArrgs.__new__(StatementArrgs)
 
             __props__.__dict__["cluster_identifier"] = cluster_identifier
             if database is None and not opts.urn:
@@ -480,7 +480,7 @@ class Statement(pulumi.CustomResource):
             cluster_identifier: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             db_user: Optional[pulumi.Input[str]] = None,
-            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArgs']]]]] = None,
+            parameters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StatementParameterArrgs']]]]] = None,
             secret_arn: Optional[pulumi.Input[str]] = None,
             sql: Optional[pulumi.Input[str]] = None,
             statement_name: Optional[pulumi.Input[str]] = None,

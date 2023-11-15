@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConnectionsResult:
+calass GetConnectionsResult:
     """
     A collection of values returned by getConnections.
     """
@@ -70,7 +70,7 @@ class GetConnectionsResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetConnectionsResult(GetConnectionsResult):
+calass AwaitableGetConnectionsResult(GetConnectionsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

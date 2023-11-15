@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDistributionConfigurationResult:
+calass GetDistributionConfigurationResult:
     """
     A collection of values returned by getDistributionConfiguration.
     """
@@ -110,7 +110,7 @@ class GetDistributionConfigurationResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDistributionConfigurationResult(GetDistributionConfigurationResult):
+calass AwaitableGetDistributionConfigurationResult(GetDistributionConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

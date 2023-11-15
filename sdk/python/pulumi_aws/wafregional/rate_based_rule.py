@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RateBasedRuleArgs', 'RateBasedRule']
+__all__ = ['RateBasedRuleArrgs', 'RateBasedRule']
 
 @pulumi.input_type
-class RateBasedRuleArgs:
+calass RateBasedRuleArrgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[str],
                  rate_key: pulumi.Input[str],
                  rate_limit: pulumi.Input[int],
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RateBasedRule resource.
@@ -28,7 +28,7 @@ class RateBasedRuleArgs:
         :param pulumi.Input[str] rate_key: Valid value is IP.
         :param pulumi.Input[int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArrgs']]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "metric_name", metric_name)
@@ -91,14 +91,14 @@ class RateBasedRuleArgs:
 
     @property
     @pulumi.getter
-    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]:
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArrgs']]]]:
         """
         The objects to include in a rule (documented below).
         """
         return pulumi.get(self, "predicates")
 
     @predicates.setter
-    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]):
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArrgs']]]]):
         pulumi.set(self, "predicates", value)
 
     @property
@@ -115,12 +115,12 @@ class RateBasedRuleArgs:
 
 
 @pulumi.input_type
-class _RateBasedRuleState:
+calass _RateBasedRuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArrgs']]]] = None,
                  rate_key: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -130,7 +130,7 @@ class _RateBasedRuleState:
         :param pulumi.Input[str] arn: The ARN of the WAF Regional Rate Based Rule.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArrgs']]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[str] rate_key: Valid value is IP.
         :param pulumi.Input[int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -194,14 +194,14 @@ class _RateBasedRuleState:
 
     @property
     @pulumi.getter
-    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]:
+    def predicates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArrgs']]]]:
         """
         The objects to include in a rule (documented below).
         """
         return pulumi.get(self, "predicates")
 
     @predicates.setter
-    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]]]):
+    def predicates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArrgs']]]]):
         pulumi.set(self, "predicates", value)
 
     @property
@@ -256,14 +256,14 @@ class _RateBasedRuleState:
         pulumi.set(self, "tags_all", value)
 
 
-class RateBasedRule(pulumi.CustomResource):
+calass RateBasedRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArrgs']]]]] = None,
                  rate_key: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -277,7 +277,7 @@ class RateBasedRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArrgs(
             type="IPV4",
             value="192.0.7.0/24",
         )])
@@ -285,7 +285,7 @@ class RateBasedRule(pulumi.CustomResource):
             metric_name="tfWAFRule",
             rate_key="IP",
             rate_limit=100,
-            predicates=[aws.wafregional.RateBasedRulePredicateArgs(
+            predicates=[aws.wafregional.RateBasedRulePredicateArrgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
@@ -305,7 +305,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArrgs']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[str] rate_key: Valid value is IP.
         :param pulumi.Input[int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -314,7 +314,7 @@ class RateBasedRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RateBasedRuleArgs,
+                 args: RateBasedRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a WAF Rate Based Rule Resource
@@ -325,7 +325,7 @@ class RateBasedRule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArgs(
+        ipset = aws.wafregional.IpSet("ipset", ip_set_descriptors=[aws.wafregional.IpSetIpSetDescriptorArrgs(
             type="IPV4",
             value="192.0.7.0/24",
         )])
@@ -333,7 +333,7 @@ class RateBasedRule(pulumi.CustomResource):
             metric_name="tfWAFRule",
             rate_key="IP",
             rate_limit=100,
-            predicates=[aws.wafregional.RateBasedRulePredicateArgs(
+            predicates=[aws.wafregional.RateBasedRulePredicateArrgs(
                 data_id=ipset.id,
                 negated=False,
                 type="IPMatch",
@@ -350,12 +350,12 @@ class RateBasedRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RateBasedRuleArgs args: The arguments to use to populate this resource's properties.
+        :param RateBasedRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RateBasedRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RateBasedRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -366,7 +366,7 @@ class RateBasedRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]]] = None,
+                 predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArrgs']]]]] = None,
                  rate_key: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -377,7 +377,7 @@ class RateBasedRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RateBasedRuleArgs.__new__(RateBasedRuleArgs)
+            __props__ = RateBasedRuleArrgs.__new__(RateBasedRuleArrgs)
 
             if metric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'metric_name'")
@@ -408,7 +408,7 @@ class RateBasedRule(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             metric_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]]] = None,
+            predicates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArrgs']]]]] = None,
             rate_key: Optional[pulumi.Input[str]] = None,
             rate_limit: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -423,7 +423,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the WAF Regional Rate Based Rule.
         :param pulumi.Input[str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[str] name: The name or description of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArgs']]]] predicates: The objects to include in a rule (documented below).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RateBasedRulePredicateArrgs']]]] predicates: The objects to include in a rule (documented below).
         :param pulumi.Input[str] rate_key: Valid value is IP.
         :param pulumi.Input[int] rate_limit: The maximum number of requests, which have an identical value in the field specified by the RateKey, allowed in a five-minute period. Minimum value is 100.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

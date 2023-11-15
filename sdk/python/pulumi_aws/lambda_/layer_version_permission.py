@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LayerVersionPermissionArgs', 'LayerVersionPermission']
+__all__ = ['LayerVersionPermissionArrgs', 'LayerVersionPermission']
 
 @pulumi.input_type
-class LayerVersionPermissionArgs:
+calass LayerVersionPermissionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  layer_name: pulumi.Input[str],
@@ -127,7 +127,7 @@ class LayerVersionPermissionArgs:
 
 
 @pulumi.input_type
-class _LayerVersionPermissionState:
+calass _LayerVersionPermissionState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
                  layer_name: Optional[pulumi.Input[str]] = None,
@@ -278,7 +278,7 @@ class _LayerVersionPermissionState:
         pulumi.set(self, "version_number", value)
 
 
-class LayerVersionPermission(pulumi.CustomResource):
+calass LayerVersionPermission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -334,7 +334,7 @@ class LayerVersionPermission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LayerVersionPermissionArgs,
+                 args: LayerVersionPermissionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Lambda Layer Version Permission resource. It allows you to share you own Lambda Layers to another account by account ID, to all accounts in AWS organization or even to all AWS accounts.
@@ -366,12 +366,12 @@ class LayerVersionPermission(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LayerVersionPermissionArgs args: The arguments to use to populate this resource's properties.
+        :param LayerVersionPermissionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LayerVersionPermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LayerVersionPermissionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -394,7 +394,7 @@ class LayerVersionPermission(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LayerVersionPermissionArgs.__new__(LayerVersionPermissionArgs)
+            __props__ = LayerVersionPermissionArrgs.__new__(LayerVersionPermissionArrgs)
 
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")

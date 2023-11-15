@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SigningProfilePermissionArgs', 'SigningProfilePermission']
+__all__ = ['SigningProfilePermissionArrgs', 'SigningProfilePermission']
 
 @pulumi.input_type
-class SigningProfilePermissionArgs:
+calass SigningProfilePermissionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  principal: pulumi.Input[str],
@@ -113,7 +113,7 @@ class SigningProfilePermissionArgs:
 
 
 @pulumi.input_type
-class _SigningProfilePermissionState:
+calass _SigningProfilePermissionState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _SigningProfilePermissionState:
         pulumi.set(self, "statement_id_prefix", value)
 
 
-class SigningProfilePermission(pulumi.CustomResource):
+calass SigningProfilePermission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,7 +240,7 @@ class SigningProfilePermission(pulumi.CustomResource):
         prod_sp = aws.signer.SigningProfile("prodSp",
             platform_id="AWSLambda-SHA384-ECDSA",
             name_prefix="prod_sp_",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
+            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArrgs(
                 value=5,
                 type="YEARS",
             ),
@@ -286,7 +286,7 @@ class SigningProfilePermission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SigningProfilePermissionArgs,
+                 args: SigningProfilePermissionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
@@ -300,7 +300,7 @@ class SigningProfilePermission(pulumi.CustomResource):
         prod_sp = aws.signer.SigningProfile("prodSp",
             platform_id="AWSLambda-SHA384-ECDSA",
             name_prefix="prod_sp_",
-            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArgs(
+            signature_validity_period=aws.signer.SigningProfileSignatureValidityPeriodArrgs(
                 value=5,
                 type="YEARS",
             ),
@@ -334,12 +334,12 @@ class SigningProfilePermission(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SigningProfilePermissionArgs args: The arguments to use to populate this resource's properties.
+        :param SigningProfilePermissionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SigningProfilePermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SigningProfilePermissionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -361,7 +361,7 @@ class SigningProfilePermission(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SigningProfilePermissionArgs.__new__(SigningProfilePermissionArgs)
+            __props__ = SigningProfilePermissionArrgs.__new__(SigningProfilePermissionArrgs)
 
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")

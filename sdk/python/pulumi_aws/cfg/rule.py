@@ -11,28 +11,28 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RuleArgs', 'Rule']
+__all__ = ['RuleArrgs', 'Rule']
 
 @pulumi.input_type
-class RuleArgs:
+calass RuleArrgs:
     def __init__(__self__, *,
-                 source: pulumi.Input['RuleSourceArgs'],
+                 source: pulumi.Input['RuleSourceArrgs'],
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
+                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArrgs']]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
+                 scope: Optional[pulumi.Input['RuleScopeArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
-        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input['RuleSourceArrgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArrgs']]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
-        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input['RuleScopeArrgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source", source)
@@ -53,14 +53,14 @@ class RuleArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input['RuleSourceArgs']:
+    def source(self) -> pulumi.Input['RuleSourceArrgs']:
         """
         Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input['RuleSourceArgs']):
+    def source(self, value: pulumi.Input['RuleSourceArrgs']):
         pulumi.set(self, "source", value)
 
     @property
@@ -77,14 +77,14 @@ class RuleArgs:
 
     @property
     @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]:
+    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArrgs']]]]:
         """
         The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         """
         return pulumi.get(self, "evaluation_modes")
 
     @evaluation_modes.setter
-    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]):
+    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArrgs']]]]):
         pulumi.set(self, "evaluation_modes", value)
 
     @property
@@ -125,14 +125,14 @@ class RuleArgs:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['RuleScopeArrgs']]:
         """
         Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['RuleScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['RuleScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
     @property
@@ -149,30 +149,30 @@ class RuleArgs:
 
 
 @pulumi.input_type
-class _RuleState:
+calass _RuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]] = None,
+                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArrgs']]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rule_id: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input['RuleScopeArgs']] = None,
-                 source: Optional[pulumi.Input['RuleSourceArgs']] = None,
+                 scope: Optional[pulumi.Input['RuleScopeArrgs']] = None,
+                 source: Optional[pulumi.Input['RuleSourceArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Rule resources.
         :param pulumi.Input[str] arn: The ARN of the config rule
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArrgs']]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] rule_id: The ID of the config rule
-        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
-        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input['RuleScopeArrgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input['RuleSourceArrgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -228,14 +228,14 @@ class _RuleState:
 
     @property
     @pulumi.getter(name="evaluationModes")
-    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]:
+    def evaluation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArrgs']]]]:
         """
         The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         """
         return pulumi.get(self, "evaluation_modes")
 
     @evaluation_modes.setter
-    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArgs']]]]):
+    def evaluation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RuleEvaluationModeArrgs']]]]):
         pulumi.set(self, "evaluation_modes", value)
 
     @property
@@ -288,26 +288,26 @@ class _RuleState:
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['RuleScopeArrgs']]:
         """
         Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['RuleScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['RuleScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['RuleSourceArgs']]:
+    def source(self) -> Optional[pulumi.Input['RuleSourceArrgs']]:
         """
         Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['RuleSourceArgs']]):
+    def source(self, value: Optional[pulumi.Input['RuleSourceArrgs']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -338,18 +338,18 @@ class _RuleState:
         pulumi.set(self, "tags_all", value)
 
 
-class Rule(pulumi.CustomResource):
+calass Rule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
+                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArrgs']]]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArgs']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArgs']]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArrgs']]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -366,9 +366,9 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["config.amazonaws.com"],
             )],
@@ -376,12 +376,12 @@ class Rule(pulumi.CustomResource):
         )])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
-        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
+        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArrgs(
             owner="AWS",
             source_identifier="S3_BUCKET_VERSIONING_ENABLED",
         ),
         opts=pulumi.ResourceOptions(depends_on=[foo]))
-        policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["config:Put*"],
             resources=["*"],
@@ -407,7 +407,7 @@ class Rule(pulumi.CustomResource):
             function=example_function.arn,
             principal="config.amazonaws.com")
         # ... other configuration ...
-        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArgs(
+        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArrgs(
             owner="CUSTOM_LAMBDA",
             source_identifier=example_function.arn,
         ),
@@ -422,12 +422,12 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
+        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArrgs(
             owner="CUSTOM_POLICY",
-            source_details=[aws.cfg.RuleSourceSourceDetailArgs(
+            source_details=[aws.cfg.RuleSourceSourceDetailArrgs(
                 message_type="ConfigurationItemChangeNotification",
             )],
-            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
+            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArrgs(
                 policy_runtime="guard-2.x.x",
                 policy_text=\"\"\"	  rule tableisactive when
         		  resourceType == "AWS::DynamoDB::Table" {
@@ -455,19 +455,19 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArrgs']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
-        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
-        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[pulumi.InputType['RuleScopeArrgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input[pulumi.InputType['RuleSourceArrgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RuleArgs,
+                 args: RuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Config Rule.
@@ -483,9 +483,9 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["config.amazonaws.com"],
             )],
@@ -493,12 +493,12 @@ class Rule(pulumi.CustomResource):
         )])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
         foo = aws.cfg.Recorder("foo", role_arn=role.arn)
-        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArgs(
+        rule = aws.cfg.Rule("rule", source=aws.cfg.RuleSourceArrgs(
             owner="AWS",
             source_identifier="S3_BUCKET_VERSIONING_ENABLED",
         ),
         opts=pulumi.ResourceOptions(depends_on=[foo]))
-        policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["config:Put*"],
             resources=["*"],
@@ -524,7 +524,7 @@ class Rule(pulumi.CustomResource):
             function=example_function.arn,
             principal="config.amazonaws.com")
         # ... other configuration ...
-        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArgs(
+        example_rule = aws.cfg.Rule("exampleRule", source=aws.cfg.RuleSourceArrgs(
             owner="CUSTOM_LAMBDA",
             source_identifier=example_function.arn,
         ),
@@ -539,12 +539,12 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
+        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArrgs(
             owner="CUSTOM_POLICY",
-            source_details=[aws.cfg.RuleSourceSourceDetailArgs(
+            source_details=[aws.cfg.RuleSourceSourceDetailArrgs(
                 message_type="ConfigurationItemChangeNotification",
             )],
-            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
+            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArrgs(
                 policy_runtime="guard-2.x.x",
                 policy_text=\"\"\"	  rule tableisactive when
         		  resourceType == "AWS::DynamoDB::Table" {
@@ -570,12 +570,12 @@ class Rule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RuleArgs args: The arguments to use to populate this resource's properties.
+        :param RuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -585,12 +585,12 @@ class Rule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
+                 evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArrgs']]]]] = None,
                  input_parameters: Optional[pulumi.Input[str]] = None,
                  maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArgs']]] = None,
-                 source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArgs']]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArrgs']]] = None,
+                 source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -599,7 +599,7 @@ class Rule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RuleArgs.__new__(RuleArgs)
+            __props__ = RuleArrgs.__new__(RuleArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["evaluation_modes"] = evaluation_modes
@@ -628,13 +628,13 @@ class Rule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]]] = None,
+            evaluation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArrgs']]]]] = None,
             input_parameters: Optional[pulumi.Input[str]] = None,
             maximum_execution_frequency: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rule_id: Optional[pulumi.Input[str]] = None,
-            scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArgs']]] = None,
-            source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArgs']]] = None,
+            scope: Optional[pulumi.Input[pulumi.InputType['RuleScopeArrgs']]] = None,
+            source: Optional[pulumi.Input[pulumi.InputType['RuleSourceArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Rule':
         """
@@ -646,13 +646,13 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the config rule
         :param pulumi.Input[str] description: Description of the rule
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArgs']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RuleEvaluationModeArrgs']]]] evaluation_modes: The modes the Config rule can be evaluated in. See Evaluation Mode for more details.
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
         :param pulumi.Input[str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] rule_id: The ID of the config rule
-        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
-        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[pulumi.InputType['RuleScopeArrgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input[pulumi.InputType['RuleSourceArrgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

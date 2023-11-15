@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AssociationArgs', 'Association']
+__all__ = ['AssociationArrgs', 'Association']
 
 @pulumi.input_type
-class AssociationArgs:
+calass AssociationArrgs:
     def __init__(__self__, *,
                  license_configuration_arn: pulumi.Input[str],
                  resource_arn: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class AssociationArgs:
 
 
 @pulumi.input_type
-class _AssociationState:
+calass _AssociationState:
     def __init__(__self__, *,
                  license_configuration_arn: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _AssociationState:
         pulumi.set(self, "resource_arn", value)
 
 
-class Association(pulumi.CustomResource):
+calass Association(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -110,7 +110,7 @@ class Association(pulumi.CustomResource):
 
         example_ami = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
+            filters=[aws.ec2.GetAmiFilterArrgs(
                 name="name",
                 values=["amzn-ami-vpc-nat*"],
             )])
@@ -140,7 +140,7 @@ class Association(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssociationArgs,
+                 args: AssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a License Manager association.
@@ -155,7 +155,7 @@ class Association(pulumi.CustomResource):
 
         example_ami = aws.ec2.get_ami(most_recent=True,
             owners=["amazon"],
-            filters=[aws.ec2.GetAmiFilterArgs(
+            filters=[aws.ec2.GetAmiFilterArrgs(
                 name="name",
                 values=["amzn-ami-vpc-nat*"],
             )])
@@ -177,12 +177,12 @@ class Association(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssociationArgs args: The arguments to use to populate this resource's properties.
+        :param AssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -200,7 +200,7 @@ class Association(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssociationArgs.__new__(AssociationArgs)
+            __props__ = AssociationArrgs.__new__(AssociationArrgs)
 
             if license_configuration_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'license_configuration_arn'")

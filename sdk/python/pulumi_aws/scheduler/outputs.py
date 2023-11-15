@@ -28,7 +28,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ScheduleFlexibleTimeWindow(dict):
+calass ScheduleFlexibleTimeWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -75,7 +75,7 @@ class ScheduleFlexibleTimeWindow(dict):
 
 
 @pulumi.output_type
-class ScheduleTarget(dict):
+calass ScheduleTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -123,14 +123,14 @@ class ScheduleTarget(dict):
         :param str role_arn: ARN of the IAM role that EventBridge Scheduler will use for this target when the schedule is invoked. Read more in [Set up the execution role](https://docs.aws.amazon.com/scheduler/latest/UserGuide/setting-up.html#setting-up-execution-role).
                
                The following arguments are optional:
-        :param 'ScheduleTargetDeadLetterConfigArgs' dead_letter_config: Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
-        :param 'ScheduleTargetEcsParametersArgs' ecs_parameters: Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
-        :param 'ScheduleTargetEventbridgeParametersArgs' eventbridge_parameters: Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
+        :param 'ScheduleTargetDeadLetterConfigArrgs' dead_letter_config: Information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue. Detailed below.
+        :param 'ScheduleTargetEcsParametersArrgs' ecs_parameters: Templated target type for the Amazon ECS [`RunTask`](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html) API operation. Detailed below.
+        :param 'ScheduleTargetEventbridgeParametersArrgs' eventbridge_parameters: Templated target type for the EventBridge [`PutEvents`](https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html) API operation. Detailed below.
         :param str input: Text, or well-formed JSON, passed to the target. Read more in [Universal target](https://docs.aws.amazon.com/scheduler/latest/UserGuide/managing-targets-universal.html).
-        :param 'ScheduleTargetKinesisParametersArgs' kinesis_parameters: Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
-        :param 'ScheduleTargetRetryPolicyArgs' retry_policy: Information about the retry policy settings. Detailed below.
-        :param 'ScheduleTargetSagemakerPipelineParametersArgs' sagemaker_pipeline_parameters: Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
-        :param 'ScheduleTargetSqsParametersArgs' sqs_parameters: The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
+        :param 'ScheduleTargetKinesisParametersArrgs' kinesis_parameters: Templated target type for the Amazon Kinesis [`PutRecord`](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_PutRecord.html) API operation. Detailed below.
+        :param 'ScheduleTargetRetryPolicyArrgs' retry_policy: Information about the retry policy settings. Detailed below.
+        :param 'ScheduleTargetSagemakerPipelineParametersArrgs' sagemaker_pipeline_parameters: Templated target type for the Amazon SageMaker [`StartPipelineExecution`](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html) API operation. Detailed below.
+        :param 'ScheduleTargetSqsParametersArrgs' sqs_parameters: The templated target type for the Amazon SQS [`SendMessage`](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html) API operation. Detailed below.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -235,7 +235,7 @@ class ScheduleTarget(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetDeadLetterConfig(dict):
+calass ScheduleTargetDeadLetterConfig(dict):
     def __init__(__self__, *,
                  arn: str):
         """
@@ -253,7 +253,7 @@ class ScheduleTargetDeadLetterConfig(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetEcsParameters(dict):
+calass ScheduleTargetEcsParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -312,14 +312,14 @@ class ScheduleTargetEcsParameters(dict):
         :param str task_definition_arn: ARN of the task definition to use.
                
                The following arguments are optional:
-        :param Sequence['ScheduleTargetEcsParametersCapacityProviderStrategyArgs'] capacity_provider_strategies: Up to `6` capacity provider strategies to use for the task. Detailed below.
+        :param Sequence['ScheduleTargetEcsParametersCapacityProviderStrategyArrgs'] capacity_provider_strategies: Up to `6` capacity provider strategies to use for the task. Detailed below.
         :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task. For more information, see [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html) in the Amazon ECS Developer Guide.
         :param bool enable_execute_command: Specifies whether to enable the execute command functionality for the containers in this task.
         :param str group: Specifies an ECS task group for the task. At most 255 characters.
         :param str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. One of: `EC2`, `FARGATE`, `EXTERNAL`.
-        :param 'ScheduleTargetEcsParametersNetworkConfigurationArgs' network_configuration: Configures the networking associated with the task. Detailed below.
-        :param Sequence['ScheduleTargetEcsParametersPlacementConstraintArgs'] placement_constraints: A set of up to 10 placement constraints to use for the task. Detailed below.
-        :param Sequence['ScheduleTargetEcsParametersPlacementStrategyArgs'] placement_strategies: A set of up to 5 placement strategies. Detailed below.
+        :param 'ScheduleTargetEcsParametersNetworkConfigurationArrgs' network_configuration: Configures the networking associated with the task. Detailed below.
+        :param Sequence['ScheduleTargetEcsParametersPlacementConstraintArrgs'] placement_constraints: A set of up to 10 placement constraints to use for the task. Detailed below.
+        :param Sequence['ScheduleTargetEcsParametersPlacementStrategyArrgs'] placement_strategies: A set of up to 5 placement strategies. Detailed below.
         :param str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`.
         :param str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. One of: `TASK_DEFINITION`.
         :param str reference_id: Reference ID to use for the task.
@@ -470,7 +470,7 @@ class ScheduleTargetEcsParameters(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetEcsParametersCapacityProviderStrategy(dict):
+calass ScheduleTargetEcsParametersCapacityProviderStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -529,7 +529,7 @@ class ScheduleTargetEcsParametersCapacityProviderStrategy(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetEcsParametersNetworkConfiguration(dict):
+calass ScheduleTargetEcsParametersNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -590,7 +590,7 @@ class ScheduleTargetEcsParametersNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetEcsParametersPlacementConstraint(dict):
+calass ScheduleTargetEcsParametersPlacementConstraint(dict):
     def __init__(__self__, *,
                  type: str,
                  expression: Optional[str] = None):
@@ -620,7 +620,7 @@ class ScheduleTargetEcsParametersPlacementConstraint(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetEcsParametersPlacementStrategy(dict):
+calass ScheduleTargetEcsParametersPlacementStrategy(dict):
     def __init__(__self__, *,
                  type: str,
                  field: Optional[str] = None):
@@ -650,7 +650,7 @@ class ScheduleTargetEcsParametersPlacementStrategy(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetEventbridgeParameters(dict):
+calass ScheduleTargetEventbridgeParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -696,7 +696,7 @@ class ScheduleTargetEventbridgeParameters(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetKinesisParameters(dict):
+calass ScheduleTargetKinesisParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -731,7 +731,7 @@ class ScheduleTargetKinesisParameters(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetRetryPolicy(dict):
+calass ScheduleTargetRetryPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -781,7 +781,7 @@ class ScheduleTargetRetryPolicy(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetSagemakerPipelineParameters(dict):
+calass ScheduleTargetSagemakerPipelineParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -802,7 +802,7 @@ class ScheduleTargetSagemakerPipelineParameters(dict):
     def __init__(__self__, *,
                  pipeline_parameters: Optional[Sequence['outputs.ScheduleTargetSagemakerPipelineParametersPipelineParameter']] = None):
         """
-        :param Sequence['ScheduleTargetSagemakerPipelineParametersPipelineParameterArgs'] pipeline_parameters: Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
+        :param Sequence['ScheduleTargetSagemakerPipelineParametersPipelineParameterArrgs'] pipeline_parameters: Set of up to 200 parameter names and values to use when executing the SageMaker Model Building Pipeline. Detailed below.
         """
         if pipeline_parameters is not None:
             pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
@@ -817,7 +817,7 @@ class ScheduleTargetSagemakerPipelineParameters(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetSagemakerPipelineParametersPipelineParameter(dict):
+calass ScheduleTargetSagemakerPipelineParametersPipelineParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -846,7 +846,7 @@ class ScheduleTargetSagemakerPipelineParametersPipelineParameter(dict):
 
 
 @pulumi.output_type
-class ScheduleTargetSqsParameters(dict):
+calass ScheduleTargetSqsParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

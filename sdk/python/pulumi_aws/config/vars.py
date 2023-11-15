@@ -15,7 +15,7 @@ import types
 __config__ = pulumi.Config('aws')
 
 
-class _ExportableConfig(types.ModuleType):
+calass _ExportableConfig(types.ModuleType):
     @property
     def access_key(self) -> Optional[str]:
         """

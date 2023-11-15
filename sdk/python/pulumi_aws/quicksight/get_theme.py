@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetThemeResult:
+calass GetThemeResult:
     """
     A collection of values returned by getTheme.
     """
@@ -173,7 +173,7 @@ class GetThemeResult:
         return pulumi.get(self, "version_number")
 
 
-class AwaitableGetThemeResult(GetThemeResult):
+calass AwaitableGetThemeResult(GetThemeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

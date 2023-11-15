@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountRegistrationArgs', 'AccountRegistration']
+__all__ = ['AccountRegistrationArrgs', 'AccountRegistration']
 
 @pulumi.input_type
-class AccountRegistrationArgs:
+calass AccountRegistrationArrgs:
     def __init__(__self__, *,
                  delegated_admin_account: Optional[pulumi.Input[str]] = None,
                  deregister_on_destroy: Optional[pulumi.Input[bool]] = None,
@@ -68,7 +68,7 @@ class AccountRegistrationArgs:
 
 
 @pulumi.input_type
-class _AccountRegistrationState:
+calass _AccountRegistrationState:
     def __init__(__self__, *,
                  delegated_admin_account: Optional[pulumi.Input[str]] = None,
                  deregister_on_destroy: Optional[pulumi.Input[bool]] = None,
@@ -139,7 +139,7 @@ class _AccountRegistrationState:
         pulumi.set(self, "status", value)
 
 
-class AccountRegistration(pulumi.CustomResource):
+calass AccountRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -187,7 +187,7 @@ class AccountRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AccountRegistrationArgs] = None,
+                 args: Optional[AccountRegistrationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing AWS Audit Manager Account Registration.
@@ -219,12 +219,12 @@ class AccountRegistration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountRegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param AccountRegistrationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountRegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountRegistrationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -243,7 +243,7 @@ class AccountRegistration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountRegistrationArgs.__new__(AccountRegistrationArgs)
+            __props__ = AccountRegistrationArrgs.__new__(AccountRegistrationArrgs)
 
             __props__.__dict__["delegated_admin_account"] = delegated_admin_account
             __props__.__dict__["deregister_on_destroy"] = deregister_on_destroy

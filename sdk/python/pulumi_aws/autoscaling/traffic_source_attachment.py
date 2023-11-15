@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TrafficSourceAttachmentArgs', 'TrafficSourceAttachment']
+__all__ = ['TrafficSourceAttachmentArrgs', 'TrafficSourceAttachment']
 
 @pulumi.input_type
-class TrafficSourceAttachmentArgs:
+calass TrafficSourceAttachmentArrgs:
     def __init__(__self__, *,
                  autoscaling_group_name: pulumi.Input[str],
-                 traffic_source: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']] = None):
+                 traffic_source: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArrgs']] = None):
         """
         The set of arguments for constructing a TrafficSourceAttachment resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs'] traffic_source: The unique identifiers of a traffic sources.
+        :param pulumi.Input['TrafficSourceAttachmentTrafficSourceArrgs'] traffic_source: The unique identifiers of a traffic sources.
         """
         pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if traffic_source is not None:
@@ -41,26 +41,26 @@ class TrafficSourceAttachmentArgs:
 
     @property
     @pulumi.getter(name="trafficSource")
-    def traffic_source(self) -> Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']]:
+    def traffic_source(self) -> Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArrgs']]:
         """
         The unique identifiers of a traffic sources.
         """
         return pulumi.get(self, "traffic_source")
 
     @traffic_source.setter
-    def traffic_source(self, value: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']]):
+    def traffic_source(self, value: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArrgs']]):
         pulumi.set(self, "traffic_source", value)
 
 
 @pulumi.input_type
-class _TrafficSourceAttachmentState:
+calass _TrafficSourceAttachmentState:
     def __init__(__self__, *,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 traffic_source: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']] = None):
+                 traffic_source: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArrgs']] = None):
         """
         Input properties used for looking up and filtering TrafficSourceAttachment resources.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs'] traffic_source: The unique identifiers of a traffic sources.
+        :param pulumi.Input['TrafficSourceAttachmentTrafficSourceArrgs'] traffic_source: The unique identifiers of a traffic sources.
         """
         if autoscaling_group_name is not None:
             pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
@@ -81,24 +81,24 @@ class _TrafficSourceAttachmentState:
 
     @property
     @pulumi.getter(name="trafficSource")
-    def traffic_source(self) -> Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']]:
+    def traffic_source(self) -> Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArrgs']]:
         """
         The unique identifiers of a traffic sources.
         """
         return pulumi.get(self, "traffic_source")
 
     @traffic_source.setter
-    def traffic_source(self, value: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArgs']]):
+    def traffic_source(self, value: Optional[pulumi.Input['TrafficSourceAttachmentTrafficSourceArrgs']]):
         pulumi.set(self, "traffic_source", value)
 
 
-class TrafficSourceAttachment(pulumi.CustomResource):
+calass TrafficSourceAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']]] = None,
+                 traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArrgs']]] = None,
                  __props__=None):
         """
         Attaches a traffic source to an Auto Scaling group.
@@ -114,7 +114,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
 
         example = aws.autoscaling.TrafficSourceAttachment("example",
             autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
+            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArrgs(
                 identifier=aws_lb_target_group["example"]["arn"],
                 type="elbv2",
             ))
@@ -123,13 +123,13 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']] traffic_source: The unique identifiers of a traffic sources.
+        :param pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArrgs']] traffic_source: The unique identifiers of a traffic sources.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TrafficSourceAttachmentArgs,
+                 args: TrafficSourceAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a traffic source to an Auto Scaling group.
@@ -145,19 +145,19 @@ class TrafficSourceAttachment(pulumi.CustomResource):
 
         example = aws.autoscaling.TrafficSourceAttachment("example",
             autoscaling_group_name=aws_autoscaling_group["example"]["id"],
-            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArgs(
+            traffic_source=aws.autoscaling.TrafficSourceAttachmentTrafficSourceArrgs(
                 identifier=aws_lb_target_group["example"]["arn"],
                 type="elbv2",
             ))
         ```
 
         :param str resource_name: The name of the resource.
-        :param TrafficSourceAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param TrafficSourceAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrafficSourceAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrafficSourceAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -167,7 +167,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-                 traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']]] = None,
+                 traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -175,7 +175,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrafficSourceAttachmentArgs.__new__(TrafficSourceAttachmentArgs)
+            __props__ = TrafficSourceAttachmentArrgs.__new__(TrafficSourceAttachmentArrgs)
 
             if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")
@@ -192,7 +192,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
-            traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']]] = None) -> 'TrafficSourceAttachment':
+            traffic_source: Optional[pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArrgs']]] = None) -> 'TrafficSourceAttachment':
         """
         Get an existing TrafficSourceAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -201,7 +201,7 @@ class TrafficSourceAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autoscaling_group_name: The name of the Auto Scaling group.
-        :param pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArgs']] traffic_source: The unique identifiers of a traffic sources.
+        :param pulumi.Input[pulumi.InputType['TrafficSourceAttachmentTrafficSourceArrgs']] traffic_source: The unique identifiers of a traffic sources.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

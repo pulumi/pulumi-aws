@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AppImageConfigArgs', 'AppImageConfig']
+__all__ = ['AppImageConfigArrgs', 'AppImageConfig']
 
 @pulumi.input_type
-class AppImageConfigArgs:
+calass AppImageConfigArrgs:
     def __init__(__self__, *,
                  app_image_config_name: pulumi.Input[str],
-                 kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
+                 kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AppImageConfig resource.
         :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArrgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "app_image_config_name", app_image_config_name)
@@ -45,14 +45,14 @@ class AppImageConfigArgs:
 
     @property
     @pulumi.getter(name="kernelGatewayImageConfig")
-    def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
+    def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArrgs']]:
         """
         The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
     @kernel_gateway_image_config.setter
-    def kernel_gateway_image_config(self, value: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]):
+    def kernel_gateway_image_config(self, value: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArrgs']]):
         pulumi.set(self, "kernel_gateway_image_config", value)
 
     @property
@@ -69,18 +69,18 @@ class AppImageConfigArgs:
 
 
 @pulumi.input_type
-class _AppImageConfigState:
+calass _AppImageConfigState:
     def __init__(__self__, *,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']] = None,
+                 kernel_gateway_image_config: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering AppImageConfig resources.
         :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArrgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -124,14 +124,14 @@ class _AppImageConfigState:
 
     @property
     @pulumi.getter(name="kernelGatewayImageConfig")
-    def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]:
+    def kernel_gateway_image_config(self) -> Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArrgs']]:
         """
         The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         """
         return pulumi.get(self, "kernel_gateway_image_config")
 
     @kernel_gateway_image_config.setter
-    def kernel_gateway_image_config(self, value: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs']]):
+    def kernel_gateway_image_config(self, value: Optional[pulumi.Input['AppImageConfigKernelGatewayImageConfigArrgs']]):
         pulumi.set(self, "kernel_gateway_image_config", value)
 
     @property
@@ -162,13 +162,13 @@ class _AppImageConfigState:
         pulumi.set(self, "tags_all", value)
 
 
-class AppImageConfig(pulumi.CustomResource):
+calass AppImageConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
+                 kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -183,8 +183,8 @@ class AppImageConfig(pulumi.CustomResource):
 
         test = aws.sagemaker.AppImageConfig("test",
             app_image_config_name="example",
-            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
+            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArrgs(
+                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArrgs(
                     name="example",
                 ),
             ))
@@ -197,9 +197,9 @@ class AppImageConfig(pulumi.CustomResource):
 
         test = aws.sagemaker.AppImageConfig("test",
             app_image_config_name="example",
-            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
-                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
+            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArrgs(
+                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArrgs(),
+                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArrgs(
                     name="example",
                 ),
             ))
@@ -216,14 +216,14 @@ class AppImageConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArrgs']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AppImageConfigArgs,
+                 args: AppImageConfigArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker App Image Config resource.
@@ -237,8 +237,8 @@ class AppImageConfig(pulumi.CustomResource):
 
         test = aws.sagemaker.AppImageConfig("test",
             app_image_config_name="example",
-            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
+            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArrgs(
+                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArrgs(
                     name="example",
                 ),
             ))
@@ -251,9 +251,9 @@ class AppImageConfig(pulumi.CustomResource):
 
         test = aws.sagemaker.AppImageConfig("test",
             app_image_config_name="example",
-            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArgs(
-                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
-                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs(
+            kernel_gateway_image_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigArrgs(
+                file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArrgs(),
+                kernel_spec=aws.sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArrgs(
                     name="example",
                 ),
             ))
@@ -268,12 +268,12 @@ class AppImageConfig(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AppImageConfigArgs args: The arguments to use to populate this resource's properties.
+        :param AppImageConfigArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AppImageConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AppImageConfigArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -283,7 +283,7 @@ class AppImageConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_image_config_name: Optional[pulumi.Input[str]] = None,
-                 kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
+                 kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -292,7 +292,7 @@ class AppImageConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AppImageConfigArgs.__new__(AppImageConfigArgs)
+            __props__ = AppImageConfigArrgs.__new__(AppImageConfigArrgs)
 
             if app_image_config_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_image_config_name'")
@@ -315,7 +315,7 @@ class AppImageConfig(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_image_config_name: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']]] = None,
+            kernel_gateway_image_config: Optional[pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'AppImageConfig':
         """
@@ -327,7 +327,7 @@ class AppImageConfig(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_image_config_name: The name of the App Image Config.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
-        :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArgs']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
+        :param pulumi.Input[pulumi.InputType['AppImageConfigKernelGatewayImageConfigArrgs']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker image running as a KernelGateway app. See Kernel Gateway Image Config details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

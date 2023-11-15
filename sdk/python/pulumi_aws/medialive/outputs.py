@@ -184,7 +184,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ChannelCdiInputSpecification(dict):
+calass ChannelCdiInputSpecification(dict):
     def __init__(__self__, *,
                  resolution: str):
         """
@@ -202,7 +202,7 @@ class ChannelCdiInputSpecification(dict):
 
 
 @pulumi.output_type
-class ChannelDestination(dict):
+calass ChannelDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -229,9 +229,9 @@ class ChannelDestination(dict):
                  settings: Optional[Sequence['outputs.ChannelDestinationSetting']] = None):
         """
         :param str id: User-specified id. Ths is used in an output group or an output.
-        :param Sequence['ChannelDestinationMediaPackageSettingArgs'] media_package_settings: Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
-        :param 'ChannelDestinationMultiplexSettingsArgs' multiplex_settings: Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
-        :param Sequence['ChannelDestinationSettingArgs'] settings: Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
+        :param Sequence['ChannelDestinationMediaPackageSettingArrgs'] media_package_settings: Destination settings for a MediaPackage output; one destination for both encoders. See Media Package Settings for more details.
+        :param 'ChannelDestinationMultiplexSettingsArrgs' multiplex_settings: Destination settings for a Multiplex output; one destination for both encoders. See Multiplex Settings for more details.
+        :param Sequence['ChannelDestinationSettingArrgs'] settings: Destination settings for a standard output; one destination for each redundant encoder. See Settings for more details.
         """
         pulumi.set(__self__, "id", id)
         if media_package_settings is not None:
@@ -275,7 +275,7 @@ class ChannelDestination(dict):
 
 
 @pulumi.output_type
-class ChannelDestinationMediaPackageSetting(dict):
+calass ChannelDestinationMediaPackageSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -310,7 +310,7 @@ class ChannelDestinationMediaPackageSetting(dict):
 
 
 @pulumi.output_type
-class ChannelDestinationMultiplexSettings(dict):
+calass ChannelDestinationMultiplexSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -358,7 +358,7 @@ class ChannelDestinationMultiplexSettings(dict):
 
 
 @pulumi.output_type
-class ChannelDestinationSetting(dict):
+calass ChannelDestinationSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -432,7 +432,7 @@ class ChannelDestinationSetting(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettings(dict):
+calass ChannelEncoderSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -477,15 +477,15 @@ class ChannelEncoderSettings(dict):
                  nielsen_configuration: Optional['outputs.ChannelEncoderSettingsNielsenConfiguration'] = None,
                  video_descriptions: Optional[Sequence['outputs.ChannelEncoderSettingsVideoDescription']] = None):
         """
-        :param Sequence['ChannelEncoderSettingsOutputGroupArgs'] output_groups: Output groups for the channel. See Output Groups for more details.
-        :param 'ChannelEncoderSettingsTimecodeConfigArgs' timecode_config: Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
-        :param Sequence['ChannelEncoderSettingsAudioDescriptionArgs'] audio_descriptions: Audio descriptions for the channel. See Audio Descriptions for more details.
-        :param 'ChannelEncoderSettingsAvailBlankingArgs' avail_blanking: Settings for ad avail blanking. See Avail Blanking for more details.
-        :param Sequence['ChannelEncoderSettingsCaptionDescriptionArgs'] caption_descriptions: Caption Descriptions. See Caption Descriptions for more details.
-        :param 'ChannelEncoderSettingsGlobalConfigurationArgs' global_configuration: Configuration settings that apply to the event as a whole. See Global Configuration for more details.
-        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationArgs' motion_graphics_configuration: Settings for motion graphics. See Motion Graphics Configuration for more details.
-        :param 'ChannelEncoderSettingsNielsenConfigurationArgs' nielsen_configuration: Nielsen configuration settings. See Nielsen Configuration for more details.
-        :param Sequence['ChannelEncoderSettingsVideoDescriptionArgs'] video_descriptions: Video Descriptions. See Video Descriptions for more details.
+        :param Sequence['ChannelEncoderSettingsOutputGroupArrgs'] output_groups: Output groups for the channel. See Output Groups for more details.
+        :param 'ChannelEncoderSettingsTimecodeConfigArrgs' timecode_config: Contains settings used to acquire and adjust timecode information from inputs. See Timecode Config for more details.
+        :param Sequence['ChannelEncoderSettingsAudioDescriptionArrgs'] audio_descriptions: Audio descriptions for the channel. See Audio Descriptions for more details.
+        :param 'ChannelEncoderSettingsAvailBlankingArrgs' avail_blanking: Settings for ad avail blanking. See Avail Blanking for more details.
+        :param Sequence['ChannelEncoderSettingsCaptionDescriptionArrgs'] caption_descriptions: Caption Descriptions. See Caption Descriptions for more details.
+        :param 'ChannelEncoderSettingsGlobalConfigurationArrgs' global_configuration: Configuration settings that apply to the event as a whole. See Global Configuration for more details.
+        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationArrgs' motion_graphics_configuration: Settings for motion graphics. See Motion Graphics Configuration for more details.
+        :param 'ChannelEncoderSettingsNielsenConfigurationArrgs' nielsen_configuration: Nielsen configuration settings. See Nielsen Configuration for more details.
+        :param Sequence['ChannelEncoderSettingsVideoDescriptionArrgs'] video_descriptions: Video Descriptions. See Video Descriptions for more details.
         """
         pulumi.set(__self__, "output_groups", output_groups)
         pulumi.set(__self__, "timecode_config", timecode_config)
@@ -578,7 +578,7 @@ class ChannelEncoderSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescription(dict):
+calass ChannelEncoderSettingsAudioDescription(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -629,11 +629,11 @@ class ChannelEncoderSettingsAudioDescription(dict):
         """
         :param str audio_selector_name: The name of the audio selector used as the source for this AudioDescription.
         :param str name: The name of this audio description.
-        :param 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArgs' audio_normalization_settings: Advanced audio normalization settings. See Audio Normalization Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettingsArrgs' audio_normalization_settings: Advanced audio normalization settings. See Audio Normalization Settings for more details.
         :param str audio_type: Applies only if audioTypeControl is useConfigured. The values for audioType are defined in ISO-IEC 13818-1.
         :param str audio_type_control: Determined how audio type is determined.
-        :param 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArgs' audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
-        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArgs' codec_settings: Audio codec settings. See Audio Codec Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsArrgs' audio_watermark_settings: Settings to configure one or more solutions that insert audio watermarks in the audio encode. See Audio Watermark Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsArrgs' codec_settings: Audio codec settings. See Audio Codec Settings for more details.
         :param str language_code: Selects a specific three-letter language code from within an audio source.
         :param str stream_name: Stream name RTMP destinations (URLs of type rtmp://)
         """
@@ -742,7 +742,7 @@ class ChannelEncoderSettingsAudioDescription(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -804,7 +804,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioNormalizationSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -834,7 +834,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -861,9 +861,9 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
                  nielsen_distribution_type: Optional[str] = None,
                  nielsen_naes_ii_nw_settings: Optional[Sequence['outputs.ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting']] = None):
         """
-        :param 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArgs' nielsen_cbet_settings: Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettingsArrgs' nielsen_cbet_settings: Used to insert watermarks of type Nielsen CBET. See Nielsen CBET Settings for more details.
         :param str nielsen_distribution_type: Distribution types to assign to the watermarks. Options are `PROGRAM_CONTENT` and `FINAL_DISTRIBUTOR`.
-        :param Sequence['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArgs'] nielsen_naes_ii_nw_settings: Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
+        :param Sequence['ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSettingArrgs'] nielsen_naes_ii_nw_settings: Used to insert watermarks of type Nielsen NAES, II (N2) and Nielsen NAES VI (NW). See Nielsen NAES II NW Settings for more details.
         """
         if nielsen_cbet_settings is not None:
             pulumi.set(__self__, "nielsen_cbet_settings", nielsen_cbet_settings)
@@ -898,7 +898,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenCbetSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -953,7 +953,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting(dict):
+calass ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWatermarksSettingsNielsenNaesIiNwSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -995,7 +995,7 @@ class ChannelEncoderSettingsAudioDescriptionAudioWatermarkSettingsNielsenWaterma
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionCodecSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1034,10 +1034,10 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettings(dict):
                  pass_through_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings'] = None,
                  wav_settings: Optional['outputs.ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArgs' aac_settings: Aac Settings. See AAC Settings for more details.
-        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArgs' ac3_settings: Ac3 Settings. See AC3 Settings for more details.
-        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArgs' eac3_atmos_settings: Eac3 Atmos Settings. See EAC3 Atmos Settings
-        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArgs' eac3_settings: Eac3 Settings. See EAC3 Settings
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettingsArrgs' aac_settings: Aac Settings. See AAC Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3SettingsArrgs' ac3_settings: Ac3 Settings. See AC3 Settings for more details.
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettingsArrgs' eac3_atmos_settings: Eac3 Atmos Settings. See EAC3 Atmos Settings
+        :param 'ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3SettingsArrgs' eac3_settings: Eac3 Settings. See EAC3 Settings
         """
         if aac_settings is not None:
             pulumi.set(__self__, "aac_settings", aac_settings)
@@ -1103,7 +1103,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1245,7 +1245,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAacSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings(dict):
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1361,7 +1361,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsAc3Settings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1477,7 +1477,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3AtmosSettings(dict)
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings(dict):
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1731,7 +1731,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsEac3Settings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings(dict):
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1793,13 +1793,13 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsMp2Settings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsPassThroughSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1859,7 +1859,7 @@ class ChannelEncoderSettingsAudioDescriptionCodecSettingsWavSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionRemixSettings(dict):
+calass ChannelEncoderSettingsAudioDescriptionRemixSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1908,7 +1908,7 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping(dict):
+calass ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1946,7 +1946,7 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMapping(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel(dict):
+calass ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChannelLevel(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1982,7 +1982,7 @@ class ChannelEncoderSettingsAudioDescriptionRemixSettingsChannelMappingInputChan
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAvailBlanking(dict):
+calass ChannelEncoderSettingsAvailBlanking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2004,7 +2004,7 @@ class ChannelEncoderSettingsAvailBlanking(dict):
                  avail_blanking_image: Optional['outputs.ChannelEncoderSettingsAvailBlankingAvailBlankingImage'] = None,
                  state: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArgs' avail_blanking_image: Blanking image to be used. See Avail Blanking Image for more details.
+        :param 'ChannelEncoderSettingsAvailBlankingAvailBlankingImageArrgs' avail_blanking_image: Blanking image to be used. See Avail Blanking Image for more details.
         :param str state: When set to enabled, causes video, audio and captions to be blanked when insertion metadata is added.
         """
         if avail_blanking_image is not None:
@@ -2030,7 +2030,7 @@ class ChannelEncoderSettingsAvailBlanking(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsAvailBlankingAvailBlankingImage(dict):
+calass ChannelEncoderSettingsAvailBlankingAvailBlankingImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2089,7 +2089,7 @@ class ChannelEncoderSettingsAvailBlankingAvailBlankingImage(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescription(dict):
+calass ChannelEncoderSettingsCaptionDescription(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2124,7 +2124,7 @@ class ChannelEncoderSettingsCaptionDescription(dict):
         :param str caption_selector_name: Specifies which input caption selector to use as a caption source when generating output captions. This field should match a captionSelector name.
         :param str name: Name of the caption description. Used to associate a caption description with an output. Names must be unique within an event.
         :param str accessibility: Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArgs' destination_settings: Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsArrgs' destination_settings: Additional settings for captions destination that depend on the destination type. See Destination Settings for more details.
         :param str language_code: ISO 639-2 three-digit code.
         :param str language_description: Human readable information to indicate captions available for players (eg. English, or Spanish).
         """
@@ -2189,7 +2189,7 @@ class ChannelEncoderSettingsCaptionDescription(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2246,19 +2246,19 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettings(dict):
                  ttml_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings'] = None,
                  webvtt_destination_settings: Optional['outputs.ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArgs' arib_destination_settings: ARIB Destination Settings.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArgs' burn_in_destination_settings: Burn In Destination Settings. See Burn In Destination Settings for more details.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArgs' dvb_sub_destination_settings: DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArgs' ebu_tt_d_destination_settings: EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArgs' embedded_destination_settings: Embedded Destination Settings.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArgs' embedded_plus_scte20_destination_settings: Embedded Plus SCTE20 Destination Settings.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArgs' rtmp_caption_info_destination_settings: RTMP Caption Info Destination Settings.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArgs' scte20_plus_embedded_destination_settings: SCTE20 Plus Embedded Destination Settings.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArgs' scte27_destination_settings: SCTE27 Destination Settings.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArgs' smpte_tt_destination_settings: SMPTE TT Destination Settings.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArgs' teletext_destination_settings: Teletext Destination Settings.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArgs' ttml_destination_settings: TTML Destination Settings. See TTML Destination Settings for more details.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArgs' webvtt_destination_settings: WebVTT Destination Settings. See WebVTT Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettingsArrgs' arib_destination_settings: ARIB Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsArrgs' burn_in_destination_settings: Burn In Destination Settings. See Burn In Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsArrgs' dvb_sub_destination_settings: DVB Sub Destination Settings. See DVB Sub Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettingsArrgs' ebu_tt_d_destination_settings: EBU TT D Destination Settings. See EBU TT D Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettingsArrgs' embedded_destination_settings: Embedded Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettingsArrgs' embedded_plus_scte20_destination_settings: Embedded Plus SCTE20 Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettingsArrgs' rtmp_caption_info_destination_settings: RTMP Caption Info Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettingsArrgs' scte20_plus_embedded_destination_settings: SCTE20 Plus Embedded Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettingsArrgs' scte27_destination_settings: SCTE27 Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettingsArrgs' smpte_tt_destination_settings: SMPTE TT Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettingsArrgs' teletext_destination_settings: Teletext Destination Settings.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettingsArrgs' ttml_destination_settings: TTML Destination Settings. See TTML Destination Settings for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettingsArrgs' webvtt_destination_settings: WebVTT Destination Settings. See WebVTT Destination Settings for more details.
         """
         if arib_destination_settings is not None:
             pulumi.set(__self__, "arib_destination_settings", arib_destination_settings)
@@ -2393,13 +2393,13 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsAribDestinationSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2469,7 +2469,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
         :param str alignment: If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. All burn-in and DVB-Sub font settings must match.
         :param str background_color: Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
         :param int background_opacity: Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter out is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArgs' font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFontArrgs' font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
         :param str font_color: Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         :param int font_opacity: Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
         :param int font_resolution: Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
@@ -2653,7 +2653,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinationSettingsFont(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2712,7 +2712,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsBurnInDestinati
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2780,7 +2780,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
         :param str alignment: If no explicit xPosition or yPosition is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. Selecting “smart” justification will left-justify live subtitles and center-justify pre-recorded subtitles. This option is not valid for source captions that are STL or 608/embedded. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         :param str background_color: Specifies the color of the rectangle behind the captions. All burn-in and DVB-Sub font settings must match.
         :param int background_opacity: Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
-        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArgs' font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
+        :param 'ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFontArrgs' font: External font file used for caption burn-in. File extension must be ‘ttf’ or ‘tte’. Although the user can select output fonts for many different types of input captions, embedded, STL and teletext sources use a strict grid system. Using external fonts with these caption sources could cause unexpected display of proportional fonts. All burn-in and DVB-Sub font settings must match. See Font for more details.
         :param str font_color: Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
         :param int font_opacity: Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent. All burn-in and DVB-Sub font settings must match.
         :param int font_resolution: Font resolution in DPI (dots per inch); default is 96 dpi. All burn-in and DVB-Sub font settings must match.
@@ -2968,7 +2968,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinationSettingsFont(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3027,7 +3027,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsDvbSubDestinati
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3105,49 +3105,49 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEbuTtDDestinati
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedDestinationSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsEmbeddedPlusScte20DestinationSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsRtmpCaptionInfoDestinationSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte20PlusEmbeddedDestinationSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsScte27DestinationSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsSmpteTtDestinationSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTeletextDestinationSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestinationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3182,7 +3182,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsTtmlDestination
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings(dict):
+calass ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinationSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3217,7 +3217,7 @@ class ChannelEncoderSettingsCaptionDescriptionDestinationSettingsWebvttDestinati
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsGlobalConfiguration(dict):
+calass ChannelEncoderSettingsGlobalConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3255,7 +3255,7 @@ class ChannelEncoderSettingsGlobalConfiguration(dict):
         """
         :param int initial_audio_gain: Value to set the initial audio gain for the Live Event.
         :param str input_end_action: Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input. When “none” is configured the encoder will transcode either black, a solid color, or a user specified slate images per the “Input Loss Behavior” configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-        :param 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArgs' input_loss_behavior: Settings for system actions when input is lost. See Input Loss Behavior for more details.
+        :param 'ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorArrgs' input_loss_behavior: Settings for system actions when input is lost. See Input Loss Behavior for more details.
         :param str output_locking_mode: Indicates how MediaLive pipelines are synchronized. PIPELINE\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other. EPOCH\\_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
         :param str output_timing_source: Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
         :param str support_low_framerate_inputs: Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
@@ -3323,7 +3323,7 @@ class ChannelEncoderSettingsGlobalConfiguration(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsGlobalConfigurationInputLossBehavior(dict):
+calass ChannelEncoderSettingsGlobalConfigurationInputLossBehavior(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3393,7 +3393,7 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehavior(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate(dict):
+calass ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSlate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3452,7 +3452,7 @@ class ChannelEncoderSettingsGlobalConfigurationInputLossBehaviorInputLossImageSl
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsMotionGraphicsConfiguration(dict):
+calass ChannelEncoderSettingsMotionGraphicsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3476,7 +3476,7 @@ class ChannelEncoderSettingsMotionGraphicsConfiguration(dict):
                  motion_graphics_settings: 'outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings',
                  motion_graphics_insertion: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArgs' motion_graphics_settings: Motion Graphics Settings. See Motion Graphics Settings for more details.
+        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsArrgs' motion_graphics_settings: Motion Graphics Settings. See Motion Graphics Settings for more details.
         :param str motion_graphics_insertion: Motion Graphics Insertion.
         """
         pulumi.set(__self__, "motion_graphics_settings", motion_graphics_settings)
@@ -3501,7 +3501,7 @@ class ChannelEncoderSettingsMotionGraphicsConfiguration(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(dict):
+calass ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3522,7 +3522,7 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(di
     def __init__(__self__, *,
                  html_motion_graphics_settings: Optional['outputs.ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArgs' html_motion_graphics_settings: Html Motion Graphics Settings.
+        :param 'ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettingsArrgs' html_motion_graphics_settings: Html Motion Graphics Settings.
         """
         if html_motion_graphics_settings is not None:
             pulumi.set(__self__, "html_motion_graphics_settings", html_motion_graphics_settings)
@@ -3537,13 +3537,13 @@ class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettings(di
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings(dict):
+calass ChannelEncoderSettingsMotionGraphicsConfigurationMotionGraphicsSettingsHtmlMotionGraphicsSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsNielsenConfiguration(dict):
+calass ChannelEncoderSettingsNielsenConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3593,7 +3593,7 @@ class ChannelEncoderSettingsNielsenConfiguration(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroup(dict):
+calass ChannelEncoderSettingsOutputGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3616,8 +3616,8 @@ class ChannelEncoderSettingsOutputGroup(dict):
                  outputs: Sequence['outputs.ChannelEncoderSettingsOutputGroupOutput'],
                  name: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArgs' output_group_settings: Settings associated with the output group. See Output Group Settings for more details.
-        :param Sequence['ChannelEncoderSettingsOutputGroupOutputArgs'] outputs: List of outputs. See Outputs for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArrgs' output_group_settings: Settings associated with the output group. See Output Group Settings for more details.
+        :param Sequence['ChannelEncoderSettingsOutputGroupOutputArrgs'] outputs: List of outputs. See Outputs for more details.
         :param str name: Custom output group name defined by the user.
         """
         pulumi.set(__self__, "output_group_settings", output_group_settings)
@@ -3651,7 +3651,7 @@ class ChannelEncoderSettingsOutputGroup(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutput(dict):
+calass ChannelEncoderSettingsOutputGroupOutput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3684,7 +3684,7 @@ class ChannelEncoderSettingsOutputGroupOutput(dict):
                  output_name: Optional[str] = None,
                  video_description_name: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs' output_settings: Settings for output. See Output Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArrgs' output_settings: Settings for output. See Output Settings for more details.
         :param Sequence[str] audio_description_names: The names of the audio descriptions used as audio sources for the output.
         :param Sequence[str] caption_description_names: The names of the caption descriptions used as caption sources for the output.
         :param str output_name: The name used to identify an output.
@@ -3742,7 +3742,7 @@ class ChannelEncoderSettingsOutputGroupOutput(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3784,9 +3784,9 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettings(dict):
                  rtmp_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings'] = None,
                  udp_group_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings'] = None):
         """
-        :param Sequence['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArgs'] archive_group_settings: Archive group settings. See Archive Group Settings for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArgs' media_package_group_settings: Media package group settings. See Media Package Group Settings for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArgs' rtmp_group_settings: RTMP group settings. See RTMP Group Settings for more details.
+        :param Sequence['ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArrgs'] archive_group_settings: Archive group settings. See Archive Group Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsArrgs' media_package_group_settings: Media package group settings. See Media Package Group Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettingsArrgs' rtmp_group_settings: RTMP group settings. See RTMP Group Settings for more details.
         """
         if archive_group_settings is not None:
             pulumi.set(__self__, "archive_group_settings", archive_group_settings)
@@ -3856,7 +3856,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3881,8 +3881,8 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting(di
                  archive_cdn_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings'] = None,
                  rollover_interval: Optional[int] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArgs' archive_cdn_settings: Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestinationArrgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArrgs' archive_cdn_settings: Parameters that control the interactions with the CDN. See Archive CDN Settings for more details.
         :param int rollover_interval: Number of seconds to write to archive file before closing and starting a new one.
         """
         pulumi.set(__self__, "destination", destination)
@@ -3917,7 +3917,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSetting(di
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3938,7 +3938,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
     def __init__(__self__, *,
                  archive_s3_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings'] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArgs' archive_s3_settings: Archive S3 Settings. See Archive S3 Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3SettingsArrgs' archive_s3_settings: Archive S3 Settings. See Archive S3 Settings for more details.
         """
         if archive_s3_settings is not None:
             pulumi.set(__self__, "archive_s3_settings", archive_s3_settings)
@@ -3953,7 +3953,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArchiveCdnSettingsArchiveS3Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3989,7 +3989,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingArc
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4024,7 +4024,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsArchiveGroupSettingDes
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4046,7 +4046,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination',
                  frame_capture_cdn_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestinationArrgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
         if frame_capture_cdn_settings is not None:
@@ -4067,7 +4067,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4102,7 +4102,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4132,7 +4132,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSettingsFrameCaptureCdnSettingsFrameCaptureS3Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4168,7 +4168,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsFrameCaptureGroupSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4308,7 +4308,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings(dict)
                  timestamp_delta_milliseconds: Optional[int] = None,
                  ts_file_mode: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestinationArrgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         :param Sequence[str] ad_markers: The ad marker type for this output group.
         :param str input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
         :param str timed_metadata_id3_frame: Indicates ID3 frame that has the timecode.
@@ -4621,7 +4621,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettings(dict)
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptionLanguageMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4678,7 +4678,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsCaptio
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4713,7 +4713,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsDestin
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4783,7 +4783,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsAkamaiSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4883,7 +4883,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsBasicPutSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4957,7 +4957,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsMediaStoreSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5041,7 +5041,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsS3Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5077,7 +5077,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdnSettingHlsWebdavSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5161,7 +5161,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsHlsCdn
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5191,7 +5191,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5230,7 +5230,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyProviderSettingsStaticKeySettingKeyProviderServer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5289,11 +5289,11 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsHlsGroupSettingsKeyPro
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettings(dict):
     def __init__(__self__, *,
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination'):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestinationArrgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -5307,7 +5307,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSettingsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5342,7 +5342,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMediaPackageGroupSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5415,7 +5415,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
                  timestamp_offset: Optional[str] = None,
                  timestamp_offset_mode: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArgs' destination: A director and base filename where archive files should be written. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestinationArrgs' destination: A director and base filename where archive files should be written. See Destination for more details.
         :param str certificate_mode: Setting to allow self signed or verified RTMP certificates.
         :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         :param str input_loss_action: Controls the behavior of the RTMP group if input becomes unavailable.
@@ -5575,7 +5575,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettings(
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5610,13 +5610,13 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMsSmoothGroupSettingsD
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsMultiplexGroupSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5736,7 +5736,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsRtmpGroupSettings(dict
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5796,7 +5796,7 @@ class ChannelEncoderSettingsOutputGroupOutputGroupSettingsUdpGroupSettings(dict)
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5838,11 +5838,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettings(dict):
                  rtmp_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings'] = None,
                  udp_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs' archive_output_settings: Archive output settings. See Archive Output Settings for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArgs' media_package_output_settings: Media package output settings. This can be set as an empty block.
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArgs' multiplex_output_settings: Multiplex output settings. See Multiplex Output Settings for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArgs' rtmp_output_settings: RTMP output settings. See RTMP Output Settings for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArgs' udp_output_settings: UDP output settings. See UDP Output Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArrgs' archive_output_settings: Archive output settings. See Archive Output Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettingsArrgs' media_package_output_settings: Media package output settings. This can be set as an empty block.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsArrgs' multiplex_output_settings: Multiplex output settings. See Multiplex Output Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsArrgs' rtmp_output_settings: RTMP output settings. See RTMP Output Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsArrgs' udp_output_settings: UDP output settings. See UDP Output Settings for more details.
         """
         if archive_output_settings is not None:
             pulumi.set(__self__, "archive_output_settings", archive_output_settings)
@@ -5918,7 +5918,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5943,7 +5943,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  extension: Optional[str] = None,
                  name_modifier: Optional[str] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs' container_settings: Settings specific to the container type of the file. See Container Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArrgs' container_settings: Settings specific to the container type of the file. See Container Settings for more details.
         :param str extension: Output file extension.
         :param str name_modifier: String concatenated to the end of the destination filename. Required for multiple outputs of the same type.
         """
@@ -5980,7 +5980,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6004,8 +6004,8 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
                  m2ts_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings'] = None,
                  raw_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs' m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArgs' raw_settings: Raw Settings. This can be set as an empty block.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArrgs' m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettingsArrgs' raw_settings: Raw Settings. This can be set as an empty block.
         """
         if m2ts_settings is not None:
             pulumi.set(__self__, "m2ts_settings", m2ts_settings)
@@ -6030,7 +6030,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6522,7 +6522,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6570,7 +6570,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6630,7 +6630,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6660,13 +6660,13 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettings
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsRawSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6702,7 +6702,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsFrameCaptureOutputSet
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6767,7 +6767,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettings(dic
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6827,7 +6827,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6887,7 +6887,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsAudioOnlyHlsSettingsAudioOnlyImage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6946,7 +6946,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFmp4HlsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6996,13 +6996,13 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsFrameCaptureHlsSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7041,7 +7041,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsSettingsStandardHlsSettingsM3u8Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7237,13 +7237,13 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsHlsOutputSettingsHlsS
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsMediaPackageOutputSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7289,11 +7289,11 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMsSmoothOutputSetting
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettings(dict):
     def __init__(__self__, *,
                  destination: 'outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination'):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArgs' destination: Destination is a multiplex. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestinationArrgs' destination: Destination is a multiplex. See Destination for more details.
         """
         pulumi.set(__self__, "destination", destination)
 
@@ -7307,7 +7307,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettingsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7342,7 +7342,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsMultiplexOutputSettin
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7370,7 +7370,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(di
                  connection_retry_interval: Optional[int] = None,
                  num_retries: Optional[int] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArgs' destination: The RTMP endpoint excluding the stream name. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestinationArrgs' destination: The RTMP endpoint excluding the stream name. See Destination for more details.
         :param str certificate_mode: Setting to allow self signed or verified RTMP certificates.
         :param int connection_retry_interval: Number of seconds to wait before retrying connection to the flash media server if the connection is lost.
         :param int num_retries: Number of retry attempts.
@@ -7417,7 +7417,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettings(di
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7452,7 +7452,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsRtmpOutputSettingsDes
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7480,8 +7480,8 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings(dic
                  buffer_msec: Optional[int] = None,
                  fec_output_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArgs' container_settings: UDP container settings. See Container Settings for more details.
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsArrgs' container_settings: UDP container settings. See Container Settings for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestinationArrgs' destination: Destination address and port number for RTP or UDP packets. See Destination for more details.
         :param int buffer_msec: UDP output buffering in milliseconds.
         """
         pulumi.set(__self__, "container_settings", container_settings)
@@ -7522,7 +7522,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettings(dic
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7543,7 +7543,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
     def __init__(__self__, *,
                  m2ts_settings: Optional['outputs.ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArgs' m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
+        :param 'ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsArrgs' m2ts_settings: M2TS Settings. See [M2TS Settings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-m2tssettings.html) for more details.
         """
         if m2ts_settings is not None:
             pulumi.set(__self__, "m2ts_settings", m2ts_settings)
@@ -7558,7 +7558,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8050,7 +8050,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbNitSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8098,7 +8098,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbSdtSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8158,7 +8158,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsContainerSettingsM2tsSettingsDvbTdtSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8188,7 +8188,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsCont
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8223,7 +8223,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsDest
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings(dict):
+calass ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecOutputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8287,7 +8287,7 @@ class ChannelEncoderSettingsOutputGroupOutputOutputSettingsUdpOutputSettingsFecO
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsTimecodeConfig(dict):
+calass ChannelEncoderSettingsTimecodeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8334,7 +8334,7 @@ class ChannelEncoderSettingsTimecodeConfig(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescription(dict):
+calass ChannelEncoderSettingsVideoDescription(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8366,7 +8366,7 @@ class ChannelEncoderSettingsVideoDescription(dict):
                  width: Optional[int] = None):
         """
         :param str name: The name of the video description.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsArgs' codec_settings: The video codec settings. See Video Codec Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsArrgs' codec_settings: The video codec settings. See Video Codec Settings for more details.
         :param int height: Output video height in pixels.
         :param str respond_to_afd: Indicate how to respond to the AFD values that might be in the input video.
         :param str scaling_behavior: Behavior on how to scale.
@@ -8445,7 +8445,7 @@ class ChannelEncoderSettingsVideoDescription(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8472,8 +8472,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
                  h264_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings'] = None,
                  h265_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings'] = None):
         """
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArgs' frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArgs' h264_settings: H264 settings. See H264 Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettingsArrgs' frame_capture_settings: Frame capture settings. See Frame Capture Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsArrgs' h264_settings: H264 settings. See H264 Settings for more details.
         """
         if frame_capture_settings is not None:
             pulumi.set(__self__, "frame_capture_settings", frame_capture_settings)
@@ -8505,7 +8505,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8555,7 +8555,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsFrameCaptureSettings(di
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8687,7 +8687,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
         :param int buf_size: Size of buffer in bits.
         :param str color_metadata: Includes color space metadata in the output.
         :param str entropy_encoding: Entropy encoding mode.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArgs' filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsArrgs' filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
         :param str fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
         :param str force_field_pictures: Controls whether coding is performed on a field basis or on a frame basis.
         :param str framerate_control: Indicates how the output video frame rate is specified.
@@ -9113,7 +9113,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264Settings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9134,7 +9134,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
     def __init__(__self__, *,
                  temporal_filter_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArgs' temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettingsArrgs' temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
         """
         if temporal_filter_settings is not None:
             pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
@@ -9149,7 +9149,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSettingsTemporalFilterSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9197,7 +9197,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH264SettingsFilterSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9303,8 +9303,8 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
         :param str alternative_transfer_function: Whether or not EML should insert an Alternative Transfer Function SEI message.
         :param int buf_size: Size of buffer in bits.
         :param str color_metadata: Includes color space metadata in the output.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArgs' color_space_settings: Define the color metadata for the output. H265 Color Space Settings for more details.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArgs' filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsArrgs' color_space_settings: Define the color metadata for the output. H265 Color Space Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsArrgs' filter_settings: Filters to apply to an encode. See H265 Filter Settings for more details.
         :param str fixed_afd: Four bit AFD value to write on all frames of video in the output stream.
         :param int gop_closed_cadence: Frequency of closed GOPs.
         :param float gop_size: GOP size in units of either frames of seconds per `gop_size_units`.
@@ -9321,7 +9321,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
         :param str scene_change_detect: Scene change detection.
         :param int slices: Number of slices per picture.
         :param str tier: Set the H265 tier in the output.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArgs' timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettingsArrgs' timecode_burnin_settings: Apply a burned in timecode. See H265 Timecode Burnin Settings for more details.
         :param str timecode_insertion: Determines how timecodes should be inserted into the video elementary stream.
         """
         pulumi.set(__self__, "bitrate", bitrate)
@@ -9618,7 +9618,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265Settings(dict):
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9651,11 +9651,11 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
                  rec601_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings'] = None,
                  rec709_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings'] = None):
         """
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArgs' color_space_passthrough_settings: Sets the colorspace metadata to be passed through.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArgs' dolby_vision81_settings: Set the colorspace to Dolby Vision81.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArgs' hdr10_settings: Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArgs' rec601_settings: Set the colorspace to Rec. 601.
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArgs' rec709_settings: Set the colorspace to Rec. 709.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettingsArrgs' color_space_passthrough_settings: Sets the colorspace metadata to be passed through.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81SettingsArrgs' dolby_vision81_settings: Set the colorspace to Dolby Vision81.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10SettingsArrgs' hdr10_settings: Set the colorspace to be HDR10. See H265 HDR10 Settings for more details.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601SettingsArrgs' rec601_settings: Set the colorspace to Rec. 601.
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709SettingsArrgs' rec709_settings: Set the colorspace to Rec. 709.
         """
         if color_space_passthrough_settings is not None:
             pulumi.set(__self__, "color_space_passthrough_settings", color_space_passthrough_settings)
@@ -9710,19 +9710,19 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsColorSpacePassthroughSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsDolbyVision81Settings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsHdr10Settings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9772,19 +9772,19 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceS
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec601Settings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsColorSpaceSettingsRec709Settings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9805,7 +9805,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSetti
     def __init__(__self__, *,
                  temporal_filter_settings: Optional['outputs.ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings'] = None):
         """
-        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArgs' temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
+        :param 'ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettingsArrgs' temporal_filter_settings: Temporal filter settings. See Temporal Filter Settings
         """
         if temporal_filter_settings is not None:
             pulumi.set(__self__, "temporal_filter_settings", temporal_filter_settings)
@@ -9820,7 +9820,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSettingsTemporalFilterSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9868,7 +9868,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsFilterSetti
 
 
 @pulumi.output_type
-class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings(dict):
+calass ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBurninSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9930,7 +9930,7 @@ class ChannelEncoderSettingsVideoDescriptionCodecSettingsH265SettingsTimecodeBur
 
 
 @pulumi.output_type
-class ChannelInputAttachment(dict):
+calass ChannelInputAttachment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9962,8 +9962,8 @@ class ChannelInputAttachment(dict):
         """
         :param str input_attachment_name: User-specified name for the attachment.
         :param str input_id: The ID of the input.
-        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsArgs' automatic_input_failover_settings: User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
-        :param 'ChannelInputAttachmentInputSettingsArgs' input_settings: Settings of an input. See Input Settings for more details.
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsArrgs' automatic_input_failover_settings: User-specified settings for defining what the conditions are for declaring the input unhealthy and failing over to a different input. See Automatic Input Failover Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsArrgs' input_settings: Settings of an input. See Input Settings for more details.
         """
         pulumi.set(__self__, "input_attachment_name", input_attachment_name)
         pulumi.set(__self__, "input_id", input_id)
@@ -10006,7 +10006,7 @@ class ChannelInputAttachment(dict):
 
 
 @pulumi.output_type
-class ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
+calass ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10079,7 +10079,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettings(dict):
 
 
 @pulumi.output_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition(dict):
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10100,7 +10100,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition(dict
     def __init__(__self__, *,
                  failover_condition_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings'] = None):
         """
-        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArgs' failover_condition_settings: Failover condition type-specific settings. See Failover Condition Settings for more details.
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsArrgs' failover_condition_settings: Failover condition type-specific settings. See Failover Condition Settings for more details.
         """
         if failover_condition_settings is not None:
             pulumi.set(__self__, "failover_condition_settings", failover_condition_settings)
@@ -10115,7 +10115,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverCondition(dict
 
 
 @pulumi.output_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings(dict):
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10142,9 +10142,9 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
                  input_loss_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings'] = None,
                  video_black_settings: Optional['outputs.ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings'] = None):
         """
-        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArgs' audio_silence_settings: MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
-        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArgs' input_loss_settings: MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
-        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArgs' video_black_settings: MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettingsArrgs' audio_silence_settings: MediaLive will perform a failover if the specified audio selector is silent for the specified period. See Audio Silence Failover Settings for more details.
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettingsArrgs' input_loss_settings: MediaLive will perform a failover if content is not detected in this input for the specified period. See Input Loss Failover Settings for more details.
+        :param 'ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettingsArrgs' video_black_settings: MediaLive will perform a failover if content is considered black for the specified period. See Video Black Failover Settings for more details.
         """
         if audio_silence_settings is not None:
             pulumi.set(__self__, "audio_silence_settings", audio_silence_settings)
@@ -10179,7 +10179,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 
 @pulumi.output_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings(dict):
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsAudioSilenceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10228,7 +10228,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 
 @pulumi.output_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings(dict):
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsInputLossSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10264,7 +10264,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 
 @pulumi.output_type
-class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings(dict):
+calass ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailoverConditionSettingsVideoBlackSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10314,7 +10314,7 @@ class ChannelInputAttachmentAutomaticInputFailoverSettingsFailoverConditionFailo
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettings(dict):
+calass ChannelInputAttachmentInputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10369,7 +10369,7 @@ class ChannelInputAttachmentInputSettings(dict):
         :param str denoise_filter: Enable or disable the denoise filter when filtering.
         :param int filter_strength: Adjusts the magnitude of filtering from 1 (minimal) to 5 (strongest).
         :param str input_filter: Turns on the filter for the input.
-        :param 'ChannelInputAttachmentInputSettingsNetworkInputSettingsArgs' network_input_settings: Input settings. See Network Input Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsNetworkInputSettingsArrgs' network_input_settings: Input settings. See Network Input Settings for more details.
         :param int scte35_pid: PID from which to read SCTE-35 messages.
         :param str smpte2038_data_preference: Specifies whether to extract applicable ancillary data from a SMPTE-2038 source in the input.
         :param str source_end_behavior: Loop input if it is a file.
@@ -10478,7 +10478,7 @@ class ChannelInputAttachmentInputSettings(dict):
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsAudioSelector(dict):
+calass ChannelInputAttachmentInputSettingsAudioSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10503,7 +10503,7 @@ class ChannelInputAttachmentInputSettingsAudioSelector(dict):
         :param str name: Name of the Channel.
                
                The following arguments are optional:
-        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArgs' selector_settings: The audio selector settings. See Audio Selector Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsArrgs' selector_settings: The audio selector settings. See Audio Selector Settings for more details.
         """
         pulumi.set(__self__, "name", name)
         if selector_settings is not None:
@@ -10529,7 +10529,7 @@ class ChannelInputAttachmentInputSettingsAudioSelector(dict):
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings(dict):
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10559,10 +10559,10 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings(dict):
                  audio_pid_selection: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection'] = None,
                  audio_track_selection: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection'] = None):
         """
-        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArgs' audio_hls_rendition_selection: Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
-        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArgs' audio_language_selection: Audio Language Selection. See Audio Language Selection for more details.
-        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArgs' audio_pid_selection: Audio Pid Selection. See Audio PID Selection for more details.
-        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArgs' audio_track_selection: Audio Track Selection. See Audio Track Selection for more details.
+        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelectionArrgs' audio_hls_rendition_selection: Audio HLS Rendition Selection. See Audio HLS Rendition Selection for more details.
+        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelectionArrgs' audio_language_selection: Audio Language Selection. See Audio Language Selection for more details.
+        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelectionArrgs' audio_pid_selection: Audio Pid Selection. See Audio PID Selection for more details.
+        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionArrgs' audio_track_selection: Audio Track Selection. See Audio Track Selection for more details.
         """
         if audio_hls_rendition_selection is not None:
             pulumi.set(__self__, "audio_hls_rendition_selection", audio_hls_rendition_selection)
@@ -10607,7 +10607,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettings(dict):
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection(dict):
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRenditionSelection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10653,7 +10653,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioHlsRe
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection(dict):
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLanguageSelection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10702,7 +10702,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioLangu
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection(dict):
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSelection(dict):
     def __init__(__self__, *,
                  pid: int):
         """
@@ -10720,7 +10720,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioPidSe
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection(dict):
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10742,8 +10742,8 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
                  tracks: Sequence['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack'],
                  dolby_e_decode: Optional['outputs.ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode'] = None):
         """
-        :param Sequence['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArgs'] tracks: Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
-        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArgs' dolby_e_decode: Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
+        :param Sequence['ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrackArrgs'] tracks: Selects one or more unique audio tracks from within a source. See Audio Tracks for more details.
+        :param 'ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecodeArrgs' dolby_e_decode: Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337. See Dolby E Decode for more details.
         """
         pulumi.set(__self__, "tracks", tracks)
         if dolby_e_decode is not None:
@@ -10767,7 +10767,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode(dict):
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionDolbyEDecode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10802,7 +10802,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack(dict):
+calass ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrackSelectionTrack(dict):
     def __init__(__self__, *,
                  track: int):
         """
@@ -10820,7 +10820,7 @@ class ChannelInputAttachmentInputSettingsAudioSelectorSelectorSettingsAudioTrack
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelector(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10849,7 +10849,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelector(dict):
                
                The following arguments are optional:
         :param str language_code: Selects a specific three-letter language code from within an audio source.
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArgs' selector_settings: The audio selector settings. See Audio Selector Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsArrgs' selector_settings: The audio selector settings. See Audio Selector Settings for more details.
         """
         pulumi.set(__self__, "name", name)
         if language_code is not None:
@@ -10885,7 +10885,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelector(dict):
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10924,13 +10924,13 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings(dict):
                  scte27_source_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings'] = None,
                  teletext_source_settings: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings'] = None):
         """
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArgs' ancillary_source_settings: Ancillary Source Settings. See Ancillary Source Settings for more details.
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArgs' arib_source_settings: ARIB Source Settings.
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArgs' dvb_sub_source_settings: DVB Sub Source Settings. See DVB Sub Source Settings for more details.
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArgs' embedded_source_settings: Embedded Source Settings. See Embedded Source Settings for more details.
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArgs' scte20_source_settings: SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArgs' scte27_source_settings: SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArgs' teletext_source_settings: Teletext Source Settings. See Teletext Source Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettingsArrgs' ancillary_source_settings: Ancillary Source Settings. See Ancillary Source Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettingsArrgs' arib_source_settings: ARIB Source Settings.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettingsArrgs' dvb_sub_source_settings: DVB Sub Source Settings. See DVB Sub Source Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettingsArrgs' embedded_source_settings: Embedded Source Settings. See Embedded Source Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettingsArrgs' scte20_source_settings: SCTE20 Source Settings. See SCTE 20 Source Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettingsArrgs' scte27_source_settings: SCTE27 Source Settings. See SCTE 27 Source Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsArrgs' teletext_source_settings: Teletext Source Settings. See Teletext Source Settings for more details.
         """
         if ancillary_source_settings is not None:
             pulumi.set(__self__, "ancillary_source_settings", ancillary_source_settings)
@@ -11005,7 +11005,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettings(dict):
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillarySourceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11041,13 +11041,13 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAncillar
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsAribSourceSettings(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSourceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11095,7 +11095,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsDvbSubSo
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbeddedSourceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11159,7 +11159,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsEmbedded
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20SourceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11209,7 +11209,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte20So
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27SourceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11257,7 +11257,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsScte27So
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11281,7 +11281,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
                  output_rectangle: Optional['outputs.ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle'] = None,
                  page_number: Optional[str] = None):
         """
-        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs' output_rectangle: Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
+        :param 'ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArrgs' output_rectangle: Optionally defines a region where TTML style captions will be displayed. See Caption Rectangle for more details.
         :param str page_number: Specifies the teletext page number within the data stream from which to extract captions. Range of 0x100 (256) to 0x8FF (2303). Unused for passthrough. Should be specified as a hexadecimal string with no “0x” prefix.
         """
         if output_rectangle is not None:
@@ -11307,7 +11307,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle(dict):
+calass ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11377,7 +11377,7 @@ class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletext
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsNetworkInputSettings(dict):
+calass ChannelInputAttachmentInputSettingsNetworkInputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11401,7 +11401,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettings(dict):
                  hls_input_settings: Optional['outputs.ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings'] = None,
                  server_validation: Optional[str] = None):
         """
-        :param 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArgs' hls_input_settings: Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
+        :param 'ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettingsArrgs' hls_input_settings: Specifies HLS input settings when the uri is for a HLS manifest. See HLS Input Settings for more details.
         :param str server_validation: Check HTTPS server certificates.
         """
         if hls_input_settings is not None:
@@ -11427,7 +11427,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettings(dict):
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings(dict):
+calass ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11511,7 +11511,7 @@ class ChannelInputAttachmentInputSettingsNetworkInputSettingsHlsInputSettings(di
 
 
 @pulumi.output_type
-class ChannelInputAttachmentInputSettingsVideoSelector(dict):
+calass ChannelInputAttachmentInputSettingsVideoSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11551,7 +11551,7 @@ class ChannelInputAttachmentInputSettingsVideoSelector(dict):
 
 
 @pulumi.output_type
-class ChannelInputSpecification(dict):
+calass ChannelInputSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11596,7 +11596,7 @@ class ChannelInputSpecification(dict):
 
 
 @pulumi.output_type
-class ChannelMaintenance(dict):
+calass ChannelMaintenance(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11644,7 +11644,7 @@ class ChannelMaintenance(dict):
 
 
 @pulumi.output_type
-class ChannelVpc(dict):
+calass ChannelVpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11726,7 +11726,7 @@ class ChannelVpc(dict):
 
 
 @pulumi.output_type
-class InputDestination(dict):
+calass InputDestination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11761,7 +11761,7 @@ class InputDestination(dict):
 
 
 @pulumi.output_type
-class InputInputDevice(dict):
+calass InputInputDevice(dict):
     def __init__(__self__, *,
                  id: str):
         """
@@ -11779,7 +11779,7 @@ class InputInputDevice(dict):
 
 
 @pulumi.output_type
-class InputMediaConnectFlow(dict):
+calass InputMediaConnectFlow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11814,7 +11814,7 @@ class InputMediaConnectFlow(dict):
 
 
 @pulumi.output_type
-class InputSecurityGroupWhitelistRule(dict):
+calass InputSecurityGroupWhitelistRule(dict):
     def __init__(__self__, *,
                  cidr: str):
         """
@@ -11832,7 +11832,7 @@ class InputSecurityGroupWhitelistRule(dict):
 
 
 @pulumi.output_type
-class InputSource(dict):
+calass InputSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11889,7 +11889,7 @@ class InputSource(dict):
 
 
 @pulumi.output_type
-class InputVpc(dict):
+calass InputVpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11938,7 +11938,7 @@ class InputVpc(dict):
 
 
 @pulumi.output_type
-class MultiplexMultiplexSettings(dict):
+calass MultiplexMultiplexSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12014,7 +12014,7 @@ class MultiplexMultiplexSettings(dict):
 
 
 @pulumi.output_type
-class MultiplexProgramMultiplexProgramSettings(dict):
+calass MultiplexProgramMultiplexProgramSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12046,8 +12046,8 @@ class MultiplexProgramMultiplexProgramSettings(dict):
         """
         :param str preferred_channel_pipeline: Enum for preferred channel pipeline. Options are `CURRENTLY_ACTIVE`, `PIPELINE_0`, or `PIPELINE_1`.
         :param int program_number: Unique program number.
-        :param 'MultiplexProgramMultiplexProgramSettingsServiceDescriptorArgs' service_descriptor: Service Descriptor. See Service Descriptor for more details.
-        :param 'MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs' video_settings: Video settings. See Video Settings for more details.
+        :param 'MultiplexProgramMultiplexProgramSettingsServiceDescriptorArrgs' service_descriptor: Service Descriptor. See Service Descriptor for more details.
+        :param 'MultiplexProgramMultiplexProgramSettingsVideoSettingsArrgs' video_settings: Video settings. See Video Settings for more details.
         """
         pulumi.set(__self__, "preferred_channel_pipeline", preferred_channel_pipeline)
         pulumi.set(__self__, "program_number", program_number)
@@ -12090,7 +12090,7 @@ class MultiplexProgramMultiplexProgramSettings(dict):
 
 
 @pulumi.output_type
-class MultiplexProgramMultiplexProgramSettingsServiceDescriptor(dict):
+calass MultiplexProgramMultiplexProgramSettingsServiceDescriptor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12138,7 +12138,7 @@ class MultiplexProgramMultiplexProgramSettingsServiceDescriptor(dict):
 
 
 @pulumi.output_type
-class MultiplexProgramMultiplexProgramSettingsVideoSettings(dict):
+calass MultiplexProgramMultiplexProgramSettingsVideoSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12163,7 +12163,7 @@ class MultiplexProgramMultiplexProgramSettingsVideoSettings(dict):
                  statmux_settings: Optional['outputs.MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings'] = None):
         """
         :param int constant_bitrate: Constant bitrate value.
-        :param 'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs' statmux_settings: Statmux settings. See Statmux Settings for more details.
+        :param 'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArrgs' statmux_settings: Statmux settings. See Statmux Settings for more details.
         """
         if constant_bitrate is not None:
             pulumi.set(__self__, "constant_bitrate", constant_bitrate)
@@ -12188,7 +12188,7 @@ class MultiplexProgramMultiplexProgramSettingsVideoSettings(dict):
 
 
 @pulumi.output_type
-class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings(dict):
+calass MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

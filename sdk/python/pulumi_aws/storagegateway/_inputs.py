@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'FileSystemAssociationCacheAttributesArgs',
-    'GatewayGatewayNetworkInterfaceArgs',
-    'GatewayMaintenanceStartTimeArgs',
-    'GatewaySmbActiveDirectorySettingsArgs',
-    'NfsFileShareCacheAttributesArgs',
-    'NfsFileShareNfsFileShareDefaultsArgs',
-    'SmbFileShareCacheAttributesArgs',
+    'FileSystemAssociationCacheAttributesArrgs',
+    'GatewayGatewayNetworkInterfaceArrgs',
+    'GatewayMaintenanceStartTimeArrgs',
+    'GatewaySmbActiveDirectorySettingsArrgs',
+    'NfsFileShareCacheAttributesArrgs',
+    'NfsFileShareNfsFileShareDefaultsArrgs',
+    'SmbFileShareCacheAttributesArrgs',
 ]
 
 @pulumi.input_type
-class FileSystemAssociationCacheAttributesArgs:
+calass FileSystemAssociationCacheAttributesArrgs:
     def __init__(__self__, *,
                  cache_stale_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -47,7 +47,7 @@ class FileSystemAssociationCacheAttributesArgs:
 
 
 @pulumi.input_type
-class GatewayGatewayNetworkInterfaceArgs:
+calass GatewayGatewayNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  ipv4_address: Optional[pulumi.Input[str]] = None):
         """
@@ -70,7 +70,7 @@ class GatewayGatewayNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class GatewayMaintenanceStartTimeArgs:
+calass GatewayMaintenanceStartTimeArrgs:
     def __init__(__self__, *,
                  hour_of_day: pulumi.Input[int],
                  day_of_month: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class GatewayMaintenanceStartTimeArgs:
 
 
 @pulumi.input_type
-class GatewaySmbActiveDirectorySettingsArgs:
+calass GatewaySmbActiveDirectorySettingsArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -256,7 +256,7 @@ class GatewaySmbActiveDirectorySettingsArgs:
 
 
 @pulumi.input_type
-class NfsFileShareCacheAttributesArgs:
+calass NfsFileShareCacheAttributesArrgs:
     def __init__(__self__, *,
                  cache_stale_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -283,7 +283,7 @@ class NfsFileShareCacheAttributesArgs:
 
 
 @pulumi.input_type
-class NfsFileShareNfsFileShareDefaultsArgs:
+calass NfsFileShareNfsFileShareDefaultsArrgs:
     def __init__(__self__, *,
                  directory_mode: Optional[pulumi.Input[str]] = None,
                  file_mode: Optional[pulumi.Input[str]] = None,
@@ -354,7 +354,7 @@ class NfsFileShareNfsFileShareDefaultsArgs:
 
 
 @pulumi.input_type
-class SmbFileShareCacheAttributesArgs:
+calass SmbFileShareCacheAttributesArrgs:
     def __init__(__self__, *,
                  cache_stale_timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """

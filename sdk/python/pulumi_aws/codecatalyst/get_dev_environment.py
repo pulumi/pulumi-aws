@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDevEnvironmentResult:
+calass GetDevEnvironmentResult:
     """
     A collection of values returned by getDevEnvironment.
     """
@@ -179,7 +179,7 @@ class GetDevEnvironmentResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDevEnvironmentResult(GetDevEnvironmentResult):
+calass AwaitableGetDevEnvironmentResult(GetDevEnvironmentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -206,7 +206,7 @@ def get_dev_environment(alias: Optional[str] = None,
                         creator_id: Optional[str] = None,
                         env_id: Optional[str] = None,
                         project_name: Optional[str] = None,
-                        repositories: Optional[Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArgs']]] = None,
+                        repositories: Optional[Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArrgs']]] = None,
                         space_name: Optional[str] = None,
                         tags: Optional[Mapping[str, str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDevEnvironmentResult:
@@ -230,7 +230,7 @@ def get_dev_environment(alias: Optional[str] = None,
     :param str creator_id: The system-generated unique ID of the user who created the Dev Environment.
     :param str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param str project_name: The name of the project in the space.
-    :param Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArgs']] repositories: The source repository that contains the branch to clone into the Dev Environment.
+    :param Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArrgs']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param str space_name: The name of the space.
     """
     __args__ = dict()
@@ -267,7 +267,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
                                creator_id: Optional[pulumi.Input[Optional[str]]] = None,
                                env_id: Optional[pulumi.Input[str]] = None,
                                project_name: Optional[pulumi.Input[str]] = None,
-                               repositories: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArgs']]]]] = None,
+                               repositories: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArrgs']]]]] = None,
                                space_name: Optional[pulumi.Input[str]] = None,
                                tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevEnvironmentResult]:
@@ -291,7 +291,7 @@ def get_dev_environment_output(alias: Optional[pulumi.Input[Optional[str]]] = No
     :param str creator_id: The system-generated unique ID of the user who created the Dev Environment.
     :param str env_id: - (Required) The system-generated unique ID of the Dev Environment for which you want to view information. To retrieve a list of Dev Environment IDs, use [ListDevEnvironments](https://docs.aws.amazon.com/codecatalyst/latest/APIReference/API_ListDevEnvironments.html).
     :param str project_name: The name of the project in the space.
-    :param Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArgs']] repositories: The source repository that contains the branch to clone into the Dev Environment.
+    :param Sequence[pulumi.InputType['GetDevEnvironmentRepositoryArrgs']] repositories: The source repository that contains the branch to clone into the Dev Environment.
     :param str space_name: The name of the space.
     """
     ...

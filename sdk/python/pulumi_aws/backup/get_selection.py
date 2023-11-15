@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSelectionResult:
+calass GetSelectionResult:
     """
     A collection of values returned by getSelection.
     """
@@ -84,7 +84,7 @@ class GetSelectionResult:
         return pulumi.get(self, "selection_id")
 
 
-class AwaitableGetSelectionResult(GetSelectionResult):
+calass AwaitableGetSelectionResult(GetSelectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOrganizationResult:
+calass GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
@@ -146,7 +146,7 @@ class GetOrganizationResult:
         return pulumi.get(self, "roots")
 
 
-class AwaitableGetOrganizationResult(GetOrganizationResult):
+calass AwaitableGetOrganizationResult(GetOrganizationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -187,18 +187,18 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
 
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("snsTopic")
-    sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         effect="Allow",
         actions=[
             "SNS:Subscribe",
             "SNS:Publish",
         ],
-        conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+        conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
             test="StringEquals",
             variable="aws:PrincipalOrgID",
             values=[example.id],
         )],
-        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
             type="AWS",
             identifiers=["*"],
         )],
@@ -250,18 +250,18 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
 
     example = aws.organizations.get_organization()
     sns_topic = aws.sns.Topic("snsTopic")
-    sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+    sns_topic_policy_policy_document = sns_topic.arn.apply(lambda arn: aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
         effect="Allow",
         actions=[
             "SNS:Subscribe",
             "SNS:Publish",
         ],
-        conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+        conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
             test="StringEquals",
             variable="aws:PrincipalOrgID",
             values=[example.id],
         )],
-        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+        principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
             type="AWS",
             identifiers=["*"],
         )],

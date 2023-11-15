@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GlobalSettingsArgs', 'GlobalSettings']
+__all__ = ['GlobalSettingsArrgs', 'GlobalSettings']
 
 @pulumi.input_type
-class GlobalSettingsArgs:
+calass GlobalSettingsArrgs:
     def __init__(__self__, *,
                  global_settings: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         """
@@ -35,7 +35,7 @@ class GlobalSettingsArgs:
 
 
 @pulumi.input_type
-class _GlobalSettingsState:
+calass _GlobalSettingsState:
     def __init__(__self__, *,
                  global_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -58,7 +58,7 @@ class _GlobalSettingsState:
         pulumi.set(self, "global_settings", value)
 
 
-class GlobalSettings(pulumi.CustomResource):
+calass GlobalSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -95,7 +95,7 @@ class GlobalSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GlobalSettingsArgs,
+                 args: GlobalSettingsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Backup Global Settings resource.
@@ -120,12 +120,12 @@ class GlobalSettings(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GlobalSettingsArgs args: The arguments to use to populate this resource's properties.
+        :param GlobalSettingsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GlobalSettingsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GlobalSettingsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -142,7 +142,7 @@ class GlobalSettings(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GlobalSettingsArgs.__new__(GlobalSettingsArgs)
+            __props__ = GlobalSettingsArrgs.__new__(GlobalSettingsArrgs)
 
             if global_settings is None and not opts.urn:
                 raise TypeError("Missing required property 'global_settings'")

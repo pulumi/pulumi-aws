@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EmailChannelArgs', 'EmailChannel']
+__all__ = ['EmailChannelArrgs', 'EmailChannel']
 
 @pulumi.input_type
-class EmailChannelArgs:
+calass EmailChannelArrgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  from_address: pulumi.Input[str],
@@ -113,7 +113,7 @@ class EmailChannelArgs:
 
 
 @pulumi.input_type
-class _EmailChannelState:
+calass _EmailChannelState:
     def __init__(__self__, *,
                  application_id: Optional[pulumi.Input[str]] = None,
                  configuration_set: Optional[pulumi.Input[str]] = None,
@@ -232,7 +232,7 @@ class _EmailChannelState:
         pulumi.set(self, "role_arn", value)
 
 
-class EmailChannel(pulumi.CustomResource):
+calass EmailChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -254,9 +254,9 @@ class EmailChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         app = aws.pinpoint.App("app")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["pinpoint.amazonaws.com"],
             )],
@@ -268,7 +268,7 @@ class EmailChannel(pulumi.CustomResource):
             from_address="user@example.com",
             role_arn=role.arn)
         identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "mobileanalytics:PutEvents",
@@ -302,7 +302,7 @@ class EmailChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EmailChannelArgs,
+                 args: EmailChannelArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Pinpoint Email Channel resource.
@@ -314,9 +314,9 @@ class EmailChannel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         app = aws.pinpoint.App("app")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["pinpoint.amazonaws.com"],
             )],
@@ -328,7 +328,7 @@ class EmailChannel(pulumi.CustomResource):
             from_address="user@example.com",
             role_arn=role.arn)
         identity = aws.ses.DomainIdentity("identity", domain="example.com")
-        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        role_policy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "mobileanalytics:PutEvents",
@@ -350,12 +350,12 @@ class EmailChannel(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EmailChannelArgs args: The arguments to use to populate this resource's properties.
+        :param EmailChannelArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EmailChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EmailChannelArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -377,7 +377,7 @@ class EmailChannel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EmailChannelArgs.__new__(EmailChannelArgs)
+            __props__ = EmailChannelArrgs.__new__(EmailChannelArrgs)
 
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")

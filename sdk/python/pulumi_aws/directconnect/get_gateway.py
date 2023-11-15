@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetGatewayResult:
+calass GetGatewayResult:
     """
     A collection of values returned by getGateway.
     """
@@ -65,7 +65,7 @@ class GetGatewayResult:
         return pulumi.get(self, "owner_account_id")
 
 
-class AwaitableGetGatewayResult(GetGatewayResult):
+calass AwaitableGetGatewayResult(GetGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

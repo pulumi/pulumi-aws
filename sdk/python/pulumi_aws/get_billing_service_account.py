@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBillingServiceAccountResult:
+calass GetBillingServiceAccountResult:
     """
     A collection of values returned by getBillingServiceAccount.
     """
@@ -46,7 +46,7 @@ class GetBillingServiceAccountResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetBillingServiceAccountResult(GetBillingServiceAccountResult):
+calass AwaitableGetBillingServiceAccountResult(GetBillingServiceAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -73,9 +73,9 @@ def get_billing_service_account(id: Optional[str] = None,
         bucket=billing_logs.id,
         acl="private")
     allow_billing_logging_policy_document = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[main.arn],
             )],
@@ -85,9 +85,9 @@ def get_billing_service_account(id: Optional[str] = None,
             ],
             resources=[billing_logs_arn],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[main.arn],
             )],
@@ -131,9 +131,9 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[str]]]
         bucket=billing_logs.id,
         acl="private")
     allow_billing_logging_policy_document = pulumi.Output.all(billing_logs.arn, billing_logs.arn).apply(lambda billingLogsArn, billingLogsArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[main.arn],
             )],
@@ -143,9 +143,9 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[str]]]
             ],
             resources=[billing_logs_arn],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[main.arn],
             )],

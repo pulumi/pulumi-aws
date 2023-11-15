@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpcEndpointServiceArgs', 'VpcEndpointService']
+__all__ = ['VpcEndpointServiceArrgs', 'VpcEndpointService']
 
 @pulumi.input_type
-class VpcEndpointServiceArgs:
+calass VpcEndpointServiceArrgs:
     def __init__(__self__, *,
                  acceptance_required: pulumi.Input[bool],
                  allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -133,7 +133,7 @@ class VpcEndpointServiceArgs:
 
 
 @pulumi.input_type
-class _VpcEndpointServiceState:
+calass _VpcEndpointServiceState:
     def __init__(__self__, *,
                  acceptance_required: Optional[pulumi.Input[bool]] = None,
                  allowed_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -144,7 +144,7 @@ class _VpcEndpointServiceState:
                  manages_vpc_endpoints: Optional[pulumi.Input[bool]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_dns_name: Optional[pulumi.Input[str]] = None,
-                 private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]] = None,
+                 private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArrgs']]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_type: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class _VpcEndpointServiceState:
         :param pulumi.Input[bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArrgs']]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
         :param pulumi.Input[str] service_name: The service name.
         :param pulumi.Input[str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
@@ -316,14 +316,14 @@ class _VpcEndpointServiceState:
 
     @property
     @pulumi.getter(name="privateDnsNameConfigurations")
-    def private_dns_name_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]]:
+    def private_dns_name_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArrgs']]]]:
         """
         List of objects containing information about the endpoint service private DNS name configuration.
         """
         return pulumi.get(self, "private_dns_name_configurations")
 
     @private_dns_name_configurations.setter
-    def private_dns_name_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]]):
+    def private_dns_name_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointServicePrivateDnsNameConfigurationArrgs']]]]):
         pulumi.set(self, "private_dns_name_configurations", value)
 
     @property
@@ -402,7 +402,7 @@ class _VpcEndpointServiceState:
         pulumi.set(self, "tags_all", value)
 
 
-class VpcEndpointService(pulumi.CustomResource):
+calass VpcEndpointService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -469,7 +469,7 @@ class VpcEndpointService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcEndpointServiceArgs,
+                 args: VpcEndpointServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC Endpoint Service resource.
@@ -512,12 +512,12 @@ class VpcEndpointService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcEndpointServiceArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEndpointServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -540,7 +540,7 @@ class VpcEndpointService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcEndpointServiceArgs.__new__(VpcEndpointServiceArgs)
+            __props__ = VpcEndpointServiceArrgs.__new__(VpcEndpointServiceArrgs)
 
             if acceptance_required is None and not opts.urn:
                 raise TypeError("Missing required property 'acceptance_required'")
@@ -581,7 +581,7 @@ class VpcEndpointService(pulumi.CustomResource):
             manages_vpc_endpoints: Optional[pulumi.Input[bool]] = None,
             network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             private_dns_name: Optional[pulumi.Input[str]] = None,
-            private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]]] = None,
+            private_dns_name_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointServicePrivateDnsNameConfigurationArrgs']]]]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             service_type: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
@@ -604,7 +604,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[bool] manages_vpc_endpoints: Whether or not the service manages its VPC endpoints - `true` or `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointServicePrivateDnsNameConfigurationArgs']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointServicePrivateDnsNameConfigurationArrgs']]]] private_dns_name_configurations: List of objects containing information about the endpoint service private DNS name configuration.
         :param pulumi.Input[str] service_name: The service name.
         :param pulumi.Input[str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFunctionResult:
+calass GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
@@ -368,7 +368,7 @@ class GetFunctionResult:
         return pulumi.get(self, "vpc_config")
 
 
-class AwaitableGetFunctionResult(GetFunctionResult):
+calass AwaitableGetFunctionResult(GetFunctionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

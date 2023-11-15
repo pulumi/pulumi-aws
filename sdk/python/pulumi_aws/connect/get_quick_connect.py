@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetQuickConnectResult:
+calass GetQuickConnectResult:
     """
     A collection of values returned by getQuickConnect.
     """
@@ -107,7 +107,7 @@ class GetQuickConnectResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetQuickConnectResult(GetQuickConnectResult):
+calass AwaitableGetQuickConnectResult(GetQuickConnectResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

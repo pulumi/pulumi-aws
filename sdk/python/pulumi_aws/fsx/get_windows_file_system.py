@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetWindowsFileSystemResult:
+calass GetWindowsFileSystemResult:
     """
     A collection of values returned by getWindowsFileSystem.
     """
@@ -299,7 +299,7 @@ class GetWindowsFileSystemResult:
         return pulumi.get(self, "weekly_maintenance_start_time")
 
 
-class AwaitableGetWindowsFileSystemResult(GetWindowsFileSystemResult):
+calass AwaitableGetWindowsFileSystemResult(GetWindowsFileSystemResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

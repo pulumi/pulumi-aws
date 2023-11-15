@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PrimaryContactArgs', 'PrimaryContact']
+__all__ = ['PrimaryContactArrgs', 'PrimaryContact']
 
 @pulumi.input_type
-class PrimaryContactArgs:
+calass PrimaryContactArrgs:
     def __init__(__self__, *,
                  address_line1: pulumi.Input[str],
                  city: pulumi.Input[str],
@@ -222,7 +222,7 @@ class PrimaryContactArgs:
 
 
 @pulumi.input_type
-class _PrimaryContactState:
+calass _PrimaryContactState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  address_line1: Optional[pulumi.Input[str]] = None,
@@ -437,7 +437,7 @@ class _PrimaryContactState:
         pulumi.set(self, "website_url", value)
 
 
-class PrimaryContact(pulumi.CustomResource):
+calass PrimaryContact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -506,7 +506,7 @@ class PrimaryContact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrimaryContactArgs,
+                 args: PrimaryContactArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the specified primary contact information associated with an AWS Account.
@@ -539,12 +539,12 @@ class PrimaryContact(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrimaryContactArgs args: The arguments to use to populate this resource's properties.
+        :param PrimaryContactArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrimaryContactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrimaryContactArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -573,7 +573,7 @@ class PrimaryContact(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrimaryContactArgs.__new__(PrimaryContactArgs)
+            __props__ = PrimaryContactArrgs.__new__(PrimaryContactArrgs)
 
             __props__.__dict__["account_id"] = account_id
             if address_line1 is None and not opts.urn:

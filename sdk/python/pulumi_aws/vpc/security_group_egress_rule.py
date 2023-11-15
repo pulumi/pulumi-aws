@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SecurityGroupEgressRuleArgs', 'SecurityGroupEgressRule']
+__all__ = ['SecurityGroupEgressRuleArrgs', 'SecurityGroupEgressRule']
 
 @pulumi.input_type
-class SecurityGroupEgressRuleArgs:
+calass SecurityGroupEgressRuleArrgs:
     def __init__(__self__, *,
                  ip_protocol: pulumi.Input[str],
                  security_group_id: pulumi.Input[str],
@@ -178,7 +178,7 @@ class SecurityGroupEgressRuleArgs:
 
 
 @pulumi.input_type
-class _SecurityGroupEgressRuleState:
+calass _SecurityGroupEgressRuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cidr_ipv4: Optional[pulumi.Input[str]] = None,
@@ -399,7 +399,7 @@ class _SecurityGroupEgressRuleState:
         pulumi.set(self, "to_port", value)
 
 
-class SecurityGroupEgressRule(pulumi.CustomResource):
+calass SecurityGroupEgressRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -464,7 +464,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecurityGroupEgressRuleArgs,
+                 args: SecurityGroupEgressRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an outbound (egress) rule for a security group.
@@ -499,12 +499,12 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SecurityGroupEgressRuleArgs args: The arguments to use to populate this resource's properties.
+        :param SecurityGroupEgressRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecurityGroupEgressRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityGroupEgressRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -530,7 +530,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecurityGroupEgressRuleArgs.__new__(SecurityGroupEgressRuleArgs)
+            __props__ = SecurityGroupEgressRuleArrgs.__new__(SecurityGroupEgressRuleArrgs)
 
             __props__.__dict__["cidr_ipv4"] = cidr_ipv4
             __props__.__dict__["cidr_ipv6"] = cidr_ipv6

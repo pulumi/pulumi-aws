@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AppMonitorAppMonitorConfigurationArgs',
-    'AppMonitorCustomEventsArgs',
+    'AppMonitorAppMonitorConfigurationArrgs',
+    'AppMonitorCustomEventsArrgs',
 ]
 
 @pulumi.input_type
-class AppMonitorAppMonitorConfigurationArgs:
+calass AppMonitorAppMonitorConfigurationArrgs:
     def __init__(__self__, *,
                  allow_cookies: Optional[pulumi.Input[bool]] = None,
                  enable_xray: Optional[pulumi.Input[bool]] = None,
@@ -166,7 +166,7 @@ class AppMonitorAppMonitorConfigurationArgs:
 
 
 @pulumi.input_type
-class AppMonitorCustomEventsArgs:
+calass AppMonitorCustomEventsArrgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None):
         """

@@ -92,7 +92,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GroupInitialLifecycleHook(dict):
+calass GroupInitialLifecycleHook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -184,14 +184,14 @@ class GroupInitialLifecycleHook(dict):
 
 
 @pulumi.output_type
-class GroupInstanceRefresh(dict):
+calass GroupInstanceRefresh(dict):
     def __init__(__self__, *,
                  strategy: str,
                  preferences: Optional['outputs.GroupInstanceRefreshPreferences'] = None,
                  triggers: Optional[Sequence[str]] = None):
         """
         :param str strategy: Strategy to use for instance refresh. The only allowed value is `Rolling`. See [StartInstanceRefresh Action](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_StartInstanceRefresh.html#API_StartInstanceRefresh_RequestParameters) for more information.
-        :param 'GroupInstanceRefreshPreferencesArgs' preferences: Override default parameters for Instance Refresh.
+        :param 'GroupInstanceRefreshPreferencesArrgs' preferences: Override default parameters for Instance Refresh.
         :param Sequence[str] triggers: Set of additional property names that will trigger an Instance Refresh. A refresh will always be triggered by a change in any of `launch_configuration`, `launch_template`, or `mixed_instances_policy`.
                
                > **NOTE:** A refresh is started when any of the following Auto Scaling Group properties change: `launch_configuration`, `launch_template`, `mixed_instances_policy`. Additional properties can be specified in the `triggers` property of `instance_refresh`.
@@ -242,7 +242,7 @@ class GroupInstanceRefresh(dict):
 
 
 @pulumi.output_type
-class GroupInstanceRefreshPreferences(dict):
+calass GroupInstanceRefreshPreferences(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -376,7 +376,7 @@ class GroupInstanceRefreshPreferences(dict):
 
 
 @pulumi.output_type
-class GroupLaunchTemplate(dict):
+calass GroupLaunchTemplate(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None,
@@ -419,7 +419,7 @@ class GroupLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicy(dict):
+calass GroupMixedInstancesPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -443,8 +443,8 @@ class GroupMixedInstancesPolicy(dict):
                  launch_template: 'outputs.GroupMixedInstancesPolicyLaunchTemplate',
                  instances_distribution: Optional['outputs.GroupMixedInstancesPolicyInstancesDistribution'] = None):
         """
-        :param 'GroupMixedInstancesPolicyLaunchTemplateArgs' launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
-        :param 'GroupMixedInstancesPolicyInstancesDistributionArgs' instances_distribution: Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateArrgs' launch_template: Nested argument containing launch template settings along with the overrides to specify multiple instance types and weights. Defined below.
+        :param 'GroupMixedInstancesPolicyInstancesDistributionArrgs' instances_distribution: Nested argument containing settings on how to mix on-demand and Spot instances in the Auto Scaling group. Defined below.
         """
         pulumi.set(__self__, "launch_template", launch_template)
         if instances_distribution is not None:
@@ -468,7 +468,7 @@ class GroupMixedInstancesPolicy(dict):
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyInstancesDistribution(dict):
+calass GroupMixedInstancesPolicyInstancesDistribution(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -574,7 +574,7 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplate(dict):
+calass GroupMixedInstancesPolicyLaunchTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -596,8 +596,8 @@ class GroupMixedInstancesPolicyLaunchTemplate(dict):
                  launch_template_specification: 'outputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification',
                  overrides: Optional[Sequence['outputs.GroupMixedInstancesPolicyLaunchTemplateOverride']] = None):
         """
-        :param 'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs' launch_template_specification: Override the instance launch template specification in the Launch Template.
-        :param Sequence['GroupMixedInstancesPolicyLaunchTemplateOverrideArgs'] overrides: List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs' launch_template_specification: Override the instance launch template specification in the Launch Template.
+        :param Sequence['GroupMixedInstancesPolicyLaunchTemplateOverrideArrgs'] overrides: List of nested arguments provides the ability to specify multiple instance types. This will override the same parameter in the launch template. For on-demand instances, Auto Scaling considers the order of preference of instance types to launch based on the order specified in the overrides list. Defined below.
         """
         pulumi.set(__self__, "launch_template_specification", launch_template_specification)
         if overrides is not None:
@@ -621,7 +621,7 @@ class GroupMixedInstancesPolicyLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -683,7 +683,7 @@ class GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification(dict):
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverride(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -713,9 +713,9 @@ class GroupMixedInstancesPolicyLaunchTemplateOverride(dict):
                  launch_template_specification: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification'] = None,
                  weighted_capacity: Optional[str] = None):
         """
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs' instance_requirements: Override the instance type in the Launch Template with instance types that satisfy the requirements.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArrgs' instance_requirements: Override the instance type in the Launch Template with instance types that satisfy the requirements.
         :param str instance_type: Override the instance type in the Launch Template.
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs' launch_template_specification: Override the instance launch template specification in the Launch Template.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrgs' launch_template_specification: Override the instance launch template specification in the Launch Template.
         :param str weighted_capacity: Number of capacity units, which gives the instance type a proportional weight to other instance types.
         """
         if instance_requirements is not None:
@@ -761,7 +761,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverride(dict):
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -848,7 +848,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
                  total_local_storage_gb: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb'] = None,
                  vcpu_count: Optional['outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount'] = None):
         """
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArrgs' accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
                
                ```python
@@ -859,7 +859,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
                ```python
                import pulumi
                ```
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArrgs' accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
         :param Sequence[str] accelerator_types: List of accelerator types. Default is any accelerator type.
                
                ```python
@@ -869,7 +869,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
                
                > **NOTE:** If you specify `allowed_instance_types`, you can't specify `excluded_instance_types`.
         :param str bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArrgs' baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
         :param str burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
                
@@ -892,10 +892,10 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
                ```python
                import pulumi
                ```
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArrgs' memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArrgs' memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbpsArrgs' network_bandwidth_gbps: Block describing the minimum and maximum amount of network bandwidth, in gigabits per second (Gbps). Default is no minimum or maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArrgs' network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
         :param int on_demand_max_price_percentage_over_lowest_price: Price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
@@ -903,8 +903,8 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
         :param int spot_max_price_percentage_over_lowest_price: Price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
                
                If you set DesiredCapacityType to vcpu or memory-mib, the price protection threshold is applied based on the per vCPU or per memory price instead of the per instance price.
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
-        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArrgs' total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        :param 'GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArrgs' vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
         """
         if accelerator_count is not None:
             pulumi.set(__self__, "accelerator_count", accelerator_count)
@@ -1173,7 +1173,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements(dict):
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1204,7 +1204,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceler
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1235,7 +1235,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceler
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1266,7 +1266,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselin
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -1297,7 +1297,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryG
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1328,7 +1328,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryM
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkBandwidthGbps(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -1359,7 +1359,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwork
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1390,7 +1390,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetwork
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb(dict):
     def __init__(__self__, *,
                  max: Optional[float] = None,
                  min: Optional[float] = None):
@@ -1421,7 +1421,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLo
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount(dict):
     def __init__(__self__, *,
                  max: Optional[int] = None,
                  min: Optional[int] = None):
@@ -1452,7 +1452,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCou
 
 
 @pulumi.output_type
-class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification(dict):
+calass GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1514,7 +1514,7 @@ class GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification
 
 
 @pulumi.output_type
-class GroupTag(dict):
+calass GroupTag(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1581,7 +1581,7 @@ class GroupTag(dict):
 
 
 @pulumi.output_type
-class GroupTrafficSource(dict):
+calass GroupTrafficSource(dict):
     def __init__(__self__, *,
                  identifier: str,
                  type: Optional[str] = None):
@@ -1619,7 +1619,7 @@ class GroupTrafficSource(dict):
 
 
 @pulumi.output_type
-class GroupWarmPool(dict):
+calass GroupWarmPool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1649,7 +1649,7 @@ class GroupWarmPool(dict):
                  min_size: Optional[int] = None,
                  pool_state: Optional[str] = None):
         """
-        :param 'GroupWarmPoolInstanceReusePolicyArgs' instance_reuse_policy: Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        :param 'GroupWarmPoolInstanceReusePolicyArrgs' instance_reuse_policy: Whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
         :param int max_group_prepared_capacity: Total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
         :param int min_size: Minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         :param str pool_state: Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
@@ -1697,7 +1697,7 @@ class GroupWarmPool(dict):
 
 
 @pulumi.output_type
-class GroupWarmPoolInstanceReusePolicy(dict):
+calass GroupWarmPoolInstanceReusePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1733,7 +1733,7 @@ class GroupWarmPoolInstanceReusePolicy(dict):
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfiguration(dict):
+calass PolicyPredictiveScalingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1764,7 +1764,7 @@ class PolicyPredictiveScalingConfiguration(dict):
                  mode: Optional[str] = None,
                  scheduling_buffer_time: Optional[str] = None):
         """
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationArgs' metric_specification: This structure includes the metrics and target utilization to use for predictive scaling.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationArrgs' metric_specification: This structure includes the metrics and target utilization to use for predictive scaling.
         :param str max_capacity_breach_behavior: Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Valid values are `HonorMaxCapacity` or `IncreaseMaxCapacity`. Default is `HonorMaxCapacity`.
         :param str max_capacity_buffer: Size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. Valid range is `0` to `100`. If set to `0`, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity.
         :param str mode: Predictive scaling mode. Valid values are `ForecastAndScale` and `ForecastOnly`. Default is `ForecastOnly`.
@@ -1822,7 +1822,7 @@ class PolicyPredictiveScalingConfiguration(dict):
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecification(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1862,12 +1862,12 @@ class PolicyPredictiveScalingConfigurationMetricSpecification(dict):
                  predefined_scaling_metric_specification: Optional['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification'] = None):
         """
         :param float target_value: Target value for the metric.
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs' customized_capacity_metric_specification: Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArgs' customized_load_metric_specification: Customized load metric specification.
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArgs' customized_scaling_metric_specification: Customized scaling metric specification.
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs' predefined_load_metric_specification: Predefined load metric specification.
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs' predefined_metric_pair_specification: Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs' predefined_scaling_metric_specification: Predefined scaling metric specification.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArrgs' customized_capacity_metric_specification: Customized capacity metric specification. The field is only valid when you use `customized_load_metric_specification`
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationArrgs' customized_load_metric_specification: Customized load metric specification.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationArrgs' customized_scaling_metric_specification: Customized scaling metric specification.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArrgs' predefined_load_metric_specification: Predefined load metric specification.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArrgs' predefined_metric_pair_specification: Metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArrgs' predefined_scaling_metric_specification: Predefined scaling metric specification.
         """
         pulumi.set(__self__, "target_value", target_value)
         if customized_capacity_metric_specification is not None:
@@ -1941,7 +1941,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecification(dict):
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1962,7 +1962,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
     def __init__(__self__, *,
                  metric_data_queries: Sequence['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery']):
         """
-        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArgs'] metric_data_queries: List of up to 10 structures that defines custom capacity metric in predictive scaling policy
+        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryArrgs'] metric_data_queries: List of up to 10 structures that defines custom capacity metric in predictive scaling policy
         """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
@@ -1976,7 +1976,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2006,7 +2006,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
         :param str id: Short name for the metric used in predictive scaling policy.
         :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         :param str label: Human-readable label for this metric or expression.
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatArrgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
         :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         pulumi.set(__self__, "id", id)
@@ -2061,13 +2061,13 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStat(dict):
     def __init__(__self__, *,
                  metric: 'outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric',
                  stat: str,
                  unit: Optional[str] = None):
         """
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricArrgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         :param str stat: Statistic of the metrics to return.
         :param str unit: Unit of the metrics to return.
         """
@@ -2102,7 +2102,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2127,7 +2127,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
         """
         :param str metric_name: Name of the metric.
         :param str namespace: Namespace of the metric.
-        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric.
+        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrgs'] dimensions: Dimensions of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -2160,7 +2160,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2189,7 +2189,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityM
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2210,7 +2210,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
     def __init__(__self__, *,
                  metric_data_queries: Sequence['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery']):
         """
-        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArgs'] metric_data_queries: List of up to 10 structures that defines custom load metric in predictive scaling policy
+        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryArrgs'] metric_data_queries: List of up to 10 structures that defines custom load metric in predictive scaling policy
         """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
@@ -2224,7 +2224,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2254,7 +2254,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
         :param str id: Short name for the metric used in predictive scaling policy.
         :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         :param str label: Human-readable label for this metric or expression.
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatArrgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
         :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         pulumi.set(__self__, "id", id)
@@ -2309,13 +2309,13 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStat(dict):
     def __init__(__self__, *,
                  metric: 'outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric',
                  stat: str,
                  unit: Optional[str] = None):
         """
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricArrgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         :param str stat: Statistic of the metrics to return.
         :param str unit: Unit of the metrics to return.
         """
@@ -2350,7 +2350,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2375,7 +2375,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
         """
         :param str metric_name: Name of the metric.
         :param str namespace: Namespace of the metric.
-        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric.
+        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrgs'] dimensions: Dimensions of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -2408,7 +2408,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2437,7 +2437,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedLoadMetri
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2458,7 +2458,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
     def __init__(__self__, *,
                  metric_data_queries: Sequence['outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery']):
         """
-        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArgs'] metric_data_queries: List of up to 10 structures that defines custom scaling metric in predictive scaling policy
+        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryArrgs'] metric_data_queries: List of up to 10 structures that defines custom scaling metric in predictive scaling policy
         """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
@@ -2472,7 +2472,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2502,7 +2502,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
         :param str id: Short name for the metric used in predictive scaling policy.
         :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         :param str label: Human-readable label for this metric or expression.
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatArrgs' metric_stat: Structure that defines CloudWatch metric to be used in predictive scaling policy. You must specify either `expression` or `metric_stat`, but not both.
         :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         pulumi.set(__self__, "id", id)
@@ -2557,13 +2557,13 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStat(dict):
     def __init__(__self__, *,
                  metric: 'outputs.PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric',
                  stat: str,
                  unit: Optional[str] = None):
         """
-        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param 'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricArrgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         :param str stat: Statistic of the metrics to return.
         :param str unit: Unit of the metrics to return.
         """
@@ -2598,7 +2598,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2623,7 +2623,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
         """
         :param str metric_name: Name of the metric.
         :param str namespace: Namespace of the metric.
-        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric.
+        :param Sequence['PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimensionArrgs'] dimensions: Dimensions of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -2656,7 +2656,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMetricSpecificationMetricDataQueryMetricStatMetricDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2685,7 +2685,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScalingMe
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2734,7 +2734,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetri
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2783,7 +2783,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPai
 
 
 @pulumi.output_type
-class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification(dict):
+calass PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2832,7 +2832,7 @@ class PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMe
 
 
 @pulumi.output_type
-class PolicyStepAdjustment(dict):
+calass PolicyStepAdjustment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2917,7 +2917,7 @@ class PolicyStepAdjustment(dict):
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfiguration(dict):
+calass PolicyTargetTrackingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2948,9 +2948,9 @@ class PolicyTargetTrackingConfiguration(dict):
                  predefined_metric_specification: Optional['outputs.PolicyTargetTrackingConfigurationPredefinedMetricSpecification'] = None):
         """
         :param float target_value: Target value for the metric.
-        :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArgs' customized_metric_specification: Customized metric. Conflicts with `predefined_metric_specification`.
+        :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationArrgs' customized_metric_specification: Customized metric. Conflicts with `predefined_metric_specification`.
         :param bool disable_scale_in: Whether scale in by the target tracking policy is disabled.
-        :param 'PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs' predefined_metric_specification: Predefined metric. Conflicts with `customized_metric_specification`.
+        :param 'PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArrgs' predefined_metric_specification: Predefined metric. Conflicts with `customized_metric_specification`.
         """
         pulumi.set(__self__, "target_value", target_value)
         if customized_metric_specification is not None:
@@ -2994,7 +2994,7 @@ class PolicyTargetTrackingConfiguration(dict):
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
+calass PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3022,9 +3022,9 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
                  statistic: Optional[str] = None,
                  unit: Optional[str] = None):
         """
-        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArgs'] metric_dimensions: Dimensions of the metric.
+        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimensionArrgs'] metric_dimensions: Dimensions of the metric.
         :param str metric_name: Name of the metric.
-        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArgs'] metrics: Metrics to include, as a metric data query.
+        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricArrgs'] metrics: Metrics to include, as a metric data query.
         :param str namespace: Namespace of the metric.
         :param str statistic: Statistic of the metric.
         :param str unit: Unit of the metric.
@@ -3092,7 +3092,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecification(dict):
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric(dict):
+calass PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3122,7 +3122,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric(dict)
         :param str id: Short name for the metric used in target tracking scaling policy.
         :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         :param str label: Human-readable label for this metric or expression.
-        :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatArrgs' metric_stat: Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
         :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         pulumi.set(__self__, "id", id)
@@ -3177,7 +3177,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetric(dict)
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension(dict):
+calass PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3206,13 +3206,13 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricDimens
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat(dict):
+calass PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStat(dict):
     def __init__(__self__, *,
                  metric: 'outputs.PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric',
                  stat: str,
                  unit: Optional[str] = None):
         """
-        :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param 'PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArrgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         :param str stat: Statistic of the metrics to return.
         :param str unit: Unit of the metrics to return.
         """
@@ -3247,7 +3247,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric(dict):
+calass PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3272,7 +3272,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
         """
         :param str metric_name: Name of the metric.
         :param str namespace: Namespace of the metric.
-        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric.
+        :param Sequence['PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrgs'] dimensions: Dimensions of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -3305,7 +3305,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension(dict):
+calass PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3334,7 +3334,7 @@ class PolicyTargetTrackingConfigurationCustomizedMetricSpecificationMetricMetric
 
 
 @pulumi.output_type
-class PolicyTargetTrackingConfigurationPredefinedMetricSpecification(dict):
+calass PolicyTargetTrackingConfigurationPredefinedMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3383,7 +3383,7 @@ class PolicyTargetTrackingConfigurationPredefinedMetricSpecification(dict):
 
 
 @pulumi.output_type
-class TagTag(dict):
+calass TagTag(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3440,7 +3440,7 @@ class TagTag(dict):
 
 
 @pulumi.output_type
-class TrafficSourceAttachmentTrafficSource(dict):
+calass TrafficSourceAttachmentTrafficSource(dict):
     def __init__(__self__, *,
                  identifier: str,
                  type: str):
@@ -3477,7 +3477,7 @@ class TrafficSourceAttachmentTrafficSource(dict):
 
 
 @pulumi.output_type
-class GetAmiIdsFilterResult(dict):
+calass GetAmiIdsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -3506,7 +3506,7 @@ class GetAmiIdsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetGroupLaunchTemplateResult(dict):
+calass GetGroupLaunchTemplateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -3546,13 +3546,13 @@ class GetGroupLaunchTemplateResult(dict):
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyResult(dict):
+calass GetGroupMixedInstancesPolicyResult(dict):
     def __init__(__self__, *,
                  instances_distributions: Sequence['outputs.GetGroupMixedInstancesPolicyInstancesDistributionResult'],
                  launch_templates: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateResult']):
         """
-        :param Sequence['GetGroupMixedInstancesPolicyInstancesDistributionArgs'] instances_distributions: List of instances distribution objects.
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateArgs'] launch_templates: List of launch templates along with the overrides.
+        :param Sequence['GetGroupMixedInstancesPolicyInstancesDistributionArrgs'] instances_distributions: List of instances distribution objects.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateArrgs'] launch_templates: List of launch templates along with the overrides.
         """
         pulumi.set(__self__, "instances_distributions", instances_distributions)
         pulumi.set(__self__, "launch_templates", launch_templates)
@@ -3575,7 +3575,7 @@ class GetGroupMixedInstancesPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
+calass GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
     def __init__(__self__, *,
                  on_demand_allocation_strategy: str,
                  on_demand_base_capacity: int,
@@ -3644,13 +3644,13 @@ class GetGroupMixedInstancesPolicyInstancesDistributionResult(dict):
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateResult(dict):
     def __init__(__self__, *,
                  launch_template_specifications: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult'],
                  overrides: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult']):
         """
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs'] launch_template_specifications: List of overriding launch template specification objects.
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideArgs'] overrides: List of properties overriding the same properties in the launch template.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArrgs'] launch_template_specifications: List of overriding launch template specification objects.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideArrgs'] overrides: List of properties overriding the same properties in the launch template.
         """
         pulumi.set(__self__, "launch_template_specifications", launch_template_specifications)
         pulumi.set(__self__, "overrides", overrides)
@@ -3673,7 +3673,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateResult(dict):
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResult(dict):
     def __init__(__self__, *,
                  launch_template_id: str,
                  launch_template_name: str,
@@ -3713,17 +3713,17 @@ class GetGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationResul
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
     def __init__(__self__, *,
                  instance_requirements: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult'],
                  instance_type: str,
                  launch_template_specifications: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult'],
                  weighted_capacity: str):
         """
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArgs'] instance_requirements: List of instance requirements objects.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementArrgs'] instance_requirements: List of instance requirements objects.
                * `accelerator_count - List of objects describing the minimum and maximum number of accelerators for an instance type.
         :param str instance_type: Overriding instance type.
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs'] launch_template_specifications: List of overriding launch template specification objects.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArrgs'] launch_template_specifications: List of overriding launch template specification objects.
         :param str weighted_capacity: Number of capacity units, which gives the instance type a proportional weight to other instance types.
         """
         pulumi.set(__self__, "instance_requirements", instance_requirements)
@@ -3766,7 +3766,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideResult(dict):
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResult(dict):
     def __init__(__self__, *,
                  accelerator_counts: Sequence['outputs.GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult'],
                  accelerator_manufacturers: Sequence[str],
@@ -3794,26 +3794,26 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
         """
         :param Sequence[str] accelerator_manufacturers: List of accelerator manufacturer names.
         :param Sequence[str] accelerator_names: List of accelerator names.
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mibs: List of objects describing the minimum and maximum total memory of the accelerators.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibArrgs'] accelerator_total_memory_mibs: List of objects describing the minimum and maximum total memory of the accelerators.
         :param Sequence[str] accelerator_types: List of accelerator types.
         :param Sequence[str] allowed_instance_types: List of instance types to apply the specified attributes against.
         :param str bare_metal: Indicates whether bare metal instances are included, excluded, or required.
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArgs'] baseline_ebs_bandwidth_mbps: List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpArrgs'] baseline_ebs_bandwidth_mbps: List of objects describing the minimum and maximum baseline EBS bandwidth (Mbps).
         :param str burstable_performance: Indicates whether burstable performance instance types are included, excluded, or required.
         :param Sequence[str] cpu_manufacturers: List of CPU manufacturer names.
         :param Sequence[str] excluded_instance_types: List of excluded instance types.
         :param Sequence[str] instance_generations: List of instance generation names.
         :param str local_storage: Indicates whether instance types with instance store volumes are included, excluded, or required.
         :param Sequence[str] local_storage_types: List of local storage type names.
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArgs'] memory_gib_per_vcpus: List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArgs'] memory_mibs: List of objects describing the minimum and maximum amount of memory (MiB).
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArgs'] network_bandwidth_gbps: List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArgs'] network_interface_counts: List of objects describing the minimum and maximum amount of network interfaces.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusArrgs'] memory_gib_per_vcpus: List of objects describing the minimum and maximum amount of memory (GiB) per vCPU.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibArrgs'] memory_mibs: List of objects describing the minimum and maximum amount of memory (MiB).
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpArrgs'] network_bandwidth_gbps: List of objects describing the minimum and maximum amount of network bandwidth (Gbps).
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountArrgs'] network_interface_counts: List of objects describing the minimum and maximum amount of network interfaces.
         :param int on_demand_max_price_percentage_over_lowest_price: Price protection threshold for On-Demand Instances.
         :param bool require_hibernate_support: Indicates whether instance types must support On-Demand Instance Hibernation.
         :param int spot_max_price_percentage_over_lowest_price: Price protection threshold for Spot Instances.
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArgs'] total_local_storage_gbs: List of objects describing the minimum and maximum total storage (GB).
-        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArgs'] vcpu_counts: List of objects describing the minimum and maximum number of vCPUs.
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbArrgs'] total_local_storage_gbs: List of objects describing the minimum and maximum total storage (GB).
+        :param Sequence['GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountArrgs'] vcpu_counts: List of objects describing the minimum and maximum number of vCPUs.
         """
         pulumi.set(__self__, "accelerator_counts", accelerator_counts)
         pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
@@ -4022,7 +4022,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementResul
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorCountResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -4051,7 +4051,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccel
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAcceleratorTotalMemoryMibResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -4080,7 +4080,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementAccel
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBaselineEbsBandwidthMbpResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -4109,7 +4109,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementBasel
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryGibPerVcpusResult(dict):
     def __init__(__self__, *,
                  max: float,
                  min: float):
@@ -4138,7 +4138,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemor
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemoryMibResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -4167,7 +4167,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementMemor
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkBandwidthGbpResult(dict):
     def __init__(__self__, *,
                  max: float,
                  min: float):
@@ -4196,7 +4196,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwo
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetworkInterfaceCountResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -4225,7 +4225,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementNetwo
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotalLocalStorageGbResult(dict):
     def __init__(__self__, *,
                  max: float,
                  min: float):
@@ -4254,7 +4254,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementTotal
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuCountResult(dict):
     def __init__(__self__, *,
                  max: int,
                  min: int):
@@ -4283,7 +4283,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementVcpuC
 
 
 @pulumi.output_type
-class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult(dict):
+calass GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationResult(dict):
     def __init__(__self__, *,
                  launch_template_id: str,
                  launch_template_name: str,
@@ -4323,7 +4323,7 @@ class GetGroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificat
 
 
 @pulumi.output_type
-class GetGroupTagResult(dict):
+calass GetGroupTagResult(dict):
     def __init__(__self__, *,
                  key: str,
                  propagate_at_launch: bool,
@@ -4363,7 +4363,7 @@ class GetGroupTagResult(dict):
 
 
 @pulumi.output_type
-class GetGroupTrafficSourceResult(dict):
+calass GetGroupTrafficSourceResult(dict):
     def __init__(__self__, *,
                  identifier: str,
                  type: str):
@@ -4392,14 +4392,14 @@ class GetGroupTrafficSourceResult(dict):
 
 
 @pulumi.output_type
-class GetGroupWarmPoolResult(dict):
+calass GetGroupWarmPoolResult(dict):
     def __init__(__self__, *,
                  instance_reuse_policies: Sequence['outputs.GetGroupWarmPoolInstanceReusePolicyResult'],
                  max_group_prepared_capacity: int,
                  min_size: int,
                  pool_state: str):
         """
-        :param Sequence['GetGroupWarmPoolInstanceReusePolicyArgs'] instance_reuse_policies: List of instance reuse policy objects.
+        :param Sequence['GetGroupWarmPoolInstanceReusePolicyArrgs'] instance_reuse_policies: List of instance reuse policy objects.
         :param int min_size: Minimum number of instances to maintain in the warm pool.
         :param str pool_state: Instance state to transition to after the lifecycle actions are complete.
         """
@@ -4439,7 +4439,7 @@ class GetGroupWarmPoolResult(dict):
 
 
 @pulumi.output_type
-class GetGroupWarmPoolInstanceReusePolicyResult(dict):
+calass GetGroupWarmPoolInstanceReusePolicyResult(dict):
     def __init__(__self__, *,
                  reuse_on_scale_in: bool):
         """

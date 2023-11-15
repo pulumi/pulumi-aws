@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SlotTypeArgs', 'SlotType']
+__all__ = ['SlotTypeArrgs', 'SlotType']
 
 @pulumi.input_type
-class SlotTypeArgs:
+calass SlotTypeArrgs:
     def __init__(__self__, *,
-                 enumeration_values: pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]],
+                 enumeration_values: pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArrgs']]],
                  create_version: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SlotType resource.
-        :param pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]] enumeration_values: A list of EnumerationValue objects that defines the values that
+        :param pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArrgs']]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
@@ -48,7 +48,7 @@ class SlotTypeArgs:
 
     @property
     @pulumi.getter(name="enumerationValues")
-    def enumeration_values(self) -> pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]:
+    def enumeration_values(self) -> pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArrgs']]]:
         """
         A list of EnumerationValue objects that defines the values that
         the slot type can take. Each value can have a list of synonyms, which are additional values that help
@@ -58,7 +58,7 @@ class SlotTypeArgs:
         return pulumi.get(self, "enumeration_values")
 
     @enumeration_values.setter
-    def enumeration_values(self, value: pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]):
+    def enumeration_values(self, value: pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArrgs']]]):
         pulumi.set(self, "enumeration_values", value)
 
     @property
@@ -115,13 +115,13 @@ class SlotTypeArgs:
 
 
 @pulumi.input_type
-class _SlotTypeState:
+calass _SlotTypeState:
     def __init__(__self__, *,
                  checksum: Optional[pulumi.Input[str]] = None,
                  create_version: Optional[pulumi.Input[bool]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]] = None,
+                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArrgs']]]] = None,
                  last_updated_date: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class _SlotTypeState:
                update. Defaults to `false`.
         :param pulumi.Input[str] created_date: The date when the slot type version was created.
         :param pulumi.Input[str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]] enumeration_values: A list of EnumerationValue objects that defines the values that
+        :param pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArrgs']]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
@@ -217,7 +217,7 @@ class _SlotTypeState:
 
     @property
     @pulumi.getter(name="enumerationValues")
-    def enumeration_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]]:
+    def enumeration_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArrgs']]]]:
         """
         A list of EnumerationValue objects that defines the values that
         the slot type can take. Each value can have a list of synonyms, which are additional values that help
@@ -227,7 +227,7 @@ class _SlotTypeState:
         return pulumi.get(self, "enumeration_values")
 
     @enumeration_values.setter
-    def enumeration_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArgs']]]]):
+    def enumeration_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SlotTypeEnumerationValueArrgs']]]]):
         pulumi.set(self, "enumeration_values", value)
 
     @property
@@ -282,14 +282,14 @@ class _SlotTypeState:
         pulumi.set(self, "version", value)
 
 
-class SlotType(pulumi.CustomResource):
+calass SlotType(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_version: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
+                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -307,14 +307,14 @@ class SlotType(pulumi.CustomResource):
             create_version=True,
             description="Types of flowers to order",
             enumeration_values=[
-                aws.lex.SlotTypeEnumerationValueArgs(
+                aws.lex.SlotTypeEnumerationValueArrgs(
                     synonyms=[
                         "Lirium",
                         "Martagon",
                     ],
                     value="lilies",
                 ),
-                aws.lex.SlotTypeEnumerationValueArgs(
+                aws.lex.SlotTypeEnumerationValueArrgs(
                     synonyms=[
                         "Eduardoregelia",
                         "Podonix",
@@ -339,7 +339,7 @@ class SlotType(pulumi.CustomResource):
         :param pulumi.Input[bool] create_version: Determines if a new slot type version is created when the initial resource is created and on each
                update. Defaults to `false`.
         :param pulumi.Input[str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArrgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.
@@ -353,7 +353,7 @@ class SlotType(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SlotTypeArgs,
+                 args: SlotTypeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Lex Slot Type resource. For more information see
@@ -369,14 +369,14 @@ class SlotType(pulumi.CustomResource):
             create_version=True,
             description="Types of flowers to order",
             enumeration_values=[
-                aws.lex.SlotTypeEnumerationValueArgs(
+                aws.lex.SlotTypeEnumerationValueArrgs(
                     synonyms=[
                         "Lirium",
                         "Martagon",
                     ],
                     value="lilies",
                 ),
-                aws.lex.SlotTypeEnumerationValueArgs(
+                aws.lex.SlotTypeEnumerationValueArrgs(
                     synonyms=[
                         "Eduardoregelia",
                         "Podonix",
@@ -397,12 +397,12 @@ class SlotType(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SlotTypeArgs args: The arguments to use to populate this resource's properties.
+        :param SlotTypeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SlotTypeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SlotTypeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -413,7 +413,7 @@ class SlotType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_version: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
+                 enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  value_selection_strategy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -423,7 +423,7 @@ class SlotType(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SlotTypeArgs.__new__(SlotTypeArgs)
+            __props__ = SlotTypeArrgs.__new__(SlotTypeArrgs)
 
             __props__.__dict__["create_version"] = create_version
             __props__.__dict__["description"] = description
@@ -450,7 +450,7 @@ class SlotType(pulumi.CustomResource):
             create_version: Optional[pulumi.Input[bool]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]]] = None,
+            enumeration_values: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArrgs']]]]] = None,
             last_updated_date: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             value_selection_strategy: Optional[pulumi.Input[str]] = None,
@@ -468,7 +468,7 @@ class SlotType(pulumi.CustomResource):
                update. Defaults to `false`.
         :param pulumi.Input[str] created_date: The date when the slot type version was created.
         :param pulumi.Input[str] description: A description of the slot type. Must be less than or equal to 200 characters in length.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SlotTypeEnumerationValueArrgs']]]] enumeration_values: A list of EnumerationValue objects that defines the values that
                the slot type can take. Each value can have a list of synonyms, which are additional values that help
                train the machine learning model about the values that it resolves for a slot. Attributes are
                documented under enumeration_value.

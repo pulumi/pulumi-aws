@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NodejsAppLayerArgs', 'NodejsAppLayer']
+__all__ = ['NodejsAppLayerArrgs', 'NodejsAppLayer']
 
 @pulumi.input_type
-class NodejsAppLayerArgs:
+calass NodejsAppLayerArrgs:
     def __init__(__self__, *,
                  stack_id: pulumi.Input[str],
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArgs']] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArrgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -30,11 +30,11 @@ class NodejsAppLayerArgs:
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArrgs']]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -50,7 +50,7 @@ class NodejsAppLayerArgs:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArrgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -162,11 +162,11 @@ class NodejsAppLayerArgs:
 
     @property
     @pulumi.getter(name="cloudwatchConfiguration")
-    def cloudwatch_configuration(self) -> Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArgs']]:
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArrgs']]:
         return pulumi.get(self, "cloudwatch_configuration")
 
     @cloudwatch_configuration.setter
-    def cloudwatch_configuration(self, value: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArgs']]):
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
@@ -264,14 +264,14 @@ class NodejsAppLayerArgs:
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]]]:
+    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArrgs']]]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]]]):
+    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArrgs']]]]):
         pulumi.set(self, "ebs_volumes", value)
 
     @property
@@ -312,11 +312,11 @@ class NodejsAppLayerArgs:
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']]:
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArrgs']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @load_based_auto_scaling.setter
-    def load_based_auto_scaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']]):
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArrgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
 
     @property
@@ -385,13 +385,13 @@ class NodejsAppLayerArgs:
 
 
 @pulumi.input_type
-class _NodejsAppLayerState:
+calass _NodejsAppLayerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArgs']] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArrgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -401,11 +401,11 @@ class _NodejsAppLayerState:
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArrgs']]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -423,7 +423,7 @@ class _NodejsAppLayerState:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArrgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -545,11 +545,11 @@ class _NodejsAppLayerState:
 
     @property
     @pulumi.getter(name="cloudwatchConfiguration")
-    def cloudwatch_configuration(self) -> Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArgs']]:
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArrgs']]:
         return pulumi.get(self, "cloudwatch_configuration")
 
     @cloudwatch_configuration.setter
-    def cloudwatch_configuration(self, value: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArgs']]):
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['NodejsAppLayerCloudwatchConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
@@ -647,14 +647,14 @@ class _NodejsAppLayerState:
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]]]:
+    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArrgs']]]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArgs']]]]):
+    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodejsAppLayerEbsVolumeArrgs']]]]):
         pulumi.set(self, "ebs_volumes", value)
 
     @property
@@ -695,11 +695,11 @@ class _NodejsAppLayerState:
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']]:
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArrgs']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @load_based_auto_scaling.setter
-    def load_based_auto_scaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArgs']]):
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['NodejsAppLayerLoadBasedAutoScalingArrgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
 
     @property
@@ -794,7 +794,7 @@ class _NodejsAppLayerState:
         pulumi.set(self, "use_ebs_optimized_instances", value)
 
 
-class NodejsAppLayer(pulumi.CustomResource):
+calass NodejsAppLayer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -802,7 +802,7 @@ class NodejsAppLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerCloudwatchConfigurationArrgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -812,11 +812,11 @@ class NodejsAppLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArrgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -845,7 +845,7 @@ class NodejsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArrgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -864,7 +864,7 @@ class NodejsAppLayer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NodejsAppLayerArgs,
+                 args: NodejsAppLayerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an OpsWorks NodeJS application layer resource.
@@ -879,12 +879,12 @@ class NodejsAppLayer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NodejsAppLayerArgs args: The arguments to use to populate this resource's properties.
+        :param NodejsAppLayerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NodejsAppLayerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NodejsAppLayerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -896,7 +896,7 @@ class NodejsAppLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerCloudwatchConfigurationArrgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -906,11 +906,11 @@ class NodejsAppLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArrgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  nodejs_version: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -924,7 +924,7 @@ class NodejsAppLayer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NodejsAppLayerArgs.__new__(NodejsAppLayerArgs)
+            __props__ = NodejsAppLayerArrgs.__new__(NodejsAppLayerArrgs)
 
             __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
@@ -970,7 +970,7 @@ class NodejsAppLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
-            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerCloudwatchConfigurationArgs']]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerCloudwatchConfigurationArrgs']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -980,11 +980,11 @@ class NodejsAppLayer(pulumi.CustomResource):
             custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]]] = None,
+            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArrgs']]]]] = None,
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArgs']]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['NodejsAppLayerLoadBasedAutoScalingArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             nodejs_version: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
@@ -1007,7 +1007,7 @@ class NodejsAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NodejsAppLayerEbsVolumeArrgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.

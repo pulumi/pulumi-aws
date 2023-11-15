@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDetectorResult:
+calass GetDetectorResult:
     """
     A collection of values returned by getDetector.
     """
@@ -77,7 +77,7 @@ class GetDetectorResult:
         return pulumi.get(self, "status")
 
 
-class AwaitableGetDetectorResult(GetDetectorResult):
+calass AwaitableGetDetectorResult(GetDetectorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

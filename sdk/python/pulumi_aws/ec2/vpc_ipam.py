@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VpcIpamArgs', 'VpcIpam']
+__all__ = ['VpcIpamArrgs', 'VpcIpam']
 
 @pulumi.input_type
-class VpcIpamArgs:
+calass VpcIpamArrgs:
     def __init__(__self__, *,
-                 operating_regions: pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]],
+                 operating_regions: pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArrgs']]],
                  cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcIpam resource.
-        :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArrgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[str] description: A description for the IPAM.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -37,14 +37,14 @@ class VpcIpamArgs:
 
     @property
     @pulumi.getter(name="operatingRegions")
-    def operating_regions(self) -> pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]:
+    def operating_regions(self) -> pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArrgs']]]:
         """
         Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         """
         return pulumi.get(self, "operating_regions")
 
     @operating_regions.setter
-    def operating_regions(self, value: pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]):
+    def operating_regions(self, value: pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArrgs']]]):
         pulumi.set(self, "operating_regions", value)
 
     @property
@@ -85,14 +85,14 @@ class VpcIpamArgs:
 
 
 @pulumi.input_type
-class _VpcIpamState:
+calass _VpcIpamState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cascade: Optional[pulumi.Input[bool]] = None,
                  default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
                  default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArrgs']]]] = None,
                  private_default_scope_id: Optional[pulumi.Input[str]] = None,
                  public_default_scope_id: Optional[pulumi.Input[str]] = None,
                  scope_count: Optional[pulumi.Input[int]] = None,
@@ -105,7 +105,7 @@ class _VpcIpamState:
         :param pulumi.Input[str] default_resource_discovery_association_id: The IPAM's default resource discovery association ID.
         :param pulumi.Input[str] default_resource_discovery_id: The IPAM's default resource discovery ID.
         :param pulumi.Input[str] description: A description for the IPAM.
-        :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArrgs']]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[str] private_default_scope_id: The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         :param pulumi.Input[str] public_default_scope_id: The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
                IP space. The public scope is intended for all internet-routable IP space.
@@ -201,14 +201,14 @@ class _VpcIpamState:
 
     @property
     @pulumi.getter(name="operatingRegions")
-    def operating_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]]:
+    def operating_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArrgs']]]]:
         """
         Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         """
         return pulumi.get(self, "operating_regions")
 
     @operating_regions.setter
-    def operating_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArgs']]]]):
+    def operating_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamOperatingRegionArrgs']]]]):
         pulumi.set(self, "operating_regions", value)
 
     @property
@@ -276,14 +276,14 @@ class _VpcIpamState:
         pulumi.set(self, "tags_all", value)
 
 
-class VpcIpam(pulumi.CustomResource):
+calass VpcIpam(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -301,14 +301,14 @@ class VpcIpam(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] cascade: Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
         :param pulumi.Input[str] description: A description for the IPAM.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArrgs']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcIpamArgs,
+                 args: VpcIpamArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IPAM resource.
@@ -322,12 +322,12 @@ class VpcIpam(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcIpamArgs args: The arguments to use to populate this resource's properties.
+        :param VpcIpamArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -338,7 +338,7 @@ class VpcIpam(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cascade: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]]] = None,
+                 operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -347,7 +347,7 @@ class VpcIpam(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcIpamArgs.__new__(VpcIpamArgs)
+            __props__ = VpcIpamArrgs.__new__(VpcIpamArrgs)
 
             __props__.__dict__["cascade"] = cascade
             __props__.__dict__["description"] = description
@@ -379,7 +379,7 @@ class VpcIpam(pulumi.CustomResource):
             default_resource_discovery_association_id: Optional[pulumi.Input[str]] = None,
             default_resource_discovery_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]]] = None,
+            operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArrgs']]]]] = None,
             private_default_scope_id: Optional[pulumi.Input[str]] = None,
             public_default_scope_id: Optional[pulumi.Input[str]] = None,
             scope_count: Optional[pulumi.Input[int]] = None,
@@ -397,7 +397,7 @@ class VpcIpam(pulumi.CustomResource):
         :param pulumi.Input[str] default_resource_discovery_association_id: The IPAM's default resource discovery association ID.
         :param pulumi.Input[str] default_resource_discovery_id: The IPAM's default resource discovery ID.
         :param pulumi.Input[str] description: A description for the IPAM.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArgs']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcIpamOperatingRegionArrgs']]]] operating_regions: Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. You **must** set your provider block region as an operating_region.
         :param pulumi.Input[str] private_default_scope_id: The ID of the IPAM's private scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private IP space. The public scope is intended for all internet-routable IP space.
         :param pulumi.Input[str] public_default_scope_id: The ID of the IPAM's public scope. A scope is a top-level container in IPAM. Each scope represents an IP-independent network. Scopes enable you to represent networks where you have overlapping IP space. When you create an IPAM, IPAM automatically creates two scopes: public and private. The private scope is intended for private
                IP space. The public scope is intended for all internet-routable IP space.

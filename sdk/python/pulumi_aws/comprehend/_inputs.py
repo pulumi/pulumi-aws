@@ -10,29 +10,29 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DocumentClassifierInputDataConfigArgs',
-    'DocumentClassifierInputDataConfigAugmentedManifestArgs',
-    'DocumentClassifierOutputDataConfigArgs',
-    'DocumentClassifierVpcConfigArgs',
-    'EntityRecognizerInputDataConfigArgs',
-    'EntityRecognizerInputDataConfigAnnotationsArgs',
-    'EntityRecognizerInputDataConfigAugmentedManifestArgs',
-    'EntityRecognizerInputDataConfigDocumentsArgs',
-    'EntityRecognizerInputDataConfigEntityListArgs',
-    'EntityRecognizerInputDataConfigEntityTypeArgs',
-    'EntityRecognizerVpcConfigArgs',
+    'DocumentClassifierInputDataConfigArrgs',
+    'DocumentClassifierInputDataConfigAugmentedManifestArrgs',
+    'DocumentClassifierOutputDataConfigArrgs',
+    'DocumentClassifierVpcConfigArrgs',
+    'EntityRecognizerInputDataConfigArrgs',
+    'EntityRecognizerInputDataConfigAnnotationsArrgs',
+    'EntityRecognizerInputDataConfigAugmentedManifestArrgs',
+    'EntityRecognizerInputDataConfigDocumentsArrgs',
+    'EntityRecognizerInputDataConfigEntityListArrgs',
+    'EntityRecognizerInputDataConfigEntityTypeArrgs',
+    'EntityRecognizerVpcConfigArrgs',
 ]
 
 @pulumi.input_type
-class DocumentClassifierInputDataConfigArgs:
+calass DocumentClassifierInputDataConfigArrgs:
     def __init__(__self__, *,
-                 augmented_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]]] = None,
+                 augmented_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArrgs']]]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
                  label_delimiter: Optional[pulumi.Input[str]] = None,
                  s3_uri: Optional[pulumi.Input[str]] = None,
                  test_s3_uri: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
+        :param pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArrgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
                Used if `data_format` is `AUGMENTED_MANIFEST`.
                See the `augmented_manifests` Configuration Block section below.
         :param pulumi.Input[str] data_format: The format for the training data.
@@ -56,7 +56,7 @@ class DocumentClassifierInputDataConfigArgs:
 
     @property
     @pulumi.getter(name="augmentedManifests")
-    def augmented_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]]]:
+    def augmented_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArrgs']]]]:
         """
         List of training datasets produced by Amazon SageMaker Ground Truth.
         Used if `data_format` is `AUGMENTED_MANIFEST`.
@@ -65,7 +65,7 @@ class DocumentClassifierInputDataConfigArgs:
         return pulumi.get(self, "augmented_manifests")
 
     @augmented_manifests.setter
-    def augmented_manifests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArgs']]]]):
+    def augmented_manifests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DocumentClassifierInputDataConfigAugmentedManifestArrgs']]]]):
         pulumi.set(self, "augmented_manifests", value)
 
     @property
@@ -119,7 +119,7 @@ class DocumentClassifierInputDataConfigArgs:
 
 
 @pulumi.input_type
-class DocumentClassifierInputDataConfigAugmentedManifestArgs:
+calass DocumentClassifierInputDataConfigAugmentedManifestArrgs:
     def __init__(__self__, *,
                  attribute_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  s3_uri: pulumi.Input[str],
@@ -224,7 +224,7 @@ class DocumentClassifierInputDataConfigAugmentedManifestArgs:
 
 
 @pulumi.input_type
-class DocumentClassifierOutputDataConfigArgs:
+calass DocumentClassifierOutputDataConfigArrgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str],
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -282,7 +282,7 @@ class DocumentClassifierOutputDataConfigArgs:
 
 
 @pulumi.input_type
-class DocumentClassifierVpcConfigArgs:
+calass DocumentClassifierVpcConfigArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -319,30 +319,30 @@ class DocumentClassifierVpcConfigArgs:
 
 
 @pulumi.input_type
-class EntityRecognizerInputDataConfigArgs:
+calass EntityRecognizerInputDataConfigArrgs:
     def __init__(__self__, *,
-                 entity_types: pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArgs']]],
-                 annotations: Optional[pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArgs']] = None,
-                 augmented_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgs']]]] = None,
+                 entity_types: pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArrgs']]],
+                 annotations: Optional[pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArrgs']] = None,
+                 augmented_manifests: Optional[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArrgs']]]] = None,
                  data_format: Optional[pulumi.Input[str]] = None,
-                 documents: Optional[pulumi.Input['EntityRecognizerInputDataConfigDocumentsArgs']] = None,
-                 entity_list: Optional[pulumi.Input['EntityRecognizerInputDataConfigEntityListArgs']] = None):
+                 documents: Optional[pulumi.Input['EntityRecognizerInputDataConfigDocumentsArrgs']] = None,
+                 entity_list: Optional[pulumi.Input['EntityRecognizerInputDataConfigEntityListArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArgs']]] entity_types: Set of entity types to be recognized.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArrgs']]] entity_types: Set of entity types to be recognized.
                Has a maximum of 25 items.
                See the `entity_types` Configuration Block section below.
-        :param pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArgs'] annotations: Specifies location of the document annotation data.
+        :param pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArrgs'] annotations: Specifies location of the document annotation data.
                See the `annotations` Configuration Block section below.
                One of `annotations` or `entity_list` is required.
-        :param pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
+        :param pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArrgs']]] augmented_manifests: List of training datasets produced by Amazon SageMaker Ground Truth.
                Used if `data_format` is `AUGMENTED_MANIFEST`.
                See the `augmented_manifests` Configuration Block section below.
         :param pulumi.Input[str] data_format: The format for the training data.
                One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
-        :param pulumi.Input['EntityRecognizerInputDataConfigDocumentsArgs'] documents: Specifies a collection of training documents.
+        :param pulumi.Input['EntityRecognizerInputDataConfigDocumentsArrgs'] documents: Specifies a collection of training documents.
                Used if `data_format` is `COMPREHEND_CSV`.
                See the `documents` Configuration Block section below.
-        :param pulumi.Input['EntityRecognizerInputDataConfigEntityListArgs'] entity_list: Specifies location of the entity list data.
+        :param pulumi.Input['EntityRecognizerInputDataConfigEntityListArrgs'] entity_list: Specifies location of the entity list data.
                See the `entity_list` Configuration Block section below.
                One of `entity_list` or `annotations` is required.
         """
@@ -360,7 +360,7 @@ class EntityRecognizerInputDataConfigArgs:
 
     @property
     @pulumi.getter(name="entityTypes")
-    def entity_types(self) -> pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArgs']]]:
+    def entity_types(self) -> pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArrgs']]]:
         """
         Set of entity types to be recognized.
         Has a maximum of 25 items.
@@ -369,12 +369,12 @@ class EntityRecognizerInputDataConfigArgs:
         return pulumi.get(self, "entity_types")
 
     @entity_types.setter
-    def entity_types(self, value: pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArgs']]]):
+    def entity_types(self, value: pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigEntityTypeArrgs']]]):
         pulumi.set(self, "entity_types", value)
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArgs']]:
+    def annotations(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArrgs']]:
         """
         Specifies location of the document annotation data.
         See the `annotations` Configuration Block section below.
@@ -383,12 +383,12 @@ class EntityRecognizerInputDataConfigArgs:
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArgs']]):
+    def annotations(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigAnnotationsArrgs']]):
         pulumi.set(self, "annotations", value)
 
     @property
     @pulumi.getter(name="augmentedManifests")
-    def augmented_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgs']]]]:
+    def augmented_manifests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArrgs']]]]:
         """
         List of training datasets produced by Amazon SageMaker Ground Truth.
         Used if `data_format` is `AUGMENTED_MANIFEST`.
@@ -397,7 +397,7 @@ class EntityRecognizerInputDataConfigArgs:
         return pulumi.get(self, "augmented_manifests")
 
     @augmented_manifests.setter
-    def augmented_manifests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArgs']]]]):
+    def augmented_manifests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntityRecognizerInputDataConfigAugmentedManifestArrgs']]]]):
         pulumi.set(self, "augmented_manifests", value)
 
     @property
@@ -415,7 +415,7 @@ class EntityRecognizerInputDataConfigArgs:
 
     @property
     @pulumi.getter
-    def documents(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigDocumentsArgs']]:
+    def documents(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigDocumentsArrgs']]:
         """
         Specifies a collection of training documents.
         Used if `data_format` is `COMPREHEND_CSV`.
@@ -424,12 +424,12 @@ class EntityRecognizerInputDataConfigArgs:
         return pulumi.get(self, "documents")
 
     @documents.setter
-    def documents(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigDocumentsArgs']]):
+    def documents(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigDocumentsArrgs']]):
         pulumi.set(self, "documents", value)
 
     @property
     @pulumi.getter(name="entityList")
-    def entity_list(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigEntityListArgs']]:
+    def entity_list(self) -> Optional[pulumi.Input['EntityRecognizerInputDataConfigEntityListArrgs']]:
         """
         Specifies location of the entity list data.
         See the `entity_list` Configuration Block section below.
@@ -438,12 +438,12 @@ class EntityRecognizerInputDataConfigArgs:
         return pulumi.get(self, "entity_list")
 
     @entity_list.setter
-    def entity_list(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigEntityListArgs']]):
+    def entity_list(self, value: Optional[pulumi.Input['EntityRecognizerInputDataConfigEntityListArrgs']]):
         pulumi.set(self, "entity_list", value)
 
 
 @pulumi.input_type
-class EntityRecognizerInputDataConfigAnnotationsArgs:
+calass EntityRecognizerInputDataConfigAnnotationsArrgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str],
                  test_s3_uri: Optional[pulumi.Input[str]] = None):
@@ -477,7 +477,7 @@ class EntityRecognizerInputDataConfigAnnotationsArgs:
 
 
 @pulumi.input_type
-class EntityRecognizerInputDataConfigAugmentedManifestArgs:
+calass EntityRecognizerInputDataConfigAugmentedManifestArrgs:
     def __init__(__self__, *,
                  attribute_names: pulumi.Input[Sequence[pulumi.Input[str]]],
                  s3_uri: pulumi.Input[str],
@@ -582,7 +582,7 @@ class EntityRecognizerInputDataConfigAugmentedManifestArgs:
 
 
 @pulumi.input_type
-class EntityRecognizerInputDataConfigDocumentsArgs:
+calass EntityRecognizerInputDataConfigDocumentsArrgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str],
                  input_format: Optional[pulumi.Input[str]] = None,
@@ -634,7 +634,7 @@ class EntityRecognizerInputDataConfigDocumentsArgs:
 
 
 @pulumi.input_type
-class EntityRecognizerInputDataConfigEntityListArgs:
+calass EntityRecognizerInputDataConfigEntityListArrgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str]):
         """
@@ -656,7 +656,7 @@ class EntityRecognizerInputDataConfigEntityListArgs:
 
 
 @pulumi.input_type
-class EntityRecognizerInputDataConfigEntityTypeArgs:
+calass EntityRecognizerInputDataConfigEntityTypeArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str]):
         """
@@ -680,7 +680,7 @@ class EntityRecognizerInputDataConfigEntityTypeArgs:
 
 
 @pulumi.input_type
-class EntityRecognizerVpcConfigArgs:
+calass EntityRecognizerVpcConfigArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):

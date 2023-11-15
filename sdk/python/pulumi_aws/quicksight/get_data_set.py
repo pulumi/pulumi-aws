@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDataSetResult:
+calass GetDataSetResult:
     """
     A collection of values returned by getDataSet.
     """
@@ -168,7 +168,7 @@ class GetDataSetResult:
         return pulumi.get(self, "tags_all")
 
 
-class AwaitableGetDataSetResult(GetDataSetResult):
+calass AwaitableGetDataSetResult(GetDataSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -194,7 +194,7 @@ class AwaitableGetDataSetResult(GetDataSetResult):
 
 
 def get_data_set(aws_account_id: Optional[str] = None,
-                 column_level_permission_rules: Optional[Sequence[pulumi.InputType['GetDataSetColumnLevelPermissionRuleArgs']]] = None,
+                 column_level_permission_rules: Optional[Sequence[pulumi.InputType['GetDataSetColumnLevelPermissionRuleArrgs']]] = None,
                  data_set_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  tags_all: Optional[Mapping[str, str]] = None,
@@ -249,7 +249,7 @@ def get_data_set(aws_account_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_data_set)
 def get_data_set_output(aws_account_id: Optional[pulumi.Input[Optional[str]]] = None,
-                        column_level_permission_rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDataSetColumnLevelPermissionRuleArgs']]]]] = None,
+                        column_level_permission_rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDataSetColumnLevelPermissionRuleArrgs']]]]] = None,
                         data_set_id: Optional[pulumi.Input[str]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         tags_all: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,

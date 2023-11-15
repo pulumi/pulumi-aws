@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GraphArgs', 'Graph']
+__all__ = ['GraphArrgs', 'Graph']
 
 @pulumi.input_type
-class GraphArgs:
+calass GraphArrgs:
     def __init__(__self__, *,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -36,7 +36,7 @@ class GraphArgs:
 
 
 @pulumi.input_type
-class _GraphState:
+calass _GraphState:
     def __init__(__self__, *,
                  created_time: Optional[pulumi.Input[str]] = None,
                  graph_arn: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class _GraphState:
         pulumi.set(self, "tags_all", value)
 
 
-class Graph(pulumi.CustomResource):
+calass Graph(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -146,7 +146,7 @@ class Graph(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[GraphArgs] = None,
+                 args: Optional[GraphArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an [AWS Detective Graph](https://docs.aws.amazon.com/detective/latest/APIReference/API_CreateGraph.html). As an AWS account may own only one Detective graph per region, provisioning multiple Detective graphs requires a separate provider configuration for each graph.
@@ -171,12 +171,12 @@ class Graph(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GraphArgs args: The arguments to use to populate this resource's properties.
+        :param GraphArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GraphArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GraphArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -193,7 +193,7 @@ class Graph(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GraphArgs.__new__(GraphArgs)
+            __props__ = GraphArrgs.__new__(GraphArrgs)
 
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_time"] = None

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNodeGroupResult:
+calass GetNodeGroupResult:
     """
     A collection of values returned by getNodeGroup.
     """
@@ -239,7 +239,7 @@ class GetNodeGroupResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetNodeGroupResult(GetNodeGroupResult):
+calass AwaitableGetNodeGroupResult(GetNodeGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

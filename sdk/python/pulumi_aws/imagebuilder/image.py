@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ImageArgs', 'Image']
+__all__ = ['ImageArrgs', 'Image']
 
 @pulumi.input_type
-class ImageArgs:
+calass ImageArrgs:
     def __init__(__self__, *,
                  infrastructure_configuration_arn: pulumi.Input[str],
                  container_recipe_arn: Optional[pulumi.Input[str]] = None,
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input['ImageImageScanningConfigurationArgs']] = None,
-                 image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']] = None,
+                 image_scanning_configuration: Optional[pulumi.Input['ImageImageScanningConfigurationArrgs']] = None,
+                 image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Image resource.
@@ -33,8 +33,8 @@ class ImageArgs:
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input['ImageImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input['ImageImageScanningConfigurationArrgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
+        :param pulumi.Input['ImageImageTestsConfigurationArrgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "infrastructure_configuration_arn", infrastructure_configuration_arn)
@@ -117,26 +117,26 @@ class ImageArgs:
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> Optional[pulumi.Input['ImageImageScanningConfigurationArgs']]:
+    def image_scanning_configuration(self) -> Optional[pulumi.Input['ImageImageScanningConfigurationArrgs']]:
         """
         Configuration block with image scanning configuration. Detailed below.
         """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
-    def image_scanning_configuration(self, value: Optional[pulumi.Input['ImageImageScanningConfigurationArgs']]):
+    def image_scanning_configuration(self, value: Optional[pulumi.Input['ImageImageScanningConfigurationArrgs']]):
         pulumi.set(self, "image_scanning_configuration", value)
 
     @property
     @pulumi.getter(name="imageTestsConfiguration")
-    def image_tests_configuration(self) -> Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]:
+    def image_tests_configuration(self) -> Optional[pulumi.Input['ImageImageTestsConfigurationArrgs']]:
         """
         Configuration block with image tests configuration. Detailed below.
         """
         return pulumi.get(self, "image_tests_configuration")
 
     @image_tests_configuration.setter
-    def image_tests_configuration(self, value: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]):
+    def image_tests_configuration(self, value: Optional[pulumi.Input['ImageImageTestsConfigurationArrgs']]):
         pulumi.set(self, "image_tests_configuration", value)
 
     @property
@@ -153,7 +153,7 @@ class ImageArgs:
 
 
 @pulumi.input_type
-class _ImageState:
+calass _ImageState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  container_recipe_arn: Optional[pulumi.Input[str]] = None,
@@ -161,12 +161,12 @@ class _ImageState:
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input['ImageImageScanningConfigurationArgs']] = None,
-                 image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']] = None,
+                 image_scanning_configuration: Optional[pulumi.Input['ImageImageScanningConfigurationArrgs']] = None,
+                 image_tests_configuration: Optional[pulumi.Input['ImageImageTestsConfigurationArrgs']] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  os_version: Optional[pulumi.Input[str]] = None,
-                 output_resources: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArgs']]]] = None,
+                 output_resources: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArrgs']]]] = None,
                  platform: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -179,14 +179,14 @@ class _ImageState:
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input['ImageImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input['ImageImageTestsConfigurationArgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input['ImageImageScanningConfigurationArrgs'] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
+        :param pulumi.Input['ImageImageTestsConfigurationArrgs'] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Name of the AMI.
         :param pulumi.Input[str] os_version: Operating System version of the image.
-        :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArgs']]] output_resources: List of objects with resources created by the image.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArrgs']]] output_resources: List of objects with resources created by the image.
         :param pulumi.Input[str] platform: Platform of the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -302,26 +302,26 @@ class _ImageState:
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")
-    def image_scanning_configuration(self) -> Optional[pulumi.Input['ImageImageScanningConfigurationArgs']]:
+    def image_scanning_configuration(self) -> Optional[pulumi.Input['ImageImageScanningConfigurationArrgs']]:
         """
         Configuration block with image scanning configuration. Detailed below.
         """
         return pulumi.get(self, "image_scanning_configuration")
 
     @image_scanning_configuration.setter
-    def image_scanning_configuration(self, value: Optional[pulumi.Input['ImageImageScanningConfigurationArgs']]):
+    def image_scanning_configuration(self, value: Optional[pulumi.Input['ImageImageScanningConfigurationArrgs']]):
         pulumi.set(self, "image_scanning_configuration", value)
 
     @property
     @pulumi.getter(name="imageTestsConfiguration")
-    def image_tests_configuration(self) -> Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]:
+    def image_tests_configuration(self) -> Optional[pulumi.Input['ImageImageTestsConfigurationArrgs']]:
         """
         Configuration block with image tests configuration. Detailed below.
         """
         return pulumi.get(self, "image_tests_configuration")
 
     @image_tests_configuration.setter
-    def image_tests_configuration(self, value: Optional[pulumi.Input['ImageImageTestsConfigurationArgs']]):
+    def image_tests_configuration(self, value: Optional[pulumi.Input['ImageImageTestsConfigurationArrgs']]):
         pulumi.set(self, "image_tests_configuration", value)
 
     @property
@@ -364,14 +364,14 @@ class _ImageState:
 
     @property
     @pulumi.getter(name="outputResources")
-    def output_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArgs']]]]:
+    def output_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArrgs']]]]:
         """
         List of objects with resources created by the image.
         """
         return pulumi.get(self, "output_resources")
 
     @output_resources.setter
-    def output_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArgs']]]]):
+    def output_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceArrgs']]]]):
         pulumi.set(self, "output_resources", value)
 
     @property
@@ -426,7 +426,7 @@ class _ImageState:
         pulumi.set(self, "version", value)
 
 
-class Image(pulumi.CustomResource):
+calass Image(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -435,8 +435,8 @@ class Image(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArgs']]] = None,
-                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArrgs']]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArrgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -469,8 +469,8 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArrgs']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArrgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
                
                The following arguments are optional:
@@ -480,7 +480,7 @@ class Image(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ImageArgs,
+                 args: ImageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Image Builder Image.
@@ -506,12 +506,12 @@ class Image(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ImageArgs args: The arguments to use to populate this resource's properties.
+        :param ImageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ImageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ImageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -524,8 +524,8 @@ class Image(pulumi.CustomResource):
                  distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
                  enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
                  image_recipe_arn: Optional[pulumi.Input[str]] = None,
-                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArgs']]] = None,
-                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']]] = None,
+                 image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArrgs']]] = None,
+                 image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArrgs']]] = None,
                  infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -535,7 +535,7 @@ class Image(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ImageArgs.__new__(ImageArgs)
+            __props__ = ImageArrgs.__new__(ImageArrgs)
 
             __props__.__dict__["container_recipe_arn"] = container_recipe_arn
             __props__.__dict__["distribution_configuration_arn"] = distribution_configuration_arn
@@ -573,12 +573,12 @@ class Image(pulumi.CustomResource):
             distribution_configuration_arn: Optional[pulumi.Input[str]] = None,
             enhanced_image_metadata_enabled: Optional[pulumi.Input[bool]] = None,
             image_recipe_arn: Optional[pulumi.Input[str]] = None,
-            image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArgs']]] = None,
-            image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']]] = None,
+            image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArrgs']]] = None,
+            image_tests_configuration: Optional[pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArrgs']]] = None,
             infrastructure_configuration_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             os_version: Optional[pulumi.Input[str]] = None,
-            output_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageOutputResourceArgs']]]]] = None,
+            output_resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageOutputResourceArrgs']]]]] = None,
             platform: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -596,14 +596,14 @@ class Image(pulumi.CustomResource):
         :param pulumi.Input[str] distribution_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
         :param pulumi.Input[bool] enhanced_image_metadata_enabled: Whether additional information about the image being created is collected. Defaults to `true`.
         :param pulumi.Input[str] image_recipe_arn: Amazon Resource Name (ARN) of the image recipe.
-        :param pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
-        :param pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ImageImageScanningConfigurationArrgs']] image_scanning_configuration: Configuration block with image scanning configuration. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ImageImageTestsConfigurationArrgs']] image_tests_configuration: Configuration block with image tests configuration. Detailed below.
         :param pulumi.Input[str] infrastructure_configuration_arn: Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Name of the AMI.
         :param pulumi.Input[str] os_version: Operating System version of the image.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageOutputResourceArgs']]]] output_resources: List of objects with resources created by the image.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ImageOutputResourceArrgs']]]] output_resources: List of objects with resources created by the image.
         :param pulumi.Input[str] platform: Platform of the image.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags for the Image Builder Image. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -11,23 +11,23 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TaskSetArgs', 'TaskSet']
+__all__ = ['TaskSetArrgs', 'TaskSet']
 
 @pulumi.input_type
-class TaskSetArgs:
+calass TaskSetArrgs:
     def __init__(__self__, *,
                  cluster: pulumi.Input[str],
                  service: pulumi.Input[str],
                  task_definition: pulumi.Input[str],
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]] = None,
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArrgs']]]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
-                 network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArrgs']]]] = None,
+                 network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArrgs']] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
-                 service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']] = None,
+                 scale: Optional[pulumi.Input['TaskSetScaleArrgs']] = None,
+                 service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  wait_until_stable: Optional[pulumi.Input[bool]] = None,
                  wait_until_stable_timeout: Optional[pulumi.Input[str]] = None):
@@ -38,15 +38,15 @@ class TaskSetArgs:
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArrgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
         :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
-        :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArrgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
+        :param pulumi.Input['TaskSetNetworkConfigurationArrgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         :param pulumi.Input[str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
-        :param pulumi.Input['TaskSetServiceRegistriesArgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        :param pulumi.Input['TaskSetScaleArrgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+        :param pulumi.Input['TaskSetServiceRegistriesArrgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         :param pulumi.Input[bool] wait_until_stable: Whether the provider should wait until the task set has reached `STEADY_STATE`.
         :param pulumi.Input[str] wait_until_stable_timeout: Wait timeout for task set to reach `STEADY_STATE`. Valid time units include `ns`, `us` (or `µs`), `ms`, `s`, `m`, and `h`. Default `10m`.
@@ -119,14 +119,14 @@ class TaskSetArgs:
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
-    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]]:
+    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArrgs']]]]:
         """
         The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
-    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]]):
+    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArrgs']]]]):
         pulumi.set(self, "capacity_provider_strategies", value)
 
     @property
@@ -167,26 +167,26 @@ class TaskSetArgs:
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]:
+    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArrgs']]]]:
         """
         Details on load balancers that are used with a task set. Detailed below.
         """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
-    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]):
+    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArrgs']]]]):
         pulumi.set(self, "load_balancers", value)
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]:
+    def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArrgs']]:
         """
         The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]):
+    def network_configuration(self, value: Optional[pulumi.Input['TaskSetNetworkConfigurationArrgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @property
@@ -203,26 +203,26 @@ class TaskSetArgs:
 
     @property
     @pulumi.getter
-    def scale(self) -> Optional[pulumi.Input['TaskSetScaleArgs']]:
+    def scale(self) -> Optional[pulumi.Input['TaskSetScaleArrgs']]:
         """
         A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         """
         return pulumi.get(self, "scale")
 
     @scale.setter
-    def scale(self, value: Optional[pulumi.Input['TaskSetScaleArgs']]):
+    def scale(self, value: Optional[pulumi.Input['TaskSetScaleArrgs']]):
         pulumi.set(self, "scale", value)
 
     @property
     @pulumi.getter(name="serviceRegistries")
-    def service_registries(self) -> Optional[pulumi.Input['TaskSetServiceRegistriesArgs']]:
+    def service_registries(self) -> Optional[pulumi.Input['TaskSetServiceRegistriesArrgs']]:
         """
         The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
-    def service_registries(self, value: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']]):
+    def service_registries(self, value: Optional[pulumi.Input['TaskSetServiceRegistriesArrgs']]):
         pulumi.set(self, "service_registries", value)
 
     @property
@@ -263,20 +263,20 @@ class TaskSetArgs:
 
 
 @pulumi.input_type
-class _TaskSetState:
+calass _TaskSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]] = None,
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArrgs']]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]] = None,
-                 network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArrgs']]]] = None,
+                 network_configuration: Optional[pulumi.Input['TaskSetNetworkConfigurationArrgs']] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 scale: Optional[pulumi.Input['TaskSetScaleArgs']] = None,
+                 scale: Optional[pulumi.Input['TaskSetScaleArrgs']] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']] = None,
+                 service_registries: Optional[pulumi.Input['TaskSetServiceRegistriesArrgs']] = None,
                  stability_status: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -288,17 +288,17 @@ class _TaskSetState:
         """
         Input properties used for looking up and filtering TaskSet resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the task set.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArrgs']]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
         :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
-        :param pulumi.Input['TaskSetNetworkConfigurationArgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArrgs']]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
+        :param pulumi.Input['TaskSetNetworkConfigurationArrgs'] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         :param pulumi.Input[str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input['TaskSetScaleArgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+        :param pulumi.Input['TaskSetScaleArrgs'] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input[str] service: The short name or ARN of the ECS service.
-        :param pulumi.Input['TaskSetServiceRegistriesArgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        :param pulumi.Input['TaskSetServiceRegistriesArrgs'] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[str] stability_status: The stability status. This indicates whether the task set has reached a steady state.
         :param pulumi.Input[str] status: The status of the task set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
@@ -368,14 +368,14 @@ class _TaskSetState:
 
     @property
     @pulumi.getter(name="capacityProviderStrategies")
-    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]]:
+    def capacity_provider_strategies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArrgs']]]]:
         """
         The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         """
         return pulumi.get(self, "capacity_provider_strategies")
 
     @capacity_provider_strategies.setter
-    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArgs']]]]):
+    def capacity_provider_strategies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetCapacityProviderStrategyArrgs']]]]):
         pulumi.set(self, "capacity_provider_strategies", value)
 
     @property
@@ -428,26 +428,26 @@ class _TaskSetState:
 
     @property
     @pulumi.getter(name="loadBalancers")
-    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]:
+    def load_balancers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArrgs']]]]:
         """
         Details on load balancers that are used with a task set. Detailed below.
         """
         return pulumi.get(self, "load_balancers")
 
     @load_balancers.setter
-    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArgs']]]]):
+    def load_balancers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TaskSetLoadBalancerArrgs']]]]):
         pulumi.set(self, "load_balancers", value)
 
     @property
     @pulumi.getter(name="networkConfiguration")
-    def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]:
+    def network_configuration(self) -> Optional[pulumi.Input['TaskSetNetworkConfigurationArrgs']]:
         """
         The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
-    def network_configuration(self, value: Optional[pulumi.Input['TaskSetNetworkConfigurationArgs']]):
+    def network_configuration(self, value: Optional[pulumi.Input['TaskSetNetworkConfigurationArrgs']]):
         pulumi.set(self, "network_configuration", value)
 
     @property
@@ -464,14 +464,14 @@ class _TaskSetState:
 
     @property
     @pulumi.getter
-    def scale(self) -> Optional[pulumi.Input['TaskSetScaleArgs']]:
+    def scale(self) -> Optional[pulumi.Input['TaskSetScaleArrgs']]:
         """
         A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         """
         return pulumi.get(self, "scale")
 
     @scale.setter
-    def scale(self, value: Optional[pulumi.Input['TaskSetScaleArgs']]):
+    def scale(self, value: Optional[pulumi.Input['TaskSetScaleArrgs']]):
         pulumi.set(self, "scale", value)
 
     @property
@@ -488,14 +488,14 @@ class _TaskSetState:
 
     @property
     @pulumi.getter(name="serviceRegistries")
-    def service_registries(self) -> Optional[pulumi.Input['TaskSetServiceRegistriesArgs']]:
+    def service_registries(self) -> Optional[pulumi.Input['TaskSetServiceRegistriesArrgs']]:
         """
         The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         """
         return pulumi.get(self, "service_registries")
 
     @service_registries.setter
-    def service_registries(self, value: Optional[pulumi.Input['TaskSetServiceRegistriesArgs']]):
+    def service_registries(self, value: Optional[pulumi.Input['TaskSetServiceRegistriesArrgs']]):
         pulumi.set(self, "service_registries", value)
 
     @property
@@ -600,22 +600,22 @@ class _TaskSetState:
         pulumi.set(self, "wait_until_stable_timeout", value)
 
 
-class TaskSet(pulumi.CustomResource):
+calass TaskSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArgs']]]]] = None,
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArrgs']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArrgs']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArrgs']]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArgs']]] = None,
+                 scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArrgs']]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 service_registries: Optional[pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArgs']]] = None,
+                 service_registries: Optional[pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  wait_until_stable: Optional[pulumi.Input[bool]] = None,
@@ -636,7 +636,7 @@ class TaskSet(pulumi.CustomResource):
             service=aws_ecs_service["example"]["id"],
             cluster=aws_ecs_cluster["example"]["id"],
             task_definition=aws_ecs_task_definition["example"]["arn"],
-            load_balancers=[aws.ecs.TaskSetLoadBalancerArgs(
+            load_balancers=[aws.ecs.TaskSetLoadBalancerArrgs(
                 target_group_arn=aws_lb_target_group["example"]["arn"],
                 container_name="mongo",
                 container_port=8080,
@@ -653,17 +653,17 @@ class TaskSet(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArgs']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArrgs']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
         :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
-        :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArrgs']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArrgs']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         :param pulumi.Input[str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[pulumi.InputType['TaskSetScaleArgs']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TaskSetScaleArrgs']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input[str] service: The short name or ARN of the ECS service.
-        :param pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArgs']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArrgs']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         :param pulumi.Input[str] task_definition: The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
                
@@ -675,7 +675,7 @@ class TaskSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TaskSetArgs,
+                 args: TaskSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an ECS task set - effectively a task that is expected to run until an error occurs or a user terminates it (typically a webserver or a database).
@@ -692,7 +692,7 @@ class TaskSet(pulumi.CustomResource):
             service=aws_ecs_service["example"]["id"],
             cluster=aws_ecs_cluster["example"]["id"],
             task_definition=aws_ecs_task_definition["example"]["arn"],
-            load_balancers=[aws.ecs.TaskSetLoadBalancerArgs(
+            load_balancers=[aws.ecs.TaskSetLoadBalancerArrgs(
                 target_group_arn=aws_lb_target_group["example"]["arn"],
                 container_name="mongo",
                 container_port=8080,
@@ -708,12 +708,12 @@ class TaskSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TaskSetArgs args: The arguments to use to populate this resource's properties.
+        :param TaskSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TaskSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TaskSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -722,17 +722,17 @@ class TaskSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArgs']]]]] = None,
+                 capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArrgs']]]]] = None,
                  cluster: Optional[pulumi.Input[str]] = None,
                  external_id: Optional[pulumi.Input[str]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  launch_type: Optional[pulumi.Input[str]] = None,
-                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]]] = None,
-                 network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']]] = None,
+                 load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArrgs']]]]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArrgs']]] = None,
                  platform_version: Optional[pulumi.Input[str]] = None,
-                 scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArgs']]] = None,
+                 scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArrgs']]] = None,
                  service: Optional[pulumi.Input[str]] = None,
-                 service_registries: Optional[pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArgs']]] = None,
+                 service_registries: Optional[pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_definition: Optional[pulumi.Input[str]] = None,
                  wait_until_stable: Optional[pulumi.Input[bool]] = None,
@@ -744,7 +744,7 @@ class TaskSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TaskSetArgs.__new__(TaskSetArgs)
+            __props__ = TaskSetArrgs.__new__(TaskSetArrgs)
 
             __props__.__dict__["capacity_provider_strategies"] = capacity_provider_strategies
             if cluster is None and not opts.urn:
@@ -785,17 +785,17 @@ class TaskSet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArgs']]]]] = None,
+            capacity_provider_strategies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArrgs']]]]] = None,
             cluster: Optional[pulumi.Input[str]] = None,
             external_id: Optional[pulumi.Input[str]] = None,
             force_delete: Optional[pulumi.Input[bool]] = None,
             launch_type: Optional[pulumi.Input[str]] = None,
-            load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]]] = None,
-            network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']]] = None,
+            load_balancers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArrgs']]]]] = None,
+            network_configuration: Optional[pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArrgs']]] = None,
             platform_version: Optional[pulumi.Input[str]] = None,
-            scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArgs']]] = None,
+            scale: Optional[pulumi.Input[pulumi.InputType['TaskSetScaleArrgs']]] = None,
             service: Optional[pulumi.Input[str]] = None,
-            service_registries: Optional[pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArgs']]] = None,
+            service_registries: Optional[pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArrgs']]] = None,
             stability_status: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -812,17 +812,17 @@ class TaskSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the task set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArgs']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetCapacityProviderStrategyArrgs']]]] capacity_provider_strategies: The capacity provider strategy to use for the service. Can be one or more.  Defined below.
         :param pulumi.Input[str] cluster: The short name or ARN of the cluster that hosts the service to create the task set in.
         :param pulumi.Input[str] external_id: The external ID associated with the task set.
         :param pulumi.Input[bool] force_delete: Whether to allow deleting the task set without waiting for scaling down to 0. You can force a task set to delete even if it's in the process of scaling a resource. Normally, the provider drains all the tasks before deleting the task set. This bypasses that behavior and potentially leaves resources dangling.
         :param pulumi.Input[str] launch_type: The launch type on which to run your service. The valid values are `EC2`, `FARGATE`, and `EXTERNAL`. Defaults to `EC2`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArgs']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
-        :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArgs']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskSetLoadBalancerArrgs']]]] load_balancers: Details on load balancers that are used with a task set. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TaskSetNetworkConfigurationArrgs']] network_configuration: The network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
         :param pulumi.Input[str] platform_version: The platform version on which to run your service. Only applicable for `launch_type` set to `FARGATE`. Defaults to `LATEST`. More information about Fargate platform versions can be found in the [AWS ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        :param pulumi.Input[pulumi.InputType['TaskSetScaleArgs']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TaskSetScaleArrgs']] scale: A floating-point percentage of the desired number of tasks to place and keep running in the task set. Detailed below.
         :param pulumi.Input[str] service: The short name or ARN of the ECS service.
-        :param pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArgs']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TaskSetServiceRegistriesArrgs']] service_registries: The service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
         :param pulumi.Input[str] stability_status: The stability status. This indicates whether the task set has reached a steady state.
         :param pulumi.Input[str] status: The status of the task set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.

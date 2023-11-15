@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MapArgs', 'Map']
+__all__ = ['MapArrgs', 'Map']
 
 @pulumi.input_type
-class MapArgs:
+calass MapArrgs:
     def __init__(__self__, *,
-                 configuration: pulumi.Input['MapConfigurationArgs'],
+                 configuration: pulumi.Input['MapConfigurationArrgs'],
                  map_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Map resource.
-        :param pulumi.Input['MapConfigurationArgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
+        :param pulumi.Input['MapConfigurationArrgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[str] map_name: The name for the map resource.
                
                The following arguments are optional:
@@ -38,14 +38,14 @@ class MapArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Input['MapConfigurationArgs']:
+    def configuration(self) -> pulumi.Input['MapConfigurationArrgs']:
         """
         Configuration block with the map style selected from an available data provider. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: pulumi.Input['MapConfigurationArgs']):
+    def configuration(self, value: pulumi.Input['MapConfigurationArrgs']):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -88,9 +88,9 @@ class MapArgs:
 
 
 @pulumi.input_type
-class _MapState:
+calass _MapState:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['MapConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['MapConfigurationArrgs']] = None,
                  create_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  map_arn: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class _MapState:
                  update_time: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Map resources.
-        :param pulumi.Input['MapConfigurationArgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
+        :param pulumi.Input['MapConfigurationArrgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[str] create_time: The timestamp for when the map resource was created in ISO 8601 format.
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
@@ -133,14 +133,14 @@ class _MapState:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['MapConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['MapConfigurationArrgs']]:
         """
         Configuration block with the map style selected from an available data provider. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['MapConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['MapConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -233,12 +233,12 @@ class _MapState:
         pulumi.set(self, "update_time", value)
 
 
-class Map(pulumi.CustomResource):
+calass Map(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -253,7 +253,7 @@ class Map(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.location.Map("example",
-            configuration=aws.location.MapConfigurationArgs(
+            configuration=aws.location.MapConfigurationArrgs(
                 style="VectorHereBerlin",
             ),
             map_name="example")
@@ -269,7 +269,7 @@ class Map(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MapConfigurationArgs']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
+        :param pulumi.Input[pulumi.InputType['MapConfigurationArrgs']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_name: The name for the map resource.
                
@@ -280,7 +280,7 @@ class Map(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MapArgs,
+                 args: MapArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Location Service Map.
@@ -292,7 +292,7 @@ class Map(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.location.Map("example",
-            configuration=aws.location.MapConfigurationArgs(
+            configuration=aws.location.MapConfigurationArrgs(
                 style="VectorHereBerlin",
             ),
             map_name="example")
@@ -307,12 +307,12 @@ class Map(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MapArgs args: The arguments to use to populate this resource's properties.
+        :param MapArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MapArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MapArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -321,7 +321,7 @@ class Map(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -332,7 +332,7 @@ class Map(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MapArgs.__new__(MapArgs)
+            __props__ = MapArrgs.__new__(MapArrgs)
 
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
@@ -358,7 +358,7 @@ class Map(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[pulumi.InputType['MapConfigurationArrgs']]] = None,
             create_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             map_arn: Optional[pulumi.Input[str]] = None,
@@ -373,7 +373,7 @@ class Map(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['MapConfigurationArgs']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
+        :param pulumi.Input[pulumi.InputType['MapConfigurationArrgs']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[str] create_time: The timestamp for when the map resource was created in ISO 8601 format.
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.

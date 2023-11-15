@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectionAliasArgs', 'ConnectionAlias']
+__all__ = ['ConnectionAliasArrgs', 'ConnectionAlias']
 
 @pulumi.input_type
-class ConnectionAliasArgs:
+calass ConnectionAliasArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['ConnectionAliasTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a ConnectionAlias resource.
         :param pulumi.Input[str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
@@ -56,23 +56,23 @@ class ConnectionAliasArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['ConnectionAliasTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['ConnectionAliasTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _ConnectionAliasState:
+calass _ConnectionAliasState:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  owner_account_id: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['ConnectionAliasTimeoutsArrgs']] = None):
         """
         Input properties used for looking up and filtering ConnectionAlias resources.
         :param pulumi.Input[str] connection_string: The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as www.example.com.
@@ -162,22 +162,22 @@ class _ConnectionAliasState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['ConnectionAliasTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ConnectionAliasTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['ConnectionAliasTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
-class ConnectionAlias(pulumi.CustomResource):
+calass ConnectionAlias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArrgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS WorkSpaces Connection Alias.
@@ -209,7 +209,7 @@ class ConnectionAlias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionAliasArgs,
+                 args: ConnectionAliasArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS WorkSpaces Connection Alias.
@@ -233,12 +233,12 @@ class ConnectionAlias(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectionAliasArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectionAliasArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectionAliasArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionAliasArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -249,7 +249,7 @@ class ConnectionAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,7 +257,7 @@ class ConnectionAlias(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectionAliasArgs.__new__(ConnectionAliasArgs)
+            __props__ = ConnectionAliasArrgs.__new__(ConnectionAliasArrgs)
 
             if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")
@@ -284,7 +284,7 @@ class ConnectionAlias(pulumi.CustomResource):
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArgs']]] = None) -> 'ConnectionAlias':
+            timeouts: Optional[pulumi.Input[pulumi.InputType['ConnectionAliasTimeoutsArrgs']]] = None) -> 'ConnectionAlias':
         """
         Get an existing ConnectionAlias resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

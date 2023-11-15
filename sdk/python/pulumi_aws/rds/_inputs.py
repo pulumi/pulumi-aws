@@ -11,32 +11,32 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'ClusterMasterUserSecretArgs',
-    'ClusterParameterGroupParameterArgs',
-    'ClusterRestoreToPointInTimeArgs',
-    'ClusterS3ImportArgs',
-    'ClusterScalingConfigurationArgs',
-    'ClusterServerlessv2ScalingConfigurationArgs',
-    'ExportTaskTimeoutsArgs',
-    'GlobalClusterGlobalClusterMemberArgs',
-    'InstanceBlueGreenUpdateArgs',
-    'InstanceListenerEndpointArgs',
-    'InstanceMasterUserSecretArgs',
-    'InstanceRestoreToPointInTimeArgs',
-    'InstanceS3ImportArgs',
-    'OptionGroupOptionArgs',
-    'OptionGroupOptionOptionSettingArgs',
-    'ParameterGroupParameterArgs',
-    'ProxyAuthArgs',
-    'ProxyDefaultTargetGroupConnectionPoolConfigArgs',
-    'ReservedInstanceRecurringChargeArgs',
-    'GetClustersFilterArgs',
-    'GetEngineVersionFilterArgs',
-    'GetInstancesFilterArgs',
+    'ClusterMasterUserSecretArrgs',
+    'ClusterParameterGroupParameterArrgs',
+    'ClusterRestoreToPointInTimeArrgs',
+    'ClusterS3ImportArrgs',
+    'ClusterScalingConfigurationArrgs',
+    'ClusterServerlessv2ScalingConfigurationArrgs',
+    'ExportTaskTimeoutsArrgs',
+    'GlobalClusterGlobalClusterMemberArrgs',
+    'InstanceBlueGreenUpdateArrgs',
+    'InstanceListenerEndpointArrgs',
+    'InstanceMasterUserSecretArrgs',
+    'InstanceRestoreToPointInTimeArrgs',
+    'InstanceS3ImportArrgs',
+    'OptionGroupOptionArrgs',
+    'OptionGroupOptionOptionSettingArrgs',
+    'ParameterGroupParameterArrgs',
+    'ProxyAuthArrgs',
+    'ProxyDefaultTargetGroupConnectionPoolConfigArrgs',
+    'ReservedInstanceRecurringChargeArrgs',
+    'GetClustersFilterArrgs',
+    'GetEngineVersionFilterArrgs',
+    'GetInstancesFilterArrgs',
 ]
 
 @pulumi.input_type
-class ClusterMasterUserSecretArgs:
+calass ClusterMasterUserSecretArrgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class ClusterMasterUserSecretArgs:
 
 
 @pulumi.input_type
-class ClusterParameterGroupParameterArgs:
+calass ClusterParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -148,7 +148,7 @@ class ClusterParameterGroupParameterArgs:
 
 
 @pulumi.input_type
-class ClusterRestoreToPointInTimeArgs:
+calass ClusterRestoreToPointInTimeArrgs:
     def __init__(__self__, *,
                  source_cluster_identifier: pulumi.Input[str],
                  restore_to_time: Optional[pulumi.Input[str]] = None,
@@ -220,7 +220,7 @@ class ClusterRestoreToPointInTimeArgs:
 
 
 @pulumi.input_type
-class ClusterS3ImportArgs:
+calass ClusterS3ImportArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  ingestion_role: pulumi.Input[str],
@@ -307,7 +307,7 @@ class ClusterS3ImportArgs:
 
 
 @pulumi.input_type
-class ClusterScalingConfigurationArgs:
+calass ClusterScalingConfigurationArrgs:
     def __init__(__self__, *,
                  auto_pause: Optional[pulumi.Input[bool]] = None,
                  max_capacity: Optional[pulumi.Input[int]] = None,
@@ -394,7 +394,7 @@ class ClusterScalingConfigurationArgs:
 
 
 @pulumi.input_type
-class ClusterServerlessv2ScalingConfigurationArgs:
+calass ClusterServerlessv2ScalingConfigurationArrgs:
     def __init__(__self__, *,
                  max_capacity: pulumi.Input[float],
                  min_capacity: pulumi.Input[float]):
@@ -431,7 +431,7 @@ class ClusterServerlessv2ScalingConfigurationArgs:
 
 
 @pulumi.input_type
-class ExportTaskTimeoutsArgs:
+calass ExportTaskTimeoutsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None):
@@ -460,7 +460,7 @@ class ExportTaskTimeoutsArgs:
 
 
 @pulumi.input_type
-class GlobalClusterGlobalClusterMemberArgs:
+calass GlobalClusterGlobalClusterMemberArrgs:
     def __init__(__self__, *,
                  db_cluster_arn: Optional[pulumi.Input[str]] = None,
                  is_writer: Optional[pulumi.Input[bool]] = None):
@@ -499,7 +499,7 @@ class GlobalClusterGlobalClusterMemberArgs:
 
 
 @pulumi.input_type
-class InstanceBlueGreenUpdateArgs:
+calass InstanceBlueGreenUpdateArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -538,7 +538,7 @@ class InstanceBlueGreenUpdateArgs:
 
 
 @pulumi.input_type
-class InstanceListenerEndpointArgs:
+calass InstanceListenerEndpointArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  hosted_zone_id: Optional[pulumi.Input[str]] = None,
@@ -593,7 +593,7 @@ class InstanceListenerEndpointArgs:
 
 
 @pulumi.input_type
-class InstanceMasterUserSecretArgs:
+calass InstanceMasterUserSecretArrgs:
     def __init__(__self__, *,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  secret_arn: Optional[pulumi.Input[str]] = None,
@@ -650,7 +650,7 @@ class InstanceMasterUserSecretArgs:
 
 
 @pulumi.input_type
-class InstanceRestoreToPointInTimeArgs:
+calass InstanceRestoreToPointInTimeArrgs:
     def __init__(__self__, *,
                  restore_time: Optional[pulumi.Input[str]] = None,
                  source_db_instance_automated_backups_arn: Optional[pulumi.Input[str]] = None,
@@ -737,7 +737,7 @@ class InstanceRestoreToPointInTimeArgs:
 
 
 @pulumi.input_type
-class InstanceS3ImportArgs:
+calass InstanceS3ImportArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  ingestion_role: pulumi.Input[str],
@@ -824,18 +824,18 @@ class InstanceS3ImportArgs:
 
 
 @pulumi.input_type
-class OptionGroupOptionArgs:
+calass OptionGroupOptionArrgs:
     def __init__(__self__, *,
                  option_name: pulumi.Input[str],
                  db_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]] = None,
+                 option_settings: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArrgs']]]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] option_name: Name of the option (e.g., MEMCACHED).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_group_memberships: List of DB Security Groups for which the option is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]] option_settings: List of option settings to apply.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArrgs']]] option_settings: List of option settings to apply.
         :param pulumi.Input[int] port: Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         :param pulumi.Input[str] version: Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_memberships: List of VPC Security Groups for which the option is enabled.
@@ -878,14 +878,14 @@ class OptionGroupOptionArgs:
 
     @property
     @pulumi.getter(name="optionSettings")
-    def option_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]:
+    def option_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArrgs']]]]:
         """
         List of option settings to apply.
         """
         return pulumi.get(self, "option_settings")
 
     @option_settings.setter
-    def option_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]):
+    def option_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArrgs']]]]):
         pulumi.set(self, "option_settings", value)
 
     @property
@@ -926,7 +926,7 @@ class OptionGroupOptionArgs:
 
 
 @pulumi.input_type
-class OptionGroupOptionOptionSettingArgs:
+calass OptionGroupOptionOptionSettingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -963,7 +963,7 @@ class OptionGroupOptionOptionSettingArgs:
 
 
 @pulumi.input_type
-class ParameterGroupParameterArgs:
+calass ParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -1020,7 +1020,7 @@ class ParameterGroupParameterArgs:
 
 
 @pulumi.input_type
-class ProxyAuthArgs:
+calass ProxyAuthArrgs:
     def __init__(__self__, *,
                  auth_scheme: Optional[pulumi.Input[str]] = None,
                  client_password_auth_type: Optional[pulumi.Input[str]] = None,
@@ -1123,7 +1123,7 @@ class ProxyAuthArgs:
 
 
 @pulumi.input_type
-class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
+calass ProxyDefaultTargetGroupConnectionPoolConfigArrgs:
     def __init__(__self__, *,
                  connection_borrow_timeout: Optional[pulumi.Input[int]] = None,
                  init_query: Optional[pulumi.Input[str]] = None,
@@ -1210,7 +1210,7 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
 
 
 @pulumi.input_type
-class ReservedInstanceRecurringChargeArgs:
+calass ReservedInstanceRecurringChargeArrgs:
     def __init__(__self__, *,
                  recurring_charge_amount: Optional[pulumi.Input[int]] = None,
                  recurring_charge_frequency: Optional[pulumi.Input[str]] = None):
@@ -1239,7 +1239,7 @@ class ReservedInstanceRecurringChargeArgs:
 
 
 @pulumi.input_type
-class GetClustersFilterArgs:
+calass GetClustersFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1276,7 +1276,7 @@ class GetClustersFilterArgs:
 
 
 @pulumi.input_type
-class GetEngineVersionFilterArgs:
+calass GetEngineVersionFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1303,7 +1303,7 @@ class GetEngineVersionFilterArgs:
 
 
 @pulumi.input_type
-class GetInstancesFilterArgs:
+calass GetInstancesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

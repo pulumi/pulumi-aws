@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TargetGroupArgs', 'TargetGroup']
+__all__ = ['TargetGroupArrgs', 'TargetGroup']
 
 @pulumi.input_type
-class TargetGroupArgs:
+calass TargetGroupArrgs:
     def __init__(__self__, *,
                  connection_termination: Optional[pulumi.Input[bool]] = None,
                  deregistration_delay: Optional[pulumi.Input[int]] = None,
-                 health_check: Optional[pulumi.Input['TargetGroupHealthCheckArgs']] = None,
+                 health_check: Optional[pulumi.Input['TargetGroupHealthCheckArrgs']] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
@@ -31,17 +31,17 @@ class TargetGroupArgs:
                  protocol_version: Optional[pulumi.Input[str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
                  slow_start: Optional[pulumi.Input[int]] = None,
-                 stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
+                 stickiness: Optional[pulumi.Input['TargetGroupStickinessArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]] = None,
-                 target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]] = None,
+                 target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArrgs']]]] = None,
+                 target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArrgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
         :param pulumi.Input[bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
+        :param pulumi.Input['TargetGroupHealthCheckArrgs'] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
@@ -54,10 +54,10 @@ class TargetGroupArgs:
         :param pulumi.Input[str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         :param pulumi.Input[int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
+        :param pulumi.Input['TargetGroupStickinessArrgs'] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArrgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArrgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
                
                Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -138,14 +138,14 @@ class TargetGroupArgs:
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> Optional[pulumi.Input['TargetGroupHealthCheckArgs']]:
+    def health_check(self) -> Optional[pulumi.Input['TargetGroupHealthCheckArrgs']]:
         """
         Health Check configuration block. Detailed below.
         """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
-    def health_check(self, value: Optional[pulumi.Input['TargetGroupHealthCheckArgs']]):
+    def health_check(self, value: Optional[pulumi.Input['TargetGroupHealthCheckArrgs']]):
         pulumi.set(self, "health_check", value)
 
     @property
@@ -294,14 +294,14 @@ class TargetGroupArgs:
 
     @property
     @pulumi.getter
-    def stickiness(self) -> Optional[pulumi.Input['TargetGroupStickinessArgs']]:
+    def stickiness(self) -> Optional[pulumi.Input['TargetGroupStickinessArrgs']]:
         """
         Stickiness configuration block. Detailed below.
         """
         return pulumi.get(self, "stickiness")
 
     @stickiness.setter
-    def stickiness(self, value: Optional[pulumi.Input['TargetGroupStickinessArgs']]):
+    def stickiness(self, value: Optional[pulumi.Input['TargetGroupStickinessArrgs']]):
         pulumi.set(self, "stickiness", value)
 
     @property
@@ -318,26 +318,26 @@ class TargetGroupArgs:
 
     @property
     @pulumi.getter(name="targetFailovers")
-    def target_failovers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]]:
+    def target_failovers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArrgs']]]]:
         """
         Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         """
         return pulumi.get(self, "target_failovers")
 
     @target_failovers.setter
-    def target_failovers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]]):
+    def target_failovers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArrgs']]]]):
         pulumi.set(self, "target_failovers", value)
 
     @property
     @pulumi.getter(name="targetHealthStates")
-    def target_health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]]:
+    def target_health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArrgs']]]]:
         """
         Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         """
         return pulumi.get(self, "target_health_states")
 
     @target_health_states.setter
-    def target_health_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]]):
+    def target_health_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArrgs']]]]):
         pulumi.set(self, "target_health_states", value)
 
     @property
@@ -374,13 +374,13 @@ class TargetGroupArgs:
 
 
 @pulumi.input_type
-class _TargetGroupState:
+calass _TargetGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  arn_suffix: Optional[pulumi.Input[str]] = None,
                  connection_termination: Optional[pulumi.Input[bool]] = None,
                  deregistration_delay: Optional[pulumi.Input[int]] = None,
-                 health_check: Optional[pulumi.Input['TargetGroupHealthCheckArgs']] = None,
+                 health_check: Optional[pulumi.Input['TargetGroupHealthCheckArrgs']] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
@@ -393,11 +393,11 @@ class _TargetGroupState:
                  protocol_version: Optional[pulumi.Input[str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
                  slow_start: Optional[pulumi.Input[int]] = None,
-                 stickiness: Optional[pulumi.Input['TargetGroupStickinessArgs']] = None,
+                 stickiness: Optional[pulumi.Input['TargetGroupStickinessArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]] = None,
-                 target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]] = None,
+                 target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArrgs']]]] = None,
+                 target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArrgs']]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
@@ -406,7 +406,7 @@ class _TargetGroupState:
         :param pulumi.Input[str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
+        :param pulumi.Input['TargetGroupHealthCheckArrgs'] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
@@ -419,11 +419,11 @@ class _TargetGroupState:
         :param pulumi.Input[str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         :param pulumi.Input[int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input['TargetGroupStickinessArgs'] stickiness: Stickiness configuration block. Detailed below.
+        :param pulumi.Input['TargetGroupStickinessArrgs'] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArrgs']]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        :param pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArrgs']]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
                
                Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -537,14 +537,14 @@ class _TargetGroupState:
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> Optional[pulumi.Input['TargetGroupHealthCheckArgs']]:
+    def health_check(self) -> Optional[pulumi.Input['TargetGroupHealthCheckArrgs']]:
         """
         Health Check configuration block. Detailed below.
         """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
-    def health_check(self, value: Optional[pulumi.Input['TargetGroupHealthCheckArgs']]):
+    def health_check(self, value: Optional[pulumi.Input['TargetGroupHealthCheckArrgs']]):
         pulumi.set(self, "health_check", value)
 
     @property
@@ -693,14 +693,14 @@ class _TargetGroupState:
 
     @property
     @pulumi.getter
-    def stickiness(self) -> Optional[pulumi.Input['TargetGroupStickinessArgs']]:
+    def stickiness(self) -> Optional[pulumi.Input['TargetGroupStickinessArrgs']]:
         """
         Stickiness configuration block. Detailed below.
         """
         return pulumi.get(self, "stickiness")
 
     @stickiness.setter
-    def stickiness(self, value: Optional[pulumi.Input['TargetGroupStickinessArgs']]):
+    def stickiness(self, value: Optional[pulumi.Input['TargetGroupStickinessArrgs']]):
         pulumi.set(self, "stickiness", value)
 
     @property
@@ -732,26 +732,26 @@ class _TargetGroupState:
 
     @property
     @pulumi.getter(name="targetFailovers")
-    def target_failovers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]]:
+    def target_failovers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArrgs']]]]:
         """
         Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
         """
         return pulumi.get(self, "target_failovers")
 
     @target_failovers.setter
-    def target_failovers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArgs']]]]):
+    def target_failovers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetFailoverArrgs']]]]):
         pulumi.set(self, "target_failovers", value)
 
     @property
     @pulumi.getter(name="targetHealthStates")
-    def target_health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]]:
+    def target_health_states(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArrgs']]]]:
         """
         Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         """
         return pulumi.get(self, "target_health_states")
 
     @target_health_states.setter
-    def target_health_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArgs']]]]):
+    def target_health_states(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TargetGroupTargetHealthStateArrgs']]]]):
         pulumi.set(self, "target_health_states", value)
 
     @property
@@ -787,14 +787,14 @@ class _TargetGroupState:
         pulumi.set(self, "vpc_id", value)
 
 
-class TargetGroup(pulumi.CustomResource):
+calass TargetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_termination: Optional[pulumi.Input[bool]] = None,
                  deregistration_delay: Optional[pulumi.Input[int]] = None,
-                 health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
+                 health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArrgs']]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
@@ -807,10 +807,10 @@ class TargetGroup(pulumi.CustomResource):
                  protocol_version: Optional[pulumi.Input[str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
                  slow_start: Optional[pulumi.Input[int]] = None,
-                 stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
+                 stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArgs']]]]] = None,
-                 target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArgs']]]]] = None,
+                 target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArrgs']]]]] = None,
+                 target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArrgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -875,7 +875,7 @@ class TargetGroup(pulumi.CustomResource):
             port=25,
             protocol="TCP",
             vpc_id=aws_vpc["main"]["id"],
-            target_health_states=[aws.lb.TargetGroupTargetHealthStateArgs(
+            target_health_states=[aws.lb.TargetGroupTargetHealthStateArrgs(
                 enable_unhealthy_connection_termination=False,
             )])
         ```
@@ -892,7 +892,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArrgs']] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
@@ -905,10 +905,10 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         :param pulumi.Input[int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: Stickiness configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArrgs']] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArgs']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArgs']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArrgs']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArrgs']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
                
                Note that you can't specify targets for a target group using both instance IDs and IP addresses.
@@ -924,7 +924,7 @@ class TargetGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TargetGroupArgs] = None,
+                 args: Optional[TargetGroupArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Target Group resource for use with Load Balancer resources.
@@ -987,7 +987,7 @@ class TargetGroup(pulumi.CustomResource):
             port=25,
             protocol="TCP",
             vpc_id=aws_vpc["main"]["id"],
-            target_health_states=[aws.lb.TargetGroupTargetHealthStateArgs(
+            target_health_states=[aws.lb.TargetGroupTargetHealthStateArrgs(
                 enable_unhealthy_connection_termination=False,
             )])
         ```
@@ -1001,12 +1001,12 @@ class TargetGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TargetGroupArgs args: The arguments to use to populate this resource's properties.
+        :param TargetGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1017,7 +1017,7 @@ class TargetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connection_termination: Optional[pulumi.Input[bool]] = None,
                  deregistration_delay: Optional[pulumi.Input[int]] = None,
-                 health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
+                 health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArrgs']]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
                  load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
@@ -1030,10 +1030,10 @@ class TargetGroup(pulumi.CustomResource):
                  protocol_version: Optional[pulumi.Input[str]] = None,
                  proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
                  slow_start: Optional[pulumi.Input[int]] = None,
-                 stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
+                 stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArgs']]]]] = None,
-                 target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArgs']]]]] = None,
+                 target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArrgs']]]]] = None,
+                 target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArrgs']]]]] = None,
                  target_type: Optional[pulumi.Input[str]] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -1043,7 +1043,7 @@ class TargetGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TargetGroupArgs.__new__(TargetGroupArgs)
+            __props__ = TargetGroupArrgs.__new__(TargetGroupArrgs)
 
             __props__.__dict__["connection_termination"] = connection_termination
             __props__.__dict__["deregistration_delay"] = deregistration_delay
@@ -1087,7 +1087,7 @@ class TargetGroup(pulumi.CustomResource):
             arn_suffix: Optional[pulumi.Input[str]] = None,
             connection_termination: Optional[pulumi.Input[bool]] = None,
             deregistration_delay: Optional[pulumi.Input[int]] = None,
-            health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
+            health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArrgs']]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
             lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
             load_balancing_algorithm_type: Optional[pulumi.Input[str]] = None,
@@ -1100,11 +1100,11 @@ class TargetGroup(pulumi.CustomResource):
             protocol_version: Optional[pulumi.Input[str]] = None,
             proxy_protocol_v2: Optional[pulumi.Input[bool]] = None,
             slow_start: Optional[pulumi.Input[int]] = None,
-            stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']]] = None,
+            stickiness: Optional[pulumi.Input[pulumi.InputType['TargetGroupStickinessArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArgs']]]]] = None,
-            target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArgs']]]]] = None,
+            target_failovers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArrgs']]]]] = None,
+            target_health_states: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArrgs']]]]] = None,
             target_type: Optional[pulumi.Input[str]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'TargetGroup':
         """
@@ -1118,7 +1118,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-        :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArrgs']] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the target group, only supported when target type is set to `ip`. Possible values are `ipv4` or `ipv6`.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
@@ -1131,11 +1131,11 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[str] protocol_version: Only applicable when `protocol` is `HTTP` or `HTTPS`. The protocol version. Specify `GRPC` to send requests to targets using gRPC. Specify `HTTP2` to send requests to targets using HTTP/2. The default is `HTTP1`, which sends requests to targets using HTTP/1.1
         :param pulumi.Input[bool] proxy_protocol_v2: Whether to enable support for proxy protocol v2 on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#proxy-protocol) for more information. Default is `false`.
         :param pulumi.Input[int] slow_start: Amount time for targets to warm up before the load balancer sends them a full share of requests. The range is 30-900 seconds or 0 to disable. The default value is 0 seconds.
-        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArgs']] stickiness: Stickiness configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['TargetGroupStickinessArrgs']] stickiness: Stickiness configuration block. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArgs']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArgs']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetFailoverArrgs']]]] target_failovers: Target failover block. Only applicable for Gateway Load Balancer target groups. See target_failover for more information.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TargetGroupTargetHealthStateArrgs']]]] target_health_states: Target health state block. Only applicable for Network Load Balancer target groups when `protocol` is `TCP` or `TLS`. See target_health_state for more information.
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
                
                Note that you can't specify targets for a target group using both instance IDs and IP addresses.

@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['InsightArgs', 'Insight']
+__all__ = ['InsightArrgs', 'Insight']
 
 @pulumi.input_type
-class InsightArgs:
+calass InsightArrgs:
     def __init__(__self__, *,
-                 filters: pulumi.Input['InsightFiltersArgs'],
+                 filters: pulumi.Input['InsightFiltersArrgs'],
                  group_by_attribute: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Insight resource.
-        :param pulumi.Input['InsightFiltersArgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+        :param pulumi.Input['InsightFiltersArrgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """
@@ -32,14 +32,14 @@ class InsightArgs:
 
     @property
     @pulumi.getter
-    def filters(self) -> pulumi.Input['InsightFiltersArgs']:
+    def filters(self) -> pulumi.Input['InsightFiltersArrgs']:
         """
         A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: pulumi.Input['InsightFiltersArgs']):
+    def filters(self, value: pulumi.Input['InsightFiltersArrgs']):
         pulumi.set(self, "filters", value)
 
     @property
@@ -68,16 +68,16 @@ class InsightArgs:
 
 
 @pulumi.input_type
-class _InsightState:
+calass _InsightState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 filters: Optional[pulumi.Input['InsightFiltersArgs']] = None,
+                 filters: Optional[pulumi.Input['InsightFiltersArrgs']] = None,
                  group_by_attribute: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Insight resources.
         :param pulumi.Input[str] arn: ARN of the insight.
-        :param pulumi.Input['InsightFiltersArgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+        :param pulumi.Input['InsightFiltersArrgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """
@@ -104,14 +104,14 @@ class _InsightState:
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input['InsightFiltersArgs']]:
+    def filters(self) -> Optional[pulumi.Input['InsightFiltersArrgs']]:
         """
         A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input['InsightFiltersArgs']]):
+    def filters(self, value: Optional[pulumi.Input['InsightFiltersArrgs']]):
         pulumi.set(self, "filters", value)
 
     @property
@@ -139,12 +139,12 @@ class _InsightState:
         pulumi.set(self, "name", value)
 
 
-class Insight(pulumi.CustomResource):
+calass Insight(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArgs']]] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArrgs']]] = None,
                  group_by_attribute: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -160,13 +160,13 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
+            filters=aws.securityhub.InsightFiltersArrgs(
                 aws_account_ids=[
-                    aws.securityhub.InsightFiltersAwsAccountIdArgs(
+                    aws.securityhub.InsightFiltersAwsAccountIdArrgs(
                         comparison="EQUALS",
                         value="1234567890",
                     ),
-                    aws.securityhub.InsightFiltersAwsAccountIdArgs(
+                    aws.securityhub.InsightFiltersAwsAccountIdArrgs(
                         comparison="EQUALS",
                         value="09876543210",
                     ),
@@ -183,9 +183,9 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
-                created_ats=[aws.securityhub.InsightFiltersCreatedAtArgs(
-                    date_range=aws.securityhub.InsightFiltersCreatedAtDateRangeArgs(
+            filters=aws.securityhub.InsightFiltersArrgs(
+                created_ats=[aws.securityhub.InsightFiltersCreatedAtArrgs(
+                    date_range=aws.securityhub.InsightFiltersCreatedAtDateRangeArrgs(
                         unit="DAYS",
                         value=5,
                     ),
@@ -202,8 +202,8 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
-                network_destination_ipv4s=[aws.securityhub.InsightFiltersNetworkDestinationIpv4Args(
+            filters=aws.securityhub.InsightFiltersArrgs(
+                network_destination_ipv4s=[aws.securityhub.InsightFiltersNetworkDestinationIpv4Arrgs(
                     cidr="10.0.0.0/16",
                 )],
             ),
@@ -218,8 +218,8 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
-                confidences=[aws.securityhub.InsightFiltersConfidenceArgs(
+            filters=aws.securityhub.InsightFiltersArrgs(
+                confidences=[aws.securityhub.InsightFiltersConfidenceArrgs(
                     gte="80",
                 )],
             ),
@@ -234,8 +234,8 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
-                resource_tags=[aws.securityhub.InsightFiltersResourceTagArgs(
+            filters=aws.securityhub.InsightFiltersArrgs(
+                resource_tags=[aws.securityhub.InsightFiltersResourceTagArrgs(
                     comparison="EQUALS",
                     key="Environment",
                     value="Production",
@@ -255,7 +255,7 @@ class Insight(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['InsightFiltersArgs']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+        :param pulumi.Input[pulumi.InputType['InsightFiltersArrgs']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """
@@ -263,7 +263,7 @@ class Insight(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InsightArgs,
+                 args: InsightArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
@@ -277,13 +277,13 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
+            filters=aws.securityhub.InsightFiltersArrgs(
                 aws_account_ids=[
-                    aws.securityhub.InsightFiltersAwsAccountIdArgs(
+                    aws.securityhub.InsightFiltersAwsAccountIdArrgs(
                         comparison="EQUALS",
                         value="1234567890",
                     ),
-                    aws.securityhub.InsightFiltersAwsAccountIdArgs(
+                    aws.securityhub.InsightFiltersAwsAccountIdArrgs(
                         comparison="EQUALS",
                         value="09876543210",
                     ),
@@ -300,9 +300,9 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
-                created_ats=[aws.securityhub.InsightFiltersCreatedAtArgs(
-                    date_range=aws.securityhub.InsightFiltersCreatedAtDateRangeArgs(
+            filters=aws.securityhub.InsightFiltersArrgs(
+                created_ats=[aws.securityhub.InsightFiltersCreatedAtArrgs(
+                    date_range=aws.securityhub.InsightFiltersCreatedAtDateRangeArrgs(
                         unit="DAYS",
                         value=5,
                     ),
@@ -319,8 +319,8 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
-                network_destination_ipv4s=[aws.securityhub.InsightFiltersNetworkDestinationIpv4Args(
+            filters=aws.securityhub.InsightFiltersArrgs(
+                network_destination_ipv4s=[aws.securityhub.InsightFiltersNetworkDestinationIpv4Arrgs(
                     cidr="10.0.0.0/16",
                 )],
             ),
@@ -335,8 +335,8 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
-                confidences=[aws.securityhub.InsightFiltersConfidenceArgs(
+            filters=aws.securityhub.InsightFiltersArrgs(
+                confidences=[aws.securityhub.InsightFiltersConfidenceArrgs(
                     gte="80",
                 )],
             ),
@@ -351,8 +351,8 @@ class Insight(pulumi.CustomResource):
 
         example_account = aws.securityhub.Account("exampleAccount")
         example_insight = aws.securityhub.Insight("exampleInsight",
-            filters=aws.securityhub.InsightFiltersArgs(
-                resource_tags=[aws.securityhub.InsightFiltersResourceTagArgs(
+            filters=aws.securityhub.InsightFiltersArrgs(
+                resource_tags=[aws.securityhub.InsightFiltersResourceTagArrgs(
                     comparison="EQUALS",
                     key="Environment",
                     value="Production",
@@ -371,12 +371,12 @@ class Insight(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InsightArgs args: The arguments to use to populate this resource's properties.
+        :param InsightArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InsightArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InsightArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -385,7 +385,7 @@ class Insight(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArgs']]] = None,
+                 filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArrgs']]] = None,
                  group_by_attribute: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -395,7 +395,7 @@ class Insight(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InsightArgs.__new__(InsightArgs)
+            __props__ = InsightArrgs.__new__(InsightArrgs)
 
             if filters is None and not opts.urn:
                 raise TypeError("Missing required property 'filters'")
@@ -416,7 +416,7 @@ class Insight(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArgs']]] = None,
+            filters: Optional[pulumi.Input[pulumi.InputType['InsightFiltersArrgs']]] = None,
             group_by_attribute: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Insight':
         """
@@ -427,7 +427,7 @@ class Insight(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the insight.
-        :param pulumi.Input[pulumi.InputType['InsightFiltersArgs']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
+        :param pulumi.Input[pulumi.InputType['InsightFiltersArrgs']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
         :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """

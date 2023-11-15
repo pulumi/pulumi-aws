@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServicecatalogPortfolioStatusArgs', 'ServicecatalogPortfolioStatus']
+__all__ = ['ServicecatalogPortfolioStatusArrgs', 'ServicecatalogPortfolioStatus']
 
 @pulumi.input_type
-class ServicecatalogPortfolioStatusArgs:
+calass ServicecatalogPortfolioStatusArrgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class ServicecatalogPortfolioStatusArgs:
 
 
 @pulumi.input_type
-class _ServicecatalogPortfolioStatusState:
+calass _ServicecatalogPortfolioStatusState:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None):
         """
@@ -58,7 +58,7 @@ class _ServicecatalogPortfolioStatusState:
         pulumi.set(self, "status", value)
 
 
-class ServicecatalogPortfolioStatus(pulumi.CustomResource):
+calass ServicecatalogPortfolioStatus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -95,7 +95,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServicecatalogPortfolioStatusArgs,
+                 args: ServicecatalogPortfolioStatusArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages status of Service Catalog in SageMaker. Service Catalog is used to create SageMaker projects.
@@ -120,12 +120,12 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServicecatalogPortfolioStatusArgs args: The arguments to use to populate this resource's properties.
+        :param ServicecatalogPortfolioStatusArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServicecatalogPortfolioStatusArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServicecatalogPortfolioStatusArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -142,7 +142,7 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServicecatalogPortfolioStatusArgs.__new__(ServicecatalogPortfolioStatusArgs)
+            __props__ = ServicecatalogPortfolioStatusArrgs.__new__(ServicecatalogPortfolioStatusArrgs)
 
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")

@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CollaborationDataEncryptionMetadataArgs',
-    'CollaborationMemberArgs',
-    'ConfiguredTableTableReferenceArgs',
+    'CollaborationDataEncryptionMetadataArrgs',
+    'CollaborationMemberArrgs',
+    'ConfiguredTableTableReferenceArrgs',
 ]
 
 @pulumi.input_type
-class CollaborationDataEncryptionMetadataArgs:
+calass CollaborationDataEncryptionMetadataArrgs:
     def __init__(__self__, *,
                  allow_clear_text: pulumi.Input[bool],
                  allow_duplicates: pulumi.Input[bool],
@@ -65,7 +65,7 @@ class CollaborationDataEncryptionMetadataArgs:
 
 
 @pulumi.input_type
-class CollaborationMemberArgs:
+calass CollaborationMemberArrgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
                  display_name: pulumi.Input[str],
@@ -115,7 +115,7 @@ class CollaborationMemberArgs:
 
 
 @pulumi.input_type
-class ConfiguredTableTableReferenceArgs:
+calass ConfiguredTableTableReferenceArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  table_name: pulumi.Input[str]):

@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GrantConstraintArgs',
-    'GetSecretSecretArgs',
-    'GetSecretsSecretArgs',
+    'GrantConstraintArrgs',
+    'GetSecretSecretArrgs',
+    'GetSecretsSecretArrgs',
 ]
 
 @pulumi.input_type
-class GrantConstraintArgs:
+calass GrantConstraintArrgs:
     def __init__(__self__, *,
                  encryption_context_equals: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  encryption_context_subset: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -55,7 +55,7 @@ class GrantConstraintArgs:
 
 
 @pulumi.input_type
-class GetSecretSecretArgs:
+calass GetSecretSecretArrgs:
     def __init__(__self__, *,
                  name: str,
                  payload: str,
@@ -106,7 +106,7 @@ class GetSecretSecretArgs:
 
 
 @pulumi.input_type
-class GetSecretsSecretArgs:
+calass GetSecretsSecretArrgs:
     def __init__(__self__, *,
                  name: str,
                  payload: str,

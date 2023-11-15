@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LoadBalancerCookieStickinessPolicyArgs', 'LoadBalancerCookieStickinessPolicy']
+__all__ = ['LoadBalancerCookieStickinessPolicyArrgs', 'LoadBalancerCookieStickinessPolicy']
 
 @pulumi.input_type
-class LoadBalancerCookieStickinessPolicyArgs:
+calass LoadBalancerCookieStickinessPolicyArrgs:
     def __init__(__self__, *,
                  lb_port: pulumi.Input[int],
                  load_balancer: pulumi.Input[str],
@@ -90,7 +90,7 @@ class LoadBalancerCookieStickinessPolicyArgs:
 
 
 @pulumi.input_type
-class _LoadBalancerCookieStickinessPolicyState:
+calass _LoadBalancerCookieStickinessPolicyState:
     def __init__(__self__, *,
                  cookie_expiration_period: Optional[pulumi.Input[int]] = None,
                  lb_port: Optional[pulumi.Input[int]] = None,
@@ -169,7 +169,7 @@ class _LoadBalancerCookieStickinessPolicyState:
         pulumi.set(self, "name", value)
 
 
-class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
+calass LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -190,7 +190,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
         lb = aws.elb.LoadBalancer("lb",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=8000,
                 instance_protocol="http",
                 lb_port=80,
@@ -217,7 +217,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LoadBalancerCookieStickinessPolicyArgs,
+                 args: LoadBalancerCookieStickinessPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a load balancer cookie stickiness policy, which allows an ELB to control the sticky session lifetime of the browser.
@@ -230,7 +230,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
 
         lb = aws.elb.LoadBalancer("lb",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=8000,
                 instance_protocol="http",
                 lb_port=80,
@@ -243,12 +243,12 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LoadBalancerCookieStickinessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LoadBalancerCookieStickinessPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerCookieStickinessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerCookieStickinessPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -268,7 +268,7 @@ class LoadBalancerCookieStickinessPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LoadBalancerCookieStickinessPolicyArgs.__new__(LoadBalancerCookieStickinessPolicyArgs)
+            __props__ = LoadBalancerCookieStickinessPolicyArrgs.__new__(LoadBalancerCookieStickinessPolicyArrgs)
 
             __props__.__dict__["cookie_expiration_period"] = cookie_expiration_period
             if lb_port is None and not opts.urn:

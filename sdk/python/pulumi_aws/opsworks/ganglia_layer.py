@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GangliaLayerArgs', 'GangliaLayer']
+__all__ = ['GangliaLayerArrgs', 'GangliaLayer']
 
 @pulumi.input_type
-class GangliaLayerArgs:
+calass GangliaLayerArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  stack_id: pulumi.Input[str],
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArgs']] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArrgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -31,11 +31,11 @@ class GangliaLayerArgs:
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArrgs']]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArgs']] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -53,7 +53,7 @@ class GangliaLayerArgs:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArrgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -181,11 +181,11 @@ class GangliaLayerArgs:
 
     @property
     @pulumi.getter(name="cloudwatchConfiguration")
-    def cloudwatch_configuration(self) -> Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArgs']]:
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArrgs']]:
         return pulumi.get(self, "cloudwatch_configuration")
 
     @cloudwatch_configuration.setter
-    def cloudwatch_configuration(self, value: Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArgs']]):
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
@@ -283,14 +283,14 @@ class GangliaLayerArgs:
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]]:
+    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArrgs']]]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]]):
+    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArrgs']]]]):
         pulumi.set(self, "ebs_volumes", value)
 
     @property
@@ -331,11 +331,11 @@ class GangliaLayerArgs:
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArgs']]:
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArrgs']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @load_based_auto_scaling.setter
-    def load_based_auto_scaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArgs']]):
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArrgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
 
     @property
@@ -416,13 +416,13 @@ class GangliaLayerArgs:
 
 
 @pulumi.input_type
-class _GangliaLayerState:
+calass _GangliaLayerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArgs']] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArrgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -432,11 +432,11 @@ class _GangliaLayerState:
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArrgs']]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArgs']] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -456,7 +456,7 @@ class _GangliaLayerState:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArrgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -584,11 +584,11 @@ class _GangliaLayerState:
 
     @property
     @pulumi.getter(name="cloudwatchConfiguration")
-    def cloudwatch_configuration(self) -> Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArgs']]:
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArrgs']]:
         return pulumi.get(self, "cloudwatch_configuration")
 
     @cloudwatch_configuration.setter
-    def cloudwatch_configuration(self, value: Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArgs']]):
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['GangliaLayerCloudwatchConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
@@ -686,14 +686,14 @@ class _GangliaLayerState:
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]]:
+    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArrgs']]]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArgs']]]]):
+    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GangliaLayerEbsVolumeArrgs']]]]):
         pulumi.set(self, "ebs_volumes", value)
 
     @property
@@ -734,11 +734,11 @@ class _GangliaLayerState:
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArgs']]:
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArrgs']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @load_based_auto_scaling.setter
-    def load_based_auto_scaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArgs']]):
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['GangliaLayerLoadBasedAutoScalingArrgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
 
     @property
@@ -857,7 +857,7 @@ class _GangliaLayerState:
         pulumi.set(self, "username", value)
 
 
-class GangliaLayer(pulumi.CustomResource):
+calass GangliaLayer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -865,7 +865,7 @@ class GangliaLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['GangliaLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['GangliaLayerCloudwatchConfigurationArrgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -875,11 +875,11 @@ class GangliaLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArrgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['GangliaLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['GangliaLayerLoadBasedAutoScalingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -912,7 +912,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArrgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -933,7 +933,7 @@ class GangliaLayer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GangliaLayerArgs,
+                 args: GangliaLayerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an OpsWorks Ganglia layer resource.
@@ -950,12 +950,12 @@ class GangliaLayer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GangliaLayerArgs args: The arguments to use to populate this resource's properties.
+        :param GangliaLayerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GangliaLayerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GangliaLayerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -967,7 +967,7 @@ class GangliaLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['GangliaLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['GangliaLayerCloudwatchConfigurationArrgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -977,11 +977,11 @@ class GangliaLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArrgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['GangliaLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['GangliaLayerLoadBasedAutoScalingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
@@ -997,7 +997,7 @@ class GangliaLayer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GangliaLayerArgs.__new__(GangliaLayerArgs)
+            __props__ = GangliaLayerArrgs.__new__(GangliaLayerArrgs)
 
             __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
@@ -1047,7 +1047,7 @@ class GangliaLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
-            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['GangliaLayerCloudwatchConfigurationArgs']]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['GangliaLayerCloudwatchConfigurationArrgs']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -1057,11 +1057,11 @@ class GangliaLayer(pulumi.CustomResource):
             custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]]] = None,
+            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArrgs']]]]] = None,
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['GangliaLayerLoadBasedAutoScalingArgs']]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['GangliaLayerLoadBasedAutoScalingArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
@@ -1086,7 +1086,7 @@ class GangliaLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GangliaLayerEbsVolumeArrgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.

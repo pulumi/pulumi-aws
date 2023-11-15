@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOutpostResult:
+calass GetOutpostResult:
     """
     A collection of values returned by getOutpost.
     """
@@ -144,7 +144,7 @@ class GetOutpostResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetOutpostResult(GetOutpostResult):
+calass AwaitableGetOutpostResult(GetOutpostResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

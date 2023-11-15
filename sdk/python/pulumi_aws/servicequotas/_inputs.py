@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ServiceQuotaUsageMetricArgs',
-    'ServiceQuotaUsageMetricMetricDimensionArgs',
-    'GetTemplatesTemplateArgs',
+    'ServiceQuotaUsageMetricArrgs',
+    'ServiceQuotaUsageMetricMetricDimensionArrgs',
+    'GetTemplatesTemplateArrgs',
 ]
 
 @pulumi.input_type
-class ServiceQuotaUsageMetricArgs:
+calass ServiceQuotaUsageMetricArrgs:
     def __init__(__self__, *,
-                 metric_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]] = None,
+                 metric_dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArrgs']]]] = None,
                  metric_name: Optional[pulumi.Input[str]] = None,
                  metric_namespace: Optional[pulumi.Input[str]] = None,
                  metric_statistic_recommendation: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]] metric_dimensions: The metric dimensions.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArrgs']]] metric_dimensions: The metric dimensions.
         :param pulumi.Input[str] metric_name: The name of the metric.
         :param pulumi.Input[str] metric_namespace: The namespace of the metric.
         :param pulumi.Input[str] metric_statistic_recommendation: The metric statistic that AWS recommend you use when determining quota usage.
@@ -39,14 +39,14 @@ class ServiceQuotaUsageMetricArgs:
 
     @property
     @pulumi.getter(name="metricDimensions")
-    def metric_dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]:
+    def metric_dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArrgs']]]]:
         """
         The metric dimensions.
         """
         return pulumi.get(self, "metric_dimensions")
 
     @metric_dimensions.setter
-    def metric_dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgs']]]]):
+    def metric_dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArrgs']]]]):
         pulumi.set(self, "metric_dimensions", value)
 
     @property
@@ -87,7 +87,7 @@ class ServiceQuotaUsageMetricArgs:
 
 
 @pulumi.input_type
-class ServiceQuotaUsageMetricMetricDimensionArgs:
+calass ServiceQuotaUsageMetricMetricDimensionArrgs:
     def __init__(__self__, *,
                  class_: Optional[pulumi.Input[str]] = None,
                  resource: Optional[pulumi.Input[str]] = None,
@@ -140,7 +140,7 @@ class ServiceQuotaUsageMetricMetricDimensionArgs:
 
 
 @pulumi.input_type
-class GetTemplatesTemplateArgs:
+calass GetTemplatesTemplateArrgs:
     def __init__(__self__, *,
                  global_quota: bool,
                  quota_code: str,

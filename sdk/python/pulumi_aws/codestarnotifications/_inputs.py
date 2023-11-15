@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'NotificationRuleTargetArgs',
+    'NotificationRuleTargetArrgs',
 ]
 
 @pulumi.input_type
-class NotificationRuleTargetArgs:
+calass NotificationRuleTargetArrgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
                  status: Optional[pulumi.Input[str]] = None,

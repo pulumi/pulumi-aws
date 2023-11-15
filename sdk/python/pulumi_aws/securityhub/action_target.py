@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ActionTargetArgs', 'ActionTarget']
+__all__ = ['ActionTargetArrgs', 'ActionTarget']
 
 @pulumi.input_type
-class ActionTargetArgs:
+calass ActionTargetArrgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  identifier: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ActionTargetArgs:
 
 
 @pulumi.input_type
-class _ActionTargetState:
+calass _ActionTargetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _ActionTargetState:
         pulumi.set(self, "name", value)
 
 
-class ActionTarget(pulumi.CustomResource):
+calass ActionTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -180,7 +180,7 @@ class ActionTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActionTargetArgs,
+                 args: ActionTargetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates Security Hub custom action.
@@ -207,12 +207,12 @@ class ActionTarget(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActionTargetArgs args: The arguments to use to populate this resource's properties.
+        :param ActionTargetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActionTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActionTargetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -231,7 +231,7 @@ class ActionTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActionTargetArgs.__new__(ActionTargetArgs)
+            __props__ = ActionTargetArrgs.__new__(ActionTargetArrgs)
 
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")

@@ -45,7 +45,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterCertificateAuthority(dict):
+calass ClusterCertificateAuthority(dict):
     def __init__(__self__, *,
                  data: Optional[str] = None):
         """
@@ -64,12 +64,12 @@ class ClusterCertificateAuthority(dict):
 
 
 @pulumi.output_type
-class ClusterEncryptionConfig(dict):
+calass ClusterEncryptionConfig(dict):
     def __init__(__self__, *,
                  provider: 'outputs.ClusterEncryptionConfigProvider',
                  resources: Sequence[str]):
         """
-        :param 'ClusterEncryptionConfigProviderArgs' provider: Configuration block with provider for encryption. Detailed below.
+        :param 'ClusterEncryptionConfigProviderArrgs' provider: Configuration block with provider for encryption. Detailed below.
         :param Sequence[str] resources: List of strings with resources to be encrypted. Valid values: `secrets`.
         """
         pulumi.set(__self__, "provider", provider)
@@ -93,7 +93,7 @@ class ClusterEncryptionConfig(dict):
 
 
 @pulumi.output_type
-class ClusterEncryptionConfigProvider(dict):
+calass ClusterEncryptionConfigProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -128,11 +128,11 @@ class ClusterEncryptionConfigProvider(dict):
 
 
 @pulumi.output_type
-class ClusterIdentity(dict):
+calass ClusterIdentity(dict):
     def __init__(__self__, *,
                  oidcs: Optional[Sequence['outputs.ClusterIdentityOidc']] = None):
         """
-        :param Sequence['ClusterIdentityOidcArgs'] oidcs: Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
+        :param Sequence['ClusterIdentityOidcArrgs'] oidcs: Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         """
         if oidcs is not None:
             pulumi.set(__self__, "oidcs", oidcs)
@@ -147,7 +147,7 @@ class ClusterIdentity(dict):
 
 
 @pulumi.output_type
-class ClusterIdentityOidc(dict):
+calass ClusterIdentityOidc(dict):
     def __init__(__self__, *,
                  issuer: Optional[str] = None):
         """
@@ -166,7 +166,7 @@ class ClusterIdentityOidc(dict):
 
 
 @pulumi.output_type
-class ClusterKubernetesNetworkConfig(dict):
+calass ClusterKubernetesNetworkConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -238,7 +238,7 @@ class ClusterKubernetesNetworkConfig(dict):
 
 
 @pulumi.output_type
-class ClusterOutpostConfig(dict):
+calass ClusterOutpostConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -275,7 +275,7 @@ class ClusterOutpostConfig(dict):
                
                For a list of the available Amazon EC2 instance types, see Compute and storage in AWS Outposts rack features  The control plane is not automatically scaled by Amazon EKS.
         :param Sequence[str] outpost_arns: The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. This argument is a list of arns, but only a single Outpost ARN is supported currently.
-        :param 'ClusterOutpostConfigControlPlanePlacementArgs' control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        :param 'ClusterOutpostConfigControlPlanePlacementArrgs' control_plane_placement: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
                The `control_plane_placement` configuration block supports the following arguments:
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
@@ -318,7 +318,7 @@ class ClusterOutpostConfig(dict):
 
 
 @pulumi.output_type
-class ClusterOutpostConfigControlPlanePlacement(dict):
+calass ClusterOutpostConfigControlPlanePlacement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -353,7 +353,7 @@ class ClusterOutpostConfigControlPlanePlacement(dict):
 
 
 @pulumi.output_type
-class ClusterVpcConfig(dict):
+calass ClusterVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -472,7 +472,7 @@ class ClusterVpcConfig(dict):
 
 
 @pulumi.output_type
-class FargateProfileSelector(dict):
+calass FargateProfileSelector(dict):
     def __init__(__self__, *,
                  namespace: str,
                  labels: Optional[Mapping[str, str]] = None):
@@ -506,7 +506,7 @@ class FargateProfileSelector(dict):
 
 
 @pulumi.output_type
-class IdentityProviderConfigOidc(dict):
+calass IdentityProviderConfigOidc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -637,7 +637,7 @@ class IdentityProviderConfigOidc(dict):
 
 
 @pulumi.output_type
-class NodeGroupLaunchTemplate(dict):
+calass NodeGroupLaunchTemplate(dict):
     def __init__(__self__, *,
                  version: str,
                  id: Optional[str] = None,
@@ -679,7 +679,7 @@ class NodeGroupLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class NodeGroupRemoteAccess(dict):
+calass NodeGroupRemoteAccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -729,7 +729,7 @@ class NodeGroupRemoteAccess(dict):
 
 
 @pulumi.output_type
-class NodeGroupResource(dict):
+calass NodeGroupResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -753,7 +753,7 @@ class NodeGroupResource(dict):
                  autoscaling_groups: Optional[Sequence['outputs.NodeGroupResourceAutoscalingGroup']] = None,
                  remote_access_security_group_id: Optional[str] = None):
         """
-        :param Sequence['NodeGroupResourceAutoscalingGroupArgs'] autoscaling_groups: List of objects containing information about AutoScaling Groups.
+        :param Sequence['NodeGroupResourceAutoscalingGroupArrgs'] autoscaling_groups: List of objects containing information about AutoScaling Groups.
         :param str remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
         """
         if autoscaling_groups is not None:
@@ -779,7 +779,7 @@ class NodeGroupResource(dict):
 
 
 @pulumi.output_type
-class NodeGroupResourceAutoscalingGroup(dict):
+calass NodeGroupResourceAutoscalingGroup(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None):
         """
@@ -798,7 +798,7 @@ class NodeGroupResourceAutoscalingGroup(dict):
 
 
 @pulumi.output_type
-class NodeGroupScalingConfig(dict):
+calass NodeGroupScalingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -859,7 +859,7 @@ class NodeGroupScalingConfig(dict):
 
 
 @pulumi.output_type
-class NodeGroupTaint(dict):
+calass NodeGroupTaint(dict):
     def __init__(__self__, *,
                  effect: str,
                  key: str,
@@ -900,7 +900,7 @@ class NodeGroupTaint(dict):
 
 
 @pulumi.output_type
-class NodeGroupUpdateConfig(dict):
+calass NodeGroupUpdateConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -950,7 +950,7 @@ class NodeGroupUpdateConfig(dict):
 
 
 @pulumi.output_type
-class GetClusterCertificateAuthorityResult(dict):
+calass GetClusterCertificateAuthorityResult(dict):
     def __init__(__self__, *,
                  data: str):
         """
@@ -968,11 +968,11 @@ class GetClusterCertificateAuthorityResult(dict):
 
 
 @pulumi.output_type
-class GetClusterIdentityResult(dict):
+calass GetClusterIdentityResult(dict):
     def __init__(__self__, *,
                  oidcs: Sequence['outputs.GetClusterIdentityOidcResult']):
         """
-        :param Sequence['GetClusterIdentityOidcArgs'] oidcs: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
+        :param Sequence['GetClusterIdentityOidcArrgs'] oidcs: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
         """
         pulumi.set(__self__, "oidcs", oidcs)
 
@@ -986,7 +986,7 @@ class GetClusterIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetClusterIdentityOidcResult(dict):
+calass GetClusterIdentityOidcResult(dict):
     def __init__(__self__, *,
                  issuer: str):
         """
@@ -1004,7 +1004,7 @@ class GetClusterIdentityOidcResult(dict):
 
 
 @pulumi.output_type
-class GetClusterKubernetesNetworkConfigResult(dict):
+calass GetClusterKubernetesNetworkConfigResult(dict):
     def __init__(__self__, *,
                  ip_family: str,
                  service_ipv4_cidr: str,
@@ -1044,14 +1044,14 @@ class GetClusterKubernetesNetworkConfigResult(dict):
 
 
 @pulumi.output_type
-class GetClusterOutpostConfigResult(dict):
+calass GetClusterOutpostConfigResult(dict):
     def __init__(__self__, *,
                  control_plane_instance_type: str,
                  control_plane_placements: Sequence['outputs.GetClusterOutpostConfigControlPlanePlacementResult'],
                  outpost_arns: Sequence[str]):
         """
         :param str control_plane_instance_type: The Amazon EC2 instance type for all Kubernetes control plane instances.
-        :param Sequence['GetClusterOutpostConfigControlPlanePlacementArgs'] control_plane_placements: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
+        :param Sequence['GetClusterOutpostConfigControlPlanePlacementArrgs'] control_plane_placements: An object representing the placement configuration for all the control plane instances of your local Amazon EKS cluster on AWS Outpost.
         :param Sequence[str] outpost_arns: List of ARNs of the Outposts hosting the EKS cluster. Only a single ARN is supported currently.
         """
         pulumi.set(__self__, "control_plane_instance_type", control_plane_instance_type)
@@ -1084,7 +1084,7 @@ class GetClusterOutpostConfigResult(dict):
 
 
 @pulumi.output_type
-class GetClusterOutpostConfigControlPlanePlacementResult(dict):
+calass GetClusterOutpostConfigControlPlanePlacementResult(dict):
     def __init__(__self__, *,
                  group_name: str):
         """
@@ -1102,7 +1102,7 @@ class GetClusterOutpostConfigControlPlanePlacementResult(dict):
 
 
 @pulumi.output_type
-class GetClusterVpcConfigResult(dict):
+calass GetClusterVpcConfigResult(dict):
     def __init__(__self__, *,
                  cluster_security_group_id: str,
                  endpoint_private_access: bool,
@@ -1186,7 +1186,7 @@ class GetClusterVpcConfigResult(dict):
 
 
 @pulumi.output_type
-class GetNodeGroupLaunchTemplateResult(dict):
+calass GetNodeGroupLaunchTemplateResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -1226,7 +1226,7 @@ class GetNodeGroupLaunchTemplateResult(dict):
 
 
 @pulumi.output_type
-class GetNodeGroupRemoteAccessResult(dict):
+calass GetNodeGroupRemoteAccessResult(dict):
     def __init__(__self__, *,
                  ec2_ssh_key: str,
                  source_security_group_ids: Sequence[str]):
@@ -1255,12 +1255,12 @@ class GetNodeGroupRemoteAccessResult(dict):
 
 
 @pulumi.output_type
-class GetNodeGroupResourceResult(dict):
+calass GetNodeGroupResourceResult(dict):
     def __init__(__self__, *,
                  autoscaling_groups: Sequence['outputs.GetNodeGroupResourceAutoscalingGroupResult'],
                  remote_access_security_group_id: str):
         """
-        :param Sequence['GetNodeGroupResourceAutoscalingGroupArgs'] autoscaling_groups: List of objects containing information about AutoScaling Groups.
+        :param Sequence['GetNodeGroupResourceAutoscalingGroupArrgs'] autoscaling_groups: List of objects containing information about AutoScaling Groups.
         :param str remote_access_security_group_id: Identifier of the remote access EC2 Security Group.
         """
         pulumi.set(__self__, "autoscaling_groups", autoscaling_groups)
@@ -1284,7 +1284,7 @@ class GetNodeGroupResourceResult(dict):
 
 
 @pulumi.output_type
-class GetNodeGroupResourceAutoscalingGroupResult(dict):
+calass GetNodeGroupResourceAutoscalingGroupResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -1302,7 +1302,7 @@ class GetNodeGroupResourceAutoscalingGroupResult(dict):
 
 
 @pulumi.output_type
-class GetNodeGroupScalingConfigResult(dict):
+calass GetNodeGroupScalingConfigResult(dict):
     def __init__(__self__, *,
                  desired_size: int,
                  max_size: int,
@@ -1342,7 +1342,7 @@ class GetNodeGroupScalingConfigResult(dict):
 
 
 @pulumi.output_type
-class GetNodeGroupTaintResult(dict):
+calass GetNodeGroupTaintResult(dict):
     def __init__(__self__, *,
                  effect: str,
                  key: str,

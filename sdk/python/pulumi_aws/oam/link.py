@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkArgs', 'Link']
+__all__ = ['LinkArrgs', 'Link']
 
 @pulumi.input_type
-class LinkArgs:
+calass LinkArrgs:
     def __init__(__self__, *,
                  label_template: pulumi.Input[str],
                  resource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -85,7 +85,7 @@ class LinkArgs:
 
 
 @pulumi.input_type
-class _LinkState:
+calass _LinkState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  label: Optional[pulumi.Input[str]] = None,
@@ -242,7 +242,7 @@ class _LinkState:
         pulumi.set(self, "tags_all", value)
 
 
-class Link(pulumi.CustomResource):
+calass Link(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -292,7 +292,7 @@ class Link(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkArgs,
+                 args: LinkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS CloudWatch Observability Access Manager Link.
@@ -322,12 +322,12 @@ class Link(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkArgs args: The arguments to use to populate this resource's properties.
+        :param LinkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -347,7 +347,7 @@ class Link(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkArgs.__new__(LinkArgs)
+            __props__ = LinkArrgs.__new__(LinkArrgs)
 
             if label_template is None and not opts.urn:
                 raise TypeError("Missing required property 'label_template'")

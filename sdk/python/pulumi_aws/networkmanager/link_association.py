@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkAssociationArgs', 'LinkAssociation']
+__all__ = ['LinkAssociationArrgs', 'LinkAssociation']
 
 @pulumi.input_type
-class LinkAssociationArgs:
+calass LinkAssociationArrgs:
     def __init__(__self__, *,
                  device_id: pulumi.Input[str],
                  global_network_id: pulumi.Input[str],
@@ -65,7 +65,7 @@ class LinkAssociationArgs:
 
 
 @pulumi.input_type
-class _LinkAssociationState:
+calass _LinkAssociationState:
     def __init__(__self__, *,
                  device_id: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _LinkAssociationState:
         pulumi.set(self, "link_id", value)
 
 
-class LinkAssociation(pulumi.CustomResource):
+calass LinkAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -164,7 +164,7 @@ class LinkAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkAssociationArgs,
+                 args: LinkAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a link to a device.
@@ -192,12 +192,12 @@ class LinkAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param LinkAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,7 +216,7 @@ class LinkAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkAssociationArgs.__new__(LinkAssociationArgs)
+            __props__ = LinkAssociationArrgs.__new__(LinkAssociationArrgs)
 
             if device_id is None and not opts.urn:
                 raise TypeError("Missing required property 'device_id'")

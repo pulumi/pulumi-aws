@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcLinkArgs', 'VpcLink']
+__all__ = ['VpcLinkArrgs', 'VpcLink']
 
 @pulumi.input_type
-class VpcLinkArgs:
+calass VpcLinkArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -82,7 +82,7 @@ class VpcLinkArgs:
 
 
 @pulumi.input_type
-class _VpcLinkState:
+calass _VpcLinkState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -191,7 +191,7 @@ class _VpcLinkState:
         pulumi.set(self, "tags_all", value)
 
 
-class VpcLink(pulumi.CustomResource):
+calass VpcLink(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,7 +240,7 @@ class VpcLink(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcLinkArgs,
+                 args: VpcLinkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Amazon API Gateway Version 2 VPC Link.
@@ -271,12 +271,12 @@ class VpcLink(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcLinkArgs args: The arguments to use to populate this resource's properties.
+        :param VpcLinkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcLinkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcLinkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -296,7 +296,7 @@ class VpcLink(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcLinkArgs.__new__(VpcLinkArgs)
+            __props__ = VpcLinkArrgs.__new__(VpcLinkArrgs)
 
             __props__.__dict__["name"] = name
             if security_group_ids is None and not opts.urn:

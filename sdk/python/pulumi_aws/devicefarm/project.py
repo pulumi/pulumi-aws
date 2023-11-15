@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProjectArgs', 'Project']
+__all__ = ['ProjectArrgs', 'Project']
 
 @pulumi.input_type
-class ProjectArgs:
+calass ProjectArrgs:
     def __init__(__self__, *,
                  default_job_timeout_minutes: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -68,7 +68,7 @@ class ProjectArgs:
 
 
 @pulumi.input_type
-class _ProjectState:
+calass _ProjectState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  default_job_timeout_minutes: Optional[pulumi.Input[int]] = None,
@@ -161,7 +161,7 @@ class _ProjectState:
         pulumi.set(self, "tags_all", value)
 
 
-class Project(pulumi.CustomResource):
+calass Project(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -205,7 +205,7 @@ class Project(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ProjectArgs] = None,
+                 args: Optional[ProjectArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage AWS Device Farm Projects.
@@ -233,12 +233,12 @@ class Project(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProjectArgs args: The arguments to use to populate this resource's properties.
+        :param ProjectArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -257,7 +257,7 @@ class Project(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProjectArgs.__new__(ProjectArgs)
+            __props__ = ProjectArrgs.__new__(ProjectArrgs)
 
             __props__.__dict__["default_job_timeout_minutes"] = default_job_timeout_minutes
             __props__.__dict__["name"] = name

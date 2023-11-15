@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpaceArgs', 'Space']
+__all__ = ['SpaceArrgs', 'Space']
 
 @pulumi.input_type
-class SpaceArgs:
+calass SpaceArrgs:
     def __init__(__self__, *,
                  domain_id: pulumi.Input[str],
                  space_name: pulumi.Input[str],
-                 space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
+                 space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Space resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input['SpaceSpaceSettingsArrgs'] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain_id", domain_id)
@@ -60,14 +60,14 @@ class SpaceArgs:
 
     @property
     @pulumi.getter(name="spaceSettings")
-    def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
+    def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArrgs']]:
         """
         A collection of space settings. See Space Settings below.
         """
         return pulumi.get(self, "space_settings")
 
     @space_settings.setter
-    def space_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsArgs']]):
+    def space_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsArrgs']]):
         pulumi.set(self, "space_settings", value)
 
     @property
@@ -84,13 +84,13 @@ class SpaceArgs:
 
 
 @pulumi.input_type
-class _SpaceState:
+calass _SpaceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  home_efs_file_system_uid: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
-                 space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArgs']] = None,
+                 space_settings: Optional[pulumi.Input['SpaceSpaceSettingsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -99,7 +99,7 @@ class _SpaceState:
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input['SpaceSpaceSettingsArgs'] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input['SpaceSpaceSettingsArrgs'] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -171,14 +171,14 @@ class _SpaceState:
 
     @property
     @pulumi.getter(name="spaceSettings")
-    def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArgs']]:
+    def space_settings(self) -> Optional[pulumi.Input['SpaceSpaceSettingsArrgs']]:
         """
         A collection of space settings. See Space Settings below.
         """
         return pulumi.get(self, "space_settings")
 
     @space_settings.setter
-    def space_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsArgs']]):
+    def space_settings(self, value: Optional[pulumi.Input['SpaceSpaceSettingsArrgs']]):
         pulumi.set(self, "space_settings", value)
 
     @property
@@ -209,14 +209,14 @@ class _SpaceState:
         pulumi.set(self, "tags_all", value)
 
 
-class Space(pulumi.CustomResource):
+calass Space(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
-                 space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
+                 space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -246,14 +246,14 @@ class Space(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArrgs']] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpaceArgs,
+                 args: SpaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker Space resource.
@@ -279,12 +279,12 @@ class Space(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpaceArgs args: The arguments to use to populate this resource's properties.
+        :param SpaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class Space(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
-                 space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
+                 space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -304,7 +304,7 @@ class Space(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpaceArgs.__new__(SpaceArgs)
+            __props__ = SpaceArrgs.__new__(SpaceArrgs)
 
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
@@ -333,7 +333,7 @@ class Space(pulumi.CustomResource):
             domain_id: Optional[pulumi.Input[str]] = None,
             home_efs_file_system_uid: Optional[pulumi.Input[str]] = None,
             space_name: Optional[pulumi.Input[str]] = None,
-            space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']]] = None,
+            space_settings: Optional[pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Space':
         """
@@ -347,7 +347,7 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
         :param pulumi.Input[str] home_efs_file_system_uid: The ID of the space's profile in the Amazon Elastic File System volume.
         :param pulumi.Input[str] space_name: The name of the space.
-        :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArgs']] space_settings: A collection of space settings. See Space Settings below.
+        :param pulumi.Input[pulumi.InputType['SpaceSpaceSettingsArrgs']] space_settings: A collection of space settings. See Space Settings below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

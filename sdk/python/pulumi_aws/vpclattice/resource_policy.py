@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
+__all__ = ['ResourcePolicyArrgs', 'ResourcePolicy']
 
 @pulumi.input_type
-class ResourcePolicyArgs:
+calass ResourcePolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  resource_arn: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ResourcePolicyArgs:
 
 
 @pulumi.input_type
-class _ResourcePolicyState:
+calass _ResourcePolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ResourcePolicyState:
         pulumi.set(self, "resource_arn", value)
 
 
-class ResourcePolicy(pulumi.CustomResource):
+calass ResourcePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -148,7 +148,7 @@ class ResourcePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourcePolicyArgs,
+                 args: ResourcePolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS VPC Lattice Resource Policy.
@@ -193,12 +193,12 @@ class ResourcePolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ResourcePolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourcePolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourcePolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,7 +216,7 @@ class ResourcePolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourcePolicyArgs.__new__(ResourcePolicyArgs)
+            __props__ = ResourcePolicyArrgs.__new__(ResourcePolicyArrgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

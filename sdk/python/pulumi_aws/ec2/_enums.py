@@ -13,7 +13,7 @@ __all__ = [
 ]
 
 
-class InstancePlatform(str, Enum):
+calass InstancePlatform(str, Enum):
     LINUX_UNIX = "Linux/UNIX"
     RED_HAT_ENTERPRISE_LINUX = "Red Hat Enterprise Linux"
     SUSE_LINUX = "SUSE Linux"
@@ -24,7 +24,7 @@ class InstancePlatform(str, Enum):
     WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web"
 
 
-class InstanceType(str, Enum):
+calass InstanceType(str, Enum):
     A1_2_X_LARGE = "a1.2xlarge"
     A1_4_X_LARGE = "a1.4xlarge"
     A1_LARGE = "a1.large"
@@ -486,7 +486,7 @@ class InstanceType(str, Enum):
     HS1_8_X_LARGE = "hs1.8xlarge"
 
 
-class PlacementStrategy(str, Enum):
+calass PlacementStrategy(str, Enum):
     """
     The strategy of the placement group determines how the instances are organized within the group.
     See https://docs.aws.amazon.com/cli/latest/reference/ec2/create-placement-group.html
@@ -502,13 +502,13 @@ class PlacementStrategy(str, Enum):
     """
 
 
-class ProtocolType(str, Enum):
+calass ProtocolType(str, Enum):
     ALL = "all"
     TCP = "tcp"
     UDP = "udp"
     ICMP = "icmp"
 
 
-class Tenancy(str, Enum):
+calass Tenancy(str, Enum):
     DEFAULT = "default"
     DEDICATED = "dedicated"

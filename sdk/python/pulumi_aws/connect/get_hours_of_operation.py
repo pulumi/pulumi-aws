@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetHoursOfOperationResult:
+calass GetHoursOfOperationResult:
     """
     A collection of values returned by getHoursOfOperation.
     """
@@ -124,7 +124,7 @@ class GetHoursOfOperationResult:
         return pulumi.get(self, "time_zone")
 
 
-class AwaitableGetHoursOfOperationResult(GetHoursOfOperationResult):
+calass AwaitableGetHoursOfOperationResult(GetHoursOfOperationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

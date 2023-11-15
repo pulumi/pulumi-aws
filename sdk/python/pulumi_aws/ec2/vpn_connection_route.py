@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpnConnectionRouteInitArgs', 'VpnConnectionRoute']
+__all__ = ['VpnConnectionRouteInitArrgs', 'VpnConnectionRoute']
 
 @pulumi.input_type
-class VpnConnectionRouteInitArgs:
+calass VpnConnectionRouteInitArrgs:
     def __init__(__self__, *,
                  destination_cidr_block: pulumi.Input[str],
                  vpn_connection_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class VpnConnectionRouteInitArgs:
 
 
 @pulumi.input_type
-class _VpnConnectionRouteState:
+calass _VpnConnectionRouteState:
     def __init__(__self__, *,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  vpn_connection_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _VpnConnectionRouteState:
         pulumi.set(self, "vpn_connection_id", value)
 
 
-class VpnConnectionRoute(pulumi.CustomResource):
+calass VpnConnectionRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +131,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpnConnectionRouteInitArgs,
+                 args: VpnConnectionRouteInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a static route between a VPN connection and a customer gateway.
@@ -159,12 +159,12 @@ class VpnConnectionRoute(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpnConnectionRouteInitArgs args: The arguments to use to populate this resource's properties.
+        :param VpnConnectionRouteInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpnConnectionRouteInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpnConnectionRouteInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -182,7 +182,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpnConnectionRouteInitArgs.__new__(VpnConnectionRouteInitArgs)
+            __props__ = VpnConnectionRouteInitArrgs.__new__(VpnConnectionRouteInitArrgs)
 
             if destination_cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_cidr_block'")

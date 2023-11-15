@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetKeyPairResult:
+calass GetKeyPairResult:
     """
     A collection of values returned by getKeyPair.
     """
@@ -135,7 +135,7 @@ class GetKeyPairResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetKeyPairResult(GetKeyPairResult):
+calass AwaitableGetKeyPairResult(GetKeyPairResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -154,7 +154,7 @@ class AwaitableGetKeyPairResult(GetKeyPairResult):
             tags=self.tags)
 
 
-def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterArgs']]] = None,
+def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterArrgs']]] = None,
                  include_public_key: Optional[bool] = None,
                  key_name: Optional[str] = None,
                  key_pair_id: Optional[str] = None,
@@ -173,7 +173,7 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
     example = aws.ec2.get_key_pair(key_name="test",
         include_public_key=True,
-        filters=[aws.ec2.GetKeyPairFilterArgs(
+        filters=[aws.ec2.GetKeyPairFilterArrgs(
             name="tag:Component",
             values=["web"],
         )])
@@ -183,7 +183,7 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
     ```
 
 
-    :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetKeyPairFilterArrgs']] filters: Custom filter block as described below.
     :param bool include_public_key: Whether to include the public key material in the response.
     :param str key_name: Key Pair name.
     :param str key_pair_id: Key Pair ID.
@@ -213,7 +213,7 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
 
 @_utilities.lift_output_func(get_key_pair)
-def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKeyPairFilterArgs']]]]] = None,
+def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKeyPairFilterArrgs']]]]] = None,
                         include_public_key: Optional[pulumi.Input[Optional[bool]]] = None,
                         key_name: Optional[pulumi.Input[Optional[str]]] = None,
                         key_pair_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -232,7 +232,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     example = aws.ec2.get_key_pair(key_name="test",
         include_public_key=True,
-        filters=[aws.ec2.GetKeyPairFilterArgs(
+        filters=[aws.ec2.GetKeyPairFilterArrgs(
             name="tag:Component",
             values=["web"],
         )])
@@ -242,7 +242,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     ```
 
 
-    :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetKeyPairFilterArrgs']] filters: Custom filter block as described below.
     :param bool include_public_key: Whether to include the public key material in the response.
     :param str key_name: Key Pair name.
     :param str key_pair_id: Key Pair ID.

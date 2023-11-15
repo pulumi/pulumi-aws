@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CloudFormationTypeLoggingConfig(dict):
+calass CloudFormationTypeLoggingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -69,7 +69,7 @@ class CloudFormationTypeLoggingConfig(dict):
 
 
 @pulumi.output_type
-class StackSetAutoDeployment(dict):
+calass StackSetAutoDeployment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -117,7 +117,7 @@ class StackSetAutoDeployment(dict):
 
 
 @pulumi.output_type
-class StackSetInstanceDeploymentTargets(dict):
+calass StackSetInstanceDeploymentTargets(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -153,7 +153,7 @@ class StackSetInstanceDeploymentTargets(dict):
 
 
 @pulumi.output_type
-class StackSetInstanceOperationPreferences(dict):
+calass StackSetInstanceOperationPreferences(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -259,7 +259,7 @@ class StackSetInstanceOperationPreferences(dict):
 
 
 @pulumi.output_type
-class StackSetInstanceStackInstanceSummary(dict):
+calass StackSetInstanceStackInstanceSummary(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -323,7 +323,7 @@ class StackSetInstanceStackInstanceSummary(dict):
 
 
 @pulumi.output_type
-class StackSetManagedExecution(dict):
+calass StackSetManagedExecution(dict):
     def __init__(__self__, *,
                  active: Optional[bool] = None):
         """
@@ -342,7 +342,7 @@ class StackSetManagedExecution(dict):
 
 
 @pulumi.output_type
-class StackSetOperationPreferences(dict):
+calass StackSetOperationPreferences(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -448,7 +448,7 @@ class StackSetOperationPreferences(dict):
 
 
 @pulumi.output_type
-class GetCloudFormationTypeLoggingConfigResult(dict):
+calass GetCloudFormationTypeLoggingConfigResult(dict):
     def __init__(__self__, *,
                  log_group_name: str,
                  log_role_arn: str):
