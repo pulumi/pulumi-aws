@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FolderArgs', 'Folder']
+__all__ = ['FolderArrgs', 'Folder']
 
 @pulumi.input_type
-class FolderArgs:
+calass FolderArrgs:
     def __init__(__self__, *,
                  folder_id: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  folder_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_folder_arn: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Folder resource.
@@ -32,7 +32,7 @@ class FolderArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArrgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "folder_id", folder_id)
@@ -113,14 +113,14 @@ class FolderArgs:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]]]:
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArrgs']]]]:
         """
         A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]]]):
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArrgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @property
@@ -137,7 +137,7 @@ class FolderArgs:
 
 
 @pulumi.input_type
-class _FolderState:
+calass _FolderState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
@@ -148,7 +148,7 @@ class _FolderState:
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_folder_arn: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -164,7 +164,7 @@ class _FolderState:
                
                The following arguments are optional:
         :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArrgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -308,14 +308,14 @@ class _FolderState:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]]]:
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArrgs']]]]:
         """
         A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]]]):
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FolderPermissionArrgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @property
@@ -346,7 +346,7 @@ class _FolderState:
         pulumi.set(self, "tags_all", value)
 
 
-class Folder(pulumi.CustomResource):
+calass Folder(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -356,7 +356,7 @@ class Folder(pulumi.CustomResource):
                  folder_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_folder_arn: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -379,7 +379,7 @@ class Folder(pulumi.CustomResource):
 
         example = aws.quicksight.Folder("example",
             folder_id="example-id",
-            permissions=[aws.quicksight.FolderPermissionArgs(
+            permissions=[aws.quicksight.FolderPermissionArrgs(
                 actions=[
                     "quicksight:CreateFolder",
                     "quicksight:DescribeFolder",
@@ -422,14 +422,14 @@ class Folder(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArgs']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArrgs']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FolderArgs,
+                 args: FolderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing a QuickSight Folder.
@@ -451,7 +451,7 @@ class Folder(pulumi.CustomResource):
 
         example = aws.quicksight.Folder("example",
             folder_id="example-id",
-            permissions=[aws.quicksight.FolderPermissionArgs(
+            permissions=[aws.quicksight.FolderPermissionArrgs(
                 actions=[
                     "quicksight:CreateFolder",
                     "quicksight:DescribeFolder",
@@ -486,12 +486,12 @@ class Folder(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FolderArgs args: The arguments to use to populate this resource's properties.
+        :param FolderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FolderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FolderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -505,7 +505,7 @@ class Folder(pulumi.CustomResource):
                  folder_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_folder_arn: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArgs']]]]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -514,7 +514,7 @@ class Folder(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FolderArgs.__new__(FolderArgs)
+            __props__ = FolderArrgs.__new__(FolderArrgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             if folder_id is None and not opts.urn:
@@ -551,7 +551,7 @@ class Folder(pulumi.CustomResource):
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parent_folder_arn: Optional[pulumi.Input[str]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArgs']]]]] = None,
+            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Folder':
         """
@@ -572,7 +572,7 @@ class Folder(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArgs']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FolderPermissionArrgs']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

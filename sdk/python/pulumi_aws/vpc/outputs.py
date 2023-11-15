@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSecurityGroupRuleFilterResult(dict):
+calass GetSecurityGroupRuleFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -44,7 +44,7 @@ class GetSecurityGroupRuleFilterResult(dict):
 
 
 @pulumi.output_type
-class GetSecurityGroupRulesFilterResult(dict):
+calass GetSecurityGroupRulesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

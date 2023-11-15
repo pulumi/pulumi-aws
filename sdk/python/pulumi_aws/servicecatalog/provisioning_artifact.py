@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProvisioningArtifactArgs', 'ProvisioningArtifact']
+__all__ = ['ProvisioningArtifactArrgs', 'ProvisioningArtifact']
 
 @pulumi.input_type
-class ProvisioningArtifactArgs:
+calass ProvisioningArtifactArrgs:
     def __init__(__self__, *,
                  product_id: pulumi.Input[str],
                  accept_language: Optional[pulumi.Input[str]] = None,
@@ -183,7 +183,7 @@ class ProvisioningArtifactArgs:
 
 
 @pulumi.input_type
-class _ProvisioningArtifactState:
+calass _ProvisioningArtifactState:
     def __init__(__self__, *,
                  accept_language: Optional[pulumi.Input[str]] = None,
                  active: Optional[pulumi.Input[bool]] = None,
@@ -386,7 +386,7 @@ class _ProvisioningArtifactState:
         pulumi.set(self, "type", value)
 
 
-class ProvisioningArtifact(pulumi.CustomResource):
+calass ProvisioningArtifact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -451,7 +451,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProvisioningArtifactArgs,
+                 args: ProvisioningArtifactArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog Provisioning Artifact for a specified product.
@@ -484,12 +484,12 @@ class ProvisioningArtifact(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProvisioningArtifactArgs args: The arguments to use to populate this resource's properties.
+        :param ProvisioningArtifactArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProvisioningArtifactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProvisioningArtifactArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -515,7 +515,7 @@ class ProvisioningArtifact(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProvisioningArtifactArgs.__new__(ProvisioningArtifactArgs)
+            __props__ = ProvisioningArtifactArrgs.__new__(ProvisioningArtifactArrgs)
 
             __props__.__dict__["accept_language"] = accept_language
             __props__.__dict__["active"] = active

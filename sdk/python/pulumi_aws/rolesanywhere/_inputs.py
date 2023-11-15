@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'TrustAnchorSourceArgs',
-    'TrustAnchorSourceSourceDataArgs',
+    'TrustAnchorSourceArrgs',
+    'TrustAnchorSourceSourceDataArrgs',
 ]
 
 @pulumi.input_type
-class TrustAnchorSourceArgs:
+calass TrustAnchorSourceArrgs:
     def __init__(__self__, *,
-                 source_data: pulumi.Input['TrustAnchorSourceSourceDataArgs'],
+                 source_data: pulumi.Input['TrustAnchorSourceSourceDataArrgs'],
                  source_type: pulumi.Input[str]):
         """
-        :param pulumi.Input['TrustAnchorSourceSourceDataArgs'] source_data: The data denoting the source of trust, documented below
+        :param pulumi.Input['TrustAnchorSourceSourceDataArrgs'] source_data: The data denoting the source of trust, documented below
         :param pulumi.Input[str] source_type: The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
         """
         pulumi.set(__self__, "source_data", source_data)
@@ -28,14 +28,14 @@ class TrustAnchorSourceArgs:
 
     @property
     @pulumi.getter(name="sourceData")
-    def source_data(self) -> pulumi.Input['TrustAnchorSourceSourceDataArgs']:
+    def source_data(self) -> pulumi.Input['TrustAnchorSourceSourceDataArrgs']:
         """
         The data denoting the source of trust, documented below
         """
         return pulumi.get(self, "source_data")
 
     @source_data.setter
-    def source_data(self, value: pulumi.Input['TrustAnchorSourceSourceDataArgs']):
+    def source_data(self, value: pulumi.Input['TrustAnchorSourceSourceDataArrgs']):
         pulumi.set(self, "source_data", value)
 
     @property
@@ -52,7 +52,7 @@ class TrustAnchorSourceArgs:
 
 
 @pulumi.input_type
-class TrustAnchorSourceSourceDataArgs:
+calass TrustAnchorSourceSourceDataArrgs:
     def __init__(__self__, *,
                  acm_pca_arn: Optional[pulumi.Input[str]] = None,
                  x509_certificate_data: Optional[pulumi.Input[str]] = None):

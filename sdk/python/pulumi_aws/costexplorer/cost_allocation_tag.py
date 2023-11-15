@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CostAllocationTagArgs', 'CostAllocationTag']
+__all__ = ['CostAllocationTagArrgs', 'CostAllocationTag']
 
 @pulumi.input_type
-class CostAllocationTagArgs:
+calass CostAllocationTagArrgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str],
                  tag_key: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class CostAllocationTagArgs:
 
 
 @pulumi.input_type
-class _CostAllocationTagState:
+calass _CostAllocationTagState:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None,
                  tag_key: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class _CostAllocationTagState:
         pulumi.set(self, "type", value)
 
 
-class CostAllocationTag(pulumi.CustomResource):
+calass CostAllocationTag(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -144,7 +144,7 @@ class CostAllocationTag(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CostAllocationTagArgs,
+                 args: CostAllocationTagArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CE Cost Allocation Tag.
@@ -169,12 +169,12 @@ class CostAllocationTag(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CostAllocationTagArgs args: The arguments to use to populate this resource's properties.
+        :param CostAllocationTagArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CostAllocationTagArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CostAllocationTagArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -192,7 +192,7 @@ class CostAllocationTag(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CostAllocationTagArgs.__new__(CostAllocationTagArgs)
+            __props__ = CostAllocationTagArrgs.__new__(CostAllocationTagArrgs)
 
             if status is None and not opts.urn:
                 raise TypeError("Missing required property 'status'")

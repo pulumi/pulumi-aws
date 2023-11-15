@@ -10,44 +10,44 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BotAssociationLexBotArgs',
-    'HoursOfOperationConfigArgs',
-    'HoursOfOperationConfigEndTimeArgs',
-    'HoursOfOperationConfigStartTimeArgs',
-    'InstanceStorageConfigStorageConfigArgs',
-    'InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs',
-    'InstanceStorageConfigStorageConfigKinesisStreamConfigArgs',
-    'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs',
-    'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs',
-    'InstanceStorageConfigStorageConfigS3ConfigArgs',
-    'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs',
-    'PhoneNumberStatusArgs',
-    'QueueOutboundCallerConfigArgs',
-    'QuickConnectQuickConnectConfigArgs',
-    'QuickConnectQuickConnectConfigPhoneConfigArgs',
-    'QuickConnectQuickConnectConfigQueueConfigArgs',
-    'QuickConnectQuickConnectConfigUserConfigArgs',
-    'RoutingProfileMediaConcurrencyArgs',
-    'RoutingProfileQueueConfigArgs',
-    'UserHierarchyGroupHierarchyPathArgs',
-    'UserHierarchyGroupHierarchyPathLevelFifeArgs',
-    'UserHierarchyGroupHierarchyPathLevelFourArgs',
-    'UserHierarchyGroupHierarchyPathLevelOneArgs',
-    'UserHierarchyGroupHierarchyPathLevelThreeArgs',
-    'UserHierarchyGroupHierarchyPathLevelTwoArgs',
-    'UserHierarchyStructureHierarchyStructureArgs',
-    'UserHierarchyStructureHierarchyStructureLevelFiveArgs',
-    'UserHierarchyStructureHierarchyStructureLevelFourArgs',
-    'UserHierarchyStructureHierarchyStructureLevelOneArgs',
-    'UserHierarchyStructureHierarchyStructureLevelThreeArgs',
-    'UserHierarchyStructureHierarchyStructureLevelTwoArgs',
-    'UserIdentityInfoArgs',
-    'UserPhoneConfigArgs',
-    'GetBotAssociationLexBotArgs',
+    'BotAssociationLexBotArrgs',
+    'HoursOfOperationConfigArrgs',
+    'HoursOfOperationConfigEndTimeArrgs',
+    'HoursOfOperationConfigStartTimeArrgs',
+    'InstanceStorageConfigStorageConfigArrgs',
+    'InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs',
+    'InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs',
+    'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs',
+    'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs',
+    'InstanceStorageConfigStorageConfigS3ConfigArrgs',
+    'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs',
+    'PhoneNumberStatusArrgs',
+    'QueueOutboundCallerConfigArrgs',
+    'QuickConnectQuickConnectConfigArrgs',
+    'QuickConnectQuickConnectConfigPhoneConfigArrgs',
+    'QuickConnectQuickConnectConfigQueueConfigArrgs',
+    'QuickConnectQuickConnectConfigUserConfigArrgs',
+    'RoutingProfileMediaConcurrencyArrgs',
+    'RoutingProfileQueueConfigArrgs',
+    'UserHierarchyGroupHierarchyPathArrgs',
+    'UserHierarchyGroupHierarchyPathLevelFifeArrgs',
+    'UserHierarchyGroupHierarchyPathLevelFourArrgs',
+    'UserHierarchyGroupHierarchyPathLevelOneArrgs',
+    'UserHierarchyGroupHierarchyPathLevelThreeArrgs',
+    'UserHierarchyGroupHierarchyPathLevelTwoArrgs',
+    'UserHierarchyStructureHierarchyStructureArrgs',
+    'UserHierarchyStructureHierarchyStructureLevelFiveArrgs',
+    'UserHierarchyStructureHierarchyStructureLevelFourArrgs',
+    'UserHierarchyStructureHierarchyStructureLevelOneArrgs',
+    'UserHierarchyStructureHierarchyStructureLevelThreeArrgs',
+    'UserHierarchyStructureHierarchyStructureLevelTwoArrgs',
+    'UserIdentityInfoArrgs',
+    'UserPhoneConfigArrgs',
+    'GetBotAssociationLexBotArrgs',
 ]
 
 @pulumi.input_type
-class BotAssociationLexBotArgs:
+calass BotAssociationLexBotArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  lex_region: Optional[pulumi.Input[str]] = None):
@@ -85,15 +85,15 @@ class BotAssociationLexBotArgs:
 
 
 @pulumi.input_type
-class HoursOfOperationConfigArgs:
+calass HoursOfOperationConfigArrgs:
     def __init__(__self__, *,
                  day: pulumi.Input[str],
-                 end_time: pulumi.Input['HoursOfOperationConfigEndTimeArgs'],
-                 start_time: pulumi.Input['HoursOfOperationConfigStartTimeArgs']):
+                 end_time: pulumi.Input['HoursOfOperationConfigEndTimeArrgs'],
+                 start_time: pulumi.Input['HoursOfOperationConfigStartTimeArrgs']):
         """
         :param pulumi.Input[str] day: Specifies the day that the hours of operation applies to.
-        :param pulumi.Input['HoursOfOperationConfigEndTimeArgs'] end_time: A end time block specifies the time that your contact center closes. The `end_time` is documented below.
-        :param pulumi.Input['HoursOfOperationConfigStartTimeArgs'] start_time: A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+        :param pulumi.Input['HoursOfOperationConfigEndTimeArrgs'] end_time: A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+        :param pulumi.Input['HoursOfOperationConfigStartTimeArrgs'] start_time: A start time block specifies the time that your contact center opens. The `start_time` is documented below.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "end_time", end_time)
@@ -113,31 +113,31 @@ class HoursOfOperationConfigArgs:
 
     @property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> pulumi.Input['HoursOfOperationConfigEndTimeArgs']:
+    def end_time(self) -> pulumi.Input['HoursOfOperationConfigEndTimeArrgs']:
         """
         A end time block specifies the time that your contact center closes. The `end_time` is documented below.
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: pulumi.Input['HoursOfOperationConfigEndTimeArgs']):
+    def end_time(self, value: pulumi.Input['HoursOfOperationConfigEndTimeArrgs']):
         pulumi.set(self, "end_time", value)
 
     @property
     @pulumi.getter(name="startTime")
-    def start_time(self) -> pulumi.Input['HoursOfOperationConfigStartTimeArgs']:
+    def start_time(self) -> pulumi.Input['HoursOfOperationConfigStartTimeArrgs']:
         """
         A start time block specifies the time that your contact center opens. The `start_time` is documented below.
         """
         return pulumi.get(self, "start_time")
 
     @start_time.setter
-    def start_time(self, value: pulumi.Input['HoursOfOperationConfigStartTimeArgs']):
+    def start_time(self, value: pulumi.Input['HoursOfOperationConfigStartTimeArrgs']):
         pulumi.set(self, "start_time", value)
 
 
 @pulumi.input_type
-class HoursOfOperationConfigEndTimeArgs:
+calass HoursOfOperationConfigEndTimeArrgs:
     def __init__(__self__, *,
                  hours: pulumi.Input[int],
                  minutes: pulumi.Input[int]):
@@ -174,7 +174,7 @@ class HoursOfOperationConfigEndTimeArgs:
 
 
 @pulumi.input_type
-class HoursOfOperationConfigStartTimeArgs:
+calass HoursOfOperationConfigStartTimeArrgs:
     def __init__(__self__, *,
                  hours: pulumi.Input[int],
                  minutes: pulumi.Input[int]):
@@ -211,19 +211,19 @@ class HoursOfOperationConfigStartTimeArgs:
 
 
 @pulumi.input_type
-class InstanceStorageConfigStorageConfigArgs:
+calass InstanceStorageConfigStorageConfigArrgs:
     def __init__(__self__, *,
                  storage_type: pulumi.Input[str],
-                 kinesis_firehose_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']] = None,
-                 kinesis_stream_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']] = None,
-                 kinesis_video_stream_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']] = None,
-                 s3_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs']] = None):
+                 kinesis_firehose_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs']] = None,
+                 kinesis_stream_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs']] = None,
+                 kinesis_video_stream_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs']] = None,
+                 s3_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArrgs']] = None):
         """
         :param pulumi.Input[str] storage_type: A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs'] kinesis_firehose_config: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs'] kinesis_stream_config: A block that specifies the configuration of the Kinesis data stream. Documented below.
-        :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs'] kinesis_video_stream_config: A block that specifies the configuration of the Kinesis video stream. Documented below.
-        :param pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs'] s3_config: A block that specifies the configuration of S3 Bucket. Documented below.
+        :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs'] kinesis_firehose_config: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+        :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs'] kinesis_stream_config: A block that specifies the configuration of the Kinesis data stream. Documented below.
+        :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs'] kinesis_video_stream_config: A block that specifies the configuration of the Kinesis video stream. Documented below.
+        :param pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArrgs'] s3_config: A block that specifies the configuration of S3 Bucket. Documented below.
         """
         pulumi.set(__self__, "storage_type", storage_type)
         if kinesis_firehose_config is not None:
@@ -249,55 +249,55 @@ class InstanceStorageConfigStorageConfigArgs:
 
     @property
     @pulumi.getter(name="kinesisFirehoseConfig")
-    def kinesis_firehose_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']]:
+    def kinesis_firehose_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs']]:
         """
         A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
         """
         return pulumi.get(self, "kinesis_firehose_config")
 
     @kinesis_firehose_config.setter
-    def kinesis_firehose_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs']]):
+    def kinesis_firehose_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs']]):
         pulumi.set(self, "kinesis_firehose_config", value)
 
     @property
     @pulumi.getter(name="kinesisStreamConfig")
-    def kinesis_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']]:
+    def kinesis_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs']]:
         """
         A block that specifies the configuration of the Kinesis data stream. Documented below.
         """
         return pulumi.get(self, "kinesis_stream_config")
 
     @kinesis_stream_config.setter
-    def kinesis_stream_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgs']]):
+    def kinesis_stream_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs']]):
         pulumi.set(self, "kinesis_stream_config", value)
 
     @property
     @pulumi.getter(name="kinesisVideoStreamConfig")
-    def kinesis_video_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']]:
+    def kinesis_video_stream_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs']]:
         """
         A block that specifies the configuration of the Kinesis video stream. Documented below.
         """
         return pulumi.get(self, "kinesis_video_stream_config")
 
     @kinesis_video_stream_config.setter
-    def kinesis_video_stream_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs']]):
+    def kinesis_video_stream_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs']]):
         pulumi.set(self, "kinesis_video_stream_config", value)
 
     @property
     @pulumi.getter(name="s3Config")
-    def s3_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs']]:
+    def s3_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArrgs']]:
         """
         A block that specifies the configuration of S3 Bucket. Documented below.
         """
         return pulumi.get(self, "s3_config")
 
     @s3_config.setter
-    def s3_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgs']]):
+    def s3_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArrgs']]):
         pulumi.set(self, "s3_config", value)
 
 
 @pulumi.input_type
-class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
+calass InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs:
     def __init__(__self__, *,
                  firehose_arn: pulumi.Input[str]):
         """
@@ -319,7 +319,7 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
 
 
 @pulumi.input_type
-class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
+calass InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs:
     def __init__(__self__, *,
                  stream_arn: pulumi.Input[str]):
         """
@@ -341,13 +341,13 @@ class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
 
 
 @pulumi.input_type
-class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs:
+calass InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs:
     def __init__(__self__, *,
-                 encryption_config: pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs'],
+                 encryption_config: pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs'],
                  prefix: pulumi.Input[str],
                  retention_period_hours: pulumi.Input[int]):
         """
-        :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs'] encryption_config: The encryption configuration. Documented below.
+        :param pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs'] encryption_config: The encryption configuration. Documented below.
         :param pulumi.Input[str] prefix: The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
         :param pulumi.Input[int] retention_period_hours: The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
         """
@@ -357,14 +357,14 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs:
 
     @property
     @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs']:
+    def encryption_config(self) -> pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs']:
         """
         The encryption configuration. Documented below.
         """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
-    def encryption_config(self, value: pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs']):
+    def encryption_config(self, value: pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs']):
         pulumi.set(self, "encryption_config", value)
 
     @property
@@ -393,7 +393,7 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs:
 
 
 @pulumi.input_type
-class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs:
+calass InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs:
     def __init__(__self__, *,
                  encryption_type: pulumi.Input[str],
                  key_id: pulumi.Input[str]):
@@ -430,15 +430,15 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig
 
 
 @pulumi.input_type
-class InstanceStorageConfigStorageConfigS3ConfigArgs:
+calass InstanceStorageConfigStorageConfigS3ConfigArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  bucket_prefix: pulumi.Input[str],
-                 encryption_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']] = None):
+                 encryption_config: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs']] = None):
         """
         :param pulumi.Input[str] bucket_name: The S3 bucket name.
         :param pulumi.Input[str] bucket_prefix: The S3 bucket prefix.
-        :param pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs'] encryption_config: The encryption configuration. Documented below.
+        :param pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs'] encryption_config: The encryption configuration. Documented below.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
@@ -471,19 +471,19 @@ class InstanceStorageConfigStorageConfigS3ConfigArgs:
 
     @property
     @pulumi.getter(name="encryptionConfig")
-    def encryption_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']]:
+    def encryption_config(self) -> Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs']]:
         """
         The encryption configuration. Documented below.
         """
         return pulumi.get(self, "encryption_config")
 
     @encryption_config.setter
-    def encryption_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs']]):
+    def encryption_config(self, value: Optional[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs']]):
         pulumi.set(self, "encryption_config", value)
 
 
 @pulumi.input_type
-class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
+calass InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs:
     def __init__(__self__, *,
                  encryption_type: pulumi.Input[str],
                  key_id: pulumi.Input[str]):
@@ -520,7 +520,7 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
 
 
 @pulumi.input_type
-class PhoneNumberStatusArgs:
+calass PhoneNumberStatusArrgs:
     def __init__(__self__, *,
                  message: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
@@ -559,7 +559,7 @@ class PhoneNumberStatusArgs:
 
 
 @pulumi.input_type
-class QueueOutboundCallerConfigArgs:
+calass QueueOutboundCallerConfigArrgs:
     def __init__(__self__, *,
                  outbound_caller_id_name: Optional[pulumi.Input[str]] = None,
                  outbound_caller_id_number_id: Optional[pulumi.Input[str]] = None,
@@ -614,17 +614,17 @@ class QueueOutboundCallerConfigArgs:
 
 
 @pulumi.input_type
-class QuickConnectQuickConnectConfigArgs:
+calass QuickConnectQuickConnectConfigArrgs:
     def __init__(__self__, *,
                  quick_connect_type: pulumi.Input[str],
-                 phone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]] = None,
-                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]] = None,
-                 user_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]] = None):
+                 phone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArrgs']]]] = None,
+                 queue_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArrgs']]]] = None,
+                 user_configs: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArrgs']]]] = None):
         """
         :param pulumi.Input[str] quick_connect_type: Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]] phone_configs: Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]] queue_configs: Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]] user_configs: Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArrgs']]] phone_configs: Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArrgs']]] queue_configs: Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArrgs']]] user_configs: Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         """
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if phone_configs is not None:
@@ -648,43 +648,43 @@ class QuickConnectQuickConnectConfigArgs:
 
     @property
     @pulumi.getter(name="phoneConfigs")
-    def phone_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]:
+    def phone_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArrgs']]]]:
         """
         Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
         """
         return pulumi.get(self, "phone_configs")
 
     @phone_configs.setter
-    def phone_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgs']]]]):
+    def phone_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArrgs']]]]):
         pulumi.set(self, "phone_configs", value)
 
     @property
     @pulumi.getter(name="queueConfigs")
-    def queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]:
+    def queue_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArrgs']]]]:
         """
         Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
         """
         return pulumi.get(self, "queue_configs")
 
     @queue_configs.setter
-    def queue_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgs']]]]):
+    def queue_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArrgs']]]]):
         pulumi.set(self, "queue_configs", value)
 
     @property
     @pulumi.getter(name="userConfigs")
-    def user_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]:
+    def user_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArrgs']]]]:
         """
         Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         """
         return pulumi.get(self, "user_configs")
 
     @user_configs.setter
-    def user_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgs']]]]):
+    def user_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArrgs']]]]):
         pulumi.set(self, "user_configs", value)
 
 
 @pulumi.input_type
-class QuickConnectQuickConnectConfigPhoneConfigArgs:
+calass QuickConnectQuickConnectConfigPhoneConfigArrgs:
     def __init__(__self__, *,
                  phone_number: pulumi.Input[str]):
         """
@@ -706,7 +706,7 @@ class QuickConnectQuickConnectConfigPhoneConfigArgs:
 
 
 @pulumi.input_type
-class QuickConnectQuickConnectConfigQueueConfigArgs:
+calass QuickConnectQuickConnectConfigQueueConfigArrgs:
     def __init__(__self__, *,
                  contact_flow_id: pulumi.Input[str],
                  queue_id: pulumi.Input[str]):
@@ -743,7 +743,7 @@ class QuickConnectQuickConnectConfigQueueConfigArgs:
 
 
 @pulumi.input_type
-class QuickConnectQuickConnectConfigUserConfigArgs:
+calass QuickConnectQuickConnectConfigUserConfigArrgs:
     def __init__(__self__, *,
                  contact_flow_id: pulumi.Input[str],
                  user_id: pulumi.Input[str]):
@@ -780,7 +780,7 @@ class QuickConnectQuickConnectConfigUserConfigArgs:
 
 
 @pulumi.input_type
-class RoutingProfileMediaConcurrencyArgs:
+calass RoutingProfileMediaConcurrencyArrgs:
     def __init__(__self__, *,
                  channel: pulumi.Input[str],
                  concurrency: pulumi.Input[int]):
@@ -817,7 +817,7 @@ class RoutingProfileMediaConcurrencyArgs:
 
 
 @pulumi.input_type
-class RoutingProfileQueueConfigArgs:
+calass RoutingProfileQueueConfigArrgs:
     def __init__(__self__, *,
                  channel: pulumi.Input[str],
                  delay: pulumi.Input[int],
@@ -916,19 +916,19 @@ class RoutingProfileQueueConfigArgs:
 
 
 @pulumi.input_type
-class UserHierarchyGroupHierarchyPathArgs:
+calass UserHierarchyGroupHierarchyPathArrgs:
     def __init__(__self__, *,
-                 level_fives: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]] = None,
-                 level_fours: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]] = None,
-                 level_ones: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]] = None,
-                 level_threes: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]] = None,
-                 level_twos: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]] = None):
+                 level_fives: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArrgs']]]] = None,
+                 level_fours: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArrgs']]]] = None,
+                 level_ones: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArrgs']]]] = None,
+                 level_threes: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArrgs']]]] = None,
+                 level_twos: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]] level_fives: A block that defines the details of level five. The level block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]] level_fours: A block that defines the details of level four. The level block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]] level_ones: A block that defines the details of level one. The level block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]] level_threes: A block that defines the details of level three. The level block is documented below.
-        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]] level_twos: A block that defines the details of level two. The level block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArrgs']]] level_fives: A block that defines the details of level five. The level block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArrgs']]] level_fours: A block that defines the details of level four. The level block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArrgs']]] level_ones: A block that defines the details of level one. The level block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArrgs']]] level_threes: A block that defines the details of level three. The level block is documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArrgs']]] level_twos: A block that defines the details of level two. The level block is documented below.
         """
         if level_fives is not None:
             pulumi.set(__self__, "level_fives", level_fives)
@@ -943,67 +943,67 @@ class UserHierarchyGroupHierarchyPathArgs:
 
     @property
     @pulumi.getter(name="levelFives")
-    def level_fives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]]:
+    def level_fives(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArrgs']]]]:
         """
         A block that defines the details of level five. The level block is documented below.
         """
         return pulumi.get(self, "level_fives")
 
     @level_fives.setter
-    def level_fives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgs']]]]):
+    def level_fives(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArrgs']]]]):
         pulumi.set(self, "level_fives", value)
 
     @property
     @pulumi.getter(name="levelFours")
-    def level_fours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]]:
+    def level_fours(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArrgs']]]]:
         """
         A block that defines the details of level four. The level block is documented below.
         """
         return pulumi.get(self, "level_fours")
 
     @level_fours.setter
-    def level_fours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgs']]]]):
+    def level_fours(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArrgs']]]]):
         pulumi.set(self, "level_fours", value)
 
     @property
     @pulumi.getter(name="levelOnes")
-    def level_ones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]]:
+    def level_ones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArrgs']]]]:
         """
         A block that defines the details of level one. The level block is documented below.
         """
         return pulumi.get(self, "level_ones")
 
     @level_ones.setter
-    def level_ones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgs']]]]):
+    def level_ones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArrgs']]]]):
         pulumi.set(self, "level_ones", value)
 
     @property
     @pulumi.getter(name="levelThrees")
-    def level_threes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]]:
+    def level_threes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArrgs']]]]:
         """
         A block that defines the details of level three. The level block is documented below.
         """
         return pulumi.get(self, "level_threes")
 
     @level_threes.setter
-    def level_threes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgs']]]]):
+    def level_threes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArrgs']]]]):
         pulumi.set(self, "level_threes", value)
 
     @property
     @pulumi.getter(name="levelTwos")
-    def level_twos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]]:
+    def level_twos(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArrgs']]]]:
         """
         A block that defines the details of level two. The level block is documented below.
         """
         return pulumi.get(self, "level_twos")
 
     @level_twos.setter
-    def level_twos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgs']]]]):
+    def level_twos(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArrgs']]]]):
         pulumi.set(self, "level_twos", value)
 
 
 @pulumi.input_type
-class UserHierarchyGroupHierarchyPathLevelFifeArgs:
+calass UserHierarchyGroupHierarchyPathLevelFifeArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -1058,7 +1058,7 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgs:
 
 
 @pulumi.input_type
-class UserHierarchyGroupHierarchyPathLevelFourArgs:
+calass UserHierarchyGroupHierarchyPathLevelFourArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -1113,7 +1113,7 @@ class UserHierarchyGroupHierarchyPathLevelFourArgs:
 
 
 @pulumi.input_type
-class UserHierarchyGroupHierarchyPathLevelOneArgs:
+calass UserHierarchyGroupHierarchyPathLevelOneArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -1168,7 +1168,7 @@ class UserHierarchyGroupHierarchyPathLevelOneArgs:
 
 
 @pulumi.input_type
-class UserHierarchyGroupHierarchyPathLevelThreeArgs:
+calass UserHierarchyGroupHierarchyPathLevelThreeArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -1223,7 +1223,7 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgs:
 
 
 @pulumi.input_type
-class UserHierarchyGroupHierarchyPathLevelTwoArgs:
+calass UserHierarchyGroupHierarchyPathLevelTwoArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -1278,21 +1278,21 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgs:
 
 
 @pulumi.input_type
-class UserHierarchyStructureHierarchyStructureArgs:
+calass UserHierarchyStructureHierarchyStructureArrgs:
     def __init__(__self__, *,
-                 level_five: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']] = None,
-                 level_four: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']] = None,
-                 level_one: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']] = None,
-                 level_three: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']] = None,
-                 level_two: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']] = None):
+                 level_five: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArrgs']] = None,
+                 level_four: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArrgs']] = None,
+                 level_one: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArrgs']] = None,
+                 level_three: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArrgs']] = None,
+                 level_two: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArrgs']] = None):
         """
-        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs'] level_five: A block that defines the details of level five. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArrgs'] level_five: A block that defines the details of level five. The level block is documented below.
                
                Each level block supports the following arguments:
-        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs'] level_four: A block that defines the details of level four. The level block is documented below.
-        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs'] level_one: A block that defines the details of level one. The level block is documented below.
-        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_three: A block that defines the details of level three. The level block is documented below.
-        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs'] level_two: A block that defines the details of level two. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArrgs'] level_four: A block that defines the details of level four. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArrgs'] level_one: A block that defines the details of level one. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArrgs'] level_three: A block that defines the details of level three. The level block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArrgs'] level_two: A block that defines the details of level two. The level block is documented below.
         """
         if level_five is not None:
             pulumi.set(__self__, "level_five", level_five)
@@ -1307,7 +1307,7 @@ class UserHierarchyStructureHierarchyStructureArgs:
 
     @property
     @pulumi.getter(name="levelFive")
-    def level_five(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]:
+    def level_five(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArrgs']]:
         """
         A block that defines the details of level five. The level block is documented below.
 
@@ -1316,60 +1316,60 @@ class UserHierarchyStructureHierarchyStructureArgs:
         return pulumi.get(self, "level_five")
 
     @level_five.setter
-    def level_five(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgs']]):
+    def level_five(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArrgs']]):
         pulumi.set(self, "level_five", value)
 
     @property
     @pulumi.getter(name="levelFour")
-    def level_four(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']]:
+    def level_four(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArrgs']]:
         """
         A block that defines the details of level four. The level block is documented below.
         """
         return pulumi.get(self, "level_four")
 
     @level_four.setter
-    def level_four(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgs']]):
+    def level_four(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArrgs']]):
         pulumi.set(self, "level_four", value)
 
     @property
     @pulumi.getter(name="levelOne")
-    def level_one(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']]:
+    def level_one(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArrgs']]:
         """
         A block that defines the details of level one. The level block is documented below.
         """
         return pulumi.get(self, "level_one")
 
     @level_one.setter
-    def level_one(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgs']]):
+    def level_one(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArrgs']]):
         pulumi.set(self, "level_one", value)
 
     @property
     @pulumi.getter(name="levelThree")
-    def level_three(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]:
+    def level_three(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArrgs']]:
         """
         A block that defines the details of level three. The level block is documented below.
         """
         return pulumi.get(self, "level_three")
 
     @level_three.setter
-    def level_three(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgs']]):
+    def level_three(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArrgs']]):
         pulumi.set(self, "level_three", value)
 
     @property
     @pulumi.getter(name="levelTwo")
-    def level_two(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]:
+    def level_two(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArrgs']]:
         """
         A block that defines the details of level two. The level block is documented below.
         """
         return pulumi.get(self, "level_two")
 
     @level_two.setter
-    def level_two(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgs']]):
+    def level_two(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArrgs']]):
         pulumi.set(self, "level_two", value)
 
 
 @pulumi.input_type
-class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
+calass UserHierarchyStructureHierarchyStructureLevelFiveArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  arn: Optional[pulumi.Input[str]] = None,
@@ -1423,7 +1423,7 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
 
 
 @pulumi.input_type
-class UserHierarchyStructureHierarchyStructureLevelFourArgs:
+calass UserHierarchyStructureHierarchyStructureLevelFourArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  arn: Optional[pulumi.Input[str]] = None,
@@ -1477,7 +1477,7 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
 
 
 @pulumi.input_type
-class UserHierarchyStructureHierarchyStructureLevelOneArgs:
+calass UserHierarchyStructureHierarchyStructureLevelOneArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  arn: Optional[pulumi.Input[str]] = None,
@@ -1531,7 +1531,7 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
 
 
 @pulumi.input_type
-class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
+calass UserHierarchyStructureHierarchyStructureLevelThreeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  arn: Optional[pulumi.Input[str]] = None,
@@ -1585,7 +1585,7 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
 
 
 @pulumi.input_type
-class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
+calass UserHierarchyStructureHierarchyStructureLevelTwoArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  arn: Optional[pulumi.Input[str]] = None,
@@ -1639,7 +1639,7 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
 
 
 @pulumi.input_type
-class UserIdentityInfoArgs:
+calass UserIdentityInfoArrgs:
     def __init__(__self__, *,
                  email: Optional[pulumi.Input[str]] = None,
                  first_name: Optional[pulumi.Input[str]] = None,
@@ -1694,7 +1694,7 @@ class UserIdentityInfoArgs:
 
 
 @pulumi.input_type
-class UserPhoneConfigArgs:
+calass UserPhoneConfigArrgs:
     def __init__(__self__, *,
                  phone_type: pulumi.Input[str],
                  after_contact_work_time_limit: Optional[pulumi.Input[int]] = None,
@@ -1764,7 +1764,7 @@ class UserPhoneConfigArgs:
 
 
 @pulumi.input_type
-class GetBotAssociationLexBotArgs:
+calass GetBotAssociationLexBotArrgs:
     def __init__(__self__, *,
                  lex_region: str,
                  name: str):

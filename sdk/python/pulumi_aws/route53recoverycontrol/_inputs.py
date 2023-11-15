@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterClusterEndpointArgs',
-    'SafetyRuleRuleConfigArgs',
+    'ClusterClusterEndpointArrgs',
+    'SafetyRuleRuleConfigArrgs',
 ]
 
 @pulumi.input_type
-class ClusterClusterEndpointArgs:
+calass ClusterClusterEndpointArrgs:
     def __init__(__self__, *,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  region: Optional[pulumi.Input[str]] = None):
@@ -54,7 +54,7 @@ class ClusterClusterEndpointArgs:
 
 
 @pulumi.input_type
-class SafetyRuleRuleConfigArgs:
+calass SafetyRuleRuleConfigArrgs:
     def __init__(__self__, *,
                  inverted: pulumi.Input[bool],
                  threshold: pulumi.Input[int],

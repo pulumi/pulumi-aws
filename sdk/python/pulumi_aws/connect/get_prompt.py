@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPromptResult:
+calass GetPromptResult:
     """
     A collection of values returned by getPrompt.
     """
@@ -73,7 +73,7 @@ class GetPromptResult:
         return pulumi.get(self, "prompt_id")
 
 
-class AwaitableGetPromptResult(GetPromptResult):
+calass AwaitableGetPromptResult(GetPromptResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

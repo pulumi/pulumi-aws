@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DirectoryConnectSettingsArgs',
-    'DirectoryVpcSettingsArgs',
-    'ServiceRegionVpcSettingsArgs',
-    'SharedDirectoryTargetArgs',
+    'DirectoryConnectSettingsArrgs',
+    'DirectoryVpcSettingsArrgs',
+    'ServiceRegionVpcSettingsArrgs',
+    'SharedDirectoryTargetArrgs',
 ]
 
 @pulumi.input_type
-class DirectoryConnectSettingsArgs:
+calass DirectoryConnectSettingsArrgs:
     def __init__(__self__, *,
                  customer_dns_ips: pulumi.Input[Sequence[pulumi.Input[str]]],
                  customer_username: pulumi.Input[str],
@@ -112,7 +112,7 @@ class DirectoryConnectSettingsArgs:
 
 
 @pulumi.input_type
-class DirectoryVpcSettingsArgs:
+calass DirectoryVpcSettingsArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str],
@@ -161,7 +161,7 @@ class DirectoryVpcSettingsArgs:
 
 
 @pulumi.input_type
-class ServiceRegionVpcSettingsArgs:
+calass ServiceRegionVpcSettingsArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpc_id: pulumi.Input[str]):
@@ -198,7 +198,7 @@ class ServiceRegionVpcSettingsArgs:
 
 
 @pulumi.input_type
-class SharedDirectoryTargetArgs:
+calass SharedDirectoryTargetArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  type: Optional[pulumi.Input[str]] = None):

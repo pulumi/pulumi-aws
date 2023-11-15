@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServerlessCollectionArgs', 'ServerlessCollection']
+__all__ = ['ServerlessCollectionArrgs', 'ServerlessCollection']
 
 @pulumi.input_type
-class ServerlessCollectionArgs:
+calass ServerlessCollectionArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']] = None,
+                 timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServerlessCollection resource.
@@ -81,11 +81,11 @@ class ServerlessCollectionArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['ServerlessCollectionTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['ServerlessCollectionTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
     @property
@@ -102,7 +102,7 @@ class ServerlessCollectionArgs:
 
 
 @pulumi.input_type
-class _ServerlessCollectionState:
+calass _ServerlessCollectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  collection_endpoint: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class _ServerlessCollectionState:
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']] = None,
+                 timeouts: Optional[pulumi.Input['ServerlessCollectionTimeoutsArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServerlessCollection resources.
@@ -251,11 +251,11 @@ class _ServerlessCollectionState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['ServerlessCollectionTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ServerlessCollectionTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['ServerlessCollectionTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
     @property
@@ -271,7 +271,7 @@ class _ServerlessCollectionState:
         pulumi.set(self, "type", value)
 
 
-class ServerlessCollection(pulumi.CustomResource):
+calass ServerlessCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -279,7 +279,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -330,7 +330,7 @@ class ServerlessCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ServerlessCollectionArgs] = None,
+                 args: Optional[ServerlessCollectionArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS OpenSearch Serverless Collection.
@@ -368,12 +368,12 @@ class ServerlessCollection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerlessCollectionArgs args: The arguments to use to populate this resource's properties.
+        :param ServerlessCollectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerlessCollectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerlessCollectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -385,7 +385,7 @@ class ServerlessCollection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -394,7 +394,7 @@ class ServerlessCollection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerlessCollectionArgs.__new__(ServerlessCollectionArgs)
+            __props__ = ServerlessCollectionArrgs.__new__(ServerlessCollectionArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -426,7 +426,7 @@ class ServerlessCollection(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[pulumi.InputType['ServerlessCollectionTimeoutsArrgs']]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ServerlessCollection':
         """
         Get an existing ServerlessCollection resource's state with the given name, id, and optional extra

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SecretPolicyArgs', 'SecretPolicy']
+__all__ = ['SecretPolicyArrgs', 'SecretPolicy']
 
 @pulumi.input_type
-class SecretPolicyArgs:
+calass SecretPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  secret_arn: pulumi.Input[str],
@@ -70,7 +70,7 @@ class SecretPolicyArgs:
 
 
 @pulumi.input_type
-class _SecretPolicyState:
+calass _SecretPolicyState:
     def __init__(__self__, *,
                  block_public_policy: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class _SecretPolicyState:
         pulumi.set(self, "secret_arn", value)
 
 
-class SecretPolicy(pulumi.CustomResource):
+calass SecretPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -149,10 +149,10 @@ class SecretPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="EnableAnotherAWSAccountToReadTheSecret",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["arn:aws:iam::123456789012:root"],
             )],
@@ -184,7 +184,7 @@ class SecretPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecretPolicyArgs,
+                 args: SecretPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage AWS Secrets Manager secret policy.
@@ -197,10 +197,10 @@ class SecretPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_secret = aws.secretsmanager.Secret("exampleSecret")
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="EnableAnotherAWSAccountToReadTheSecret",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["arn:aws:iam::123456789012:root"],
             )],
@@ -221,12 +221,12 @@ class SecretPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SecretPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param SecretPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecretPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecretPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -245,7 +245,7 @@ class SecretPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecretPolicyArgs.__new__(SecretPolicyArgs)
+            __props__ = SecretPolicyArrgs.__new__(SecretPolicyArrgs)
 
             __props__.__dict__["block_public_policy"] = block_public_policy
             if policy is None and not opts.urn:

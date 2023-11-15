@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TopicRuleDestinationArgs', 'TopicRuleDestination']
+__all__ = ['TopicRuleDestinationArrgs', 'TopicRuleDestination']
 
 @pulumi.input_type
-class TopicRuleDestinationArgs:
+calass TopicRuleDestinationArrgs:
     def __init__(__self__, *,
-                 vpc_configuration: pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'],
+                 vpc_configuration: pulumi.Input['TopicRuleDestinationVpcConfigurationArrgs'],
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a TopicRuleDestination resource.
-        :param pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        :param pulumi.Input['TopicRuleDestinationVpcConfigurationArrgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
         """
         pulumi.set(__self__, "vpc_configuration", vpc_configuration)
@@ -29,14 +29,14 @@ class TopicRuleDestinationArgs:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']:
+    def vpc_configuration(self) -> pulumi.Input['TopicRuleDestinationVpcConfigurationArrgs']:
         """
         Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']):
+    def vpc_configuration(self, value: pulumi.Input['TopicRuleDestinationVpcConfigurationArrgs']):
         pulumi.set(self, "vpc_configuration", value)
 
     @property
@@ -53,16 +53,16 @@ class TopicRuleDestinationArgs:
 
 
 @pulumi.input_type
-class _TopicRuleDestinationState:
+calass _TopicRuleDestinationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 vpc_configuration: Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']] = None):
+                 vpc_configuration: Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArrgs']] = None):
         """
         Input properties used for looking up and filtering TopicRuleDestination resources.
         :param pulumi.Input[str] arn: The ARN of the topic rule destination
         :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
-        :param pulumi.Input['TopicRuleDestinationVpcConfigurationArgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        :param pulumi.Input['TopicRuleDestinationVpcConfigurationArrgs'] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -97,24 +97,24 @@ class _TopicRuleDestinationState:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArrgs']]:
         """
         Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: Optional[pulumi.Input['TopicRuleDestinationVpcConfigurationArrgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
-class TopicRuleDestination(pulumi.CustomResource):
+calass TopicRuleDestination(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']]] = None,
+                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArrgs']]] = None,
                  __props__=None):
         """
         ## Import
@@ -128,13 +128,13 @@ class TopicRuleDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
-        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArrgs']] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TopicRuleDestinationArgs,
+                 args: TopicRuleDestinationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -146,12 +146,12 @@ class TopicRuleDestination(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TopicRuleDestinationArgs args: The arguments to use to populate this resource's properties.
+        :param TopicRuleDestinationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TopicRuleDestinationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TopicRuleDestinationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -161,7 +161,7 @@ class TopicRuleDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']]] = None,
+                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -169,7 +169,7 @@ class TopicRuleDestination(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TopicRuleDestinationArgs.__new__(TopicRuleDestinationArgs)
+            __props__ = TopicRuleDestinationArrgs.__new__(TopicRuleDestinationArrgs)
 
             __props__.__dict__["enabled"] = enabled
             if vpc_configuration is None and not opts.urn:
@@ -188,7 +188,7 @@ class TopicRuleDestination(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']]] = None) -> 'TopicRuleDestination':
+            vpc_configuration: Optional[pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArrgs']]] = None) -> 'TopicRuleDestination':
         """
         Get an existing TopicRuleDestination resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -198,7 +198,7 @@ class TopicRuleDestination(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the topic rule destination
         :param pulumi.Input[bool] enabled: Whether or not to enable the destination. Default: `true`.
-        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArgs']] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+        :param pulumi.Input[pulumi.InputType['TopicRuleDestinationVpcConfigurationArrgs']] vpc_configuration: Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

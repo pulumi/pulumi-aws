@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PolicyAttachmentArgs', 'PolicyAttachment']
+__all__ = ['PolicyAttachmentArrgs', 'PolicyAttachment']
 
 @pulumi.input_type
-class PolicyAttachmentArgs:
+calass PolicyAttachmentArrgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[str],
                  target_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class PolicyAttachmentArgs:
 
 
 @pulumi.input_type
-class _PolicyAttachmentState:
+calass _PolicyAttachmentState:
     def __init__(__self__, *,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
@@ -121,7 +121,7 @@ class _PolicyAttachmentState:
         pulumi.set(self, "target_id", value)
 
 
-class PolicyAttachment(pulumi.CustomResource):
+calass PolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -185,7 +185,7 @@ class PolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PolicyAttachmentArgs,
+                 args: PolicyAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
@@ -233,12 +233,12 @@ class PolicyAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param PolicyAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -257,7 +257,7 @@ class PolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PolicyAttachmentArgs.__new__(PolicyAttachmentArgs)
+            __props__ = PolicyAttachmentArrgs.__new__(PolicyAttachmentArrgs)
 
             if policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_id'")

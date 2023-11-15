@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ThingArgs', 'Thing']
+__all__ = ['ThingArrgs', 'Thing']
 
 @pulumi.input_type
-class ThingArgs:
+calass ThingArrgs:
     def __init__(__self__, *,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -68,7 +68,7 @@ class ThingArgs:
 
 
 @pulumi.input_type
-class _ThingState:
+calass _ThingState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -171,7 +171,7 @@ class _ThingState:
         pulumi.set(self, "version", value)
 
 
-class Thing(pulumi.CustomResource):
+calass Thing(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -212,7 +212,7 @@ class Thing(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ThingArgs] = None,
+                 args: Optional[ThingArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates and manages an AWS IoT Thing.
@@ -237,12 +237,12 @@ class Thing(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ThingArgs args: The arguments to use to populate this resource's properties.
+        :param ThingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ThingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ThingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -261,7 +261,7 @@ class Thing(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ThingArgs.__new__(ThingArgs)
+            __props__ = ThingArrgs.__new__(ThingArrgs)
 
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["name"] = name

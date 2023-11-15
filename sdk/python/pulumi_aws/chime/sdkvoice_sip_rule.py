@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SdkvoiceSipRuleArgs', 'SdkvoiceSipRule']
+__all__ = ['SdkvoiceSipRuleArrgs', 'SdkvoiceSipRule']
 
 @pulumi.input_type
-class SdkvoiceSipRuleArgs:
+calass SdkvoiceSipRuleArrgs:
     def __init__(__self__, *,
-                 target_applications: pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]],
+                 target_applications: pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArrgs']]],
                  trigger_type: pulumi.Input[str],
                  trigger_value: pulumi.Input[str],
                  disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SdkvoiceSipRule resource.
-        :param pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
+        :param pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArrgs']]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         :param pulumi.Input[str] trigger_type: The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         :param pulumi.Input[str] trigger_value: If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
                
@@ -41,14 +41,14 @@ class SdkvoiceSipRuleArgs:
 
     @property
     @pulumi.getter(name="targetApplications")
-    def target_applications(self) -> pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]]:
+    def target_applications(self) -> pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArrgs']]]:
         """
         List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         """
         return pulumi.get(self, "target_applications")
 
     @target_applications.setter
-    def target_applications(self, value: pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]]):
+    def target_applications(self, value: pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArrgs']]]):
         pulumi.set(self, "target_applications", value)
 
     @property
@@ -103,18 +103,18 @@ class SdkvoiceSipRuleArgs:
 
 
 @pulumi.input_type
-class _SdkvoiceSipRuleState:
+calass _SdkvoiceSipRuleState:
     def __init__(__self__, *,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 target_applications: Optional[pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]]] = None,
+                 target_applications: Optional[pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArrgs']]]] = None,
                  trigger_type: Optional[pulumi.Input[str]] = None,
                  trigger_value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SdkvoiceSipRule resources.
         :param pulumi.Input[bool] disabled: Enables or disables a rule. You must disable rules before you can delete them.
         :param pulumi.Input[str] name: The name of the SIP rule.
-        :param pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
+        :param pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArrgs']]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         :param pulumi.Input[str] trigger_type: The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         :param pulumi.Input[str] trigger_value: If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
                
@@ -157,14 +157,14 @@ class _SdkvoiceSipRuleState:
 
     @property
     @pulumi.getter(name="targetApplications")
-    def target_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]]]:
+    def target_applications(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArrgs']]]]:
         """
         List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         """
         return pulumi.get(self, "target_applications")
 
     @target_applications.setter
-    def target_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArgs']]]]):
+    def target_applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SdkvoiceSipRuleTargetApplicationArrgs']]]]):
         pulumi.set(self, "target_applications", value)
 
     @property
@@ -194,14 +194,14 @@ class _SdkvoiceSipRuleState:
         pulumi.set(self, "trigger_value", value)
 
 
-class SdkvoiceSipRule(pulumi.CustomResource):
+calass SdkvoiceSipRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 target_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArgs']]]]] = None,
+                 target_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArrgs']]]]] = None,
                  trigger_type: Optional[pulumi.Input[str]] = None,
                  trigger_value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -218,7 +218,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         example = aws.chime.SdkvoiceSipRule("example",
             trigger_type="RequestUriHostname",
             trigger_value=aws_chime_voice_connector["example-voice-connector"]["outbound_host_name"],
-            target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArgs(
+            target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArrgs(
                 priority=1,
                 sip_media_application_id=aws_chimesdkvoice_sip_media_application["example-sma"]["id"],
                 aws_region="us-east-1",
@@ -237,7 +237,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disabled: Enables or disables a rule. You must disable rules before you can delete them.
         :param pulumi.Input[str] name: The name of the SIP rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArgs']]]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArrgs']]]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         :param pulumi.Input[str] trigger_type: The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         :param pulumi.Input[str] trigger_value: If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
                
@@ -247,7 +247,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SdkvoiceSipRuleArgs,
+                 args: SdkvoiceSipRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
@@ -262,7 +262,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         example = aws.chime.SdkvoiceSipRule("example",
             trigger_type="RequestUriHostname",
             trigger_value=aws_chime_voice_connector["example-voice-connector"]["outbound_host_name"],
-            target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArgs(
+            target_applications=[aws.chime.SdkvoiceSipRuleTargetApplicationArrgs(
                 priority=1,
                 sip_media_application_id=aws_chimesdkvoice_sip_media_application["example-sma"]["id"],
                 aws_region="us-east-1",
@@ -278,12 +278,12 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SdkvoiceSipRuleArgs args: The arguments to use to populate this resource's properties.
+        :param SdkvoiceSipRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SdkvoiceSipRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SdkvoiceSipRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -294,7 +294,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 target_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArgs']]]]] = None,
+                 target_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArrgs']]]]] = None,
                  trigger_type: Optional[pulumi.Input[str]] = None,
                  trigger_value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -304,7 +304,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SdkvoiceSipRuleArgs.__new__(SdkvoiceSipRuleArgs)
+            __props__ = SdkvoiceSipRuleArrgs.__new__(SdkvoiceSipRuleArrgs)
 
             __props__.__dict__["disabled"] = disabled
             __props__.__dict__["name"] = name
@@ -329,7 +329,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             disabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            target_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArgs']]]]] = None,
+            target_applications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArrgs']]]]] = None,
             trigger_type: Optional[pulumi.Input[str]] = None,
             trigger_value: Optional[pulumi.Input[str]] = None) -> 'SdkvoiceSipRule':
         """
@@ -341,7 +341,7 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disabled: Enables or disables a rule. You must disable rules before you can delete them.
         :param pulumi.Input[str] name: The name of the SIP rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArgs']]]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SdkvoiceSipRuleTargetApplicationArrgs']]]] target_applications: List of SIP media applications with priority and AWS Region. Only one SIP application per AWS Region can be used. See `target_applications`.
         :param pulumi.Input[str] trigger_type: The type of trigger assigned to the SIP rule in `trigger_value`. Valid values are `RequestUriHostname` or `ToPhoneNumber`.
         :param pulumi.Input[str] trigger_value: If `trigger_type` is `RequestUriHostname`, the value can be the outbound host name of an Amazon Chime Voice Connector. If `trigger_type` is `ToPhoneNumber`, the value can be a customer-owned phone number in the E164 format. The Sip Media Application specified in the Sip Rule is triggered if the request URI in an incoming SIP request matches the `RequestUriHostname`, or if the "To" header in the incoming SIP request matches the `ToPhoneNumber` value.
                

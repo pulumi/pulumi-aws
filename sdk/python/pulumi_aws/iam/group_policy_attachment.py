@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GroupPolicyAttachmentArgs', 'GroupPolicyAttachment']
+__all__ = ['GroupPolicyAttachmentArrgs', 'GroupPolicyAttachment']
 
 @pulumi.input_type
-class GroupPolicyAttachmentArgs:
+calass GroupPolicyAttachmentArrgs:
     def __init__(__self__, *,
                  group: pulumi.Input[str],
                  policy_arn: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class GroupPolicyAttachmentArgs:
 
 
 @pulumi.input_type
-class _GroupPolicyAttachmentState:
+calass _GroupPolicyAttachmentState:
     def __init__(__self__, *,
                  group: Optional[pulumi.Input[str]] = None,
                  policy_arn: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _GroupPolicyAttachmentState:
         pulumi.set(self, "policy_arn", value)
 
 
-class GroupPolicyAttachment(pulumi.CustomResource):
+calass GroupPolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -134,7 +134,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupPolicyAttachmentArgs,
+                 args: GroupPolicyAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a Managed IAM Policy to an IAM group
@@ -165,12 +165,12 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GroupPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param GroupPolicyAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GroupPolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GroupPolicyAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -188,7 +188,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GroupPolicyAttachmentArgs.__new__(GroupPolicyAttachmentArgs)
+            __props__ = GroupPolicyAttachmentArrgs.__new__(GroupPolicyAttachmentArrgs)
 
             if group is None and not opts.urn:
                 raise TypeError("Missing required property 'group'")

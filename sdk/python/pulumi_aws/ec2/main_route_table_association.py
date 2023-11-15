@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MainRouteTableAssociationArgs', 'MainRouteTableAssociation']
+__all__ = ['MainRouteTableAssociationArrgs', 'MainRouteTableAssociation']
 
 @pulumi.input_type
-class MainRouteTableAssociationArgs:
+calass MainRouteTableAssociationArrgs:
     def __init__(__self__, *,
                  route_table_id: pulumi.Input[str],
                  vpc_id: pulumi.Input[str]):
@@ -52,7 +52,7 @@ class MainRouteTableAssociationArgs:
 
 
 @pulumi.input_type
-class _MainRouteTableAssociationState:
+calass _MainRouteTableAssociationState:
     def __init__(__self__, *,
                  original_route_table_id: Optional[pulumi.Input[str]] = None,
                  route_table_id: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class _MainRouteTableAssociationState:
         pulumi.set(self, "vpc_id", value)
 
 
-class MainRouteTableAssociation(pulumi.CustomResource):
+calass MainRouteTableAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,7 +152,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MainRouteTableAssociationArgs,
+                 args: MainRouteTableAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource for managing the main routing table of a VPC.
@@ -180,12 +180,12 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         the `main_route_table_association` delete to work properly.
 
         :param str resource_name: The name of the resource.
-        :param MainRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param MainRouteTableAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MainRouteTableAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MainRouteTableAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -203,7 +203,7 @@ class MainRouteTableAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MainRouteTableAssociationArgs.__new__(MainRouteTableAssociationArgs)
+            __props__ = MainRouteTableAssociationArrgs.__new__(MainRouteTableAssociationArrgs)
 
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")

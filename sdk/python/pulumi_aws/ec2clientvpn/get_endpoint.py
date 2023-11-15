@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEndpointResult:
+calass GetEndpointResult:
     """
     A collection of values returned by getEndpoint.
     """
@@ -259,7 +259,7 @@ class GetEndpointResult:
         return pulumi.get(self, "vpn_port")
 
 
-class AwaitableGetEndpointResult(GetEndpointResult):
+calass AwaitableGetEndpointResult(GetEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -290,7 +290,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
 
 
 def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
-                 filters: Optional[Sequence[pulumi.InputType['GetEndpointFilterArgs']]] = None,
+                 filters: Optional[Sequence[pulumi.InputType['GetEndpointFilterArrgs']]] = None,
                  tags: Optional[Mapping[str, str]] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
@@ -303,7 +303,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2clientvpn.get_endpoint(filters=[aws.ec2clientvpn.GetEndpointFilterArgs(
+    example = aws.ec2clientvpn.get_endpoint(filters=[aws.ec2clientvpn.GetEndpointFilterArrgs(
         name="tag:Name",
         values=["ExampleVpn"],
     )])
@@ -319,7 +319,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
 
 
     :param str client_vpn_endpoint_id: ID of the Client VPN endpoint.
-    :param Sequence[pulumi.InputType['GetEndpointFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetEndpointFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """
     __args__ = dict()
@@ -356,7 +356,7 @@ def get_endpoint(client_vpn_endpoint_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_endpoint)
 def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
-                        filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEndpointFilterArgs']]]]] = None,
+                        filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetEndpointFilterArrgs']]]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
@@ -369,7 +369,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2clientvpn.get_endpoint(filters=[aws.ec2clientvpn.GetEndpointFilterArgs(
+    example = aws.ec2clientvpn.get_endpoint(filters=[aws.ec2clientvpn.GetEndpointFilterArrgs(
         name="tag:Name",
         values=["ExampleVpn"],
     )])
@@ -385,7 +385,7 @@ def get_endpoint_output(client_vpn_endpoint_id: Optional[pulumi.Input[Optional[s
 
 
     :param str client_vpn_endpoint_id: ID of the Client VPN endpoint.
-    :param Sequence[pulumi.InputType['GetEndpointFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetEndpointFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired endpoint.
     """
     ...

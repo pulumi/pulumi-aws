@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['KeyspaceArgs', 'Keyspace']
+__all__ = ['KeyspaceArrgs', 'Keyspace']
 
 @pulumi.input_type
-class KeyspaceArgs:
+calass KeyspaceArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -56,7 +56,7 @@ class KeyspaceArgs:
 
 
 @pulumi.input_type
-class _KeyspaceState:
+calass _KeyspaceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _KeyspaceState:
         pulumi.set(self, "tags_all", value)
 
 
-class Keyspace(pulumi.CustomResource):
+calass Keyspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -178,7 +178,7 @@ class Keyspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[KeyspaceArgs] = None,
+                 args: Optional[KeyspaceArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Keyspaces Keyspace.
@@ -203,12 +203,12 @@ class Keyspace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KeyspaceArgs args: The arguments to use to populate this resource's properties.
+        :param KeyspaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KeyspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KeyspaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -226,7 +226,7 @@ class Keyspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
+            __props__ = KeyspaceArrgs.__new__(KeyspaceArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags

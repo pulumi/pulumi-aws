@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AppArgs', 'App']
+__all__ = ['AppArrgs', 'App']
 
 @pulumi.input_type
-class AppArgs:
+calass AppArrgs:
     def __init__(__self__, *,
                  app_name: pulumi.Input[str],
                  app_type: pulumi.Input[str],
                  domain_id: pulumi.Input[str],
-                 resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
+                 resource_spec: Optional[pulumi.Input['AppResourceSpecArrgs']] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None):
@@ -28,7 +28,7 @@ class AppArgs:
         :param pulumi.Input[str] app_name: The name of the app.
         :param pulumi.Input[str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
         :param pulumi.Input[str] domain_id: The domain ID.
-        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        :param pulumi.Input['AppResourceSpecArrgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         :param pulumi.Input[str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_profile_name: The user profile name. At least one of `user_profile_name` or `space_name` required.
@@ -83,14 +83,14 @@ class AppArgs:
 
     @property
     @pulumi.getter(name="resourceSpec")
-    def resource_spec(self) -> Optional[pulumi.Input['AppResourceSpecArgs']]:
+    def resource_spec(self) -> Optional[pulumi.Input['AppResourceSpecArrgs']]:
         """
         The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         """
         return pulumi.get(self, "resource_spec")
 
     @resource_spec.setter
-    def resource_spec(self, value: Optional[pulumi.Input['AppResourceSpecArgs']]):
+    def resource_spec(self, value: Optional[pulumi.Input['AppResourceSpecArrgs']]):
         pulumi.set(self, "resource_spec", value)
 
     @property
@@ -131,13 +131,13 @@ class AppArgs:
 
 
 @pulumi.input_type
-class _AppState:
+calass _AppState:
     def __init__(__self__, *,
                  app_name: Optional[pulumi.Input[str]] = None,
                  app_type: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 resource_spec: Optional[pulumi.Input['AppResourceSpecArgs']] = None,
+                 resource_spec: Optional[pulumi.Input['AppResourceSpecArrgs']] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -148,7 +148,7 @@ class _AppState:
         :param pulumi.Input[str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the app.
         :param pulumi.Input[str] domain_id: The domain ID.
-        :param pulumi.Input['AppResourceSpecArgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        :param pulumi.Input['AppResourceSpecArrgs'] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         :param pulumi.Input[str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -226,14 +226,14 @@ class _AppState:
 
     @property
     @pulumi.getter(name="resourceSpec")
-    def resource_spec(self) -> Optional[pulumi.Input['AppResourceSpecArgs']]:
+    def resource_spec(self) -> Optional[pulumi.Input['AppResourceSpecArrgs']]:
         """
         The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         """
         return pulumi.get(self, "resource_spec")
 
     @resource_spec.setter
-    def resource_spec(self, value: Optional[pulumi.Input['AppResourceSpecArgs']]):
+    def resource_spec(self, value: Optional[pulumi.Input['AppResourceSpecArrgs']]):
         pulumi.set(self, "resource_spec", value)
 
     @property
@@ -288,7 +288,7 @@ class _AppState:
         pulumi.set(self, "user_profile_name", value)
 
 
-class App(pulumi.CustomResource):
+calass App(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -296,7 +296,7 @@ class App(pulumi.CustomResource):
                  app_name: Optional[pulumi.Input[str]] = None,
                  app_type: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
+                 resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArrgs']]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
@@ -331,7 +331,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] app_name: The name of the app.
         :param pulumi.Input[str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
         :param pulumi.Input[str] domain_id: The domain ID.
-        :param pulumi.Input[pulumi.InputType['AppResourceSpecArgs']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        :param pulumi.Input[pulumi.InputType['AppResourceSpecArrgs']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         :param pulumi.Input[str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_profile_name: The user profile name. At least one of `user_profile_name` or `space_name` required.
@@ -340,7 +340,7 @@ class App(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AppArgs,
+                 args: AppArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker App resource.
@@ -368,12 +368,12 @@ class App(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AppArgs args: The arguments to use to populate this resource's properties.
+        :param AppArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AppArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AppArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -385,7 +385,7 @@ class App(pulumi.CustomResource):
                  app_name: Optional[pulumi.Input[str]] = None,
                  app_type: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
-                 resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
+                 resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArrgs']]] = None,
                  space_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
@@ -396,7 +396,7 @@ class App(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AppArgs.__new__(AppArgs)
+            __props__ = AppArrgs.__new__(AppArrgs)
 
             if app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'app_name'")
@@ -429,7 +429,7 @@ class App(pulumi.CustomResource):
             app_type: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             domain_id: Optional[pulumi.Input[str]] = None,
-            resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArgs']]] = None,
+            resource_spec: Optional[pulumi.Input[pulumi.InputType['AppResourceSpecArrgs']]] = None,
             space_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -445,7 +445,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] app_type: The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway` and `TensorBoard`.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the app.
         :param pulumi.Input[str] domain_id: The domain ID.
-        :param pulumi.Input[pulumi.InputType['AppResourceSpecArgs']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
+        :param pulumi.Input[pulumi.InputType['AppResourceSpecArrgs']] resource_spec: The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.See Resource Spec below.
         :param pulumi.Input[str] space_name: The name of the space. At least one of `user_profile_name` or `space_name` required.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServiceNetworkVpcAssociationArgs', 'ServiceNetworkVpcAssociation']
+__all__ = ['ServiceNetworkVpcAssociationArrgs', 'ServiceNetworkVpcAssociation']
 
 @pulumi.input_type
-class ServiceNetworkVpcAssociationArgs:
+calass ServiceNetworkVpcAssociationArrgs:
     def __init__(__self__, *,
                  service_network_identifier: pulumi.Input[str],
                  vpc_identifier: pulumi.Input[str],
@@ -84,7 +84,7 @@ class ServiceNetworkVpcAssociationArgs:
 
 
 @pulumi.input_type
-class _ServiceNetworkVpcAssociationState:
+calass _ServiceNetworkVpcAssociationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_by: Optional[pulumi.Input[str]] = None,
@@ -227,7 +227,7 @@ class _ServiceNetworkVpcAssociationState:
         pulumi.set(self, "vpc_identifier", value)
 
 
-class ServiceNetworkVpcAssociation(pulumi.CustomResource):
+calass ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -273,7 +273,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceNetworkVpcAssociationArgs,
+                 args: ServiceNetworkVpcAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS VPC Lattice Service Network VPC Association.
@@ -300,12 +300,12 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceNetworkVpcAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceNetworkVpcAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceNetworkVpcAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceNetworkVpcAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -325,7 +325,7 @@ class ServiceNetworkVpcAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceNetworkVpcAssociationArgs.__new__(ServiceNetworkVpcAssociationArgs)
+            __props__ = ServiceNetworkVpcAssociationArrgs.__new__(ServiceNetworkVpcAssociationArrgs)
 
             __props__.__dict__["security_group_ids"] = security_group_ids
             if service_network_identifier is None and not opts.urn:

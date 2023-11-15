@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EndpointArgs', 'Endpoint']
+__all__ = ['EndpointArrgs', 'Endpoint']
 
 @pulumi.input_type
-class EndpointArgs:
+calass EndpointArrgs:
     def __init__(__self__, *,
                  application_domain: pulumi.Input[str],
                  attachment_type: pulumi.Input[str],
@@ -23,10 +23,10 @@ class EndpointArgs:
                  endpoint_type: pulumi.Input[str],
                  verified_access_group_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 load_balancer_options: Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']] = None,
-                 network_interface_options: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']] = None,
+                 load_balancer_options: Optional[pulumi.Input['EndpointLoadBalancerOptionsArrgs']] = None,
+                 network_interface_options: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArrgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
@@ -39,10 +39,10 @@ class EndpointArgs:
                
                The following arguments are optional:
         :param pulumi.Input[str] description: A description for the Verified Access endpoint.
-        :param pulumi.Input['EndpointLoadBalancerOptionsArgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input['EndpointNetworkInterfaceOptionsArgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
+        :param pulumi.Input['EndpointLoadBalancerOptionsArrgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+        :param pulumi.Input['EndpointNetworkInterfaceOptionsArrgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input['EndpointSseSpecificationArgs'] sse_specification: The options in use for server side encryption.
+        :param pulumi.Input['EndpointSseSpecificationArrgs'] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application_domain", application_domain)
@@ -152,26 +152,26 @@ class EndpointArgs:
 
     @property
     @pulumi.getter(name="loadBalancerOptions")
-    def load_balancer_options(self) -> Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']]:
+    def load_balancer_options(self) -> Optional[pulumi.Input['EndpointLoadBalancerOptionsArrgs']]:
         """
         The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         """
         return pulumi.get(self, "load_balancer_options")
 
     @load_balancer_options.setter
-    def load_balancer_options(self, value: Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']]):
+    def load_balancer_options(self, value: Optional[pulumi.Input['EndpointLoadBalancerOptionsArrgs']]):
         pulumi.set(self, "load_balancer_options", value)
 
     @property
     @pulumi.getter(name="networkInterfaceOptions")
-    def network_interface_options(self) -> Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']]:
+    def network_interface_options(self) -> Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArrgs']]:
         """
         The network interface details. This parameter is required if the endpoint type is `network-interface`.
         """
         return pulumi.get(self, "network_interface_options")
 
     @network_interface_options.setter
-    def network_interface_options(self, value: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']]):
+    def network_interface_options(self, value: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArrgs']]):
         pulumi.set(self, "network_interface_options", value)
 
     @property
@@ -188,14 +188,14 @@ class EndpointArgs:
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['EndpointSseSpecificationArgs']]:
+    def sse_specification(self) -> Optional[pulumi.Input['EndpointSseSpecificationArrgs']]:
         """
         The options in use for server side encryption.
         """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['EndpointSseSpecificationArgs']]):
+    def sse_specification(self, value: Optional[pulumi.Input['EndpointSseSpecificationArrgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @property
@@ -212,7 +212,7 @@ class EndpointArgs:
 
 
 @pulumi.input_type
-class _EndpointState:
+calass _EndpointState:
     def __init__(__self__, *,
                  application_domain: Optional[pulumi.Input[str]] = None,
                  attachment_type: Optional[pulumi.Input[str]] = None,
@@ -222,10 +222,10 @@ class _EndpointState:
                  endpoint_domain: Optional[pulumi.Input[str]] = None,
                  endpoint_domain_prefix: Optional[pulumi.Input[str]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
-                 load_balancer_options: Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']] = None,
-                 network_interface_options: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']] = None,
+                 load_balancer_options: Optional[pulumi.Input['EndpointLoadBalancerOptionsArrgs']] = None,
+                 network_interface_options: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArrgs']] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArgs']] = None,
+                 sse_specification: Optional[pulumi.Input['EndpointSseSpecificationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[str]] = None,
@@ -240,10 +240,10 @@ class _EndpointState:
         :param pulumi.Input[str] endpoint_domain: A DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input['EndpointLoadBalancerOptionsArgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input['EndpointNetworkInterfaceOptionsArgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
+        :param pulumi.Input['EndpointLoadBalancerOptionsArrgs'] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+        :param pulumi.Input['EndpointNetworkInterfaceOptionsArrgs'] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input['EndpointSseSpecificationArgs'] sse_specification: The options in use for server side encryption.
+        :param pulumi.Input['EndpointSseSpecificationArrgs'] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
                
@@ -383,26 +383,26 @@ class _EndpointState:
 
     @property
     @pulumi.getter(name="loadBalancerOptions")
-    def load_balancer_options(self) -> Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']]:
+    def load_balancer_options(self) -> Optional[pulumi.Input['EndpointLoadBalancerOptionsArrgs']]:
         """
         The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
         """
         return pulumi.get(self, "load_balancer_options")
 
     @load_balancer_options.setter
-    def load_balancer_options(self, value: Optional[pulumi.Input['EndpointLoadBalancerOptionsArgs']]):
+    def load_balancer_options(self, value: Optional[pulumi.Input['EndpointLoadBalancerOptionsArrgs']]):
         pulumi.set(self, "load_balancer_options", value)
 
     @property
     @pulumi.getter(name="networkInterfaceOptions")
-    def network_interface_options(self) -> Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']]:
+    def network_interface_options(self) -> Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArrgs']]:
         """
         The network interface details. This parameter is required if the endpoint type is `network-interface`.
         """
         return pulumi.get(self, "network_interface_options")
 
     @network_interface_options.setter
-    def network_interface_options(self, value: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArgs']]):
+    def network_interface_options(self, value: Optional[pulumi.Input['EndpointNetworkInterfaceOptionsArrgs']]):
         pulumi.set(self, "network_interface_options", value)
 
     @property
@@ -419,14 +419,14 @@ class _EndpointState:
 
     @property
     @pulumi.getter(name="sseSpecification")
-    def sse_specification(self) -> Optional[pulumi.Input['EndpointSseSpecificationArgs']]:
+    def sse_specification(self) -> Optional[pulumi.Input['EndpointSseSpecificationArrgs']]:
         """
         The options in use for server side encryption.
         """
         return pulumi.get(self, "sse_specification")
 
     @sse_specification.setter
-    def sse_specification(self, value: Optional[pulumi.Input['EndpointSseSpecificationArgs']]):
+    def sse_specification(self, value: Optional[pulumi.Input['EndpointSseSpecificationArrgs']]):
         pulumi.set(self, "sse_specification", value)
 
     @property
@@ -477,7 +477,7 @@ class _EndpointState:
         pulumi.set(self, "verified_access_instance_id", value)
 
 
-class Endpoint(pulumi.CustomResource):
+calass Endpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -488,10 +488,10 @@ class Endpoint(pulumi.CustomResource):
                  domain_certificate_arn: Optional[pulumi.Input[str]] = None,
                  endpoint_domain_prefix: Optional[pulumi.Input[str]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
-                 load_balancer_options: Optional[pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArgs']]] = None,
-                 network_interface_options: Optional[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArgs']]] = None,
+                 load_balancer_options: Optional[pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArrgs']]] = None,
+                 network_interface_options: Optional[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArrgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['EndpointSseSpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['EndpointSseSpecificationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -512,7 +512,7 @@ class Endpoint(pulumi.CustomResource):
             domain_certificate_arn=aws_acm_certificate["example"]["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="load-balancer",
-            load_balancer_options=aws.verifiedaccess.EndpointLoadBalancerOptionsArgs(
+            load_balancer_options=aws.verifiedaccess.EndpointLoadBalancerOptionsArrgs(
                 load_balancer_arn=aws_lb["example"]["arn"],
                 port=443,
                 protocol="https",
@@ -534,7 +534,7 @@ class Endpoint(pulumi.CustomResource):
             domain_certificate_arn=aws_acm_certificate["example"]["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
-            network_interface_options=aws.verifiedaccess.EndpointNetworkInterfaceOptionsArgs(
+            network_interface_options=aws.verifiedaccess.EndpointNetworkInterfaceOptionsArrgs(
                 network_interface_id=aws_network_interface["example"]["id"],
                 port=443,
                 protocol="https",
@@ -561,10 +561,10 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] domain_certificate_arn: The ARN of the public TLS/SSL certificate in AWS Certificate Manager to associate with the endpoint. The CN in the certificate must match the DNS name your end users will use to reach your application.
         :param pulumi.Input[str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArgs']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArgs']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
+        :param pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArrgs']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+        :param pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArrgs']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input[pulumi.InputType['EndpointSseSpecificationArgs']] sse_specification: The options in use for server side encryption.
+        :param pulumi.Input[pulumi.InputType['EndpointSseSpecificationArrgs']] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
                
@@ -574,7 +574,7 @@ class Endpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointArgs,
+                 args: EndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
@@ -593,7 +593,7 @@ class Endpoint(pulumi.CustomResource):
             domain_certificate_arn=aws_acm_certificate["example"]["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="load-balancer",
-            load_balancer_options=aws.verifiedaccess.EndpointLoadBalancerOptionsArgs(
+            load_balancer_options=aws.verifiedaccess.EndpointLoadBalancerOptionsArrgs(
                 load_balancer_arn=aws_lb["example"]["arn"],
                 port=443,
                 protocol="https",
@@ -615,7 +615,7 @@ class Endpoint(pulumi.CustomResource):
             domain_certificate_arn=aws_acm_certificate["example"]["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
-            network_interface_options=aws.verifiedaccess.EndpointNetworkInterfaceOptionsArgs(
+            network_interface_options=aws.verifiedaccess.EndpointNetworkInterfaceOptionsArrgs(
                 network_interface_id=aws_network_interface["example"]["id"],
                 port=443,
                 protocol="https",
@@ -635,12 +635,12 @@ class Endpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -655,10 +655,10 @@ class Endpoint(pulumi.CustomResource):
                  domain_certificate_arn: Optional[pulumi.Input[str]] = None,
                  endpoint_domain_prefix: Optional[pulumi.Input[str]] = None,
                  endpoint_type: Optional[pulumi.Input[str]] = None,
-                 load_balancer_options: Optional[pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArgs']]] = None,
-                 network_interface_options: Optional[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArgs']]] = None,
+                 load_balancer_options: Optional[pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArrgs']]] = None,
+                 network_interface_options: Optional[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArrgs']]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 sse_specification: Optional[pulumi.Input[pulumi.InputType['EndpointSseSpecificationArgs']]] = None,
+                 sse_specification: Optional[pulumi.Input[pulumi.InputType['EndpointSseSpecificationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  verified_access_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -668,7 +668,7 @@ class Endpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointArgs.__new__(EndpointArgs)
+            __props__ = EndpointArrgs.__new__(EndpointArrgs)
 
             if application_domain is None and not opts.urn:
                 raise TypeError("Missing required property 'application_domain'")
@@ -718,10 +718,10 @@ class Endpoint(pulumi.CustomResource):
             endpoint_domain: Optional[pulumi.Input[str]] = None,
             endpoint_domain_prefix: Optional[pulumi.Input[str]] = None,
             endpoint_type: Optional[pulumi.Input[str]] = None,
-            load_balancer_options: Optional[pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArgs']]] = None,
-            network_interface_options: Optional[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArgs']]] = None,
+            load_balancer_options: Optional[pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArrgs']]] = None,
+            network_interface_options: Optional[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArrgs']]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            sse_specification: Optional[pulumi.Input[pulumi.InputType['EndpointSseSpecificationArgs']]] = None,
+            sse_specification: Optional[pulumi.Input[pulumi.InputType['EndpointSseSpecificationArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             verified_access_group_id: Optional[pulumi.Input[str]] = None,
@@ -741,10 +741,10 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_domain: A DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_domain_prefix: A custom identifier that is prepended to the DNS name that is generated for the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of Verified Access endpoint to create. Currently `load-balancer` or `network-interface` are supported.
-        :param pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArgs']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
-        :param pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArgs']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
+        :param pulumi.Input[pulumi.InputType['EndpointLoadBalancerOptionsArrgs']] load_balancer_options: The load balancer details. This parameter is required if the endpoint type is `load-balancer`.
+        :param pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceOptionsArrgs']] network_interface_options: The network interface details. This parameter is required if the endpoint type is `network-interface`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: List of the the security groups IDs to associate with the Verified Access endpoint.
-        :param pulumi.Input[pulumi.InputType['EndpointSseSpecificationArgs']] sse_specification: The options in use for server side encryption.
+        :param pulumi.Input[pulumi.InputType['EndpointSseSpecificationArrgs']] sse_specification: The options in use for server side encryption.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the Verified Access Endpoint. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] verified_access_group_id: The ID of the Verified Access group to associate the endpoint with.
                

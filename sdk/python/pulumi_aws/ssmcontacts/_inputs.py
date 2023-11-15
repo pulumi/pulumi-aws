@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ContactChannelDeliveryAddressArgs',
-    'PlanStageArgs',
-    'PlanStageTargetArgs',
-    'PlanStageTargetChannelTargetInfoArgs',
-    'PlanStageTargetContactTargetInfoArgs',
+    'ContactChannelDeliveryAddressArrgs',
+    'PlanStageArrgs',
+    'PlanStageTargetArrgs',
+    'PlanStageTargetChannelTargetInfoArrgs',
+    'PlanStageTargetContactTargetInfoArrgs',
 ]
 
 @pulumi.input_type
-class ContactChannelDeliveryAddressArgs:
+calass ContactChannelDeliveryAddressArrgs:
     def __init__(__self__, *,
                  simple_address: pulumi.Input[str]):
         """
@@ -40,10 +40,10 @@ class ContactChannelDeliveryAddressArgs:
 
 
 @pulumi.input_type
-class PlanStageArgs:
+calass PlanStageArrgs:
     def __init__(__self__, *,
                  duration_in_minutes: pulumi.Input[int],
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArgs']]]] = None):
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArrgs']]]] = None):
         pulumi.set(__self__, "duration_in_minutes", duration_in_minutes)
         if targets is not None:
             pulumi.set(__self__, "targets", targets)
@@ -59,19 +59,19 @@ class PlanStageArgs:
 
     @property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArgs']]]]:
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArrgs']]]]:
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArgs']]]]):
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArrgs']]]]):
         pulumi.set(self, "targets", value)
 
 
 @pulumi.input_type
-class PlanStageTargetArgs:
+calass PlanStageTargetArrgs:
     def __init__(__self__, *,
-                 channel_target_info: Optional[pulumi.Input['PlanStageTargetChannelTargetInfoArgs']] = None,
-                 contact_target_info: Optional[pulumi.Input['PlanStageTargetContactTargetInfoArgs']] = None):
+                 channel_target_info: Optional[pulumi.Input['PlanStageTargetChannelTargetInfoArrgs']] = None,
+                 contact_target_info: Optional[pulumi.Input['PlanStageTargetContactTargetInfoArrgs']] = None):
         if channel_target_info is not None:
             pulumi.set(__self__, "channel_target_info", channel_target_info)
         if contact_target_info is not None:
@@ -79,25 +79,25 @@ class PlanStageTargetArgs:
 
     @property
     @pulumi.getter(name="channelTargetInfo")
-    def channel_target_info(self) -> Optional[pulumi.Input['PlanStageTargetChannelTargetInfoArgs']]:
+    def channel_target_info(self) -> Optional[pulumi.Input['PlanStageTargetChannelTargetInfoArrgs']]:
         return pulumi.get(self, "channel_target_info")
 
     @channel_target_info.setter
-    def channel_target_info(self, value: Optional[pulumi.Input['PlanStageTargetChannelTargetInfoArgs']]):
+    def channel_target_info(self, value: Optional[pulumi.Input['PlanStageTargetChannelTargetInfoArrgs']]):
         pulumi.set(self, "channel_target_info", value)
 
     @property
     @pulumi.getter(name="contactTargetInfo")
-    def contact_target_info(self) -> Optional[pulumi.Input['PlanStageTargetContactTargetInfoArgs']]:
+    def contact_target_info(self) -> Optional[pulumi.Input['PlanStageTargetContactTargetInfoArrgs']]:
         return pulumi.get(self, "contact_target_info")
 
     @contact_target_info.setter
-    def contact_target_info(self, value: Optional[pulumi.Input['PlanStageTargetContactTargetInfoArgs']]):
+    def contact_target_info(self, value: Optional[pulumi.Input['PlanStageTargetContactTargetInfoArrgs']]):
         pulumi.set(self, "contact_target_info", value)
 
 
 @pulumi.input_type
-class PlanStageTargetChannelTargetInfoArgs:
+calass PlanStageTargetChannelTargetInfoArrgs:
     def __init__(__self__, *,
                  contact_channel_id: pulumi.Input[str],
                  retry_interval_in_minutes: Optional[pulumi.Input[int]] = None):
@@ -125,7 +125,7 @@ class PlanStageTargetChannelTargetInfoArgs:
 
 
 @pulumi.input_type
-class PlanStageTargetContactTargetInfoArgs:
+calass PlanStageTargetContactTargetInfoArrgs:
     def __init__(__self__, *,
                  is_essential: pulumi.Input[bool],
                  contact_id: Optional[pulumi.Input[str]] = None):

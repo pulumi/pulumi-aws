@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTemplatesResult:
+calass GetTemplatesResult:
     """
     A collection of values returned by getTemplates.
     """
@@ -56,7 +56,7 @@ class GetTemplatesResult:
         return pulumi.get(self, "templates")
 
 
-class AwaitableGetTemplatesResult(GetTemplatesResult):
+calass AwaitableGetTemplatesResult(GetTemplatesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -68,7 +68,7 @@ class AwaitableGetTemplatesResult(GetTemplatesResult):
 
 
 def get_templates(region: Optional[str] = None,
-                  templates: Optional[Sequence[pulumi.InputType['GetTemplatesTemplateArgs']]] = None,
+                  templates: Optional[Sequence[pulumi.InputType['GetTemplatesTemplateArrgs']]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTemplatesResult:
     """
     Data source for managing an AWS Service Quotas Templates.
@@ -85,7 +85,7 @@ def get_templates(region: Optional[str] = None,
 
 
     :param str region: AWS Region to which the quota increases apply.
-    :param Sequence[pulumi.InputType['GetTemplatesTemplateArgs']] templates: A list of quota increase templates for specified region. See `templates`.
+    :param Sequence[pulumi.InputType['GetTemplatesTemplateArrgs']] templates: A list of quota increase templates for specified region. See `templates`.
     """
     __args__ = dict()
     __args__['region'] = region
@@ -101,7 +101,7 @@ def get_templates(region: Optional[str] = None,
 
 @_utilities.lift_output_func(get_templates)
 def get_templates_output(region: Optional[pulumi.Input[str]] = None,
-                         templates: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTemplatesTemplateArgs']]]]] = None,
+                         templates: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTemplatesTemplateArrgs']]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplatesResult]:
     """
     Data source for managing an AWS Service Quotas Templates.
@@ -118,6 +118,6 @@ def get_templates_output(region: Optional[pulumi.Input[str]] = None,
 
 
     :param str region: AWS Region to which the quota increases apply.
-    :param Sequence[pulumi.InputType['GetTemplatesTemplateArgs']] templates: A list of quota increase templates for specified region. See `templates`.
+    :param Sequence[pulumi.InputType['GetTemplatesTemplateArrgs']] templates: A list of quota increase templates for specified region. See `templates`.
     """
     ...

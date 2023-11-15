@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OrganizationAdminAccountRegistrationArgs', 'OrganizationAdminAccountRegistration']
+__all__ = ['OrganizationAdminAccountRegistrationArrgs', 'OrganizationAdminAccountRegistration']
 
 @pulumi.input_type
-class OrganizationAdminAccountRegistrationArgs:
+calass OrganizationAdminAccountRegistrationArrgs:
     def __init__(__self__, *,
                  admin_account_id: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class OrganizationAdminAccountRegistrationArgs:
 
 
 @pulumi.input_type
-class _OrganizationAdminAccountRegistrationState:
+calass _OrganizationAdminAccountRegistrationState:
     def __init__(__self__, *,
                  admin_account_id: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None):
@@ -74,7 +74,7 @@ class _OrganizationAdminAccountRegistrationState:
         pulumi.set(self, "organization_id", value)
 
 
-class OrganizationAdminAccountRegistration(pulumi.CustomResource):
+calass OrganizationAdminAccountRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -110,7 +110,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OrganizationAdminAccountRegistrationArgs,
+                 args: OrganizationAdminAccountRegistrationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing AWS Audit Manager Organization Admin Account Registration.
@@ -134,12 +134,12 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OrganizationAdminAccountRegistrationArgs args: The arguments to use to populate this resource's properties.
+        :param OrganizationAdminAccountRegistrationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OrganizationAdminAccountRegistrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationAdminAccountRegistrationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -156,7 +156,7 @@ class OrganizationAdminAccountRegistration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OrganizationAdminAccountRegistrationArgs.__new__(OrganizationAdminAccountRegistrationArgs)
+            __props__ = OrganizationAdminAccountRegistrationArrgs.__new__(OrganizationAdminAccountRegistrationArrgs)
 
             if admin_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'admin_account_id'")

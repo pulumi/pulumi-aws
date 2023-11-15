@@ -90,13 +90,13 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CatalogDatabaseCreateTableDefaultPermission(dict):
+calass CatalogDatabaseCreateTableDefaultPermission(dict):
     def __init__(__self__, *,
                  permissions: Optional[Sequence[str]] = None,
                  principal: Optional['outputs.CatalogDatabaseCreateTableDefaultPermissionPrincipal'] = None):
         """
         :param Sequence[str] permissions: The permissions that are granted to the principal.
-        :param 'CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs' principal: The principal who is granted permissions.. See `principal` below.
+        :param 'CatalogDatabaseCreateTableDefaultPermissionPrincipalArrgs' principal: The principal who is granted permissions.. See `principal` below.
         """
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
@@ -121,7 +121,7 @@ class CatalogDatabaseCreateTableDefaultPermission(dict):
 
 
 @pulumi.output_type
-class CatalogDatabaseCreateTableDefaultPermissionPrincipal(dict):
+calass CatalogDatabaseCreateTableDefaultPermissionPrincipal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -157,7 +157,7 @@ class CatalogDatabaseCreateTableDefaultPermissionPrincipal(dict):
 
 
 @pulumi.output_type
-class CatalogDatabaseTargetDatabase(dict):
+calass CatalogDatabaseTargetDatabase(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -217,7 +217,7 @@ class CatalogDatabaseTargetDatabase(dict):
 
 
 @pulumi.output_type
-class CatalogTableOpenTableFormatInput(dict):
+calass CatalogTableOpenTableFormatInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -238,7 +238,7 @@ class CatalogTableOpenTableFormatInput(dict):
     def __init__(__self__, *,
                  iceberg_input: 'outputs.CatalogTableOpenTableFormatInputIcebergInput'):
         """
-        :param 'CatalogTableOpenTableFormatInputIcebergInputArgs' iceberg_input: Configuration block for iceberg table config. See `iceberg_input` below.
+        :param 'CatalogTableOpenTableFormatInputIcebergInputArrgs' iceberg_input: Configuration block for iceberg table config. See `iceberg_input` below.
         """
         pulumi.set(__self__, "iceberg_input", iceberg_input)
 
@@ -252,7 +252,7 @@ class CatalogTableOpenTableFormatInput(dict):
 
 
 @pulumi.output_type
-class CatalogTableOpenTableFormatInputIcebergInput(dict):
+calass CatalogTableOpenTableFormatInputIcebergInput(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -299,7 +299,7 @@ class CatalogTableOpenTableFormatInputIcebergInput(dict):
 
 
 @pulumi.output_type
-class CatalogTablePartitionIndex(dict):
+calass CatalogTablePartitionIndex(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -355,7 +355,7 @@ class CatalogTablePartitionIndex(dict):
 
 
 @pulumi.output_type
-class CatalogTablePartitionKey(dict):
+calass CatalogTablePartitionKey(dict):
     def __init__(__self__, *,
                  name: str,
                  comment: Optional[str] = None,
@@ -397,7 +397,7 @@ class CatalogTablePartitionKey(dict):
 
 
 @pulumi.output_type
-class CatalogTableStorageDescriptor(dict):
+calass CatalogTableStorageDescriptor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -447,17 +447,17 @@ class CatalogTableStorageDescriptor(dict):
                  stored_as_sub_directories: Optional[bool] = None):
         """
         :param Sequence[str] bucket_columns: List of reducer grouping columns, clustering columns, and bucketing columns in the table.
-        :param Sequence['CatalogTableStorageDescriptorColumnArgs'] columns: Configuration block for columns in the table. See `columns` below.
+        :param Sequence['CatalogTableStorageDescriptorColumnArrgs'] columns: Configuration block for columns in the table. See `columns` below.
         :param bool compressed: Whether the data in the table is compressed.
         :param str input_format: Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         :param str location: Physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         :param int number_of_buckets: Must be specified if the table contains any dimension columns.
         :param str output_format: Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         :param Mapping[str, str] parameters: User-supplied properties in key-value form.
-        :param 'CatalogTableStorageDescriptorSchemaReferenceArgs' schema_reference: Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
-        :param 'CatalogTableStorageDescriptorSerDeInfoArgs' ser_de_info: Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
-        :param 'CatalogTableStorageDescriptorSkewedInfoArgs' skewed_info: Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
-        :param Sequence['CatalogTableStorageDescriptorSortColumnArgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
+        :param 'CatalogTableStorageDescriptorSchemaReferenceArrgs' schema_reference: Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
+        :param 'CatalogTableStorageDescriptorSerDeInfoArrgs' ser_de_info: Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
+        :param 'CatalogTableStorageDescriptorSkewedInfoArrgs' skewed_info: Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
+        :param Sequence['CatalogTableStorageDescriptorSortColumnArrgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         :param bool stored_as_sub_directories: Whether the table data is stored in subdirectories.
         """
         if bucket_columns is not None:
@@ -593,7 +593,7 @@ class CatalogTableStorageDescriptor(dict):
 
 
 @pulumi.output_type
-class CatalogTableStorageDescriptorColumn(dict):
+calass CatalogTableStorageDescriptorColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  comment: Optional[str] = None,
@@ -647,7 +647,7 @@ class CatalogTableStorageDescriptorColumn(dict):
 
 
 @pulumi.output_type
-class CatalogTableStorageDescriptorSchemaReference(dict):
+calass CatalogTableStorageDescriptorSchemaReference(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -675,7 +675,7 @@ class CatalogTableStorageDescriptorSchemaReference(dict):
                  schema_version_id: Optional[str] = None):
         """
         :param int schema_version_number: Version number of the schema.
-        :param 'CatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs' schema_id: Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
+        :param 'CatalogTableStorageDescriptorSchemaReferenceSchemaIdArrgs' schema_id: Configuration block that contains schema identity fields. Either this or the `schema_version_id` has to be provided. See `schema_id` below.
         :param str schema_version_id: Unique ID assigned to a version of the schema. Either this or the `schema_id` has to be provided.
         """
         pulumi.set(__self__, "schema_version_number", schema_version_number)
@@ -710,7 +710,7 @@ class CatalogTableStorageDescriptorSchemaReference(dict):
 
 
 @pulumi.output_type
-class CatalogTableStorageDescriptorSchemaReferenceSchemaId(dict):
+calass CatalogTableStorageDescriptorSchemaReferenceSchemaId(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -774,7 +774,7 @@ class CatalogTableStorageDescriptorSchemaReferenceSchemaId(dict):
 
 
 @pulumi.output_type
-class CatalogTableStorageDescriptorSerDeInfo(dict):
+calass CatalogTableStorageDescriptorSerDeInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -834,7 +834,7 @@ class CatalogTableStorageDescriptorSerDeInfo(dict):
 
 
 @pulumi.output_type
-class CatalogTableStorageDescriptorSkewedInfo(dict):
+calass CatalogTableStorageDescriptorSkewedInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -898,7 +898,7 @@ class CatalogTableStorageDescriptorSkewedInfo(dict):
 
 
 @pulumi.output_type
-class CatalogTableStorageDescriptorSortColumn(dict):
+calass CatalogTableStorageDescriptorSortColumn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -944,7 +944,7 @@ class CatalogTableStorageDescriptorSortColumn(dict):
 
 
 @pulumi.output_type
-class CatalogTableTargetTable(dict):
+calass CatalogTableTargetTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1003,7 +1003,7 @@ class CatalogTableTargetTable(dict):
 
 
 @pulumi.output_type
-class ClassifierCsvClassifier(dict):
+calass ClassifierCsvClassifier(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1133,7 +1133,7 @@ class ClassifierCsvClassifier(dict):
 
 
 @pulumi.output_type
-class ClassifierGrokClassifier(dict):
+calass ClassifierGrokClassifier(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1193,7 +1193,7 @@ class ClassifierGrokClassifier(dict):
 
 
 @pulumi.output_type
-class ClassifierJsonClassifier(dict):
+calass ClassifierJsonClassifier(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1228,7 +1228,7 @@ class ClassifierJsonClassifier(dict):
 
 
 @pulumi.output_type
-class ClassifierXmlClassifier(dict):
+calass ClassifierXmlClassifier(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1274,7 +1274,7 @@ class ClassifierXmlClassifier(dict):
 
 
 @pulumi.output_type
-class ConnectionPhysicalConnectionRequirements(dict):
+calass ConnectionPhysicalConnectionRequirements(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1338,7 +1338,7 @@ class ConnectionPhysicalConnectionRequirements(dict):
 
 
 @pulumi.output_type
-class CrawlerCatalogTarget(dict):
+calass CrawlerCatalogTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1434,7 +1434,7 @@ class CrawlerCatalogTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerDeltaTarget(dict):
+calass CrawlerDeltaTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1510,7 +1510,7 @@ class CrawlerDeltaTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerDynamodbTarget(dict):
+calass CrawlerDynamodbTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1571,7 +1571,7 @@ class CrawlerDynamodbTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerHudiTarget(dict):
+calass CrawlerHudiTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1643,7 +1643,7 @@ class CrawlerHudiTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerIcebergTarget(dict):
+calass CrawlerIcebergTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1715,7 +1715,7 @@ class CrawlerIcebergTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerJdbcTarget(dict):
+calass CrawlerJdbcTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1787,7 +1787,7 @@ class CrawlerJdbcTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerLakeFormationConfiguration(dict):
+calass CrawlerLakeFormationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1837,7 +1837,7 @@ class CrawlerLakeFormationConfiguration(dict):
 
 
 @pulumi.output_type
-class CrawlerLineageConfiguration(dict):
+calass CrawlerLineageConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1873,7 +1873,7 @@ class CrawlerLineageConfiguration(dict):
 
 
 @pulumi.output_type
-class CrawlerMongodbTarget(dict):
+calass CrawlerMongodbTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1933,7 +1933,7 @@ class CrawlerMongodbTarget(dict):
 
 
 @pulumi.output_type
-class CrawlerRecrawlPolicy(dict):
+calass CrawlerRecrawlPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1969,7 +1969,7 @@ class CrawlerRecrawlPolicy(dict):
 
 
 @pulumi.output_type
-class CrawlerS3Target(dict):
+calass CrawlerS3Target(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2078,7 +2078,7 @@ class CrawlerS3Target(dict):
 
 
 @pulumi.output_type
-class CrawlerSchemaChangePolicy(dict):
+calass CrawlerSchemaChangePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2128,7 +2128,7 @@ class CrawlerSchemaChangePolicy(dict):
 
 
 @pulumi.output_type
-class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings(dict):
+calass DataCatalogEncryptionSettingsDataCatalogEncryptionSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2152,8 +2152,8 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings(dict):
                  connection_password_encryption: 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption',
                  encryption_at_rest: 'outputs.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest'):
         """
-        :param 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs' connection_password_encryption: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
-        :param 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs' encryption_at_rest: Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        :param 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs' connection_password_encryption: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+        :param 'DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs' encryption_at_rest: Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
         pulumi.set(__self__, "connection_password_encryption", connection_password_encryption)
         pulumi.set(__self__, "encryption_at_rest", encryption_at_rest)
@@ -2176,7 +2176,7 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettings(dict):
 
 
 @pulumi.output_type
-class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption(dict):
+calass DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2225,7 +2225,7 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswo
 
 
 @pulumi.output_type
-class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest(dict):
+calass DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2274,7 +2274,7 @@ class DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
 
 
 @pulumi.output_type
-class DataQualityRulesetTargetTable(dict):
+calass DataQualityRulesetTargetTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2336,7 +2336,7 @@ class DataQualityRulesetTargetTable(dict):
 
 
 @pulumi.output_type
-class JobCommand(dict):
+calass JobCommand(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2409,7 +2409,7 @@ class JobCommand(dict):
 
 
 @pulumi.output_type
-class JobExecutionProperty(dict):
+calass JobExecutionProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2445,7 +2445,7 @@ class JobExecutionProperty(dict):
 
 
 @pulumi.output_type
-class JobNotificationProperty(dict):
+calass JobNotificationProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2481,7 +2481,7 @@ class JobNotificationProperty(dict):
 
 
 @pulumi.output_type
-class MLTransformInputRecordTable(dict):
+calass MLTransformInputRecordTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2557,7 +2557,7 @@ class MLTransformInputRecordTable(dict):
 
 
 @pulumi.output_type
-class MLTransformParameters(dict):
+calass MLTransformParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2581,7 +2581,7 @@ class MLTransformParameters(dict):
                  find_matches_parameters: 'outputs.MLTransformParametersFindMatchesParameters',
                  transform_type: str):
         """
-        :param 'MLTransformParametersFindMatchesParametersArgs' find_matches_parameters: The parameters for the find matches algorithm. see Find Matches Parameters.
+        :param 'MLTransformParametersFindMatchesParametersArrgs' find_matches_parameters: The parameters for the find matches algorithm. see Find Matches Parameters.
         :param str transform_type: The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
         """
         pulumi.set(__self__, "find_matches_parameters", find_matches_parameters)
@@ -2605,7 +2605,7 @@ class MLTransformParameters(dict):
 
 
 @pulumi.output_type
-class MLTransformParametersFindMatchesParameters(dict):
+calass MLTransformParametersFindMatchesParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2683,7 +2683,7 @@ class MLTransformParametersFindMatchesParameters(dict):
 
 
 @pulumi.output_type
-class MLTransformSchema(dict):
+calass MLTransformSchema(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2731,7 +2731,7 @@ class MLTransformSchema(dict):
 
 
 @pulumi.output_type
-class PartitionIndexPartitionIndex(dict):
+calass PartitionIndexPartitionIndex(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2789,7 +2789,7 @@ class PartitionIndexPartitionIndex(dict):
 
 
 @pulumi.output_type
-class PartitionStorageDescriptor(dict):
+calass PartitionStorageDescriptor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2836,16 +2836,16 @@ class PartitionStorageDescriptor(dict):
                  stored_as_sub_directories: Optional[bool] = None):
         """
         :param Sequence[str] bucket_columns: A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
-        :param Sequence['PartitionStorageDescriptorColumnArgs'] columns: A list of the Columns in the table.
+        :param Sequence['PartitionStorageDescriptorColumnArrgs'] columns: A list of the Columns in the table.
         :param bool compressed: True if the data in the table is compressed, or False if not.
         :param str input_format: The input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         :param str location: The physical location of the table. By default this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         :param int number_of_buckets: Must be specified if the table contains any dimension columns.
         :param str output_format: The output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         :param Mapping[str, str] parameters: User-supplied properties in key-value form.
-        :param 'PartitionStorageDescriptorSerDeInfoArgs' ser_de_info: Serialization/deserialization (SerDe) information.
-        :param 'PartitionStorageDescriptorSkewedInfoArgs' skewed_info: Information about values that appear very frequently in a column (skewed values).
-        :param Sequence['PartitionStorageDescriptorSortColumnArgs'] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
+        :param 'PartitionStorageDescriptorSerDeInfoArrgs' ser_de_info: Serialization/deserialization (SerDe) information.
+        :param 'PartitionStorageDescriptorSkewedInfoArrgs' skewed_info: Information about values that appear very frequently in a column (skewed values).
+        :param Sequence['PartitionStorageDescriptorSortColumnArrgs'] sort_columns: A list of Order objects specifying the sort order of each bucket in the table.
         :param bool stored_as_sub_directories: True if the table data is stored in subdirectories, or False if not.
         """
         if bucket_columns is not None:
@@ -2971,7 +2971,7 @@ class PartitionStorageDescriptor(dict):
 
 
 @pulumi.output_type
-class PartitionStorageDescriptorColumn(dict):
+calass PartitionStorageDescriptorColumn(dict):
     def __init__(__self__, *,
                  name: str,
                  comment: Optional[str] = None,
@@ -3013,7 +3013,7 @@ class PartitionStorageDescriptorColumn(dict):
 
 
 @pulumi.output_type
-class PartitionStorageDescriptorSerDeInfo(dict):
+calass PartitionStorageDescriptorSerDeInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3073,7 +3073,7 @@ class PartitionStorageDescriptorSerDeInfo(dict):
 
 
 @pulumi.output_type
-class PartitionStorageDescriptorSkewedInfo(dict):
+calass PartitionStorageDescriptorSkewedInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3137,7 +3137,7 @@ class PartitionStorageDescriptorSkewedInfo(dict):
 
 
 @pulumi.output_type
-class PartitionStorageDescriptorSortColumn(dict):
+calass PartitionStorageDescriptorSortColumn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3183,7 +3183,7 @@ class PartitionStorageDescriptorSortColumn(dict):
 
 
 @pulumi.output_type
-class SecurityConfigurationEncryptionConfiguration(dict):
+calass SecurityConfigurationEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3210,7 +3210,7 @@ class SecurityConfigurationEncryptionConfiguration(dict):
                  job_bookmarks_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption',
                  s3_encryption: 'outputs.SecurityConfigurationEncryptionConfigurationS3Encryption'):
         """
-        :param 'SecurityConfigurationEncryptionConfigurationS3EncryptionArgs' s3_encryption: A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
+        :param 'SecurityConfigurationEncryptionConfigurationS3EncryptionArrgs' s3_encryption: A `s3_encryption ` block as described below, which contains encryption configuration for S3 data.
         """
         pulumi.set(__self__, "cloudwatch_encryption", cloudwatch_encryption)
         pulumi.set(__self__, "job_bookmarks_encryption", job_bookmarks_encryption)
@@ -3236,7 +3236,7 @@ class SecurityConfigurationEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(dict):
+calass SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3286,7 +3286,7 @@ class SecurityConfigurationEncryptionConfigurationCloudwatchEncryption(dict):
 
 
 @pulumi.output_type
-class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(dict):
+calass SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3336,7 +3336,7 @@ class SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption(dict):
 
 
 @pulumi.output_type
-class SecurityConfigurationEncryptionConfigurationS3Encryption(dict):
+calass SecurityConfigurationEncryptionConfigurationS3Encryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3386,7 +3386,7 @@ class SecurityConfigurationEncryptionConfigurationS3Encryption(dict):
 
 
 @pulumi.output_type
-class TriggerAction(dict):
+calass TriggerAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3421,7 +3421,7 @@ class TriggerAction(dict):
         :param Mapping[str, str] arguments: Arguments to be passed to the job. You can specify arguments here that your own job-execution script consumes, as well as arguments that AWS Glue itself consumes.
         :param str crawler_name: The name of the crawler to be executed. Conflicts with `job_name`.
         :param str job_name: The name of a job to be executed. Conflicts with `crawler_name`.
-        :param 'TriggerActionNotificationPropertyArgs' notification_property: Specifies configuration properties of a job run notification. See Notification Property details below.
+        :param 'TriggerActionNotificationPropertyArrgs' notification_property: Specifies configuration properties of a job run notification. See Notification Property details below.
         :param str security_configuration: The name of the Security Configuration structure to be used with this action.
         :param int timeout: The job run timeout in minutes. It overrides the timeout value of the job.
         """
@@ -3488,7 +3488,7 @@ class TriggerAction(dict):
 
 
 @pulumi.output_type
-class TriggerActionNotificationProperty(dict):
+calass TriggerActionNotificationProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3524,7 +3524,7 @@ class TriggerActionNotificationProperty(dict):
 
 
 @pulumi.output_type
-class TriggerEventBatchingCondition(dict):
+calass TriggerEventBatchingCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3573,12 +3573,12 @@ class TriggerEventBatchingCondition(dict):
 
 
 @pulumi.output_type
-class TriggerPredicate(dict):
+calass TriggerPredicate(dict):
     def __init__(__self__, *,
                  conditions: Sequence['outputs.TriggerPredicateCondition'],
                  logical: Optional[str] = None):
         """
-        :param Sequence['TriggerPredicateConditionArgs'] conditions: A list of the conditions that determine when the trigger will fire. See Conditions.
+        :param Sequence['TriggerPredicateConditionArrgs'] conditions: A list of the conditions that determine when the trigger will fire. See Conditions.
         :param str logical: How to handle multiple conditions. Defaults to `AND`. Valid values are `AND` or `ANY`.
         """
         pulumi.set(__self__, "conditions", conditions)
@@ -3603,7 +3603,7 @@ class TriggerPredicate(dict):
 
 
 @pulumi.output_type
-class TriggerPredicateCondition(dict):
+calass TriggerPredicateCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3693,7 +3693,7 @@ class TriggerPredicateCondition(dict):
 
 
 @pulumi.output_type
-class UserDefinedFunctionResourceUri(dict):
+calass UserDefinedFunctionResourceUri(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3739,7 +3739,7 @@ class UserDefinedFunctionResourceUri(dict):
 
 
 @pulumi.output_type
-class GetCatalogTablePartitionIndexResult(dict):
+calass GetCatalogTablePartitionIndexResult(dict):
     def __init__(__self__, *,
                  index_name: str,
                  index_status: str,
@@ -3775,7 +3775,7 @@ class GetCatalogTablePartitionIndexResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTablePartitionKeyResult(dict):
+calass GetCatalogTablePartitionKeyResult(dict):
     def __init__(__self__, *,
                  comment: str,
                  name: str,
@@ -3815,7 +3815,7 @@ class GetCatalogTablePartitionKeyResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTableStorageDescriptorResult(dict):
+calass GetCatalogTableStorageDescriptorResult(dict):
     def __init__(__self__, *,
                  bucket_columns: Sequence[str],
                  columns: Sequence['outputs.GetCatalogTableStorageDescriptorColumnResult'],
@@ -3832,17 +3832,17 @@ class GetCatalogTableStorageDescriptorResult(dict):
                  stored_as_sub_directories: bool):
         """
         :param Sequence[str] bucket_columns: List of reducer grouping columns, clustering columns, and bucketing columns in the table.
-        :param Sequence['GetCatalogTableStorageDescriptorColumnArgs'] columns: Configuration block for columns in the table. See `columns` below.
+        :param Sequence['GetCatalogTableStorageDescriptorColumnArrgs'] columns: Configuration block for columns in the table. See `columns` below.
         :param bool compressed: Whether the data in the table is compressed.
         :param str input_format: Input format: SequenceFileInputFormat (binary), or TextInputFormat, or a custom format.
         :param str location: Physical location of the table. By default, this takes the form of the warehouse location, followed by the database location in the warehouse, followed by the table name.
         :param int number_of_buckets: Is if the table contains any dimension columns.
         :param str output_format: Output format: SequenceFileOutputFormat (binary), or IgnoreKeyTextOutputFormat, or a custom format.
         :param Mapping[str, str] parameters: Map of initialization parameters for the SerDe, in key-value form.
-        :param Sequence['GetCatalogTableStorageDescriptorSchemaReferenceArgs'] schema_references: Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
-        :param Sequence['GetCatalogTableStorageDescriptorSerDeInfoArgs'] ser_de_infos: Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
-        :param Sequence['GetCatalogTableStorageDescriptorSkewedInfoArgs'] skewed_infos: Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
-        :param Sequence['GetCatalogTableStorageDescriptorSortColumnArgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
+        :param Sequence['GetCatalogTableStorageDescriptorSchemaReferenceArrgs'] schema_references: Object that references a schema stored in the AWS Glue Schema Registry. See `schema_reference` below.
+        :param Sequence['GetCatalogTableStorageDescriptorSerDeInfoArrgs'] ser_de_infos: Configuration block for serialization and deserialization ("SerDe") information. See `ser_de_info` below.
+        :param Sequence['GetCatalogTableStorageDescriptorSkewedInfoArrgs'] skewed_infos: Configuration block with information about values that appear very frequently in a column (skewed values). See `skewed_info` below.
+        :param Sequence['GetCatalogTableStorageDescriptorSortColumnArrgs'] sort_columns: Configuration block for the sort order of each bucket in the table. See `sort_columns` below.
         :param bool stored_as_sub_directories: Whether the table data is stored in subdirectories.
         """
         pulumi.set(__self__, "bucket_columns", bucket_columns)
@@ -3965,7 +3965,7 @@ class GetCatalogTableStorageDescriptorResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTableStorageDescriptorColumnResult(dict):
+calass GetCatalogTableStorageDescriptorColumnResult(dict):
     def __init__(__self__, *,
                  comment: str,
                  name: str,
@@ -4016,13 +4016,13 @@ class GetCatalogTableStorageDescriptorColumnResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
+calass GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
     def __init__(__self__, *,
                  schema_ids: Sequence['outputs.GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult'],
                  schema_version_id: str,
                  schema_version_number: int):
         """
-        :param Sequence['GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArgs'] schema_ids: Configuration block that contains schema identity fields. See `schema_id` below.
+        :param Sequence['GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdArrgs'] schema_ids: Configuration block that contains schema identity fields. See `schema_id` below.
         :param str schema_version_id: Unique ID assigned to a version of the schema.
         :param int schema_version_number: Version number of the schema.
         """
@@ -4056,7 +4056,7 @@ class GetCatalogTableStorageDescriptorSchemaReferenceResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
+calass GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
     def __init__(__self__, *,
                  registry_name: str,
                  schema_arn: str,
@@ -4096,7 +4096,7 @@ class GetCatalogTableStorageDescriptorSchemaReferenceSchemaIdResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
+calass GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
     def __init__(__self__, *,
                  name: str,
                  parameters: Mapping[str, str],
@@ -4136,7 +4136,7 @@ class GetCatalogTableStorageDescriptorSerDeInfoResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
+calass GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
     def __init__(__self__, *,
                  skewed_column_names: Sequence[str],
                  skewed_column_value_location_maps: Mapping[str, str],
@@ -4176,7 +4176,7 @@ class GetCatalogTableStorageDescriptorSkewedInfoResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTableStorageDescriptorSortColumnResult(dict):
+calass GetCatalogTableStorageDescriptorSortColumnResult(dict):
     def __init__(__self__, *,
                  column: str,
                  sort_order: int):
@@ -4205,7 +4205,7 @@ class GetCatalogTableStorageDescriptorSortColumnResult(dict):
 
 
 @pulumi.output_type
-class GetCatalogTableTargetTableResult(dict):
+calass GetCatalogTableTargetTableResult(dict):
     def __init__(__self__, *,
                  catalog_id: str,
                  database_name: str,
@@ -4245,7 +4245,7 @@ class GetCatalogTableTargetTableResult(dict):
 
 
 @pulumi.output_type
-class GetConnectionPhysicalConnectionRequirementResult(dict):
+calass GetConnectionPhysicalConnectionRequirementResult(dict):
     def __init__(__self__, *,
                  availability_zone: str,
                  security_group_id_lists: Sequence[str],
@@ -4271,13 +4271,13 @@ class GetConnectionPhysicalConnectionRequirementResult(dict):
 
 
 @pulumi.output_type
-class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
+calass GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
     def __init__(__self__, *,
                  connection_password_encryptions: Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult'],
                  encryption_at_rests: Sequence['outputs.GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult']):
         """
-        :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs'] connection_password_encryptions: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
-        :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs'] encryption_at_rests: Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
+        :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrgs'] connection_password_encryptions: When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
+        :param Sequence['GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrgs'] encryption_at_rests: Encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
         """
         pulumi.set(__self__, "connection_password_encryptions", connection_password_encryptions)
         pulumi.set(__self__, "encryption_at_rests", encryption_at_rests)
@@ -4300,7 +4300,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingResult(dict):
 
 
 @pulumi.output_type
-class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult(dict):
+calass GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionResult(dict):
     def __init__(__self__, *,
                  aws_kms_key_id: str,
                  return_connection_password_encrypted: bool):
@@ -4329,7 +4329,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPass
 
 
 @pulumi.output_type
-class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult(dict):
+calass GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestResult(dict):
     def __init__(__self__, *,
                  catalog_encryption_mode: str,
                  sse_aws_kms_key_id: str):
@@ -4358,7 +4358,7 @@ class GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRe
 
 
 @pulumi.output_type
-class GetScriptDagEdgeResult(dict):
+calass GetScriptDagEdgeResult(dict):
     def __init__(__self__, *,
                  source: str,
                  target: str,
@@ -4399,14 +4399,14 @@ class GetScriptDagEdgeResult(dict):
 
 
 @pulumi.output_type
-class GetScriptDagNodeResult(dict):
+calass GetScriptDagNodeResult(dict):
     def __init__(__self__, *,
                  args: Sequence['outputs.GetScriptDagNodeArgResult'],
                  id: str,
                  node_type: str,
                  line_number: Optional[int] = None):
         """
-        :param Sequence['GetScriptDagNodeArgArgs'] args: Nested configuration an argument or property of a node. Defined below.
+        :param Sequence['GetScriptDagNodeArgArrgs'] args: Nested configuration an argument or property of a node. Defined below.
         :param str id: Node identifier that is unique within the node's graph.
         :param str node_type: Type of node this is.
         :param int line_number: Line number of the node.
@@ -4451,7 +4451,7 @@ class GetScriptDagNodeResult(dict):
 
 
 @pulumi.output_type
-class GetScriptDagNodeArgResult(dict):
+calass GetScriptDagNodeArgResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str,

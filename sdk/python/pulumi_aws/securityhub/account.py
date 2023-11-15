@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountArgs', 'Account']
+__all__ = ['AccountArrgs', 'Account']
 
 @pulumi.input_type
-class AccountArgs:
+calass AccountArrgs:
     def __init__(__self__, *,
                  auto_enable_controls: Optional[pulumi.Input[bool]] = None,
                  control_finding_generator: Optional[pulumi.Input[str]] = None,
@@ -68,7 +68,7 @@ class AccountArgs:
 
 
 @pulumi.input_type
-class _AccountState:
+calass _AccountState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_enable_controls: Optional[pulumi.Input[bool]] = None,
@@ -139,7 +139,7 @@ class _AccountState:
         pulumi.set(self, "enable_default_standards", value)
 
 
-class Account(pulumi.CustomResource):
+calass Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -180,7 +180,7 @@ class Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AccountArgs] = None,
+                 args: Optional[AccountArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enables Security Hub for this AWS account.
@@ -205,12 +205,12 @@ class Account(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountArgs args: The arguments to use to populate this resource's properties.
+        :param AccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -229,7 +229,7 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountArgs.__new__(AccountArgs)
+            __props__ = AccountArrgs.__new__(AccountArrgs)
 
             __props__.__dict__["auto_enable_controls"] = auto_enable_controls
             __props__.__dict__["control_finding_generator"] = control_finding_generator

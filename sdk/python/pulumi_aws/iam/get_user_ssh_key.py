@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetUserSshKeyResult:
+calass GetUserSshKeyResult:
     """
     A collection of values returned by getUserSshKey.
     """
@@ -92,7 +92,7 @@ class GetUserSshKeyResult:
         return pulumi.get(self, "username")
 
 
-class AwaitableGetUserSshKeyResult(GetUserSshKeyResult):
+calass AwaitableGetUserSshKeyResult(GetUserSshKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

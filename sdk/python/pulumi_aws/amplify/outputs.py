@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AppAutoBranchCreationConfig(dict):
+calass AppAutoBranchCreationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -175,7 +175,7 @@ class AppAutoBranchCreationConfig(dict):
 
 
 @pulumi.output_type
-class AppCustomRule(dict):
+calass AppCustomRule(dict):
     def __init__(__self__, *,
                  source: str,
                  target: str,
@@ -228,7 +228,7 @@ class AppCustomRule(dict):
 
 
 @pulumi.output_type
-class AppProductionBranch(dict):
+calass AppProductionBranch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -304,7 +304,7 @@ class AppProductionBranch(dict):
 
 
 @pulumi.output_type
-class DomainAssociationSubDomain(dict):
+calass DomainAssociationSubDomain(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

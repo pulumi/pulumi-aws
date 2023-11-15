@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WorkflowArgs', 'Workflow']
+__all__ = ['WorkflowArrgs', 'Workflow']
 
 @pulumi.input_type
-class WorkflowArgs:
+calass WorkflowArrgs:
     def __init__(__self__, *,
                  default_run_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class WorkflowArgs:
 
 
 @pulumi.input_type
-class _WorkflowState:
+calass _WorkflowState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  default_run_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -225,7 +225,7 @@ class _WorkflowState:
         pulumi.set(self, "tags_all", value)
 
 
-class Workflow(pulumi.CustomResource):
+calass Workflow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -251,19 +251,19 @@ class Workflow(pulumi.CustomResource):
         example_start = aws.glue.Trigger("example-start",
             type="ON_DEMAND",
             workflow_name=example.name,
-            actions=[aws.glue.TriggerActionArgs(
+            actions=[aws.glue.TriggerActionArrgs(
                 job_name="example-job",
             )])
         example_inner = aws.glue.Trigger("example-inner",
             type="CONDITIONAL",
             workflow_name=example.name,
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
+            predicate=aws.glue.TriggerPredicateArrgs(
+                conditions=[aws.glue.TriggerPredicateConditionArrgs(
                     job_name="example-job",
                     state="SUCCEEDED",
                 )],
             ),
-            actions=[aws.glue.TriggerActionArgs(
+            actions=[aws.glue.TriggerActionArrgs(
                 job_name="another-example-job",
             )])
         ```
@@ -288,7 +288,7 @@ class Workflow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[WorkflowArgs] = None,
+                 args: Optional[WorkflowArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue Workflow resource.
@@ -305,19 +305,19 @@ class Workflow(pulumi.CustomResource):
         example_start = aws.glue.Trigger("example-start",
             type="ON_DEMAND",
             workflow_name=example.name,
-            actions=[aws.glue.TriggerActionArgs(
+            actions=[aws.glue.TriggerActionArrgs(
                 job_name="example-job",
             )])
         example_inner = aws.glue.Trigger("example-inner",
             type="CONDITIONAL",
             workflow_name=example.name,
-            predicate=aws.glue.TriggerPredicateArgs(
-                conditions=[aws.glue.TriggerPredicateConditionArgs(
+            predicate=aws.glue.TriggerPredicateArrgs(
+                conditions=[aws.glue.TriggerPredicateConditionArrgs(
                     job_name="example-job",
                     state="SUCCEEDED",
                 )],
             ),
-            actions=[aws.glue.TriggerActionArgs(
+            actions=[aws.glue.TriggerActionArrgs(
                 job_name="another-example-job",
             )])
         ```
@@ -331,12 +331,12 @@ class Workflow(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkflowArgs args: The arguments to use to populate this resource's properties.
+        :param WorkflowArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkflowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkflowArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -357,7 +357,7 @@ class Workflow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkflowArgs.__new__(WorkflowArgs)
+            __props__ = WorkflowArrgs.__new__(WorkflowArrgs)
 
             __props__.__dict__["default_run_properties"] = default_run_properties
             __props__.__dict__["description"] = description

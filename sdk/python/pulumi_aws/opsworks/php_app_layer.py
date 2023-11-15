@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PhpAppLayerArgs', 'PhpAppLayer']
+__all__ = ['PhpAppLayerArrgs', 'PhpAppLayer']
 
 @pulumi.input_type
-class PhpAppLayerArgs:
+calass PhpAppLayerArrgs:
     def __init__(__self__, *,
                  stack_id: pulumi.Input[str],
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArrgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -30,11 +30,11 @@ class PhpAppLayerArgs:
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArgs']]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArrgs']]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArgs']] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -49,7 +49,7 @@ class PhpAppLayerArgs:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArrgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -158,11 +158,11 @@ class PhpAppLayerArgs:
 
     @property
     @pulumi.getter(name="cloudwatchConfiguration")
-    def cloudwatch_configuration(self) -> Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']]:
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArrgs']]:
         return pulumi.get(self, "cloudwatch_configuration")
 
     @cloudwatch_configuration.setter
-    def cloudwatch_configuration(self, value: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']]):
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
@@ -260,14 +260,14 @@ class PhpAppLayerArgs:
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArgs']]]]:
+    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArrgs']]]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArgs']]]]):
+    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArrgs']]]]):
         pulumi.set(self, "ebs_volumes", value)
 
     @property
@@ -308,11 +308,11 @@ class PhpAppLayerArgs:
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArgs']]:
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArrgs']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @load_based_auto_scaling.setter
-    def load_based_auto_scaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArgs']]):
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArrgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
 
     @property
@@ -369,13 +369,13 @@ class PhpAppLayerArgs:
 
 
 @pulumi.input_type
-class _PhpAppLayerState:
+calass _PhpAppLayerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArrgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -385,11 +385,11 @@ class _PhpAppLayerState:
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArgs']]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArrgs']]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArgs']] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -406,7 +406,7 @@ class _PhpAppLayerState:
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArrgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -525,11 +525,11 @@ class _PhpAppLayerState:
 
     @property
     @pulumi.getter(name="cloudwatchConfiguration")
-    def cloudwatch_configuration(self) -> Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']]:
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArrgs']]:
         return pulumi.get(self, "cloudwatch_configuration")
 
     @cloudwatch_configuration.setter
-    def cloudwatch_configuration(self, value: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArgs']]):
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['PhpAppLayerCloudwatchConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
@@ -627,14 +627,14 @@ class _PhpAppLayerState:
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArgs']]]]:
+    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArrgs']]]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArgs']]]]):
+    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhpAppLayerEbsVolumeArrgs']]]]):
         pulumi.set(self, "ebs_volumes", value)
 
     @property
@@ -675,11 +675,11 @@ class _PhpAppLayerState:
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArgs']]:
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArrgs']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @load_based_auto_scaling.setter
-    def load_based_auto_scaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArgs']]):
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['PhpAppLayerLoadBasedAutoScalingArrgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
 
     @property
@@ -762,7 +762,7 @@ class _PhpAppLayerState:
         pulumi.set(self, "use_ebs_optimized_instances", value)
 
 
-class PhpAppLayer(pulumi.CustomResource):
+calass PhpAppLayer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -770,7 +770,7 @@ class PhpAppLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArrgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -780,11 +780,11 @@ class PhpAppLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArrgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerLoadBasedAutoScalingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -820,7 +820,7 @@ class PhpAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArrgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -838,7 +838,7 @@ class PhpAppLayer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PhpAppLayerArgs,
+                 args: PhpAppLayerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an OpsWorks PHP application layer resource.
@@ -861,12 +861,12 @@ class PhpAppLayer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PhpAppLayerArgs args: The arguments to use to populate this resource's properties.
+        :param PhpAppLayerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PhpAppLayerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PhpAppLayerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -878,7 +878,7 @@ class PhpAppLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArrgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -888,11 +888,11 @@ class PhpAppLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArrgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerLoadBasedAutoScalingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -905,7 +905,7 @@ class PhpAppLayer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PhpAppLayerArgs.__new__(PhpAppLayerArgs)
+            __props__ = PhpAppLayerArrgs.__new__(PhpAppLayerArrgs)
 
             __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
@@ -950,7 +950,7 @@ class PhpAppLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
-            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArgs']]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerCloudwatchConfigurationArrgs']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -960,11 +960,11 @@ class PhpAppLayer(pulumi.CustomResource):
             custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArgs']]]]] = None,
+            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArrgs']]]]] = None,
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerLoadBasedAutoScalingArgs']]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['PhpAppLayerLoadBasedAutoScalingArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
             system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -986,7 +986,7 @@ class PhpAppLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_json: Custom JSON attributes to apply to the layer.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhpAppLayerEbsVolumeArrgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.

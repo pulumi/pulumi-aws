@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterClusterEndpointArgs',
-    'ClusterShardArgs',
-    'ClusterShardNodeArgs',
-    'ClusterShardNodeEndpointArgs',
-    'ParameterGroupParameterArgs',
-    'SnapshotClusterConfigurationArgs',
-    'UserAuthenticationModeArgs',
+    'ClusterClusterEndpointArrgs',
+    'ClusterShardArrgs',
+    'ClusterShardNodeArrgs',
+    'ClusterShardNodeEndpointArrgs',
+    'ParameterGroupParameterArrgs',
+    'SnapshotClusterConfigurationArrgs',
+    'UserAuthenticationModeArrgs',
 ]
 
 @pulumi.input_type
-class ClusterClusterEndpointArgs:
+calass ClusterClusterEndpointArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
@@ -59,15 +59,15 @@ class ClusterClusterEndpointArgs:
 
 
 @pulumi.input_type
-class ClusterShardArgs:
+calass ClusterShardArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgs']]]] = None,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArrgs']]]] = None,
                  num_nodes: Optional[pulumi.Input[int]] = None,
                  slots: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the cluster. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgs']]] nodes: Set of nodes in this shard.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArrgs']]] nodes: Set of nodes in this shard.
         :param pulumi.Input[int] num_nodes: Number of individual nodes in this shard.
         :param pulumi.Input[str] slots: Keyspace for this shard. Example: `0-16383`.
         """
@@ -94,14 +94,14 @@ class ClusterShardArgs:
 
     @property
     @pulumi.getter
-    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgs']]]]:
+    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArrgs']]]]:
         """
         Set of nodes in this shard.
         """
         return pulumi.get(self, "nodes")
 
     @nodes.setter
-    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArgs']]]]):
+    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeArrgs']]]]):
         pulumi.set(self, "nodes", value)
 
     @property
@@ -130,11 +130,11 @@ class ClusterShardArgs:
 
 
 @pulumi.input_type
-class ClusterShardNodeArgs:
+calass ClusterShardNodeArrgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  create_time: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] availability_zone: The Availability Zone in which the node resides.
@@ -176,11 +176,11 @@ class ClusterShardNodeArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArrgs']]]]:
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardNodeEndpointArrgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -197,7 +197,7 @@ class ClusterShardNodeArgs:
 
 
 @pulumi.input_type
-class ClusterShardNodeEndpointArgs:
+calass ClusterShardNodeEndpointArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
@@ -236,7 +236,7 @@ class ClusterShardNodeEndpointArgs:
 
 
 @pulumi.input_type
-class ParameterGroupParameterArgs:
+calass ParameterGroupParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -273,7 +273,7 @@ class ParameterGroupParameterArgs:
 
 
 @pulumi.input_type
-class SnapshotClusterConfigurationArgs:
+calass SnapshotClusterConfigurationArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
@@ -488,7 +488,7 @@ class SnapshotClusterConfigurationArgs:
 
 
 @pulumi.input_type
-class UserAuthenticationModeArgs:
+calass UserAuthenticationModeArrgs:
     def __init__(__self__, *,
                  passwords: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str],

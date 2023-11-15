@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HostedConnectionArgs', 'HostedConnection']
+__all__ = ['HostedConnectionArrgs', 'HostedConnection']
 
 @pulumi.input_type
-class HostedConnectionArgs:
+calass HostedConnectionArrgs:
     def __init__(__self__, *,
                  bandwidth: pulumi.Input[str],
                  connection_id: pulumi.Input[str],
@@ -96,7 +96,7 @@ class HostedConnectionArgs:
 
 
 @pulumi.input_type
-class _HostedConnectionState:
+calass _HostedConnectionState:
     def __init__(__self__, *,
                  aws_device: Optional[pulumi.Input[str]] = None,
                  bandwidth: Optional[pulumi.Input[str]] = None,
@@ -343,7 +343,7 @@ class _HostedConnectionState:
         pulumi.set(self, "vlan", value)
 
 
-class HostedConnection(pulumi.CustomResource):
+calass HostedConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -382,7 +382,7 @@ class HostedConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HostedConnectionArgs,
+                 args: HostedConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a hosted connection on the specified interconnect or a link aggregation group (LAG) of interconnects. Intended for use by AWS Direct Connect Partners only.
@@ -401,12 +401,12 @@ class HostedConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HostedConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param HostedConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HostedConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HostedConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -427,7 +427,7 @@ class HostedConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HostedConnectionArgs.__new__(HostedConnectionArgs)
+            __props__ = HostedConnectionArrgs.__new__(HostedConnectionArrgs)
 
             if bandwidth is None and not opts.urn:
                 raise TypeError("Missing required property 'bandwidth'")

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMeshResult:
+calass GetMeshResult:
     """
     A collection of values returned by getMesh.
     """
@@ -118,7 +118,7 @@ class GetMeshResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetMeshResult(GetMeshResult):
+calass AwaitableGetMeshResult(GetMeshResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

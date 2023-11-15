@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetActiveReceiptRuleSetResult:
+calass GetActiveReceiptRuleSetResult:
     """
     A collection of values returned by getActiveReceiptRuleSet.
     """
@@ -57,7 +57,7 @@ class GetActiveReceiptRuleSetResult:
         return pulumi.get(self, "rule_set_name")
 
 
-class AwaitableGetActiveReceiptRuleSetResult(GetActiveReceiptRuleSetResult):
+calass AwaitableGetActiveReceiptRuleSetResult(GetActiveReceiptRuleSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

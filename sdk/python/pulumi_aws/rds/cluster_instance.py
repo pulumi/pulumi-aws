@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
-__all__ = ['ClusterInstanceArgs', 'ClusterInstance']
+__all__ = ['ClusterInstanceArrgs', 'ClusterInstance']
 
 @pulumi.input_type
-class ClusterInstanceArgs:
+calass ClusterInstanceArrgs:
     def __init__(__self__, *,
                  cluster_identifier: pulumi.Input[str],
                  engine: pulumi.Input[str],
@@ -402,7 +402,7 @@ class ClusterInstanceArgs:
 
 
 @pulumi.input_type
-class _ClusterInstanceState:
+calass _ClusterInstanceState:
     def __init__(__self__, *,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -959,7 +959,7 @@ class _ClusterInstanceState:
         pulumi.set(self, "writer", value)
 
 
-class ClusterInstance(pulumi.CustomResource):
+calass ClusterInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1072,7 +1072,7 @@ class ClusterInstance(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterInstanceArgs,
+                 args: ClusterInstanceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
@@ -1127,12 +1127,12 @@ class ClusterInstance(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterInstanceArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterInstanceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterInstanceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterInstanceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1172,7 +1172,7 @@ class ClusterInstance(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterInstanceArgs.__new__(ClusterInstanceArgs)
+            __props__ = ClusterInstanceArrgs.__new__(ClusterInstanceArrgs)
 
             __props__.__dict__["apply_immediately"] = apply_immediately
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade

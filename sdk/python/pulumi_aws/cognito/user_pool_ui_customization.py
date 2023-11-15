@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserPoolUICustomizationArgs', 'UserPoolUICustomization']
+__all__ = ['UserPoolUICustomizationArrgs', 'UserPoolUICustomization']
 
 @pulumi.input_type
-class UserPoolUICustomizationArgs:
+calass UserPoolUICustomizationArrgs:
     def __init__(__self__, *,
                  user_pool_id: pulumi.Input[str],
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class UserPoolUICustomizationArgs:
 
 
 @pulumi.input_type
-class _UserPoolUICustomizationState:
+calass _UserPoolUICustomizationState:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
@@ -218,7 +218,7 @@ class _UserPoolUICustomizationState:
         pulumi.set(self, "user_pool_id", value)
 
 
-class UserPoolUICustomization(pulumi.CustomResource):
+calass UserPoolUICustomization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -288,7 +288,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserPoolUICustomizationArgs,
+                 args: UserPoolUICustomizationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Cognito User Pool UI Customization resource.
@@ -340,12 +340,12 @@ class UserPoolUICustomization(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserPoolUICustomizationArgs args: The arguments to use to populate this resource's properties.
+        :param UserPoolUICustomizationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserPoolUICustomizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserPoolUICustomizationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -365,7 +365,7 @@ class UserPoolUICustomization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserPoolUICustomizationArgs.__new__(UserPoolUICustomizationArgs)
+            __props__ = UserPoolUICustomizationArrgs.__new__(UserPoolUICustomizationArrgs)
 
             __props__.__dict__["client_id"] = client_id
             __props__.__dict__["css"] = css

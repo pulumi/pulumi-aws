@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVocabularyResult:
+calass GetVocabularyResult:
     """
     A collection of values returned by getVocabulary.
     """
@@ -139,7 +139,7 @@ class GetVocabularyResult:
         return pulumi.get(self, "vocabulary_id")
 
 
-class AwaitableGetVocabularyResult(GetVocabularyResult):
+calass AwaitableGetVocabularyResult(GetVocabularyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

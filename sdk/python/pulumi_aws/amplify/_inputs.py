@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AppAutoBranchCreationConfigArgs',
-    'AppCustomRuleArgs',
-    'AppProductionBranchArgs',
-    'DomainAssociationSubDomainArgs',
+    'AppAutoBranchCreationConfigArrgs',
+    'AppCustomRuleArrgs',
+    'AppProductionBranchArrgs',
+    'DomainAssociationSubDomainArrgs',
 ]
 
 @pulumi.input_type
-class AppAutoBranchCreationConfigArgs:
+calass AppAutoBranchCreationConfigArrgs:
     def __init__(__self__, *,
                  basic_auth_credentials: Optional[pulumi.Input[str]] = None,
                  build_spec: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class AppAutoBranchCreationConfigArgs:
 
 
 @pulumi.input_type
-class AppCustomRuleArgs:
+calass AppCustomRuleArrgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str],
                  target: pulumi.Input[str],
@@ -253,7 +253,7 @@ class AppCustomRuleArgs:
 
 
 @pulumi.input_type
-class AppProductionBranchArgs:
+calass AppProductionBranchArrgs:
     def __init__(__self__, *,
                  branch_name: Optional[pulumi.Input[str]] = None,
                  last_deploy_time: Optional[pulumi.Input[str]] = None,
@@ -324,7 +324,7 @@ class AppProductionBranchArgs:
 
 
 @pulumi.input_type
-class DomainAssociationSubDomainArgs:
+calass DomainAssociationSubDomainArrgs:
     def __init__(__self__, *,
                  branch_name: pulumi.Input[str],
                  prefix: pulumi.Input[str],

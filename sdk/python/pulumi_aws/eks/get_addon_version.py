@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAddonVersionResult:
+calass GetAddonVersionResult:
     """
     A collection of values returned by getAddonVersion.
     """
@@ -70,7 +70,7 @@ class GetAddonVersionResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetAddonVersionResult(GetAddonVersionResult):
+calass AwaitableGetAddonVersionResult(GetAddonVersionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

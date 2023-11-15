@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'PipelineDefinitionParameterObjectArgs',
-    'PipelineDefinitionParameterObjectAttributeArgs',
-    'PipelineDefinitionParameterValueArgs',
-    'PipelineDefinitionPipelineObjectArgs',
-    'PipelineDefinitionPipelineObjectFieldArgs',
-    'GetPipelineDefinitionParameterValueArgs',
+    'PipelineDefinitionParameterObjectArrgs',
+    'PipelineDefinitionParameterObjectAttributeArrgs',
+    'PipelineDefinitionParameterValueArrgs',
+    'PipelineDefinitionPipelineObjectArrgs',
+    'PipelineDefinitionPipelineObjectFieldArrgs',
+    'GetPipelineDefinitionParameterValueArrgs',
 ]
 
 @pulumi.input_type
-class PipelineDefinitionParameterObjectArgs:
+calass PipelineDefinitionParameterObjectArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]] = None):
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArrgs']]]] = None):
         """
         :param pulumi.Input[str] id: ID of the parameter object.
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]] attributes: Configuration block for attributes of the parameter object. See below
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArrgs']]] attributes: Configuration block for attributes of the parameter object. See below
         """
         pulumi.set(__self__, "id", id)
         if attributes is not None:
@@ -45,19 +45,19 @@ class PipelineDefinitionParameterObjectArgs:
 
     @property
     @pulumi.getter
-    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]:
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArrgs']]]]:
         """
         Configuration block for attributes of the parameter object. See below
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgs']]]]):
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArrgs']]]]):
         pulumi.set(self, "attributes", value)
 
 
 @pulumi.input_type
-class PipelineDefinitionParameterObjectAttributeArgs:
+calass PipelineDefinitionParameterObjectAttributeArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  string_value: pulumi.Input[str]):
@@ -94,7 +94,7 @@ class PipelineDefinitionParameterObjectAttributeArgs:
 
 
 @pulumi.input_type
-class PipelineDefinitionParameterValueArgs:
+calass PipelineDefinitionParameterValueArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  string_value: pulumi.Input[str]):
@@ -131,15 +131,15 @@ class PipelineDefinitionParameterValueArgs:
 
 
 @pulumi.input_type
-class PipelineDefinitionPipelineObjectArgs:
+calass PipelineDefinitionPipelineObjectArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 fields: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]] = None):
+                 fields: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArrgs']]]] = None):
         """
         :param pulumi.Input[str] id: ID of the object.
         :param pulumi.Input[str] name: ARN of the storage connector.
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]] fields: Configuration block for Key-value pairs that define the properties of the object. See below
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArrgs']]] fields: Configuration block for Key-value pairs that define the properties of the object. See below
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -172,19 +172,19 @@ class PipelineDefinitionPipelineObjectArgs:
 
     @property
     @pulumi.getter
-    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]]:
+    def fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArrgs']]]]:
         """
         Configuration block for Key-value pairs that define the properties of the object. See below
         """
         return pulumi.get(self, "fields")
 
     @fields.setter
-    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgs']]]]):
+    def fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArrgs']]]]):
         pulumi.set(self, "fields", value)
 
 
 @pulumi.input_type
-class PipelineDefinitionPipelineObjectFieldArgs:
+calass PipelineDefinitionPipelineObjectFieldArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  ref_value: Optional[pulumi.Input[str]] = None,
@@ -238,7 +238,7 @@ class PipelineDefinitionPipelineObjectFieldArgs:
 
 
 @pulumi.input_type
-class GetPipelineDefinitionParameterValueArgs:
+calass GetPipelineDefinitionParameterValueArrgs:
     def __init__(__self__, *,
                  id: str,
                  string_value: str):

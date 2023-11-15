@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SnapshotArgs', 'Snapshot']
+__all__ = ['SnapshotArrgs', 'Snapshot']
 
 @pulumi.input_type
-class SnapshotArgs:
+calass SnapshotArrgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  snapshot_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class SnapshotArgs:
 
 
 @pulumi.input_type
-class _SnapshotState:
+calass _SnapshotState:
     def __init__(__self__, *,
                  accounts_with_provisioned_restore_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  accounts_with_restore_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -233,7 +233,7 @@ class _SnapshotState:
         pulumi.set(self, "snapshot_name", value)
 
 
-class Snapshot(pulumi.CustomResource):
+calass Snapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -274,7 +274,7 @@ class Snapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SnapshotArgs,
+                 args: SnapshotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a new Amazon Redshift Serverless Snapshot.
@@ -299,12 +299,12 @@ class Snapshot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param SnapshotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -323,7 +323,7 @@ class Snapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SnapshotArgs.__new__(SnapshotArgs)
+            __props__ = SnapshotArrgs.__new__(SnapshotArrgs)
 
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")

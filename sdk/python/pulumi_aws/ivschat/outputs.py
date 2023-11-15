@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LoggingConfigurationDestinationConfiguration(dict):
+calass LoggingConfigurationDestinationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -42,9 +42,9 @@ class LoggingConfigurationDestinationConfiguration(dict):
                  firehose: Optional['outputs.LoggingConfigurationDestinationConfigurationFirehose'] = None,
                  s3: Optional['outputs.LoggingConfigurationDestinationConfigurationS3'] = None):
         """
-        :param 'LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs' cloudwatch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-        :param 'LoggingConfigurationDestinationConfigurationFirehoseArgs' firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-        :param 'LoggingConfigurationDestinationConfigurationS3Args' s3: An Amazon S3 destination configuration where chat activity will be logged.
+        :param 'LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs' cloudwatch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        :param 'LoggingConfigurationDestinationConfigurationFirehoseArrgs' firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        :param 'LoggingConfigurationDestinationConfigurationS3Arrgs' s3: An Amazon S3 destination configuration where chat activity will be logged.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -79,7 +79,7 @@ class LoggingConfigurationDestinationConfiguration(dict):
 
 
 @pulumi.output_type
-class LoggingConfigurationDestinationConfigurationCloudwatchLogs(dict):
+calass LoggingConfigurationDestinationConfigurationCloudwatchLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -114,7 +114,7 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogs(dict):
 
 
 @pulumi.output_type
-class LoggingConfigurationDestinationConfigurationFirehose(dict):
+calass LoggingConfigurationDestinationConfigurationFirehose(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -149,7 +149,7 @@ class LoggingConfigurationDestinationConfigurationFirehose(dict):
 
 
 @pulumi.output_type
-class LoggingConfigurationDestinationConfigurationS3(dict):
+calass LoggingConfigurationDestinationConfigurationS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -188,7 +188,7 @@ class LoggingConfigurationDestinationConfigurationS3(dict):
 
 
 @pulumi.output_type
-class RoomMessageReviewHandler(dict):
+calass RoomMessageReviewHandler(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

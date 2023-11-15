@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRealtimeLogConfigResult:
+calass GetRealtimeLogConfigResult:
     """
     A collection of values returned by getRealtimeLogConfig.
     """
@@ -88,7 +88,7 @@ class GetRealtimeLogConfigResult:
         return pulumi.get(self, "sampling_rate")
 
 
-class AwaitableGetRealtimeLogConfigResult(GetRealtimeLogConfigResult):
+calass AwaitableGetRealtimeLogConfigResult(GetRealtimeLogConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

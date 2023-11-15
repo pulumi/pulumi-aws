@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSnapshotIdsResult:
+calass GetSnapshotIdsResult:
     """
     A collection of values returned by getSnapshotIds.
     """
@@ -72,7 +72,7 @@ class GetSnapshotIdsResult:
         return pulumi.get(self, "restorable_by_user_ids")
 
 
-class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
+calass AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -85,7 +85,7 @@ class AwaitableGetSnapshotIdsResult(GetSnapshotIdsResult):
             restorable_by_user_ids=self.restorable_by_user_ids)
 
 
-def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']]] = None,
+def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIdsFilterArrgs']]] = None,
                      owners: Optional[Sequence[str]] = None,
                      restorable_by_user_ids: Optional[Sequence[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSnapshotIdsResult:
@@ -100,11 +100,11 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
     import pulumi_aws as aws
 
     ebs_volumes = aws.ebs.get_snapshot_ids(filters=[
-            aws.ebs.GetSnapshotIdsFilterArgs(
+            aws.ebs.GetSnapshotIdsFilterArrgs(
                 name="volume-size",
                 values=["40"],
             ),
-            aws.ebs.GetSnapshotIdsFilterArgs(
+            aws.ebs.GetSnapshotIdsFilterArrgs(
                 name="tag:Name",
                 values=["Example"],
             ),
@@ -113,7 +113,7 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArrgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
     :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
@@ -135,7 +135,7 @@ def get_snapshot_ids(filters: Optional[Sequence[pulumi.InputType['GetSnapshotIds
 
 
 @_utilities.lift_output_func(get_snapshot_ids)
-def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']]]]] = None,
+def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSnapshotIdsFilterArrgs']]]]] = None,
                             owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             restorable_by_user_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSnapshotIdsResult]:
@@ -150,11 +150,11 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     import pulumi_aws as aws
 
     ebs_volumes = aws.ebs.get_snapshot_ids(filters=[
-            aws.ebs.GetSnapshotIdsFilterArgs(
+            aws.ebs.GetSnapshotIdsFilterArrgs(
                 name="volume-size",
                 values=["40"],
             ),
-            aws.ebs.GetSnapshotIdsFilterArgs(
+            aws.ebs.GetSnapshotIdsFilterArrgs(
                 name="tag:Name",
                 values=["Example"],
             ),
@@ -163,7 +163,7 @@ def get_snapshot_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There are
+    :param Sequence[pulumi.InputType['GetSnapshotIdsFilterArrgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-volumes in the AWS CLI reference][1].
     :param Sequence[str] owners: Returns the snapshots owned by the specified owner id. Multiple owners can be specified.

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstancesResult:
+calass GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
@@ -57,7 +57,7 @@ class GetInstancesResult:
         return pulumi.get(self, "identity_store_ids")
 
 
-class AwaitableGetInstancesResult(GetInstancesResult):
+calass AwaitableGetInstancesResult(GetInstancesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

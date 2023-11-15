@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CustomerGatewayAssociationArgs', 'CustomerGatewayAssociation']
+__all__ = ['CustomerGatewayAssociationArrgs', 'CustomerGatewayAssociation']
 
 @pulumi.input_type
-class CustomerGatewayAssociationArgs:
+calass CustomerGatewayAssociationArrgs:
     def __init__(__self__, *,
                  customer_gateway_arn: pulumi.Input[str],
                  device_id: pulumi.Input[str],
@@ -81,7 +81,7 @@ class CustomerGatewayAssociationArgs:
 
 
 @pulumi.input_type
-class _CustomerGatewayAssociationState:
+calass _CustomerGatewayAssociationState:
     def __init__(__self__, *,
                  customer_gateway_arn: Optional[pulumi.Input[str]] = None,
                  device_id: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _CustomerGatewayAssociationState:
         pulumi.set(self, "link_id", value)
 
 
-class CustomerGatewayAssociation(pulumi.CustomResource):
+calass CustomerGatewayAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -217,7 +217,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomerGatewayAssociationArgs,
+                 args: CustomerGatewayAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a customer gateway with a device and optionally, with a link.
@@ -264,12 +264,12 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomerGatewayAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param CustomerGatewayAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomerGatewayAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomerGatewayAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -289,7 +289,7 @@ class CustomerGatewayAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomerGatewayAssociationArgs.__new__(CustomerGatewayAssociationArgs)
+            __props__ = CustomerGatewayAssociationArrgs.__new__(CustomerGatewayAssociationArrgs)
 
             if customer_gateway_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'customer_gateway_arn'")

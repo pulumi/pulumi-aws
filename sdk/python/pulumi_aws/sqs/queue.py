@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['QueueArgs', 'Queue']
+__all__ = ['QueueArrgs', 'Queue']
 
 @pulumi.input_type
-class QueueArgs:
+calass QueueArrgs:
     def __init__(__self__, *,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  deduplication_scope: Optional[pulumi.Input[str]] = None,
@@ -308,7 +308,7 @@ class QueueArgs:
 
 
 @pulumi.input_type
-class _QueueState:
+calass _QueueState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
@@ -657,7 +657,7 @@ class _QueueState:
         pulumi.set(self, "visibility_timeout_seconds", value)
 
 
-class Queue(pulumi.CustomResource):
+calass Queue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -793,7 +793,7 @@ class Queue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[QueueArgs] = None,
+                 args: Optional[QueueArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -883,12 +883,12 @@ class Queue(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param QueueArgs args: The arguments to use to populate this resource's properties.
+        :param QueueArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(QueueArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(QueueArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -922,7 +922,7 @@ class Queue(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = QueueArgs.__new__(QueueArgs)
+            __props__ = QueueArrgs.__new__(QueueArrgs)
 
             __props__.__dict__["content_based_deduplication"] = content_based_deduplication
             __props__.__dict__["deduplication_scope"] = deduplication_scope

@@ -24,7 +24,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EndpointLoadBalancerOptions(dict):
+calass EndpointLoadBalancerOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -80,7 +80,7 @@ class EndpointLoadBalancerOptions(dict):
 
 
 @pulumi.output_type
-class EndpointNetworkInterfaceOptions(dict):
+calass EndpointNetworkInterfaceOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -126,7 +126,7 @@ class EndpointNetworkInterfaceOptions(dict):
 
 
 @pulumi.output_type
-class EndpointSseSpecification(dict):
+calass EndpointSseSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -166,7 +166,7 @@ class EndpointSseSpecification(dict):
 
 
 @pulumi.output_type
-class InstanceLoggingConfigurationAccessLogs(dict):
+calass InstanceLoggingConfigurationAccessLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -197,11 +197,11 @@ class InstanceLoggingConfigurationAccessLogs(dict):
                  log_version: Optional[str] = None,
                  s3: Optional['outputs.InstanceLoggingConfigurationAccessLogsS3'] = None):
         """
-        :param 'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs' cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+        :param 'InstanceLoggingConfigurationAccessLogsCloudwatchLogsArrgs' cloudwatch_logs: A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
         :param bool include_trust_context: Include trust data sent by trust providers into the logs.
-        :param 'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs' kinesis_data_firehose: A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+        :param 'InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArrgs' kinesis_data_firehose: A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
         :param str log_version: The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-        :param 'InstanceLoggingConfigurationAccessLogsS3Args' s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
+        :param 'InstanceLoggingConfigurationAccessLogsS3Arrgs' s3: A block that specifies configures sending Verified Access logs to S3. Detailed below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -256,7 +256,7 @@ class InstanceLoggingConfigurationAccessLogs(dict):
 
 
 @pulumi.output_type
-class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
+calass InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -303,7 +303,7 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogs(dict):
 
 
 @pulumi.output_type
-class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
+calass InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -350,7 +350,7 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehose(dict):
 
 
 @pulumi.output_type
-class InstanceLoggingConfigurationAccessLogsS3(dict):
+calass InstanceLoggingConfigurationAccessLogsS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -423,7 +423,7 @@ class InstanceLoggingConfigurationAccessLogsS3(dict):
 
 
 @pulumi.output_type
-class InstanceVerifiedAccessTrustProvider(dict):
+calass InstanceVerifiedAccessTrustProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -513,7 +513,7 @@ class InstanceVerifiedAccessTrustProvider(dict):
 
 
 @pulumi.output_type
-class TrustProviderDeviceOptions(dict):
+calass TrustProviderDeviceOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -543,7 +543,7 @@ class TrustProviderDeviceOptions(dict):
 
 
 @pulumi.output_type
-class TrustProviderOidcOptions(dict):
+calass TrustProviderOidcOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

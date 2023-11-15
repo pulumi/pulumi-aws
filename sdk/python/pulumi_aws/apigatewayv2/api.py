@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApiArgs', 'Api']
+__all__ = ['ApiArrgs', 'Api']
 
 @pulumi.input_type
-class ApiArgs:
+calass ApiArrgs:
     def __init__(__self__, *,
                  protocol_type: pulumi.Input[str],
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input['ApiCorsConfigurationArgs']] = None,
+                 cors_configuration: Optional[pulumi.Input['ApiCorsConfigurationArrgs']] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -37,7 +37,7 @@ class ApiArgs:
                Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
                Applicable for WebSocket APIs.
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
-        :param pulumi.Input['ApiCorsConfigurationArgs'] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        :param pulumi.Input['ApiCorsConfigurationArrgs'] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: Description of the API. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke the API by using the default `execute-api` endpoint.
@@ -122,14 +122,14 @@ class ApiArgs:
 
     @property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional[pulumi.Input['ApiCorsConfigurationArgs']]:
+    def cors_configuration(self) -> Optional[pulumi.Input['ApiCorsConfigurationArrgs']]:
         """
         Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
-    def cors_configuration(self, value: Optional[pulumi.Input['ApiCorsConfigurationArgs']]):
+    def cors_configuration(self, value: Optional[pulumi.Input['ApiCorsConfigurationArrgs']]):
         pulumi.set(self, "cors_configuration", value)
 
     @property
@@ -259,13 +259,13 @@ class ApiArgs:
 
 
 @pulumi.input_type
-class _ApiState:
+calass _ApiState:
     def __init__(__self__, *,
                  api_endpoint: Optional[pulumi.Input[str]] = None,
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input['ApiCorsConfigurationArgs']] = None,
+                 cors_configuration: Optional[pulumi.Input['ApiCorsConfigurationArrgs']] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -287,7 +287,7 @@ class _ApiState:
                Applicable for WebSocket APIs.
         :param pulumi.Input[str] arn: ARN of the API.
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
-        :param pulumi.Input['ApiCorsConfigurationArgs'] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        :param pulumi.Input['ApiCorsConfigurationArrgs'] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: Description of the API. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke the API by using the default `execute-api` endpoint.
@@ -401,14 +401,14 @@ class _ApiState:
 
     @property
     @pulumi.getter(name="corsConfiguration")
-    def cors_configuration(self) -> Optional[pulumi.Input['ApiCorsConfigurationArgs']]:
+    def cors_configuration(self) -> Optional[pulumi.Input['ApiCorsConfigurationArrgs']]:
         """
         Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         """
         return pulumi.get(self, "cors_configuration")
 
     @cors_configuration.setter
-    def cors_configuration(self, value: Optional[pulumi.Input['ApiCorsConfigurationArgs']]):
+    def cors_configuration(self, value: Optional[pulumi.Input['ApiCorsConfigurationArrgs']]):
         pulumi.set(self, "cors_configuration", value)
 
     @property
@@ -578,14 +578,14 @@ class _ApiState:
         pulumi.set(self, "version", value)
 
 
-class Api(pulumi.CustomResource):
+calass Api(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArrgs']]] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -637,7 +637,7 @@ class Api(pulumi.CustomResource):
                Valid values: `$context.authorizer.usageIdentifierKey`, `$request.header.x-api-key`. Defaults to `$request.header.x-api-key`.
                Applicable for WebSocket APIs.
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
-        :param pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        :param pulumi.Input[pulumi.InputType['ApiCorsConfigurationArrgs']] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: Description of the API. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke the API by using the default `execute-api` endpoint.
@@ -659,7 +659,7 @@ class Api(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApiArgs,
+                 args: ApiArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Amazon API Gateway Version 2 API.
@@ -695,12 +695,12 @@ class Api(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApiArgs args: The arguments to use to populate this resource's properties.
+        :param ApiArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApiArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -711,7 +711,7 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key_selection_expression: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
-                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
+                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArrgs']]] = None,
                  credentials_arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -730,7 +730,7 @@ class Api(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApiArgs.__new__(ApiArgs)
+            __props__ = ApiArrgs.__new__(ApiArrgs)
 
             __props__.__dict__["api_key_selection_expression"] = api_key_selection_expression
             __props__.__dict__["body"] = body
@@ -768,7 +768,7 @@ class Api(pulumi.CustomResource):
             api_key_selection_expression: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             body: Optional[pulumi.Input[str]] = None,
-            cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']]] = None,
+            cors_configuration: Optional[pulumi.Input[pulumi.InputType['ApiCorsConfigurationArrgs']]] = None,
             credentials_arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disable_execute_api_endpoint: Optional[pulumi.Input[bool]] = None,
@@ -795,7 +795,7 @@ class Api(pulumi.CustomResource):
                Applicable for WebSocket APIs.
         :param pulumi.Input[str] arn: ARN of the API.
         :param pulumi.Input[str] body: An OpenAPI specification that defines the set of routes and integrations to create as part of the HTTP APIs. Supported only for HTTP APIs.
-        :param pulumi.Input[pulumi.InputType['ApiCorsConfigurationArgs']] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
+        :param pulumi.Input[pulumi.InputType['ApiCorsConfigurationArrgs']] cors_configuration: Cross-origin resource sharing (CORS) [configuration](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-cors.html). Applicable for HTTP APIs.
         :param pulumi.Input[str] credentials_arn: Part of _quick create_. Specifies any credentials required for the integration. Applicable for HTTP APIs.
         :param pulumi.Input[str] description: Description of the API. Must be less than or equal to 1024 characters in length.
         :param pulumi.Input[bool] disable_execute_api_endpoint: Whether clients can invoke the API by using the default `execute-api` endpoint.

@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CustomerManagedPolicyAttachmentArgs', 'CustomerManagedPolicyAttachment']
+__all__ = ['CustomerManagedPolicyAttachmentArrgs', 'CustomerManagedPolicyAttachment']
 
 @pulumi.input_type
-class CustomerManagedPolicyAttachmentArgs:
+calass CustomerManagedPolicyAttachmentArrgs:
     def __init__(__self__, *,
-                 customer_managed_policy_reference: pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs'],
+                 customer_managed_policy_reference: pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs'],
                  instance_arn: pulumi.Input[str],
                  permission_set_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a CustomerManagedPolicyAttachment resource.
-        :param pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
+        :param pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
@@ -31,14 +31,14 @@ class CustomerManagedPolicyAttachmentArgs:
 
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
-    def customer_managed_policy_reference(self) -> pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']:
+    def customer_managed_policy_reference(self) -> pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']:
         """
         Specifies the name and path of a customer managed policy. See below.
         """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
-    def customer_managed_policy_reference(self, value: pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']):
+    def customer_managed_policy_reference(self, value: pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']):
         pulumi.set(self, "customer_managed_policy_reference", value)
 
     @property
@@ -67,14 +67,14 @@ class CustomerManagedPolicyAttachmentArgs:
 
 
 @pulumi.input_type
-class _CustomerManagedPolicyAttachmentState:
+calass _CustomerManagedPolicyAttachmentState:
     def __init__(__self__, *,
-                 customer_managed_policy_reference: Optional[pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']] = None,
+                 customer_managed_policy_reference: Optional[pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering CustomerManagedPolicyAttachment resources.
-        :param pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
+        :param pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
@@ -87,14 +87,14 @@ class _CustomerManagedPolicyAttachmentState:
 
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
-    def customer_managed_policy_reference(self) -> Optional[pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']]:
+    def customer_managed_policy_reference(self) -> Optional[pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']]:
         """
         Specifies the name and path of a customer managed policy. See below.
         """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
-    def customer_managed_policy_reference(self, value: Optional[pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']]):
+    def customer_managed_policy_reference(self, value: Optional[pulumi.Input['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']]):
         pulumi.set(self, "customer_managed_policy_reference", value)
 
     @property
@@ -122,12 +122,12 @@ class _CustomerManagedPolicyAttachmentState:
         pulumi.set(self, "permission_set_arn", value)
 
 
-class CustomerManagedPolicyAttachment(pulumi.CustomResource):
+calass CustomerManagedPolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_policy_reference: Optional[pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']]] = None,
+                 customer_managed_policy_reference: Optional[pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -146,7 +146,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
+        :param pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """
@@ -154,7 +154,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomerManagedPolicyAttachmentArgs,
+                 args: CustomerManagedPolicyAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
@@ -170,12 +170,12 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomerManagedPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param CustomerManagedPolicyAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomerManagedPolicyAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomerManagedPolicyAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -184,7 +184,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_managed_policy_reference: Optional[pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']]] = None,
+                 customer_managed_policy_reference: Optional[pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -194,7 +194,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomerManagedPolicyAttachmentArgs.__new__(CustomerManagedPolicyAttachmentArgs)
+            __props__ = CustomerManagedPolicyAttachmentArrgs.__new__(CustomerManagedPolicyAttachmentArrgs)
 
             if customer_managed_policy_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'customer_managed_policy_reference'")
@@ -215,7 +215,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            customer_managed_policy_reference: Optional[pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']]] = None,
+            customer_managed_policy_reference: Optional[pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']]] = None,
             instance_arn: Optional[pulumi.Input[str]] = None,
             permission_set_arn: Optional[pulumi.Input[str]] = None) -> 'CustomerManagedPolicyAttachment':
         """
@@ -225,7 +225,7 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
+        :param pulumi.Input[pulumi.InputType['CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs']] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
         """

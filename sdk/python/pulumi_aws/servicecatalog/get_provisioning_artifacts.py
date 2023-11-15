@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetProvisioningArtifactsResult:
+calass GetProvisioningArtifactsResult:
     """
     A collection of values returned by getProvisioningArtifacts.
     """
@@ -63,7 +63,7 @@ class GetProvisioningArtifactsResult:
         return pulumi.get(self, "provisioning_artifact_details")
 
 
-class AwaitableGetProvisioningArtifactsResult(GetProvisioningArtifactsResult):
+calass AwaitableGetProvisioningArtifactsResult(GetProvisioningArtifactsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkAclRuleArgs', 'NetworkAclRule']
+__all__ = ['NetworkAclRuleArrgs', 'NetworkAclRule']
 
 @pulumi.input_type
-class NetworkAclRuleArgs:
+calass NetworkAclRuleArrgs:
     def __init__(__self__, *,
                  network_acl_id: pulumi.Input[str],
                  protocol: pulumi.Input[str],
@@ -204,7 +204,7 @@ class NetworkAclRuleArgs:
 
 
 @pulumi.input_type
-class _NetworkAclRuleState:
+calass _NetworkAclRuleState:
     def __init__(__self__, *,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  egress: Optional[pulumi.Input[bool]] = None,
@@ -399,7 +399,7 @@ class _NetworkAclRuleState:
         pulumi.set(self, "to_port", value)
 
 
-class NetworkAclRule(pulumi.CustomResource):
+calass NetworkAclRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -486,7 +486,7 @@ class NetworkAclRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkAclRuleArgs,
+                 args: NetworkAclRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an entry (a rule) in a network ACL with the specified rule number.
@@ -535,12 +535,12 @@ class NetworkAclRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkAclRuleArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkAclRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkAclRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkAclRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -567,7 +567,7 @@ class NetworkAclRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkAclRuleArgs.__new__(NetworkAclRuleArgs)
+            __props__ = NetworkAclRuleArrgs.__new__(NetworkAclRuleArrgs)
 
             __props__.__dict__["cidr_block"] = cidr_block
             __props__.__dict__["egress"] = egress

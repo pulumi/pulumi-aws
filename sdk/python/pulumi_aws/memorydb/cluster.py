@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClusterArgs', 'Cluster']
+__all__ = ['ClusterArrgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterArgs:
+calass ClusterArrgs:
     def __init__(__self__, *,
                  acl_name: pulumi.Input[str],
                  node_type: pulumi.Input[str],
@@ -408,12 +408,12 @@ class ClusterArgs:
 
 
 @pulumi.input_type
-class _ClusterState:
+calass _ClusterState:
     def __init__(__self__, *,
                  acl_name: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-                 cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]] = None,
+                 cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArrgs']]]] = None,
                  data_tiering: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_patch_version: Optional[pulumi.Input[str]] = None,
@@ -429,7 +429,7 @@ class _ClusterState:
                  parameter_group_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 shards: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]]] = None,
+                 shards: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArrgs']]]] = None,
                  snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -461,7 +461,7 @@ class _ClusterState:
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]] shards: Set of shards in this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterShardArrgs']]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.
@@ -572,11 +572,11 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="clusterEndpoints")
-    def cluster_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]]:
+    def cluster_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArrgs']]]]:
         return pulumi.get(self, "cluster_endpoints")
 
     @cluster_endpoints.setter
-    def cluster_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArgs']]]]):
+    def cluster_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterClusterEndpointArrgs']]]]):
         pulumi.set(self, "cluster_endpoints", value)
 
     @property
@@ -763,14 +763,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter
-    def shards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]]]:
+    def shards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArrgs']]]]:
         """
         Set of shards in this cluster.
         """
         return pulumi.get(self, "shards")
 
     @shards.setter
-    def shards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArgs']]]]):
+    def shards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterShardArrgs']]]]):
         pulumi.set(self, "shards", value)
 
     @property
@@ -885,7 +885,7 @@ class _ClusterState:
         pulumi.set(self, "tls_enabled", value)
 
 
-class Cluster(pulumi.CustomResource):
+calass Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -976,7 +976,7 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterArgs,
+                 args: ClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a MemoryDB Cluster.
@@ -1007,12 +1007,12 @@ class Cluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1052,7 +1052,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterArgs.__new__(ClusterArgs)
+            __props__ = ClusterArrgs.__new__(ClusterArrgs)
 
             if acl_name is None and not opts.urn:
                 raise TypeError("Missing required property 'acl_name'")
@@ -1102,7 +1102,7 @@ class Cluster(pulumi.CustomResource):
             acl_name: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
-            cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArgs']]]]] = None,
+            cluster_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterClusterEndpointArrgs']]]]] = None,
             data_tiering: Optional[pulumi.Input[bool]] = None,
             description: Optional[pulumi.Input[str]] = None,
             engine_patch_version: Optional[pulumi.Input[str]] = None,
@@ -1118,7 +1118,7 @@ class Cluster(pulumi.CustomResource):
             parameter_group_name: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            shards: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArgs']]]]] = None,
+            shards: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArrgs']]]]] = None,
             snapshot_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snapshot_name: Optional[pulumi.Input[str]] = None,
             snapshot_retention_limit: Optional[pulumi.Input[int]] = None,
@@ -1155,7 +1155,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] parameter_group_name: The name of the parameter group associated with the cluster.
         :param pulumi.Input[int] port: The port number on which each of the nodes accepts connections. Defaults to `6379`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Set of VPC Security Group ID-s to associate with this cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArgs']]]] shards: Set of shards in this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterShardArrgs']]]] shards: Set of shards in this cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_arns: List of ARN-s that uniquely identify RDB snapshot files stored in S3. The snapshot files will be used to populate the new cluster. Object names in the ARN-s cannot contain any commas.
         :param pulumi.Input[str] snapshot_name: The name of a snapshot from which to restore data into the new cluster.
         :param pulumi.Input[int] snapshot_retention_limit: The number of days for which MemoryDB retains automatic snapshots before deleting them. When set to `0`, automatic backups are disabled. Defaults to `0`.

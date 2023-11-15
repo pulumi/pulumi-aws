@@ -31,7 +31,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetails(dict):
+calass LifecyclePolicyPolicyDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -67,13 +67,13 @@ class LifecyclePolicyPolicyDetails(dict):
                  schedules: Optional[Sequence['outputs.LifecyclePolicyPolicyDetailsSchedule']] = None,
                  target_tags: Optional[Mapping[str, str]] = None):
         """
-        :param 'LifecyclePolicyPolicyDetailsActionArgs' action: The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
-        :param 'LifecyclePolicyPolicyDetailsEventSourceArgs' event_source: The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
-        :param 'LifecyclePolicyPolicyDetailsParametersArgs' parameters: Information about the event. See the `parameters` configuration block.
+        :param 'LifecyclePolicyPolicyDetailsActionArrgs' action: The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        :param 'LifecyclePolicyPolicyDetailsEventSourceArrgs' event_source: The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        :param 'LifecyclePolicyPolicyDetailsParametersArrgs' parameters: Information about the event. See the `parameters` configuration block.
         :param str policy_type: The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
         :param str resource_locations: The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
         :param Sequence[str] resource_types: A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-        :param Sequence['LifecyclePolicyPolicyDetailsScheduleArgs'] schedules: See the `schedule` configuration block.
+        :param Sequence['LifecyclePolicyPolicyDetailsScheduleArrgs'] schedules: See the `schedule` configuration block.
         :param Mapping[str, str] target_tags: A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
                
                > Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
@@ -163,7 +163,7 @@ class LifecyclePolicyPolicyDetails(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsAction(dict):
+calass LifecyclePolicyPolicyDetailsAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -185,7 +185,7 @@ class LifecyclePolicyPolicyDetailsAction(dict):
                  cross_region_copies: Sequence['outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopy'],
                  name: str):
         """
-        :param Sequence['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs'] cross_region_copies: The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+        :param Sequence['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs'] cross_region_copies: The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
         :param str name: A descriptive name for the action.
         """
         pulumi.set(__self__, "cross_region_copies", cross_region_copies)
@@ -209,7 +209,7 @@ class LifecyclePolicyPolicyDetailsAction(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsActionCrossRegionCopy(dict):
+calass LifecyclePolicyPolicyDetailsActionCrossRegionCopy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -234,9 +234,9 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopy(dict):
                  target: str,
                  retain_rule: Optional['outputs.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule'] = None):
         """
-        :param 'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs' encryption_configuration: The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        :param 'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs' encryption_configuration: The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
         :param str target: The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-        :param 'LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs' retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
+        :param 'LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs' retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         """
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         pulumi.set(__self__, "target", target)
@@ -269,7 +269,7 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopy(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration(dict):
+calass LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -317,7 +317,7 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration(d
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule(dict):
+calass LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -363,12 +363,12 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsEventSource(dict):
+calass LifecyclePolicyPolicyDetailsEventSource(dict):
     def __init__(__self__, *,
                  parameters: 'outputs.LifecyclePolicyPolicyDetailsEventSourceParameters',
                  type: str):
         """
-        :param 'LifecyclePolicyPolicyDetailsEventSourceParametersArgs' parameters: Information about the event. See the `parameters` configuration block.
+        :param 'LifecyclePolicyPolicyDetailsEventSourceParametersArrgs' parameters: Information about the event. See the `parameters` configuration block.
         :param str type: The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
         """
         pulumi.set(__self__, "parameters", parameters)
@@ -392,7 +392,7 @@ class LifecyclePolicyPolicyDetailsEventSource(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsEventSourceParameters(dict):
+calass LifecyclePolicyPolicyDetailsEventSourceParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -453,7 +453,7 @@ class LifecyclePolicyPolicyDetailsEventSourceParameters(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsParameters(dict):
+calass LifecyclePolicyPolicyDetailsParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -503,7 +503,7 @@ class LifecyclePolicyPolicyDetailsParameters(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsSchedule(dict):
+calass LifecyclePolicyPolicyDetailsSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -549,14 +549,14 @@ class LifecyclePolicyPolicyDetailsSchedule(dict):
                  tags_to_add: Optional[Mapping[str, str]] = None,
                  variable_tags: Optional[Mapping[str, str]] = None):
         """
-        :param 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs' create_rule: See the `create_rule` block. Max of 1 per schedule.
+        :param 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArrgs' create_rule: See the `create_rule` block. Max of 1 per schedule.
         :param str name: A descriptive name for the action.
-        :param 'LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs' retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
+        :param 'LifecyclePolicyPolicyDetailsScheduleRetainRuleArrgs' retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         :param bool copy_tags: Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-        :param Sequence['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs'] cross_region_copy_rules: See the `cross_region_copy_rule` block. Max of 3 per schedule.
-        :param 'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs' deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-        :param 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs' fast_restore_rule: See the `fast_restore_rule` block. Max of 1 per schedule.
-        :param 'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs' share_rule: See the `share_rule` block. Max of 1 per schedule.
+        :param Sequence['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrgs'] cross_region_copy_rules: See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        :param 'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArrgs' deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        :param 'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArrgs' fast_restore_rule: See the `fast_restore_rule` block. Max of 1 per schedule.
+        :param 'LifecyclePolicyPolicyDetailsScheduleShareRuleArrgs' share_rule: See the `share_rule` block. Max of 1 per schedule.
         :param Mapping[str, str] tags_to_add: A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
         :param Mapping[str, str] variable_tags: A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
         """
@@ -660,7 +660,7 @@ class LifecyclePolicyPolicyDetailsSchedule(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
+calass LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -746,7 +746,7 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule(dict):
+calass LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -782,8 +782,8 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule(dict):
         :param str target: The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
         :param str cmk_arn: The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
         :param bool copy_tags: Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-        :param 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs' deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-        :param 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs' retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
+        :param 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArrgs' deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        :param 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArrgs' retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         """
         pulumi.set(__self__, "encrypted", encrypted)
         pulumi.set(__self__, "target", target)
@@ -846,7 +846,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule(dict):
+calass LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -892,7 +892,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule(dict)
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule(dict):
+calass LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -938,7 +938,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsScheduleDeprecateRule(dict):
+calass LifecyclePolicyPolicyDetailsScheduleDeprecateRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -998,7 +998,7 @@ class LifecyclePolicyPolicyDetailsScheduleDeprecateRule(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(dict):
+calass LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1071,7 +1071,7 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRule(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
+calass LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1131,7 +1131,7 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRule(dict):
 
 
 @pulumi.output_type
-class LifecyclePolicyPolicyDetailsScheduleShareRule(dict):
+calass LifecyclePolicyPolicyDetailsScheduleShareRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

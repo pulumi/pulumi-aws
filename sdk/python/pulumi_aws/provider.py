@@ -10,23 +10,23 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from ._inputs import *
 
-__all__ = ['ProviderArgs', 'Provider']
+__all__ = ['ProviderArrgs', 'Provider']
 
 @pulumi.input_type
-class ProviderArgs:
+calass ProviderArrgs:
     def __init__(__self__, *,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
-                 assume_role_with_web_identity: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']] = None,
+                 assume_role: Optional[pulumi.Input['ProviderAssumeRoleArrgs']] = None,
+                 assume_role_with_web_identity: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArrgs']] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
-                 default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
+                 default_tags: Optional[pulumi.Input['ProviderDefaultTagsArrgs']] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArrgs']]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
-                 ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArgs']] = None,
+                 ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArrgs']] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -50,14 +50,14 @@ class ProviderArgs:
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
                variable. (Setting `ca_bundle` in the shared config file is not supported.)
-        :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: Configuration block with settings to default resource tags across all resources.
+        :param pulumi.Input['ProviderDefaultTagsArrgs'] default_tags: Configuration block with settings to default resource tags across all resources.
         :param pulumi.Input[str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         :param pulumi.Input[str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         :param pulumi.Input[str] http_proxy: The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
                `HTTPS_PROXY` environment variables.
-        :param pulumi.Input['ProviderIgnoreTagsArgs'] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
+        :param pulumi.Input['ProviderIgnoreTagsArrgs'] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
@@ -176,20 +176,20 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="assumeRole")
-    def assume_role(self) -> Optional[pulumi.Input['ProviderAssumeRoleArgs']]:
+    def assume_role(self) -> Optional[pulumi.Input['ProviderAssumeRoleArrgs']]:
         return pulumi.get(self, "assume_role")
 
     @assume_role.setter
-    def assume_role(self, value: Optional[pulumi.Input['ProviderAssumeRoleArgs']]):
+    def assume_role(self, value: Optional[pulumi.Input['ProviderAssumeRoleArrgs']]):
         pulumi.set(self, "assume_role", value)
 
     @property
     @pulumi.getter(name="assumeRoleWithWebIdentity")
-    def assume_role_with_web_identity(self) -> Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']]:
+    def assume_role_with_web_identity(self) -> Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArrgs']]:
         return pulumi.get(self, "assume_role_with_web_identity")
 
     @assume_role_with_web_identity.setter
-    def assume_role_with_web_identity(self, value: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']]):
+    def assume_role_with_web_identity(self, value: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArrgs']]):
         pulumi.set(self, "assume_role_with_web_identity", value)
 
     @property
@@ -207,14 +207,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="defaultTags")
-    def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArgs']]:
+    def default_tags(self) -> Optional[pulumi.Input['ProviderDefaultTagsArrgs']]:
         """
         Configuration block with settings to default resource tags across all resources.
         """
         return pulumi.get(self, "default_tags")
 
     @default_tags.setter
-    def default_tags(self, value: Optional[pulumi.Input['ProviderDefaultTagsArgs']]):
+    def default_tags(self, value: Optional[pulumi.Input['ProviderDefaultTagsArrgs']]):
         pulumi.set(self, "default_tags", value)
 
     @property
@@ -245,11 +245,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
-    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]]:
+    def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArrgs']]]]:
         return pulumi.get(self, "endpoints")
 
     @endpoints.setter
-    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]]):
+    def endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArrgs']]]]):
         pulumi.set(self, "endpoints", value)
 
     @property
@@ -276,14 +276,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="ignoreTags")
-    def ignore_tags(self) -> Optional[pulumi.Input['ProviderIgnoreTagsArgs']]:
+    def ignore_tags(self) -> Optional[pulumi.Input['ProviderIgnoreTagsArrgs']]:
         """
         Configuration block with settings to ignore resource tags across all resources.
         """
         return pulumi.get(self, "ignore_tags")
 
     @ignore_tags.setter
-    def ignore_tags(self, value: Optional[pulumi.Input['ProviderIgnoreTagsArgs']]):
+    def ignore_tags(self, value: Optional[pulumi.Input['ProviderIgnoreTagsArrgs']]):
         pulumi.set(self, "ignore_tags", value)
 
     @property
@@ -510,23 +510,23 @@ class ProviderArgs:
         pulumi.set(self, "use_fips_endpoint", value)
 
 
-class Provider(pulumi.ProviderResource):
+calass Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
-                 assume_role_with_web_identity: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleWithWebIdentityArgs']]] = None,
+                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArrgs']]] = None,
+                 assume_role_with_web_identity: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleWithWebIdentityArrgs']]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
-                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
+                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArrgs']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArrgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
-                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
+                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArrgs']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -557,14 +557,14 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[str] custom_ca_bundle: File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
                variable. (Setting `ca_bundle` in the shared config file is not supported.)
-        :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']] default_tags: Configuration block with settings to default resource tags across all resources.
+        :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArrgs']] default_tags: Configuration block with settings to default resource tags across all resources.
         :param pulumi.Input[str] ec2_metadata_service_endpoint: Address of the EC2 metadata service endpoint to use. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT` environment variable.
         :param pulumi.Input[str] ec2_metadata_service_endpoint_mode: Protocol to use with EC2 metadata service endpoint.Valid values are `IPv4` and `IPv6`. Can also be configured using the
                `AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE` environment variable.
         :param pulumi.Input[str] http_proxy: The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
                `HTTPS_PROXY` environment variables.
-        :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
+        :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArrgs']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
         :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
@@ -595,7 +595,7 @@ class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ProviderArgs] = None,
+                 args: Optional[ProviderArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the aws package. By default, resources use package-wide configuration
@@ -604,12 +604,12 @@ class Provider(pulumi.ProviderResource):
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
         :param str resource_name: The name of the resource.
-        :param ProviderArgs args: The arguments to use to populate this resource's properties.
+        :param ProviderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -620,16 +620,16 @@ class Provider(pulumi.ProviderResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
-                 assume_role_with_web_identity: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleWithWebIdentityArgs']]] = None,
+                 assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArrgs']]] = None,
+                 assume_role_with_web_identity: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleWithWebIdentityArrgs']]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
-                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
+                 default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArrgs']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
                  ec2_metadata_service_endpoint_mode: Optional[pulumi.Input[str]] = None,
-                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
+                 endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArrgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
-                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
+                 ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArrgs']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -655,7 +655,7 @@ class Provider(pulumi.ProviderResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProviderArgs.__new__(ProviderArgs)
+            __props__ = ProviderArrgs.__new__(ProviderArrgs)
 
             __props__.__dict__["access_key"] = access_key
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None

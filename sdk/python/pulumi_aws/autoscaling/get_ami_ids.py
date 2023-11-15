@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAmiIdsResult:
+calass GetAmiIdsResult:
     """
     A collection of values returned by getAmiIds.
     """
@@ -67,7 +67,7 @@ class GetAmiIdsResult:
         return pulumi.get(self, "names")
 
 
-class AwaitableGetAmiIdsResult(GetAmiIdsResult):
+calass AwaitableGetAmiIdsResult(GetAmiIdsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -79,7 +79,7 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
             names=self.names)
 
 
-def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs']]] = None,
+def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArrgs']]] = None,
                 names: Optional[Sequence[str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
@@ -93,11 +93,11 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
     import pulumi_aws as aws
 
     groups = aws.autoscaling.get_ami_ids(filters=[
-        aws.autoscaling.GetAmiIdsFilterArgs(
+        aws.autoscaling.GetAmiIdsFilterArrgs(
             name="tag:Team",
             values=["Pets"],
         ),
-        aws.autoscaling.GetAmiIdsFilterArgs(
+        aws.autoscaling.GetAmiIdsFilterArrgs(
             name="tag-key",
             values=["Environment"],
         ),
@@ -114,7 +114,7 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArrgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     :param Sequence[str] names: List of autoscaling group names
     """
     __args__ = dict()
@@ -131,7 +131,7 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
 
 
 @_utilities.lift_output_func(get_ami_ids)
-def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs']]]]] = None,
+def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArrgs']]]]] = None,
                        names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiIdsResult]:
     """
@@ -145,11 +145,11 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     import pulumi_aws as aws
 
     groups = aws.autoscaling.get_ami_ids(filters=[
-        aws.autoscaling.GetAmiIdsFilterArgs(
+        aws.autoscaling.GetAmiIdsFilterArrgs(
             name="tag:Team",
             values=["Pets"],
         ),
-        aws.autoscaling.GetAmiIdsFilterArgs(
+        aws.autoscaling.GetAmiIdsFilterArrgs(
             name="tag-key",
             values=["Environment"],
         ),
@@ -166,7 +166,7 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArrgs']] filters: Filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     :param Sequence[str] names: List of autoscaling group names
     """
     ...

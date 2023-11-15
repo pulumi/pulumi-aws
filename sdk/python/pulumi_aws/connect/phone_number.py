@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PhoneNumberArgs', 'PhoneNumber']
+__all__ = ['PhoneNumberArrgs', 'PhoneNumber']
 
 @pulumi.input_type
-class PhoneNumberArgs:
+calass PhoneNumberArrgs:
     def __init__(__self__, *,
                  country_code: pulumi.Input[str],
                  target_arn: pulumi.Input[str],
@@ -115,14 +115,14 @@ class PhoneNumberArgs:
 
 
 @pulumi.input_type
-class _PhoneNumberState:
+calass _PhoneNumberState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  country_code: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  phone_number: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_arn: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class _PhoneNumberState:
         :param pulumi.Input[str] description: The description of the phone number.
         :param pulumi.Input[str] phone_number: The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         :param pulumi.Input[str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        :param pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArrgs']]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
@@ -226,14 +226,14 @@ class _PhoneNumberState:
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]]]:
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArrgs']]]]:
         """
         The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArgs']]]]):
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PhoneNumberStatusArrgs']]]]):
         pulumi.set(self, "statuses", value)
 
     @property
@@ -288,7 +288,7 @@ class _PhoneNumberState:
         pulumi.set(self, "type", value)
 
 
-class PhoneNumber(pulumi.CustomResource):
+calass PhoneNumber(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -365,7 +365,7 @@ class PhoneNumber(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PhoneNumberArgs,
+                 args: PhoneNumberArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Connect Phone Number resource. For more information see
@@ -420,12 +420,12 @@ class PhoneNumber(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PhoneNumberArgs args: The arguments to use to populate this resource's properties.
+        :param PhoneNumberArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PhoneNumberArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PhoneNumberArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -447,7 +447,7 @@ class PhoneNumber(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PhoneNumberArgs.__new__(PhoneNumberArgs)
+            __props__ = PhoneNumberArrgs.__new__(PhoneNumberArrgs)
 
             if country_code is None and not opts.urn:
                 raise TypeError("Missing required property 'country_code'")
@@ -482,7 +482,7 @@ class PhoneNumber(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             phone_number: Optional[pulumi.Input[str]] = None,
             prefix: Optional[pulumi.Input[str]] = None,
-            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberStatusArgs']]]]] = None,
+            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberStatusArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_arn: Optional[pulumi.Input[str]] = None,
@@ -499,7 +499,7 @@ class PhoneNumber(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the phone number.
         :param pulumi.Input[str] phone_number: The phone number. Phone numbers are formatted `[+] [country code] [subscriber number including area code]`.
         :param pulumi.Input[str] prefix: The prefix of the phone number that is used to filter available phone numbers. If provided, it must contain `+` as part of the country code. Do not specify this argument when importing the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberStatusArgs']]]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PhoneNumberStatusArrgs']]]] statuses: The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Phone Number. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_arn: The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.

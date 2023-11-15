@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDomainIdentityResult:
+calass GetDomainIdentityResult:
     """
     A collection of values returned by getDomainIdentity.
     """
@@ -68,7 +68,7 @@ class GetDomainIdentityResult:
         return pulumi.get(self, "verification_token")
 
 
-class AwaitableGetDomainIdentityResult(GetDomainIdentityResult):
+calass AwaitableGetDomainIdentityResult(GetDomainIdentityResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

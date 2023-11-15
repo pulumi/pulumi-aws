@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ProductProvisioningArtifactParametersArgs',
-    'ProvisionedProductOutputArgs',
-    'ProvisionedProductProvisioningParameterArgs',
-    'ProvisionedProductStackSetProvisioningPreferencesArgs',
-    'ServiceActionDefinitionArgs',
+    'ProductProvisioningArtifactParametersArrgs',
+    'ProvisionedProductOutputArrgs',
+    'ProvisionedProductProvisioningParameterArrgs',
+    'ProvisionedProductStackSetProvisioningPreferencesArrgs',
+    'ServiceActionDefinitionArrgs',
 ]
 
 @pulumi.input_type
-class ProductProvisioningArtifactParametersArgs:
+calass ProductProvisioningArtifactParametersArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  disable_template_validation: Optional[pulumi.Input[bool]] = None,
@@ -121,7 +121,7 @@ class ProductProvisioningArtifactParametersArgs:
 
 
 @pulumi.input_type
-class ProvisionedProductOutputArgs:
+calass ProvisionedProductOutputArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
@@ -176,7 +176,7 @@ class ProvisionedProductOutputArgs:
 
 
 @pulumi.input_type
-class ProvisionedProductProvisioningParameterArgs:
+calass ProvisionedProductProvisioningParameterArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  use_previous_value: Optional[pulumi.Input[bool]] = None,
@@ -230,7 +230,7 @@ class ProvisionedProductProvisioningParameterArgs:
 
 
 @pulumi.input_type
-class ProvisionedProductStackSetProvisioningPreferencesArgs:
+calass ProvisionedProductStackSetProvisioningPreferencesArrgs:
     def __init__(__self__, *,
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  failure_tolerance_count: Optional[pulumi.Input[int]] = None,
@@ -333,7 +333,7 @@ class ProvisionedProductStackSetProvisioningPreferencesArgs:
 
 
 @pulumi.input_type
-class ServiceActionDefinitionArgs:
+calass ServiceActionDefinitionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  version: pulumi.Input[str],

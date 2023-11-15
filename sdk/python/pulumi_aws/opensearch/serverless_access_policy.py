@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServerlessAccessPolicyArgs', 'ServerlessAccessPolicy']
+__all__ = ['ServerlessAccessPolicyArrgs', 'ServerlessAccessPolicy']
 
 @pulumi.input_type
-class ServerlessAccessPolicyArgs:
+calass ServerlessAccessPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -86,7 +86,7 @@ class ServerlessAccessPolicyArgs:
 
 
 @pulumi.input_type
-class _ServerlessAccessPolicyState:
+calass _ServerlessAccessPolicyState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -177,7 +177,7 @@ class _ServerlessAccessPolicyState:
         pulumi.set(self, "type", value)
 
 
-class ServerlessAccessPolicy(pulumi.CustomResource):
+calass ServerlessAccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -299,7 +299,7 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerlessAccessPolicyArgs,
+                 args: ServerlessAccessPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
@@ -401,12 +401,12 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerlessAccessPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ServerlessAccessPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerlessAccessPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerlessAccessPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -426,7 +426,7 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerlessAccessPolicyArgs.__new__(ServerlessAccessPolicyArgs)
+            __props__ = ServerlessAccessPolicyArrgs.__new__(ServerlessAccessPolicyArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

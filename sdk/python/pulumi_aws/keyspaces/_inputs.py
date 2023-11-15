@@ -10,21 +10,21 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'TableCapacitySpecificationArgs',
-    'TableClientSideTimestampsArgs',
-    'TableCommentArgs',
-    'TableEncryptionSpecificationArgs',
-    'TablePointInTimeRecoveryArgs',
-    'TableSchemaDefinitionArgs',
-    'TableSchemaDefinitionClusteringKeyArgs',
-    'TableSchemaDefinitionColumnArgs',
-    'TableSchemaDefinitionPartitionKeyArgs',
-    'TableSchemaDefinitionStaticColumnArgs',
-    'TableTtlArgs',
+    'TableCapacitySpecificationArrgs',
+    'TableClientSideTimestampsArrgs',
+    'TableCommentArrgs',
+    'TableEncryptionSpecificationArrgs',
+    'TablePointInTimeRecoveryArrgs',
+    'TableSchemaDefinitionArrgs',
+    'TableSchemaDefinitionClusteringKeyArrgs',
+    'TableSchemaDefinitionColumnArrgs',
+    'TableSchemaDefinitionPartitionKeyArrgs',
+    'TableSchemaDefinitionStaticColumnArrgs',
+    'TableTtlArrgs',
 ]
 
 @pulumi.input_type
-class TableCapacitySpecificationArgs:
+calass TableCapacitySpecificationArrgs:
     def __init__(__self__, *,
                  read_capacity_units: Optional[pulumi.Input[int]] = None,
                  throughput_mode: Optional[pulumi.Input[str]] = None,
@@ -79,7 +79,7 @@ class TableCapacitySpecificationArgs:
 
 
 @pulumi.input_type
-class TableClientSideTimestampsArgs:
+calass TableClientSideTimestampsArrgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
         """
@@ -101,7 +101,7 @@ class TableClientSideTimestampsArgs:
 
 
 @pulumi.input_type
-class TableCommentArgs:
+calass TableCommentArrgs:
     def __init__(__self__, *,
                  message: Optional[pulumi.Input[str]] = None):
         """
@@ -124,7 +124,7 @@ class TableCommentArgs:
 
 
 @pulumi.input_type
-class TableEncryptionSpecificationArgs:
+calass TableEncryptionSpecificationArrgs:
     def __init__(__self__, *,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -163,7 +163,7 @@ class TableEncryptionSpecificationArgs:
 
 
 @pulumi.input_type
-class TablePointInTimeRecoveryArgs:
+calass TablePointInTimeRecoveryArrgs:
     def __init__(__self__, *,
                  status: Optional[pulumi.Input[str]] = None):
         """
@@ -186,17 +186,17 @@ class TablePointInTimeRecoveryArgs:
 
 
 @pulumi.input_type
-class TableSchemaDefinitionArgs:
+calass TableSchemaDefinitionArrgs:
     def __init__(__self__, *,
-                 columns: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]],
-                 partition_keys: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]],
-                 clustering_keys: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]] = None,
-                 static_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]] = None):
+                 columns: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArrgs']]],
+                 partition_keys: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArrgs']]],
+                 clustering_keys: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArrgs']]]] = None,
+                 static_columns: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]] columns: The regular columns of the table.
-        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]] partition_keys: The columns that are part of the partition key of the table .
-        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]] clustering_keys: The columns that are part of the clustering key of the table.
-        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]] static_columns: The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArrgs']]] columns: The regular columns of the table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArrgs']]] partition_keys: The columns that are part of the partition key of the table .
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArrgs']]] clustering_keys: The columns that are part of the clustering key of the table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArrgs']]] static_columns: The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "partition_keys", partition_keys)
@@ -207,55 +207,55 @@ class TableSchemaDefinitionArgs:
 
     @property
     @pulumi.getter
-    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]]:
+    def columns(self) -> pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArrgs']]]:
         """
         The regular columns of the table.
         """
         return pulumi.get(self, "columns")
 
     @columns.setter
-    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArgs']]]):
+    def columns(self, value: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionColumnArrgs']]]):
         pulumi.set(self, "columns", value)
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]]:
+    def partition_keys(self) -> pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArrgs']]]:
         """
         The columns that are part of the partition key of the table .
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArgs']]]):
+    def partition_keys(self, value: pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionPartitionKeyArrgs']]]):
         pulumi.set(self, "partition_keys", value)
 
     @property
     @pulumi.getter(name="clusteringKeys")
-    def clustering_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]:
+    def clustering_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArrgs']]]]:
         """
         The columns that are part of the clustering key of the table.
         """
         return pulumi.get(self, "clustering_keys")
 
     @clustering_keys.setter
-    def clustering_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArgs']]]]):
+    def clustering_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionClusteringKeyArrgs']]]]):
         pulumi.set(self, "clustering_keys", value)
 
     @property
     @pulumi.getter(name="staticColumns")
-    def static_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]:
+    def static_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArrgs']]]]:
         """
         The columns that have been defined as `STATIC`. Static columns store values that are shared by all rows in the same partition.
         """
         return pulumi.get(self, "static_columns")
 
     @static_columns.setter
-    def static_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArgs']]]]):
+    def static_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableSchemaDefinitionStaticColumnArrgs']]]]):
         pulumi.set(self, "static_columns", value)
 
 
 @pulumi.input_type
-class TableSchemaDefinitionClusteringKeyArgs:
+calass TableSchemaDefinitionClusteringKeyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  order_by: pulumi.Input[str]):
@@ -292,7 +292,7 @@ class TableSchemaDefinitionClusteringKeyArgs:
 
 
 @pulumi.input_type
-class TableSchemaDefinitionColumnArgs:
+calass TableSchemaDefinitionColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -329,7 +329,7 @@ class TableSchemaDefinitionColumnArgs:
 
 
 @pulumi.input_type
-class TableSchemaDefinitionPartitionKeyArgs:
+calass TableSchemaDefinitionPartitionKeyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
@@ -351,7 +351,7 @@ class TableSchemaDefinitionPartitionKeyArgs:
 
 
 @pulumi.input_type
-class TableSchemaDefinitionStaticColumnArgs:
+calass TableSchemaDefinitionStaticColumnArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
@@ -373,7 +373,7 @@ class TableSchemaDefinitionStaticColumnArgs:
 
 
 @pulumi.input_type
-class TableTtlArgs:
+calass TableTtlArrgs:
     def __init__(__self__, *,
                  status: pulumi.Input[str]):
         """

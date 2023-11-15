@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServiceAccountResult:
+calass GetServiceAccountResult:
     """
     A collection of values returned by getServiceAccount.
     """
@@ -54,7 +54,7 @@ class GetServiceAccountResult:
         return pulumi.get(self, "region")
 
 
-class AwaitableGetServiceAccountResult(GetServiceAccountResult):
+calass AwaitableGetServiceAccountResult(GetServiceAccountResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -80,20 +80,20 @@ def get_service_account(region: Optional[str] = None,
     main = aws.cloudtrail.get_service_account()
     bucket = aws.s3.BucketV2("bucket", force_destroy=True)
     allow_cloudtrail_logging_policy_document = pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="Put bucket policy needed for trails",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[main.arn],
             )],
             actions=["s3:PutObject"],
             resources=[f"{bucket_arn}/*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="Get bucket policy needed for trails",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[main.arn],
             )],
@@ -137,20 +137,20 @@ def get_service_account_output(region: Optional[pulumi.Input[Optional[str]]] = N
     main = aws.cloudtrail.get_service_account()
     bucket = aws.s3.BucketV2("bucket", force_destroy=True)
     allow_cloudtrail_logging_policy_document = pulumi.Output.all(bucket.arn, bucket.arn).apply(lambda bucketArn, bucketArn1: aws.iam.get_policy_document_output(statements=[
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="Put bucket policy needed for trails",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[main.arn],
             )],
             actions=["s3:PutObject"],
             resources=[f"{bucket_arn}/*"],
         ),
-        aws.iam.GetPolicyDocumentStatementArgs(
+        aws.iam.GetPolicyDocumentStatementArrgs(
             sid="Get bucket policy needed for trails",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=[main.arn],
             )],

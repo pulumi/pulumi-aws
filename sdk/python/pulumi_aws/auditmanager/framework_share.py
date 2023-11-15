@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FrameworkShareArgs', 'FrameworkShare']
+__all__ = ['FrameworkShareArrgs', 'FrameworkShare']
 
 @pulumi.input_type
-class FrameworkShareArgs:
+calass FrameworkShareArrgs:
     def __init__(__self__, *,
                  destination_account: pulumi.Input[str],
                  destination_region: pulumi.Input[str],
@@ -85,7 +85,7 @@ class FrameworkShareArgs:
 
 
 @pulumi.input_type
-class _FrameworkShareState:
+calass _FrameworkShareState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  destination_account: Optional[pulumi.Input[str]] = None,
@@ -176,7 +176,7 @@ class _FrameworkShareState:
         pulumi.set(self, "status", value)
 
 
-class FrameworkShare(pulumi.CustomResource):
+calass FrameworkShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -223,7 +223,7 @@ class FrameworkShare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrameworkShareArgs,
+                 args: FrameworkShareArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Audit Manager Framework Share.
@@ -250,12 +250,12 @@ class FrameworkShare(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrameworkShareArgs args: The arguments to use to populate this resource's properties.
+        :param FrameworkShareArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrameworkShareArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrameworkShareArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -275,7 +275,7 @@ class FrameworkShare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrameworkShareArgs.__new__(FrameworkShareArgs)
+            __props__ = FrameworkShareArrgs.__new__(FrameworkShareArrgs)
 
             __props__.__dict__["comment"] = comment
             if destination_account is None and not opts.urn:

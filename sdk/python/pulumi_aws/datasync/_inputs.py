@@ -10,30 +10,30 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EfsLocationEc2ConfigArgs',
-    'FsxOpenZfsFileSystemProtocolArgs',
-    'FsxOpenZfsFileSystemProtocolNfsArgs',
-    'FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs',
-    'LocationAzureBlobSasConfigurationArgs',
-    'LocationFsxOntapFileSystemProtocolArgs',
-    'LocationFsxOntapFileSystemProtocolNfsArgs',
-    'LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs',
-    'LocationFsxOntapFileSystemProtocolSmbArgs',
-    'LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs',
-    'LocationHdfsNameNodeArgs',
-    'LocationHdfsQopConfigurationArgs',
-    'LocationSmbMountOptionsArgs',
-    'NfsLocationMountOptionsArgs',
-    'NfsLocationOnPremConfigArgs',
-    'S3LocationS3ConfigArgs',
-    'TaskExcludesArgs',
-    'TaskIncludesArgs',
-    'TaskOptionsArgs',
-    'TaskScheduleArgs',
+    'EfsLocationEc2ConfigArrgs',
+    'FsxOpenZfsFileSystemProtocolArrgs',
+    'FsxOpenZfsFileSystemProtocolNfsArrgs',
+    'FsxOpenZfsFileSystemProtocolNfsMountOptionsArrgs',
+    'LocationAzureBlobSasConfigurationArrgs',
+    'LocationFsxOntapFileSystemProtocolArrgs',
+    'LocationFsxOntapFileSystemProtocolNfsArrgs',
+    'LocationFsxOntapFileSystemProtocolNfsMountOptionsArrgs',
+    'LocationFsxOntapFileSystemProtocolSmbArrgs',
+    'LocationFsxOntapFileSystemProtocolSmbMountOptionsArrgs',
+    'LocationHdfsNameNodeArrgs',
+    'LocationHdfsQopConfigurationArrgs',
+    'LocationSmbMountOptionsArrgs',
+    'NfsLocationMountOptionsArrgs',
+    'NfsLocationOnPremConfigArrgs',
+    'S3LocationS3ConfigArrgs',
+    'TaskExcludesArrgs',
+    'TaskIncludesArrgs',
+    'TaskOptionsArrgs',
+    'TaskScheduleArrgs',
 ]
 
 @pulumi.input_type
-class EfsLocationEc2ConfigArgs:
+calass EfsLocationEc2ConfigArrgs:
     def __init__(__self__, *,
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_arn: pulumi.Input[str]):
@@ -70,51 +70,51 @@ class EfsLocationEc2ConfigArgs:
 
 
 @pulumi.input_type
-class FsxOpenZfsFileSystemProtocolArgs:
+calass FsxOpenZfsFileSystemProtocolArrgs:
     def __init__(__self__, *,
-                 nfs: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs']):
+                 nfs: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArrgs']):
         """
-        :param pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs'] nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+        :param pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArrgs'] nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
         """
         pulumi.set(__self__, "nfs", nfs)
 
     @property
     @pulumi.getter
-    def nfs(self) -> pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs']:
+    def nfs(self) -> pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArrgs']:
         """
         Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
         """
         return pulumi.get(self, "nfs")
 
     @nfs.setter
-    def nfs(self, value: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs']):
+    def nfs(self, value: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArrgs']):
         pulumi.set(self, "nfs", value)
 
 
 @pulumi.input_type
-class FsxOpenZfsFileSystemProtocolNfsArgs:
+calass FsxOpenZfsFileSystemProtocolNfsArrgs:
     def __init__(__self__, *,
-                 mount_options: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs']):
+                 mount_options: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArrgs']):
         """
-        :param pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs'] mount_options: Represents the mount options that are available for DataSync to access an NFS location. See below.
+        :param pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArrgs'] mount_options: Represents the mount options that are available for DataSync to access an NFS location. See below.
         """
         pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs']:
+    def mount_options(self) -> pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArrgs']:
         """
         Represents the mount options that are available for DataSync to access an NFS location. See below.
         """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs']):
+    def mount_options(self, value: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArrgs']):
         pulumi.set(self, "mount_options", value)
 
 
 @pulumi.input_type
-class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs:
+calass FsxOpenZfsFileSystemProtocolNfsMountOptionsArrgs:
     def __init__(__self__, *,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -137,7 +137,7 @@ class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs:
 
 
 @pulumi.input_type
-class LocationAzureBlobSasConfigurationArgs:
+calass LocationAzureBlobSasConfigurationArrgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str]):
         """
@@ -159,13 +159,13 @@ class LocationAzureBlobSasConfigurationArgs:
 
 
 @pulumi.input_type
-class LocationFsxOntapFileSystemProtocolArgs:
+calass LocationFsxOntapFileSystemProtocolArrgs:
     def __init__(__self__, *,
-                 nfs: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs']] = None,
-                 smb: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs']] = None):
+                 nfs: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArrgs']] = None,
+                 smb: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArrgs']] = None):
         """
-        :param pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs'] nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
-        :param pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs'] smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
+        :param pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArrgs'] nfs: Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
+        :param pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArrgs'] smb: Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
         """
         if nfs is not None:
             pulumi.set(__self__, "nfs", nfs)
@@ -174,53 +174,53 @@ class LocationFsxOntapFileSystemProtocolArgs:
 
     @property
     @pulumi.getter
-    def nfs(self) -> Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs']]:
+    def nfs(self) -> Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArrgs']]:
         """
         Network File System (NFS) protocol that DataSync uses to access your FSx ONTAP file system. See NFS below.
         """
         return pulumi.get(self, "nfs")
 
     @nfs.setter
-    def nfs(self, value: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArgs']]):
+    def nfs(self, value: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolNfsArrgs']]):
         pulumi.set(self, "nfs", value)
 
     @property
     @pulumi.getter
-    def smb(self) -> Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs']]:
+    def smb(self) -> Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArrgs']]:
         """
         Server Message Block (SMB) protocol that DataSync uses to access your FSx ONTAP file system. See [SMB] (#smb) below.
         """
         return pulumi.get(self, "smb")
 
     @smb.setter
-    def smb(self, value: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArgs']]):
+    def smb(self, value: Optional[pulumi.Input['LocationFsxOntapFileSystemProtocolSmbArrgs']]):
         pulumi.set(self, "smb", value)
 
 
 @pulumi.input_type
-class LocationFsxOntapFileSystemProtocolNfsArgs:
+calass LocationFsxOntapFileSystemProtocolNfsArrgs:
     def __init__(__self__, *,
-                 mount_options: pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs']):
+                 mount_options: pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArrgs']):
         """
-        :param pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs'] mount_options: Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
+        :param pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArrgs'] mount_options: Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
         """
         pulumi.set(__self__, "mount_options", mount_options)
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs']:
+    def mount_options(self) -> pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArrgs']:
         """
         Mount options that are available for DataSync to access an NFS location. See NFS Mount Options below.
         """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs']):
+    def mount_options(self, value: pulumi.Input['LocationFsxOntapFileSystemProtocolNfsMountOptionsArrgs']):
         pulumi.set(self, "mount_options", value)
 
 
 @pulumi.input_type
-class LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs:
+calass LocationFsxOntapFileSystemProtocolNfsMountOptionsArrgs:
     def __init__(__self__, *,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -243,14 +243,14 @@ class LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs:
 
 
 @pulumi.input_type
-class LocationFsxOntapFileSystemProtocolSmbArgs:
+calass LocationFsxOntapFileSystemProtocolSmbArrgs:
     def __init__(__self__, *,
-                 mount_options: pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs'],
+                 mount_options: pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArrgs'],
                  password: pulumi.Input[str],
                  user: pulumi.Input[str],
                  domain: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs'] mount_options: Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
+        :param pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArrgs'] mount_options: Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
         :param pulumi.Input[str] password: Password of a user who has permission to access your SVM.
         :param pulumi.Input[str] user: Username that can mount the location and access the files, folders, and metadata that you need in the SVM.
         :param pulumi.Input[str] domain: Fully qualified domain name of the Microsoft Active Directory (AD) that your storage virtual machine belongs to.
@@ -263,14 +263,14 @@ class LocationFsxOntapFileSystemProtocolSmbArgs:
 
     @property
     @pulumi.getter(name="mountOptions")
-    def mount_options(self) -> pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs']:
+    def mount_options(self) -> pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArrgs']:
         """
         Mount options that are available for DataSync to access an SMB location. See SMB Mount Options below.
         """
         return pulumi.get(self, "mount_options")
 
     @mount_options.setter
-    def mount_options(self, value: pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs']):
+    def mount_options(self, value: pulumi.Input['LocationFsxOntapFileSystemProtocolSmbMountOptionsArrgs']):
         pulumi.set(self, "mount_options", value)
 
     @property
@@ -311,7 +311,7 @@ class LocationFsxOntapFileSystemProtocolSmbArgs:
 
 
 @pulumi.input_type
-class LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs:
+calass LocationFsxOntapFileSystemProtocolSmbMountOptionsArrgs:
     def __init__(__self__, *,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -334,7 +334,7 @@ class LocationFsxOntapFileSystemProtocolSmbMountOptionsArgs:
 
 
 @pulumi.input_type
-class LocationHdfsNameNodeArgs:
+calass LocationHdfsNameNodeArrgs:
     def __init__(__self__, *,
                  hostname: pulumi.Input[str],
                  port: pulumi.Input[int]):
@@ -371,7 +371,7 @@ class LocationHdfsNameNodeArgs:
 
 
 @pulumi.input_type
-class LocationHdfsQopConfigurationArgs:
+calass LocationHdfsQopConfigurationArrgs:
     def __init__(__self__, *,
                  data_transfer_protection: Optional[pulumi.Input[str]] = None,
                  rpc_protection: Optional[pulumi.Input[str]] = None):
@@ -410,7 +410,7 @@ class LocationHdfsQopConfigurationArgs:
 
 
 @pulumi.input_type
-class LocationSmbMountOptionsArgs:
+calass LocationSmbMountOptionsArrgs:
     def __init__(__self__, *,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -433,7 +433,7 @@ class LocationSmbMountOptionsArgs:
 
 
 @pulumi.input_type
-class NfsLocationMountOptionsArgs:
+calass NfsLocationMountOptionsArrgs:
     def __init__(__self__, *,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -456,7 +456,7 @@ class NfsLocationMountOptionsArgs:
 
 
 @pulumi.input_type
-class NfsLocationOnPremConfigArgs:
+calass NfsLocationOnPremConfigArrgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -478,7 +478,7 @@ class NfsLocationOnPremConfigArgs:
 
 
 @pulumi.input_type
-class S3LocationS3ConfigArgs:
+calass S3LocationS3ConfigArrgs:
     def __init__(__self__, *,
                  bucket_access_role_arn: pulumi.Input[str]):
         """
@@ -500,7 +500,7 @@ class S3LocationS3ConfigArgs:
 
 
 @pulumi.input_type
-class TaskExcludesArgs:
+calass TaskExcludesArrgs:
     def __init__(__self__, *,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -539,7 +539,7 @@ class TaskExcludesArgs:
 
 
 @pulumi.input_type
-class TaskIncludesArgs:
+calass TaskIncludesArrgs:
     def __init__(__self__, *,
                  filter_type: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -578,7 +578,7 @@ class TaskIncludesArgs:
 
 
 @pulumi.input_type
-class TaskOptionsArgs:
+calass TaskOptionsArrgs:
     def __init__(__self__, *,
                  atime: Optional[pulumi.Input[str]] = None,
                  bytes_per_second: Optional[pulumi.Input[int]] = None,
@@ -825,7 +825,7 @@ class TaskOptionsArgs:
 
 
 @pulumi.input_type
-class TaskScheduleArgs:
+calass TaskScheduleArrgs:
     def __init__(__self__, *,
                  schedule_expression: pulumi.Input[str]):
         """

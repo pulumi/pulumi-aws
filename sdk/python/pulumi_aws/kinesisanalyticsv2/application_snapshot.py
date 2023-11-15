@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApplicationSnapshotArgs', 'ApplicationSnapshot']
+__all__ = ['ApplicationSnapshotArrgs', 'ApplicationSnapshot']
 
 @pulumi.input_type
-class ApplicationSnapshotArgs:
+calass ApplicationSnapshotArrgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[str],
                  snapshot_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ApplicationSnapshotArgs:
 
 
 @pulumi.input_type
-class _ApplicationSnapshotState:
+calass _ApplicationSnapshotState:
     def __init__(__self__, *,
                  application_name: Optional[pulumi.Input[str]] = None,
                  application_version_id: Optional[pulumi.Input[int]] = None,
@@ -121,7 +121,7 @@ class _ApplicationSnapshotState:
         pulumi.set(self, "snapshot_name", value)
 
 
-class ApplicationSnapshot(pulumi.CustomResource):
+calass ApplicationSnapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -161,7 +161,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationSnapshotArgs,
+                 args: ApplicationSnapshotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Kinesis Analytics v2 Application Snapshot.
@@ -187,12 +187,12 @@ class ApplicationSnapshot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationSnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationSnapshotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationSnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationSnapshotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -210,7 +210,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationSnapshotArgs.__new__(ApplicationSnapshotArgs)
+            __props__ = ApplicationSnapshotArrgs.__new__(ApplicationSnapshotArrgs)
 
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")

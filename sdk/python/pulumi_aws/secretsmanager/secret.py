@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SecretArgs', 'Secret']
+__all__ = ['SecretArrgs', 'Secret']
 
 @pulumi.input_type
-class SecretArgs:
+calass SecretArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  force_overwrite_replica_secret: Optional[pulumi.Input[bool]] = None,
@@ -23,7 +23,7 @@ class SecretArgs:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
@@ -34,7 +34,7 @@ class SecretArgs:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-        :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArrgs']]] replicas: Configuration block to support secret replication. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if description is not None:
@@ -142,14 +142,14 @@ class SecretArgs:
 
     @property
     @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]]:
+    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArrgs']]]]:
         """
         Configuration block to support secret replication. See details below.
         """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]]):
+    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArrgs']]]]):
         pulumi.set(self, "replicas", value)
 
     @property
@@ -166,7 +166,7 @@ class SecretArgs:
 
 
 @pulumi.input_type
-class _SecretState:
+calass _SecretState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -176,7 +176,7 @@ class _SecretState:
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -189,7 +189,7 @@ class _SecretState:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-        :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input['SecretReplicaArrgs']]] replicas: Configuration block to support secret replication. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -317,14 +317,14 @@ class _SecretState:
 
     @property
     @pulumi.getter
-    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]]:
+    def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArrgs']]]]:
         """
         Configuration block to support secret replication. See details below.
         """
         return pulumi.get(self, "replicas")
 
     @replicas.setter
-    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArgs']]]]):
+    def replicas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SecretReplicaArrgs']]]]):
         pulumi.set(self, "replicas", value)
 
     @property
@@ -355,7 +355,7 @@ class _SecretState:
         pulumi.set(self, "tags_all", value)
 
 
-class Secret(pulumi.CustomResource):
+calass Secret(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -367,7 +367,7 @@ class Secret(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -400,14 +400,14 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArrgs']]]] replicas: Configuration block to support secret replication. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SecretArgs] = None,
+                 args: Optional[SecretArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage AWS Secrets Manager secret metadata. To manage secret rotation, see the `secretsmanager.SecretRotation` resource. To manage a secret value, see the `secretsmanager.SecretVersion` resource.
@@ -431,12 +431,12 @@ class Secret(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SecretArgs args: The arguments to use to populate this resource's properties.
+        :param SecretArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecretArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecretArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -452,7 +452,7 @@ class Secret(pulumi.CustomResource):
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]]] = None,
+                 replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -461,7 +461,7 @@ class Secret(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecretArgs.__new__(SecretArgs)
+            __props__ = SecretArrgs.__new__(SecretArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["force_overwrite_replica_secret"] = force_overwrite_replica_secret
@@ -494,7 +494,7 @@ class Secret(pulumi.CustomResource):
             name_prefix: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[str]] = None,
             recovery_window_in_days: Optional[pulumi.Input[int]] = None,
-            replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]]] = None,
+            replicas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Secret':
         """
@@ -512,7 +512,7 @@ class Secret(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[str] policy: Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `secretsmanager.SecretPolicy`. To delete the `policy`, set it to `"{}"` (an empty JSON document).
         :param pulumi.Input[int] recovery_window_in_days: Number of days that AWS Secrets Manager waits before it can delete the secret. This value can be `0` to force deletion without recovery or range from `7` to `30` days. The default value is `30`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArgs']]]] replicas: Configuration block to support secret replication. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretReplicaArrgs']]]] replicas: Configuration block to support secret replication. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of user-defined tags that are attached to the secret. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

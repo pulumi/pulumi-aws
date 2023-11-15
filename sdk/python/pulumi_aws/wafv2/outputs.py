@@ -825,7 +825,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RegexPatternSetRegularExpression(dict):
+calass RegexPatternSetRegularExpression(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -860,7 +860,7 @@ class RegexPatternSetRegularExpression(dict):
 
 
 @pulumi.output_type
-class RuleGroupCustomResponseBody(dict):
+calass RuleGroupCustomResponseBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -917,7 +917,7 @@ class RuleGroupCustomResponseBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRule(dict):
+calass RuleGroupRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -948,13 +948,13 @@ class RuleGroupRule(dict):
                  captcha_config: Optional['outputs.RuleGroupRuleCaptchaConfig'] = None,
                  rule_labels: Optional[Sequence['outputs.RuleGroupRuleRuleLabel']] = None):
         """
-        :param 'RuleGroupRuleActionArgs' action: The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
+        :param 'RuleGroupRuleActionArrgs' action: The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `wafv2.WebAcl` level can override the rule action setting. See Action below for details.
         :param str name: A friendly name of the rule.
         :param int priority: If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-        :param 'RuleGroupRuleStatementArgs' statement: The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
-        :param 'RuleGroupRuleVisibilityConfigArgs' visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
-        :param 'RuleGroupRuleCaptchaConfigArgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
-        :param Sequence['RuleGroupRuleRuleLabelArgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+        :param 'RuleGroupRuleStatementArrgs' statement: The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
+        :param 'RuleGroupRuleVisibilityConfigArrgs' visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param 'RuleGroupRuleCaptchaConfigArrgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See Captcha Configuration below for details.
+        :param Sequence['RuleGroupRuleRuleLabelArrgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "name", name)
@@ -1024,7 +1024,7 @@ class RuleGroupRule(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleAction(dict):
+calass RuleGroupRuleAction(dict):
     def __init__(__self__, *,
                  allow: Optional['outputs.RuleGroupRuleActionAllow'] = None,
                  block: Optional['outputs.RuleGroupRuleActionBlock'] = None,
@@ -1032,11 +1032,11 @@ class RuleGroupRuleAction(dict):
                  challenge: Optional['outputs.RuleGroupRuleActionChallenge'] = None,
                  count: Optional['outputs.RuleGroupRuleActionCount'] = None):
         """
-        :param 'RuleGroupRuleActionAllowArgs' allow: Instructs AWS WAF to allow the web request. See Allow below for details.
-        :param 'RuleGroupRuleActionBlockArgs' block: Instructs AWS WAF to block the web request. See Block below for details.
-        :param 'RuleGroupRuleActionCaptchaArgs' captcha: Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
-        :param 'RuleGroupRuleActionChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
-        :param 'RuleGroupRuleActionCountArgs' count: Instructs AWS WAF to count the web request and allow it. See Count below for details.
+        :param 'RuleGroupRuleActionAllowArrgs' allow: Instructs AWS WAF to allow the web request. See Allow below for details.
+        :param 'RuleGroupRuleActionBlockArrgs' block: Instructs AWS WAF to block the web request. See Block below for details.
+        :param 'RuleGroupRuleActionCaptchaArrgs' captcha: Instructs AWS WAF to run a `CAPTCHA` check against the web request. See Captcha below for details.
+        :param 'RuleGroupRuleActionChallengeArrgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See Challenge below for details.
+        :param 'RuleGroupRuleActionCountArrgs' count: Instructs AWS WAF to count the web request and allow it. See Count below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -1091,7 +1091,7 @@ class RuleGroupRuleAction(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionAllow(dict):
+calass RuleGroupRuleActionAllow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1112,7 +1112,7 @@ class RuleGroupRuleActionAllow(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.RuleGroupRuleActionAllowCustomRequestHandling'] = None):
         """
-        :param 'RuleGroupRuleActionAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
+        :param 'RuleGroupRuleActionAllowCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1127,7 +1127,7 @@ class RuleGroupRuleActionAllow(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionAllowCustomRequestHandling(dict):
+calass RuleGroupRuleActionAllowCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1148,7 +1148,7 @@ class RuleGroupRuleActionAllowCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1162,7 +1162,7 @@ class RuleGroupRuleActionAllowCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
+calass RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1191,7 +1191,7 @@ class RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionBlock(dict):
+calass RuleGroupRuleActionBlock(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1212,7 +1212,7 @@ class RuleGroupRuleActionBlock(dict):
     def __init__(__self__, *,
                  custom_response: Optional['outputs.RuleGroupRuleActionBlockCustomResponse'] = None):
         """
-        :param 'RuleGroupRuleActionBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See Custom Response below for details.
+        :param 'RuleGroupRuleActionBlockCustomResponseArrgs' custom_response: Defines a custom response for the web request. See Custom Response below for details.
         """
         if custom_response is not None:
             pulumi.set(__self__, "custom_response", custom_response)
@@ -1227,7 +1227,7 @@ class RuleGroupRuleActionBlock(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionBlockCustomResponse(dict):
+calass RuleGroupRuleActionBlockCustomResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1256,7 +1256,7 @@ class RuleGroupRuleActionBlockCustomResponse(dict):
         """
         :param int response_code: The HTTP status code to return to the client.
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
-        :param Sequence['RuleGroupRuleActionBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionBlockCustomResponseResponseHeaderArrgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -1290,7 +1290,7 @@ class RuleGroupRuleActionBlockCustomResponse(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
+calass RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1319,7 +1319,7 @@ class RuleGroupRuleActionBlockCustomResponseResponseHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionCaptcha(dict):
+calass RuleGroupRuleActionCaptcha(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1340,7 +1340,7 @@ class RuleGroupRuleActionCaptcha(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.RuleGroupRuleActionCaptchaCustomRequestHandling'] = None):
         """
-        :param 'RuleGroupRuleActionCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
+        :param 'RuleGroupRuleActionCaptchaCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1355,7 +1355,7 @@ class RuleGroupRuleActionCaptcha(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionCaptchaCustomRequestHandling(dict):
+calass RuleGroupRuleActionCaptchaCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1376,7 +1376,7 @@ class RuleGroupRuleActionCaptchaCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1390,7 +1390,7 @@ class RuleGroupRuleActionCaptchaCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
+calass RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1419,7 +1419,7 @@ class RuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionChallenge(dict):
+calass RuleGroupRuleActionChallenge(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1440,7 +1440,7 @@ class RuleGroupRuleActionChallenge(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.RuleGroupRuleActionChallengeCustomRequestHandling'] = None):
         """
-        :param 'RuleGroupRuleActionChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
+        :param 'RuleGroupRuleActionChallengeCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1455,7 +1455,7 @@ class RuleGroupRuleActionChallenge(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionChallengeCustomRequestHandling(dict):
+calass RuleGroupRuleActionChallengeCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1476,7 +1476,7 @@ class RuleGroupRuleActionChallengeCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1490,7 +1490,7 @@ class RuleGroupRuleActionChallengeCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
+calass RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1519,7 +1519,7 @@ class RuleGroupRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionCount(dict):
+calass RuleGroupRuleActionCount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1540,7 +1540,7 @@ class RuleGroupRuleActionCount(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.RuleGroupRuleActionCountCustomRequestHandling'] = None):
         """
-        :param 'RuleGroupRuleActionCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
+        :param 'RuleGroupRuleActionCountCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See Custom Request Handling below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -1555,7 +1555,7 @@ class RuleGroupRuleActionCount(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionCountCustomRequestHandling(dict):
+calass RuleGroupRuleActionCountCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1576,7 +1576,7 @@ class RuleGroupRuleActionCountCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.RuleGroupRuleActionCountCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
+        :param Sequence['RuleGroupRuleActionCountCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See Custom HTTP Header below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -1590,7 +1590,7 @@ class RuleGroupRuleActionCountCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
+calass RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -1619,7 +1619,7 @@ class RuleGroupRuleActionCountCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleCaptchaConfig(dict):
+calass RuleGroupRuleCaptchaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1640,7 +1640,7 @@ class RuleGroupRuleCaptchaConfig(dict):
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.RuleGroupRuleCaptchaConfigImmunityTimeProperty'] = None):
         """
-        :param 'RuleGroupRuleCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See Immunity Time Property below for details.
+        :param 'RuleGroupRuleCaptchaConfigImmunityTimePropertyArrgs' immunity_time_property: Defines custom immunity time. See Immunity Time Property below for details.
         """
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
@@ -1655,7 +1655,7 @@ class RuleGroupRuleCaptchaConfig(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleCaptchaConfigImmunityTimeProperty(dict):
+calass RuleGroupRuleCaptchaConfigImmunityTimeProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1691,7 +1691,7 @@ class RuleGroupRuleCaptchaConfigImmunityTimeProperty(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleRuleLabel(dict):
+calass RuleGroupRuleRuleLabel(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -1709,7 +1709,7 @@ class RuleGroupRuleRuleLabel(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatement(dict):
+calass RuleGroupRuleStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1766,19 +1766,19 @@ class RuleGroupRuleStatement(dict):
                  sqli_match_statement: Optional['outputs.RuleGroupRuleStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.RuleGroupRuleStatementXssMatchStatement'] = None):
         """
-        :param 'RuleGroupRuleStatementAndStatementArgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementArgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
-        :param 'RuleGroupRuleStatementGeoMatchStatementArgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
-        :param 'RuleGroupRuleStatementIpSetReferenceStatementArgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementLabelMatchStatementArgs' label_match_statement: A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
-        :param 'RuleGroupRuleStatementNotStatementArgs' not_statement: A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
-        :param 'RuleGroupRuleStatementOrStatementArgs' or_statement: A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementArgs' rate_based_statement: A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementArgs' regex_match_statement: A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementArgs' size_constraint_statement: A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementArgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        :param 'RuleGroupRuleStatementAndStatementArrgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementArrgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        :param 'RuleGroupRuleStatementGeoMatchStatementArrgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        :param 'RuleGroupRuleStatementIpSetReferenceStatementArrgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        :param 'RuleGroupRuleStatementLabelMatchStatementArrgs' label_match_statement: A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        :param 'RuleGroupRuleStatementNotStatementArrgs' not_statement: A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        :param 'RuleGroupRuleStatementOrStatementArrgs' or_statement: A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementArrgs' rate_based_statement: A rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See Rate Based Statement below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementArrgs' regex_match_statement: A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementArrgs' regex_pattern_set_reference_statement: A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementArrgs' size_constraint_statement: A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementArrgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementArrgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -1913,11 +1913,11 @@ class RuleGroupRuleStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementAndStatement(dict):
+calass RuleGroupRuleStatementAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['RuleGroupRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -1931,7 +1931,7 @@ class RuleGroupRuleStatementAndStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatement(dict):
+calass RuleGroupRuleStatementByteMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1963,10 +1963,10 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
         """
         :param str positional_constraint: The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param str search_string: A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['RuleGroupRuleStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementByteMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "search_string", search_string)
@@ -2010,7 +2010,7 @@ class RuleGroupRuleStatementByteMatchStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2053,16 +2053,16 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -2174,13 +2174,13 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2216,7 +2216,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2243,7 +2243,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -2277,7 +2277,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2302,7 +2302,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(di
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -2331,13 +2331,13 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(di
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2364,7 +2364,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -2398,7 +2398,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2423,7 +2423,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -2460,13 +2460,13 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dic
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2501,7 +2501,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2531,7 +2531,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -2577,7 +2577,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2599,7 +2599,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(d
                  all: Optional['outputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -2621,25 +2621,25 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(d
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -2657,7 +2657,7 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -2675,13 +2675,13 @@ class RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(di
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementByteMatchStatementTextTransformation(dict):
+calass RuleGroupRuleStatementByteMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -2710,7 +2710,7 @@ class RuleGroupRuleStatementByteMatchStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementGeoMatchStatement(dict):
+calass RuleGroupRuleStatementGeoMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2735,7 +2735,7 @@ class RuleGroupRuleStatementGeoMatchStatement(dict):
                  forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig'] = None):
         """
         :param Sequence[str] country_codes: An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
-        :param 'RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+        :param 'RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigArrgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         """
         pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -2759,7 +2759,7 @@ class RuleGroupRuleStatementGeoMatchStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig(dict):
+calass RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2807,7 +2807,7 @@ class RuleGroupRuleStatementGeoMatchStatementForwardedIpConfig(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementIpSetReferenceStatement(dict):
+calass RuleGroupRuleStatementIpSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2830,7 +2830,7 @@ class RuleGroupRuleStatementIpSetReferenceStatement(dict):
                  ip_set_forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
-        :param 'RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+        :param 'RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArrgs' ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
         pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
@@ -2854,7 +2854,7 @@ class RuleGroupRuleStatementIpSetReferenceStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
+calass RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2913,7 +2913,7 @@ class RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementLabelMatchStatement(dict):
+calass RuleGroupRuleStatementLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
                  scope: str):
@@ -2942,11 +2942,11 @@ class RuleGroupRuleStatementLabelMatchStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementNotStatement(dict):
+calass RuleGroupRuleStatementNotStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['RuleGroupRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -2960,11 +2960,11 @@ class RuleGroupRuleStatementNotStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementOrStatement(dict):
+calass RuleGroupRuleStatementOrStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['RuleGroupRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -2978,7 +2978,7 @@ class RuleGroupRuleStatementOrStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3011,9 +3011,9 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
         """
         :param int limit: The limit on requests per 5-minute period for a single originating IP address.
         :param str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyArgs'] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyArrgs'] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArrgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArrgs' scope_down_statement: An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         pulumi.set(__self__, "limit", limit)
         if aggregate_key_type is not None:
@@ -3067,7 +3067,7 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3106,15 +3106,15 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
                  query_string: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArgs' cookie: (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArgs' forwarded_ip: (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArgs' header: (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArgs' http_method: (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyIpArgs' ip: (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs' label_namespace: (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs' query_argument: (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyCookieArrgs' cookie: (Optional) Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIpArrgs' forwarded_ip: (Optional) Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderArrgs' header: (Optional) Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethodArrgs' http_method: (Optional) Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyIpArrgs' ip: (Optional) Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespaceArrgs' label_namespace: (Optional) Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentArrgs' query_argument: (Optional) Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
@@ -3209,7 +3209,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKey(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3232,7 +3232,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation']):
         """
         :param str name: A friendly name of the rule group.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         """
@@ -3259,7 +3259,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookie(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -3288,13 +3288,13 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyForwardedIp(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3317,7 +3317,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation']):
         """
         :param str name: A friendly name of the rule group.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         """
@@ -3344,7 +3344,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -3373,19 +3373,19 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyHttpMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyIp(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyIp(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace(dict):
     def __init__(__self__, *,
                  namespace: str):
         """
@@ -3403,7 +3403,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyLabelNamespace(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3426,7 +3426,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation']):
         """
         :param str name: A friendly name of the rule group.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         """
@@ -3453,7 +3453,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -3482,7 +3482,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransfor
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3503,7 +3503,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString(dict):
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation']):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         """
@@ -3521,7 +3521,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryString(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -3550,7 +3550,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyQueryStringTextTransforma
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3571,7 +3571,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath(dict):
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation']):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
         """
@@ -3589,7 +3589,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPath(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -3618,7 +3618,7 @@ class RuleGroupRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementForwardedIpConfig(dict):
+calass RuleGroupRuleStatementRateBasedStatementForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3666,7 +3666,7 @@ class RuleGroupRuleStatementRateBasedStatementForwardedIpConfig(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3720,18 +3720,18 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
                  sqli_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs' not_statement: A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs' or_statement: A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatementArrgs' and_statement: A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArrgs' byte_match_statement: A rule statement that defines a string match search for AWS WAF to apply to web requests. See Byte Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArrgs' geo_match_statement: A rule statement used to identify web requests based on country of origin. See GEO Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArrgs' ip_set_reference_statement: A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArrgs' label_match_statement: A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatementArrgs' not_statement: A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatementArrgs' or_statement: A logical rule statement used to combine other rule statements with OR logic. See OR Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArrgs' regex_match_statement: A rule statement used to search web request components for a match against a single regular expression. See Regex Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArrgs' regex_pattern_set_reference_statement: A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArrgs' size_constraint_statement: A rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See Size Constraint Statement below for more details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArrgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See SQL Injection Match Statement below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArrgs' xss_match_statement: A rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See XSS Match Statement below for details.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -3856,11 +3856,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['RuleGroupRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -3874,7 +3874,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementAndStatement(dic
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3906,10 +3906,10 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
         """
         :param str positional_constraint: The area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param str search_string: A string value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "search_string", search_string)
@@ -3953,7 +3953,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3996,16 +3996,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -4117,13 +4117,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4159,7 +4159,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4186,7 +4186,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -4220,7 +4220,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4245,7 +4245,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -4274,13 +4274,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4307,7 +4307,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -4341,7 +4341,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4366,7 +4366,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -4403,13 +4403,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4444,7 +4444,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4474,7 +4474,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -4520,7 +4520,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4542,7 +4542,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -4564,25 +4564,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -4600,7 +4600,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -4618,13 +4618,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -4653,7 +4653,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4678,7 +4678,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
                  forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig'] = None):
         """
         :param Sequence[str] country_codes: An array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArrgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See Forwarded IP Config below for details.
         """
         pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -4702,7 +4702,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4750,7 +4750,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4773,7 +4773,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
                  ip_set_forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArrgs' ip_set_forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
         """
         pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
@@ -4797,7 +4797,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4856,7 +4856,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
                  scope: str):
@@ -4885,11 +4885,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['RuleGroupRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -4903,11 +4903,11 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementNotStatement(dic
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.RuleGroupRuleStatement']):
         """
-        :param Sequence['RuleGroupRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['RuleGroupRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -4921,7 +4921,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4949,10 +4949,10 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None):
         """
         :param str regex_string: The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -4987,7 +4987,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5030,16 +5030,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -5151,13 +5151,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5193,7 +5193,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5220,7 +5220,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -5254,7 +5254,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5279,7 +5279,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -5308,13 +5308,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5341,7 +5341,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -5375,7 +5375,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5400,7 +5400,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -5437,13 +5437,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5478,7 +5478,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5508,7 +5508,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -5554,7 +5554,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5576,7 +5576,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -5598,25 +5598,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -5634,7 +5634,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -5652,13 +5652,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -5687,7 +5687,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatem
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5713,10 +5713,10 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -5751,7 +5751,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5794,16 +5794,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -5915,13 +5915,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5957,7 +5957,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5984,7 +5984,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -6018,7 +6018,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6043,7 +6043,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -6072,13 +6072,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6105,7 +6105,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -6139,7 +6139,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6164,7 +6164,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -6201,13 +6201,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6242,7 +6242,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6272,7 +6272,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -6318,7 +6318,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6340,7 +6340,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -6362,25 +6362,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -6398,7 +6398,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -6416,13 +6416,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -6451,7 +6451,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetR
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6481,10 +6481,10 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
         """
         :param str comparison_operator: The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param int size: The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "size", size)
@@ -6528,7 +6528,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6571,16 +6571,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -6692,13 +6692,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6734,7 +6734,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6761,7 +6761,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -6795,7 +6795,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6820,7 +6820,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -6849,13 +6849,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6882,7 +6882,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -6916,7 +6916,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6941,7 +6941,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -6978,13 +6978,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7019,7 +7019,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7049,7 +7049,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -7095,7 +7095,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7117,7 +7117,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -7139,25 +7139,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -7175,7 +7175,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -7193,13 +7193,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -7228,7 +7228,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7252,10 +7252,10 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -7281,7 +7281,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7324,16 +7324,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -7445,13 +7445,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7487,7 +7487,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7514,7 +7514,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -7548,7 +7548,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7573,7 +7573,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -7602,13 +7602,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7635,7 +7635,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -7669,7 +7669,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7694,7 +7694,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -7731,13 +7731,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7772,7 +7772,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7802,7 +7802,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -7848,7 +7848,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7870,7 +7870,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -7892,25 +7892,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -7928,7 +7928,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -7946,13 +7946,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -7981,7 +7981,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStateme
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8005,10 +8005,10 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -8034,7 +8034,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8077,16 +8077,16 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -8198,13 +8198,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8240,7 +8240,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8267,7 +8267,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -8301,7 +8301,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8326,7 +8326,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -8355,13 +8355,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8388,7 +8388,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -8422,7 +8422,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8447,7 +8447,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -8484,13 +8484,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8525,7 +8525,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8555,7 +8555,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -8601,7 +8601,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8623,7 +8623,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
                  all: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -8645,25 +8645,25 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -8681,7 +8681,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -8699,13 +8699,13 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation(dict):
+calass RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -8734,7 +8734,7 @@ class RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatemen
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatement(dict):
+calass RuleGroupRuleStatementRegexMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8762,10 +8762,10 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatch'] = None):
         """
         :param str regex_string: The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        :param Sequence['RuleGroupRuleStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRegexMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -8800,7 +8800,7 @@ class RuleGroupRuleStatementRegexMatchStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8843,16 +8843,16 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -8964,13 +8964,13 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9006,7 +9006,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9033,7 +9033,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -9067,7 +9067,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9092,7 +9092,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(d
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9121,13 +9121,13 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(d
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9154,7 +9154,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -9188,7 +9188,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9213,7 +9213,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(di
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -9250,13 +9250,13 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(di
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9291,7 +9291,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9321,7 +9321,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -9367,7 +9367,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9389,7 +9389,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(
                  all: Optional['outputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9411,25 +9411,25 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -9447,7 +9447,7 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -9465,13 +9465,13 @@ class RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(d
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexMatchStatementTextTransformation(dict):
+calass RuleGroupRuleStatementRegexMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -9500,7 +9500,7 @@ class RuleGroupRuleStatementRegexMatchStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9526,10 +9526,10 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
                  field_to_match: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -9564,7 +9564,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9607,16 +9607,16 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -9728,13 +9728,13 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9770,7 +9770,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(di
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9797,7 +9797,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -9831,7 +9831,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9856,7 +9856,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -9885,13 +9885,13 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9918,7 +9918,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -9952,7 +9952,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9977,7 +9977,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -10014,13 +10014,13 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderM
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10055,7 +10055,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fing
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10085,7 +10085,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -10131,7 +10131,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10153,7 +10153,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
                  all: Optional['outputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -10175,25 +10175,25 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBod
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -10211,7 +10211,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleH
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -10229,13 +10229,13 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQ
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation(dict):
+calass RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -10264,7 +10264,7 @@ class RuleGroupRuleStatementRegexPatternSetReferenceStatementTextTransformation(
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatement(dict):
+calass RuleGroupRuleStatementSizeConstraintStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10294,10 +10294,10 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
         """
         :param str comparison_operator: The operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param int size: The size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "size", size)
@@ -10341,7 +10341,7 @@ class RuleGroupRuleStatementSizeConstraintStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10384,16 +10384,16 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -10505,13 +10505,13 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10547,7 +10547,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10574,7 +10574,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -10608,7 +10608,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10633,7 +10633,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -10662,13 +10662,13 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatte
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10695,7 +10695,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -10729,7 +10729,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10754,7 +10754,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -10791,13 +10791,13 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatter
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10832,7 +10832,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(di
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10862,7 +10862,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -10908,7 +10908,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10930,7 +10930,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
                  all: Optional['outputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -10952,25 +10952,25 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatt
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -10988,7 +10988,7 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -11006,13 +11006,13 @@ class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgume
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSizeConstraintStatementTextTransformation(dict):
+calass RuleGroupRuleStatementSizeConstraintStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -11041,7 +11041,7 @@ class RuleGroupRuleStatementSizeConstraintStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatement(dict):
+calass RuleGroupRuleStatementSqliMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11065,10 +11065,10 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['RuleGroupRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementSqliMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -11094,7 +11094,7 @@ class RuleGroupRuleStatementSqliMatchStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11137,16 +11137,16 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -11258,13 +11258,13 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11300,7 +11300,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11327,7 +11327,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -11361,7 +11361,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11386,7 +11386,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(di
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -11415,13 +11415,13 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(di
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11448,7 +11448,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -11482,7 +11482,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11507,7 +11507,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dic
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -11544,13 +11544,13 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dic
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11585,7 +11585,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11615,7 +11615,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -11661,7 +11661,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11683,7 +11683,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(d
                  all: Optional['outputs.RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -11705,25 +11705,25 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(d
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -11741,7 +11741,7 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -11759,13 +11759,13 @@ class RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(di
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementSqliMatchStatementTextTransformation(dict):
+calass RuleGroupRuleStatementSqliMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -11794,7 +11794,7 @@ class RuleGroupRuleStatementSqliMatchStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatement(dict):
+calass RuleGroupRuleStatementXssMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11818,10 +11818,10 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
                  text_transformations: Sequence['outputs.RuleGroupRuleStatementXssMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['RuleGroupRuleStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
+        :param Sequence['RuleGroupRuleStatementXssMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection.
                At least one required.
                See Text Transformation below for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -11847,7 +11847,7 @@ class RuleGroupRuleStatementXssMatchStatement(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11890,16 +11890,16 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
-        :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See Headers below for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See JSON Body for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See Single Header below for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See Cookies below for details.
+        :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See Headers below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See JSON Body for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See Single Header below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See Single Query Argument below for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -12011,13 +12011,13 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchBody(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12053,7 +12053,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12080,7 +12080,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`
         """
@@ -12114,7 +12114,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12139,7 +12139,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dic
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -12168,13 +12168,13 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dic
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12201,7 +12201,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -12235,7 +12235,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12260,7 +12260,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -12297,13 +12297,13 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12338,7 +12338,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12368,7 +12368,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -12414,7 +12414,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12436,7 +12436,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(di
                  all: Optional['outputs.RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -12458,25 +12458,25 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(di
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -12494,7 +12494,7 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -12512,13 +12512,13 @@ class RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dic
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath(dict):
+calass RuleGroupRuleStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class RuleGroupRuleStatementXssMatchStatementTextTransformation(dict):
+calass RuleGroupRuleStatementXssMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -12547,7 +12547,7 @@ class RuleGroupRuleStatementXssMatchStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class RuleGroupRuleVisibilityConfig(dict):
+calass RuleGroupRuleVisibilityConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12608,7 +12608,7 @@ class RuleGroupRuleVisibilityConfig(dict):
 
 
 @pulumi.output_type
-class RuleGroupVisibilityConfig(dict):
+calass RuleGroupVisibilityConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12669,7 +12669,7 @@ class RuleGroupVisibilityConfig(dict):
 
 
 @pulumi.output_type
-class WebAclAssociationConfig(dict):
+calass WebAclAssociationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12690,7 +12690,7 @@ class WebAclAssociationConfig(dict):
     def __init__(__self__, *,
                  request_bodies: Optional[Sequence['outputs.WebAclAssociationConfigRequestBody']] = None):
         """
-        :param Sequence['WebAclAssociationConfigRequestBodyArgs'] request_bodies: Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
+        :param Sequence['WebAclAssociationConfigRequestBodyArrgs'] request_bodies: Customizes the request body that your protected resource forward to AWS WAF for inspection. See `request_body` below for details.
         """
         if request_bodies is not None:
             pulumi.set(__self__, "request_bodies", request_bodies)
@@ -12705,11 +12705,11 @@ class WebAclAssociationConfig(dict):
 
 
 @pulumi.output_type
-class WebAclAssociationConfigRequestBody(dict):
+calass WebAclAssociationConfigRequestBody(dict):
     def __init__(__self__, *,
                  cloudfronts: Optional[Sequence['outputs.WebAclAssociationConfigRequestBodyCloudfront']] = None):
         """
-        :param Sequence['WebAclAssociationConfigRequestBodyCloudfrontArgs'] cloudfronts: Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
+        :param Sequence['WebAclAssociationConfigRequestBodyCloudfrontArrgs'] cloudfronts: Customizes the request body that your protected CloudFront distributions forward to AWS WAF for inspection. See `cloudfront` below for details.
         """
         if cloudfronts is not None:
             pulumi.set(__self__, "cloudfronts", cloudfronts)
@@ -12724,7 +12724,7 @@ class WebAclAssociationConfigRequestBody(dict):
 
 
 @pulumi.output_type
-class WebAclAssociationConfigRequestBodyCloudfront(dict):
+calass WebAclAssociationConfigRequestBodyCloudfront(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12759,7 +12759,7 @@ class WebAclAssociationConfigRequestBodyCloudfront(dict):
 
 
 @pulumi.output_type
-class WebAclCaptchaConfig(dict):
+calass WebAclCaptchaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12780,7 +12780,7 @@ class WebAclCaptchaConfig(dict):
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.WebAclCaptchaConfigImmunityTimeProperty'] = None):
         """
-        :param 'WebAclCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
+        :param 'WebAclCaptchaConfigImmunityTimePropertyArrgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
         """
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
@@ -12795,7 +12795,7 @@ class WebAclCaptchaConfig(dict):
 
 
 @pulumi.output_type
-class WebAclCaptchaConfigImmunityTimeProperty(dict):
+calass WebAclCaptchaConfigImmunityTimeProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12831,7 +12831,7 @@ class WebAclCaptchaConfigImmunityTimeProperty(dict):
 
 
 @pulumi.output_type
-class WebAclCustomResponseBody(dict):
+calass WebAclCustomResponseBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12888,13 +12888,13 @@ class WebAclCustomResponseBody(dict):
 
 
 @pulumi.output_type
-class WebAclDefaultAction(dict):
+calass WebAclDefaultAction(dict):
     def __init__(__self__, *,
                  allow: Optional['outputs.WebAclDefaultActionAllow'] = None,
                  block: Optional['outputs.WebAclDefaultActionBlock'] = None):
         """
-        :param 'WebAclDefaultActionAllowArgs' allow: Specifies that AWS WAF should allow requests by default. See `allow` below for details.
-        :param 'WebAclDefaultActionBlockArgs' block: Specifies that AWS WAF should block requests by default. See `block` below for details.
+        :param 'WebAclDefaultActionAllowArrgs' allow: Specifies that AWS WAF should allow requests by default. See `allow` below for details.
+        :param 'WebAclDefaultActionBlockArrgs' block: Specifies that AWS WAF should block requests by default. See `block` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -12919,7 +12919,7 @@ class WebAclDefaultAction(dict):
 
 
 @pulumi.output_type
-class WebAclDefaultActionAllow(dict):
+calass WebAclDefaultActionAllow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12940,7 +12940,7 @@ class WebAclDefaultActionAllow(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclDefaultActionAllowCustomRequestHandling'] = None):
         """
-        :param 'WebAclDefaultActionAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclDefaultActionAllowCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -12955,7 +12955,7 @@ class WebAclDefaultActionAllow(dict):
 
 
 @pulumi.output_type
-class WebAclDefaultActionAllowCustomRequestHandling(dict):
+calass WebAclDefaultActionAllowCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -12976,7 +12976,7 @@ class WebAclDefaultActionAllowCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclDefaultActionAllowCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclDefaultActionAllowCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -12990,7 +12990,7 @@ class WebAclDefaultActionAllowCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class WebAclDefaultActionAllowCustomRequestHandlingInsertHeader(dict):
+calass WebAclDefaultActionAllowCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -13019,7 +13019,7 @@ class WebAclDefaultActionAllowCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class WebAclDefaultActionBlock(dict):
+calass WebAclDefaultActionBlock(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13040,7 +13040,7 @@ class WebAclDefaultActionBlock(dict):
     def __init__(__self__, *,
                  custom_response: Optional['outputs.WebAclDefaultActionBlockCustomResponse'] = None):
         """
-        :param 'WebAclDefaultActionBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
+        :param 'WebAclDefaultActionBlockCustomResponseArrgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
         """
         if custom_response is not None:
             pulumi.set(__self__, "custom_response", custom_response)
@@ -13055,7 +13055,7 @@ class WebAclDefaultActionBlock(dict):
 
 
 @pulumi.output_type
-class WebAclDefaultActionBlockCustomResponse(dict):
+calass WebAclDefaultActionBlockCustomResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13084,7 +13084,7 @@ class WebAclDefaultActionBlockCustomResponse(dict):
         """
         :param int response_code: The HTTP status code to return to the client.
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
-        :param Sequence['WebAclDefaultActionBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
+        :param Sequence['WebAclDefaultActionBlockCustomResponseResponseHeaderArrgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -13118,7 +13118,7 @@ class WebAclDefaultActionBlockCustomResponse(dict):
 
 
 @pulumi.output_type
-class WebAclDefaultActionBlockCustomResponseResponseHeader(dict):
+calass WebAclDefaultActionBlockCustomResponseResponseHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -13147,7 +13147,7 @@ class WebAclDefaultActionBlockCustomResponseResponseHeader(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationLoggingFilter(dict):
+calass WebAclLoggingConfigurationLoggingFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13170,7 +13170,7 @@ class WebAclLoggingConfigurationLoggingFilter(dict):
                  filters: Sequence['outputs.WebAclLoggingConfigurationLoggingFilterFilter']):
         """
         :param str default_behavior: Default handling for logs that don't match any of the specified filtering conditions. Valid values for `default_behavior` are `KEEP` or `DROP`.
-        :param Sequence['WebAclLoggingConfigurationLoggingFilterFilterArgs'] filters: Filter(s) that you want to apply to the logs. See Filter below for more details.
+        :param Sequence['WebAclLoggingConfigurationLoggingFilterFilterArrgs'] filters: Filter(s) that you want to apply to the logs. See Filter below for more details.
         """
         pulumi.set(__self__, "default_behavior", default_behavior)
         pulumi.set(__self__, "filters", filters)
@@ -13193,14 +13193,14 @@ class WebAclLoggingConfigurationLoggingFilter(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationLoggingFilterFilter(dict):
+calass WebAclLoggingConfigurationLoggingFilterFilter(dict):
     def __init__(__self__, *,
                  behavior: str,
                  conditions: Sequence['outputs.WebAclLoggingConfigurationLoggingFilterFilterCondition'],
                  requirement: str):
         """
         :param str behavior: Parameter that determines how to handle logs that meet the conditions and requirements of the filter. The valid values for `behavior` are `KEEP` or `DROP`.
-        :param Sequence['WebAclLoggingConfigurationLoggingFilterFilterConditionArgs'] conditions: Match condition(s) for the filter. See Condition below for more details.
+        :param Sequence['WebAclLoggingConfigurationLoggingFilterFilterConditionArrgs'] conditions: Match condition(s) for the filter. See Condition below for more details.
         :param str requirement: Logic to apply to the filtering conditions. You can specify that a log must match all conditions or at least one condition in order to satisfy the filter. Valid values for `requirement` are `MEETS_ALL` or `MEETS_ANY`.
         """
         pulumi.set(__self__, "behavior", behavior)
@@ -13233,7 +13233,7 @@ class WebAclLoggingConfigurationLoggingFilterFilter(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationLoggingFilterFilterCondition(dict):
+calass WebAclLoggingConfigurationLoggingFilterFilterCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13257,8 +13257,8 @@ class WebAclLoggingConfigurationLoggingFilterFilterCondition(dict):
                  action_condition: Optional['outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition'] = None,
                  label_name_condition: Optional['outputs.WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition'] = None):
         """
-        :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArgs' action_condition: Configuration for a single action condition. See Action Condition below for more details.
-        :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArgs' label_name_condition: Condition for a single label name. See Label Name Condition below for more details.
+        :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionActionConditionArrgs' action_condition: Configuration for a single action condition. See Action Condition below for more details.
+        :param 'WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameConditionArrgs' label_name_condition: Condition for a single label name. See Label Name Condition below for more details.
         """
         if action_condition is not None:
             pulumi.set(__self__, "action_condition", action_condition)
@@ -13283,7 +13283,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterCondition(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(dict):
+calass WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(dict):
     def __init__(__self__, *,
                  action: str):
         """
@@ -13301,7 +13301,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionActionCondition(dict
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition(dict):
+calass WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13336,7 +13336,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition(d
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationRedactedField(dict):
+calass WebAclLoggingConfigurationRedactedField(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13364,10 +13364,10 @@ class WebAclLoggingConfigurationRedactedField(dict):
                  single_header: Optional['outputs.WebAclLoggingConfigurationRedactedFieldSingleHeader'] = None,
                  uri_path: Optional['outputs.WebAclLoggingConfigurationRedactedFieldUriPath'] = None):
         """
-        :param 'WebAclLoggingConfigurationRedactedFieldMethodArgs' method: HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclLoggingConfigurationRedactedFieldQueryStringArgs' query_string: Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclLoggingConfigurationRedactedFieldSingleHeaderArgs' single_header: "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
-        :param 'WebAclLoggingConfigurationRedactedFieldUriPathArgs' uri_path: Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
+        :param 'WebAclLoggingConfigurationRedactedFieldMethodArrgs' method: HTTP method to be redacted. It must be specified as an empty configuration block `{}`. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclLoggingConfigurationRedactedFieldQueryStringArrgs' query_string: Whether to redact the query string. It must be specified as an empty configuration block `{}`. The query string is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclLoggingConfigurationRedactedFieldSingleHeaderArrgs' single_header: "single_header" refers to the redaction of a single header. For more information, please see the details below under Single Header.
+        :param 'WebAclLoggingConfigurationRedactedFieldUriPathArrgs' uri_path: Configuration block that redacts the request URI path. It should be specified as an empty configuration block `{}`. The URI path is the part of a web request that identifies a resource, such as `/images/daily-ad.jpg`.
         """
         if method is not None:
             pulumi.set(__self__, "method", method)
@@ -13412,19 +13412,19 @@ class WebAclLoggingConfigurationRedactedField(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationRedactedFieldMethod(dict):
+calass WebAclLoggingConfigurationRedactedFieldMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationRedactedFieldQueryString(dict):
+calass WebAclLoggingConfigurationRedactedFieldQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationRedactedFieldSingleHeader(dict):
+calass WebAclLoggingConfigurationRedactedFieldSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -13442,13 +13442,13 @@ class WebAclLoggingConfigurationRedactedFieldSingleHeader(dict):
 
 
 @pulumi.output_type
-class WebAclLoggingConfigurationRedactedFieldUriPath(dict):
+calass WebAclLoggingConfigurationRedactedFieldUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRule(dict):
+calass WebAclRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13484,12 +13484,12 @@ class WebAclRule(dict):
         """
         :param str name: Friendly name of the rule. Note that the provider assumes that rules with names matching this pattern, `^ShieldMitigationRuleGroup_<account-id>_<web-acl-guid>_.*`, are AWS-added for [automatic application layer DDoS mitigation activities](https://docs.aws.amazon.com/waf/latest/developerguide/ddos-automatic-app-layer-response-rg.html). Such rules will be ignored by the provider unless you explicitly include them in your configuration (for example, by using the AWS CLI to discover their properties and creating matching configuration). However, since these rules are owned and managed by AWS, you may get permission errors.
         :param int priority: If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
-        :param 'WebAclRuleStatementArgs' statement: The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
-        :param 'WebAclRuleVisibilityConfigArgs' visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
-        :param 'WebAclRuleActionArgs' action: Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
-        :param 'WebAclRuleCaptchaConfigArgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
-        :param 'WebAclRuleOverrideActionArgs' override_action: Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
-        :param Sequence['WebAclRuleRuleLabelArgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
+        :param 'WebAclRuleStatementArrgs' statement: The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See `statement` below for details.
+        :param 'WebAclRuleVisibilityConfigArrgs' visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See `visibility_config` below for details.
+        :param 'WebAclRuleActionArrgs' action: Action that AWS WAF should take on a web request when it matches the rule's statement. This is used only for rules whose **statements do not reference a rule group**. See `action` for details.
+        :param 'WebAclRuleCaptchaConfigArrgs' captcha_config: Specifies how AWS WAF should handle CAPTCHA evaluations. See `captcha_config` below for details.
+        :param 'WebAclRuleOverrideActionArrgs' override_action: Override action to apply to the rules in a rule group. Used only for rule **statements that reference a rule group**, like `rule_group_reference_statement` and `managed_rule_group_statement`. See `override_action` below for details.
+        :param Sequence['WebAclRuleRuleLabelArrgs'] rule_labels: Labels to apply to web requests that match the rule match statement. See `rule_label` below for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -13570,7 +13570,7 @@ class WebAclRule(dict):
 
 
 @pulumi.output_type
-class WebAclRuleAction(dict):
+calass WebAclRuleAction(dict):
     def __init__(__self__, *,
                  allow: Optional['outputs.WebAclRuleActionAllow'] = None,
                  block: Optional['outputs.WebAclRuleActionBlock'] = None,
@@ -13578,11 +13578,11 @@ class WebAclRuleAction(dict):
                  challenge: Optional['outputs.WebAclRuleActionChallenge'] = None,
                  count: Optional['outputs.WebAclRuleActionCount'] = None):
         """
-        :param 'WebAclRuleActionAllowArgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
-        :param 'WebAclRuleActionBlockArgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
-        :param 'WebAclRuleActionCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param 'WebAclRuleActionChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        :param 'WebAclRuleActionCountArgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+        :param 'WebAclRuleActionAllowArrgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
+        :param 'WebAclRuleActionBlockArrgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
+        :param 'WebAclRuleActionCaptchaArrgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        :param 'WebAclRuleActionChallengeArrgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        :param 'WebAclRuleActionCountArrgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -13637,7 +13637,7 @@ class WebAclRuleAction(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionAllow(dict):
+calass WebAclRuleActionAllow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13658,7 +13658,7 @@ class WebAclRuleActionAllow(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleActionAllowCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleActionAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleActionAllowCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -13673,7 +13673,7 @@ class WebAclRuleActionAllow(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionAllowCustomRequestHandling(dict):
+calass WebAclRuleActionAllowCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13694,7 +13694,7 @@ class WebAclRuleActionAllowCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleActionAllowCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleActionAllowCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -13708,7 +13708,7 @@ class WebAclRuleActionAllowCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionAllowCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleActionAllowCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -13737,7 +13737,7 @@ class WebAclRuleActionAllowCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionBlock(dict):
+calass WebAclRuleActionBlock(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13758,7 +13758,7 @@ class WebAclRuleActionBlock(dict):
     def __init__(__self__, *,
                  custom_response: Optional['outputs.WebAclRuleActionBlockCustomResponse'] = None):
         """
-        :param 'WebAclRuleActionBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
+        :param 'WebAclRuleActionBlockCustomResponseArrgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
         """
         if custom_response is not None:
             pulumi.set(__self__, "custom_response", custom_response)
@@ -13773,7 +13773,7 @@ class WebAclRuleActionBlock(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionBlockCustomResponse(dict):
+calass WebAclRuleActionBlockCustomResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13802,7 +13802,7 @@ class WebAclRuleActionBlockCustomResponse(dict):
         """
         :param int response_code: The HTTP status code to return to the client.
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
-        :param Sequence['WebAclRuleActionBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
+        :param Sequence['WebAclRuleActionBlockCustomResponseResponseHeaderArrgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -13836,7 +13836,7 @@ class WebAclRuleActionBlockCustomResponse(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionBlockCustomResponseResponseHeader(dict):
+calass WebAclRuleActionBlockCustomResponseResponseHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -13865,7 +13865,7 @@ class WebAclRuleActionBlockCustomResponseResponseHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionCaptcha(dict):
+calass WebAclRuleActionCaptcha(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13886,7 +13886,7 @@ class WebAclRuleActionCaptcha(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleActionCaptchaCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleActionCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleActionCaptchaCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -13901,7 +13901,7 @@ class WebAclRuleActionCaptcha(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionCaptchaCustomRequestHandling(dict):
+calass WebAclRuleActionCaptchaCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13922,7 +13922,7 @@ class WebAclRuleActionCaptchaCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleActionCaptchaCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -13936,7 +13936,7 @@ class WebAclRuleActionCaptchaCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -13965,7 +13965,7 @@ class WebAclRuleActionCaptchaCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionChallenge(dict):
+calass WebAclRuleActionChallenge(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -13986,7 +13986,7 @@ class WebAclRuleActionChallenge(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleActionChallengeCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleActionChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleActionChallengeCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -14001,7 +14001,7 @@ class WebAclRuleActionChallenge(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionChallengeCustomRequestHandling(dict):
+calass WebAclRuleActionChallengeCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14022,7 +14022,7 @@ class WebAclRuleActionChallengeCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleActionChallengeCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleActionChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleActionChallengeCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -14036,7 +14036,7 @@ class WebAclRuleActionChallengeCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -14065,7 +14065,7 @@ class WebAclRuleActionChallengeCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionCount(dict):
+calass WebAclRuleActionCount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14086,7 +14086,7 @@ class WebAclRuleActionCount(dict):
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleActionCountCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleActionCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleActionCountCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -14101,7 +14101,7 @@ class WebAclRuleActionCount(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionCountCustomRequestHandling(dict):
+calass WebAclRuleActionCountCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14122,7 +14122,7 @@ class WebAclRuleActionCountCustomRequestHandling(dict):
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleActionCountCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleActionCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleActionCountCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -14136,7 +14136,7 @@ class WebAclRuleActionCountCustomRequestHandling(dict):
 
 
 @pulumi.output_type
-class WebAclRuleActionCountCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleActionCountCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -14165,7 +14165,7 @@ class WebAclRuleActionCountCustomRequestHandlingInsertHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleCaptchaConfig(dict):
+calass WebAclRuleCaptchaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14186,7 +14186,7 @@ class WebAclRuleCaptchaConfig(dict):
     def __init__(__self__, *,
                  immunity_time_property: Optional['outputs.WebAclRuleCaptchaConfigImmunityTimeProperty'] = None):
         """
-        :param 'WebAclRuleCaptchaConfigImmunityTimePropertyArgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
+        :param 'WebAclRuleCaptchaConfigImmunityTimePropertyArrgs' immunity_time_property: Defines custom immunity time. See `immunity_time_property` below for details.
         """
         if immunity_time_property is not None:
             pulumi.set(__self__, "immunity_time_property", immunity_time_property)
@@ -14201,7 +14201,7 @@ class WebAclRuleCaptchaConfig(dict):
 
 
 @pulumi.output_type
-class WebAclRuleCaptchaConfigImmunityTimeProperty(dict):
+calass WebAclRuleCaptchaConfigImmunityTimeProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14237,13 +14237,13 @@ class WebAclRuleCaptchaConfigImmunityTimeProperty(dict):
 
 
 @pulumi.output_type
-class WebAclRuleOverrideAction(dict):
+calass WebAclRuleOverrideAction(dict):
     def __init__(__self__, *,
                  count: Optional['outputs.WebAclRuleOverrideActionCount'] = None,
                  none: Optional['outputs.WebAclRuleOverrideActionNone'] = None):
         """
-        :param 'WebAclRuleOverrideActionCountArgs' count: Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
-        :param 'WebAclRuleOverrideActionNoneArgs' none: Don't override the rule action setting. Configured as an empty block `{}`.
+        :param 'WebAclRuleOverrideActionCountArrgs' count: Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
+        :param 'WebAclRuleOverrideActionNoneArrgs' none: Don't override the rule action setting. Configured as an empty block `{}`.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
@@ -14268,19 +14268,19 @@ class WebAclRuleOverrideAction(dict):
 
 
 @pulumi.output_type
-class WebAclRuleOverrideActionCount(dict):
+calass WebAclRuleOverrideActionCount(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleOverrideActionNone(dict):
+calass WebAclRuleOverrideActionNone(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleRuleLabel(dict):
+calass WebAclRuleRuleLabel(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -14298,7 +14298,7 @@ class WebAclRuleRuleLabel(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatement(dict):
+calass WebAclRuleStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14361,21 +14361,21 @@ class WebAclRuleStatement(dict):
                  sqli_match_statement: Optional['outputs.WebAclRuleStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.WebAclRuleStatementXssMatchStatement'] = None):
         """
-        :param 'WebAclRuleStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-        :param 'WebAclRuleStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-        :param 'WebAclRuleStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        :param 'WebAclRuleStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementArgs' managed_rule_group_statement: Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
-        :param 'WebAclRuleStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-        :param 'WebAclRuleStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementArgs' rate_based_statement: Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
-        :param 'WebAclRuleStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementArgs' rule_group_reference_statement: Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
-        :param 'WebAclRuleStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
-        :param 'WebAclRuleStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-        :param 'WebAclRuleStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        :param 'WebAclRuleStatementAndStatementArrgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param 'WebAclRuleStatementByteMatchStatementArrgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        :param 'WebAclRuleStatementGeoMatchStatementArrgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        :param 'WebAclRuleStatementIpSetReferenceStatementArrgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        :param 'WebAclRuleStatementLabelMatchStatementArrgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementArrgs' managed_rule_group_statement: Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
+        :param 'WebAclRuleStatementNotStatementArrgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        :param 'WebAclRuleStatementOrStatementArrgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementArrgs' rate_based_statement: Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
+        :param 'WebAclRuleStatementRegexMatchStatementArrgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementArrgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementArrgs' rule_group_reference_statement: Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementArrgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        :param 'WebAclRuleStatementSqliMatchStatementArrgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        :param 'WebAclRuleStatementXssMatchStatementArrgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -14530,11 +14530,11 @@ class WebAclRuleStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementAndStatement(dict):
+calass WebAclRuleStatementAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -14548,7 +14548,7 @@ class WebAclRuleStatementAndStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatement(dict):
+calass WebAclRuleStatementByteMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14580,8 +14580,8 @@ class WebAclRuleStatementByteMatchStatement(dict):
         """
         :param str positional_constraint: Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param str search_string: String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['WebAclRuleStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementByteMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "search_string", search_string)
@@ -14623,7 +14623,7 @@ class WebAclRuleStatementByteMatchStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14666,17 +14666,17 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementByteMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -14791,13 +14791,13 @@ class WebAclRuleStatementByteMatchStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14833,7 +14833,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14860,7 +14860,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -14894,7 +14894,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14919,7 +14919,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict)
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -14948,13 +14948,13 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict)
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -14981,7 +14981,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -15015,7 +15015,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15040,7 +15040,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -15077,13 +15077,13 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15118,7 +15118,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15148,7 +15148,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -15194,7 +15194,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15216,7 +15216,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict
                  all: Optional['outputs.WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -15238,25 +15238,25 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -15274,7 +15274,7 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -15292,13 +15292,13 @@ class WebAclRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict)
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementByteMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementByteMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -15327,7 +15327,7 @@ class WebAclRuleStatementByteMatchStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementGeoMatchStatement(dict):
+calass WebAclRuleStatementGeoMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15352,7 +15352,7 @@ class WebAclRuleStatementGeoMatchStatement(dict):
                  forwarded_ip_config: Optional['outputs.WebAclRuleStatementGeoMatchStatementForwardedIpConfig'] = None):
         """
         :param Sequence[str] country_codes: Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
-        :param 'WebAclRuleStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
+        :param 'WebAclRuleStatementGeoMatchStatementForwardedIpConfigArrgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
         """
         pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -15376,7 +15376,7 @@ class WebAclRuleStatementGeoMatchStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementGeoMatchStatementForwardedIpConfig(dict):
+calass WebAclRuleStatementGeoMatchStatementForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15424,7 +15424,7 @@ class WebAclRuleStatementGeoMatchStatementForwardedIpConfig(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementIpSetReferenceStatement(dict):
+calass WebAclRuleStatementIpSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15447,7 +15447,7 @@ class WebAclRuleStatementIpSetReferenceStatement(dict):
                  ip_set_forwarded_ip_config: Optional['outputs.WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
-        :param 'WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
+        :param 'WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigArrgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
         """
         pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
@@ -15471,7 +15471,7 @@ class WebAclRuleStatementIpSetReferenceStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
+calass WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15530,7 +15530,7 @@ class WebAclRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementLabelMatchStatement(dict):
+calass WebAclRuleStatementLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
                  scope: str):
@@ -15559,7 +15559,7 @@ class WebAclRuleStatementLabelMatchStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15593,9 +15593,9 @@ class WebAclRuleStatementManagedRuleGroupStatement(dict):
         """
         :param str name: Name of the managed rule group.
         :param str vendor_name: Name of the managed rule group vendor.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArgs'] managed_rule_group_configs: Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArgs'] rule_action_overrides: Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs' scope_down_statement: Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigArrgs'] managed_rule_group_configs: Additional information that's used by a managed rule group. Only one rule attribute is allowed in each config. See `managed_rule_group_configs` for more details
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideArrgs'] rule_action_overrides: Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArrgs' scope_down_statement: Narrows the scope of the statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details.
         :param str version: Version of the managed rule group. You can set `Version_1.0` or `Version_1.1` etc. If you want to use the default version, do not set anything.
         """
         pulumi.set(__self__, "name", name)
@@ -15659,7 +15659,7 @@ class WebAclRuleStatementManagedRuleGroupStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15698,13 +15698,13 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
                  payload_type: Optional[str] = None,
                  username_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArgs' aws_managed_rules_acfp_rule_set: Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArgs' aws_managed_rules_atp_rule_set: Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArgs' aws_managed_rules_bot_control_rule_set: Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetArrgs' aws_managed_rules_acfp_rule_set: Additional configuration for using the Account Creation Fraud Prevention managed rule group. Use this to specify information such as the registration page of your application and the type of content to accept or reject from the client.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetArrgs' aws_managed_rules_atp_rule_set: Additional configuration for using the Account Takeover Protection managed rule group. Use this to specify information such as the sign-in page of your application and the type of content to accept or reject from the client.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSetArrgs' aws_managed_rules_bot_control_rule_set: Additional configuration for using the Bot Control managed rule group. Use this to specify the inspection level that you want to use. See `aws_managed_rules_bot_control_rule_set` for more details
         :param str login_path: The path of the login endpoint for your application.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArgs' password_field: Details about your login page password field. See `password_field` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordFieldArrgs' password_field: Details about your login page password field. See `password_field` for more details.
         :param str payload_type: The payload type for your login endpoint, either JSON or form encoded.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameFieldArrgs' username_field: Details about your login page username field. See `username_field` for more details.
         """
         if aws_managed_rules_acfp_rule_set is not None:
             pulumi.set(__self__, "aws_managed_rules_acfp_rule_set", aws_managed_rules_acfp_rule_set)
@@ -15779,7 +15779,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfig(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15814,9 +15814,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         """
         :param str creation_path: The path of the account creation endpoint for your application. This is the page on your website that accepts the completed registration form for a new user. This page must accept POST requests.
         :param str registration_page_path: The path of the account registration endpoint for your application. This is the page on your website that presents the registration form to new users. This page must accept GET text/html requests.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArgs' request_inspection: The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionArrgs' request_inspection: The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
         :param bool enable_regex_in_path: Whether or not to allow the use of regular expressions in the login page path.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArgs' response_inspection: The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionArrgs' response_inspection: The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
         """
         pulumi.set(__self__, "creation_path", creation_path)
         pulumi.set(__self__, "registration_page_path", registration_page_path)
@@ -15868,7 +15868,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -15899,8 +15899,8 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  username_field: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField'] = None):
         """
         :param str payload_type: The payload type for your login endpoint, either JSON or form encoded.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArgs' password_field: Details about your login page password field. See `password_field` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordFieldArrgs' password_field: Details about your login page password field. See `password_field` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArrgs' username_field: Details about your login page username field. See `username_field` for more details.
         """
         pulumi.set(__self__, "payload_type", payload_type)
         if email_field is not None:
@@ -15941,7 +15941,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionEmailField(dict):
     def __init__(__self__, *,
                  identifier: str):
         """
@@ -15959,7 +15959,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionPasswordField(dict):
     def __init__(__self__, *,
                  identifier: str):
         """
@@ -15977,7 +15977,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetRequestInspectionUsernameField(dict):
     def __init__(__self__, *,
                  identifier: str):
         """
@@ -15995,7 +15995,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16021,10 +16021,10 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  json: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson'] = None,
                  status_code: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContainsArgs' body_contains: Configures inspection of the response body. See `body_contains` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArgs' header: Configures inspection of the response header.See `header` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArgs' json: Configures inspection of the response JSON. See `json` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArgs' status_code: Configures inspection of the response status code.See `status_code` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContainsArrgs' body_contains: Configures inspection of the response body. See `body_contains` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeaderArrgs' header: Configures inspection of the response header.See `header` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJsonArrgs' json: Configures inspection of the response JSON. See `json` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCodeArrgs' status_code: Configures inspection of the response status code.See `status_code` for more details.
         """
         if body_contains is not None:
             pulumi.set(__self__, "body_contains", body_contains)
@@ -16069,7 +16069,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionBodyContains(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16117,7 +16117,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16176,7 +16176,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionJson(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16235,7 +16235,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAcfpRuleSetResponseInspectionStatusCode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16283,7 +16283,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16315,8 +16315,8 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
         """
         :param str login_path: The path of the login endpoint for your application.
         :param bool enable_regex_in_path: Whether or not to allow the use of regular expressions in the login page path.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArgs' request_inspection: The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArgs' response_inspection: The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionArrgs' request_inspection: The criteria for inspecting login requests, used by the ATP rule group to validate credentials usage. See `request_inspection` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionArrgs' response_inspection: The criteria for inspecting responses to login requests, used by the ATP rule group to track login failure rates. Note that Response Inspection is available only on web ACLs that protect CloudFront distributions. See `response_inspection` for more details.
         """
         pulumi.set(__self__, "login_path", login_path)
         if enable_regex_in_path is not None:
@@ -16360,7 +16360,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16387,9 +16387,9 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  payload_type: str,
                  username_field: 'outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField'):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArgs' password_field: Details about your login page password field. See `password_field` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordFieldArrgs' password_field: Details about your login page password field. See `password_field` for more details.
         :param str payload_type: The payload type for your login endpoint, either JSON or form encoded.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArgs' username_field: Details about your login page username field. See `username_field` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameFieldArrgs' username_field: Details about your login page username field. See `username_field` for more details.
         """
         pulumi.set(__self__, "password_field", password_field)
         pulumi.set(__self__, "payload_type", payload_type)
@@ -16421,7 +16421,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionPasswordField(dict):
     def __init__(__self__, *,
                  identifier: str):
         """
@@ -16439,7 +16439,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetRequestInspectionUsernameField(dict):
     def __init__(__self__, *,
                  identifier: str):
         """
@@ -16457,7 +16457,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16483,10 +16483,10 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
                  json: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson'] = None,
                  status_code: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArgs' body_contains: Configures inspection of the response body. See `body_contains` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArgs' header: Configures inspection of the response header.See `header` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArgs' json: Configures inspection of the response JSON. See `json` for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArgs' status_code: Configures inspection of the response status code.See `status_code` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContainsArrgs' body_contains: Configures inspection of the response body. See `body_contains` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeaderArrgs' header: Configures inspection of the response header.See `header` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJsonArrgs' json: Configures inspection of the response JSON. See `json` for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCodeArrgs' status_code: Configures inspection of the response status code.See `status_code` for more details.
         """
         if body_contains is not None:
             pulumi.set(__self__, "body_contains", body_contains)
@@ -16531,7 +16531,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionBodyContains(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16579,7 +16579,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16638,7 +16638,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionJson(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16697,7 +16697,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesAtpRuleSetResponseInspectionStatusCode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16745,7 +16745,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManagedRulesBotControlRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16780,7 +16780,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigAwsManag
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPasswordField(dict):
     def __init__(__self__, *,
                  identifier: str):
         """
@@ -16798,7 +16798,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigPassword
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsernameField(dict):
     def __init__(__self__, *,
                  identifier: str):
         """
@@ -16816,7 +16816,7 @@ class WebAclRuleStatementManagedRuleGroupStatementManagedRuleGroupConfigUsername
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16838,7 +16838,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride(dict):
                  action_to_use: 'outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse',
                  name: str):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseArrgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
         :param str name: Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
         """
         pulumi.set(__self__, "action_to_use", action_to_use)
@@ -16862,7 +16862,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverride(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(dict):
     def __init__(__self__, *,
                  allow: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow'] = None,
                  block: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock'] = None,
@@ -16870,11 +16870,11 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(
                  challenge: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge'] = None,
                  count: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowArrgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockArrgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaArrgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeArrgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountArrgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -16929,7 +16929,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUse(
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16950,7 +16950,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -16965,7 +16965,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -16986,7 +16986,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -17000,7 +17000,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -17029,7 +17029,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseA
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlock(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17050,7 +17050,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseB
     def __init__(__self__, *,
                  custom_response: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseArrgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
         """
         if custom_response is not None:
             pulumi.set(__self__, "custom_response", custom_response)
@@ -17065,7 +17065,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseB
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17094,7 +17094,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseB
         """
         :param int response_code: The HTTP status code to return to the client.
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArrgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -17128,7 +17128,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseB
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -17157,7 +17157,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseB
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptcha(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17178,7 +17178,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -17193,7 +17193,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17214,7 +17214,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -17228,7 +17228,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -17257,7 +17257,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallenge(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17278,7 +17278,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -17293,7 +17293,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17314,7 +17314,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -17328,7 +17328,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -17357,7 +17357,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17378,7 +17378,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -17393,7 +17393,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandling(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17414,7 +17414,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -17428,7 +17428,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -17457,7 +17457,7 @@ class WebAclRuleStatementManagedRuleGroupStatementRuleActionOverrideActionToUseC
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17511,18 +17511,18 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
                  sqli_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementArrgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementArrgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArrgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementArrgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementArrgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementArrgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementArrgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementArrgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementArrgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementArrgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementArrgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementArrgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -17647,11 +17647,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -17665,7 +17665,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17697,8 +17697,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
         """
         :param str positional_constraint: Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param str search_string: String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "search_string", search_string)
@@ -17740,7 +17740,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17783,17 +17783,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -17908,13 +17908,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17950,7 +17950,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -17977,7 +17977,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -18011,7 +18011,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18036,7 +18036,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -18065,13 +18065,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18098,7 +18098,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -18132,7 +18132,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18157,7 +18157,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -18194,13 +18194,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18235,7 +18235,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18265,7 +18265,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -18311,7 +18311,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18333,7 +18333,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -18355,25 +18355,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -18391,7 +18391,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -18409,13 +18409,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -18444,7 +18444,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementByteMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18469,7 +18469,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStat
                  forwarded_ip_config: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig'] = None):
         """
         :param Sequence[str] country_codes: Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArrgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
         """
         pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -18493,7 +18493,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18541,7 +18541,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18564,7 +18564,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferen
                  ip_set_forwarded_ip_config: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArrgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
         """
         pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
@@ -18588,7 +18588,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferen
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18647,7 +18647,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferen
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
                  scope: str):
@@ -18676,11 +18676,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -18694,11 +18694,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -18712,7 +18712,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatement(
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18740,8 +18740,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None):
         """
         :param str regex_string: String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -18774,7 +18774,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18817,17 +18817,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -18942,13 +18942,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -18984,7 +18984,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19011,7 +19011,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -19045,7 +19045,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19070,7 +19070,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -19099,13 +19099,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19132,7 +19132,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -19166,7 +19166,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19191,7 +19191,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -19228,13 +19228,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19269,7 +19269,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19299,7 +19299,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -19345,7 +19345,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19367,7 +19367,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -19389,25 +19389,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -19425,7 +19425,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -19443,13 +19443,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -19478,7 +19478,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexMatchSt
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19504,8 +19504,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -19538,7 +19538,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19581,17 +19581,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -19706,13 +19706,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19748,7 +19748,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19775,7 +19775,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -19809,7 +19809,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19834,7 +19834,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -19863,13 +19863,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19896,7 +19896,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -19930,7 +19930,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -19955,7 +19955,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -19992,13 +19992,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20033,7 +20033,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20063,7 +20063,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -20109,7 +20109,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20131,7 +20131,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -20153,25 +20153,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -20189,7 +20189,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -20207,13 +20207,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -20242,7 +20242,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementRegexPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20272,8 +20272,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
         """
         :param str comparison_operator: Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param int size: Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "size", size)
@@ -20315,7 +20315,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20358,17 +20358,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -20483,13 +20483,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20525,7 +20525,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20552,7 +20552,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -20586,7 +20586,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20611,7 +20611,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -20640,13 +20640,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20673,7 +20673,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -20707,7 +20707,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20732,7 +20732,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -20769,13 +20769,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20810,7 +20810,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20840,7 +20840,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -20886,7 +20886,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -20908,7 +20908,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -20930,25 +20930,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -20966,7 +20966,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -20984,13 +20984,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstraintStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -21019,7 +21019,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSizeConstrai
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21043,8 +21043,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -21068,7 +21068,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21111,17 +21111,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -21236,13 +21236,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21278,7 +21278,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21305,7 +21305,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -21339,7 +21339,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21364,7 +21364,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -21393,13 +21393,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21426,7 +21426,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -21460,7 +21460,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21485,7 +21485,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -21522,13 +21522,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21563,7 +21563,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21593,7 +21593,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -21639,7 +21639,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21661,7 +21661,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -21683,25 +21683,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -21719,7 +21719,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -21737,13 +21737,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -21772,7 +21772,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementSqliMatchSta
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21796,8 +21796,8 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  text_transformations: Sequence['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -21821,7 +21821,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -21864,17 +21864,17 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  single_query_argument: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -21989,13 +21989,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22031,7 +22031,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22058,7 +22058,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -22092,7 +22092,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22117,7 +22117,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -22146,13 +22146,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22179,7 +22179,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -22213,7 +22213,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22238,7 +22238,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -22275,13 +22275,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22316,7 +22316,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22346,7 +22346,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -22392,7 +22392,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22414,7 +22414,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
                  all: Optional['outputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -22436,25 +22436,25 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -22472,7 +22472,7 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -22490,13 +22490,13 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -22525,11 +22525,11 @@ class WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementXssMatchStat
 
 
 @pulumi.output_type
-class WebAclRuleStatementNotStatement(dict):
+calass WebAclRuleStatementNotStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -22543,11 +22543,11 @@ class WebAclRuleStatementNotStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementOrStatement(dict):
+calass WebAclRuleStatementOrStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -22561,7 +22561,7 @@ class WebAclRuleStatementOrStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatement(dict):
+calass WebAclRuleStatementRateBasedStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22594,9 +22594,9 @@ class WebAclRuleStatementRateBasedStatement(dict):
         """
         :param int limit: Limit on requests per 5-minute period for a single originating IP address.
         :param str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
-        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyArgs'] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
+        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyArrgs'] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementForwardedIpConfigArrgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementArrgs' scope_down_statement: Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
         pulumi.set(__self__, "limit", limit)
         if aggregate_key_type is not None:
@@ -22650,7 +22650,7 @@ class WebAclRuleStatementRateBasedStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKey(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22689,15 +22689,15 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
                  query_string: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryString'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyCookieArgs' cookie: Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArgs' forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyHeaderArgs' header: Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArgs' http_method: Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyIpArgs' ip: Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArgs' label_namespace: Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArgs' query_argument: Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArgs' query_string: Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementCustomKeyUriPathArgs' uri_path: Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyCookieArrgs' cookie: Use the value of a cookie in the request as an aggregate key. See RateLimit `cookie` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyForwardedIpArrgs' forwarded_ip: Use the first IP address in an HTTP header as an aggregate key. See `forwarded_ip` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyHeaderArrgs' header: Use the value of a header in the request as an aggregate key. See RateLimit `header` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyHttpMethodArrgs' http_method: Use the request's HTTP method as an aggregate key. See RateLimit `http_method` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyIpArrgs' ip: Use the request's originating IP address as an aggregate key. See `RateLimit ip` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespaceArrgs' label_namespace: Use the specified label namespace as an aggregate key. See RateLimit `label_namespace` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentArrgs' query_argument: Use the specified query argument as an aggregate key. See RateLimit `query_argument` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyQueryStringArrgs' query_string: Use the request's query string as an aggregate key. See RateLimit `query_string` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementCustomKeyUriPathArrgs' uri_path: Use the request's URI path as an aggregate key. See RateLimit `uri_path` below for details.
         """
         if cookie is not None:
             pulumi.set(__self__, "cookie", cookie)
@@ -22792,7 +22792,7 @@ class WebAclRuleStatementRateBasedStatementCustomKey(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyCookie(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyCookie(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22815,7 +22815,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyCookie(dict):
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation']):
         """
         :param str name: The name of the cookie to use.
-        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -22838,7 +22838,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyCookie(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -22867,13 +22867,13 @@ class WebAclRuleStatementRateBasedStatementCustomKeyCookieTextTransformation(dic
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyForwardedIp(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyHeader(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -22896,7 +22896,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyHeader(dict):
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation']):
         """
         :param str name: The name of the header to use.
-        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -22919,7 +22919,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -22948,19 +22948,19 @@ class WebAclRuleStatementRateBasedStatementCustomKeyHeaderTextTransformation(dic
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyHttpMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyIp(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyIp(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace(dict):
     def __init__(__self__, *,
                  namespace: str):
         """
@@ -22978,7 +22978,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyLabelNamespace(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23001,7 +23001,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation']):
         """
         :param str name: The name of the query argument to use.
-        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -23024,7 +23024,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgument(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -23053,7 +23053,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryArgumentTextTransformat
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyQueryString(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyQueryString(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23074,7 +23074,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryString(dict):
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation']):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
 
@@ -23088,7 +23088,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryString(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -23117,7 +23117,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyQueryStringTextTransformatio
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyUriPath(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyUriPath(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23138,7 +23138,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyUriPath(dict):
     def __init__(__self__, *,
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation']):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. They are used in rate-based rule statements, to transform request components before using them as custom aggregation keys. Atleast one transformation is required. See `text_transformation` above for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
 
@@ -23152,7 +23152,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyUriPath(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -23181,7 +23181,7 @@ class WebAclRuleStatementRateBasedStatementCustomKeyUriPathTextTransformation(di
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementForwardedIpConfig(dict):
+calass WebAclRuleStatementRateBasedStatementForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23229,7 +23229,7 @@ class WebAclRuleStatementRateBasedStatementForwardedIpConfig(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23283,18 +23283,18 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
                  sqli_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement'] = None,
                  xss_match_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement'] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementArrgs' and_statement: Logical rule statement used to combine other rule statements with AND logic. See `and_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementArrgs' byte_match_statement: Rule statement that defines a string match search for AWS WAF to apply to web requests. See `byte_match_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArrgs' geo_match_statement: Rule statement used to identify web requests based on country of origin. See `geo_match_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArrgs' ip_set_reference_statement: Rule statement used to detect web requests coming from particular IP addresses or address ranges. See `ip_set_reference_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatementArrgs' label_match_statement: Rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See `label_match_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementArrgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementArrgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementArrgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArrgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementArrgs' size_constraint_statement: Rule statement that compares a number of bytes against the size of a request component, using a comparison operator, such as greater than (>) or less than (<). See `size_constraint_statement` below for more details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementArrgs' sqli_match_statement: An SQL injection match condition identifies the part of web requests, such as the URI or the query string, that you want AWS WAF to inspect. See `sqli_match_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementArrgs' xss_match_statement: Rule statement that defines a cross-site scripting (XSS) match search for AWS WAF to apply to web requests. See `xss_match_statement` below for details.
         """
         if and_statement is not None:
             pulumi.set(__self__, "and_statement", and_statement)
@@ -23419,11 +23419,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -23437,7 +23437,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23469,8 +23469,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(
         """
         :param str positional_constraint: Area within the portion of a web request that you want AWS WAF to search for `search_string`. Valid values include the following: `EXACTLY`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CONTAINS_WORD`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchStatement.html) for more information.
         :param str search_string: String value that you want AWS WAF to search for. AWS WAF searches only in the part of web requests that you designate for inspection in `field_to_match`. The maximum length of the value is 50 bytes.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "positional_constraint", positional_constraint)
         pulumi.set(__self__, "search_string", search_string)
@@ -23512,7 +23512,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatement(
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23555,17 +23555,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -23680,13 +23680,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23722,7 +23722,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23749,7 +23749,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -23783,7 +23783,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23808,7 +23808,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -23837,13 +23837,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23870,7 +23870,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -23904,7 +23904,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -23929,7 +23929,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -23966,13 +23966,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24007,7 +24007,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24037,7 +24037,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -24083,7 +24083,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24105,7 +24105,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -24127,25 +24127,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -24163,7 +24163,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -24181,13 +24181,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -24216,7 +24216,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementT
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24241,7 +24241,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement(d
                  forwarded_ip_config: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig'] = None):
         """
         :param Sequence[str] country_codes: Array of two-character country codes, for example, [ "US", "CN" ], from the alpha-2 country ISO codes of the `ISO 3166` international standard. See the [documentation](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchStatement.html) for valid values.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfigArrgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `forwarded_ip_config` below for details.
         """
         pulumi.set(__self__, "country_codes", country_codes)
         if forwarded_ip_config is not None:
@@ -24265,7 +24265,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatement(d
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24313,7 +24313,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementFo
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24336,7 +24336,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceState
                  ip_set_forwarded_ip_config: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigArrgs' ip_set_forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See `ip_set_forwarded_ip_config` below for more details.
         """
         pulumi.set(__self__, "arn", arn)
         if ip_set_forwarded_ip_config is not None:
@@ -24360,7 +24360,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24419,7 +24419,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement(dict):
     def __init__(__self__, *,
                  key: str,
                  scope: str):
@@ -24448,11 +24448,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -24466,11 +24466,11 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict):
     def __init__(__self__, *,
                  statements: Sequence['outputs.WebAclRuleStatement']):
         """
-        :param Sequence['WebAclRuleStatementArgs'] statements: The statements to combine.
+        :param Sequence['WebAclRuleStatementArrgs'] statements: The statements to combine.
         """
         pulumi.set(__self__, "statements", statements)
 
@@ -24484,7 +24484,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24512,8 +24512,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch'] = None):
         """
         :param str regex_string: String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -24546,7 +24546,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24589,17 +24589,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -24714,13 +24714,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24756,7 +24756,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24783,7 +24783,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -24817,7 +24817,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24842,7 +24842,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -24871,13 +24871,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24904,7 +24904,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -24938,7 +24938,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -24963,7 +24963,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -25000,13 +25000,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25041,7 +25041,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25071,7 +25071,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -25117,7 +25117,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25139,7 +25139,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -25161,25 +25161,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -25197,7 +25197,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -25215,13 +25215,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -25250,7 +25250,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatement
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25276,8 +25276,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -25310,7 +25310,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25353,17 +25353,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -25478,13 +25478,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25520,7 +25520,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25547,7 +25547,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -25581,7 +25581,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25606,7 +25606,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -25635,13 +25635,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25668,7 +25668,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -25702,7 +25702,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25727,7 +25727,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -25764,13 +25764,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25805,7 +25805,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25835,7 +25835,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -25881,7 +25881,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -25903,7 +25903,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -25925,25 +25925,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -25961,7 +25961,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -25979,13 +25979,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -26014,7 +26014,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRefe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26044,8 +26044,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
         """
         :param str comparison_operator: Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param int size: Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "size", size)
@@ -26087,7 +26087,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26130,17 +26130,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -26255,13 +26255,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26297,7 +26297,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26324,7 +26324,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -26358,7 +26358,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26383,7 +26383,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -26412,13 +26412,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26445,7 +26445,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -26479,7 +26479,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26504,7 +26504,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -26541,13 +26541,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26582,7 +26582,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26612,7 +26612,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -26658,7 +26658,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26680,7 +26680,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -26702,25 +26702,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -26738,7 +26738,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -26756,13 +26756,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -26791,7 +26791,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSizeConstraintState
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26815,8 +26815,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -26840,7 +26840,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatement(
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -26883,17 +26883,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -27008,13 +27008,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27050,7 +27050,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27077,7 +27077,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -27111,7 +27111,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27136,7 +27136,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -27165,13 +27165,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27198,7 +27198,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -27232,7 +27232,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27257,7 +27257,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -27294,13 +27294,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27335,7 +27335,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27365,7 +27365,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -27411,7 +27411,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27433,7 +27433,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -27455,25 +27455,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -27491,7 +27491,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -27509,13 +27509,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementF
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -27544,7 +27544,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementT
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27568,8 +27568,8 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(d
                  text_transformations: Sequence['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -27593,7 +27593,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement(d
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27636,17 +27636,17 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  single_query_argument: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -27761,13 +27761,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27803,7 +27803,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27830,7 +27830,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -27864,7 +27864,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27889,7 +27889,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -27918,13 +27918,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -27951,7 +27951,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -27985,7 +27985,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28010,7 +28010,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -28047,13 +28047,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28088,7 +28088,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28118,7 +28118,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -28164,7 +28164,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28186,7 +28186,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
                  all: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -28208,25 +28208,25 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -28244,7 +28244,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -28262,13 +28262,13 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFi
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -28297,7 +28297,7 @@ class WebAclRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementTe
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatement(dict):
+calass WebAclRuleStatementRegexMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28325,8 +28325,8 @@ class WebAclRuleStatementRegexMatchStatement(dict):
                  field_to_match: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatch'] = None):
         """
         :param str regex_string: String representing the regular expression. Minimum of `1` and maximum of `512` characters.
-        :param Sequence['WebAclRuleStatementRegexMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchArgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementRegexMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchArrgs' field_to_match: The part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "regex_string", regex_string)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -28359,7 +28359,7 @@ class WebAclRuleStatementRegexMatchStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28402,17 +28402,17 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -28527,13 +28527,13 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28569,7 +28569,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28596,7 +28596,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -28630,7 +28630,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28655,7 +28655,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -28684,13 +28684,13 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPattern(dict
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28717,7 +28717,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -28751,7 +28751,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28776,7 +28776,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict)
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -28813,13 +28813,13 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPattern(dict)
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28854,7 +28854,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJa3Fingerprint(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28884,7 +28884,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -28930,7 +28930,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -28952,7 +28952,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dic
                  all: Optional['outputs.WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -28974,25 +28974,25 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPattern(dic
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -29010,7 +29010,7 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -29028,13 +29028,13 @@ class WebAclRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument(dict
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementRegexMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementRegexMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -29063,7 +29063,7 @@ class WebAclRuleStatementRegexMatchStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatement(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29089,8 +29089,8 @@ class WebAclRuleStatementRegexPatternSetReferenceStatement(dict):
                  field_to_match: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch'] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
-        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "text_transformations", text_transformations)
@@ -29123,7 +29123,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29166,17 +29166,17 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -29291,13 +29291,13 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29333,7 +29333,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchBody(dict)
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29360,7 +29360,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies(di
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -29394,7 +29394,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookies(di
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29419,7 +29419,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMat
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -29448,13 +29448,13 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMat
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29481,7 +29481,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dic
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -29515,7 +29515,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeader(dic
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29540,7 +29540,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatc
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -29577,13 +29577,13 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatc
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29618,7 +29618,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJa3Fingerp
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29648,7 +29648,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(d
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -29694,7 +29694,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBody(d
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29716,7 +29716,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMa
                  all: Optional['outputs.WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -29738,25 +29738,25 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMa
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -29774,7 +29774,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHead
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -29792,13 +29792,13 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQuer
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation(dict):
+calass WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -29827,7 +29827,7 @@ class WebAclRuleStatementRegexPatternSetReferenceStatementTextTransformation(dic
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatement(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29850,7 +29850,7 @@ class WebAclRuleStatementRuleGroupReferenceStatement(dict):
                  rule_action_overrides: Optional[Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride']] = None):
         """
         :param str arn: The Amazon Resource Name (ARN) of the `wafv2.RuleGroup` resource.
-        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArgs'] rule_action_overrides: Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
+        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideArrgs'] rule_action_overrides: Action settings to use in the place of the rule actions that are configured inside the rule group. You specify one override for each rule whose action you want to change. See `rule_action_override` below for details.
         """
         pulumi.set(__self__, "arn", arn)
         if rule_action_overrides is not None:
@@ -29874,7 +29874,7 @@ class WebAclRuleStatementRuleGroupReferenceStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -29896,7 +29896,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride(dict):
                  action_to_use: 'outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse',
                  name: str):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseArrgs' action_to_use: Override action to use, in place of the configured action of the rule in the rule group. See `action` for details.
         :param str name: Name of the rule to override. See the [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html) for a list of names in the appropriate rule group in use.
         """
         pulumi.set(__self__, "action_to_use", action_to_use)
@@ -29920,7 +29920,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverride(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUse(dict):
     def __init__(__self__, *,
                  allow: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow'] = None,
                  block: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock'] = None,
@@ -29928,11 +29928,11 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
                  challenge: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge'] = None,
                  count: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount'] = None):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowArrgs' allow: Instructs AWS WAF to allow the web request. See `allow` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockArrgs' block: Instructs AWS WAF to block the web request. See `block` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaArrgs' captcha: Instructs AWS WAF to run a Captcha check against the web request. See `captcha` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeArrgs' challenge: Instructs AWS WAF to run a check against the request to verify that the request is coming from a legitimate client session. See `challenge` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountArrgs' count: Instructs AWS WAF to count the web request and allow it. See `count` below for details.
         """
         if allow is not None:
             pulumi.set(__self__, "allow", allow)
@@ -29987,7 +29987,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30008,7 +30008,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -30023,7 +30023,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30044,7 +30044,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -30058,7 +30058,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseAllowCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -30087,7 +30087,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlock(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30108,7 +30108,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  custom_response: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse'] = None):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseArrgs' custom_response: Defines a custom response for the web request. See `custom_response` below for details.
         """
         if custom_response is not None:
             pulumi.set(__self__, "custom_response", custom_response)
@@ -30123,7 +30123,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30152,7 +30152,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
         """
         :param int response_code: The HTTP status code to return to the client.
         :param str custom_response_body_key: References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
-        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
+        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeaderArrgs'] response_headers: The `response_header` blocks used to define the HTTP response headers added to the response. See `response_header` below for details.
         """
         pulumi.set(__self__, "response_code", response_code)
         if custom_response_body_key is not None:
@@ -30186,7 +30186,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseBlockCustomResponseResponseHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -30215,7 +30215,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptcha(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30236,7 +30236,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -30251,7 +30251,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30272,7 +30272,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -30286,7 +30286,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCaptchaCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -30315,7 +30315,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallenge(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30336,7 +30336,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -30351,7 +30351,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30372,7 +30372,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -30386,7 +30386,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseChallengeCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -30415,7 +30415,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30436,7 +30436,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  custom_request_handling: Optional['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling'] = None):
         """
-        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
+        :param 'WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingArrgs' custom_request_handling: Defines custom handling for the web request. See `custom_request_handling` below for details.
         """
         if custom_request_handling is not None:
             pulumi.set(__self__, "custom_request_handling", custom_request_handling)
@@ -30451,7 +30451,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandling(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30472,7 +30472,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
     def __init__(__self__, *,
                  insert_headers: Sequence['outputs.WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader']):
         """
-        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
+        :param Sequence['WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeaderArrgs'] insert_headers: The `insert_header` blocks used to define HTTP headers added to the request. See `insert_header` below for details.
         """
         pulumi.set(__self__, "insert_headers", insert_headers)
 
@@ -30486,7 +30486,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader(dict):
+calass WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUseCountCustomRequestHandlingInsertHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -30515,7 +30515,7 @@ class WebAclRuleStatementRuleGroupReferenceStatementRuleActionOverrideActionToUs
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatement(dict):
+calass WebAclRuleStatementSizeConstraintStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30545,8 +30545,8 @@ class WebAclRuleStatementSizeConstraintStatement(dict):
         """
         :param str comparison_operator: Operator to use to compare the request part to the size setting. Valid values include: `EQ`, `NE`, `LE`, `LT`, `GE`, or `GT`.
         :param int size: Size, in bytes, to compare to the request part, after any transformations. Valid values are integers between 0 and 21474836480, inclusive.
-        :param Sequence['WebAclRuleStatementSizeConstraintStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementSizeConstraintStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "size", size)
@@ -30588,7 +30588,7 @@ class WebAclRuleStatementSizeConstraintStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30631,17 +30631,17 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -30756,13 +30756,13 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30798,7 +30798,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30825,7 +30825,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -30859,7 +30859,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30884,7 +30884,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -30913,13 +30913,13 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPattern(
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -30946,7 +30946,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -30980,7 +30980,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31005,7 +31005,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(d
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -31042,13 +31042,13 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPattern(d
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31083,7 +31083,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJa3Fingerprint(dict)
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31113,7 +31113,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -31159,7 +31159,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31181,7 +31181,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
                  all: Optional['outputs.WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -31203,25 +31203,25 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPattern
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -31239,7 +31239,7 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -31257,13 +31257,13 @@ class WebAclRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument(
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementSizeConstraintStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSizeConstraintStatementTextTransformation(dict):
+calass WebAclRuleStatementSizeConstraintStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -31292,7 +31292,7 @@ class WebAclRuleStatementSizeConstraintStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatement(dict):
+calass WebAclRuleStatementSqliMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31316,8 +31316,8 @@ class WebAclRuleStatementSqliMatchStatement(dict):
                  text_transformations: Sequence['outputs.WebAclRuleStatementSqliMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementSqliMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementSqliMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -31341,7 +31341,7 @@ class WebAclRuleStatementSqliMatchStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31384,17 +31384,17 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -31509,13 +31509,13 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31551,7 +31551,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31578,7 +31578,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -31612,7 +31612,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31637,7 +31637,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict)
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -31666,13 +31666,13 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPattern(dict)
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31699,7 +31699,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -31733,7 +31733,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31758,7 +31758,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -31795,13 +31795,13 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPattern(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31836,7 +31836,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJa3Fingerprint(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31866,7 +31866,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -31912,7 +31912,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -31934,7 +31934,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict
                  all: Optional['outputs.WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -31956,25 +31956,25 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPattern(dict
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -31992,7 +31992,7 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -32010,13 +32010,13 @@ class WebAclRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument(dict)
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementSqliMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementSqliMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementSqliMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -32045,7 +32045,7 @@ class WebAclRuleStatementSqliMatchStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatement(dict):
+calass WebAclRuleStatementXssMatchStatement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32069,8 +32069,8 @@ class WebAclRuleStatementXssMatchStatement(dict):
                  text_transformations: Sequence['outputs.WebAclRuleStatementXssMatchStatementTextTransformation'],
                  field_to_match: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatch'] = None):
         """
-        :param Sequence['WebAclRuleStatementXssMatchStatementTextTransformationArgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchArgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
+        :param Sequence['WebAclRuleStatementXssMatchStatementTextTransformationArrgs'] text_transformations: Text transformations eliminate some of the unusual formatting that attackers use in web requests in an effort to bypass detection. At least one transformation is required. See `text_transformation` below for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchArrgs' field_to_match: Part of a web request that you want AWS WAF to inspect. See `field_to_match` below for details.
         """
         pulumi.set(__self__, "text_transformations", text_transformations)
         if field_to_match is not None:
@@ -32094,7 +32094,7 @@ class WebAclRuleStatementXssMatchStatement(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32137,17 +32137,17 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
                  single_query_argument: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument'] = None,
                  uri_path: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchUriPath'] = None):
         """
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArgs' all_query_arguments: Inspect all query arguments.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchBodyArgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
-        :param Sequence['WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArgs'] headers: Inspect the request headers. See `headers` below for details.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArgs' json_body: Inspect the request body as JSON. See `json_body` for details.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchMethodArgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs' single_header: Inspect a single header. See `single_header` below for details.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArgumentsArrgs' all_query_arguments: Inspect all query arguments.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchBodyArrgs' body: Inspect the request body, which immediately follows the request headers. See `body` below for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesArrgs' cookies: Inspect the cookies in the web request. See `cookies` below for details.
+        :param Sequence['WebAclRuleStatementXssMatchStatementFieldToMatchHeaderArrgs'] headers: Inspect the request headers. See `headers` below for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJa3FingerprintArrgs' ja3_fingerprint: Inspect the JA3 fingerprint. See `ja3_fingerprint` below for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyArrgs' json_body: Inspect the request body as JSON. See `json_body` for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchMethodArrgs' method: Inspect the HTTP method. The method indicates the type of operation that the request is asking the origin to perform.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchQueryStringArrgs' query_string: Inspect the query string. This is the part of a URL that appears after a `?` character, if any.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeaderArrgs' single_header: Inspect a single header. See `single_header` below for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArrgs' single_query_argument: Inspect a single query argument. See `single_query_argument` below for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchUriPathArrgs' uri_path: Inspect the request URI path. This is the part of a web request that identifies a resource, for example, `/images/daily-ad.jpg`.
         """
         if all_query_arguments is not None:
             pulumi.set(__self__, "all_query_arguments", all_query_arguments)
@@ -32262,13 +32262,13 @@ class WebAclRuleStatementXssMatchStatementFieldToMatch(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchAllQueryArguments(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchBody(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32304,7 +32304,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchCookies(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchCookies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32331,7 +32331,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookies(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param Sequence['WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
+        :param Sequence['WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternArrgs'] match_patterns: The filter to use to identify the subset of cookies to inspect in a web request. You must specify exactly one setting: either `all`, `included_cookies` or `excluded_cookies`. More details: [CookieMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_CookieMatchPattern.html)
         :param str match_scope: The parts of the cookies to inspect with the rule inspection criteria. If you specify All, AWS WAF inspects both keys and values. Valid values: `ALL`, `KEY`, `VALUE`
         :param str oversize_handling: What AWS WAF should do if the cookies of the request are larger than AWS WAF can inspect. AWS WAF does not support inspecting the entire contents of request cookies when they exceed 8 KB (8192 bytes) or 200 total cookies. The underlying host service forwards a maximum of 200 cookies and at most 8 KB of cookie contents to AWS WAF. Valid values: `CONTINUE`, `MATCH`, `NO_MATCH`.
         """
@@ -32365,7 +32365,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookies(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32390,7 +32390,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
                  excluded_cookies: Optional[Sequence[str]] = None,
                  included_cookies: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -32419,13 +32419,13 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPattern(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchCookiesMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchHeader(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32452,7 +32452,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchHeader(dict):
                  match_scope: str,
                  oversize_handling: str):
         """
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternArrgs' match_pattern: The filter to use to identify the subset of headers to inspect in a web request. The `match_pattern` block supports only one of the following arguments:
         :param str match_scope: The parts of the headers to inspect with the rule inspection criteria. If you specify `All`, AWS WAF inspects both keys and values. Valid values include the following: `ALL`, `Key`, `Value`.
         :param str oversize_handling: Oversize handling tells AWS WAF what to do with a web request when the request component that the rule inspects is over the limits. Valid values include the following: `CONTINUE`, `MATCH`, `NO_MATCH`. See the AWS [documentation](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statement-oversize-handling.html) for more information.
         """
@@ -32486,7 +32486,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32511,7 +32511,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
                  excluded_headers: Optional[Sequence[str]] = None,
                  included_headers: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         :param Sequence[str] excluded_headers: An array of strings that will be used for inspecting headers that do not have a key that matches one of the provided values.
         :param Sequence[str] included_headers: An array of strings that will be used for inspecting headers that have a key that matches one of the provided values.
         """
@@ -32548,13 +32548,13 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPattern(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchHeaderMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32589,7 +32589,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJa3Fingerprint(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32619,7 +32619,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
                  invalid_fallback_behavior: Optional[str] = None,
                  oversize_handling: Optional[str] = None):
         """
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternArrgs' match_pattern: The patterns to look for in the JSON body. You must specify exactly one setting: either `all` or `included_paths`. See [JsonMatchPattern](https://docs.aws.amazon.com/waf/latest/APIReference/API_JsonMatchPattern.html) for details.
         :param str match_scope: The parts of the JSON to match against using the `match_pattern`. Valid values are `ALL`, `KEY` and `VALUE`.
         :param str invalid_fallback_behavior: What to do when JSON parsing fails. Defaults to evaluating up to the first parsing failure. Valid values are `EVALUATE_AS_STRING`, `MATCH` and `NO_MATCH`.
         :param str oversize_handling: What to do if the body is larger than can be inspected. Valid values are `CONTINUE` (default), `MATCH` and `NO_MATCH`.
@@ -32665,7 +32665,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBody(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32687,7 +32687,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict)
                  all: Optional['outputs.WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll'] = None,
                  included_paths: Optional[Sequence[str]] = None):
         """
-        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArgs' all: An empty configuration block that is used for inspecting all headers.
+        :param 'WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAllArrgs' all: An empty configuration block that is used for inspecting all headers.
         """
         if all is not None:
             pulumi.set(__self__, "all", all)
@@ -32709,25 +32709,25 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPattern(dict)
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchJsonBodyMatchPatternAll(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchMethod(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchMethod(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchQueryString(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchQueryString(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -32745,7 +32745,7 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchSingleHeader(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -32763,13 +32763,13 @@ class WebAclRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument(dict):
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementFieldToMatchUriPath(dict):
+calass WebAclRuleStatementXssMatchStatementFieldToMatchUriPath(dict):
     def __init__(__self__):
         pass
 
 
 @pulumi.output_type
-class WebAclRuleStatementXssMatchStatementTextTransformation(dict):
+calass WebAclRuleStatementXssMatchStatementTextTransformation(dict):
     def __init__(__self__, *,
                  priority: int,
                  type: str):
@@ -32798,7 +32798,7 @@ class WebAclRuleStatementXssMatchStatementTextTransformation(dict):
 
 
 @pulumi.output_type
-class WebAclRuleVisibilityConfig(dict):
+calass WebAclRuleVisibilityConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32859,7 +32859,7 @@ class WebAclRuleVisibilityConfig(dict):
 
 
 @pulumi.output_type
-class WebAclVisibilityConfig(dict):
+calass WebAclVisibilityConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -32920,7 +32920,7 @@ class WebAclVisibilityConfig(dict):
 
 
 @pulumi.output_type
-class GetRegexPatternSetRegularExpressionResult(dict):
+calass GetRegexPatternSetRegularExpressionResult(dict):
     def __init__(__self__, *,
                  regex_string: str):
         """

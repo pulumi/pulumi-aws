@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AuthorizerArgs', 'Authorizer']
+__all__ = ['AuthorizerArrgs', 'Authorizer']
 
 @pulumi.input_type
-class AuthorizerArgs:
+calass AuthorizerArrgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  authorizer_type: pulumi.Input[str],
@@ -24,7 +24,7 @@ class AuthorizerArgs:
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
+                 jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Authorizer resource.
@@ -47,7 +47,7 @@ class AuthorizerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: Identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input['AuthorizerJwtConfigurationArgs'] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        :param pulumi.Input['AuthorizerJwtConfigurationArrgs'] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         """
@@ -179,7 +179,7 @@ class AuthorizerArgs:
 
     @property
     @pulumi.getter(name="jwtConfiguration")
-    def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]:
+    def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArrgs']]:
         """
         Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
         Supported only for HTTP APIs.
@@ -187,7 +187,7 @@ class AuthorizerArgs:
         return pulumi.get(self, "jwt_configuration")
 
     @jwt_configuration.setter
-    def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]):
+    def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJwtConfigurationArrgs']]):
         pulumi.set(self, "jwt_configuration", value)
 
     @property
@@ -204,7 +204,7 @@ class AuthorizerArgs:
 
 
 @pulumi.input_type
-class _AuthorizerState:
+calass _AuthorizerState:
     def __init__(__self__, *,
                  api_id: Optional[pulumi.Input[str]] = None,
                  authorizer_credentials_arn: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _AuthorizerState:
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']] = None,
+                 jwt_configuration: Optional[pulumi.Input['AuthorizerJwtConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Authorizer resources.
@@ -237,7 +237,7 @@ class _AuthorizerState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: Identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input['AuthorizerJwtConfigurationArgs'] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        :param pulumi.Input['AuthorizerJwtConfigurationArrgs'] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         """
@@ -371,7 +371,7 @@ class _AuthorizerState:
 
     @property
     @pulumi.getter(name="jwtConfiguration")
-    def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]:
+    def jwt_configuration(self) -> Optional[pulumi.Input['AuthorizerJwtConfigurationArrgs']]:
         """
         Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
         Supported only for HTTP APIs.
@@ -379,7 +379,7 @@ class _AuthorizerState:
         return pulumi.get(self, "jwt_configuration")
 
     @jwt_configuration.setter
-    def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJwtConfigurationArgs']]):
+    def jwt_configuration(self, value: Optional[pulumi.Input['AuthorizerJwtConfigurationArrgs']]):
         pulumi.set(self, "jwt_configuration", value)
 
     @property
@@ -395,7 +395,7 @@ class _AuthorizerState:
         pulumi.set(self, "name", value)
 
 
-class Authorizer(pulumi.CustomResource):
+calass Authorizer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -408,7 +408,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
+                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -471,7 +471,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: Identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArrgs']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         """
@@ -479,7 +479,7 @@ class Authorizer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AuthorizerArgs,
+                 args: AuthorizerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Amazon API Gateway Version 2 authorizer.
@@ -521,12 +521,12 @@ class Authorizer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AuthorizerArgs args: The arguments to use to populate this resource's properties.
+        :param AuthorizerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AuthorizerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AuthorizerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -543,7 +543,7 @@ class Authorizer(pulumi.CustomResource):
                  authorizer_uri: Optional[pulumi.Input[str]] = None,
                  enable_simple_responses: Optional[pulumi.Input[bool]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
+                 jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -552,7 +552,7 @@ class Authorizer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AuthorizerArgs.__new__(AuthorizerArgs)
+            __props__ = AuthorizerArrgs.__new__(AuthorizerArrgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
@@ -586,7 +586,7 @@ class Authorizer(pulumi.CustomResource):
             authorizer_uri: Optional[pulumi.Input[str]] = None,
             enable_simple_responses: Optional[pulumi.Input[bool]] = None,
             identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']]] = None,
+            jwt_configuration: Optional[pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Authorizer':
         """
         Get an existing Authorizer resource's state with the given name, id, and optional extra
@@ -614,7 +614,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] identity_sources: Identity sources for which authorization is requested.
                For `REQUEST` authorizers the value is a list of one or more mapping expressions of the specified request parameters.
                For `JWT` authorizers the single entry specifies where to extract the JSON Web Token (JWT) from inbound requests.
-        :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArgs']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
+        :param pulumi.Input[pulumi.InputType['AuthorizerJwtConfigurationArrgs']] jwt_configuration: Configuration of a JWT authorizer. Required for the `JWT` authorizer type.
                Supported only for HTTP APIs.
         :param pulumi.Input[str] name: Name of the authorizer. Must be between 1 and 128 characters in length.
         """

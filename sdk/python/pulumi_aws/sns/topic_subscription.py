@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TopicSubscriptionArgs', 'TopicSubscription']
+__all__ = ['TopicSubscriptionArrgs', 'TopicSubscription']
 
 @pulumi.input_type
-class TopicSubscriptionArgs:
+calass TopicSubscriptionArrgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[str],
                  protocol: pulumi.Input[str],
@@ -197,7 +197,7 @@ class TopicSubscriptionArgs:
 
 
 @pulumi.input_type
-class _TopicSubscriptionState:
+calass _TopicSubscriptionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  confirmation_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -448,7 +448,7 @@ class _TopicSubscriptionState:
         pulumi.set(self, "topic", value)
 
 
-class TopicSubscription(pulumi.CustomResource):
+calass TopicSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -532,7 +532,7 @@ class TopicSubscription(pulumi.CustomResource):
             }
         sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[
-                aws.iam.GetPolicyDocumentStatementArgs(
+                aws.iam.GetPolicyDocumentStatementArrgs(
                     actions=[
                         "SNS:Subscribe",
                         "SNS:SetTopicAttributes",
@@ -543,31 +543,31 @@ class TopicSubscription(pulumi.CustomResource):
                         "SNS:DeleteTopic",
                         "SNS:AddPermission",
                     ],
-                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                         test="StringEquals",
                         variable="AWS:SourceOwner",
                         values=[sns["account-id"]],
                     )],
                     effect="Allow",
-                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                         type="AWS",
                         identifiers=["*"],
                     )],
                     resources=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                     sid="__default_statement_ID",
                 ),
-                aws.iam.GetPolicyDocumentStatementArgs(
+                aws.iam.GetPolicyDocumentStatementArrgs(
                     actions=[
                         "SNS:Subscribe",
                         "SNS:Receive",
                     ],
-                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                         test="StringLike",
                         variable="SNS:Endpoint",
                         values=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
                     )],
                     effect="Allow",
-                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                         type="AWS",
                         identifiers=["*"],
                     )],
@@ -576,16 +576,16 @@ class TopicSubscription(pulumi.CustomResource):
                 ),
             ])
         sqs_queue_policy = aws.iam.get_policy_document(policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            statements=[aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="example-sns-topic",
                 effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=["*"],
                 )],
                 actions=["SQS:SendMessage"],
                 resources=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="ArnEquals",
                     variable="aws:SourceArn",
                     values=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
@@ -594,21 +594,21 @@ class TopicSubscription(pulumi.CustomResource):
         # provider to manage SNS topics
         aws_sns = aws.Provider("awsSns",
             region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArrgs(
                 role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
                 session_name=f"sns-{sns['region']}",
             ))
         # provider to manage SQS queues
         aws_sqs = aws.Provider("awsSqs",
             region=sqs["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArrgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sqs-{sqs['region']}",
             ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
         sns2sqs = aws.Provider("sns2sqs",
             region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArrgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sns2sqs-{sns['region']}",
             ))
@@ -653,7 +653,7 @@ class TopicSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TopicSubscriptionArgs,
+                 args: TopicSubscriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource for subscribing to SNS topics. Requires that an SNS topic exist for the subscription to attach to. This resource allows you to automatically place messages sent to SNS topics in SQS queues, send them as HTTP(S) POST requests to a given endpoint, send SMS messages, or notify devices / applications. The most likely use case for provider users will probably be SQS queues.
@@ -722,7 +722,7 @@ class TopicSubscription(pulumi.CustomResource):
             }
         sns_topic_policy = aws.iam.get_policy_document(policy_id="__default_policy_ID",
             statements=[
-                aws.iam.GetPolicyDocumentStatementArgs(
+                aws.iam.GetPolicyDocumentStatementArrgs(
                     actions=[
                         "SNS:Subscribe",
                         "SNS:SetTopicAttributes",
@@ -733,31 +733,31 @@ class TopicSubscription(pulumi.CustomResource):
                         "SNS:DeleteTopic",
                         "SNS:AddPermission",
                     ],
-                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                         test="StringEquals",
                         variable="AWS:SourceOwner",
                         values=[sns["account-id"]],
                     )],
                     effect="Allow",
-                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                         type="AWS",
                         identifiers=["*"],
                     )],
                     resources=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
                     sid="__default_statement_ID",
                 ),
-                aws.iam.GetPolicyDocumentStatementArgs(
+                aws.iam.GetPolicyDocumentStatementArrgs(
                     actions=[
                         "SNS:Subscribe",
                         "SNS:Receive",
                     ],
-                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                         test="StringLike",
                         variable="SNS:Endpoint",
                         values=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
                     )],
                     effect="Allow",
-                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                         type="AWS",
                         identifiers=["*"],
                     )],
@@ -766,16 +766,16 @@ class TopicSubscription(pulumi.CustomResource):
                 ),
             ])
         sqs_queue_policy = aws.iam.get_policy_document(policy_id=f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}/SQSDefaultPolicy",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            statements=[aws.iam.GetPolicyDocumentStatementArrgs(
                 sid="example-sns-topic",
                 effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                     type="AWS",
                     identifiers=["*"],
                 )],
                 actions=["SQS:SendMessage"],
                 resources=[f"arn:aws:sqs:{sqs['region']}:{sqs['account-id']}:{sqs['name']}"],
-                conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                     test="ArnEquals",
                     variable="aws:SourceArn",
                     values=[f"arn:aws:sns:{sns['region']}:{sns['account-id']}:{sns['name']}"],
@@ -784,21 +784,21 @@ class TopicSubscription(pulumi.CustomResource):
         # provider to manage SNS topics
         aws_sns = aws.Provider("awsSns",
             region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArrgs(
                 role_arn=f"arn:aws:iam::{sns['account-id']}:role/{sns['role-name']}",
                 session_name=f"sns-{sns['region']}",
             ))
         # provider to manage SQS queues
         aws_sqs = aws.Provider("awsSqs",
             region=sqs["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArrgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sqs-{sqs['region']}",
             ))
         # provider to subscribe SQS to SNS (using the SQS account but the SNS region)
         sns2sqs = aws.Provider("sns2sqs",
             region=sns["region"],
-            assume_role=aws.ProviderAssumeRoleArgs(
+            assume_role=aws.ProviderAssumeRoleArrgs(
                 role_arn=f"arn:aws:iam::{sqs['account-id']}:role/{sqs['role-name']}",
                 session_name=f"sns2sqs-{sns['region']}",
             ))
@@ -824,12 +824,12 @@ class TopicSubscription(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TopicSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param TopicSubscriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TopicSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TopicSubscriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -856,7 +856,7 @@ class TopicSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TopicSubscriptionArgs.__new__(TopicSubscriptionArgs)
+            __props__ = TopicSubscriptionArrgs.__new__(TopicSubscriptionArrgs)
 
             __props__.__dict__["confirmation_timeout_in_minutes"] = confirmation_timeout_in_minutes
             __props__.__dict__["delivery_policy"] = delivery_policy

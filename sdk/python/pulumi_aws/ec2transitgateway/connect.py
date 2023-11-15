@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConnectArgs', 'Connect']
+__all__ = ['ConnectArrgs', 'Connect']
 
 @pulumi.input_type
-class ConnectArgs:
+calass ConnectArrgs:
     def __init__(__self__, *,
                  transit_gateway_id: pulumi.Input[str],
                  transport_attachment_id: pulumi.Input[str],
@@ -114,7 +114,7 @@ class ConnectArgs:
 
 
 @pulumi.input_type
-class _ConnectState:
+calass _ConnectState:
     def __init__(__self__, *,
                  protocol: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -239,7 +239,7 @@ class _ConnectState:
         pulumi.set(self, "transport_attachment_id", value)
 
 
-class Connect(pulumi.CustomResource):
+calass Connect(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -290,7 +290,7 @@ class Connect(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectArgs,
+                 args: ConnectArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Transit Gateway Connect.
@@ -319,12 +319,12 @@ class Connect(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -346,7 +346,7 @@ class Connect(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectArgs.__new__(ConnectArgs)
+            __props__ = ConnectArrgs.__new__(ConnectArrgs)
 
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["tags"] = tags

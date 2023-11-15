@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PrefixListReferenceArgs', 'PrefixListReference']
+__all__ = ['PrefixListReferenceArrgs', 'PrefixListReference']
 
 @pulumi.input_type
-class PrefixListReferenceArgs:
+calass PrefixListReferenceArrgs:
     def __init__(__self__, *,
                  prefix_list_id: pulumi.Input[str],
                  transit_gateway_route_table_id: pulumi.Input[str],
@@ -86,7 +86,7 @@ class PrefixListReferenceArgs:
 
 
 @pulumi.input_type
-class _PrefixListReferenceState:
+calass _PrefixListReferenceState:
     def __init__(__self__, *,
                  blackhole: Optional[pulumi.Input[bool]] = None,
                  prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -173,7 +173,7 @@ class _PrefixListReferenceState:
         pulumi.set(self, "transit_gateway_route_table_id", value)
 
 
-class PrefixListReference(pulumi.CustomResource):
+calass PrefixListReference(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -231,7 +231,7 @@ class PrefixListReference(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrefixListReferenceArgs,
+                 args: PrefixListReferenceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Transit Gateway Prefix List Reference.
@@ -269,12 +269,12 @@ class PrefixListReference(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrefixListReferenceArgs args: The arguments to use to populate this resource's properties.
+        :param PrefixListReferenceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrefixListReferenceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrefixListReferenceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -294,7 +294,7 @@ class PrefixListReference(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrefixListReferenceArgs.__new__(PrefixListReferenceArgs)
+            __props__ = PrefixListReferenceArrgs.__new__(PrefixListReferenceArrgs)
 
             __props__.__dict__["blackhole"] = blackhole
             if prefix_list_id is None and not opts.urn:

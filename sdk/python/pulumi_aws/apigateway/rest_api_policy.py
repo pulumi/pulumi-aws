@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RestApiPolicyArgs', 'RestApiPolicy']
+__all__ = ['RestApiPolicyArrgs', 'RestApiPolicy']
 
 @pulumi.input_type
-class RestApiPolicyArgs:
+calass RestApiPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  rest_api_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class RestApiPolicyArgs:
 
 
 @pulumi.input_type
-class _RestApiPolicyState:
+calass _RestApiPolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None,
                  rest_api_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _RestApiPolicyState:
         pulumi.set(self, "rest_api_id", value)
 
 
-class RestApiPolicy(pulumi.CustomResource):
+calass RestApiPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -110,15 +110,15 @@ class RestApiPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["*"],
             )],
             actions=["execute-api:Invoke"],
             resources=[test_rest_api.execution_arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="IpAddress",
                 variable="aws:SourceIp",
                 values=["123.123.123.123/32"],
@@ -146,7 +146,7 @@ class RestApiPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RestApiPolicyArgs,
+                 args: RestApiPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an API Gateway REST API Policy.
@@ -161,15 +161,15 @@ class RestApiPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_rest_api = aws.apigateway.RestApi("testRestApi")
-        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        test_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["*"],
             )],
             actions=["execute-api:Invoke"],
             resources=[test_rest_api.execution_arn],
-            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArrgs(
                 test="IpAddress",
                 variable="aws:SourceIp",
                 values=["123.123.123.123/32"],
@@ -189,12 +189,12 @@ class RestApiPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RestApiPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param RestApiPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RestApiPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RestApiPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -212,7 +212,7 @@ class RestApiPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RestApiPolicyArgs.__new__(RestApiPolicyArgs)
+            __props__ = RestApiPolicyArrgs.__new__(RestApiPolicyArrgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

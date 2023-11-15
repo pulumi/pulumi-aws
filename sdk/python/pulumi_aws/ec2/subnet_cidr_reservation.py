@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubnetCidrReservationArgs', 'SubnetCidrReservation']
+__all__ = ['SubnetCidrReservationArrgs', 'SubnetCidrReservation']
 
 @pulumi.input_type
-class SubnetCidrReservationArgs:
+calass SubnetCidrReservationArrgs:
     def __init__(__self__, *,
                  cidr_block: pulumi.Input[str],
                  reservation_type: pulumi.Input[str],
@@ -81,7 +81,7 @@ class SubnetCidrReservationArgs:
 
 
 @pulumi.input_type
-class _SubnetCidrReservationState:
+calass _SubnetCidrReservationState:
     def __init__(__self__, *,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -168,7 +168,7 @@ class _SubnetCidrReservationState:
         pulumi.set(self, "subnet_id", value)
 
 
-class SubnetCidrReservation(pulumi.CustomResource):
+calass SubnetCidrReservation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -212,7 +212,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubnetCidrReservationArgs,
+                 args: SubnetCidrReservationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a subnet CIDR reservation resource.
@@ -238,12 +238,12 @@ class SubnetCidrReservation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubnetCidrReservationArgs args: The arguments to use to populate this resource's properties.
+        :param SubnetCidrReservationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubnetCidrReservationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetCidrReservationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -263,7 +263,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubnetCidrReservationArgs.__new__(SubnetCidrReservationArgs)
+            __props__ = SubnetCidrReservationArrgs.__new__(SubnetCidrReservationArrgs)
 
             if cidr_block is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr_block'")

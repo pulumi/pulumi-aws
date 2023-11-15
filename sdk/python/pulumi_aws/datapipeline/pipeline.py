@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PipelineArgs', 'Pipeline']
+__all__ = ['PipelineArrgs', 'Pipeline']
 
 @pulumi.input_type
-class PipelineArgs:
+calass PipelineArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -68,7 +68,7 @@ class PipelineArgs:
 
 
 @pulumi.input_type
-class _PipelineState:
+calass _PipelineState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -145,7 +145,7 @@ class _PipelineState:
         pulumi.set(self, "tags_all", value)
 
 
-class Pipeline(pulumi.CustomResource):
+calass Pipeline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -184,7 +184,7 @@ class Pipeline(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[PipelineArgs] = None,
+                 args: Optional[PipelineArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DataPipeline Pipeline resource.
@@ -207,12 +207,12 @@ class Pipeline(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PipelineArgs args: The arguments to use to populate this resource's properties.
+        :param PipelineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PipelineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PipelineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -231,7 +231,7 @@ class Pipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PipelineArgs.__new__(PipelineArgs)
+            __props__ = PipelineArrgs.__new__(PipelineArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

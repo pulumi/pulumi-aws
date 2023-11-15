@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OpenZfsFileSystemArgs', 'OpenZfsFileSystem']
+__all__ = ['OpenZfsFileSystemArrgs', 'OpenZfsFileSystem']
 
 @pulumi.input_type
-class OpenZfsFileSystemArgs:
+calass OpenZfsFileSystemArrgs:
     def __init__(__self__, *,
                  deployment_type: pulumi.Input[str],
                  subnet_ids: pulumi.Input[str],
@@ -24,11 +24,11 @@ class OpenZfsFileSystemArgs:
                  copy_tags_to_backups: Optional[pulumi.Input[bool]] = None,
                  copy_tags_to_volumes: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs']] = None,
+                 disk_iops_configuration: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArrgs']] = None,
                  endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[str]] = None,
-                 root_volume_configuration: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']] = None,
+                 root_volume_configuration: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArrgs']] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
@@ -45,11 +45,11 @@ class OpenZfsFileSystemArgs:
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags for the file system should be copied to backups. The default value is false.
         :param pulumi.Input[bool] copy_tags_to_volumes: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
-        :param pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+        :param pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArrgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArrgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
@@ -191,14 +191,14 @@ class OpenZfsFileSystemArgs:
 
     @property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs']]:
+    def disk_iops_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArrgs']]:
         """
         The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
     @disk_iops_configuration.setter
-    def disk_iops_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs']]):
+    def disk_iops_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArrgs']]):
         pulumi.set(self, "disk_iops_configuration", value)
 
     @property
@@ -239,14 +239,14 @@ class OpenZfsFileSystemArgs:
 
     @property
     @pulumi.getter(name="rootVolumeConfiguration")
-    def root_volume_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']]:
+    def root_volume_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArrgs']]:
         """
         The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         """
         return pulumi.get(self, "root_volume_configuration")
 
     @root_volume_configuration.setter
-    def root_volume_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']]):
+    def root_volume_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArrgs']]):
         pulumi.set(self, "root_volume_configuration", value)
 
     @property
@@ -323,7 +323,7 @@ class OpenZfsFileSystemArgs:
 
 
 @pulumi.input_type
-class _OpenZfsFileSystemState:
+calass _OpenZfsFileSystemState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  automatic_backup_retention_days: Optional[pulumi.Input[int]] = None,
@@ -332,14 +332,14 @@ class _OpenZfsFileSystemState:
                  copy_tags_to_volumes: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs']] = None,
+                 disk_iops_configuration: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArrgs']] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[str]] = None,
-                 root_volume_configuration: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']] = None,
+                 root_volume_configuration: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArrgs']] = None,
                  root_volume_id: Optional[pulumi.Input[str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -360,14 +360,14 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[bool] copy_tags_to_volumes: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
-        :param pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+        :param pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArrgs'] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+        :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArrgs'] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         :param pulumi.Input[str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -522,14 +522,14 @@ class _OpenZfsFileSystemState:
 
     @property
     @pulumi.getter(name="diskIopsConfiguration")
-    def disk_iops_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs']]:
+    def disk_iops_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArrgs']]:
         """
         The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         """
         return pulumi.get(self, "disk_iops_configuration")
 
     @disk_iops_configuration.setter
-    def disk_iops_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArgs']]):
+    def disk_iops_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemDiskIopsConfigurationArrgs']]):
         pulumi.set(self, "disk_iops_configuration", value)
 
     @property
@@ -606,14 +606,14 @@ class _OpenZfsFileSystemState:
 
     @property
     @pulumi.getter(name="rootVolumeConfiguration")
-    def root_volume_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']]:
+    def root_volume_configuration(self) -> Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArrgs']]:
         """
         The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         """
         return pulumi.get(self, "root_volume_configuration")
 
     @root_volume_configuration.setter
-    def root_volume_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs']]):
+    def root_volume_configuration(self, value: Optional[pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArrgs']]):
         pulumi.set(self, "root_volume_configuration", value)
 
     @property
@@ -752,7 +752,7 @@ class _OpenZfsFileSystemState:
         pulumi.set(self, "weekly_maintenance_start_time", value)
 
 
-class OpenZfsFileSystem(pulumi.CustomResource):
+calass OpenZfsFileSystem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -763,11 +763,11 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  copy_tags_to_volumes: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']]] = None,
+                 disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArrgs']]] = None,
                  endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[str]] = None,
-                 root_volume_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']]] = None,
+                 root_volume_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArrgs']]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
@@ -811,11 +811,11 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_volumes: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
-        :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+        :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArrgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+        :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArrgs']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[int] storage_capacity: The storage capacity (GiB) of the file system. Valid values between `64` and `524288`.
@@ -829,7 +829,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OpenZfsFileSystemArgs,
+                 args: OpenZfsFileSystemArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Amazon FSx for OpenZFS file system.
@@ -858,12 +858,12 @@ class OpenZfsFileSystem(pulumi.CustomResource):
          Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
-        :param OpenZfsFileSystemArgs args: The arguments to use to populate this resource's properties.
+        :param OpenZfsFileSystemArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OpenZfsFileSystemArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OpenZfsFileSystemArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -878,11 +878,11 @@ class OpenZfsFileSystem(pulumi.CustomResource):
                  copy_tags_to_volumes: Optional[pulumi.Input[bool]] = None,
                  daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
                  deployment_type: Optional[pulumi.Input[str]] = None,
-                 disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']]] = None,
+                 disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArrgs']]] = None,
                  endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  preferred_subnet_id: Optional[pulumi.Input[str]] = None,
-                 root_volume_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']]] = None,
+                 root_volume_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArrgs']]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  storage_capacity: Optional[pulumi.Input[int]] = None,
@@ -898,7 +898,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OpenZfsFileSystemArgs.__new__(OpenZfsFileSystemArgs)
+            __props__ = OpenZfsFileSystemArrgs.__new__(OpenZfsFileSystemArrgs)
 
             __props__.__dict__["automatic_backup_retention_days"] = automatic_backup_retention_days
             __props__.__dict__["backup_id"] = backup_id
@@ -951,14 +951,14 @@ class OpenZfsFileSystem(pulumi.CustomResource):
             copy_tags_to_volumes: Optional[pulumi.Input[bool]] = None,
             daily_automatic_backup_start_time: Optional[pulumi.Input[str]] = None,
             deployment_type: Optional[pulumi.Input[str]] = None,
-            disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']]] = None,
+            disk_iops_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArrgs']]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             endpoint_ip_address_range: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             preferred_subnet_id: Optional[pulumi.Input[str]] = None,
-            root_volume_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']]] = None,
+            root_volume_configuration: Optional[pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArrgs']]] = None,
             root_volume_id: Optional[pulumi.Input[str]] = None,
             route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -984,14 +984,14 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_volumes: A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] deployment_type: The filesystem deployment type. Valid values: `SINGLE_AZ_1`, `SINGLE_AZ_2` and `MULTI_AZ_1`.
-        :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
+        :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemDiskIopsConfigurationArrgs']] disk_iops_configuration: The SSD IOPS configuration for the Amazon FSx for OpenZFS file system. See Disk Iops Configuration below.
         :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] endpoint_ip_address_range: (Multi-AZ only) Specifies the IP address range in which the endpoints to access your file system will be created.
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
         :param pulumi.Input[str] preferred_subnet_id: (Multi-AZ only) Required when `deployment_type` is set to `MULTI_AZ_1`. This specifies the subnet in which you want the preferred file server to be located.
-        :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArgs']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
+        :param pulumi.Input[pulumi.InputType['OpenZfsFileSystemRootVolumeConfigurationArrgs']] root_volume_configuration: The configuration for the root volume of the file system. All other volumes are children or the root volume. See Root Volume Configuration below.
         :param pulumi.Input[str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.

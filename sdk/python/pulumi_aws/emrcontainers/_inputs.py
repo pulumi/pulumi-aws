@@ -10,34 +10,34 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'JobTemplateJobTemplateDataArgs',
-    'JobTemplateJobTemplateDataConfigurationOverridesArgs',
-    'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs',
-    'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs',
-    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs',
-    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs',
-    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs',
-    'JobTemplateJobTemplateDataJobDriverArgs',
-    'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs',
-    'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs',
-    'VirtualClusterContainerProviderArgs',
-    'VirtualClusterContainerProviderInfoArgs',
-    'VirtualClusterContainerProviderInfoEksInfoArgs',
+    'JobTemplateJobTemplateDataArrgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesArrgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArrgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArrgs',
+    'JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArrgs',
+    'JobTemplateJobTemplateDataJobDriverArrgs',
+    'JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs',
+    'JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArrgs',
+    'VirtualClusterContainerProviderArrgs',
+    'VirtualClusterContainerProviderInfoArrgs',
+    'VirtualClusterContainerProviderInfoEksInfoArrgs',
 ]
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataArgs:
+calass JobTemplateJobTemplateDataArrgs:
     def __init__(__self__, *,
                  execution_role_arn: pulumi.Input[str],
-                 job_driver: pulumi.Input['JobTemplateJobTemplateDataJobDriverArgs'],
+                 job_driver: pulumi.Input['JobTemplateJobTemplateDataJobDriverArrgs'],
                  release_label: pulumi.Input[str],
-                 configuration_overrides: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArgs']] = None,
+                 configuration_overrides: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArrgs']] = None,
                  job_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] execution_role_arn: The execution role ARN of the job run.
-        :param pulumi.Input['JobTemplateJobTemplateDataJobDriverArgs'] job_driver: Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
+        :param pulumi.Input['JobTemplateJobTemplateDataJobDriverArrgs'] job_driver: Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
         :param pulumi.Input[str] release_label: The release version of Amazon EMR.
-        :param pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArgs'] configuration_overrides: The configuration settings that are used to override defaults configuration.
+        :param pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArrgs'] configuration_overrides: The configuration settings that are used to override defaults configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] job_tags: The tags assigned to jobs started using the job template.
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -62,14 +62,14 @@ class JobTemplateJobTemplateDataArgs:
 
     @property
     @pulumi.getter(name="jobDriver")
-    def job_driver(self) -> pulumi.Input['JobTemplateJobTemplateDataJobDriverArgs']:
+    def job_driver(self) -> pulumi.Input['JobTemplateJobTemplateDataJobDriverArrgs']:
         """
         Specify the driver that the job runs on. Exactly one of the two available job drivers is required, either sparkSqlJobDriver or sparkSubmitJobDriver.
         """
         return pulumi.get(self, "job_driver")
 
     @job_driver.setter
-    def job_driver(self, value: pulumi.Input['JobTemplateJobTemplateDataJobDriverArgs']):
+    def job_driver(self, value: pulumi.Input['JobTemplateJobTemplateDataJobDriverArrgs']):
         pulumi.set(self, "job_driver", value)
 
     @property
@@ -86,14 +86,14 @@ class JobTemplateJobTemplateDataArgs:
 
     @property
     @pulumi.getter(name="configurationOverrides")
-    def configuration_overrides(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArgs']]:
+    def configuration_overrides(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArrgs']]:
         """
         The configuration settings that are used to override defaults configuration.
         """
         return pulumi.get(self, "configuration_overrides")
 
     @configuration_overrides.setter
-    def configuration_overrides(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArgs']]):
+    def configuration_overrides(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesArrgs']]):
         pulumi.set(self, "configuration_overrides", value)
 
     @property
@@ -110,13 +110,13 @@ class JobTemplateJobTemplateDataArgs:
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataConfigurationOverridesArgs:
+calass JobTemplateJobTemplateDataConfigurationOverridesArrgs:
     def __init__(__self__, *,
-                 application_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs']]]] = None,
-                 monitoring_configuration: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs']] = None):
+                 application_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrgs']]]] = None,
+                 monitoring_configuration: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs']]] application_configurations: The configurations for the application running by the job run.
-        :param pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs'] monitoring_configuration: The configurations for monitoring.
+        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrgs']]] application_configurations: The configurations for the application running by the job run.
+        :param pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArrgs'] monitoring_configuration: The configurations for monitoring.
         """
         if application_configurations is not None:
             pulumi.set(__self__, "application_configurations", application_configurations)
@@ -125,38 +125,38 @@ class JobTemplateJobTemplateDataConfigurationOverridesArgs:
 
     @property
     @pulumi.getter(name="applicationConfigurations")
-    def application_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs']]]]:
+    def application_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrgs']]]]:
         """
         The configurations for the application running by the job run.
         """
         return pulumi.get(self, "application_configurations")
 
     @application_configurations.setter
-    def application_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs']]]]):
+    def application_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrgs']]]]):
         pulumi.set(self, "application_configurations", value)
 
     @property
     @pulumi.getter(name="monitoringConfiguration")
-    def monitoring_configuration(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs']]:
+    def monitoring_configuration(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArrgs']]:
         """
         The configurations for monitoring.
         """
         return pulumi.get(self, "monitoring_configuration")
 
     @monitoring_configuration.setter
-    def monitoring_configuration(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs']]):
+    def monitoring_configuration(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArrgs']]):
         pulumi.set(self, "monitoring_configuration", value)
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArgs:
+calass JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationArrgs:
     def __init__(__self__, *,
                  classification: pulumi.Input[str],
-                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs']]]] = None,
+                 configurations: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrgs']]]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] classification: The classification within a configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs']]] configurations: A list of additional configurations to apply within a configuration object.
+        :param pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrgs']]] configurations: A list of additional configurations to apply within a configuration object.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A set of properties specified within a configuration classification.
         """
         pulumi.set(__self__, "classification", classification)
@@ -179,14 +179,14 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationAr
 
     @property
     @pulumi.getter
-    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs']]]]:
+    def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrgs']]]]:
         """
         A list of additional configurations to apply within a configuration object.
         """
         return pulumi.get(self, "configurations")
 
     @configurations.setter
-    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs']]]]):
+    def configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrgs']]]]):
         pulumi.set(self, "configurations", value)
 
     @property
@@ -203,7 +203,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationAr
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArgs:
+calass JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationConfigurationArrgs:
     def __init__(__self__, *,
                  classification: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -242,15 +242,15 @@ class JobTemplateJobTemplateDataConfigurationOverridesApplicationConfigurationCo
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArgs:
+calass JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArrgs:
     def __init__(__self__, *,
-                 cloud_watch_monitoring_configuration: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs']] = None,
+                 cloud_watch_monitoring_configuration: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArrgs']] = None,
                  persistent_app_ui: Optional[pulumi.Input[str]] = None,
-                 s3_monitoring_configuration: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs']] = None):
+                 s3_monitoring_configuration: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArrgs']] = None):
         """
-        :param pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs'] cloud_watch_monitoring_configuration: Monitoring configurations for CloudWatch.
+        :param pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArrgs'] cloud_watch_monitoring_configuration: Monitoring configurations for CloudWatch.
         :param pulumi.Input[str] persistent_app_ui: Monitoring configurations for the persistent application UI.
-        :param pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs'] s3_monitoring_configuration: Amazon S3 configuration for monitoring log publishing.
+        :param pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArrgs'] s3_monitoring_configuration: Amazon S3 configuration for monitoring log publishing.
         """
         if cloud_watch_monitoring_configuration is not None:
             pulumi.set(__self__, "cloud_watch_monitoring_configuration", cloud_watch_monitoring_configuration)
@@ -261,14 +261,14 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArg
 
     @property
     @pulumi.getter(name="cloudWatchMonitoringConfiguration")
-    def cloud_watch_monitoring_configuration(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs']]:
+    def cloud_watch_monitoring_configuration(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArrgs']]:
         """
         Monitoring configurations for CloudWatch.
         """
         return pulumi.get(self, "cloud_watch_monitoring_configuration")
 
     @cloud_watch_monitoring_configuration.setter
-    def cloud_watch_monitoring_configuration(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs']]):
+    def cloud_watch_monitoring_configuration(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArrgs']]):
         pulumi.set(self, "cloud_watch_monitoring_configuration", value)
 
     @property
@@ -285,19 +285,19 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationArg
 
     @property
     @pulumi.getter(name="s3MonitoringConfiguration")
-    def s3_monitoring_configuration(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs']]:
+    def s3_monitoring_configuration(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArrgs']]:
         """
         Amazon S3 configuration for monitoring log publishing.
         """
         return pulumi.get(self, "s3_monitoring_configuration")
 
     @s3_monitoring_configuration.setter
-    def s3_monitoring_configuration(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs']]):
+    def s3_monitoring_configuration(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArrgs']]):
         pulumi.set(self, "s3_monitoring_configuration", value)
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArgs:
+calass JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationCloudWatchMonitoringConfigurationArrgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str],
                  log_stream_name_prefix: Optional[pulumi.Input[str]] = None):
@@ -335,7 +335,7 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationClo
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArgs:
+calass JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3MonitoringConfigurationArrgs:
     def __init__(__self__, *,
                  log_uri: pulumi.Input[str]):
         """
@@ -357,13 +357,13 @@ class JobTemplateJobTemplateDataConfigurationOverridesMonitoringConfigurationS3M
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataJobDriverArgs:
+calass JobTemplateJobTemplateDataJobDriverArrgs:
     def __init__(__self__, *,
-                 spark_sql_job_driver: Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs']] = None,
-                 spark_submit_job_driver: Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs']] = None):
+                 spark_sql_job_driver: Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs']] = None,
+                 spark_submit_job_driver: Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArrgs']] = None):
         """
-        :param pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs'] spark_sql_job_driver: The job driver for job type.
-        :param pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs'] spark_submit_job_driver: The job driver parameters specified for spark submit.
+        :param pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs'] spark_sql_job_driver: The job driver for job type.
+        :param pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArrgs'] spark_submit_job_driver: The job driver parameters specified for spark submit.
         """
         if spark_sql_job_driver is not None:
             pulumi.set(__self__, "spark_sql_job_driver", spark_sql_job_driver)
@@ -372,31 +372,31 @@ class JobTemplateJobTemplateDataJobDriverArgs:
 
     @property
     @pulumi.getter(name="sparkSqlJobDriver")
-    def spark_sql_job_driver(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs']]:
+    def spark_sql_job_driver(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs']]:
         """
         The job driver for job type.
         """
         return pulumi.get(self, "spark_sql_job_driver")
 
     @spark_sql_job_driver.setter
-    def spark_sql_job_driver(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs']]):
+    def spark_sql_job_driver(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs']]):
         pulumi.set(self, "spark_sql_job_driver", value)
 
     @property
     @pulumi.getter(name="sparkSubmitJobDriver")
-    def spark_submit_job_driver(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs']]:
+    def spark_submit_job_driver(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArrgs']]:
         """
         The job driver parameters specified for spark submit.
         """
         return pulumi.get(self, "spark_submit_job_driver")
 
     @spark_submit_job_driver.setter
-    def spark_submit_job_driver(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs']]):
+    def spark_submit_job_driver(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArrgs']]):
         pulumi.set(self, "spark_submit_job_driver", value)
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs:
+calass JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs:
     def __init__(__self__, *,
                  entry_point: Optional[pulumi.Input[str]] = None,
                  spark_sql_parameters: Optional[pulumi.Input[str]] = None):
@@ -435,7 +435,7 @@ class JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs:
 
 
 @pulumi.input_type
-class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs:
+calass JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArrgs:
     def __init__(__self__, *,
                  entry_point: pulumi.Input[str],
                  entry_point_arguments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -489,14 +489,14 @@ class JobTemplateJobTemplateDataJobDriverSparkSubmitJobDriverArgs:
 
 
 @pulumi.input_type
-class VirtualClusterContainerProviderArgs:
+calass VirtualClusterContainerProviderArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 info: pulumi.Input['VirtualClusterContainerProviderInfoArgs'],
+                 info: pulumi.Input['VirtualClusterContainerProviderInfoArrgs'],
                  type: pulumi.Input[str]):
         """
         :param pulumi.Input[str] id: The name of the container provider that is running your EMR Containers cluster
-        :param pulumi.Input['VirtualClusterContainerProviderInfoArgs'] info: Nested list containing information about the configuration of the container provider
+        :param pulumi.Input['VirtualClusterContainerProviderInfoArrgs'] info: Nested list containing information about the configuration of the container provider
         :param pulumi.Input[str] type: The type of the container provider
         """
         pulumi.set(__self__, "id", id)
@@ -517,14 +517,14 @@ class VirtualClusterContainerProviderArgs:
 
     @property
     @pulumi.getter
-    def info(self) -> pulumi.Input['VirtualClusterContainerProviderInfoArgs']:
+    def info(self) -> pulumi.Input['VirtualClusterContainerProviderInfoArrgs']:
         """
         Nested list containing information about the configuration of the container provider
         """
         return pulumi.get(self, "info")
 
     @info.setter
-    def info(self, value: pulumi.Input['VirtualClusterContainerProviderInfoArgs']):
+    def info(self, value: pulumi.Input['VirtualClusterContainerProviderInfoArrgs']):
         pulumi.set(self, "info", value)
 
     @property
@@ -541,29 +541,29 @@ class VirtualClusterContainerProviderArgs:
 
 
 @pulumi.input_type
-class VirtualClusterContainerProviderInfoArgs:
+calass VirtualClusterContainerProviderInfoArrgs:
     def __init__(__self__, *,
-                 eks_info: pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArgs']):
+                 eks_info: pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArrgs']):
         """
-        :param pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArgs'] eks_info: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
+        :param pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArrgs'] eks_info: Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
         """
         pulumi.set(__self__, "eks_info", eks_info)
 
     @property
     @pulumi.getter(name="eksInfo")
-    def eks_info(self) -> pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArgs']:
+    def eks_info(self) -> pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArrgs']:
         """
         Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
         """
         return pulumi.get(self, "eks_info")
 
     @eks_info.setter
-    def eks_info(self, value: pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArgs']):
+    def eks_info(self, value: pulumi.Input['VirtualClusterContainerProviderInfoEksInfoArrgs']):
         pulumi.set(self, "eks_info", value)
 
 
 @pulumi.input_type
-class VirtualClusterContainerProviderInfoEksInfoArgs:
+calass VirtualClusterContainerProviderInfoEksInfoArrgs:
     def __init__(__self__, *,
                  namespace: Optional[pulumi.Input[str]] = None):
         """

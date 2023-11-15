@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EventDataStoreAdvancedEventSelectorArgs',
-    'EventDataStoreAdvancedEventSelectorFieldSelectorArgs',
-    'TrailAdvancedEventSelectorArgs',
-    'TrailAdvancedEventSelectorFieldSelectorArgs',
-    'TrailEventSelectorArgs',
-    'TrailEventSelectorDataResourceArgs',
-    'TrailInsightSelectorArgs',
+    'EventDataStoreAdvancedEventSelectorArrgs',
+    'EventDataStoreAdvancedEventSelectorFieldSelectorArrgs',
+    'TrailAdvancedEventSelectorArrgs',
+    'TrailAdvancedEventSelectorFieldSelectorArrgs',
+    'TrailEventSelectorArrgs',
+    'TrailEventSelectorDataResourceArrgs',
+    'TrailInsightSelectorArrgs',
 ]
 
 @pulumi.input_type
-class EventDataStoreAdvancedEventSelectorArgs:
+calass EventDataStoreAdvancedEventSelectorArrgs:
     def __init__(__self__, *,
-                 field_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgs']]]] = None,
+                 field_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgs']]] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArrgs']]] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
         :param pulumi.Input[str] name: Specifies the name of the advanced event selector.
         """
         if field_selectors is not None:
@@ -35,14 +35,14 @@ class EventDataStoreAdvancedEventSelectorArgs:
 
     @property
     @pulumi.getter(name="fieldSelectors")
-    def field_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgs']]]]:
+    def field_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArrgs']]]]:
         """
         Specifies the selector statements in an advanced event selector. Fields documented below.
         """
         return pulumi.get(self, "field_selectors")
 
     @field_selectors.setter
-    def field_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgs']]]]):
+    def field_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArrgs']]]]):
         pulumi.set(self, "field_selectors", value)
 
     @property
@@ -59,7 +59,7 @@ class EventDataStoreAdvancedEventSelectorArgs:
 
 
 @pulumi.input_type
-class EventDataStoreAdvancedEventSelectorFieldSelectorArgs:
+calass EventDataStoreAdvancedEventSelectorFieldSelectorArrgs:
     def __init__(__self__, *,
                  ends_withs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  equals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -178,12 +178,12 @@ class EventDataStoreAdvancedEventSelectorFieldSelectorArgs:
 
 
 @pulumi.input_type
-class TrailAdvancedEventSelectorArgs:
+calass TrailAdvancedEventSelectorArrgs:
     def __init__(__self__, *,
-                 field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgs']]],
+                 field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArrgs']]],
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgs']]] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArrgs']]] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
         :param pulumi.Input[str] name: Name of the trail.
         """
         pulumi.set(__self__, "field_selectors", field_selectors)
@@ -192,14 +192,14 @@ class TrailAdvancedEventSelectorArgs:
 
     @property
     @pulumi.getter(name="fieldSelectors")
-    def field_selectors(self) -> pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgs']]]:
+    def field_selectors(self) -> pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArrgs']]]:
         """
         Specifies the selector statements in an advanced event selector. Fields documented below.
         """
         return pulumi.get(self, "field_selectors")
 
     @field_selectors.setter
-    def field_selectors(self, value: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgs']]]):
+    def field_selectors(self, value: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArrgs']]]):
         pulumi.set(self, "field_selectors", value)
 
     @property
@@ -216,7 +216,7 @@ class TrailAdvancedEventSelectorArgs:
 
 
 @pulumi.input_type
-class TrailAdvancedEventSelectorFieldSelectorArgs:
+calass TrailAdvancedEventSelectorFieldSelectorArrgs:
     def __init__(__self__, *,
                  field: pulumi.Input[str],
                  ends_withs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -334,14 +334,14 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
 
 
 @pulumi.input_type
-class TrailEventSelectorArgs:
+calass TrailEventSelectorArrgs:
     def __init__(__self__, *,
-                 data_resources: Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArgs']]]] = None,
+                 data_resources: Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArrgs']]]] = None,
                  exclude_management_event_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  include_management_events: Optional[pulumi.Input[bool]] = None,
                  read_write_type: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArgs']]] data_resources: Configuration block for data events. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArrgs']]] data_resources: Configuration block for data events. See details below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclude_management_event_sources: A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
         :param pulumi.Input[bool] include_management_events: Whether to include management events for your trail. Defaults to `true`.
         :param pulumi.Input[str] read_write_type: Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
@@ -357,14 +357,14 @@ class TrailEventSelectorArgs:
 
     @property
     @pulumi.getter(name="dataResources")
-    def data_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArgs']]]]:
+    def data_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArrgs']]]]:
         """
         Configuration block for data events. See details below.
         """
         return pulumi.get(self, "data_resources")
 
     @data_resources.setter
-    def data_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArgs']]]]):
+    def data_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArrgs']]]]):
         pulumi.set(self, "data_resources", value)
 
     @property
@@ -405,7 +405,7 @@ class TrailEventSelectorArgs:
 
 
 @pulumi.input_type
-class TrailEventSelectorDataResourceArgs:
+calass TrailEventSelectorDataResourceArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -442,7 +442,7 @@ class TrailEventSelectorDataResourceArgs:
 
 
 @pulumi.input_type
-class TrailInsightSelectorArgs:
+calass TrailInsightSelectorArrgs:
     def __init__(__self__, *,
                  insight_type: pulumi.Input[str]):
         """

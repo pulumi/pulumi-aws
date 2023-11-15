@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPipelineResult:
+calass GetPipelineResult:
     """
     A collection of values returned by getPipeline.
     """
@@ -76,7 +76,7 @@ class GetPipelineResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetPipelineResult(GetPipelineResult):
+calass AwaitableGetPipelineResult(GetPipelineResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

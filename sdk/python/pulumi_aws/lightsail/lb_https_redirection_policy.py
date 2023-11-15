@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LbHttpsRedirectionPolicyArgs', 'LbHttpsRedirectionPolicy']
+__all__ = ['LbHttpsRedirectionPolicyArrgs', 'LbHttpsRedirectionPolicy']
 
 @pulumi.input_type
-class LbHttpsRedirectionPolicyArgs:
+calass LbHttpsRedirectionPolicyArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  lb_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class LbHttpsRedirectionPolicyArgs:
 
 
 @pulumi.input_type
-class _LbHttpsRedirectionPolicyState:
+calass _LbHttpsRedirectionPolicyState:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  lb_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _LbHttpsRedirectionPolicyState:
         pulumi.set(self, "lb_name", value)
 
 
-class LbHttpsRedirectionPolicy(pulumi.CustomResource):
+calass LbHttpsRedirectionPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -140,7 +140,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LbHttpsRedirectionPolicyArgs,
+                 args: LbHttpsRedirectionPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures Https Redirection for a Lightsail Load Balancer. A valid Certificate must be attached to the load balancer in order to enable https redirection.
@@ -177,12 +177,12 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LbHttpsRedirectionPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LbHttpsRedirectionPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LbHttpsRedirectionPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LbHttpsRedirectionPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -200,7 +200,7 @@ class LbHttpsRedirectionPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LbHttpsRedirectionPolicyArgs.__new__(LbHttpsRedirectionPolicyArgs)
+            __props__ = LbHttpsRedirectionPolicyArrgs.__new__(LbHttpsRedirectionPolicyArrgs)
 
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")

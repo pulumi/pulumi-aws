@@ -35,7 +35,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FrameworkControl(dict):
+calass FrameworkControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -59,8 +59,8 @@ class FrameworkControl(dict):
                  scope: Optional['outputs.FrameworkControlScope'] = None):
         """
         :param str name: The name of a control. This name is between 1 and 256 characters.
-        :param Sequence['FrameworkControlInputParameterArgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
-        :param 'FrameworkControlScopeArgs' scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        :param Sequence['FrameworkControlInputParameterArrgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+        :param 'FrameworkControlScopeArrgs' scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
         pulumi.set(__self__, "name", name)
         if input_parameters is not None:
@@ -94,7 +94,7 @@ class FrameworkControl(dict):
 
 
 @pulumi.output_type
-class FrameworkControlInputParameter(dict):
+calass FrameworkControlInputParameter(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
@@ -125,7 +125,7 @@ class FrameworkControlInputParameter(dict):
 
 
 @pulumi.output_type
-class FrameworkControlScope(dict):
+calass FrameworkControlScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -187,7 +187,7 @@ class FrameworkControlScope(dict):
 
 
 @pulumi.output_type
-class PlanAdvancedBackupSetting(dict):
+calass PlanAdvancedBackupSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -235,7 +235,7 @@ class PlanAdvancedBackupSetting(dict):
 
 
 @pulumi.output_type
-class PlanRule(dict):
+calass PlanRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -279,9 +279,9 @@ class PlanRule(dict):
         :param str rule_name: An display name for a backup rule.
         :param str target_vault_name: The name of a logical container where backups are stored.
         :param int completion_window: The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-        :param Sequence['PlanRuleCopyActionArgs'] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
+        :param Sequence['PlanRuleCopyActionArrgs'] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
         :param bool enable_continuous_backup: Enable continuous backups for supported resources.
-        :param 'PlanRuleLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        :param 'PlanRuleLifecycleArrgs' lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         :param Mapping[str, str] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
         :param str schedule: A CRON expression specifying when AWS Backup initiates a backup job.
         :param int start_window: The amount of time in minutes before beginning a backup.
@@ -377,7 +377,7 @@ class PlanRule(dict):
 
 
 @pulumi.output_type
-class PlanRuleCopyAction(dict):
+calass PlanRuleCopyAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -400,7 +400,7 @@ class PlanRuleCopyAction(dict):
                  lifecycle: Optional['outputs.PlanRuleCopyActionLifecycle'] = None):
         """
         :param str destination_vault_arn: An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-        :param 'PlanRuleCopyActionLifecycleArgs' lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        :param 'PlanRuleCopyActionLifecycleArrgs' lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         """
         pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
         if lifecycle is not None:
@@ -424,7 +424,7 @@ class PlanRuleCopyAction(dict):
 
 
 @pulumi.output_type
-class PlanRuleCopyActionLifecycle(dict):
+calass PlanRuleCopyActionLifecycle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -474,7 +474,7 @@ class PlanRuleCopyActionLifecycle(dict):
 
 
 @pulumi.output_type
-class PlanRuleLifecycle(dict):
+calass PlanRuleLifecycle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -524,7 +524,7 @@ class PlanRuleLifecycle(dict):
 
 
 @pulumi.output_type
-class ReportPlanReportDeliveryChannel(dict):
+calass ReportPlanReportDeliveryChannel(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -585,7 +585,7 @@ class ReportPlanReportDeliveryChannel(dict):
 
 
 @pulumi.output_type
-class ReportPlanReportSetting(dict):
+calass ReportPlanReportSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -686,7 +686,7 @@ class ReportPlanReportSetting(dict):
 
 
 @pulumi.output_type
-class SelectionCondition(dict):
+calass SelectionCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -746,7 +746,7 @@ class SelectionCondition(dict):
 
 
 @pulumi.output_type
-class SelectionConditionStringEqual(dict):
+calass SelectionConditionStringEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -775,7 +775,7 @@ class SelectionConditionStringEqual(dict):
 
 
 @pulumi.output_type
-class SelectionConditionStringLike(dict):
+calass SelectionConditionStringLike(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -804,7 +804,7 @@ class SelectionConditionStringLike(dict):
 
 
 @pulumi.output_type
-class SelectionConditionStringNotEqual(dict):
+calass SelectionConditionStringNotEqual(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -833,7 +833,7 @@ class SelectionConditionStringNotEqual(dict):
 
 
 @pulumi.output_type
-class SelectionConditionStringNotLike(dict):
+calass SelectionConditionStringNotLike(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -862,7 +862,7 @@ class SelectionConditionStringNotLike(dict):
 
 
 @pulumi.output_type
-class SelectionSelectionTag(dict):
+calass SelectionSelectionTag(dict):
     def __init__(__self__, *,
                  key: str,
                  type: str,
@@ -902,15 +902,15 @@ class SelectionSelectionTag(dict):
 
 
 @pulumi.output_type
-class GetFrameworkControlResult(dict):
+calass GetFrameworkControlResult(dict):
     def __init__(__self__, *,
                  input_parameters: Sequence['outputs.GetFrameworkControlInputParameterResult'],
                  name: str,
                  scopes: Sequence['outputs.GetFrameworkControlScopeResult']):
         """
-        :param Sequence['GetFrameworkControlInputParameterArgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+        :param Sequence['GetFrameworkControlInputParameterArrgs'] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
         :param str name: Backup framework name.
-        :param Sequence['GetFrameworkControlScopeArgs'] scopes: Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        :param Sequence['GetFrameworkControlScopeArrgs'] scopes: Scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
         pulumi.set(__self__, "input_parameters", input_parameters)
         pulumi.set(__self__, "name", name)
@@ -942,7 +942,7 @@ class GetFrameworkControlResult(dict):
 
 
 @pulumi.output_type
-class GetFrameworkControlInputParameterResult(dict):
+calass GetFrameworkControlInputParameterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -971,7 +971,7 @@ class GetFrameworkControlInputParameterResult(dict):
 
 
 @pulumi.output_type
-class GetFrameworkControlScopeResult(dict):
+calass GetFrameworkControlScopeResult(dict):
     def __init__(__self__, *,
                  compliance_resource_ids: Sequence[str],
                  compliance_resource_types: Sequence[str],
@@ -1011,7 +1011,7 @@ class GetFrameworkControlScopeResult(dict):
 
 
 @pulumi.output_type
-class GetReportPlanReportDeliveryChannelResult(dict):
+calass GetReportPlanReportDeliveryChannelResult(dict):
     def __init__(__self__, *,
                  formats: Sequence[str],
                  s3_bucket_name: str,
@@ -1051,7 +1051,7 @@ class GetReportPlanReportDeliveryChannelResult(dict):
 
 
 @pulumi.output_type
-class GetReportPlanReportSettingResult(dict):
+calass GetReportPlanReportSettingResult(dict):
     def __init__(__self__, *,
                  accounts: Sequence[str],
                  framework_arns: Sequence[str],

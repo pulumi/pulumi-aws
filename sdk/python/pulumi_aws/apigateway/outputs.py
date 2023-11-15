@@ -29,7 +29,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountThrottleSetting(dict):
+calass AccountThrottleSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -79,7 +79,7 @@ class AccountThrottleSetting(dict):
 
 
 @pulumi.output_type
-class DocumentationPartLocation(dict):
+calass DocumentationPartLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -162,7 +162,7 @@ class DocumentationPartLocation(dict):
 
 
 @pulumi.output_type
-class DomainNameEndpointConfiguration(dict):
+calass DomainNameEndpointConfiguration(dict):
     def __init__(__self__, *,
                  types: str):
         """
@@ -180,7 +180,7 @@ class DomainNameEndpointConfiguration(dict):
 
 
 @pulumi.output_type
-class DomainNameMutualTlsAuthentication(dict):
+calass DomainNameMutualTlsAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -229,7 +229,7 @@ class DomainNameMutualTlsAuthentication(dict):
 
 
 @pulumi.output_type
-class IntegrationTlsConfig(dict):
+calass IntegrationTlsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -265,7 +265,7 @@ class IntegrationTlsConfig(dict):
 
 
 @pulumi.output_type
-class MethodSettingsSettings(dict):
+calass MethodSettingsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -427,7 +427,7 @@ class MethodSettingsSettings(dict):
 
 
 @pulumi.output_type
-class RestApiEndpointConfiguration(dict):
+calass RestApiEndpointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -474,7 +474,7 @@ class RestApiEndpointConfiguration(dict):
 
 
 @pulumi.output_type
-class StageAccessLogSettings(dict):
+calass StageAccessLogSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -522,7 +522,7 @@ class StageAccessLogSettings(dict):
 
 
 @pulumi.output_type
-class StageCanarySettings(dict):
+calass StageCanarySettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -586,7 +586,7 @@ class StageCanarySettings(dict):
 
 
 @pulumi.output_type
-class UsagePlanApiStage(dict):
+calass UsagePlanApiStage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -611,7 +611,7 @@ class UsagePlanApiStage(dict):
         """
         :param str api_id: API Id of the associated API stage in a usage plan.
         :param str stage: API stage name of the associated API stage in a usage plan.
-        :param Sequence['UsagePlanApiStageThrottleArgs'] throttles: The throttling limits of the usage plan.
+        :param Sequence['UsagePlanApiStageThrottleArrgs'] throttles: The throttling limits of the usage plan.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
@@ -644,7 +644,7 @@ class UsagePlanApiStage(dict):
 
 
 @pulumi.output_type
-class UsagePlanApiStageThrottle(dict):
+calass UsagePlanApiStageThrottle(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -705,7 +705,7 @@ class UsagePlanApiStageThrottle(dict):
 
 
 @pulumi.output_type
-class UsagePlanQuotaSettings(dict):
+calass UsagePlanQuotaSettings(dict):
     def __init__(__self__, *,
                  limit: int,
                  period: str,
@@ -746,7 +746,7 @@ class UsagePlanQuotaSettings(dict):
 
 
 @pulumi.output_type
-class UsagePlanThrottleSettings(dict):
+calass UsagePlanThrottleSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -796,7 +796,7 @@ class UsagePlanThrottleSettings(dict):
 
 
 @pulumi.output_type
-class GetDomainNameEndpointConfigurationResult(dict):
+calass GetDomainNameEndpointConfigurationResult(dict):
     def __init__(__self__, *,
                  types: Sequence[str]):
         """
@@ -814,7 +814,7 @@ class GetDomainNameEndpointConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetRestApiEndpointConfigurationResult(dict):
+calass GetRestApiEndpointConfigurationResult(dict):
     def __init__(__self__, *,
                  types: Sequence[str],
                  vpc_endpoint_ids: Sequence[str]):

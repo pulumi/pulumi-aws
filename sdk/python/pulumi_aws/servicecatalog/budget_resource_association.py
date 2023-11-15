@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BudgetResourceAssociationArgs', 'BudgetResourceAssociation']
+__all__ = ['BudgetResourceAssociationArrgs', 'BudgetResourceAssociation']
 
 @pulumi.input_type
-class BudgetResourceAssociationArgs:
+calass BudgetResourceAssociationArrgs:
     def __init__(__self__, *,
                  budget_name: pulumi.Input[str],
                  resource_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class BudgetResourceAssociationArgs:
 
 
 @pulumi.input_type
-class _BudgetResourceAssociationState:
+calass _BudgetResourceAssociationState:
     def __init__(__self__, *,
                  budget_name: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _BudgetResourceAssociationState:
         pulumi.set(self, "resource_id", value)
 
 
-class BudgetResourceAssociation(pulumi.CustomResource):
+calass BudgetResourceAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +131,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BudgetResourceAssociationArgs,
+                 args: BudgetResourceAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog Budget Resource Association.
@@ -159,12 +159,12 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BudgetResourceAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param BudgetResourceAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BudgetResourceAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BudgetResourceAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -182,7 +182,7 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BudgetResourceAssociationArgs.__new__(BudgetResourceAssociationArgs)
+            __props__ = BudgetResourceAssociationArrgs.__new__(BudgetResourceAssociationArrgs)
 
             if budget_name is None and not opts.urn:
                 raise TypeError("Missing required property 'budget_name'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserStackAssociationArgs', 'UserStackAssociation']
+__all__ = ['UserStackAssociationArrgs', 'UserStackAssociation']
 
 @pulumi.input_type
-class UserStackAssociationArgs:
+calass UserStackAssociationArrgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  stack_name: pulumi.Input[str],
@@ -85,7 +85,7 @@ class UserStackAssociationArgs:
 
 
 @pulumi.input_type
-class _UserStackAssociationState:
+calass _UserStackAssociationState:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  send_email_notification: Optional[pulumi.Input[bool]] = None,
@@ -160,7 +160,7 @@ class _UserStackAssociationState:
         pulumi.set(self, "user_name", value)
 
 
-class UserStackAssociation(pulumi.CustomResource):
+calass UserStackAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -210,7 +210,7 @@ class UserStackAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserStackAssociationArgs,
+                 args: UserStackAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AppStream User Stack association.
@@ -240,12 +240,12 @@ class UserStackAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserStackAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param UserStackAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserStackAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserStackAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -265,7 +265,7 @@ class UserStackAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserStackAssociationArgs.__new__(UserStackAssociationArgs)
+            __props__ = UserStackAssociationArrgs.__new__(UserStackAssociationArrgs)
 
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")

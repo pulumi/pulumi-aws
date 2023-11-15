@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IdentityProviderArgs', 'IdentityProvider']
+__all__ = ['IdentityProviderArrgs', 'IdentityProvider']
 
 @pulumi.input_type
-class IdentityProviderArgs:
+calass IdentityProviderArrgs:
     def __init__(__self__, *,
                  provider_details: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  provider_name: pulumi.Input[str],
@@ -112,7 +112,7 @@ class IdentityProviderArgs:
 
 
 @pulumi.input_type
-class _IdentityProviderState:
+calass _IdentityProviderState:
     def __init__(__self__, *,
                  attribute_mapping: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  idp_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -215,7 +215,7 @@ class _IdentityProviderState:
         pulumi.set(self, "user_pool_id", value)
 
 
-class IdentityProvider(pulumi.CustomResource):
+calass IdentityProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -273,7 +273,7 @@ class IdentityProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IdentityProviderArgs,
+                 args: IdentityProviderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Cognito User Identity Provider resource.
@@ -309,12 +309,12 @@ class IdentityProvider(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.
+        :param IdentityProviderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IdentityProviderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -336,7 +336,7 @@ class IdentityProvider(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IdentityProviderArgs.__new__(IdentityProviderArgs)
+            __props__ = IdentityProviderArrgs.__new__(IdentityProviderArrgs)
 
             __props__.__dict__["attribute_mapping"] = attribute_mapping
             __props__.__dict__["idp_identifiers"] = idp_identifiers

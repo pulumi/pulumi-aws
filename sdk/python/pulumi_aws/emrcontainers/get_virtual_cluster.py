@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualClusterResult:
+calass GetVirtualClusterResult:
     """
     A collection of values returned by getVirtualCluster.
     """
@@ -110,7 +110,7 @@ class GetVirtualClusterResult:
         return pulumi.get(self, "virtual_cluster_id")
 
 
-class AwaitableGetVirtualClusterResult(GetVirtualClusterResult):
+calass AwaitableGetVirtualClusterResult(GetVirtualClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

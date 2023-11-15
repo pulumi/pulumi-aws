@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccessKeyArgs', 'AccessKey']
+__all__ = ['AccessKeyArrgs', 'AccessKey']
 
 @pulumi.input_type
-class AccessKeyArgs:
+calass AccessKeyArrgs:
     def __init__(__self__, *,
                  user: pulumi.Input[str],
                  pgp_key: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class AccessKeyArgs:
 
 
 @pulumi.input_type
-class _AccessKeyState:
+calass _AccessKeyState:
     def __init__(__self__, *,
                  create_date: Optional[pulumi.Input[str]] = None,
                  encrypted_secret: Optional[pulumi.Input[str]] = None,
@@ -218,7 +218,7 @@ class _AccessKeyState:
         pulumi.set(self, "user", value)
 
 
-class AccessKey(pulumi.CustomResource):
+calass AccessKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,7 +240,7 @@ class AccessKey(pulumi.CustomResource):
         lb_access_key = aws.iam.AccessKey("lbAccessKey",
             user=lb_user.name,
             pgp_key="keybase:some_person_that_exists")
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
@@ -279,7 +279,7 @@ class AccessKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccessKeyArgs,
+                 args: AccessKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM access key. This is a set of credentials that allow API requests to be made as an IAM user.
@@ -294,7 +294,7 @@ class AccessKey(pulumi.CustomResource):
         lb_access_key = aws.iam.AccessKey("lbAccessKey",
             user=lb_user.name,
             pgp_key="keybase:some_person_that_exists")
-        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        lb_ro_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["ec2:Describe*"],
             resources=["*"],
@@ -324,12 +324,12 @@ class AccessKey(pulumi.CustomResource):
          Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
 
         :param str resource_name: The name of the resource.
-        :param AccessKeyArgs args: The arguments to use to populate this resource's properties.
+        :param AccessKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccessKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccessKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -348,7 +348,7 @@ class AccessKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccessKeyArgs.__new__(AccessKeyArgs)
+            __props__ = AccessKeyArrgs.__new__(AccessKeyArrgs)
 
             __props__.__dict__["pgp_key"] = pgp_key
             __props__.__dict__["status"] = status

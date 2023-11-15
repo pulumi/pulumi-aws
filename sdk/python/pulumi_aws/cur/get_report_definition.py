@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReportDefinitionResult:
+calass GetReportDefinitionResult:
     """
     A collection of values returned by getReportDefinition.
     """
@@ -153,7 +153,7 @@ class GetReportDefinitionResult:
         return pulumi.get(self, "time_unit")
 
 
-class AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
+calass AwaitableGetReportDefinitionResult(GetReportDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

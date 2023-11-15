@@ -11,27 +11,27 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SelectionArgs', 'Selection']
+__all__ = ['SelectionArrgs', 'Selection']
 
 @pulumi.input_type
-class SelectionArgs:
+calass SelectionArrgs:
     def __init__(__self__, *,
                  iam_role_arn: pulumi.Input[str],
                  plan_id: pulumi.Input[str],
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
+                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArrgs']]]] = None):
         """
         The set of arguments for constructing a Selection resource.
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         :param pulumi.Input[str] plan_id: The backup plan ID to be associated with the selection of resources.
-        :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]] conditions: A list of conditions that you define to assign resources to your backup plans using tags.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionArrgs']]] conditions: A list of conditions that you define to assign resources to your backup plans using tags.
         :param pulumi.Input[str] name: The display name of a resource selection document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-        :param pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArrgs']]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
         pulumi.set(__self__, "plan_id", plan_id)
@@ -72,14 +72,14 @@ class SelectionArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArrgs']]]]:
         """
         A list of conditions that you define to assign resources to your backup plans using tags.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArrgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -120,36 +120,36 @@ class SelectionArgs:
 
     @property
     @pulumi.getter(name="selectionTags")
-    def selection_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]:
+    def selection_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArrgs']]]]:
         """
         Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """
         return pulumi.get(self, "selection_tags")
 
     @selection_tags.setter
-    def selection_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]):
+    def selection_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArrgs']]]]):
         pulumi.set(self, "selection_tags", value)
 
 
 @pulumi.input_type
-class _SelectionState:
+calass _SelectionState:
     def __init__(__self__, *,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArrgs']]]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]] = None):
+                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArrgs']]]] = None):
         """
         Input properties used for looking up and filtering Selection resources.
-        :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]] conditions: A list of conditions that you define to assign resources to your backup plans using tags.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectionConditionArrgs']]] conditions: A list of conditions that you define to assign resources to your backup plans using tags.
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         :param pulumi.Input[str] name: The display name of a resource selection document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         :param pulumi.Input[str] plan_id: The backup plan ID to be associated with the selection of resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-        :param pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArrgs']]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
@@ -168,14 +168,14 @@ class _SelectionState:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArrgs']]]]:
         """
         A list of conditions that you define to assign resources to your backup plans using tags.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArgs']]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionArrgs']]]]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -240,29 +240,29 @@ class _SelectionState:
 
     @property
     @pulumi.getter(name="selectionTags")
-    def selection_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]:
+    def selection_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArrgs']]]]:
         """
         Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """
         return pulumi.get(self, "selection_tags")
 
     @selection_tags.setter
-    def selection_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArgs']]]]):
+    def selection_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionSelectionTagArrgs']]]]):
         pulumi.set(self, "selection_tags", value)
 
 
-class Selection(pulumi.CustomResource):
+calass Selection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArrgs']]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArgs']]]]] = None,
+                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArrgs']]]]] = None,
                  __props__=None):
         """
         Manages selection conditions for AWS Backup plan resources.
@@ -278,9 +278,9 @@ class Selection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["backup.amazonaws.com"],
             )],
@@ -302,7 +302,7 @@ class Selection(pulumi.CustomResource):
         example = aws.backup.Selection("example",
             iam_role_arn=aws_iam_role["example"]["arn"],
             plan_id=aws_backup_plan["example"]["id"],
-            selection_tags=[aws.backup.SelectionSelectionTagArgs(
+            selection_tags=[aws.backup.SelectionSelectionTagArrgs(
                 type="STRINGEQUALS",
                 key="foo",
                 value="bar",
@@ -318,20 +318,20 @@ class Selection(pulumi.CustomResource):
             iam_role_arn=aws_iam_role["example"]["arn"],
             plan_id=aws_backup_plan["example"]["id"],
             resources=["*"],
-            conditions=[aws.backup.SelectionConditionArgs(
-                string_equals=[aws.backup.SelectionConditionStringEqualArgs(
+            conditions=[aws.backup.SelectionConditionArrgs(
+                string_equals=[aws.backup.SelectionConditionStringEqualArrgs(
                     key="aws:ResourceTag/Component",
                     value="rds",
                 )],
-                string_likes=[aws.backup.SelectionConditionStringLikeArgs(
+                string_likes=[aws.backup.SelectionConditionStringLikeArrgs(
                     key="aws:ResourceTag/Application",
                     value="app*",
                 )],
-                string_not_equals=[aws.backup.SelectionConditionStringNotEqualArgs(
+                string_not_equals=[aws.backup.SelectionConditionStringNotEqualArrgs(
                     key="aws:ResourceTag/Backup",
                     value="false",
                 )],
-                string_not_likes=[aws.backup.SelectionConditionStringNotLikeArgs(
+                string_not_likes=[aws.backup.SelectionConditionStringNotLikeArrgs(
                     key="aws:ResourceTag/Environment",
                     value="test*",
                 )],
@@ -378,19 +378,19 @@ class Selection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArgs']]]] conditions: A list of conditions that you define to assign resources to your backup plans using tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArrgs']]]] conditions: A list of conditions that you define to assign resources to your backup plans using tags.
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         :param pulumi.Input[str] name: The display name of a resource selection document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         :param pulumi.Input[str] plan_id: The backup plan ID to be associated with the selection of resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArgs']]]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArrgs']]]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SelectionArgs,
+                 args: SelectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages selection conditions for AWS Backup plan resources.
@@ -406,9 +406,9 @@ class Selection(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["backup.amazonaws.com"],
             )],
@@ -430,7 +430,7 @@ class Selection(pulumi.CustomResource):
         example = aws.backup.Selection("example",
             iam_role_arn=aws_iam_role["example"]["arn"],
             plan_id=aws_backup_plan["example"]["id"],
-            selection_tags=[aws.backup.SelectionSelectionTagArgs(
+            selection_tags=[aws.backup.SelectionSelectionTagArrgs(
                 type="STRINGEQUALS",
                 key="foo",
                 value="bar",
@@ -446,20 +446,20 @@ class Selection(pulumi.CustomResource):
             iam_role_arn=aws_iam_role["example"]["arn"],
             plan_id=aws_backup_plan["example"]["id"],
             resources=["*"],
-            conditions=[aws.backup.SelectionConditionArgs(
-                string_equals=[aws.backup.SelectionConditionStringEqualArgs(
+            conditions=[aws.backup.SelectionConditionArrgs(
+                string_equals=[aws.backup.SelectionConditionStringEqualArrgs(
                     key="aws:ResourceTag/Component",
                     value="rds",
                 )],
-                string_likes=[aws.backup.SelectionConditionStringLikeArgs(
+                string_likes=[aws.backup.SelectionConditionStringLikeArrgs(
                     key="aws:ResourceTag/Application",
                     value="app*",
                 )],
-                string_not_equals=[aws.backup.SelectionConditionStringNotEqualArgs(
+                string_not_equals=[aws.backup.SelectionConditionStringNotEqualArrgs(
                     key="aws:ResourceTag/Backup",
                     value="false",
                 )],
-                string_not_likes=[aws.backup.SelectionConditionStringNotLikeArgs(
+                string_not_likes=[aws.backup.SelectionConditionStringNotLikeArrgs(
                     key="aws:ResourceTag/Environment",
                     value="test*",
                 )],
@@ -505,12 +505,12 @@ class Selection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SelectionArgs args: The arguments to use to populate this resource's properties.
+        :param SelectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SelectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SelectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -519,13 +519,13 @@ class Selection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArgs']]]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArrgs']]]]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  plan_id: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArgs']]]]] = None,
+                 selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -533,7 +533,7 @@ class Selection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SelectionArgs.__new__(SelectionArgs)
+            __props__ = SelectionArrgs.__new__(SelectionArrgs)
 
             __props__.__dict__["conditions"] = conditions
             if iam_role_arn is None and not opts.urn:
@@ -556,13 +556,13 @@ class Selection(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArgs']]]]] = None,
+            conditions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArrgs']]]]] = None,
             iam_role_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             not_resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             plan_id: Optional[pulumi.Input[str]] = None,
             resources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArgs']]]]] = None) -> 'Selection':
+            selection_tags: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArrgs']]]]] = None) -> 'Selection':
         """
         Get an existing Selection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -570,13 +570,13 @@ class Selection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArgs']]]] conditions: A list of conditions that you define to assign resources to your backup plans using tags.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionConditionArrgs']]]] conditions: A list of conditions that you define to assign resources to your backup plans using tags.
         :param pulumi.Input[str] iam_role_arn: The ARN of the IAM role that AWS Backup uses to authenticate when restoring and backing up the target resource. See the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/access-control.html#managed-policies) for additional information about using AWS managed policies or creating custom policies attached to the IAM role.
         :param pulumi.Input[str] name: The display name of a resource selection document.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
         :param pulumi.Input[str] plan_id: The backup plan ID to be associated with the selection of resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resources: An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArgs']]]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SelectionSelectionTagArrgs']]]] selection_tags: Tag-based conditions used to specify a set of resources to assign to a backup plan.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

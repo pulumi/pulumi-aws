@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterClusterNode(dict):
+calass ClusterClusterNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -89,7 +89,7 @@ class ClusterClusterNode(dict):
 
 
 @pulumi.output_type
-class ClusterLogging(dict):
+calass ClusterLogging(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -180,7 +180,7 @@ class ClusterLogging(dict):
 
 
 @pulumi.output_type
-class ClusterSnapshotCopy(dict):
+calass ClusterSnapshotCopy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -243,7 +243,7 @@ class ClusterSnapshotCopy(dict):
 
 
 @pulumi.output_type
-class EndpointAccessVpcEndpoint(dict):
+calass EndpointAccessVpcEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -270,7 +270,7 @@ class EndpointAccessVpcEndpoint(dict):
                  vpc_endpoint_id: Optional[str] = None,
                  vpc_id: Optional[str] = None):
         """
-        :param Sequence['EndpointAccessVpcEndpointNetworkInterfaceArgs'] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+        :param Sequence['EndpointAccessVpcEndpointNetworkInterfaceArrgs'] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
         :param str vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
         :param str vpc_id: The VPC identifier that the endpoint is associated.
         """
@@ -307,7 +307,7 @@ class EndpointAccessVpcEndpoint(dict):
 
 
 @pulumi.output_type
-class EndpointAccessVpcEndpointNetworkInterface(dict):
+calass EndpointAccessVpcEndpointNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -385,7 +385,7 @@ class EndpointAccessVpcEndpointNetworkInterface(dict):
 
 
 @pulumi.output_type
-class ParameterGroupParameter(dict):
+calass ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -414,7 +414,7 @@ class ParameterGroupParameter(dict):
 
 
 @pulumi.output_type
-class ScheduledActionTargetAction(dict):
+calass ScheduledActionTargetAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -441,9 +441,9 @@ class ScheduledActionTargetAction(dict):
                  resize_cluster: Optional['outputs.ScheduledActionTargetActionResizeCluster'] = None,
                  resume_cluster: Optional['outputs.ScheduledActionTargetActionResumeCluster'] = None):
         """
-        :param 'ScheduledActionTargetActionPauseClusterArgs' pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
-        :param 'ScheduledActionTargetActionResizeClusterArgs' resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
-        :param 'ScheduledActionTargetActionResumeClusterArgs' resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
+        :param 'ScheduledActionTargetActionPauseClusterArrgs' pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
+        :param 'ScheduledActionTargetActionResizeClusterArrgs' resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
+        :param 'ScheduledActionTargetActionResumeClusterArrgs' resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
         """
         if pause_cluster is not None:
             pulumi.set(__self__, "pause_cluster", pause_cluster)
@@ -478,7 +478,7 @@ class ScheduledActionTargetAction(dict):
 
 
 @pulumi.output_type
-class ScheduledActionTargetActionPauseCluster(dict):
+calass ScheduledActionTargetActionPauseCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -513,7 +513,7 @@ class ScheduledActionTargetActionPauseCluster(dict):
 
 
 @pulumi.output_type
-class ScheduledActionTargetActionResizeCluster(dict):
+calass ScheduledActionTargetActionResizeCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -602,7 +602,7 @@ class ScheduledActionTargetActionResizeCluster(dict):
 
 
 @pulumi.output_type
-class ScheduledActionTargetActionResumeCluster(dict):
+calass ScheduledActionTargetActionResumeCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -637,7 +637,7 @@ class ScheduledActionTargetActionResumeCluster(dict):
 
 
 @pulumi.output_type
-class GetClusterClusterNodeResult(dict):
+calass GetClusterClusterNodeResult(dict):
     def __init__(__self__, *,
                  node_role: str,
                  private_ip_address: str,

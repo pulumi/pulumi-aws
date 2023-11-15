@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRouteTableRoutesResult:
+calass GetRouteTableRoutesResult:
     """
     A collection of values returned by getRouteTableRoutes.
     """
@@ -64,7 +64,7 @@ class GetRouteTableRoutesResult:
         return pulumi.get(self, "transit_gateway_route_table_id")
 
 
-class AwaitableGetRouteTableRoutesResult(GetRouteTableRoutesResult):
+calass AwaitableGetRouteTableRoutesResult(GetRouteTableRoutesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -76,7 +76,7 @@ class AwaitableGetRouteTableRoutesResult(GetRouteTableRoutesResult):
             transit_gateway_route_table_id=self.transit_gateway_route_table_id)
 
 
-def get_route_table_routes(filters: Optional[Sequence[pulumi.InputType['GetRouteTableRoutesFilterArgs']]] = None,
+def get_route_table_routes(filters: Optional[Sequence[pulumi.InputType['GetRouteTableRoutesFilterArrgs']]] = None,
                            transit_gateway_route_table_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableRoutesResult:
     """
@@ -88,7 +88,7 @@ def get_route_table_routes(filters: Optional[Sequence[pulumi.InputType['GetRoute
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2transitgateway.get_route_table_routes(filters=[aws.ec2transitgateway.GetRouteTableRoutesFilterArgs(
+    test = aws.ec2transitgateway.get_route_table_routes(filters=[aws.ec2transitgateway.GetRouteTableRoutesFilterArrgs(
             name="type",
             values=["propagated"],
         )],
@@ -96,7 +96,7 @@ def get_route_table_routes(filters: Optional[Sequence[pulumi.InputType['GetRoute
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableRoutesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetRouteTableRoutesFilterArrgs']] filters: Custom filter block as described below.
     :param str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,
@@ -116,7 +116,7 @@ def get_route_table_routes(filters: Optional[Sequence[pulumi.InputType['GetRoute
 
 
 @_utilities.lift_output_func(get_route_table_routes)
-def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['GetRouteTableRoutesFilterArgs']]]] = None,
+def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[pulumi.InputType['GetRouteTableRoutesFilterArrgs']]]] = None,
                                   transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableRoutesResult]:
     """
@@ -128,7 +128,7 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[pulumi
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.ec2transitgateway.get_route_table_routes(filters=[aws.ec2transitgateway.GetRouteTableRoutesFilterArgs(
+    test = aws.ec2transitgateway.get_route_table_routes(filters=[aws.ec2transitgateway.GetRouteTableRoutesFilterArrgs(
             name="type",
             values=["propagated"],
         )],
@@ -136,7 +136,7 @@ def get_route_table_routes_output(filters: Optional[pulumi.Input[Sequence[pulumi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableRoutesFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetRouteTableRoutesFilterArrgs']] filters: Custom filter block as described below.
     :param str transit_gateway_route_table_id: Identifier of EC2 Transit Gateway Route Table.
            
            More complex filters can be expressed using one or more `filter` sub-blocks,

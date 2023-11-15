@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPublicKeyResult:
+calass GetPublicKeyResult:
     """
     A collection of values returned by getPublicKey.
     """
@@ -128,7 +128,7 @@ class GetPublicKeyResult:
         return pulumi.get(self, "signing_algorithms")
 
 
-class AwaitableGetPublicKeyResult(GetPublicKeyResult):
+calass AwaitableGetPublicKeyResult(GetPublicKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

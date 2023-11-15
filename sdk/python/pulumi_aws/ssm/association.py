@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AssociationArgs', 'Association']
+__all__ = ['AssociationArrgs', 'Association']
 
 @pulumi.input_type
-class AssociationArgs:
+calass AssociationArrgs:
     def __init__(__self__, *,
                  apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
                  association_name: Optional[pulumi.Input[str]] = None,
@@ -25,11 +25,11 @@ class AssociationArgs:
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
+                 output_location: Optional[pulumi.Input['AssociationOutputLocationArrgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  sync_compliance: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArrgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Association resource.
@@ -42,11 +42,11 @@ class AssociationArgs:
         :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
-        :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
+        :param pulumi.Input['AssociationOutputLocationArrgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-        :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+        :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArrgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
@@ -198,14 +198,14 @@ class AssociationArgs:
 
     @property
     @pulumi.getter(name="outputLocation")
-    def output_location(self) -> Optional[pulumi.Input['AssociationOutputLocationArgs']]:
+    def output_location(self) -> Optional[pulumi.Input['AssociationOutputLocationArrgs']]:
         """
         An output location block. Output Location is documented below.
         """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
-    def output_location(self, value: Optional[pulumi.Input['AssociationOutputLocationArgs']]):
+    def output_location(self, value: Optional[pulumi.Input['AssociationOutputLocationArrgs']]):
         pulumi.set(self, "output_location", value)
 
     @property
@@ -246,14 +246,14 @@ class AssociationArgs:
 
     @property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArrgs']]]]:
         """
         A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]):
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArrgs']]]]):
         pulumi.set(self, "targets", value)
 
     @property
@@ -272,7 +272,7 @@ class AssociationArgs:
 
 
 @pulumi.input_type
-class _AssociationState:
+calass _AssociationState:
     def __init__(__self__, *,
                  apply_only_at_cron_interval: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -285,11 +285,11 @@ class _AssociationState:
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input['AssociationOutputLocationArgs']] = None,
+                 output_location: Optional[pulumi.Input['AssociationOutputLocationArrgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  sync_compliance: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArrgs']]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Association resources.
@@ -304,11 +304,11 @@ class _AssociationState:
         :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
-        :param pulumi.Input['AssociationOutputLocationArgs'] output_location: An output location block. Output Location is documented below.
+        :param pulumi.Input['AssociationOutputLocationArrgs'] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-        :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+        :param pulumi.Input[Sequence[pulumi.Input['AssociationTargetArrgs']]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
@@ -488,14 +488,14 @@ class _AssociationState:
 
     @property
     @pulumi.getter(name="outputLocation")
-    def output_location(self) -> Optional[pulumi.Input['AssociationOutputLocationArgs']]:
+    def output_location(self) -> Optional[pulumi.Input['AssociationOutputLocationArrgs']]:
         """
         An output location block. Output Location is documented below.
         """
         return pulumi.get(self, "output_location")
 
     @output_location.setter
-    def output_location(self, value: Optional[pulumi.Input['AssociationOutputLocationArgs']]):
+    def output_location(self, value: Optional[pulumi.Input['AssociationOutputLocationArrgs']]):
         pulumi.set(self, "output_location", value)
 
     @property
@@ -536,14 +536,14 @@ class _AssociationState:
 
     @property
     @pulumi.getter
-    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]:
+    def targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArrgs']]]]:
         """
         A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         """
         return pulumi.get(self, "targets")
 
     @targets.setter
-    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArgs']]]]):
+    def targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssociationTargetArrgs']]]]):
         pulumi.set(self, "targets", value)
 
     @property
@@ -561,7 +561,7 @@ class _AssociationState:
         pulumi.set(self, "wait_for_success_timeout_seconds", value)
 
 
-class Association(pulumi.CustomResource):
+calass Association(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -575,11 +575,11 @@ class Association(pulumi.CustomResource):
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']]] = None,
+                 output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArrgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  sync_compliance: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArrgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
@@ -592,7 +592,7 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArrgs(
             key="InstanceIds",
             values=[aws_instance["example"]["id"]],
         )])
@@ -605,7 +605,7 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArrgs(
             key="InstanceIds",
             values=["*"],
         )])
@@ -618,7 +618,7 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArrgs(
             key="tag:Environment",
             values=["Development"],
         )])
@@ -633,7 +633,7 @@ class Association(pulumi.CustomResource):
 
         example = aws.ssm.Association("example",
             schedule_expression="cron(0 2 ? * SUN *)",
-            targets=[aws.ssm.AssociationTargetArgs(
+            targets=[aws.ssm.AssociationTargetArrgs(
                 key="InstanceIds",
                 values=[aws_instance["example"]["id"]],
             )])
@@ -658,11 +658,11 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
-        :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']] output_location: An output location block. Output Location is documented below.
+        :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArrgs']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArrgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:
@@ -671,7 +671,7 @@ class Association(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[AssociationArgs] = None,
+                 args: Optional[AssociationArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates an SSM Document to an instance or EC2 tag.
@@ -683,7 +683,7 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArrgs(
             key="InstanceIds",
             values=[aws_instance["example"]["id"]],
         )])
@@ -696,7 +696,7 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArrgs(
             key="InstanceIds",
             values=["*"],
         )])
@@ -709,7 +709,7 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArrgs(
             key="tag:Environment",
             values=["Development"],
         )])
@@ -724,7 +724,7 @@ class Association(pulumi.CustomResource):
 
         example = aws.ssm.Association("example",
             schedule_expression="cron(0 2 ? * SUN *)",
-            targets=[aws.ssm.AssociationTargetArgs(
+            targets=[aws.ssm.AssociationTargetArrgs(
                 key="InstanceIds",
                 values=[aws_instance["example"]["id"]],
             )])
@@ -739,12 +739,12 @@ class Association(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssociationArgs args: The arguments to use to populate this resource's properties.
+        :param AssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -762,11 +762,11 @@ class Association(pulumi.CustomResource):
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']]] = None,
+                 output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArrgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule_expression: Optional[pulumi.Input[str]] = None,
                  sync_compliance: Optional[pulumi.Input[str]] = None,
-                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
+                 targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArrgs']]]]] = None,
                  wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -775,7 +775,7 @@ class Association(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssociationArgs.__new__(AssociationArgs)
+            __props__ = AssociationArrgs.__new__(AssociationArrgs)
 
             __props__.__dict__["apply_only_at_cron_interval"] = apply_only_at_cron_interval
             __props__.__dict__["association_name"] = association_name
@@ -815,11 +815,11 @@ class Association(pulumi.CustomResource):
             max_concurrency: Optional[pulumi.Input[str]] = None,
             max_errors: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']]] = None,
+            output_location: Optional[pulumi.Input[pulumi.InputType['AssociationOutputLocationArrgs']]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             schedule_expression: Optional[pulumi.Input[str]] = None,
             sync_compliance: Optional[pulumi.Input[str]] = None,
-            targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]]] = None,
+            targets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArrgs']]]]] = None,
             wait_for_success_timeout_seconds: Optional[pulumi.Input[int]] = None) -> 'Association':
         """
         Get an existing Association resource's state with the given name, id, and optional extra
@@ -839,11 +839,11 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[str] max_concurrency: The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
         :param pulumi.Input[str] max_errors: The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
         :param pulumi.Input[str] name: The name of the SSM document to apply.
-        :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArgs']] output_location: An output location block. Output Location is documented below.
+        :param pulumi.Input[pulumi.InputType['AssociationOutputLocationArrgs']] output_location: An output location block. Output Location is documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A block of arbitrary string parameters to pass to the SSM document.
         :param pulumi.Input[str] schedule_expression: A [cron or rate expression](https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html) that specifies when the association runs.
         :param pulumi.Input[str] sync_compliance: The mode for generating association compliance. You can specify `AUTO` or `MANUAL`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssociationTargetArrgs']]]] targets: A block containing the targets of the SSM association. Targets are documented below. AWS currently supports a maximum of 5 targets.
         :param pulumi.Input[int] wait_for_success_timeout_seconds: The number of seconds to wait for the association status to be `Success`. If `Success` status is not reached within the given time, create opration will fail.
                
                Output Location (`output_location`) is an S3 bucket where you want to store the results of this association:

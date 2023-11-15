@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetQueryLogConfigResult:
+calass GetQueryLogConfigResult:
     """
     A collection of values returned by getQueryLogConfig.
     """
@@ -101,7 +101,7 @@ class GetQueryLogConfigResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetQueryLogConfigResult(GetQueryLogConfigResult):
+calass AwaitableGetQueryLogConfigResult(GetQueryLogConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -118,7 +118,7 @@ class AwaitableGetQueryLogConfigResult(GetQueryLogConfigResult):
             tags=self.tags)
 
 
-def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']]] = None,
+def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLogConfigFilterArrgs']]] = None,
                          name: Optional[str] = None,
                          resolver_query_log_config_id: Optional[str] = None,
                          tags: Optional[Mapping[str, str]] = None,
@@ -140,11 +140,11 @@ def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLo
     import pulumi_aws as aws
 
     example = aws.route53.get_query_log_config(filters=[
-        aws.route53.GetQueryLogConfigFilterArgs(
+        aws.route53.GetQueryLogConfigFilterArrgs(
             name="Name",
             values=["shared-query-log-config"],
         ),
-        aws.route53.GetQueryLogConfigFilterArgs(
+        aws.route53.GetQueryLogConfigFilterArrgs(
             name="ShareStatus",
             values=["SHARED_WITH_ME"],
         ),
@@ -152,7 +152,7 @@ def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLo
     ```
 
 
-    :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArrgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
            
@@ -184,7 +184,7 @@ def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLo
 
 
 @_utilities.lift_output_func(get_query_log_config)
-def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']]]]] = None,
+def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetQueryLogConfigFilterArrgs']]]]] = None,
                                 name: Optional[pulumi.Input[Optional[str]]] = None,
                                 resolver_query_log_config_id: Optional[pulumi.Input[Optional[str]]] = None,
                                 tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -206,11 +206,11 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
     import pulumi_aws as aws
 
     example = aws.route53.get_query_log_config(filters=[
-        aws.route53.GetQueryLogConfigFilterArgs(
+        aws.route53.GetQueryLogConfigFilterArrgs(
             name="Name",
             values=["shared-query-log-config"],
         ),
-        aws.route53.GetQueryLogConfigFilterArgs(
+        aws.route53.GetQueryLogConfigFilterArrgs(
             name="ShareStatus",
             values=["SHARED_WITH_ME"],
         ),
@@ -218,7 +218,7 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
     ```
 
 
-    :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArrgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [Route53resolver Filter value in the AWS API reference][1].
            

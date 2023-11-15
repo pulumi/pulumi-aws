@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AuthenticationProfileArgs', 'AuthenticationProfile']
+__all__ = ['AuthenticationProfileArrgs', 'AuthenticationProfile']
 
 @pulumi.input_type
-class AuthenticationProfileArgs:
+calass AuthenticationProfileArrgs:
     def __init__(__self__, *,
                  authentication_profile_content: pulumi.Input[str],
                  authentication_profile_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class AuthenticationProfileArgs:
 
 
 @pulumi.input_type
-class _AuthenticationProfileState:
+calass _AuthenticationProfileState:
     def __init__(__self__, *,
                  authentication_profile_content: Optional[pulumi.Input[str]] = None,
                  authentication_profile_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _AuthenticationProfileState:
         pulumi.set(self, "authentication_profile_name", value)
 
 
-class AuthenticationProfile(pulumi.CustomResource):
+calass AuthenticationProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -133,7 +133,7 @@ class AuthenticationProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AuthenticationProfileArgs,
+                 args: AuthenticationProfileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a Redshift authentication profile
@@ -163,12 +163,12 @@ class AuthenticationProfile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AuthenticationProfileArgs args: The arguments to use to populate this resource's properties.
+        :param AuthenticationProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AuthenticationProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AuthenticationProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -186,7 +186,7 @@ class AuthenticationProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AuthenticationProfileArgs.__new__(AuthenticationProfileArgs)
+            __props__ = AuthenticationProfileArrgs.__new__(AuthenticationProfileArrgs)
 
             if authentication_profile_content is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_profile_content'")

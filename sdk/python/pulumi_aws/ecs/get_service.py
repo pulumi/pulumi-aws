@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServiceResult:
+calass GetServiceResult:
     """
     A collection of values returned by getService.
     """
@@ -117,7 +117,7 @@ class GetServiceResult:
         return pulumi.get(self, "task_definition")
 
 
-class AwaitableGetServiceResult(GetServiceResult):
+calass AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

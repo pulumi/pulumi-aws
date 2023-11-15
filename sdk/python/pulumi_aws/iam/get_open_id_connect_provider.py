@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOpenIdConnectProviderResult:
+calass GetOpenIdConnectProviderResult:
     """
     A collection of values returned by getOpenIdConnectProvider.
     """
@@ -84,7 +84,7 @@ class GetOpenIdConnectProviderResult:
         return pulumi.get(self, "url")
 
 
-class AwaitableGetOpenIdConnectProviderResult(GetOpenIdConnectProviderResult):
+calass AwaitableGetOpenIdConnectProviderResult(GetOpenIdConnectProviderResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

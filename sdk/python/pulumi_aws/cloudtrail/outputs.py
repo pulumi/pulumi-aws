@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EventDataStoreAdvancedEventSelector(dict):
+calass EventDataStoreAdvancedEventSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -43,7 +43,7 @@ class EventDataStoreAdvancedEventSelector(dict):
                  field_selectors: Optional[Sequence['outputs.EventDataStoreAdvancedEventSelectorFieldSelector']] = None,
                  name: Optional[str] = None):
         """
-        :param Sequence['EventDataStoreAdvancedEventSelectorFieldSelectorArgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
+        :param Sequence['EventDataStoreAdvancedEventSelectorFieldSelectorArrgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
         :param str name: Specifies the name of the advanced event selector.
         """
         if field_selectors is not None:
@@ -69,7 +69,7 @@ class EventDataStoreAdvancedEventSelector(dict):
 
 
 @pulumi.output_type
-class EventDataStoreAdvancedEventSelectorFieldSelector(dict):
+calass EventDataStoreAdvancedEventSelectorFieldSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -185,7 +185,7 @@ class EventDataStoreAdvancedEventSelectorFieldSelector(dict):
 
 
 @pulumi.output_type
-class TrailAdvancedEventSelector(dict):
+calass TrailAdvancedEventSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -207,7 +207,7 @@ class TrailAdvancedEventSelector(dict):
                  field_selectors: Sequence['outputs.TrailAdvancedEventSelectorFieldSelector'],
                  name: Optional[str] = None):
         """
-        :param Sequence['TrailAdvancedEventSelectorFieldSelectorArgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
+        :param Sequence['TrailAdvancedEventSelectorFieldSelectorArrgs'] field_selectors: Specifies the selector statements in an advanced event selector. Fields documented below.
         :param str name: Name of the trail.
         """
         pulumi.set(__self__, "field_selectors", field_selectors)
@@ -232,7 +232,7 @@ class TrailAdvancedEventSelector(dict):
 
 
 @pulumi.output_type
-class TrailAdvancedEventSelectorFieldSelector(dict):
+calass TrailAdvancedEventSelectorFieldSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -347,7 +347,7 @@ class TrailAdvancedEventSelectorFieldSelector(dict):
 
 
 @pulumi.output_type
-class TrailEventSelector(dict):
+calass TrailEventSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -377,7 +377,7 @@ class TrailEventSelector(dict):
                  include_management_events: Optional[bool] = None,
                  read_write_type: Optional[str] = None):
         """
-        :param Sequence['TrailEventSelectorDataResourceArgs'] data_resources: Configuration block for data events. See details below.
+        :param Sequence['TrailEventSelectorDataResourceArrgs'] data_resources: Configuration block for data events. See details below.
         :param Sequence[str] exclude_management_event_sources: A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
         :param bool include_management_events: Whether to include management events for your trail. Defaults to `true`.
         :param str read_write_type: Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
@@ -425,7 +425,7 @@ class TrailEventSelector(dict):
 
 
 @pulumi.output_type
-class TrailEventSelectorDataResource(dict):
+calass TrailEventSelectorDataResource(dict):
     def __init__(__self__, *,
                  type: str,
                  values: Sequence[str]):
@@ -454,7 +454,7 @@ class TrailEventSelectorDataResource(dict):
 
 
 @pulumi.output_type
-class TrailInsightSelector(dict):
+calass TrailInsightSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

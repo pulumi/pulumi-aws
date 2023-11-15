@@ -33,7 +33,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GlobalTableReplica(dict):
+calass GlobalTableReplica(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -68,7 +68,7 @@ class GlobalTableReplica(dict):
 
 
 @pulumi.output_type
-class TableAttribute(dict):
+calass TableAttribute(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -97,7 +97,7 @@ class TableAttribute(dict):
 
 
 @pulumi.output_type
-class TableGlobalSecondaryIndex(dict):
+calass TableGlobalSecondaryIndex(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -212,7 +212,7 @@ class TableGlobalSecondaryIndex(dict):
 
 
 @pulumi.output_type
-class TableImportTable(dict):
+calass TableImportTable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -243,9 +243,9 @@ class TableImportTable(dict):
                  input_format_options: Optional['outputs.TableImportTableInputFormatOptions'] = None):
         """
         :param str input_format: The format of the source data. Valid values are `CSV`, `DYNAMODB_JSON` and `ION`.
-        :param 'TableImportTableS3BucketSourceArgs' s3_bucket_source: Values for the S3 bucket the source file is imported from. See below.
+        :param 'TableImportTableS3BucketSourceArrgs' s3_bucket_source: Values for the S3 bucket the source file is imported from. See below.
         :param str input_compression_type: Type of compression to be used on the input coming from the imported table. Valid values are `GZIP`, `ZSTD` and `NONE`.
-        :param 'TableImportTableInputFormatOptionsArgs' input_format_options: Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
+        :param 'TableImportTableInputFormatOptionsArrgs' input_format_options: Describe the format options for the data that was imported into the target table. There is one value, `csv`. See below.
         """
         pulumi.set(__self__, "input_format", input_format)
         pulumi.set(__self__, "s3_bucket_source", s3_bucket_source)
@@ -288,11 +288,11 @@ class TableImportTable(dict):
 
 
 @pulumi.output_type
-class TableImportTableInputFormatOptions(dict):
+calass TableImportTableInputFormatOptions(dict):
     def __init__(__self__, *,
                  csv: Optional['outputs.TableImportTableInputFormatOptionsCsv'] = None):
         """
-        :param 'TableImportTableInputFormatOptionsCsvArgs' csv: This block contains the processing options for the CSV file being imported:
+        :param 'TableImportTableInputFormatOptionsCsvArrgs' csv: This block contains the processing options for the CSV file being imported:
         """
         if csv is not None:
             pulumi.set(__self__, "csv", csv)
@@ -307,7 +307,7 @@ class TableImportTableInputFormatOptions(dict):
 
 
 @pulumi.output_type
-class TableImportTableInputFormatOptionsCsv(dict):
+calass TableImportTableInputFormatOptionsCsv(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -355,7 +355,7 @@ class TableImportTableInputFormatOptionsCsv(dict):
 
 
 @pulumi.output_type
-class TableImportTableS3BucketSource(dict):
+calass TableImportTableS3BucketSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -416,7 +416,7 @@ class TableImportTableS3BucketSource(dict):
 
 
 @pulumi.output_type
-class TableLocalSecondaryIndex(dict):
+calass TableLocalSecondaryIndex(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -489,7 +489,7 @@ class TableLocalSecondaryIndex(dict):
 
 
 @pulumi.output_type
-class TablePointInTimeRecovery(dict):
+calass TablePointInTimeRecovery(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -507,7 +507,7 @@ class TablePointInTimeRecovery(dict):
 
 
 @pulumi.output_type
-class TableReplica(dict):
+calass TableReplica(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -624,7 +624,7 @@ class TableReplica(dict):
 
 
 @pulumi.output_type
-class TableServerSideEncryption(dict):
+calass TableServerSideEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -671,7 +671,7 @@ class TableServerSideEncryption(dict):
 
 
 @pulumi.output_type
-class TableTtl(dict):
+calass TableTtl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -718,7 +718,7 @@ class TableTtl(dict):
 
 
 @pulumi.output_type
-class GetTableAttributeResult(dict):
+calass GetTableAttributeResult(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -743,7 +743,7 @@ class GetTableAttributeResult(dict):
 
 
 @pulumi.output_type
-class GetTableGlobalSecondaryIndexResult(dict):
+calass GetTableGlobalSecondaryIndexResult(dict):
     def __init__(__self__, *,
                  hash_key: str,
                  name: str,
@@ -803,7 +803,7 @@ class GetTableGlobalSecondaryIndexResult(dict):
 
 
 @pulumi.output_type
-class GetTableLocalSecondaryIndexResult(dict):
+calass GetTableLocalSecondaryIndexResult(dict):
     def __init__(__self__, *,
                  name: str,
                  non_key_attributes: Sequence[str],
@@ -842,7 +842,7 @@ class GetTableLocalSecondaryIndexResult(dict):
 
 
 @pulumi.output_type
-class GetTablePointInTimeRecoveryResult(dict):
+calass GetTablePointInTimeRecoveryResult(dict):
     def __init__(__self__, *,
                  enabled: bool):
         pulumi.set(__self__, "enabled", enabled)
@@ -854,7 +854,7 @@ class GetTablePointInTimeRecoveryResult(dict):
 
 
 @pulumi.output_type
-class GetTableReplicaResult(dict):
+calass GetTableReplicaResult(dict):
     def __init__(__self__, *,
                  kms_key_arn: str,
                  region_name: str):
@@ -873,7 +873,7 @@ class GetTableReplicaResult(dict):
 
 
 @pulumi.output_type
-class GetTableServerSideEncryptionResult(dict):
+calass GetTableServerSideEncryptionResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  kms_key_arn: str):
@@ -892,7 +892,7 @@ class GetTableServerSideEncryptionResult(dict):
 
 
 @pulumi.output_type
-class GetTableTtlResult(dict):
+calass GetTableTtlResult(dict):
     def __init__(__self__, *,
                  attribute_name: str,
                  enabled: bool):

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBrokerNodesResult:
+calass GetBrokerNodesResult:
     """
     A collection of values returned by getBrokerNodes.
     """
@@ -52,7 +52,7 @@ class GetBrokerNodesResult:
         return pulumi.get(self, "node_info_lists")
 
 
-class AwaitableGetBrokerNodesResult(GetBrokerNodesResult):
+calass AwaitableGetBrokerNodesResult(GetBrokerNodesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

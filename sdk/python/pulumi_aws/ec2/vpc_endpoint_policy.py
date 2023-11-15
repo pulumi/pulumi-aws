@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcEndpointPolicyArgs', 'VpcEndpointPolicy']
+__all__ = ['VpcEndpointPolicyArrgs', 'VpcEndpointPolicy']
 
 @pulumi.input_type
-class VpcEndpointPolicyArgs:
+calass VpcEndpointPolicyArrgs:
     def __init__(__self__, *,
                  vpc_endpoint_id: pulumi.Input[str],
                  policy: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class VpcEndpointPolicyArgs:
 
 
 @pulumi.input_type
-class _VpcEndpointPolicyState:
+calass _VpcEndpointPolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None,
                  vpc_endpoint_id: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _VpcEndpointPolicyState:
         pulumi.set(self, "vpc_endpoint_id", value)
 
 
-class VpcEndpointPolicy(pulumi.CustomResource):
+calass VpcEndpointPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -146,7 +146,7 @@ class VpcEndpointPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcEndpointPolicyArgs,
+                 args: VpcEndpointPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC Endpoint Policy resource.
@@ -188,12 +188,12 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcEndpointPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param VpcEndpointPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcEndpointPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -211,7 +211,7 @@ class VpcEndpointPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcEndpointPolicyArgs.__new__(VpcEndpointPolicyArgs)
+            __props__ = VpcEndpointPolicyArrgs.__new__(VpcEndpointPolicyArrgs)
 
             __props__.__dict__["policy"] = policy
             if vpc_endpoint_id is None and not opts.urn:

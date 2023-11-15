@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TargetGroupAttachmentArgs', 'TargetGroupAttachment']
+__all__ = ['TargetGroupAttachmentArrgs', 'TargetGroupAttachment']
 
 @pulumi.input_type
-class TargetGroupAttachmentArgs:
+calass TargetGroupAttachmentArrgs:
     def __init__(__self__, *,
-                 target: pulumi.Input['TargetGroupAttachmentTargetArgs'],
+                 target: pulumi.Input['TargetGroupAttachmentTargetArrgs'],
                  target_group_identifier: pulumi.Input[str]):
         """
         The set of arguments for constructing a TargetGroupAttachment resource.
-        :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
+        :param pulumi.Input['TargetGroupAttachmentTargetArrgs'] target: The target.
         :param pulumi.Input[str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
         pulumi.set(__self__, "target", target)
@@ -28,14 +28,14 @@ class TargetGroupAttachmentArgs:
 
     @property
     @pulumi.getter
-    def target(self) -> pulumi.Input['TargetGroupAttachmentTargetArgs']:
+    def target(self) -> pulumi.Input['TargetGroupAttachmentTargetArrgs']:
         """
         The target.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: pulumi.Input['TargetGroupAttachmentTargetArgs']):
+    def target(self, value: pulumi.Input['TargetGroupAttachmentTargetArrgs']):
         pulumi.set(self, "target", value)
 
     @property
@@ -52,13 +52,13 @@ class TargetGroupAttachmentArgs:
 
 
 @pulumi.input_type
-class _TargetGroupAttachmentState:
+calass _TargetGroupAttachmentState:
     def __init__(__self__, *,
-                 target: Optional[pulumi.Input['TargetGroupAttachmentTargetArgs']] = None,
+                 target: Optional[pulumi.Input['TargetGroupAttachmentTargetArrgs']] = None,
                  target_group_identifier: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TargetGroupAttachment resources.
-        :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: The target.
+        :param pulumi.Input['TargetGroupAttachmentTargetArrgs'] target: The target.
         :param pulumi.Input[str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
         if target is not None:
@@ -68,14 +68,14 @@ class _TargetGroupAttachmentState:
 
     @property
     @pulumi.getter
-    def target(self) -> Optional[pulumi.Input['TargetGroupAttachmentTargetArgs']]:
+    def target(self) -> Optional[pulumi.Input['TargetGroupAttachmentTargetArrgs']]:
         """
         The target.
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: Optional[pulumi.Input['TargetGroupAttachmentTargetArgs']]):
+    def target(self, value: Optional[pulumi.Input['TargetGroupAttachmentTargetArrgs']]):
         pulumi.set(self, "target", value)
 
     @property
@@ -91,12 +91,12 @@ class _TargetGroupAttachmentState:
         pulumi.set(self, "target_group_identifier", value)
 
 
-class TargetGroupAttachment(pulumi.CustomResource):
+calass TargetGroupAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArgs']]] = None,
+                 target: Optional[pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArrgs']]] = None,
                  target_group_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -111,7 +111,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         example = aws.vpclattice.TargetGroupAttachment("example",
             target_group_identifier=aws_vpclattice_target_group["example"]["id"],
-            target=aws.vpclattice.TargetGroupAttachmentTargetArgs(
+            target=aws.vpclattice.TargetGroupAttachmentTargetArrgs(
                 id=aws_lb["example"]["arn"],
                 port=80,
             ))
@@ -119,14 +119,14 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArgs']] target: The target.
+        :param pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArrgs']] target: The target.
         :param pulumi.Input[str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TargetGroupAttachmentArgs,
+                 args: TargetGroupAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides the ability to register a target with an AWS VPC Lattice Target Group.
@@ -140,19 +140,19 @@ class TargetGroupAttachment(pulumi.CustomResource):
 
         example = aws.vpclattice.TargetGroupAttachment("example",
             target_group_identifier=aws_vpclattice_target_group["example"]["id"],
-            target=aws.vpclattice.TargetGroupAttachmentTargetArgs(
+            target=aws.vpclattice.TargetGroupAttachmentTargetArrgs(
                 id=aws_lb["example"]["arn"],
                 port=80,
             ))
         ```
 
         :param str resource_name: The name of the resource.
-        :param TargetGroupAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param TargetGroupAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TargetGroupAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -161,7 +161,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 target: Optional[pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArgs']]] = None,
+                 target: Optional[pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArrgs']]] = None,
                  target_group_identifier: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -170,7 +170,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TargetGroupAttachmentArgs.__new__(TargetGroupAttachmentArgs)
+            __props__ = TargetGroupAttachmentArrgs.__new__(TargetGroupAttachmentArrgs)
 
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
@@ -188,7 +188,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            target: Optional[pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArgs']]] = None,
+            target: Optional[pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArrgs']]] = None,
             target_group_identifier: Optional[pulumi.Input[str]] = None) -> 'TargetGroupAttachment':
         """
         Get an existing TargetGroupAttachment resource's state with the given name, id, and optional extra
@@ -197,7 +197,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArgs']] target: The target.
+        :param pulumi.Input[pulumi.InputType['TargetGroupAttachmentTargetArrgs']] target: The target.
         :param pulumi.Input[str] target_group_identifier: The ID or Amazon Resource Name (ARN) of the target group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GetLicenseGrantsFilterArgs',
-    'GetReceivedLicensesFilterArgs',
+    'GetLicenseGrantsFilterArrgs',
+    'GetReceivedLicensesFilterArrgs',
 ]
 
 @pulumi.input_type
-class GetLicenseGrantsFilterArgs:
+calass GetLicenseGrantsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -28,7 +28,7 @@ class GetLicenseGrantsFilterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
+               selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArrgs(
                    name="ProductSKU",
                    values=[""],
                )])
@@ -50,7 +50,7 @@ class GetLicenseGrantsFilterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArgs(
+        selected = aws.licensemanager.get_license_grants(filters=[aws.licensemanager.GetLicenseGrantsFilterArrgs(
             name="ProductSKU",
             values=[""],
         )])
@@ -76,7 +76,7 @@ class GetLicenseGrantsFilterArgs:
 
 
 @pulumi.input_type
-class GetReceivedLicensesFilterArgs:
+calass GetReceivedLicensesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -89,7 +89,7 @@ class GetReceivedLicensesFilterArgs:
                import pulumi
                import pulumi_aws as aws
                
-               selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
+               selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArrgs(
                    name="ProductSKU",
                    values=[""],
                )])
@@ -111,7 +111,7 @@ class GetReceivedLicensesFilterArgs:
         import pulumi
         import pulumi_aws as aws
 
-        selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArgs(
+        selected = aws.licensemanager.get_received_licenses(filters=[aws.licensemanager.GetReceivedLicensesFilterArrgs(
             name="ProductSKU",
             values=[""],
         )])

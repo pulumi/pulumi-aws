@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PeeringAttachmentArgs', 'PeeringAttachment']
+__all__ = ['PeeringAttachmentArrgs', 'PeeringAttachment']
 
 @pulumi.input_type
-class PeeringAttachmentArgs:
+calass PeeringAttachmentArrgs:
     def __init__(__self__, *,
                  peer_region: pulumi.Input[str],
                  peer_transit_gateway_id: pulumi.Input[str],
@@ -97,7 +97,7 @@ class PeeringAttachmentArgs:
 
 
 @pulumi.input_type
-class _PeeringAttachmentState:
+calass _PeeringAttachmentState:
     def __init__(__self__, *,
                  peer_account_id: Optional[pulumi.Input[str]] = None,
                  peer_region: Optional[pulumi.Input[str]] = None,
@@ -206,7 +206,7 @@ class _PeeringAttachmentState:
         pulumi.set(self, "transit_gateway_id", value)
 
 
-class PeeringAttachment(pulumi.CustomResource):
+calass PeeringAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -268,7 +268,7 @@ class PeeringAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PeeringAttachmentArgs,
+                 args: PeeringAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Transit Gateway Peering Attachment.
@@ -310,12 +310,12 @@ class PeeringAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PeeringAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param PeeringAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PeeringAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PeeringAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -336,7 +336,7 @@ class PeeringAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PeeringAttachmentArgs.__new__(PeeringAttachmentArgs)
+            __props__ = PeeringAttachmentArrgs.__new__(PeeringAttachmentArrgs)
 
             __props__.__dict__["peer_account_id"] = peer_account_id
             if peer_region is None and not opts.urn:

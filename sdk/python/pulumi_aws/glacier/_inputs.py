@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'VaultNotificationArgs',
+    'VaultNotificationArrgs',
 ]
 
 @pulumi.input_type
-class VaultNotificationArgs:
+calass VaultNotificationArrgs:
     def __init__(__self__, *,
                  events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  sns_topic: pulumi.Input[str]):

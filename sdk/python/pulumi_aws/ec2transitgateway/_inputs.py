@@ -10,26 +10,26 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'InstanceConnectEndpointTimeoutsArgs',
-    'GetAttachmentFilterArgs',
-    'GetAttachmentsFilterArgs',
-    'GetConnectFilterArgs',
-    'GetConnectPeerFilterArgs',
-    'GetDirectConnectGatewayAttachmentFilterArgs',
-    'GetMulticastDomainFilterArgs',
-    'GetPeeringAttachmentFilterArgs',
-    'GetRouteTableAssociationsFilterArgs',
-    'GetRouteTableFilterArgs',
-    'GetRouteTablePropagationsFilterArgs',
-    'GetRouteTableRoutesFilterArgs',
-    'GetTransitGatewayFilterArgs',
-    'GetVpcAttachmentFilterArgs',
-    'GetVpcAttachmentsFilterArgs',
-    'GetVpnAttachmentFilterArgs',
+    'InstanceConnectEndpointTimeoutsArrgs',
+    'GetAttachmentFilterArrgs',
+    'GetAttachmentsFilterArrgs',
+    'GetConnectFilterArrgs',
+    'GetConnectPeerFilterArrgs',
+    'GetDirectConnectGatewayAttachmentFilterArrgs',
+    'GetMulticastDomainFilterArrgs',
+    'GetPeeringAttachmentFilterArrgs',
+    'GetRouteTableAssociationsFilterArrgs',
+    'GetRouteTableFilterArrgs',
+    'GetRouteTablePropagationsFilterArrgs',
+    'GetRouteTableRoutesFilterArrgs',
+    'GetTransitGatewayFilterArrgs',
+    'GetVpcAttachmentFilterArrgs',
+    'GetVpcAttachmentsFilterArrgs',
+    'GetVpnAttachmentFilterArrgs',
 ]
 
 @pulumi.input_type
-class InstanceConnectEndpointTimeoutsArgs:
+calass InstanceConnectEndpointTimeoutsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None):
@@ -58,7 +58,7 @@ class InstanceConnectEndpointTimeoutsArgs:
 
 
 @pulumi.input_type
-class GetAttachmentFilterArgs:
+calass GetAttachmentFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -95,7 +95,7 @@ class GetAttachmentFilterArgs:
 
 
 @pulumi.input_type
-class GetAttachmentsFilterArgs:
+calass GetAttachmentsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -132,7 +132,7 @@ class GetAttachmentsFilterArgs:
 
 
 @pulumi.input_type
-class GetConnectFilterArgs:
+calass GetConnectFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -169,7 +169,7 @@ class GetConnectFilterArgs:
 
 
 @pulumi.input_type
-class GetConnectPeerFilterArgs:
+calass GetConnectPeerFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -206,7 +206,7 @@ class GetConnectPeerFilterArgs:
 
 
 @pulumi.input_type
-class GetDirectConnectGatewayAttachmentFilterArgs:
+calass GetDirectConnectGatewayAttachmentFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -243,7 +243,7 @@ class GetDirectConnectGatewayAttachmentFilterArgs:
 
 
 @pulumi.input_type
-class GetMulticastDomainFilterArgs:
+calass GetMulticastDomainFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -280,7 +280,7 @@ class GetMulticastDomainFilterArgs:
 
 
 @pulumi.input_type
-class GetPeeringAttachmentFilterArgs:
+calass GetPeeringAttachmentFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -321,7 +321,7 @@ class GetPeeringAttachmentFilterArgs:
 
 
 @pulumi.input_type
-class GetRouteTableAssociationsFilterArgs:
+calass GetRouteTableAssociationsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -362,7 +362,7 @@ class GetRouteTableAssociationsFilterArgs:
 
 
 @pulumi.input_type
-class GetRouteTableFilterArgs:
+calass GetRouteTableFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -399,7 +399,7 @@ class GetRouteTableFilterArgs:
 
 
 @pulumi.input_type
-class GetRouteTablePropagationsFilterArgs:
+calass GetRouteTablePropagationsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -440,7 +440,7 @@ class GetRouteTablePropagationsFilterArgs:
 
 
 @pulumi.input_type
-class GetRouteTableRoutesFilterArgs:
+calass GetRouteTableRoutesFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -479,7 +479,7 @@ class GetRouteTableRoutesFilterArgs:
 
 
 @pulumi.input_type
-class GetTransitGatewayFilterArgs:
+calass GetTransitGatewayFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -516,7 +516,7 @@ class GetTransitGatewayFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcAttachmentFilterArgs:
+calass GetVpcAttachmentFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -553,7 +553,7 @@ class GetVpcAttachmentFilterArgs:
 
 
 @pulumi.input_type
-class GetVpcAttachmentsFilterArgs:
+calass GetVpcAttachmentsFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -590,7 +590,7 @@ class GetVpcAttachmentsFilterArgs:
 
 
 @pulumi.input_type
-class GetVpnAttachmentFilterArgs:
+calass GetVpnAttachmentFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

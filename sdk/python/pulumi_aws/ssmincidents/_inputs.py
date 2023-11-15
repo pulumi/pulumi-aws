@@ -10,18 +10,18 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ReplicationSetRegionArgs',
-    'ResponsePlanActionArgs',
-    'ResponsePlanActionSsmAutomationArgs',
-    'ResponsePlanActionSsmAutomationParameterArgs',
-    'ResponsePlanIncidentTemplateArgs',
-    'ResponsePlanIncidentTemplateNotificationTargetArgs',
-    'ResponsePlanIntegrationArgs',
-    'ResponsePlanIntegrationPagerdutyArgs',
+    'ReplicationSetRegionArrgs',
+    'ResponsePlanActionArrgs',
+    'ResponsePlanActionSsmAutomationArrgs',
+    'ResponsePlanActionSsmAutomationParameterArrgs',
+    'ResponsePlanIncidentTemplateArrgs',
+    'ResponsePlanIncidentTemplateNotificationTargetArrgs',
+    'ResponsePlanIntegrationArrgs',
+    'ResponsePlanIntegrationPagerdutyArrgs',
 ]
 
 @pulumi.input_type
-class ReplicationSetRegionArgs:
+calass ReplicationSetRegionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
@@ -97,43 +97,43 @@ class ReplicationSetRegionArgs:
 
 
 @pulumi.input_type
-class ResponsePlanActionArgs:
+calass ResponsePlanActionArrgs:
     def __init__(__self__, *,
-                 ssm_automations: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]]] = None):
+                 ssm_automations: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArrgs']]] ssm_automations: The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
         if ssm_automations is not None:
             pulumi.set(__self__, "ssm_automations", ssm_automations)
 
     @property
     @pulumi.getter(name="ssmAutomations")
-    def ssm_automations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]]]:
+    def ssm_automations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArrgs']]]]:
         """
         The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
         """
         return pulumi.get(self, "ssm_automations")
 
     @ssm_automations.setter
-    def ssm_automations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgs']]]]):
+    def ssm_automations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArrgs']]]]):
         pulumi.set(self, "ssm_automations", value)
 
 
 @pulumi.input_type
-class ResponsePlanActionSsmAutomationArgs:
+calass ResponsePlanActionSsmAutomationArrgs:
     def __init__(__self__, *,
                  document_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  document_version: Optional[pulumi.Input[str]] = None,
                  dynamic_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]]] = None,
+                 parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArrgs']]]] = None,
                  target_account: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] document_name: The automation document's name.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
         :param pulumi.Input[str] document_version: The version of the automation document to use at runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] dynamic_parameters: The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArrgs']]] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
         :param pulumi.Input[str] target_account: The account that the automation document runs in. This can be in either the management account or an application account.
         """
         pulumi.set(__self__, "document_name", document_name)
@@ -197,14 +197,14 @@ class ResponsePlanActionSsmAutomationArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]]]:
+    def parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArrgs']]]]:
         """
         The key-value pair parameters to use when the automation document runs. The following values are supported:
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]]]):
+    def parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArrgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -221,7 +221,7 @@ class ResponsePlanActionSsmAutomationArgs:
 
 
 @pulumi.input_type
-class ResponsePlanActionSsmAutomationParameterArgs:
+calass ResponsePlanActionSsmAutomationParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -258,20 +258,20 @@ class ResponsePlanActionSsmAutomationParameterArgs:
 
 
 @pulumi.input_type
-class ResponsePlanIncidentTemplateArgs:
+calass ResponsePlanIncidentTemplateArrgs:
     def __init__(__self__, *,
                  impact: pulumi.Input[int],
                  title: pulumi.Input[str],
                  dedupe_string: Optional[pulumi.Input[str]] = None,
                  incident_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgs']]]] = None,
+                 notification_targets: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArrgs']]]] = None,
                  summary: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] impact: The impact value of a generated incident. The following values are supported:
         :param pulumi.Input[str] title: The title of a generated incident.
         :param pulumi.Input[str] dedupe_string: A string used to stop Incident Manager from creating multiple incident records for the same incident.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] incident_tags: The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgs']]] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArrgs']]] notification_targets: The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         :param pulumi.Input[str] summary: The summary of an incident.
         """
         pulumi.set(__self__, "impact", impact)
@@ -335,14 +335,14 @@ class ResponsePlanIncidentTemplateArgs:
 
     @property
     @pulumi.getter(name="notificationTargets")
-    def notification_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgs']]]]:
+    def notification_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArrgs']]]]:
         """
         The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
         """
         return pulumi.get(self, "notification_targets")
 
     @notification_targets.setter
-    def notification_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgs']]]]):
+    def notification_targets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArrgs']]]]):
         pulumi.set(self, "notification_targets", value)
 
     @property
@@ -359,7 +359,7 @@ class ResponsePlanIncidentTemplateArgs:
 
 
 @pulumi.input_type
-class ResponsePlanIncidentTemplateNotificationTargetArgs:
+calass ResponsePlanIncidentTemplateNotificationTargetArrgs:
     def __init__(__self__, *,
                  sns_topic_arn: pulumi.Input[str]):
         """
@@ -385,30 +385,30 @@ class ResponsePlanIncidentTemplateNotificationTargetArgs:
 
 
 @pulumi.input_type
-class ResponsePlanIntegrationArgs:
+calass ResponsePlanIntegrationArrgs:
     def __init__(__self__, *,
-                 pagerduties: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]]] = None):
+                 pagerduties: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
+        :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArrgs']]] pagerduties: Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
         if pagerduties is not None:
             pulumi.set(__self__, "pagerduties", pagerduties)
 
     @property
     @pulumi.getter
-    def pagerduties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]]]:
+    def pagerduties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArrgs']]]]:
         """
         Details about the PagerDuty configuration for a response plan. The following values are supported:
         """
         return pulumi.get(self, "pagerduties")
 
     @pagerduties.setter
-    def pagerduties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgs']]]]):
+    def pagerduties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArrgs']]]]):
         pulumi.set(self, "pagerduties", value)
 
 
 @pulumi.input_type
-class ResponsePlanIntegrationPagerdutyArgs:
+calass ResponsePlanIntegrationPagerdutyArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  secret_id: pulumi.Input[str],

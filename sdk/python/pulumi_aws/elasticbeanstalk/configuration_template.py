@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConfigurationTemplateArgs', 'ConfigurationTemplate']
+__all__ = ['ConfigurationTemplateArrgs', 'ConfigurationTemplate']
 
 @pulumi.input_type
-class ConfigurationTemplateArgs:
+calass ConfigurationTemplateArrgs:
     def __init__(__self__, *,
                  application: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArrgs']]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConfigurationTemplate resource.
@@ -28,7 +28,7 @@ class ConfigurationTemplateArgs:
         :param pulumi.Input[str] description: Short description of the Template
         :param pulumi.Input[str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[str] name: A unique name for this Template.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArrgs']]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
@@ -96,7 +96,7 @@ class ConfigurationTemplateArgs:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]]:
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArrgs']]]]:
         """
         Option settings to configure the new Environment. These
         override specific values that are set as defaults. The format is detailed
@@ -105,7 +105,7 @@ class ConfigurationTemplateArgs:
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]]):
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArrgs']]]]):
         pulumi.set(self, "settings", value)
 
     @property
@@ -123,13 +123,13 @@ class ConfigurationTemplateArgs:
 
 
 @pulumi.input_type
-class _ConfigurationTemplateState:
+calass _ConfigurationTemplateState:
     def __init__(__self__, *,
                  application: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArrgs']]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ConfigurationTemplate resources.
@@ -137,7 +137,7 @@ class _ConfigurationTemplateState:
         :param pulumi.Input[str] description: Short description of the Template
         :param pulumi.Input[str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[str] name: A unique name for this Template.
-        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArrgs']]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
@@ -206,7 +206,7 @@ class _ConfigurationTemplateState:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]]:
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArrgs']]]]:
         """
         Option settings to configure the new Environment. These
         override specific values that are set as defaults. The format is detailed
@@ -215,7 +215,7 @@ class _ConfigurationTemplateState:
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArgs']]]]):
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationTemplateSettingArrgs']]]]):
         pulumi.set(self, "settings", value)
 
     @property
@@ -232,7 +232,7 @@ class _ConfigurationTemplateState:
         pulumi.set(self, "solution_stack_name", value)
 
 
-class ConfigurationTemplate(pulumi.CustomResource):
+calass ConfigurationTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -241,7 +241,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArrgs']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -275,7 +275,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] description: Short description of the Template
         :param pulumi.Input[str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[str] name: A unique name for this Template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArgs']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArrgs']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template
@@ -285,7 +285,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationTemplateArgs,
+                 args: ConfigurationTemplateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic Beanstalk Configuration Template, which are associated with
@@ -313,12 +313,12 @@ class ConfigurationTemplate(pulumi.CustomResource):
         * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
 
         :param str resource_name: The name of the resource.
-        :param ConfigurationTemplateArgs args: The arguments to use to populate this resource's properties.
+        :param ConfigurationTemplateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationTemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationTemplateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -331,7 +331,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArgs']]]]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArrgs']]]]] = None,
                  solution_stack_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -340,7 +340,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConfigurationTemplateArgs.__new__(ConfigurationTemplateArgs)
+            __props__ = ConfigurationTemplateArrgs.__new__(ConfigurationTemplateArrgs)
 
             if application is None and not opts.urn:
                 raise TypeError("Missing required property 'application'")
@@ -364,7 +364,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArgs']]]]] = None,
+            settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArrgs']]]]] = None,
             solution_stack_name: Optional[pulumi.Input[str]] = None) -> 'ConfigurationTemplate':
         """
         Get an existing ConfigurationTemplate resource's state with the given name, id, and optional extra
@@ -377,7 +377,7 @@ class ConfigurationTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] description: Short description of the Template
         :param pulumi.Input[str] environment_id: The ID of the environment used with this configuration template
         :param pulumi.Input[str] name: A unique name for this Template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArgs']]]] settings: Option settings to configure the new Environment. These
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConfigurationTemplateSettingArrgs']]]] settings: Option settings to configure the new Environment. These
                override specific values that are set as defaults. The format is detailed
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your Template

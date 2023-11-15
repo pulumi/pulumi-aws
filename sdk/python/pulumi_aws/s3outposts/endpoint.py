@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['EndpointArgs', 'Endpoint']
+__all__ = ['EndpointArrgs', 'Endpoint']
 
 @pulumi.input_type
-class EndpointArgs:
+calass EndpointArrgs:
     def __init__(__self__, *,
                  outpost_id: pulumi.Input[str],
                  security_group_id: pulumi.Input[str],
@@ -99,14 +99,14 @@ class EndpointArgs:
 
 
 @pulumi.input_type
-class _EndpointState:
+calass _EndpointState:
     def __init__(__self__, *,
                  access_type: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
-                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArrgs']]]] = None,
                  outpost_id: Optional[pulumi.Input[str]] = None,
                  security_group_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
@@ -117,7 +117,7 @@ class _EndpointState:
         :param pulumi.Input[str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArrgs']]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.
@@ -203,14 +203,14 @@ class _EndpointState:
 
     @property
     @pulumi.getter(name="networkInterfaces")
-    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]:
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArrgs']]]]:
         """
         Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         """
         return pulumi.get(self, "network_interfaces")
 
     @network_interfaces.setter
-    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]]):
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArrgs']]]]):
         pulumi.set(self, "network_interfaces", value)
 
     @property
@@ -250,7 +250,7 @@ class _EndpointState:
         pulumi.set(self, "subnet_id", value)
 
 
-class Endpoint(pulumi.CustomResource):
+calass Endpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -296,7 +296,7 @@ class Endpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointArgs,
+                 args: EndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an S3 Outposts Endpoint.
@@ -322,12 +322,12 @@ class Endpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -348,7 +348,7 @@ class Endpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointArgs.__new__(EndpointArgs)
+            __props__ = EndpointArrgs.__new__(EndpointArrgs)
 
             __props__.__dict__["access_type"] = access_type
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
@@ -380,7 +380,7 @@ class Endpoint(pulumi.CustomResource):
             cidr_block: Optional[pulumi.Input[str]] = None,
             creation_time: Optional[pulumi.Input[str]] = None,
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
-            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]]] = None,
+            network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArrgs']]]]] = None,
             outpost_id: Optional[pulumi.Input[str]] = None,
             security_group_id: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None) -> 'Endpoint':
@@ -396,7 +396,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] cidr_block: VPC CIDR block of the endpoint.
         :param pulumi.Input[str] creation_time: UTC creation time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of a Customer Owned IP Pool. For more on customer owned IP addresses see the [User Guide](https://docs.aws.amazon.com/outposts/latest/userguide/local-rack.html#local-gateway-subnet).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArgs']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointNetworkInterfaceArrgs']]]] network_interfaces: Set of nested attributes for associated Elastic Network Interfaces (ENIs).
         :param pulumi.Input[str] outpost_id: Identifier of the Outpost to contain this endpoint.
         :param pulumi.Input[str] security_group_id: Identifier of the EC2 Security Group.
         :param pulumi.Input[str] subnet_id: Identifier of the EC2 Subnet.

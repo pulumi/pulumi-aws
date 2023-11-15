@@ -10,23 +10,23 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LoggingConfigurationDestinationConfigurationArgs',
-    'LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs',
-    'LoggingConfigurationDestinationConfigurationFirehoseArgs',
-    'LoggingConfigurationDestinationConfigurationS3Args',
-    'RoomMessageReviewHandlerArgs',
+    'LoggingConfigurationDestinationConfigurationArrgs',
+    'LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs',
+    'LoggingConfigurationDestinationConfigurationFirehoseArrgs',
+    'LoggingConfigurationDestinationConfigurationS3Arrgs',
+    'RoomMessageReviewHandlerArrgs',
 ]
 
 @pulumi.input_type
-class LoggingConfigurationDestinationConfigurationArgs:
+calass LoggingConfigurationDestinationConfigurationArrgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs']] = None,
-                 firehose: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs']] = None,
-                 s3: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args']] = None):
+                 cloudwatch_logs: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs']] = None,
+                 firehose: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArrgs']] = None,
+                 s3: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Arrgs']] = None):
         """
-        :param pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs'] cloudwatch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
-        :param pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs'] firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
-        :param pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args'] s3: An Amazon S3 destination configuration where chat activity will be logged.
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs'] cloudwatch_logs: An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArrgs'] firehose: An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
+        :param pulumi.Input['LoggingConfigurationDestinationConfigurationS3Arrgs'] s3: An Amazon S3 destination configuration where chat activity will be logged.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -37,43 +37,43 @@ class LoggingConfigurationDestinationConfigurationArgs:
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs']]:
         """
         An Amazon CloudWatch Logs destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs']]:
+    def firehose(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArrgs']]:
         """
         An Amazon Kinesis Data Firehose destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArgs']]):
+    def firehose(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationFirehoseArrgs']]):
         pulumi.set(self, "firehose", value)
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args']]:
+    def s3(self) -> Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Arrgs']]:
         """
         An Amazon S3 destination configuration where chat activity will be logged.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Args']]):
+    def s3(self, value: Optional[pulumi.Input['LoggingConfigurationDestinationConfigurationS3Arrgs']]):
         pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type
-class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
+calass LoggingConfigurationDestinationConfigurationCloudwatchLogsArrgs:
     def __init__(__self__, *,
                  log_group_name: pulumi.Input[str]):
         """
@@ -95,7 +95,7 @@ class LoggingConfigurationDestinationConfigurationCloudwatchLogsArgs:
 
 
 @pulumi.input_type
-class LoggingConfigurationDestinationConfigurationFirehoseArgs:
+calass LoggingConfigurationDestinationConfigurationFirehoseArrgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[str]):
         """
@@ -117,7 +117,7 @@ class LoggingConfigurationDestinationConfigurationFirehoseArgs:
 
 
 @pulumi.input_type
-class LoggingConfigurationDestinationConfigurationS3Args:
+calass LoggingConfigurationDestinationConfigurationS3Arrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str]):
         """
@@ -143,7 +143,7 @@ class LoggingConfigurationDestinationConfigurationS3Args:
 
 
 @pulumi.input_type
-class RoomMessageReviewHandlerArgs:
+calass RoomMessageReviewHandlerArrgs:
     def __init__(__self__, *,
                  fallback_result: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None):

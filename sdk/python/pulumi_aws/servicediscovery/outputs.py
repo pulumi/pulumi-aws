@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ServiceDnsConfig(dict):
+calass ServiceDnsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -49,7 +49,7 @@ class ServiceDnsConfig(dict):
                  namespace_id: str,
                  routing_policy: Optional[str] = None):
         """
-        :param Sequence['ServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param Sequence['ServiceDnsConfigDnsRecordArrgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
         :param str namespace_id: The ID of the namespace to use for DNS configuration.
         :param str routing_policy: The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         """
@@ -84,7 +84,7 @@ class ServiceDnsConfig(dict):
 
 
 @pulumi.output_type
-class ServiceDnsConfigDnsRecord(dict):
+calass ServiceDnsConfigDnsRecord(dict):
     def __init__(__self__, *,
                  ttl: int,
                  type: str):
@@ -113,7 +113,7 @@ class ServiceDnsConfigDnsRecord(dict):
 
 
 @pulumi.output_type
-class ServiceHealthCheckConfig(dict):
+calass ServiceHealthCheckConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -175,7 +175,7 @@ class ServiceHealthCheckConfig(dict):
 
 
 @pulumi.output_type
-class ServiceHealthCheckCustomConfig(dict):
+calass ServiceHealthCheckCustomConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -211,13 +211,13 @@ class ServiceHealthCheckCustomConfig(dict):
 
 
 @pulumi.output_type
-class GetServiceDnsConfigResult(dict):
+calass GetServiceDnsConfigResult(dict):
     def __init__(__self__, *,
                  dns_records: Sequence['outputs.GetServiceDnsConfigDnsRecordResult'],
                  namespace_id: str,
                  routing_policy: str):
         """
-        :param Sequence['GetServiceDnsConfigDnsRecordArgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
+        :param Sequence['GetServiceDnsConfigDnsRecordArrgs'] dns_records: An array that contains one DnsRecord object for each resource record set.
         :param str namespace_id: ID of the namespace that the service belongs to.
         :param str routing_policy: Routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
         """
@@ -251,7 +251,7 @@ class GetServiceDnsConfigResult(dict):
 
 
 @pulumi.output_type
-class GetServiceDnsConfigDnsRecordResult(dict):
+calass GetServiceDnsConfigDnsRecordResult(dict):
     def __init__(__self__, *,
                  ttl: int,
                  type: str):
@@ -280,7 +280,7 @@ class GetServiceDnsConfigDnsRecordResult(dict):
 
 
 @pulumi.output_type
-class GetServiceHealthCheckConfigResult(dict):
+calass GetServiceHealthCheckConfigResult(dict):
     def __init__(__self__, *,
                  failure_threshold: int,
                  resource_path: str,
@@ -320,7 +320,7 @@ class GetServiceHealthCheckConfigResult(dict):
 
 
 @pulumi.output_type
-class GetServiceHealthCheckCustomConfigResult(dict):
+calass GetServiceHealthCheckCustomConfigResult(dict):
     def __init__(__self__, *,
                  failure_threshold: int):
         """

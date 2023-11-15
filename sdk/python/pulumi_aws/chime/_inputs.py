@@ -10,18 +10,18 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'SdkvoiceGlobalSettingsVoiceConnectorArgs',
-    'SdkvoiceSipMediaApplicationEndpointsArgs',
-    'SdkvoiceSipRuleTargetApplicationArgs',
-    'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs',
-    'VoiceConnectorGroupConnectorArgs',
-    'VoiceConnectorOrganizationRouteArgs',
-    'VoiceConnectorStreamingMediaInsightsConfigurationArgs',
-    'VoiceConnectorTerminationCredentialsCredentialArgs',
+    'SdkvoiceGlobalSettingsVoiceConnectorArrgs',
+    'SdkvoiceSipMediaApplicationEndpointsArrgs',
+    'SdkvoiceSipRuleTargetApplicationArrgs',
+    'SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArrgs',
+    'VoiceConnectorGroupConnectorArrgs',
+    'VoiceConnectorOrganizationRouteArrgs',
+    'VoiceConnectorStreamingMediaInsightsConfigurationArrgs',
+    'VoiceConnectorTerminationCredentialsCredentialArrgs',
 ]
 
 @pulumi.input_type
-class SdkvoiceGlobalSettingsVoiceConnectorArgs:
+calass SdkvoiceGlobalSettingsVoiceConnectorArrgs:
     def __init__(__self__, *,
                  cdr_bucket: Optional[pulumi.Input[str]] = None):
         """
@@ -44,7 +44,7 @@ class SdkvoiceGlobalSettingsVoiceConnectorArgs:
 
 
 @pulumi.input_type
-class SdkvoiceSipMediaApplicationEndpointsArgs:
+calass SdkvoiceSipMediaApplicationEndpointsArrgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[str]):
         """
@@ -66,7 +66,7 @@ class SdkvoiceSipMediaApplicationEndpointsArgs:
 
 
 @pulumi.input_type
-class SdkvoiceSipRuleTargetApplicationArgs:
+calass SdkvoiceSipRuleTargetApplicationArrgs:
     def __init__(__self__, *,
                  aws_region: pulumi.Input[str],
                  priority: pulumi.Input[int],
@@ -118,7 +118,7 @@ class SdkvoiceSipRuleTargetApplicationArgs:
 
 
 @pulumi.input_type
-class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:
+calass SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArrgs:
     def __init__(__self__, *,
                  kms_key_arn: pulumi.Input[str]):
         """
@@ -144,7 +144,7 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:
 
 
 @pulumi.input_type
-class VoiceConnectorGroupConnectorArgs:
+calass VoiceConnectorGroupConnectorArrgs:
     def __init__(__self__, *,
                  priority: pulumi.Input[int],
                  voice_connector_id: pulumi.Input[str]):
@@ -181,7 +181,7 @@ class VoiceConnectorGroupConnectorArgs:
 
 
 @pulumi.input_type
-class VoiceConnectorOrganizationRouteArgs:
+calass VoiceConnectorOrganizationRouteArrgs:
     def __init__(__self__, *,
                  host: pulumi.Input[str],
                  priority: pulumi.Input[int],
@@ -264,7 +264,7 @@ class VoiceConnectorOrganizationRouteArgs:
 
 
 @pulumi.input_type
-class VoiceConnectorStreamingMediaInsightsConfigurationArgs:
+calass VoiceConnectorStreamingMediaInsightsConfigurationArrgs:
     def __init__(__self__, *,
                  configuration_arn: Optional[pulumi.Input[str]] = None,
                  disabled: Optional[pulumi.Input[bool]] = None):
@@ -303,7 +303,7 @@ class VoiceConnectorStreamingMediaInsightsConfigurationArgs:
 
 
 @pulumi.input_type
-class VoiceConnectorTerminationCredentialsCredentialArgs:
+calass VoiceConnectorTerminationCredentialsCredentialArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):

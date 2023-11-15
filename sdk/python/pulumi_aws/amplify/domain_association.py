@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DomainAssociationArgs', 'DomainAssociation']
+__all__ = ['DomainAssociationArrgs', 'DomainAssociation']
 
 @pulumi.input_type
-class DomainAssociationArgs:
+calass DomainAssociationArrgs:
     def __init__(__self__, *,
                  app_id: pulumi.Input[str],
                  domain_name: pulumi.Input[str],
-                 sub_domains: pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]],
+                 sub_domains: pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArrgs']]],
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
                  wait_for_verification: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a DomainAssociation resource.
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArrgs']]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
@@ -63,14 +63,14 @@ class DomainAssociationArgs:
 
     @property
     @pulumi.getter(name="subDomains")
-    def sub_domains(self) -> pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]:
+    def sub_domains(self) -> pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArrgs']]]:
         """
         Setting for the subdomain. Documented below.
         """
         return pulumi.get(self, "sub_domains")
 
     @sub_domains.setter
-    def sub_domains(self, value: pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]):
+    def sub_domains(self, value: pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArrgs']]]):
         pulumi.set(self, "sub_domains", value)
 
     @property
@@ -99,14 +99,14 @@ class DomainAssociationArgs:
 
 
 @pulumi.input_type
-class _DomainAssociationState:
+calass _DomainAssociationState:
     def __init__(__self__, *,
                  app_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate_verification_dns_record: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]] = None,
+                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArrgs']]]] = None,
                  wait_for_verification: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering DomainAssociation resources.
@@ -115,7 +115,7 @@ class _DomainAssociationState:
         :param pulumi.Input[str] certificate_verification_dns_record: The DNS record for certificate verification.
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]] sub_domains: Setting for the subdomain. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArrgs']]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         if app_id is not None:
@@ -195,14 +195,14 @@ class _DomainAssociationState:
 
     @property
     @pulumi.getter(name="subDomains")
-    def sub_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]:
+    def sub_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArrgs']]]]:
         """
         Setting for the subdomain. Documented below.
         """
         return pulumi.get(self, "sub_domains")
 
     @sub_domains.setter
-    def sub_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArgs']]]]):
+    def sub_domains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAssociationSubDomainArrgs']]]]):
         pulumi.set(self, "sub_domains", value)
 
     @property
@@ -218,7 +218,7 @@ class _DomainAssociationState:
         pulumi.set(self, "wait_for_verification", value)
 
 
-class DomainAssociation(pulumi.CustomResource):
+calass DomainAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -226,7 +226,7 @@ class DomainAssociation(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]]] = None,
+                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArrgs']]]]] = None,
                  wait_for_verification: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -238,7 +238,7 @@ class DomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_app = aws.amplify.App("exampleApp", custom_rules=[aws.amplify.AppCustomRuleArgs(
+        example_app = aws.amplify.App("exampleApp", custom_rules=[aws.amplify.AppCustomRuleArrgs(
             source="https://example.com",
             status="302",
             target="https://www.example.com",
@@ -250,11 +250,11 @@ class DomainAssociation(pulumi.CustomResource):
             app_id=example_app.id,
             domain_name="example.com",
             sub_domains=[
-                aws.amplify.DomainAssociationSubDomainArgs(
+                aws.amplify.DomainAssociationSubDomainArrgs(
                     branch_name=master.branch_name,
                     prefix="",
                 ),
-                aws.amplify.DomainAssociationSubDomainArgs(
+                aws.amplify.DomainAssociationSubDomainArrgs(
                     branch_name=master.branch_name,
                     prefix="www",
                 ),
@@ -274,14 +274,14 @@ class DomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] app_id: Unique ID for an Amplify app.
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: Setting for the subdomain. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArrgs']]]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainAssociationArgs,
+                 args: DomainAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amplify Domain Association resource.
@@ -292,7 +292,7 @@ class DomainAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_app = aws.amplify.App("exampleApp", custom_rules=[aws.amplify.AppCustomRuleArgs(
+        example_app = aws.amplify.App("exampleApp", custom_rules=[aws.amplify.AppCustomRuleArrgs(
             source="https://example.com",
             status="302",
             target="https://www.example.com",
@@ -304,11 +304,11 @@ class DomainAssociation(pulumi.CustomResource):
             app_id=example_app.id,
             domain_name="example.com",
             sub_domains=[
-                aws.amplify.DomainAssociationSubDomainArgs(
+                aws.amplify.DomainAssociationSubDomainArrgs(
                     branch_name=master.branch_name,
                     prefix="",
                 ),
-                aws.amplify.DomainAssociationSubDomainArgs(
+                aws.amplify.DomainAssociationSubDomainArrgs(
                     branch_name=master.branch_name,
                     prefix="www",
                 ),
@@ -324,12 +324,12 @@ class DomainAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DomainAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param DomainAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DomainAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DomainAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -341,7 +341,7 @@ class DomainAssociation(pulumi.CustomResource):
                  app_id: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]]] = None,
+                 sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArrgs']]]]] = None,
                  wait_for_verification: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -350,7 +350,7 @@ class DomainAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DomainAssociationArgs.__new__(DomainAssociationArgs)
+            __props__ = DomainAssociationArrgs.__new__(DomainAssociationArrgs)
 
             if app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'app_id'")
@@ -380,7 +380,7 @@ class DomainAssociation(pulumi.CustomResource):
             certificate_verification_dns_record: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             enable_auto_sub_domain: Optional[pulumi.Input[bool]] = None,
-            sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]]] = None,
+            sub_domains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArrgs']]]]] = None,
             wait_for_verification: Optional[pulumi.Input[bool]] = None) -> 'DomainAssociation':
         """
         Get an existing DomainAssociation resource's state with the given name, id, and optional extra
@@ -394,7 +394,7 @@ class DomainAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_verification_dns_record: The DNS record for certificate verification.
         :param pulumi.Input[str] domain_name: Domain name for the domain association.
         :param pulumi.Input[bool] enable_auto_sub_domain: Enables the automated creation of subdomains for branches.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArgs']]]] sub_domains: Setting for the subdomain. Documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DomainAssociationSubDomainArrgs']]]] sub_domains: Setting for the subdomain. Documented below.
         :param pulumi.Input[bool] wait_for_verification: If enabled, the resource will wait for the domain association status to change to `PENDING_DEPLOYMENT` or `AVAILABLE`. Setting this to `false` will skip the process. Default: `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

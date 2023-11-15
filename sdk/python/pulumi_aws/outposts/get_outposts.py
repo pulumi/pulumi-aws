@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetOutpostsResult:
+calass GetOutpostsResult:
     """
     A collection of values returned by getOutposts.
     """
@@ -89,7 +89,7 @@ class GetOutpostsResult:
         return pulumi.get(self, "site_id")
 
 
-class AwaitableGetOutpostsResult(GetOutpostsResult):
+calass AwaitableGetOutpostsResult(GetOutpostsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

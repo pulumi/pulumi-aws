@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class TrustAnchorSource(dict):
+calass TrustAnchorSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -40,7 +40,7 @@ class TrustAnchorSource(dict):
                  source_data: 'outputs.TrustAnchorSourceSourceData',
                  source_type: str):
         """
-        :param 'TrustAnchorSourceSourceDataArgs' source_data: The data denoting the source of trust, documented below
+        :param 'TrustAnchorSourceSourceDataArrgs' source_data: The data denoting the source of trust, documented below
         :param str source_type: The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
         """
         pulumi.set(__self__, "source_data", source_data)
@@ -64,7 +64,7 @@ class TrustAnchorSource(dict):
 
 
 @pulumi.output_type
-class TrustAnchorSourceSourceData(dict):
+calass TrustAnchorSourceSourceData(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

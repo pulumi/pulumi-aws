@@ -11,24 +11,24 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CatalogTableArgs', 'CatalogTable']
+__all__ = ['CatalogTableArrgs', 'CatalogTable']
 
 @pulumi.input_type
-class CatalogTableArgs:
+calass CatalogTableArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']] = None,
+                 open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArrgs']] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArrgs']]]] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArrgs']]]] = None,
                  retention: Optional[pulumi.Input[int]] = None,
-                 storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
+                 storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArrgs']] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
-                 target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
+                 target_table: Optional[pulumi.Input['CatalogTableTargetTableArrgs']] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
                  view_original_text: Optional[pulumi.Input[str]] = None):
         """
@@ -39,15 +39,15 @@ class CatalogTableArgs:
         :param pulumi.Input[str] catalog_id: ID of the Glue Catalog and database to create the table in. If omitted, this defaults to the AWS Account ID plus the database name.
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
-        :param pulumi.Input['CatalogTableOpenTableFormatInputArgs'] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
+        :param pulumi.Input['CatalogTableOpenTableFormatInputArrgs'] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArrgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArrgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
-        :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input['CatalogTableStorageDescriptorArrgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-        :param pulumi.Input['CatalogTableTargetTableArgs'] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input['CatalogTableTargetTableArrgs'] target_table: Configuration block of a target table for resource linking. See `target_table` below.
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -133,14 +133,14 @@ class CatalogTableArgs:
 
     @property
     @pulumi.getter(name="openTableFormatInput")
-    def open_table_format_input(self) -> Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]:
+    def open_table_format_input(self) -> Optional[pulumi.Input['CatalogTableOpenTableFormatInputArrgs']]:
         """
         Configuration block for open table formats. See `open_table_format_input` below.
         """
         return pulumi.get(self, "open_table_format_input")
 
     @open_table_format_input.setter
-    def open_table_format_input(self, value: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]):
+    def open_table_format_input(self, value: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArrgs']]):
         pulumi.set(self, "open_table_format_input", value)
 
     @property
@@ -169,26 +169,26 @@ class CatalogTableArgs:
 
     @property
     @pulumi.getter(name="partitionIndices")
-    def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
+    def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArrgs']]]]:
         """
         Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """
         return pulumi.get(self, "partition_indices")
 
     @partition_indices.setter
-    def partition_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]):
+    def partition_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArrgs']]]]):
         pulumi.set(self, "partition_indices", value)
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
+    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArrgs']]]]:
         """
         Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]):
+    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArrgs']]]]):
         pulumi.set(self, "partition_keys", value)
 
     @property
@@ -205,14 +205,14 @@ class CatalogTableArgs:
 
     @property
     @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]:
+    def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArrgs']]:
         """
         Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
         return pulumi.get(self, "storage_descriptor")
 
     @storage_descriptor.setter
-    def storage_descriptor(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]):
+    def storage_descriptor(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorArrgs']]):
         pulumi.set(self, "storage_descriptor", value)
 
     @property
@@ -229,14 +229,14 @@ class CatalogTableArgs:
 
     @property
     @pulumi.getter(name="targetTable")
-    def target_table(self) -> Optional[pulumi.Input['CatalogTableTargetTableArgs']]:
+    def target_table(self) -> Optional[pulumi.Input['CatalogTableTargetTableArrgs']]:
         """
         Configuration block of a target table for resource linking. See `target_table` below.
         """
         return pulumi.get(self, "target_table")
 
     @target_table.setter
-    def target_table(self, value: Optional[pulumi.Input['CatalogTableTargetTableArgs']]):
+    def target_table(self, value: Optional[pulumi.Input['CatalogTableTargetTableArrgs']]):
         pulumi.set(self, "target_table", value)
 
     @property
@@ -265,22 +265,22 @@ class CatalogTableArgs:
 
 
 @pulumi.input_type
-class _CatalogTableState:
+calass _CatalogTableState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']] = None,
+                 open_table_format_input: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArrgs']] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]] = None,
+                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArrgs']]]] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArrgs']]]] = None,
                  retention: Optional[pulumi.Input[int]] = None,
-                 storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']] = None,
+                 storage_descriptor: Optional[pulumi.Input['CatalogTableStorageDescriptorArrgs']] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
-                 target_table: Optional[pulumi.Input['CatalogTableTargetTableArgs']] = None,
+                 target_table: Optional[pulumi.Input['CatalogTableTargetTableArrgs']] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
                  view_original_text: Optional[pulumi.Input[str]] = None):
         """
@@ -292,15 +292,15 @@ class _CatalogTableState:
                The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
-        :param pulumi.Input['CatalogTableOpenTableFormatInputArgs'] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
+        :param pulumi.Input['CatalogTableOpenTableFormatInputArrgs'] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
-        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArrgs']]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArrgs']]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
-        :param pulumi.Input['CatalogTableStorageDescriptorArgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input['CatalogTableStorageDescriptorArrgs'] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-        :param pulumi.Input['CatalogTableTargetTableArgs'] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input['CatalogTableTargetTableArrgs'] target_table: Configuration block of a target table for resource linking. See `target_table` below.
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -401,14 +401,14 @@ class _CatalogTableState:
 
     @property
     @pulumi.getter(name="openTableFormatInput")
-    def open_table_format_input(self) -> Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]:
+    def open_table_format_input(self) -> Optional[pulumi.Input['CatalogTableOpenTableFormatInputArrgs']]:
         """
         Configuration block for open table formats. See `open_table_format_input` below.
         """
         return pulumi.get(self, "open_table_format_input")
 
     @open_table_format_input.setter
-    def open_table_format_input(self, value: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArgs']]):
+    def open_table_format_input(self, value: Optional[pulumi.Input['CatalogTableOpenTableFormatInputArrgs']]):
         pulumi.set(self, "open_table_format_input", value)
 
     @property
@@ -437,26 +437,26 @@ class _CatalogTableState:
 
     @property
     @pulumi.getter(name="partitionIndices")
-    def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]:
+    def partition_indices(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArrgs']]]]:
         """
         Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """
         return pulumi.get(self, "partition_indices")
 
     @partition_indices.setter
-    def partition_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArgs']]]]):
+    def partition_indices(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionIndexArrgs']]]]):
         pulumi.set(self, "partition_indices", value)
 
     @property
     @pulumi.getter(name="partitionKeys")
-    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]:
+    def partition_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArrgs']]]]:
         """
         Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         """
         return pulumi.get(self, "partition_keys")
 
     @partition_keys.setter
-    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArgs']]]]):
+    def partition_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CatalogTablePartitionKeyArrgs']]]]):
         pulumi.set(self, "partition_keys", value)
 
     @property
@@ -473,14 +473,14 @@ class _CatalogTableState:
 
     @property
     @pulumi.getter(name="storageDescriptor")
-    def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]:
+    def storage_descriptor(self) -> Optional[pulumi.Input['CatalogTableStorageDescriptorArrgs']]:
         """
         Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         """
         return pulumi.get(self, "storage_descriptor")
 
     @storage_descriptor.setter
-    def storage_descriptor(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorArgs']]):
+    def storage_descriptor(self, value: Optional[pulumi.Input['CatalogTableStorageDescriptorArrgs']]):
         pulumi.set(self, "storage_descriptor", value)
 
     @property
@@ -497,14 +497,14 @@ class _CatalogTableState:
 
     @property
     @pulumi.getter(name="targetTable")
-    def target_table(self) -> Optional[pulumi.Input['CatalogTableTargetTableArgs']]:
+    def target_table(self) -> Optional[pulumi.Input['CatalogTableTargetTableArrgs']]:
         """
         Configuration block of a target table for resource linking. See `target_table` below.
         """
         return pulumi.get(self, "target_table")
 
     @target_table.setter
-    def target_table(self, value: Optional[pulumi.Input['CatalogTableTargetTableArgs']]):
+    def target_table(self, value: Optional[pulumi.Input['CatalogTableTargetTableArrgs']]):
         pulumi.set(self, "target_table", value)
 
     @property
@@ -532,7 +532,7 @@ class _CatalogTableState:
         pulumi.set(self, "view_original_text", value)
 
 
-class CatalogTable(pulumi.CustomResource):
+calass CatalogTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -541,15 +541,15 @@ class CatalogTable(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']]] = None,
+                 open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArrgs']]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]]] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
+                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArrgs']]]]] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArrgs']]]]] = None,
                  retention: Optional[pulumi.Input[int]] = None,
-                 storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
+                 storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArrgs']]] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
-                 target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']]] = None,
+                 target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArrgs']]] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
                  view_original_text: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -580,27 +580,27 @@ class CatalogTable(pulumi.CustomResource):
                 "EXTERNAL": "TRUE",
                 "parquet.compression": "SNAPPY",
             },
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
+            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArrgs(
                 columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         name="my_string",
                         type="string",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         name="my_double",
                         type="double",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         comment="",
                         name="my_date",
                         type="date",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         comment="",
                         name="my_bigint",
                         type="bigint",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         comment="",
                         name="my_struct",
                         type="struct<my_nested_string:string>",
@@ -609,7 +609,7 @@ class CatalogTable(pulumi.CustomResource):
                 input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
                 location="s3://my-bucket/event-streams/my-stream",
                 output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
+                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArrgs(
                     name="my-stream",
                     parameters={
                         "serialization.format": "1",
@@ -636,15 +636,15 @@ class CatalogTable(pulumi.CustomResource):
                The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
-        :param pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
+        :param pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArrgs']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArrgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArrgs']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
-        :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArrgs']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-        :param pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input[pulumi.InputType['CatalogTableTargetTableArrgs']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """
@@ -652,7 +652,7 @@ class CatalogTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CatalogTableArgs,
+                 args: CatalogTableArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
@@ -681,27 +681,27 @@ class CatalogTable(pulumi.CustomResource):
                 "EXTERNAL": "TRUE",
                 "parquet.compression": "SNAPPY",
             },
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
+            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArrgs(
                 columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         name="my_string",
                         type="string",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         name="my_double",
                         type="double",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         comment="",
                         name="my_date",
                         type="date",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         comment="",
                         name="my_bigint",
                         type="bigint",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         comment="",
                         name="my_struct",
                         type="struct<my_nested_string:string>",
@@ -710,7 +710,7 @@ class CatalogTable(pulumi.CustomResource):
                 input_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
                 location="s3://my-bucket/event-streams/my-stream",
                 output_format="org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
+                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArrgs(
                     name="my-stream",
                     parameters={
                         "serialization.format": "1",
@@ -730,12 +730,12 @@ class CatalogTable(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CatalogTableArgs args: The arguments to use to populate this resource's properties.
+        :param CatalogTableArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CatalogTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CatalogTableArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -748,15 +748,15 @@ class CatalogTable(pulumi.CustomResource):
                  database_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']]] = None,
+                 open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArrgs']]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]]] = None,
-                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
+                 partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArrgs']]]]] = None,
+                 partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArrgs']]]]] = None,
                  retention: Optional[pulumi.Input[int]] = None,
-                 storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
+                 storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArrgs']]] = None,
                  table_type: Optional[pulumi.Input[str]] = None,
-                 target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']]] = None,
+                 target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArrgs']]] = None,
                  view_expanded_text: Optional[pulumi.Input[str]] = None,
                  view_original_text: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -766,7 +766,7 @@ class CatalogTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CatalogTableArgs.__new__(CatalogTableArgs)
+            __props__ = CatalogTableArrgs.__new__(CatalogTableArrgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
             if database_name is None and not opts.urn:
@@ -801,15 +801,15 @@ class CatalogTable(pulumi.CustomResource):
             database_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']]] = None,
+            open_table_format_input: Optional[pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArrgs']]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]]] = None,
-            partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]]] = None,
+            partition_indices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArrgs']]]]] = None,
+            partition_keys: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArrgs']]]]] = None,
             retention: Optional[pulumi.Input[int]] = None,
-            storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']]] = None,
+            storage_descriptor: Optional[pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArrgs']]] = None,
             table_type: Optional[pulumi.Input[str]] = None,
-            target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']]] = None,
+            target_table: Optional[pulumi.Input[pulumi.InputType['CatalogTableTargetTableArrgs']]] = None,
             view_expanded_text: Optional[pulumi.Input[str]] = None,
             view_original_text: Optional[pulumi.Input[str]] = None) -> 'CatalogTable':
         """
@@ -826,15 +826,15 @@ class CatalogTable(pulumi.CustomResource):
                The follow arguments are optional:
         :param pulumi.Input[str] description: Description of the table.
         :param pulumi.Input[str] name: Name of the table. For Hive compatibility, this must be entirely lowercase.
-        :param pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArgs']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
+        :param pulumi.Input[pulumi.InputType['CatalogTableOpenTableFormatInputArrgs']] open_table_format_input: Configuration block for open table formats. See `open_table_format_input` below.
         :param pulumi.Input[str] owner: Owner of the table.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Properties associated with this table, as a list of key-value pairs.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArgs']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionIndexArrgs']]]] partition_indices: Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CatalogTablePartitionKeyArrgs']]]] partition_keys: Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partition_keys` below.
         :param pulumi.Input[int] retention: Retention time for this table.
-        :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArgs']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
+        :param pulumi.Input[pulumi.InputType['CatalogTableStorageDescriptorArrgs']] storage_descriptor: Configuration block for information about the physical storage of this table. For more information, refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-tables.html#aws-glue-api-catalog-tables-StorageDescriptor). See `storage_descriptor` below.
         :param pulumi.Input[str] table_type: Type of this table (EXTERNAL_TABLE, VIRTUAL_VIEW, etc.). While optional, some Athena DDL queries such as `ALTER TABLE` and `SHOW CREATE TABLE` will fail if this argument is empty.
-        :param pulumi.Input[pulumi.InputType['CatalogTableTargetTableArgs']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
+        :param pulumi.Input[pulumi.InputType['CatalogTableTargetTableArrgs']] target_table: Configuration block of a target table for resource linking. See `target_table` below.
         :param pulumi.Input[str] view_expanded_text: If the table is a view, the expanded text of the view; otherwise null.
         :param pulumi.Input[str] view_original_text: If the table is a view, the original text of the view; otherwise null.
         """

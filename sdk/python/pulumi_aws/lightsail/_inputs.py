@@ -10,29 +10,29 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CertificateDomainValidationOptionArgs',
-    'ContainerServiceDeploymentVersionContainerArgs',
-    'ContainerServiceDeploymentVersionPublicEndpointArgs',
-    'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs',
-    'ContainerServicePrivateRegistryAccessArgs',
-    'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs',
-    'ContainerServicePublicDomainNamesArgs',
-    'ContainerServicePublicDomainNamesCertificateArgs',
-    'DistributionCacheBehaviorArgs',
-    'DistributionCacheBehaviorSettingsArgs',
-    'DistributionCacheBehaviorSettingsForwardedCookiesArgs',
-    'DistributionCacheBehaviorSettingsForwardedHeadersArgs',
-    'DistributionCacheBehaviorSettingsForwardedQueryStringsArgs',
-    'DistributionDefaultCacheBehaviorArgs',
-    'DistributionLocationArgs',
-    'DistributionOriginArgs',
-    'InstanceAddOnArgs',
-    'InstancePublicPortsPortInfoArgs',
-    'LbCertificateDomainValidationRecordArgs',
+    'CertificateDomainValidationOptionArrgs',
+    'ContainerServiceDeploymentVersionContainerArrgs',
+    'ContainerServiceDeploymentVersionPublicEndpointArrgs',
+    'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs',
+    'ContainerServicePrivateRegistryAccessArrgs',
+    'ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs',
+    'ContainerServicePublicDomainNamesArrgs',
+    'ContainerServicePublicDomainNamesCertificateArrgs',
+    'DistributionCacheBehaviorArrgs',
+    'DistributionCacheBehaviorSettingsArrgs',
+    'DistributionCacheBehaviorSettingsForwardedCookiesArrgs',
+    'DistributionCacheBehaviorSettingsForwardedHeadersArrgs',
+    'DistributionCacheBehaviorSettingsForwardedQueryStringsArrgs',
+    'DistributionDefaultCacheBehaviorArrgs',
+    'DistributionLocationArrgs',
+    'DistributionOriginArrgs',
+    'InstanceAddOnArrgs',
+    'InstancePublicPortsPortInfoArrgs',
+    'LbCertificateDomainValidationRecordArrgs',
 ]
 
 @pulumi.input_type
-class CertificateDomainValidationOptionArgs:
+calass CertificateDomainValidationOptionArrgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  resource_record_name: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,7 @@ class CertificateDomainValidationOptionArgs:
 
 
 @pulumi.input_type
-class ContainerServiceDeploymentVersionContainerArgs:
+calass ContainerServiceDeploymentVersionContainerArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  image: pulumi.Input[str],
@@ -176,15 +176,15 @@ class ContainerServiceDeploymentVersionContainerArgs:
 
 
 @pulumi.input_type
-class ContainerServiceDeploymentVersionPublicEndpointArgs:
+calass ContainerServiceDeploymentVersionPublicEndpointArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  container_port: pulumi.Input[int],
-                 health_check: pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs']):
+                 health_check: pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs']):
         """
         :param pulumi.Input[str] container_name: The name of the container for the endpoint.
         :param pulumi.Input[int] container_port: The port of the container to which traffic is forwarded to.
-        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs'] health_check: A configuration block that describes the health check configuration of the container. Detailed below.
+        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs'] health_check: A configuration block that describes the health check configuration of the container. Detailed below.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "container_port", container_port)
@@ -216,19 +216,19 @@ class ContainerServiceDeploymentVersionPublicEndpointArgs:
 
     @property
     @pulumi.getter(name="healthCheck")
-    def health_check(self) -> pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs']:
+    def health_check(self) -> pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs']:
         """
         A configuration block that describes the health check configuration of the container. Detailed below.
         """
         return pulumi.get(self, "health_check")
 
     @health_check.setter
-    def health_check(self, value: pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs']):
+    def health_check(self, value: pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs']):
         pulumi.set(self, "health_check", value)
 
 
 @pulumi.input_type
-class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs:
+calass ContainerServiceDeploymentVersionPublicEndpointHealthCheckArrgs:
     def __init__(__self__, *,
                  healthy_threshold: Optional[pulumi.Input[int]] = None,
                  interval_seconds: Optional[pulumi.Input[int]] = None,
@@ -331,30 +331,30 @@ class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs:
 
 
 @pulumi.input_type
-class ContainerServicePrivateRegistryAccessArgs:
+calass ContainerServicePrivateRegistryAccessArrgs:
     def __init__(__self__, *,
-                 ecr_image_puller_role: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs']] = None):
+                 ecr_image_puller_role: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs']] = None):
         """
-        :param pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs'] ecr_image_puller_role: Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
+        :param pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs'] ecr_image_puller_role: Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
         """
         if ecr_image_puller_role is not None:
             pulumi.set(__self__, "ecr_image_puller_role", ecr_image_puller_role)
 
     @property
     @pulumi.getter(name="ecrImagePullerRole")
-    def ecr_image_puller_role(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs']]:
+    def ecr_image_puller_role(self) -> Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs']]:
         """
         Describes a request to configure an Amazon Lightsail container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See ECR Image Puller Role below for more details.
         """
         return pulumi.get(self, "ecr_image_puller_role")
 
     @ecr_image_puller_role.setter
-    def ecr_image_puller_role(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs']]):
+    def ecr_image_puller_role(self, value: Optional[pulumi.Input['ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs']]):
         pulumi.set(self, "ecr_image_puller_role", value)
 
 
 @pulumi.input_type
-class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs:
+calass ContainerServicePrivateRegistryAccessEcrImagePullerRoleArrgs:
     def __init__(__self__, *,
                  is_active: Optional[pulumi.Input[bool]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None):
@@ -397,23 +397,23 @@ class ContainerServicePrivateRegistryAccessEcrImagePullerRoleArgs:
 
 
 @pulumi.input_type
-class ContainerServicePublicDomainNamesArgs:
+calass ContainerServicePublicDomainNamesArrgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArgs']]]):
+                 certificates: pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArrgs']]]):
         pulumi.set(__self__, "certificates", certificates)
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArgs']]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArrgs']]]:
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArgs']]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArrgs']]]):
         pulumi.set(self, "certificates", value)
 
 
 @pulumi.input_type
-class ContainerServicePublicDomainNamesCertificateArgs:
+calass ContainerServicePublicDomainNamesCertificateArrgs:
     def __init__(__self__, *,
                  certificate_name: pulumi.Input[str],
                  domain_names: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -440,7 +440,7 @@ class ContainerServicePublicDomainNamesCertificateArgs:
 
 
 @pulumi.input_type
-class DistributionCacheBehaviorArgs:
+calass DistributionCacheBehaviorArrgs:
     def __init__(__self__, *,
                  behavior: pulumi.Input[str],
                  path: pulumi.Input[str]):
@@ -477,23 +477,23 @@ class DistributionCacheBehaviorArgs:
 
 
 @pulumi.input_type
-class DistributionCacheBehaviorSettingsArgs:
+calass DistributionCacheBehaviorSettingsArrgs:
     def __init__(__self__, *,
                  allowed_http_methods: Optional[pulumi.Input[str]] = None,
                  cached_http_methods: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
-                 forwarded_cookies: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgs']] = None,
-                 forwarded_headers: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgs']] = None,
-                 forwarded_query_strings: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs']] = None,
+                 forwarded_cookies: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArrgs']] = None,
+                 forwarded_headers: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArrgs']] = None,
+                 forwarded_query_strings: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArrgs']] = None,
                  maximum_ttl: Optional[pulumi.Input[int]] = None,
                  minimum_ttl: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] allowed_http_methods: The HTTP methods that are processed and forwarded to the distribution's origin.
         :param pulumi.Input[str] cached_http_methods: The HTTP method responses that are cached by your distribution.
         :param pulumi.Input[int] default_ttl: The default amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the content has been updated.
-        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgs'] forwarded_cookies: An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
-        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgs'] forwarded_headers: An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
-        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs'] forwarded_query_strings: An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
+        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArrgs'] forwarded_cookies: An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
+        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArrgs'] forwarded_headers: An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
+        :param pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArrgs'] forwarded_query_strings: An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
         :param pulumi.Input[int] maximum_ttl: The maximum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         :param pulumi.Input[int] minimum_ttl: The minimum amount of time that objects stay in the distribution's cache before the distribution forwards another request to the origin to determine whether the object has been updated.
         """
@@ -552,38 +552,38 @@ class DistributionCacheBehaviorSettingsArgs:
 
     @property
     @pulumi.getter(name="forwardedCookies")
-    def forwarded_cookies(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgs']]:
+    def forwarded_cookies(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArrgs']]:
         """
         An object that describes the cookies that are forwarded to the origin. Your content is cached based on the cookies that are forwarded. Detailed below
         """
         return pulumi.get(self, "forwarded_cookies")
 
     @forwarded_cookies.setter
-    def forwarded_cookies(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArgs']]):
+    def forwarded_cookies(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedCookiesArrgs']]):
         pulumi.set(self, "forwarded_cookies", value)
 
     @property
     @pulumi.getter(name="forwardedHeaders")
-    def forwarded_headers(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgs']]:
+    def forwarded_headers(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArrgs']]:
         """
         An object that describes the headers that are forwarded to the origin. Your content is cached based on the headers that are forwarded. Detailed below
         """
         return pulumi.get(self, "forwarded_headers")
 
     @forwarded_headers.setter
-    def forwarded_headers(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArgs']]):
+    def forwarded_headers(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedHeadersArrgs']]):
         pulumi.set(self, "forwarded_headers", value)
 
     @property
     @pulumi.getter(name="forwardedQueryStrings")
-    def forwarded_query_strings(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs']]:
+    def forwarded_query_strings(self) -> Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArrgs']]:
         """
         An object that describes the query strings that are forwarded to the origin. Your content is cached based on the query strings that are forwarded. Detailed below
         """
         return pulumi.get(self, "forwarded_query_strings")
 
     @forwarded_query_strings.setter
-    def forwarded_query_strings(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArgs']]):
+    def forwarded_query_strings(self, value: Optional[pulumi.Input['DistributionCacheBehaviorSettingsForwardedQueryStringsArrgs']]):
         pulumi.set(self, "forwarded_query_strings", value)
 
     @property
@@ -612,7 +612,7 @@ class DistributionCacheBehaviorSettingsArgs:
 
 
 @pulumi.input_type
-class DistributionCacheBehaviorSettingsForwardedCookiesArgs:
+calass DistributionCacheBehaviorSettingsForwardedCookiesArrgs:
     def __init__(__self__, *,
                  cookies_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  option: Optional[pulumi.Input[str]] = None):
@@ -651,7 +651,7 @@ class DistributionCacheBehaviorSettingsForwardedCookiesArgs:
 
 
 @pulumi.input_type
-class DistributionCacheBehaviorSettingsForwardedHeadersArgs:
+calass DistributionCacheBehaviorSettingsForwardedHeadersArrgs:
     def __init__(__self__, *,
                  headers_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  option: Optional[pulumi.Input[str]] = None):
@@ -690,7 +690,7 @@ class DistributionCacheBehaviorSettingsForwardedHeadersArgs:
 
 
 @pulumi.input_type
-class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs:
+calass DistributionCacheBehaviorSettingsForwardedQueryStringsArrgs:
     def __init__(__self__, *,
                  option: Optional[pulumi.Input[bool]] = None,
                  query_strings_allowed_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -729,7 +729,7 @@ class DistributionCacheBehaviorSettingsForwardedQueryStringsArgs:
 
 
 @pulumi.input_type
-class DistributionDefaultCacheBehaviorArgs:
+calass DistributionDefaultCacheBehaviorArrgs:
     def __init__(__self__, *,
                  behavior: pulumi.Input[str]):
         """
@@ -751,7 +751,7 @@ class DistributionDefaultCacheBehaviorArgs:
 
 
 @pulumi.input_type
-class DistributionLocationArgs:
+calass DistributionLocationArrgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  region_name: pulumi.Input[str]):
@@ -788,7 +788,7 @@ class DistributionLocationArgs:
 
 
 @pulumi.input_type
-class DistributionOriginArgs:
+calass DistributionOriginArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  region_name: pulumi.Input[str],
@@ -857,7 +857,7 @@ class DistributionOriginArgs:
 
 
 @pulumi.input_type
-class InstanceAddOnArgs:
+calass InstanceAddOnArrgs:
     def __init__(__self__, *,
                  snapshot_time: pulumi.Input[str],
                  status: pulumi.Input[str],
@@ -909,7 +909,7 @@ class InstanceAddOnArgs:
 
 
 @pulumi.input_type
-class InstancePublicPortsPortInfoArgs:
+calass InstancePublicPortsPortInfoArrgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  protocol: pulumi.Input[str],
@@ -1009,7 +1009,7 @@ class InstancePublicPortsPortInfoArgs:
 
 
 @pulumi.input_type
-class LbCertificateDomainValidationRecordArgs:
+calass LbCertificateDomainValidationRecordArrgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  resource_record_name: Optional[pulumi.Input[str]] = None,

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['KeyGroupArgs', 'KeyGroup']
+__all__ = ['KeyGroupArrgs', 'KeyGroup']
 
 @pulumi.input_type
-class KeyGroupArgs:
+calass KeyGroupArrgs:
     def __init__(__self__, *,
                  items: pulumi.Input[Sequence[pulumi.Input[str]]],
                  comment: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class KeyGroupArgs:
 
 
 @pulumi.input_type
-class _KeyGroupState:
+calass _KeyGroupState:
     def __init__(__self__, *,
                  comment: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
@@ -138,7 +138,7 @@ class _KeyGroupState:
         pulumi.set(self, "name", value)
 
 
-class KeyGroup(pulumi.CustomResource):
+calass KeyGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -182,7 +182,7 @@ class KeyGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KeyGroupArgs,
+                 args: KeyGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -210,12 +210,12 @@ class KeyGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KeyGroupArgs args: The arguments to use to populate this resource's properties.
+        :param KeyGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KeyGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KeyGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -234,7 +234,7 @@ class KeyGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KeyGroupArgs.__new__(KeyGroupArgs)
+            __props__ = KeyGroupArrgs.__new__(KeyGroupArrgs)
 
             __props__.__dict__["comment"] = comment
             if items is None and not opts.urn:

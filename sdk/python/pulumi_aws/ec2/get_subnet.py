@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSubnetResult:
+calass GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
@@ -271,7 +271,7 @@ class GetSubnetResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetSubnetResult(GetSubnetResult):
+calass AwaitableGetSubnetResult(GetSubnetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -308,7 +308,7 @@ def get_subnet(availability_zone: Optional[str] = None,
                availability_zone_id: Optional[str] = None,
                cidr_block: Optional[str] = None,
                default_for_az: Optional[bool] = None,
-               filters: Optional[Sequence[pulumi.InputType['GetSubnetFilterArgs']]] = None,
+               filters: Optional[Sequence[pulumi.InputType['GetSubnetFilterArrgs']]] = None,
                id: Optional[str] = None,
                ipv6_cidr_block: Optional[str] = None,
                state: Optional[str] = None,
@@ -333,7 +333,7 @@ def get_subnet(availability_zone: Optional[str] = None,
     selected = aws.ec2.get_subnet(id=subnet_id)
     subnet = aws.ec2.SecurityGroup("subnet",
         vpc_id=selected.vpc_id,
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
+        ingress=[aws.ec2.SecurityGroupIngressArrgs(
             cidr_blocks=[selected.cidr_block],
             from_port=80,
             to_port=80,
@@ -348,7 +348,7 @@ def get_subnet(availability_zone: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArgs(
+    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArrgs(
         name="tag:Name",
         values=["yakdriver"],
     )])
@@ -359,7 +359,7 @@ def get_subnet(availability_zone: Optional[str] = None,
     :param str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
     :param str cidr_block: CIDR block of the desired subnet.
     :param bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
-    :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[pulumi.InputType['GetSubnetFilterArrgs']] filters: Configuration block. Detailed below.
     :param str id: ID of the specific subnet to retrieve.
     :param str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
     :param str state: State that the desired subnet must have.
@@ -413,7 +413,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
                       availability_zone_id: Optional[pulumi.Input[Optional[str]]] = None,
                       cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
                       default_for_az: Optional[pulumi.Input[Optional[bool]]] = None,
-                      filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSubnetFilterArgs']]]]] = None,
+                      filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSubnetFilterArrgs']]]]] = None,
                       id: Optional[pulumi.Input[Optional[str]]] = None,
                       ipv6_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
                       state: Optional[pulumi.Input[Optional[str]]] = None,
@@ -438,7 +438,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
     selected = aws.ec2.get_subnet(id=subnet_id)
     subnet = aws.ec2.SecurityGroup("subnet",
         vpc_id=selected.vpc_id,
-        ingress=[aws.ec2.SecurityGroupIngressArgs(
+        ingress=[aws.ec2.SecurityGroupIngressArrgs(
             cidr_blocks=[selected.cidr_block],
             from_port=80,
             to_port=80,
@@ -453,7 +453,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
     import pulumi
     import pulumi_aws as aws
 
-    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArgs(
+    selected = aws.ec2.get_subnet(filters=[aws.ec2.GetSubnetFilterArrgs(
         name="tag:Name",
         values=["yakdriver"],
     )])
@@ -464,7 +464,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
     :param str availability_zone_id: ID of the Availability Zone for the subnet. This argument is not supported in all regions or partitions. If necessary, use `availability_zone` instead.
     :param str cidr_block: CIDR block of the desired subnet.
     :param bool default_for_az: Whether the desired subnet must be the default subnet for its associated availability zone.
-    :param Sequence[pulumi.InputType['GetSubnetFilterArgs']] filters: Configuration block. Detailed below.
+    :param Sequence[pulumi.InputType['GetSubnetFilterArrgs']] filters: Configuration block. Detailed below.
     :param str id: ID of the specific subnet to retrieve.
     :param str ipv6_cidr_block: IPv6 CIDR block of the desired subnet.
     :param str state: State that the desired subnet must have.

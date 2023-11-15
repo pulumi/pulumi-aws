@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OrganizationManagedRuleArgs', 'OrganizationManagedRule']
+__all__ = ['OrganizationManagedRuleArrgs', 'OrganizationManagedRule']
 
 @pulumi.input_type
-class OrganizationManagedRuleArgs:
+calass OrganizationManagedRuleArrgs:
     def __init__(__self__, *,
                  rule_identifier: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -179,7 +179,7 @@ class OrganizationManagedRuleArgs:
 
 
 @pulumi.input_type
-class _OrganizationManagedRuleState:
+calass _OrganizationManagedRuleState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -362,7 +362,7 @@ class _OrganizationManagedRuleState:
         pulumi.set(self, "tag_value_scope", value)
 
 
-class OrganizationManagedRule(pulumi.CustomResource):
+calass OrganizationManagedRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -423,7 +423,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OrganizationManagedRuleArgs,
+                 args: OrganizationManagedRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Config Organization Managed Rule. More information about these rules can be found in the [Enabling AWS Config Rules Across all Accounts in Your Organization](https://docs.aws.amazon.com/config/latest/developerguide/config-rule-multi-account-deployment.html) and [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) documentation. For working with Organization Custom Rules (those invoking a custom Lambda Function), see the `cfg.OrganizationCustomRule` resource.
@@ -454,12 +454,12 @@ class OrganizationManagedRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OrganizationManagedRuleArgs args: The arguments to use to populate this resource's properties.
+        :param OrganizationManagedRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OrganizationManagedRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OrganizationManagedRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -485,7 +485,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OrganizationManagedRuleArgs.__new__(OrganizationManagedRuleArgs)
+            __props__ = OrganizationManagedRuleArrgs.__new__(OrganizationManagedRuleArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["excluded_accounts"] = excluded_accounts

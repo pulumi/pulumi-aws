@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ClusterCacheNode(dict):
+calass ClusterCacheNode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -97,7 +97,7 @@ class ClusterCacheNode(dict):
 
 
 @pulumi.output_type
-class ClusterLogDeliveryConfiguration(dict):
+calass ClusterLogDeliveryConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -169,7 +169,7 @@ class ClusterLogDeliveryConfiguration(dict):
 
 
 @pulumi.output_type
-class GlobalReplicationGroupGlobalNodeGroup(dict):
+calass GlobalReplicationGroupGlobalNodeGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -217,7 +217,7 @@ class GlobalReplicationGroupGlobalNodeGroup(dict):
 
 
 @pulumi.output_type
-class ParameterGroupParameter(dict):
+calass ParameterGroupParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -246,7 +246,7 @@ class ParameterGroupParameter(dict):
 
 
 @pulumi.output_type
-class ReplicationGroupLogDeliveryConfiguration(dict):
+calass ReplicationGroupLogDeliveryConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -318,7 +318,7 @@ class ReplicationGroupLogDeliveryConfiguration(dict):
 
 
 @pulumi.output_type
-class UserAuthenticationMode(dict):
+calass UserAuthenticationMode(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -373,7 +373,7 @@ class UserAuthenticationMode(dict):
 
 
 @pulumi.output_type
-class GetClusterCacheNodeResult(dict):
+calass GetClusterCacheNodeResult(dict):
     def __init__(__self__, *,
                  address: str,
                  availability_zone: str,
@@ -425,7 +425,7 @@ class GetClusterCacheNodeResult(dict):
 
 
 @pulumi.output_type
-class GetClusterLogDeliveryConfigurationResult(dict):
+calass GetClusterLogDeliveryConfigurationResult(dict):
     def __init__(__self__, *,
                  destination: str,
                  destination_type: str,
@@ -458,7 +458,7 @@ class GetClusterLogDeliveryConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetReplicationGroupLogDeliveryConfigurationResult(dict):
+calass GetReplicationGroupLogDeliveryConfigurationResult(dict):
     def __init__(__self__, *,
                  destination: str,
                  destination_type: str,
@@ -491,7 +491,7 @@ class GetReplicationGroupLogDeliveryConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetUserAuthenticationModeResult(dict):
+calass GetUserAuthenticationModeResult(dict):
     def __init__(__self__, *,
                  password_count: Optional[int] = None,
                  type: Optional[str] = None):

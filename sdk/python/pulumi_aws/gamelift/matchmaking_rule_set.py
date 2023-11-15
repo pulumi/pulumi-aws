@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MatchmakingRuleSetArgs', 'MatchmakingRuleSet']
+__all__ = ['MatchmakingRuleSetArrgs', 'MatchmakingRuleSet']
 
 @pulumi.input_type
-class MatchmakingRuleSetArgs:
+calass MatchmakingRuleSetArrgs:
     def __init__(__self__, *,
                  rule_set_body: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,7 @@ class MatchmakingRuleSetArgs:
 
 
 @pulumi.input_type
-class _MatchmakingRuleSetState:
+calass _MatchmakingRuleSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _MatchmakingRuleSetState:
         pulumi.set(self, "tags_all", value)
 
 
-class MatchmakingRuleSet(pulumi.CustomResource):
+calass MatchmakingRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -183,7 +183,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MatchmakingRuleSetArgs,
+                 args: MatchmakingRuleSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a GameLift Matchmaking Rule Set resources.
@@ -199,12 +199,12 @@ class MatchmakingRuleSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MatchmakingRuleSetArgs args: The arguments to use to populate this resource's properties.
+        :param MatchmakingRuleSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MatchmakingRuleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MatchmakingRuleSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -223,7 +223,7 @@ class MatchmakingRuleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MatchmakingRuleSetArgs.__new__(MatchmakingRuleSetArgs)
+            __props__ = MatchmakingRuleSetArrgs.__new__(MatchmakingRuleSetArrgs)
 
             __props__.__dict__["name"] = name
             if rule_set_body is None and not opts.urn:

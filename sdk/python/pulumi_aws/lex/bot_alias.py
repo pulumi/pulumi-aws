@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BotAliasArgs', 'BotAlias']
+__all__ = ['BotAliasArrgs', 'BotAlias']
 
 @pulumi.input_type
-class BotAliasArgs:
+calass BotAliasArrgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[str],
                  bot_version: pulumi.Input[str],
-                 conversation_logs: Optional[pulumi.Input['BotAliasConversationLogsArgs']] = None,
+                 conversation_logs: Optional[pulumi.Input['BotAliasConversationLogsArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BotAlias resource.
         :param pulumi.Input[str] bot_name: The name of the bot.
         :param pulumi.Input[str] bot_version: The name of the bot.
-        :param pulumi.Input['BotAliasConversationLogsArgs'] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+        :param pulumi.Input['BotAliasConversationLogsArrgs'] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
@@ -64,14 +64,14 @@ class BotAliasArgs:
 
     @property
     @pulumi.getter(name="conversationLogs")
-    def conversation_logs(self) -> Optional[pulumi.Input['BotAliasConversationLogsArgs']]:
+    def conversation_logs(self) -> Optional[pulumi.Input['BotAliasConversationLogsArrgs']]:
         """
         The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         """
         return pulumi.get(self, "conversation_logs")
 
     @conversation_logs.setter
-    def conversation_logs(self, value: Optional[pulumi.Input['BotAliasConversationLogsArgs']]):
+    def conversation_logs(self, value: Optional[pulumi.Input['BotAliasConversationLogsArrgs']]):
         pulumi.set(self, "conversation_logs", value)
 
     @property
@@ -100,13 +100,13 @@ class BotAliasArgs:
 
 
 @pulumi.input_type
-class _BotAliasState:
+calass _BotAliasState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  bot_version: Optional[pulumi.Input[str]] = None,
                  checksum: Optional[pulumi.Input[str]] = None,
-                 conversation_logs: Optional[pulumi.Input['BotAliasConversationLogsArgs']] = None,
+                 conversation_logs: Optional[pulumi.Input['BotAliasConversationLogsArrgs']] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  last_updated_date: Optional[pulumi.Input[str]] = None,
@@ -117,7 +117,7 @@ class _BotAliasState:
         :param pulumi.Input[str] bot_name: The name of the bot.
         :param pulumi.Input[str] bot_version: The name of the bot.
         :param pulumi.Input[str] checksum: Checksum of the bot alias.
-        :param pulumi.Input['BotAliasConversationLogsArgs'] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+        :param pulumi.Input['BotAliasConversationLogsArrgs'] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] created_date: The date that the bot alias was created.
         :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] last_updated_date: The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.
@@ -192,14 +192,14 @@ class _BotAliasState:
 
     @property
     @pulumi.getter(name="conversationLogs")
-    def conversation_logs(self) -> Optional[pulumi.Input['BotAliasConversationLogsArgs']]:
+    def conversation_logs(self) -> Optional[pulumi.Input['BotAliasConversationLogsArrgs']]:
         """
         The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         """
         return pulumi.get(self, "conversation_logs")
 
     @conversation_logs.setter
-    def conversation_logs(self, value: Optional[pulumi.Input['BotAliasConversationLogsArgs']]):
+    def conversation_logs(self, value: Optional[pulumi.Input['BotAliasConversationLogsArrgs']]):
         pulumi.set(self, "conversation_logs", value)
 
     @property
@@ -251,14 +251,14 @@ class _BotAliasState:
         pulumi.set(self, "name", value)
 
 
-class BotAlias(pulumi.CustomResource):
+calass BotAlias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  bot_version: Optional[pulumi.Input[str]] = None,
-                 conversation_logs: Optional[pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']]] = None,
+                 conversation_logs: Optional[pulumi.Input[pulumi.InputType['BotAliasConversationLogsArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -291,7 +291,7 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the bot.
         :param pulumi.Input[str] bot_version: The name of the bot.
-        :param pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+        :param pulumi.Input[pulumi.InputType['BotAliasConversationLogsArrgs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
         """
@@ -299,7 +299,7 @@ class BotAlias(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BotAliasArgs,
+                 args: BotAliasArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Lex Bot Alias resource. For more information see
@@ -327,12 +327,12 @@ class BotAlias(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BotAliasArgs args: The arguments to use to populate this resource's properties.
+        :param BotAliasArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BotAliasArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BotAliasArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -343,7 +343,7 @@ class BotAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  bot_version: Optional[pulumi.Input[str]] = None,
-                 conversation_logs: Optional[pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']]] = None,
+                 conversation_logs: Optional[pulumi.Input[pulumi.InputType['BotAliasConversationLogsArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -353,7 +353,7 @@ class BotAlias(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BotAliasArgs.__new__(BotAliasArgs)
+            __props__ = BotAliasArrgs.__new__(BotAliasArrgs)
 
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")
@@ -382,7 +382,7 @@ class BotAlias(pulumi.CustomResource):
             bot_name: Optional[pulumi.Input[str]] = None,
             bot_version: Optional[pulumi.Input[str]] = None,
             checksum: Optional[pulumi.Input[str]] = None,
-            conversation_logs: Optional[pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']]] = None,
+            conversation_logs: Optional[pulumi.Input[pulumi.InputType['BotAliasConversationLogsArrgs']]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             last_updated_date: Optional[pulumi.Input[str]] = None,
@@ -398,7 +398,7 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.Input[str] bot_name: The name of the bot.
         :param pulumi.Input[str] bot_version: The name of the bot.
         :param pulumi.Input[str] checksum: Checksum of the bot alias.
-        :param pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
+        :param pulumi.Input[pulumi.InputType['BotAliasConversationLogsArrgs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] created_date: The date that the bot alias was created.
         :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] last_updated_date: The date that the bot alias was updated. When you create a resource, the creation date and the last updated date are the same.

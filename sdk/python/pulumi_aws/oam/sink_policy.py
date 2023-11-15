@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SinkPolicyArgs', 'SinkPolicy']
+__all__ = ['SinkPolicyArrgs', 'SinkPolicy']
 
 @pulumi.input_type
-class SinkPolicyArgs:
+calass SinkPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  sink_identifier: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class SinkPolicyArgs:
 
 
 @pulumi.input_type
-class _SinkPolicyState:
+calass _SinkPolicyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _SinkPolicyState:
         pulumi.set(self, "sink_identifier", value)
 
 
-class SinkPolicy(pulumi.CustomResource):
+calass SinkPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -187,7 +187,7 @@ class SinkPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SinkPolicyArgs,
+                 args: SinkPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS CloudWatch Observability Access Manager Sink Policy.
@@ -239,12 +239,12 @@ class SinkPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SinkPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param SinkPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SinkPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SinkPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -262,7 +262,7 @@ class SinkPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SinkPolicyArgs.__new__(SinkPolicyArgs)
+            __props__ = SinkPolicyArrgs.__new__(SinkPolicyArrgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

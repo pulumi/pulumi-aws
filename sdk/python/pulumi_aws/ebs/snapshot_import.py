@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SnapshotImportArgs', 'SnapshotImport']
+__all__ = ['SnapshotImportArrgs', 'SnapshotImport']
 
 @pulumi.input_type
-class SnapshotImportArgs:
+calass SnapshotImportArrgs:
     def __init__(__self__, *,
-                 disk_container: pulumi.Input['SnapshotImportDiskContainerArgs'],
-                 client_data: Optional[pulumi.Input['SnapshotImportClientDataArgs']] = None,
+                 disk_container: pulumi.Input['SnapshotImportDiskContainerArrgs'],
+                 client_data: Optional[pulumi.Input['SnapshotImportClientDataArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
@@ -28,8 +28,8 @@ class SnapshotImportArgs:
                  temporary_restore_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a SnapshotImport resource.
-        :param pulumi.Input['SnapshotImportDiskContainerArgs'] disk_container: Information about the disk container. Detailed below.
-        :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
+        :param pulumi.Input['SnapshotImportDiskContainerArrgs'] disk_container: Information about the disk container. Detailed below.
+        :param pulumi.Input['SnapshotImportClientDataArrgs'] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[str] description: The description string for the import snapshot task.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
@@ -61,26 +61,26 @@ class SnapshotImportArgs:
 
     @property
     @pulumi.getter(name="diskContainer")
-    def disk_container(self) -> pulumi.Input['SnapshotImportDiskContainerArgs']:
+    def disk_container(self) -> pulumi.Input['SnapshotImportDiskContainerArrgs']:
         """
         Information about the disk container. Detailed below.
         """
         return pulumi.get(self, "disk_container")
 
     @disk_container.setter
-    def disk_container(self, value: pulumi.Input['SnapshotImportDiskContainerArgs']):
+    def disk_container(self, value: pulumi.Input['SnapshotImportDiskContainerArrgs']):
         pulumi.set(self, "disk_container", value)
 
     @property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input['SnapshotImportClientDataArgs']]:
+    def client_data(self) -> Optional[pulumi.Input['SnapshotImportClientDataArrgs']]:
         """
         The client-specific data. Detailed below.
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input['SnapshotImportClientDataArgs']]):
+    def client_data(self, value: Optional[pulumi.Input['SnapshotImportClientDataArrgs']]):
         pulumi.set(self, "client_data", value)
 
     @property
@@ -181,13 +181,13 @@ class SnapshotImportArgs:
 
 
 @pulumi.input_type
-class _SnapshotImportState:
+calass _SnapshotImportState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 client_data: Optional[pulumi.Input['SnapshotImportClientDataArgs']] = None,
+                 client_data: Optional[pulumi.Input['SnapshotImportClientDataArrgs']] = None,
                  data_encryption_key_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 disk_container: Optional[pulumi.Input['SnapshotImportDiskContainerArgs']] = None,
+                 disk_container: Optional[pulumi.Input['SnapshotImportDiskContainerArrgs']] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  outpost_arn: Optional[pulumi.Input[str]] = None,
@@ -204,10 +204,10 @@ class _SnapshotImportState:
         """
         Input properties used for looking up and filtering SnapshotImport resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
-        :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
+        :param pulumi.Input['SnapshotImportClientDataArrgs'] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[str] description: The description string for the import snapshot task.
-        :param pulumi.Input['SnapshotImportDiskContainerArgs'] disk_container: Information about the disk container. Detailed below.
+        :param pulumi.Input['SnapshotImportDiskContainerArrgs'] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
@@ -274,14 +274,14 @@ class _SnapshotImportState:
 
     @property
     @pulumi.getter(name="clientData")
-    def client_data(self) -> Optional[pulumi.Input['SnapshotImportClientDataArgs']]:
+    def client_data(self) -> Optional[pulumi.Input['SnapshotImportClientDataArrgs']]:
         """
         The client-specific data. Detailed below.
         """
         return pulumi.get(self, "client_data")
 
     @client_data.setter
-    def client_data(self, value: Optional[pulumi.Input['SnapshotImportClientDataArgs']]):
+    def client_data(self, value: Optional[pulumi.Input['SnapshotImportClientDataArrgs']]):
         pulumi.set(self, "client_data", value)
 
     @property
@@ -310,14 +310,14 @@ class _SnapshotImportState:
 
     @property
     @pulumi.getter(name="diskContainer")
-    def disk_container(self) -> Optional[pulumi.Input['SnapshotImportDiskContainerArgs']]:
+    def disk_container(self) -> Optional[pulumi.Input['SnapshotImportDiskContainerArrgs']]:
         """
         Information about the disk container. Detailed below.
         """
         return pulumi.get(self, "disk_container")
 
     @disk_container.setter
-    def disk_container(self, value: Optional[pulumi.Input['SnapshotImportDiskContainerArgs']]):
+    def disk_container(self, value: Optional[pulumi.Input['SnapshotImportDiskContainerArrgs']]):
         pulumi.set(self, "disk_container", value)
 
     @property
@@ -474,14 +474,14 @@ class _SnapshotImportState:
         pulumi.set(self, "volume_size", value)
 
 
-class SnapshotImport(pulumi.CustomResource):
+calass SnapshotImport(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_data: Optional[pulumi.Input[pulumi.InputType['SnapshotImportClientDataArgs']]] = None,
+                 client_data: Optional[pulumi.Input[pulumi.InputType['SnapshotImportClientDataArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']]] = None,
+                 disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArrgs']]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  permanent_restore: Optional[pulumi.Input[bool]] = None,
@@ -500,9 +500,9 @@ class SnapshotImport(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ebs.SnapshotImport("example",
-            disk_container=aws.ebs.SnapshotImportDiskContainerArgs(
+            disk_container=aws.ebs.SnapshotImportDiskContainerArrgs(
                 format="VHD",
-                user_bucket=aws.ebs.SnapshotImportDiskContainerUserBucketArgs(
+                user_bucket=aws.ebs.SnapshotImportDiskContainerUserBucketArrgs(
                     s3_bucket="disk-images",
                     s3_key="source.vhd",
                 ),
@@ -515,9 +515,9 @@ class SnapshotImport(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['SnapshotImportClientDataArgs']] client_data: The client-specific data. Detailed below.
+        :param pulumi.Input[pulumi.InputType['SnapshotImportClientDataArrgs']] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[str] description: The description string for the import snapshot task.
-        :param pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']] disk_container: Information about the disk container. Detailed below.
+        :param pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArrgs']] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
@@ -530,7 +530,7 @@ class SnapshotImport(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SnapshotImportArgs,
+                 args: SnapshotImportArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Imports a disk image from S3 as a Snapshot.
@@ -542,9 +542,9 @@ class SnapshotImport(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ebs.SnapshotImport("example",
-            disk_container=aws.ebs.SnapshotImportDiskContainerArgs(
+            disk_container=aws.ebs.SnapshotImportDiskContainerArrgs(
                 format="VHD",
-                user_bucket=aws.ebs.SnapshotImportDiskContainerUserBucketArgs(
+                user_bucket=aws.ebs.SnapshotImportDiskContainerUserBucketArrgs(
                     s3_bucket="disk-images",
                     s3_key="source.vhd",
                 ),
@@ -556,12 +556,12 @@ class SnapshotImport(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SnapshotImportArgs args: The arguments to use to populate this resource's properties.
+        :param SnapshotImportArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SnapshotImportArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotImportArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -570,9 +570,9 @@ class SnapshotImport(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_data: Optional[pulumi.Input[pulumi.InputType['SnapshotImportClientDataArgs']]] = None,
+                 client_data: Optional[pulumi.Input[pulumi.InputType['SnapshotImportClientDataArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']]] = None,
+                 disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArrgs']]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  permanent_restore: Optional[pulumi.Input[bool]] = None,
@@ -587,7 +587,7 @@ class SnapshotImport(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SnapshotImportArgs.__new__(SnapshotImportArgs)
+            __props__ = SnapshotImportArrgs.__new__(SnapshotImportArrgs)
 
             __props__.__dict__["client_data"] = client_data
             __props__.__dict__["description"] = description
@@ -622,10 +622,10 @@ class SnapshotImport(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            client_data: Optional[pulumi.Input[pulumi.InputType['SnapshotImportClientDataArgs']]] = None,
+            client_data: Optional[pulumi.Input[pulumi.InputType['SnapshotImportClientDataArrgs']]] = None,
             data_encryption_key_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']]] = None,
+            disk_container: Optional[pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArrgs']]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             outpost_arn: Optional[pulumi.Input[str]] = None,
@@ -647,10 +647,10 @@ class SnapshotImport(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
-        :param pulumi.Input[pulumi.InputType['SnapshotImportClientDataArgs']] client_data: The client-specific data. Detailed below.
+        :param pulumi.Input[pulumi.InputType['SnapshotImportClientDataArrgs']] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[str] description: The description string for the import snapshot task.
-        :param pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArgs']] disk_container: Information about the disk container. Detailed below.
+        :param pulumi.Input[pulumi.InputType['SnapshotImportDiskContainerArrgs']] disk_container: Information about the disk container. Detailed below.
         :param pulumi.Input[bool] encrypted: Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is used unless you specify a non-default KMS key using KmsKeyId.
         :param pulumi.Input[str] kms_key_id: An identifier for the symmetric KMS key to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this parameter is not specified, the default KMS key for EBS is used. If a KmsKeyId is specified, the Encrypted flag must also be set.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.

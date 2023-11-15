@@ -10,34 +10,34 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'FrameworkControlArgs',
-    'FrameworkControlInputParameterArgs',
-    'FrameworkControlScopeArgs',
-    'PlanAdvancedBackupSettingArgs',
-    'PlanRuleArgs',
-    'PlanRuleCopyActionArgs',
-    'PlanRuleCopyActionLifecycleArgs',
-    'PlanRuleLifecycleArgs',
-    'ReportPlanReportDeliveryChannelArgs',
-    'ReportPlanReportSettingArgs',
-    'SelectionConditionArgs',
-    'SelectionConditionStringEqualArgs',
-    'SelectionConditionStringLikeArgs',
-    'SelectionConditionStringNotEqualArgs',
-    'SelectionConditionStringNotLikeArgs',
-    'SelectionSelectionTagArgs',
+    'FrameworkControlArrgs',
+    'FrameworkControlInputParameterArrgs',
+    'FrameworkControlScopeArrgs',
+    'PlanAdvancedBackupSettingArrgs',
+    'PlanRuleArrgs',
+    'PlanRuleCopyActionArrgs',
+    'PlanRuleCopyActionLifecycleArrgs',
+    'PlanRuleLifecycleArrgs',
+    'ReportPlanReportDeliveryChannelArrgs',
+    'ReportPlanReportSettingArrgs',
+    'SelectionConditionArrgs',
+    'SelectionConditionStringEqualArrgs',
+    'SelectionConditionStringLikeArrgs',
+    'SelectionConditionStringNotEqualArrgs',
+    'SelectionConditionStringNotLikeArrgs',
+    'SelectionSelectionTagArrgs',
 ]
 
 @pulumi.input_type
-class FrameworkControlArgs:
+calass FrameworkControlArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]]] = None,
-                 scope: Optional[pulumi.Input['FrameworkControlScopeArgs']] = None):
+                 input_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArrgs']]]] = None,
+                 scope: Optional[pulumi.Input['FrameworkControlScopeArrgs']] = None):
         """
         :param pulumi.Input[str] name: The name of a control. This name is between 1 and 256 characters.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
-        :param pulumi.Input['FrameworkControlScopeArgs'] scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArrgs']]] input_parameters: One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
+        :param pulumi.Input['FrameworkControlScopeArrgs'] scope: The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
         pulumi.set(__self__, "name", name)
         if input_parameters is not None:
@@ -59,31 +59,31 @@ class FrameworkControlArgs:
 
     @property
     @pulumi.getter(name="inputParameters")
-    def input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]]]:
+    def input_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArrgs']]]]:
         """
         One or more input parameter blocks. An example of a control with two parameters is: "backup plan frequency is at least daily and the retention period is at least 1 year". The first parameter is daily. The second parameter is 1 year. Detailed below.
         """
         return pulumi.get(self, "input_parameters")
 
     @input_parameters.setter
-    def input_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArgs']]]]):
+    def input_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlInputParameterArrgs']]]]):
         pulumi.set(self, "input_parameters", value)
 
     @property
     @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['FrameworkControlScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['FrameworkControlScopeArrgs']]:
         """
         The scope of a control. The control scope defines what the control will evaluate. Three examples of control scopes are: a specific backup plan, all backup plans with a specific tag, or all backup plans. Detailed below.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: Optional[pulumi.Input['FrameworkControlScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['FrameworkControlScopeArrgs']]):
         pulumi.set(self, "scope", value)
 
 
 @pulumi.input_type
-class FrameworkControlInputParameterArgs:
+calass FrameworkControlInputParameterArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -122,7 +122,7 @@ class FrameworkControlInputParameterArgs:
 
 
 @pulumi.input_type
-class FrameworkControlScopeArgs:
+calass FrameworkControlScopeArrgs:
     def __init__(__self__, *,
                  compliance_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compliance_resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -177,7 +177,7 @@ class FrameworkControlScopeArgs:
 
 
 @pulumi.input_type
-class PlanAdvancedBackupSettingArgs:
+calass PlanAdvancedBackupSettingArrgs:
     def __init__(__self__, *,
                  backup_options: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  resource_type: pulumi.Input[str]):
@@ -214,14 +214,14 @@ class PlanAdvancedBackupSettingArgs:
 
 
 @pulumi.input_type
-class PlanRuleArgs:
+calass PlanRuleArrgs:
     def __init__(__self__, *,
                  rule_name: pulumi.Input[str],
                  target_vault_name: pulumi.Input[str],
                  completion_window: Optional[pulumi.Input[int]] = None,
-                 copy_actions: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]]] = None,
+                 copy_actions: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArrgs']]]] = None,
                  enable_continuous_backup: Optional[pulumi.Input[bool]] = None,
-                 lifecycle: Optional[pulumi.Input['PlanRuleLifecycleArgs']] = None,
+                 lifecycle: Optional[pulumi.Input['PlanRuleLifecycleArrgs']] = None,
                  recovery_point_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schedule: Optional[pulumi.Input[str]] = None,
                  start_window: Optional[pulumi.Input[int]] = None):
@@ -229,9 +229,9 @@ class PlanRuleArgs:
         :param pulumi.Input[str] rule_name: An display name for a backup rule.
         :param pulumi.Input[str] target_vault_name: The name of a logical container where backups are stored.
         :param pulumi.Input[int] completion_window: The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArrgs']]] copy_actions: Configuration block(s) with copy operation settings. Detailed below.
         :param pulumi.Input[bool] enable_continuous_backup: Enable continuous backups for supported resources.
-        :param pulumi.Input['PlanRuleLifecycleArgs'] lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
+        :param pulumi.Input['PlanRuleLifecycleArrgs'] lifecycle: The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] recovery_point_tags: Metadata that you can assign to help organize the resources that you create.
         :param pulumi.Input[str] schedule: A CRON expression specifying when AWS Backup initiates a backup job.
         :param pulumi.Input[int] start_window: The amount of time in minutes before beginning a backup.
@@ -291,14 +291,14 @@ class PlanRuleArgs:
 
     @property
     @pulumi.getter(name="copyActions")
-    def copy_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]]]:
+    def copy_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArrgs']]]]:
         """
         Configuration block(s) with copy operation settings. Detailed below.
         """
         return pulumi.get(self, "copy_actions")
 
     @copy_actions.setter
-    def copy_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArgs']]]]):
+    def copy_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlanRuleCopyActionArrgs']]]]):
         pulumi.set(self, "copy_actions", value)
 
     @property
@@ -315,14 +315,14 @@ class PlanRuleArgs:
 
     @property
     @pulumi.getter
-    def lifecycle(self) -> Optional[pulumi.Input['PlanRuleLifecycleArgs']]:
+    def lifecycle(self) -> Optional[pulumi.Input['PlanRuleLifecycleArrgs']]:
         """
         The lifecycle defines when a protected resource is transitioned to cold storage and when it expires.  Fields documented below.
         """
         return pulumi.get(self, "lifecycle")
 
     @lifecycle.setter
-    def lifecycle(self, value: Optional[pulumi.Input['PlanRuleLifecycleArgs']]):
+    def lifecycle(self, value: Optional[pulumi.Input['PlanRuleLifecycleArrgs']]):
         pulumi.set(self, "lifecycle", value)
 
     @property
@@ -363,13 +363,13 @@ class PlanRuleArgs:
 
 
 @pulumi.input_type
-class PlanRuleCopyActionArgs:
+calass PlanRuleCopyActionArrgs:
     def __init__(__self__, *,
                  destination_vault_arn: pulumi.Input[str],
-                 lifecycle: Optional[pulumi.Input['PlanRuleCopyActionLifecycleArgs']] = None):
+                 lifecycle: Optional[pulumi.Input['PlanRuleCopyActionLifecycleArrgs']] = None):
         """
         :param pulumi.Input[str] destination_vault_arn: An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
-        :param pulumi.Input['PlanRuleCopyActionLifecycleArgs'] lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
+        :param pulumi.Input['PlanRuleCopyActionLifecycleArrgs'] lifecycle: The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         """
         pulumi.set(__self__, "destination_vault_arn", destination_vault_arn)
         if lifecycle is not None:
@@ -389,19 +389,19 @@ class PlanRuleCopyActionArgs:
 
     @property
     @pulumi.getter
-    def lifecycle(self) -> Optional[pulumi.Input['PlanRuleCopyActionLifecycleArgs']]:
+    def lifecycle(self) -> Optional[pulumi.Input['PlanRuleCopyActionLifecycleArrgs']]:
         """
         The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
         """
         return pulumi.get(self, "lifecycle")
 
     @lifecycle.setter
-    def lifecycle(self, value: Optional[pulumi.Input['PlanRuleCopyActionLifecycleArgs']]):
+    def lifecycle(self, value: Optional[pulumi.Input['PlanRuleCopyActionLifecycleArrgs']]):
         pulumi.set(self, "lifecycle", value)
 
 
 @pulumi.input_type
-class PlanRuleCopyActionLifecycleArgs:
+calass PlanRuleCopyActionLifecycleArrgs:
     def __init__(__self__, *,
                  cold_storage_after: Optional[pulumi.Input[int]] = None,
                  delete_after: Optional[pulumi.Input[int]] = None):
@@ -440,7 +440,7 @@ class PlanRuleCopyActionLifecycleArgs:
 
 
 @pulumi.input_type
-class PlanRuleLifecycleArgs:
+calass PlanRuleLifecycleArrgs:
     def __init__(__self__, *,
                  cold_storage_after: Optional[pulumi.Input[int]] = None,
                  delete_after: Optional[pulumi.Input[int]] = None):
@@ -479,7 +479,7 @@ class PlanRuleLifecycleArgs:
 
 
 @pulumi.input_type
-class ReportPlanReportDeliveryChannelArgs:
+calass ReportPlanReportDeliveryChannelArrgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[str],
                  formats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -533,7 +533,7 @@ class ReportPlanReportDeliveryChannelArgs:
 
 
 @pulumi.input_type
-class ReportPlanReportSettingArgs:
+calass ReportPlanReportSettingArrgs:
     def __init__(__self__, *,
                  report_template: pulumi.Input[str],
                  accounts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -635,12 +635,12 @@ class ReportPlanReportSettingArgs:
 
 
 @pulumi.input_type
-class SelectionConditionArgs:
+calass SelectionConditionArrgs:
     def __init__(__self__, *,
-                 string_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]] = None,
-                 string_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]] = None,
-                 string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]] = None,
-                 string_not_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]] = None):
+                 string_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArrgs']]]] = None,
+                 string_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArrgs']]]] = None,
+                 string_not_equals: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArrgs']]]] = None,
+                 string_not_likes: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArrgs']]]] = None):
         if string_equals is not None:
             pulumi.set(__self__, "string_equals", string_equals)
         if string_likes is not None:
@@ -652,43 +652,43 @@ class SelectionConditionArgs:
 
     @property
     @pulumi.getter(name="stringEquals")
-    def string_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]]:
+    def string_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArrgs']]]]:
         return pulumi.get(self, "string_equals")
 
     @string_equals.setter
-    def string_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArgs']]]]):
+    def string_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringEqualArrgs']]]]):
         pulumi.set(self, "string_equals", value)
 
     @property
     @pulumi.getter(name="stringLikes")
-    def string_likes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]]:
+    def string_likes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArrgs']]]]:
         return pulumi.get(self, "string_likes")
 
     @string_likes.setter
-    def string_likes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArgs']]]]):
+    def string_likes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringLikeArrgs']]]]):
         pulumi.set(self, "string_likes", value)
 
     @property
     @pulumi.getter(name="stringNotEquals")
-    def string_not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]]:
+    def string_not_equals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArrgs']]]]:
         return pulumi.get(self, "string_not_equals")
 
     @string_not_equals.setter
-    def string_not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArgs']]]]):
+    def string_not_equals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotEqualArrgs']]]]):
         pulumi.set(self, "string_not_equals", value)
 
     @property
     @pulumi.getter(name="stringNotLikes")
-    def string_not_likes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]]:
+    def string_not_likes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArrgs']]]]:
         return pulumi.get(self, "string_not_likes")
 
     @string_not_likes.setter
-    def string_not_likes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArgs']]]]):
+    def string_not_likes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectionConditionStringNotLikeArrgs']]]]):
         pulumi.set(self, "string_not_likes", value)
 
 
 @pulumi.input_type
-class SelectionConditionStringEqualArgs:
+calass SelectionConditionStringEqualArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -725,7 +725,7 @@ class SelectionConditionStringEqualArgs:
 
 
 @pulumi.input_type
-class SelectionConditionStringLikeArgs:
+calass SelectionConditionStringLikeArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -762,7 +762,7 @@ class SelectionConditionStringLikeArgs:
 
 
 @pulumi.input_type
-class SelectionConditionStringNotEqualArgs:
+calass SelectionConditionStringNotEqualArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -799,7 +799,7 @@ class SelectionConditionStringNotEqualArgs:
 
 
 @pulumi.input_type
-class SelectionConditionStringNotLikeArgs:
+calass SelectionConditionStringNotLikeArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str]):
@@ -836,7 +836,7 @@ class SelectionConditionStringNotLikeArgs:
 
 
 @pulumi.input_type
-class SelectionSelectionTagArgs:
+calass SelectionSelectionTagArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  type: pulumi.Input[str],

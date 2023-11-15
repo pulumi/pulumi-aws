@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRoutingProfileResult:
+calass GetRoutingProfileResult:
     """
     A collection of values returned by getRoutingProfile.
     """
@@ -126,7 +126,7 @@ class GetRoutingProfileResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetRoutingProfileResult(GetRoutingProfileResult):
+calass AwaitableGetRoutingProfileResult(GetRoutingProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

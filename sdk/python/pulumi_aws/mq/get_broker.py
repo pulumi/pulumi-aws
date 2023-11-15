@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBrokerResult:
+calass GetBrokerResult:
     """
     A collection of values returned by getBroker.
     """
@@ -204,7 +204,7 @@ class GetBrokerResult:
         return pulumi.get(self, "users")
 
 
-class AwaitableGetBrokerResult(GetBrokerResult):
+calass AwaitableGetBrokerResult(GetBrokerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

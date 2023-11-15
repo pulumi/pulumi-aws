@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AppMonitorAppMonitorConfiguration(dict):
+calass AppMonitorAppMonitorConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -161,7 +161,7 @@ class AppMonitorAppMonitorConfiguration(dict):
 
 
 @pulumi.output_type
-class AppMonitorCustomEvents(dict):
+calass AppMonitorCustomEvents(dict):
     def __init__(__self__, *,
                  status: Optional[str] = None):
         """

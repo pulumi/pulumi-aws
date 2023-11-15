@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAcceleratorResult:
+calass GetAcceleratorResult:
     """
     A collection of values returned by getAccelerator.
     """
@@ -113,7 +113,7 @@ class GetAcceleratorResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetAcceleratorResult(GetAcceleratorResult):
+calass AwaitableGetAcceleratorResult(GetAcceleratorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

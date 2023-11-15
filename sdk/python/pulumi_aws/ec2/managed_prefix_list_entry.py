@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ManagedPrefixListEntryInitArgs', 'ManagedPrefixListEntry']
+__all__ = ['ManagedPrefixListEntryInitArrgs', 'ManagedPrefixListEntry']
 
 @pulumi.input_type
-class ManagedPrefixListEntryInitArgs:
+calass ManagedPrefixListEntryInitArrgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[str],
                  prefix_list_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ManagedPrefixListEntryInitArgs:
 
 
 @pulumi.input_type
-class _ManagedPrefixListEntryState:
+calass _ManagedPrefixListEntryState:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _ManagedPrefixListEntryState:
         pulumi.set(self, "prefix_list_id", value)
 
 
-class ManagedPrefixListEntry(pulumi.CustomResource):
+calass ManagedPrefixListEntry(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,7 +175,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedPrefixListEntryInitArgs,
+                 args: ManagedPrefixListEntryInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Use the `aws_prefix_list_entry` resource to manage a managed prefix list entry.
@@ -213,12 +213,12 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ManagedPrefixListEntryInitArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedPrefixListEntryInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedPrefixListEntryInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedPrefixListEntryInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -237,7 +237,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedPrefixListEntryInitArgs.__new__(ManagedPrefixListEntryInitArgs)
+            __props__ = ManagedPrefixListEntryInitArrgs.__new__(ManagedPrefixListEntryInitArrgs)
 
             if cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr'")

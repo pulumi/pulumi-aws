@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRouteCalculatorResult:
+calass GetRouteCalculatorResult:
     """
     A collection of values returned by getRouteCalculator.
     """
@@ -109,7 +109,7 @@ class GetRouteCalculatorResult:
         return pulumi.get(self, "update_time")
 
 
-class AwaitableGetRouteCalculatorResult(GetRouteCalculatorResult):
+calass AwaitableGetRouteCalculatorResult(GetRouteCalculatorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

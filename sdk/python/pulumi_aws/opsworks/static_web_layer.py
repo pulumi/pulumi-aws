@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StaticWebLayerArgs', 'StaticWebLayer']
+__all__ = ['StaticWebLayerArrgs', 'StaticWebLayer']
 
 @pulumi.input_type
-class StaticWebLayerArgs:
+calass StaticWebLayerArrgs:
     def __init__(__self__, *,
                  stack_id: pulumi.Input[str],
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArgs']] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArrgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -30,11 +30,11 @@ class StaticWebLayerArgs:
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArrgs']]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArgs']] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -48,7 +48,7 @@ class StaticWebLayerArgs:
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArrgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -157,11 +157,11 @@ class StaticWebLayerArgs:
 
     @property
     @pulumi.getter(name="cloudwatchConfiguration")
-    def cloudwatch_configuration(self) -> Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArgs']]:
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArrgs']]:
         return pulumi.get(self, "cloudwatch_configuration")
 
     @cloudwatch_configuration.setter
-    def cloudwatch_configuration(self, value: Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArgs']]):
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
@@ -256,14 +256,14 @@ class StaticWebLayerArgs:
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]]]:
+    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArrgs']]]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]]]):
+    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArrgs']]]]):
         pulumi.set(self, "ebs_volumes", value)
 
     @property
@@ -304,11 +304,11 @@ class StaticWebLayerArgs:
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArgs']]:
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArrgs']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @load_based_auto_scaling.setter
-    def load_based_auto_scaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArgs']]):
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArrgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
 
     @property
@@ -365,13 +365,13 @@ class StaticWebLayerArgs:
 
 
 @pulumi.input_type
-class _StaticWebLayerState:
+calass _StaticWebLayerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArgs']] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArrgs']] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -381,11 +381,11 @@ class _StaticWebLayerState:
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArrgs']]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArgs']] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -401,7 +401,7 @@ class _StaticWebLayerState:
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArrgs']]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -520,11 +520,11 @@ class _StaticWebLayerState:
 
     @property
     @pulumi.getter(name="cloudwatchConfiguration")
-    def cloudwatch_configuration(self) -> Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArgs']]:
+    def cloudwatch_configuration(self) -> Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArrgs']]:
         return pulumi.get(self, "cloudwatch_configuration")
 
     @cloudwatch_configuration.setter
-    def cloudwatch_configuration(self, value: Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArgs']]):
+    def cloudwatch_configuration(self, value: Optional[pulumi.Input['StaticWebLayerCloudwatchConfigurationArrgs']]):
         pulumi.set(self, "cloudwatch_configuration", value)
 
     @property
@@ -619,14 +619,14 @@ class _StaticWebLayerState:
 
     @property
     @pulumi.getter(name="ebsVolumes")
-    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]]]:
+    def ebs_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArrgs']]]]:
         """
         `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         """
         return pulumi.get(self, "ebs_volumes")
 
     @ebs_volumes.setter
-    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArgs']]]]):
+    def ebs_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StaticWebLayerEbsVolumeArrgs']]]]):
         pulumi.set(self, "ebs_volumes", value)
 
     @property
@@ -667,11 +667,11 @@ class _StaticWebLayerState:
 
     @property
     @pulumi.getter(name="loadBasedAutoScaling")
-    def load_based_auto_scaling(self) -> Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArgs']]:
+    def load_based_auto_scaling(self) -> Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArrgs']]:
         return pulumi.get(self, "load_based_auto_scaling")
 
     @load_based_auto_scaling.setter
-    def load_based_auto_scaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArgs']]):
+    def load_based_auto_scaling(self, value: Optional[pulumi.Input['StaticWebLayerLoadBasedAutoScalingArrgs']]):
         pulumi.set(self, "load_based_auto_scaling", value)
 
     @property
@@ -754,7 +754,7 @@ class _StaticWebLayerState:
         pulumi.set(self, "use_ebs_optimized_instances", value)
 
 
-class StaticWebLayer(pulumi.CustomResource):
+calass StaticWebLayer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -762,7 +762,7 @@ class StaticWebLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerCloudwatchConfigurationArrgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -772,11 +772,11 @@ class StaticWebLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArrgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerLoadBasedAutoScalingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -811,7 +811,7 @@ class StaticWebLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArrgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.
@@ -829,7 +829,7 @@ class StaticWebLayer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StaticWebLayerArgs,
+                 args: StaticWebLayerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an OpsWorks static web server layer resource.
@@ -852,12 +852,12 @@ class StaticWebLayer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StaticWebLayerArgs args: The arguments to use to populate this resource's properties.
+        :param StaticWebLayerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StaticWebLayerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StaticWebLayerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -869,7 +869,7 @@ class StaticWebLayer(pulumi.CustomResource):
                  auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
                  auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
                  auto_healing: Optional[pulumi.Input[bool]] = None,
-                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerCloudwatchConfigurationArgs']]] = None,
+                 cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerCloudwatchConfigurationArrgs']]] = None,
                  custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -879,11 +879,11 @@ class StaticWebLayer(pulumi.CustomResource):
                  custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]]] = None,
+                 ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArrgs']]]]] = None,
                  elastic_load_balancer: Optional[pulumi.Input[str]] = None,
                  install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
                  instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerLoadBasedAutoScalingArgs']]] = None,
+                 load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerLoadBasedAutoScalingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  stack_id: Optional[pulumi.Input[str]] = None,
                  system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -896,7 +896,7 @@ class StaticWebLayer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StaticWebLayerArgs.__new__(StaticWebLayerArgs)
+            __props__ = StaticWebLayerArrgs.__new__(StaticWebLayerArrgs)
 
             __props__.__dict__["auto_assign_elastic_ips"] = auto_assign_elastic_ips
             __props__.__dict__["auto_assign_public_ips"] = auto_assign_public_ips
@@ -941,7 +941,7 @@ class StaticWebLayer(pulumi.CustomResource):
             auto_assign_elastic_ips: Optional[pulumi.Input[bool]] = None,
             auto_assign_public_ips: Optional[pulumi.Input[bool]] = None,
             auto_healing: Optional[pulumi.Input[bool]] = None,
-            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerCloudwatchConfigurationArgs']]] = None,
+            cloudwatch_configuration: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerCloudwatchConfigurationArrgs']]] = None,
             custom_configure_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_deploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_instance_profile_arn: Optional[pulumi.Input[str]] = None,
@@ -951,11 +951,11 @@ class StaticWebLayer(pulumi.CustomResource):
             custom_shutdown_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             custom_undeploy_recipes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             drain_elb_on_shutdown: Optional[pulumi.Input[bool]] = None,
-            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]]] = None,
+            ebs_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArrgs']]]]] = None,
             elastic_load_balancer: Optional[pulumi.Input[str]] = None,
             install_updates_on_boot: Optional[pulumi.Input[bool]] = None,
             instance_shutdown_timeout: Optional[pulumi.Input[int]] = None,
-            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerLoadBasedAutoScalingArgs']]] = None,
+            load_based_auto_scaling: Optional[pulumi.Input[pulumi.InputType['StaticWebLayerLoadBasedAutoScalingArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             stack_id: Optional[pulumi.Input[str]] = None,
             system_packages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -976,7 +976,7 @@ class StaticWebLayer(pulumi.CustomResource):
         :param pulumi.Input[str] custom_instance_profile_arn: The ARN of an IAM profile that will be used for the layer's instances.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_security_group_ids: Ids for a set of security groups to apply to the layer's instances.
         :param pulumi.Input[bool] drain_elb_on_shutdown: Whether to enable Elastic Load Balancing connection draining.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StaticWebLayerEbsVolumeArrgs']]]] ebs_volumes: `ebs_volume` blocks, as described below, will each create an EBS volume and connect it to the layer's instances.
         :param pulumi.Input[str] elastic_load_balancer: Name of an Elastic Load Balancer to attach to this layer
         :param pulumi.Input[bool] install_updates_on_boot: Whether to install OS and package updates on each instance when it boots.
         :param pulumi.Input[int] instance_shutdown_timeout: The time, in seconds, that OpsWorks will wait for Chef to complete after triggering the Shutdown event.

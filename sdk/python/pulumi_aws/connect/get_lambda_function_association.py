@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLambdaFunctionAssociationResult:
+calass GetLambdaFunctionAssociationResult:
     """
     A collection of values returned by getLambdaFunctionAssociation.
     """
@@ -51,7 +51,7 @@ class GetLambdaFunctionAssociationResult:
         return pulumi.get(self, "instance_id")
 
 
-class AwaitableGetLambdaFunctionAssociationResult(GetLambdaFunctionAssociationResult):
+calass AwaitableGetLambdaFunctionAssociationResult(GetLambdaFunctionAssociationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

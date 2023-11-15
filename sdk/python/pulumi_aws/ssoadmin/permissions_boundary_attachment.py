@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PermissionsBoundaryAttachmentArgs', 'PermissionsBoundaryAttachment']
+__all__ = ['PermissionsBoundaryAttachmentArrgs', 'PermissionsBoundaryAttachment']
 
 @pulumi.input_type
-class PermissionsBoundaryAttachmentArgs:
+calass PermissionsBoundaryAttachmentArrgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[str],
                  permission_set_arn: pulumi.Input[str],
-                 permissions_boundary: pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']):
+                 permissions_boundary: pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']):
         """
         The set of arguments for constructing a PermissionsBoundaryAttachment resource.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
-        :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs'] permissions_boundary: The permissions boundary policy. See below.
+        :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs'] permissions_boundary: The permissions boundary policy. See below.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
         pulumi.set(__self__, "permission_set_arn", permission_set_arn)
@@ -55,28 +55,28 @@ class PermissionsBoundaryAttachmentArgs:
 
     @property
     @pulumi.getter(name="permissionsBoundary")
-    def permissions_boundary(self) -> pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']:
+    def permissions_boundary(self) -> pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']:
         """
         The permissions boundary policy. See below.
         """
         return pulumi.get(self, "permissions_boundary")
 
     @permissions_boundary.setter
-    def permissions_boundary(self, value: pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']):
+    def permissions_boundary(self, value: pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']):
         pulumi.set(self, "permissions_boundary", value)
 
 
 @pulumi.input_type
-class _PermissionsBoundaryAttachmentState:
+calass _PermissionsBoundaryAttachmentState:
     def __init__(__self__, *,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
-                 permissions_boundary: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']] = None):
+                 permissions_boundary: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']] = None):
         """
         Input properties used for looking up and filtering PermissionsBoundaryAttachment resources.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
-        :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs'] permissions_boundary: The permissions boundary policy. See below.
+        :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs'] permissions_boundary: The permissions boundary policy. See below.
         """
         if instance_arn is not None:
             pulumi.set(__self__, "instance_arn", instance_arn)
@@ -111,25 +111,25 @@ class _PermissionsBoundaryAttachmentState:
 
     @property
     @pulumi.getter(name="permissionsBoundary")
-    def permissions_boundary(self) -> Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']]:
+    def permissions_boundary(self) -> Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']]:
         """
         The permissions boundary policy. See below.
         """
         return pulumi.get(self, "permissions_boundary")
 
     @permissions_boundary.setter
-    def permissions_boundary(self, value: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']]):
+    def permissions_boundary(self, value: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']]):
         pulumi.set(self, "permissions_boundary", value)
 
 
-class PermissionsBoundaryAttachment(pulumi.CustomResource):
+calass PermissionsBoundaryAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
-                 permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']]] = None,
+                 permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']]] = None,
                  __props__=None):
         """
         Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set resource.
@@ -146,7 +146,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
             instance_arn=aws_ssoadmin_permission_set["example"]["instance_arn"],
             permission_set_arn=aws_ssoadmin_permission_set["example"]["arn"],
-            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
+            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArrgs(
                 managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
             ))
         ```
@@ -163,13 +163,13 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
-        :param pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']] permissions_boundary: The permissions boundary policy. See below.
+        :param pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']] permissions_boundary: The permissions boundary policy. See below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PermissionsBoundaryAttachmentArgs,
+                 args: PermissionsBoundaryAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a permissions boundary policy to a Single Sign-On (SSO) Permission Set resource.
@@ -186,7 +186,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         example = aws.ssoadmin.PermissionsBoundaryAttachment("example",
             instance_arn=aws_ssoadmin_permission_set["example"]["instance_arn"],
             permission_set_arn=aws_ssoadmin_permission_set["example"]["arn"],
-            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArgs(
+            permissions_boundary=aws.ssoadmin.PermissionsBoundaryAttachmentPermissionsBoundaryArrgs(
                 managed_policy_arn="arn:aws:iam::aws:policy/ReadOnlyAccess",
             ))
         ```
@@ -200,12 +200,12 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PermissionsBoundaryAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param PermissionsBoundaryAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PermissionsBoundaryAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PermissionsBoundaryAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -216,7 +216,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  permission_set_arn: Optional[pulumi.Input[str]] = None,
-                 permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']]] = None,
+                 permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -224,7 +224,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PermissionsBoundaryAttachmentArgs.__new__(PermissionsBoundaryAttachmentArgs)
+            __props__ = PermissionsBoundaryAttachmentArrgs.__new__(PermissionsBoundaryAttachmentArrgs)
 
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
@@ -247,7 +247,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_arn: Optional[pulumi.Input[str]] = None,
             permission_set_arn: Optional[pulumi.Input[str]] = None,
-            permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']]] = None) -> 'PermissionsBoundaryAttachment':
+            permissions_boundary: Optional[pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']]] = None) -> 'PermissionsBoundaryAttachment':
         """
         Get an existing PermissionsBoundaryAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -257,7 +257,7 @@ class PermissionsBoundaryAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[str] permission_set_arn: The Amazon Resource Name (ARN) of the Permission Set.
-        :param pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArgs']] permissions_boundary: The permissions boundary policy. See below.
+        :param pulumi.Input[pulumi.InputType['PermissionsBoundaryAttachmentPermissionsBoundaryArrgs']] permissions_boundary: The permissions boundary policy. See below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

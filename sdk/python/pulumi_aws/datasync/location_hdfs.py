@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LocationHdfsArgs', 'LocationHdfs']
+__all__ = ['LocationHdfsArrgs', 'LocationHdfs']
 
 @pulumi.input_type
-class LocationHdfsArgs:
+calass LocationHdfsArrgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 name_nodes: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]],
+                 name_nodes: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArrgs']]],
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  block_size: Optional[pulumi.Input[int]] = None,
                  kerberos_keytab: Optional[pulumi.Input[str]] = None,
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
+                 qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArrgs']] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -32,14 +32,14 @@ class LocationHdfsArgs:
         """
         The set of arguments for constructing a LocationHdfs resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArrgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         :param pulumi.Input[str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         :param pulumi.Input[int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
         :param pulumi.Input[str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
-        :param pulumi.Input['LocationHdfsQopConfigurationArgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        :param pulumi.Input['LocationHdfsQopConfigurationArrgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         :param pulumi.Input[int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         :param pulumi.Input[str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
@@ -84,14 +84,14 @@ class LocationHdfsArgs:
 
     @property
     @pulumi.getter(name="nameNodes")
-    def name_nodes(self) -> pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]:
+    def name_nodes(self) -> pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArrgs']]]:
         """
         The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         """
         return pulumi.get(self, "name_nodes")
 
     @name_nodes.setter
-    def name_nodes(self, value: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]):
+    def name_nodes(self, value: pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArrgs']]]):
         pulumi.set(self, "name_nodes", value)
 
     @property
@@ -168,14 +168,14 @@ class LocationHdfsArgs:
 
     @property
     @pulumi.getter(name="qopConfiguration")
-    def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]:
+    def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArrgs']]:
         """
         The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         """
         return pulumi.get(self, "qop_configuration")
 
     @qop_configuration.setter
-    def qop_configuration(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]):
+    def qop_configuration(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationArrgs']]):
         pulumi.set(self, "qop_configuration", value)
 
     @property
@@ -228,7 +228,7 @@ class LocationHdfsArgs:
 
 
 @pulumi.input_type
-class _LocationHdfsState:
+calass _LocationHdfsState:
     def __init__(__self__, *,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -238,8 +238,8 @@ class _LocationHdfsState:
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]] = None,
-                 qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']] = None,
+                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArrgs']]]] = None,
+                 qop_configuration: Optional[pulumi.Input['LocationHdfsQopConfigurationArrgs']] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -256,8 +256,8 @@ class _LocationHdfsState:
         :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
-        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        :param pulumi.Input['LocationHdfsQopConfigurationArgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArrgs']]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
+        :param pulumi.Input['LocationHdfsQopConfigurationArrgs'] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         :param pulumi.Input[int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         :param pulumi.Input[str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
@@ -398,26 +398,26 @@ class _LocationHdfsState:
 
     @property
     @pulumi.getter(name="nameNodes")
-    def name_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]]:
+    def name_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArrgs']]]]:
         """
         The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
         """
         return pulumi.get(self, "name_nodes")
 
     @name_nodes.setter
-    def name_nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArgs']]]]):
+    def name_nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LocationHdfsNameNodeArrgs']]]]):
         pulumi.set(self, "name_nodes", value)
 
     @property
     @pulumi.getter(name="qopConfiguration")
-    def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]:
+    def qop_configuration(self) -> Optional[pulumi.Input['LocationHdfsQopConfigurationArrgs']]:
         """
         The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         """
         return pulumi.get(self, "qop_configuration")
 
     @qop_configuration.setter
-    def qop_configuration(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationArgs']]):
+    def qop_configuration(self, value: Optional[pulumi.Input['LocationHdfsQopConfigurationArrgs']]):
         pulumi.set(self, "qop_configuration", value)
 
     @property
@@ -493,7 +493,7 @@ class _LocationHdfsState:
         pulumi.set(self, "uri", value)
 
 
-class LocationHdfs(pulumi.CustomResource):
+calass LocationHdfs(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -505,8 +505,8 @@ class LocationHdfs(pulumi.CustomResource):
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
-                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']]] = None,
+                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArrgs']]]]] = None,
+                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArrgs']]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -527,7 +527,7 @@ class LocationHdfs(pulumi.CustomResource):
             agent_arns=[aws_datasync_agent["example"]["arn"]],
             authentication_type="SIMPLE",
             simple_user="example",
-            name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
+            name_nodes=[aws.datasync.LocationHdfsNameNodeArrgs(
                 hostname=aws_instance["example"]["private_dns"],
                 port=80,
             )])
@@ -550,8 +550,8 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        :param pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArrgs']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
+        :param pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArrgs']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         :param pulumi.Input[int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         :param pulumi.Input[str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.
@@ -561,7 +561,7 @@ class LocationHdfs(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationHdfsArgs,
+                 args: LocationHdfsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an HDFS Location within AWS DataSync.
@@ -578,7 +578,7 @@ class LocationHdfs(pulumi.CustomResource):
             agent_arns=[aws_datasync_agent["example"]["arn"]],
             authentication_type="SIMPLE",
             simple_user="example",
-            name_nodes=[aws.datasync.LocationHdfsNameNodeArgs(
+            name_nodes=[aws.datasync.LocationHdfsNameNodeArrgs(
                 hostname=aws_instance["example"]["private_dns"],
                 port=80,
             )])
@@ -593,12 +593,12 @@ class LocationHdfs(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocationHdfsArgs args: The arguments to use to populate this resource's properties.
+        :param LocationHdfsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationHdfsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationHdfsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -614,8 +614,8 @@ class LocationHdfs(pulumi.CustomResource):
                  kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
                  kerberos_principal: Optional[pulumi.Input[str]] = None,
                  kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
-                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']]] = None,
+                 name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArrgs']]]]] = None,
+                 qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArrgs']]] = None,
                  replication_factor: Optional[pulumi.Input[int]] = None,
                  simple_user: Optional[pulumi.Input[str]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
@@ -627,7 +627,7 @@ class LocationHdfs(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationHdfsArgs.__new__(LocationHdfsArgs)
+            __props__ = LocationHdfsArrgs.__new__(LocationHdfsArrgs)
 
             if agent_arns is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_arns'")
@@ -669,8 +669,8 @@ class LocationHdfs(pulumi.CustomResource):
             kerberos_krb5_conf: Optional[pulumi.Input[str]] = None,
             kerberos_principal: Optional[pulumi.Input[str]] = None,
             kms_key_provider_uri: Optional[pulumi.Input[str]] = None,
-            name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]]] = None,
-            qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']]] = None,
+            name_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArrgs']]]]] = None,
+            qop_configuration: Optional[pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArrgs']]] = None,
             replication_factor: Optional[pulumi.Input[int]] = None,
             simple_user: Optional[pulumi.Input[str]] = None,
             subdirectory: Optional[pulumi.Input[str]] = None,
@@ -692,8 +692,8 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[str] kerberos_krb5_conf: The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kerberos_principal: The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] kms_key_provider_uri: The URI of the HDFS cluster's Key Management Server (KMS).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArgs']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
-        :param pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArgs']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LocationHdfsNameNodeArrgs']]]] name_nodes: The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
+        :param pulumi.Input[pulumi.InputType['LocationHdfsQopConfigurationArrgs']] qop_configuration: The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn't specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
         :param pulumi.Input[int] replication_factor: The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
         :param pulumi.Input[str] simple_user: The user name used to identify the client on the host operating system. If `SIMPLE` is specified for `authentication_type`, this parameter is required.
         :param pulumi.Input[str] subdirectory: A subdirectory in the HDFS cluster. This subdirectory is used to read data from or write data to the HDFS cluster. If the subdirectory isn't specified, it will default to /.

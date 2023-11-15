@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAliasResult:
+calass GetAliasResult:
     """
     A collection of values returned by getAlias.
     """
@@ -76,7 +76,7 @@ class GetAliasResult:
         return pulumi.get(self, "target_key_id")
 
 
-class AwaitableGetAliasResult(GetAliasResult):
+calass AwaitableGetAliasResult(GetAliasResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

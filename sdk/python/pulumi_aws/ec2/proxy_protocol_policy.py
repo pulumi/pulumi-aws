@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProxyProtocolPolicyArgs', 'ProxyProtocolPolicy']
+__all__ = ['ProxyProtocolPolicyArrgs', 'ProxyProtocolPolicy']
 
 @pulumi.input_type
-class ProxyProtocolPolicyArgs:
+calass ProxyProtocolPolicyArrgs:
     def __init__(__self__, *,
                  instance_ports: pulumi.Input[Sequence[pulumi.Input[str]]],
                  load_balancer: pulumi.Input[str]):
@@ -54,7 +54,7 @@ class ProxyProtocolPolicyArgs:
 
 
 @pulumi.input_type
-class _ProxyProtocolPolicyState:
+calass _ProxyProtocolPolicyState:
     def __init__(__self__, *,
                  instance_ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer: Optional[pulumi.Input[str]] = None):
@@ -97,7 +97,7 @@ class _ProxyProtocolPolicyState:
         pulumi.set(self, "load_balancer", value)
 
 
-class ProxyProtocolPolicy(pulumi.CustomResource):
+calass ProxyProtocolPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -117,13 +117,13 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         lb = aws.elb.LoadBalancer("lb",
             availability_zones=["us-east-1a"],
             listeners=[
-                aws.elb.LoadBalancerListenerArgs(
+                aws.elb.LoadBalancerListenerArrgs(
                     instance_port=25,
                     instance_protocol="tcp",
                     lb_port=25,
                     lb_protocol="tcp",
                 ),
-                aws.elb.LoadBalancerListenerArgs(
+                aws.elb.LoadBalancerListenerArrgs(
                     instance_port=587,
                     instance_protocol="tcp",
                     lb_port=587,
@@ -149,7 +149,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProxyProtocolPolicyArgs,
+                 args: ProxyProtocolPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
@@ -163,13 +163,13 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         lb = aws.elb.LoadBalancer("lb",
             availability_zones=["us-east-1a"],
             listeners=[
-                aws.elb.LoadBalancerListenerArgs(
+                aws.elb.LoadBalancerListenerArrgs(
                     instance_port=25,
                     instance_protocol="tcp",
                     lb_port=25,
                     lb_protocol="tcp",
                 ),
-                aws.elb.LoadBalancerListenerArgs(
+                aws.elb.LoadBalancerListenerArrgs(
                     instance_port=587,
                     instance_protocol="tcp",
                     lb_port=587,
@@ -185,12 +185,12 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProxyProtocolPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ProxyProtocolPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProxyProtocolPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProxyProtocolPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -208,7 +208,7 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProxyProtocolPolicyArgs.__new__(ProxyProtocolPolicyArgs)
+            __props__ = ProxyProtocolPolicyArrgs.__new__(ProxyProtocolPolicyArrgs)
 
             if instance_ports is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_ports'")

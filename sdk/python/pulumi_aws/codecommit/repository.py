@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RepositoryArgs', 'Repository']
+__all__ = ['RepositoryArrgs', 'Repository']
 
 @pulumi.input_type
-class RepositoryArgs:
+calass RepositoryArrgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[str],
                  default_branch: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class RepositoryArgs:
 
 
 @pulumi.input_type
-class _RepositoryState:
+calass _RepositoryState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  clone_url_http: Optional[pulumi.Input[str]] = None,
@@ -240,7 +240,7 @@ class _RepositoryState:
         pulumi.set(self, "tags_all", value)
 
 
-class Repository(pulumi.CustomResource):
+calass Repository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -283,7 +283,7 @@ class Repository(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RepositoryArgs,
+                 args: RepositoryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeCommit Repository Resource.
@@ -308,12 +308,12 @@ class Repository(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RepositoryArgs args: The arguments to use to populate this resource's properties.
+        :param RepositoryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RepositoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -333,7 +333,7 @@ class Repository(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RepositoryArgs.__new__(RepositoryArgs)
+            __props__ = RepositoryArrgs.__new__(RepositoryArrgs)
 
             __props__.__dict__["default_branch"] = default_branch
             __props__.__dict__["description"] = description

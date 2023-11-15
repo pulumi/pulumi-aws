@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BotAssociationArgs', 'BotAssociation']
+__all__ = ['BotAssociationArrgs', 'BotAssociation']
 
 @pulumi.input_type
-class BotAssociationArgs:
+calass BotAssociationArrgs:
     def __init__(__self__, *,
                  instance_id: pulumi.Input[str],
-                 lex_bot: pulumi.Input['BotAssociationLexBotArgs']):
+                 lex_bot: pulumi.Input['BotAssociationLexBotArrgs']):
         """
         The set of arguments for constructing a BotAssociation resource.
         :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input['BotAssociationLexBotArgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+        :param pulumi.Input['BotAssociationLexBotArrgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "lex_bot", lex_bot)
@@ -40,26 +40,26 @@ class BotAssociationArgs:
 
     @property
     @pulumi.getter(name="lexBot")
-    def lex_bot(self) -> pulumi.Input['BotAssociationLexBotArgs']:
+    def lex_bot(self) -> pulumi.Input['BotAssociationLexBotArrgs']:
         """
         Configuration information of an Amazon Lex (V1) bot. Detailed below.
         """
         return pulumi.get(self, "lex_bot")
 
     @lex_bot.setter
-    def lex_bot(self, value: pulumi.Input['BotAssociationLexBotArgs']):
+    def lex_bot(self, value: pulumi.Input['BotAssociationLexBotArrgs']):
         pulumi.set(self, "lex_bot", value)
 
 
 @pulumi.input_type
-class _BotAssociationState:
+calass _BotAssociationState:
     def __init__(__self__, *,
                  instance_id: Optional[pulumi.Input[str]] = None,
-                 lex_bot: Optional[pulumi.Input['BotAssociationLexBotArgs']] = None):
+                 lex_bot: Optional[pulumi.Input['BotAssociationLexBotArrgs']] = None):
         """
         Input properties used for looking up and filtering BotAssociation resources.
         :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input['BotAssociationLexBotArgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+        :param pulumi.Input['BotAssociationLexBotArrgs'] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
         """
         if instance_id is not None:
             pulumi.set(__self__, "instance_id", instance_id)
@@ -80,24 +80,24 @@ class _BotAssociationState:
 
     @property
     @pulumi.getter(name="lexBot")
-    def lex_bot(self) -> Optional[pulumi.Input['BotAssociationLexBotArgs']]:
+    def lex_bot(self) -> Optional[pulumi.Input['BotAssociationLexBotArrgs']]:
         """
         Configuration information of an Amazon Lex (V1) bot. Detailed below.
         """
         return pulumi.get(self, "lex_bot")
 
     @lex_bot.setter
-    def lex_bot(self, value: Optional[pulumi.Input['BotAssociationLexBotArgs']]):
+    def lex_bot(self, value: Optional[pulumi.Input['BotAssociationLexBotArrgs']]):
         pulumi.set(self, "lex_bot", value)
 
 
-class BotAssociation(pulumi.CustomResource):
+calass BotAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
-                 lex_bot: Optional[pulumi.Input[pulumi.InputType['BotAssociationLexBotArgs']]] = None,
+                 lex_bot: Optional[pulumi.Input[pulumi.InputType['BotAssociationLexBotArrgs']]] = None,
                  __props__=None):
         """
         Allows the specified Amazon Connect instance to access the specified Amazon Lex (V1) bot. For more information see
@@ -114,7 +114,7 @@ class BotAssociation(pulumi.CustomResource):
 
         example = aws.connect.BotAssociation("example",
             instance_id=aws_connect_instance["example"]["id"],
-            lex_bot=aws.connect.BotAssociationLexBotArgs(
+            lex_bot=aws.connect.BotAssociationLexBotArrgs(
                 lex_region="us-west-2",
                 name="Test",
             ))
@@ -129,25 +129,25 @@ class BotAssociation(pulumi.CustomResource):
         example_intent = aws.lex.Intent("exampleIntent",
             create_version=True,
             name="connect_lex_intent",
-            fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
+            fulfillment_activity=aws.lex.IntentFulfillmentActivityArrgs(
                 type="ReturnIntent",
             ),
             sample_utterances=["I would like to pick up flowers."])
         example_bot = aws.lex.Bot("exampleBot",
-            abort_statement=aws.lex.BotAbortStatementArgs(
-                messages=[aws.lex.BotAbortStatementMessageArgs(
+            abort_statement=aws.lex.BotAbortStatementArrgs(
+                messages=[aws.lex.BotAbortStatementMessageArrgs(
                     content="Sorry, I am not able to assist at this time.",
                     content_type="PlainText",
                 )],
             ),
-            clarification_prompt=aws.lex.BotClarificationPromptArgs(
+            clarification_prompt=aws.lex.BotClarificationPromptArrgs(
                 max_attempts=2,
-                messages=[aws.lex.BotClarificationPromptMessageArgs(
+                messages=[aws.lex.BotClarificationPromptMessageArrgs(
                     content="I didn't understand you, what would you like to do?",
                     content_type="PlainText",
                 )],
             ),
-            intents=[aws.lex.BotIntentArgs(
+            intents=[aws.lex.BotIntentArrgs(
                 intent_name=example_intent.name,
                 intent_version="1",
             )],
@@ -156,7 +156,7 @@ class BotAssociation(pulumi.CustomResource):
             process_behavior="BUILD")
         example_bot_association = aws.connect.BotAssociation("exampleBotAssociation",
             instance_id=aws_connect_instance["example"]["id"],
-            lex_bot=aws.connect.BotAssociationLexBotArgs(
+            lex_bot=aws.connect.BotAssociationLexBotArrgs(
                 lex_region=current.name,
                 name=example_bot.name,
             ))
@@ -173,13 +173,13 @@ class BotAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input[pulumi.InputType['BotAssociationLexBotArgs']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BotAssociationLexBotArrgs']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BotAssociationArgs,
+                 args: BotAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows the specified Amazon Connect instance to access the specified Amazon Lex (V1) bot. For more information see
@@ -196,7 +196,7 @@ class BotAssociation(pulumi.CustomResource):
 
         example = aws.connect.BotAssociation("example",
             instance_id=aws_connect_instance["example"]["id"],
-            lex_bot=aws.connect.BotAssociationLexBotArgs(
+            lex_bot=aws.connect.BotAssociationLexBotArrgs(
                 lex_region="us-west-2",
                 name="Test",
             ))
@@ -211,25 +211,25 @@ class BotAssociation(pulumi.CustomResource):
         example_intent = aws.lex.Intent("exampleIntent",
             create_version=True,
             name="connect_lex_intent",
-            fulfillment_activity=aws.lex.IntentFulfillmentActivityArgs(
+            fulfillment_activity=aws.lex.IntentFulfillmentActivityArrgs(
                 type="ReturnIntent",
             ),
             sample_utterances=["I would like to pick up flowers."])
         example_bot = aws.lex.Bot("exampleBot",
-            abort_statement=aws.lex.BotAbortStatementArgs(
-                messages=[aws.lex.BotAbortStatementMessageArgs(
+            abort_statement=aws.lex.BotAbortStatementArrgs(
+                messages=[aws.lex.BotAbortStatementMessageArrgs(
                     content="Sorry, I am not able to assist at this time.",
                     content_type="PlainText",
                 )],
             ),
-            clarification_prompt=aws.lex.BotClarificationPromptArgs(
+            clarification_prompt=aws.lex.BotClarificationPromptArrgs(
                 max_attempts=2,
-                messages=[aws.lex.BotClarificationPromptMessageArgs(
+                messages=[aws.lex.BotClarificationPromptMessageArrgs(
                     content="I didn't understand you, what would you like to do?",
                     content_type="PlainText",
                 )],
             ),
-            intents=[aws.lex.BotIntentArgs(
+            intents=[aws.lex.BotIntentArrgs(
                 intent_name=example_intent.name,
                 intent_version="1",
             )],
@@ -238,7 +238,7 @@ class BotAssociation(pulumi.CustomResource):
             process_behavior="BUILD")
         example_bot_association = aws.connect.BotAssociation("exampleBotAssociation",
             instance_id=aws_connect_instance["example"]["id"],
-            lex_bot=aws.connect.BotAssociationLexBotArgs(
+            lex_bot=aws.connect.BotAssociationLexBotArrgs(
                 lex_region=current.name,
                 name=example_bot.name,
             ))
@@ -253,12 +253,12 @@ class BotAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BotAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param BotAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BotAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BotAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -268,7 +268,7 @@ class BotAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
-                 lex_bot: Optional[pulumi.Input[pulumi.InputType['BotAssociationLexBotArgs']]] = None,
+                 lex_bot: Optional[pulumi.Input[pulumi.InputType['BotAssociationLexBotArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -276,7 +276,7 @@ class BotAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BotAssociationArgs.__new__(BotAssociationArgs)
+            __props__ = BotAssociationArrgs.__new__(BotAssociationArrgs)
 
             if instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_id'")
@@ -295,7 +295,7 @@ class BotAssociation(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
-            lex_bot: Optional[pulumi.Input[pulumi.InputType['BotAssociationLexBotArgs']]] = None) -> 'BotAssociation':
+            lex_bot: Optional[pulumi.Input[pulumi.InputType['BotAssociationLexBotArrgs']]] = None) -> 'BotAssociation':
         """
         Get an existing BotAssociation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -304,7 +304,7 @@ class BotAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_id: The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.
-        :param pulumi.Input[pulumi.InputType['BotAssociationLexBotArgs']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
+        :param pulumi.Input[pulumi.InputType['BotAssociationLexBotArrgs']] lex_bot: Configuration information of an Amazon Lex (V1) bot. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

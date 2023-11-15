@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ControlPanelArgs', 'ControlPanel']
+__all__ = ['ControlPanelArrgs', 'ControlPanel']
 
 @pulumi.input_type
-class ControlPanelArgs:
+calass ControlPanelArrgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class ControlPanelArgs:
 
 
 @pulumi.input_type
-class _ControlPanelState:
+calass _ControlPanelState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cluster_arn: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class _ControlPanelState:
         pulumi.set(self, "status", value)
 
 
-class ControlPanel(pulumi.CustomResource):
+calass ControlPanel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -191,7 +191,7 @@ class ControlPanel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ControlPanelArgs,
+                 args: ControlPanelArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Route 53 Recovery Control Config Control Panel.
@@ -214,12 +214,12 @@ class ControlPanel(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ControlPanelArgs args: The arguments to use to populate this resource's properties.
+        :param ControlPanelArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ControlPanelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ControlPanelArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -237,7 +237,7 @@ class ControlPanel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ControlPanelArgs.__new__(ControlPanelArgs)
+            __props__ = ControlPanelArrgs.__new__(ControlPanelArrgs)
 
             if cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_arn'")

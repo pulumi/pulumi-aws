@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTaskDefinitionResult:
+calass GetTaskDefinitionResult:
     """
     A collection of values returned by getTaskDefinition.
     """
@@ -131,7 +131,7 @@ class GetTaskDefinitionResult:
         return pulumi.get(self, "task_role_arn")
 
 
-class AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
+calass AwaitableGetTaskDefinitionResult(GetTaskDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

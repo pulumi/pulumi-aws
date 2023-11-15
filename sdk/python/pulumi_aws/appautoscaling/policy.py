@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['PolicyArgs', 'Policy']
+__all__ = ['PolicyArrgs', 'Policy']
 
 @pulumi.input_type
-class PolicyArgs:
+calass PolicyArrgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str],
                  scalable_dimension: pulumi.Input[str],
                  service_namespace: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArgs']] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']] = None):
+                 step_scaling_policy_configuration: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArrgs']] = None,
+                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArrgs']] = None):
         """
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[str] resource_id: Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
@@ -30,8 +30,8 @@ class PolicyArgs:
         :param pulumi.Input[str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[str] name: Name of the policy. Must be between 1 and 255 characters in length.
         :param pulumi.Input[str] policy_type: Policy type. Valid values are `StepScaling` and `TargetTrackingScaling`. Defaults to `StepScaling`. Certain services only support only one policy type. For more information see the [Target Tracking Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html) and [Step Scaling Policies](https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html) documentation.
-        :param pulumi.Input['PolicyStepScalingPolicyConfigurationArgs'] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-        :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs'] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        :param pulumi.Input['PolicyStepScalingPolicyConfigurationArrgs'] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArrgs'] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "scalable_dimension", scalable_dimension)
@@ -107,31 +107,31 @@ class PolicyArgs:
 
     @property
     @pulumi.getter(name="stepScalingPolicyConfiguration")
-    def step_scaling_policy_configuration(self) -> Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArgs']]:
+    def step_scaling_policy_configuration(self) -> Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArrgs']]:
         """
         Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         """
         return pulumi.get(self, "step_scaling_policy_configuration")
 
     @step_scaling_policy_configuration.setter
-    def step_scaling_policy_configuration(self, value: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArgs']]):
+    def step_scaling_policy_configuration(self, value: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArrgs']]):
         pulumi.set(self, "step_scaling_policy_configuration", value)
 
     @property
     @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
-    def target_tracking_scaling_policy_configuration(self) -> Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']]:
+    def target_tracking_scaling_policy_configuration(self) -> Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArrgs']]:
         """
         Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
         return pulumi.get(self, "target_tracking_scaling_policy_configuration")
 
     @target_tracking_scaling_policy_configuration.setter
-    def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']]):
+    def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArrgs']]):
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
 
 
 @pulumi.input_type
-class _PolicyState:
+calass _PolicyState:
     def __init__(__self__, *,
                  alarm_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -140,8 +140,8 @@ class _PolicyState:
                  resource_id: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  service_namespace: Optional[pulumi.Input[str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArgs']] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']] = None):
+                 step_scaling_policy_configuration: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArrgs']] = None,
+                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArrgs']] = None):
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alarm_arns: List of CloudWatch alarm ARNs associated with the scaling policy.
@@ -151,8 +151,8 @@ class _PolicyState:
         :param pulumi.Input[str] resource_id: Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[str] scalable_dimension: Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-        :param pulumi.Input['PolicyStepScalingPolicyConfigurationArgs'] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-        :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs'] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        :param pulumi.Input['PolicyStepScalingPolicyConfigurationArrgs'] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        :param pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArrgs'] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
         if alarm_arns is not None:
             pulumi.set(__self__, "alarm_arns", alarm_arns)
@@ -259,30 +259,30 @@ class _PolicyState:
 
     @property
     @pulumi.getter(name="stepScalingPolicyConfiguration")
-    def step_scaling_policy_configuration(self) -> Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArgs']]:
+    def step_scaling_policy_configuration(self) -> Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArrgs']]:
         """
         Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
         """
         return pulumi.get(self, "step_scaling_policy_configuration")
 
     @step_scaling_policy_configuration.setter
-    def step_scaling_policy_configuration(self, value: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArgs']]):
+    def step_scaling_policy_configuration(self, value: Optional[pulumi.Input['PolicyStepScalingPolicyConfigurationArrgs']]):
         pulumi.set(self, "step_scaling_policy_configuration", value)
 
     @property
     @pulumi.getter(name="targetTrackingScalingPolicyConfiguration")
-    def target_tracking_scaling_policy_configuration(self) -> Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']]:
+    def target_tracking_scaling_policy_configuration(self) -> Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArrgs']]:
         """
         Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
         return pulumi.get(self, "target_tracking_scaling_policy_configuration")
 
     @target_tracking_scaling_policy_configuration.setter
-    def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArgs']]):
+    def target_tracking_scaling_policy_configuration(self, value: Optional[pulumi.Input['PolicyTargetTrackingScalingPolicyConfigurationArrgs']]):
         pulumi.set(self, "target_tracking_scaling_policy_configuration", value)
 
 
-class Policy(pulumi.CustomResource):
+calass Policy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -292,8 +292,8 @@ class Policy(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  service_namespace: Optional[pulumi.Input[str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArgs']]] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArgs']]] = None,
+                 step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArrgs']]] = None,
+                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArrgs']]] = None,
                  __props__=None):
         """
         Provides an Application AutoScaling Policy resource.
@@ -316,8 +316,8 @@ class Policy(pulumi.CustomResource):
             resource_id=dynamodb_table_read_target.resource_id,
             scalable_dimension=dynamodb_table_read_target.scalable_dimension,
             service_namespace=dynamodb_table_read_target.service_namespace,
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArrgs(
+                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArrgs(
                     predefined_metric_type="DynamoDBReadCapacityUtilization",
                 ),
                 target_value=70,
@@ -340,11 +340,11 @@ class Policy(pulumi.CustomResource):
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
-            step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
+            step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArrgs(
                 adjustment_type="ChangeInCapacity",
                 cooldown=60,
                 metric_aggregation_type="Maximum",
-                step_adjustments=[aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
+                step_adjustments=[aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArrgs(
                     metric_interval_upper_bound="0",
                     scaling_adjustment=-1,
                 )],
@@ -378,8 +378,8 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=replicas_target.scalable_dimension,
             resource_id=replicas_target.resource_id,
             policy_type="TargetTrackingScaling",
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArrgs(
+                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArrgs(
                     predefined_metric_type="RDSReaderAverageCPUUtilization",
                 ),
                 target_value=75,
@@ -404,18 +404,18 @@ class Policy(pulumi.CustomResource):
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArrgs(
                 target_value=100,
-                customized_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs(
+                customized_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArrgs(
                     metrics=[
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrgs(
                             label="Get the queue size (the number of messages waiting to be processed)",
                             id="m1",
-                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArrgs(
+                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArrgs(
                                     metric_name="ApproximateNumberOfMessagesVisible",
                                     namespace="AWS/SQS",
-                                    dimensions=[aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                    dimensions=[aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrgs(
                                         name="QueueName",
                                         value="my-queue",
                                     )],
@@ -424,19 +424,19 @@ class Policy(pulumi.CustomResource):
                             ),
                             return_data=False,
                         ),
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrgs(
                             label="Get the ECS running task count (the number of currently running tasks)",
                             id="m2",
-                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArrgs(
+                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArrgs(
                                     metric_name="RunningTaskCount",
                                     namespace="ECS/ContainerInsights",
                                     dimensions=[
-                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrgs(
                                             name="ClusterName",
                                             value="default",
                                         ),
-                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrgs(
                                             name="ServiceName",
                                             value="web-app",
                                         ),
@@ -446,7 +446,7 @@ class Policy(pulumi.CustomResource):
                             ),
                             return_data=False,
                         ),
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrgs(
                             label="Calculate the backlog per instance",
                             id="e1",
                             expression="m1 / m2",
@@ -473,8 +473,8 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=msk_target.scalable_dimension,
             resource_id=msk_target.resource_id,
             policy_type="TargetTrackingScaling",
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArrgs(
+                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArrgs(
                     predefined_metric_type="KafkaBrokerStorageUtilization",
                 ),
                 target_value=55,
@@ -496,14 +496,14 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[str] scalable_dimension: Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-        :param pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArgs']] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-        :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArgs']] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        :param pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArrgs']] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArrgs']] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PolicyArgs,
+                 args: PolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Application AutoScaling Policy resource.
@@ -526,8 +526,8 @@ class Policy(pulumi.CustomResource):
             resource_id=dynamodb_table_read_target.resource_id,
             scalable_dimension=dynamodb_table_read_target.scalable_dimension,
             service_namespace=dynamodb_table_read_target.service_namespace,
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArrgs(
+                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArrgs(
                     predefined_metric_type="DynamoDBReadCapacityUtilization",
                 ),
                 target_value=70,
@@ -550,11 +550,11 @@ class Policy(pulumi.CustomResource):
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
-            step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
+            step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArrgs(
                 adjustment_type="ChangeInCapacity",
                 cooldown=60,
                 metric_aggregation_type="Maximum",
-                step_adjustments=[aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
+                step_adjustments=[aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArrgs(
                     metric_interval_upper_bound="0",
                     scaling_adjustment=-1,
                 )],
@@ -588,8 +588,8 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=replicas_target.scalable_dimension,
             resource_id=replicas_target.resource_id,
             policy_type="TargetTrackingScaling",
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArrgs(
+                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArrgs(
                     predefined_metric_type="RDSReaderAverageCPUUtilization",
                 ),
                 target_value=75,
@@ -614,18 +614,18 @@ class Policy(pulumi.CustomResource):
             resource_id=ecs_target.resource_id,
             scalable_dimension=ecs_target.scalable_dimension,
             service_namespace=ecs_target.service_namespace,
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArrgs(
                 target_value=100,
-                customized_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs(
+                customized_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArrgs(
                     metrics=[
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrgs(
                             label="Get the queue size (the number of messages waiting to be processed)",
                             id="m1",
-                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArrgs(
+                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArrgs(
                                     metric_name="ApproximateNumberOfMessagesVisible",
                                     namespace="AWS/SQS",
-                                    dimensions=[aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                    dimensions=[aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrgs(
                                         name="QueueName",
                                         value="my-queue",
                                     )],
@@ -634,19 +634,19 @@ class Policy(pulumi.CustomResource):
                             ),
                             return_data=False,
                         ),
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrgs(
                             label="Get the ECS running task count (the number of currently running tasks)",
                             id="m2",
-                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs(
-                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs(
+                            metric_stat=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArrgs(
+                                metric=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArrgs(
                                     metric_name="RunningTaskCount",
                                     namespace="ECS/ContainerInsights",
                                     dimensions=[
-                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrgs(
                                             name="ClusterName",
                                             value="default",
                                         ),
-                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs(
+                                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrgs(
                                             name="ServiceName",
                                             value="web-app",
                                         ),
@@ -656,7 +656,7 @@ class Policy(pulumi.CustomResource):
                             ),
                             return_data=False,
                         ),
-                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs(
+                        aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrgs(
                             label="Calculate the backlog per instance",
                             id="e1",
                             expression="m1 / m2",
@@ -683,8 +683,8 @@ class Policy(pulumi.CustomResource):
             scalable_dimension=msk_target.scalable_dimension,
             resource_id=msk_target.resource_id,
             policy_type="TargetTrackingScaling",
-            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArgs(
-                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs(
+            target_tracking_scaling_policy_configuration=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationArrgs(
+                predefined_metric_specification=aws.appautoscaling.PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArrgs(
                     predefined_metric_type="KafkaBrokerStorageUtilization",
                 ),
                 target_value=55,
@@ -700,12 +700,12 @@ class Policy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PolicyArgs args: The arguments to use to populate this resource's properties.
+        :param PolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -719,8 +719,8 @@ class Policy(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  scalable_dimension: Optional[pulumi.Input[str]] = None,
                  service_namespace: Optional[pulumi.Input[str]] = None,
-                 step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArgs']]] = None,
-                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArgs']]] = None,
+                 step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArrgs']]] = None,
+                 target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -728,7 +728,7 @@ class Policy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PolicyArgs.__new__(PolicyArgs)
+            __props__ = PolicyArrgs.__new__(PolicyArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_type"] = policy_type
@@ -762,8 +762,8 @@ class Policy(pulumi.CustomResource):
             resource_id: Optional[pulumi.Input[str]] = None,
             scalable_dimension: Optional[pulumi.Input[str]] = None,
             service_namespace: Optional[pulumi.Input[str]] = None,
-            step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArgs']]] = None,
-            target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArgs']]] = None) -> 'Policy':
+            step_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArrgs']]] = None,
+            target_tracking_scaling_policy_configuration: Optional[pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArrgs']]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -778,8 +778,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: Resource type and unique identifier string for the resource associated with the scaling policy. Documentation can be found in the `ResourceId` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[str] scalable_dimension: Scalable dimension of the scalable target. Documentation can be found in the `ScalableDimension` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
         :param pulumi.Input[str] service_namespace: AWS service namespace of the scalable target. Documentation can be found in the `ServiceNamespace` parameter at: [AWS Application Auto Scaling API Reference](https://docs.aws.amazon.com/autoscaling/application/APIReference/API_RegisterScalableTarget.html)
-        :param pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArgs']] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
-        :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArgs']] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
+        :param pulumi.Input[pulumi.InputType['PolicyStepScalingPolicyConfigurationArrgs']] step_scaling_policy_configuration: Step scaling policy configuration, requires `policy_type = "StepScaling"` (default). See supported fields below.
+        :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingScalingPolicyConfigurationArrgs']] target_tracking_scaling_policy_configuration: Target tracking policy, requires `policy_type = "TargetTrackingScaling"`. See supported fields below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

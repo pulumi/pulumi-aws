@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WebsiteCertificateAuthorityAssociationArgs', 'WebsiteCertificateAuthorityAssociation']
+__all__ = ['WebsiteCertificateAuthorityAssociationArrgs', 'WebsiteCertificateAuthorityAssociation']
 
 @pulumi.input_type
-class WebsiteCertificateAuthorityAssociationArgs:
+calass WebsiteCertificateAuthorityAssociationArrgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[str],
                  fleet_arn: pulumi.Input[str],
@@ -66,7 +66,7 @@ class WebsiteCertificateAuthorityAssociationArgs:
 
 
 @pulumi.input_type
-class _WebsiteCertificateAuthorityAssociationState:
+calass _WebsiteCertificateAuthorityAssociationState:
     def __init__(__self__, *,
                  certificate: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _WebsiteCertificateAuthorityAssociationState:
         pulumi.set(self, "website_ca_id", value)
 
 
-class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
+calass WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,7 +177,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebsiteCertificateAuthorityAssociationArgs,
+                 args: WebsiteCertificateAuthorityAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -201,12 +201,12 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WebsiteCertificateAuthorityAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param WebsiteCertificateAuthorityAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebsiteCertificateAuthorityAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebsiteCertificateAuthorityAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -225,7 +225,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebsiteCertificateAuthorityAssociationArgs.__new__(WebsiteCertificateAuthorityAssociationArgs)
+            __props__ = WebsiteCertificateAuthorityAssociationArrgs.__new__(WebsiteCertificateAuthorityAssociationArrgs)
 
             if certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate'")

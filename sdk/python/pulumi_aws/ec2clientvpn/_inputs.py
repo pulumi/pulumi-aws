@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EndpointAuthenticationOptionArgs',
-    'EndpointClientConnectOptionsArgs',
-    'EndpointClientLoginBannerOptionsArgs',
-    'EndpointConnectionLogOptionsArgs',
-    'GetEndpointFilterArgs',
+    'EndpointAuthenticationOptionArrgs',
+    'EndpointClientConnectOptionsArrgs',
+    'EndpointClientLoginBannerOptionsArrgs',
+    'EndpointConnectionLogOptionsArrgs',
+    'GetEndpointFilterArrgs',
 ]
 
 @pulumi.input_type
-class EndpointAuthenticationOptionArgs:
+calass EndpointAuthenticationOptionArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  active_directory_id: Optional[pulumi.Input[str]] = None,
@@ -104,7 +104,7 @@ class EndpointAuthenticationOptionArgs:
 
 
 @pulumi.input_type
-class EndpointClientConnectOptionsArgs:
+calass EndpointClientConnectOptionsArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  lambda_function_arn: Optional[pulumi.Input[str]] = None):
@@ -143,7 +143,7 @@ class EndpointClientConnectOptionsArgs:
 
 
 @pulumi.input_type
-class EndpointClientLoginBannerOptionsArgs:
+calass EndpointClientLoginBannerOptionsArrgs:
     def __init__(__self__, *,
                  banner_text: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -182,7 +182,7 @@ class EndpointClientLoginBannerOptionsArgs:
 
 
 @pulumi.input_type
-class EndpointConnectionLogOptionsArgs:
+calass EndpointConnectionLogOptionsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  cloudwatch_log_group: Optional[pulumi.Input[str]] = None,
@@ -236,7 +236,7 @@ class EndpointConnectionLogOptionsArgs:
 
 
 @pulumi.input_type
-class GetEndpointFilterArgs:
+calass GetEndpointFilterArrgs:
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

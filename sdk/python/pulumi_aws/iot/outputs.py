@@ -79,7 +79,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DomainConfigurationAuthorizerConfig(dict):
+calass DomainConfigurationAuthorizerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -129,7 +129,7 @@ class DomainConfigurationAuthorizerConfig(dict):
 
 
 @pulumi.output_type
-class DomainConfigurationTlsConfig(dict):
+calass DomainConfigurationTlsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -165,7 +165,7 @@ class DomainConfigurationTlsConfig(dict):
 
 
 @pulumi.output_type
-class IndexingConfigurationThingGroupIndexingConfiguration(dict):
+calass IndexingConfigurationThingGroupIndexingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -193,8 +193,8 @@ class IndexingConfigurationThingGroupIndexingConfiguration(dict):
                  managed_fields: Optional[Sequence['outputs.IndexingConfigurationThingGroupIndexingConfigurationManagedField']] = None):
         """
         :param str thing_group_indexing_mode: Thing group indexing mode. Valid values: `OFF`, `ON`.
-        :param Sequence['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs'] custom_fields: A list of thing group fields to index. This list cannot contain any managed fields. See below.
-        :param Sequence['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs'] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+        :param Sequence['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArrgs'] custom_fields: A list of thing group fields to index. This list cannot contain any managed fields. See below.
+        :param Sequence['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArrgs'] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         """
         pulumi.set(__self__, "thing_group_indexing_mode", thing_group_indexing_mode)
         if custom_fields is not None:
@@ -228,7 +228,7 @@ class IndexingConfigurationThingGroupIndexingConfiguration(dict):
 
 
 @pulumi.output_type
-class IndexingConfigurationThingGroupIndexingConfigurationCustomField(dict):
+calass IndexingConfigurationThingGroupIndexingConfigurationCustomField(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -259,7 +259,7 @@ class IndexingConfigurationThingGroupIndexingConfigurationCustomField(dict):
 
 
 @pulumi.output_type
-class IndexingConfigurationThingGroupIndexingConfigurationManagedField(dict):
+calass IndexingConfigurationThingGroupIndexingConfigurationManagedField(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -290,7 +290,7 @@ class IndexingConfigurationThingGroupIndexingConfigurationManagedField(dict):
 
 
 @pulumi.output_type
-class IndexingConfigurationThingIndexingConfiguration(dict):
+calass IndexingConfigurationThingIndexingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -328,10 +328,10 @@ class IndexingConfigurationThingIndexingConfiguration(dict):
                  thing_connectivity_indexing_mode: Optional[str] = None):
         """
         :param str thing_indexing_mode: Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
-        :param Sequence['IndexingConfigurationThingIndexingConfigurationCustomFieldArgs'] custom_fields: Contains custom field names and their data type. See below.
+        :param Sequence['IndexingConfigurationThingIndexingConfigurationCustomFieldArrgs'] custom_fields: Contains custom field names and their data type. See below.
         :param str device_defender_indexing_mode: Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
-        :param 'IndexingConfigurationThingIndexingConfigurationFilterArgs' filter: Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-        :param Sequence['IndexingConfigurationThingIndexingConfigurationManagedFieldArgs'] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+        :param 'IndexingConfigurationThingIndexingConfigurationFilterArrgs' filter: Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+        :param Sequence['IndexingConfigurationThingIndexingConfigurationManagedFieldArrgs'] managed_fields: Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
         :param str named_shadow_indexing_mode: [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
         :param str thing_connectivity_indexing_mode: Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
         """
@@ -407,7 +407,7 @@ class IndexingConfigurationThingIndexingConfiguration(dict):
 
 
 @pulumi.output_type
-class IndexingConfigurationThingIndexingConfigurationCustomField(dict):
+calass IndexingConfigurationThingIndexingConfigurationCustomField(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -438,7 +438,7 @@ class IndexingConfigurationThingIndexingConfigurationCustomField(dict):
 
 
 @pulumi.output_type
-class IndexingConfigurationThingIndexingConfigurationFilter(dict):
+calass IndexingConfigurationThingIndexingConfigurationFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -474,7 +474,7 @@ class IndexingConfigurationThingIndexingConfigurationFilter(dict):
 
 
 @pulumi.output_type
-class IndexingConfigurationThingIndexingConfigurationManagedField(dict):
+calass IndexingConfigurationThingIndexingConfigurationManagedField(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  type: Optional[str] = None):
@@ -505,7 +505,7 @@ class IndexingConfigurationThingIndexingConfigurationManagedField(dict):
 
 
 @pulumi.output_type
-class ProvisioningTemplatePreProvisioningHook(dict):
+calass ProvisioningTemplatePreProvisioningHook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -554,7 +554,7 @@ class ProvisioningTemplatePreProvisioningHook(dict):
 
 
 @pulumi.output_type
-class ThingGroupMetadata(dict):
+calass ThingGroupMetadata(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -610,7 +610,7 @@ class ThingGroupMetadata(dict):
 
 
 @pulumi.output_type
-class ThingGroupMetadataRootToParentGroup(dict):
+calass ThingGroupMetadataRootToParentGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -650,7 +650,7 @@ class ThingGroupMetadataRootToParentGroup(dict):
 
 
 @pulumi.output_type
-class ThingGroupProperties(dict):
+calass ThingGroupProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -672,7 +672,7 @@ class ThingGroupProperties(dict):
                  attribute_payload: Optional['outputs.ThingGroupPropertiesAttributePayload'] = None,
                  description: Optional[str] = None):
         """
-        :param 'ThingGroupPropertiesAttributePayloadArgs' attribute_payload: The Thing Group attributes. Defined below.
+        :param 'ThingGroupPropertiesAttributePayloadArrgs' attribute_payload: The Thing Group attributes. Defined below.
         :param str description: A description of the Thing Group.
         """
         if attribute_payload is not None:
@@ -698,7 +698,7 @@ class ThingGroupProperties(dict):
 
 
 @pulumi.output_type
-class ThingGroupPropertiesAttributePayload(dict):
+calass ThingGroupPropertiesAttributePayload(dict):
     def __init__(__self__, *,
                  attributes: Optional[Mapping[str, str]] = None):
         """
@@ -717,7 +717,7 @@ class ThingGroupPropertiesAttributePayload(dict):
 
 
 @pulumi.output_type
-class ThingTypeProperties(dict):
+calass ThingTypeProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -765,7 +765,7 @@ class ThingTypeProperties(dict):
 
 
 @pulumi.output_type
-class TopicRuleCloudwatchAlarm(dict):
+calass TopicRuleCloudwatchAlarm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -839,7 +839,7 @@ class TopicRuleCloudwatchAlarm(dict):
 
 
 @pulumi.output_type
-class TopicRuleCloudwatchLog(dict):
+calass TopicRuleCloudwatchLog(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -887,7 +887,7 @@ class TopicRuleCloudwatchLog(dict):
 
 
 @pulumi.output_type
-class TopicRuleCloudwatchMetric(dict):
+calass TopicRuleCloudwatchMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -988,7 +988,7 @@ class TopicRuleCloudwatchMetric(dict):
 
 
 @pulumi.output_type
-class TopicRuleDestinationVpcConfiguration(dict):
+calass TopicRuleDestinationVpcConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1063,7 +1063,7 @@ class TopicRuleDestinationVpcConfiguration(dict):
 
 
 @pulumi.output_type
-class TopicRuleDynamodb(dict):
+calass TopicRuleDynamodb(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1219,7 +1219,7 @@ class TopicRuleDynamodb(dict):
 
 
 @pulumi.output_type
-class TopicRuleDynamodbv2(dict):
+calass TopicRuleDynamodbv2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1244,7 +1244,7 @@ class TopicRuleDynamodbv2(dict):
                  put_item: Optional['outputs.TopicRuleDynamodbv2PutItem'] = None):
         """
         :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
-        :param 'TopicRuleDynamodbv2PutItemArgs' put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+        :param 'TopicRuleDynamodbv2PutItemArrgs' put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if put_item is not None:
@@ -1268,7 +1268,7 @@ class TopicRuleDynamodbv2(dict):
 
 
 @pulumi.output_type
-class TopicRuleDynamodbv2PutItem(dict):
+calass TopicRuleDynamodbv2PutItem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1303,7 +1303,7 @@ class TopicRuleDynamodbv2PutItem(dict):
 
 
 @pulumi.output_type
-class TopicRuleElasticsearch(dict):
+calass TopicRuleElasticsearch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1382,7 +1382,7 @@ class TopicRuleElasticsearch(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorAction(dict):
+calass TopicRuleErrorAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1568,7 +1568,7 @@ class TopicRuleErrorAction(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionCloudwatchAlarm(dict):
+calass TopicRuleErrorActionCloudwatchAlarm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1642,7 +1642,7 @@ class TopicRuleErrorActionCloudwatchAlarm(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionCloudwatchLogs(dict):
+calass TopicRuleErrorActionCloudwatchLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1690,7 +1690,7 @@ class TopicRuleErrorActionCloudwatchLogs(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionCloudwatchMetric(dict):
+calass TopicRuleErrorActionCloudwatchMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1791,7 +1791,7 @@ class TopicRuleErrorActionCloudwatchMetric(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionDynamodb(dict):
+calass TopicRuleErrorActionDynamodb(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1947,7 +1947,7 @@ class TopicRuleErrorActionDynamodb(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionDynamodbv2(dict):
+calass TopicRuleErrorActionDynamodbv2(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1972,7 +1972,7 @@ class TopicRuleErrorActionDynamodbv2(dict):
                  put_item: Optional['outputs.TopicRuleErrorActionDynamodbv2PutItem'] = None):
         """
         :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
-        :param 'TopicRuleErrorActionDynamodbv2PutItemArgs' put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+        :param 'TopicRuleErrorActionDynamodbv2PutItemArrgs' put_item: Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
         """
         pulumi.set(__self__, "role_arn", role_arn)
         if put_item is not None:
@@ -1996,7 +1996,7 @@ class TopicRuleErrorActionDynamodbv2(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionDynamodbv2PutItem(dict):
+calass TopicRuleErrorActionDynamodbv2PutItem(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2031,7 +2031,7 @@ class TopicRuleErrorActionDynamodbv2PutItem(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionElasticsearch(dict):
+calass TopicRuleErrorActionElasticsearch(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2110,7 +2110,7 @@ class TopicRuleErrorActionElasticsearch(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionFirehose(dict):
+calass TopicRuleErrorActionFirehose(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2184,7 +2184,7 @@ class TopicRuleErrorActionFirehose(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionHttp(dict):
+calass TopicRuleErrorActionHttp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2211,7 +2211,7 @@ class TopicRuleErrorActionHttp(dict):
         """
         :param str url: The HTTPS URL.
         :param str confirmation_url: The HTTPS URL used to verify ownership of `url`.
-        :param Sequence['TopicRuleErrorActionHttpHttpHeaderArgs'] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        :param Sequence['TopicRuleErrorActionHttpHttpHeaderArrgs'] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
         """
         pulumi.set(__self__, "url", url)
         if confirmation_url is not None:
@@ -2245,7 +2245,7 @@ class TopicRuleErrorActionHttp(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionHttpHttpHeader(dict):
+calass TopicRuleErrorActionHttpHttpHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -2274,7 +2274,7 @@ class TopicRuleErrorActionHttpHttpHeader(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionIotAnalytics(dict):
+calass TopicRuleErrorActionIotAnalytics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2336,7 +2336,7 @@ class TopicRuleErrorActionIotAnalytics(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionIotEvents(dict):
+calass TopicRuleErrorActionIotEvents(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2412,7 +2412,7 @@ class TopicRuleErrorActionIotEvents(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionKafka(dict):
+calass TopicRuleErrorActionKafka(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2443,7 +2443,7 @@ class TopicRuleErrorActionKafka(dict):
         :param Mapping[str, str] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
         :param str destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         :param str topic: The Kafka topic for messages to be sent to the Kafka broker.
-        :param Sequence['TopicRuleErrorActionKafkaHeaderArgs'] headers: The list of Kafka headers that you specify. Nested arguments below.
+        :param Sequence['TopicRuleErrorActionKafkaHeaderArrgs'] headers: The list of Kafka headers that you specify. Nested arguments below.
         :param str key: The Kafka message key.
         :param str partition: The Kafka message partition.
         """
@@ -2507,7 +2507,7 @@ class TopicRuleErrorActionKafka(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionKafkaHeader(dict):
+calass TopicRuleErrorActionKafkaHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -2536,7 +2536,7 @@ class TopicRuleErrorActionKafkaHeader(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionKinesis(dict):
+calass TopicRuleErrorActionKinesis(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2598,7 +2598,7 @@ class TopicRuleErrorActionKinesis(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionLambda(dict):
+calass TopicRuleErrorActionLambda(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2633,7 +2633,7 @@ class TopicRuleErrorActionLambda(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionRepublish(dict):
+calass TopicRuleErrorActionRepublish(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2695,7 +2695,7 @@ class TopicRuleErrorActionRepublish(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionS3(dict):
+calass TopicRuleErrorActionS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2768,7 +2768,7 @@ class TopicRuleErrorActionS3(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionSns(dict):
+calass TopicRuleErrorActionSns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2830,7 +2830,7 @@ class TopicRuleErrorActionSns(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionSqs(dict):
+calass TopicRuleErrorActionSqs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2891,7 +2891,7 @@ class TopicRuleErrorActionSqs(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionStepFunctions(dict):
+calass TopicRuleErrorActionStepFunctions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2953,7 +2953,7 @@ class TopicRuleErrorActionStepFunctions(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionTimestream(dict):
+calass TopicRuleErrorActionTimestream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2983,10 +2983,10 @@ class TopicRuleErrorActionTimestream(dict):
                  timestamp: Optional['outputs.TopicRuleErrorActionTimestreamTimestamp'] = None):
         """
         :param str database_name: The name of an Amazon Timestream database.
-        :param Sequence['TopicRuleErrorActionTimestreamDimensionArgs'] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        :param Sequence['TopicRuleErrorActionTimestreamDimensionArrgs'] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
         :param str role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
         :param str table_name: The name of the database table into which to write the measure records.
-        :param 'TopicRuleErrorActionTimestreamTimestampArgs' timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        :param 'TopicRuleErrorActionTimestreamTimestampArrgs' timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "dimensions", dimensions)
@@ -3037,7 +3037,7 @@ class TopicRuleErrorActionTimestream(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionTimestreamDimension(dict):
+calass TopicRuleErrorActionTimestreamDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3066,7 +3066,7 @@ class TopicRuleErrorActionTimestreamDimension(dict):
 
 
 @pulumi.output_type
-class TopicRuleErrorActionTimestreamTimestamp(dict):
+calass TopicRuleErrorActionTimestreamTimestamp(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: str):
@@ -3095,7 +3095,7 @@ class TopicRuleErrorActionTimestreamTimestamp(dict):
 
 
 @pulumi.output_type
-class TopicRuleFirehose(dict):
+calass TopicRuleFirehose(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3169,7 +3169,7 @@ class TopicRuleFirehose(dict):
 
 
 @pulumi.output_type
-class TopicRuleHttp(dict):
+calass TopicRuleHttp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3196,7 +3196,7 @@ class TopicRuleHttp(dict):
         """
         :param str url: The HTTPS URL.
         :param str confirmation_url: The HTTPS URL used to verify ownership of `url`.
-        :param Sequence['TopicRuleHttpHttpHeaderArgs'] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        :param Sequence['TopicRuleHttpHttpHeaderArrgs'] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
         """
         pulumi.set(__self__, "url", url)
         if confirmation_url is not None:
@@ -3230,7 +3230,7 @@ class TopicRuleHttp(dict):
 
 
 @pulumi.output_type
-class TopicRuleHttpHttpHeader(dict):
+calass TopicRuleHttpHttpHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -3259,7 +3259,7 @@ class TopicRuleHttpHttpHeader(dict):
 
 
 @pulumi.output_type
-class TopicRuleIotAnalytic(dict):
+calass TopicRuleIotAnalytic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3321,7 +3321,7 @@ class TopicRuleIotAnalytic(dict):
 
 
 @pulumi.output_type
-class TopicRuleIotEvent(dict):
+calass TopicRuleIotEvent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3397,7 +3397,7 @@ class TopicRuleIotEvent(dict):
 
 
 @pulumi.output_type
-class TopicRuleKafka(dict):
+calass TopicRuleKafka(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3428,7 +3428,7 @@ class TopicRuleKafka(dict):
         :param Mapping[str, str] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
         :param str destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
         :param str topic: The Kafka topic for messages to be sent to the Kafka broker.
-        :param Sequence['TopicRuleKafkaHeaderArgs'] headers: The list of Kafka headers that you specify. Nested arguments below.
+        :param Sequence['TopicRuleKafkaHeaderArrgs'] headers: The list of Kafka headers that you specify. Nested arguments below.
         :param str key: The Kafka message key.
         :param str partition: The Kafka message partition.
         """
@@ -3492,7 +3492,7 @@ class TopicRuleKafka(dict):
 
 
 @pulumi.output_type
-class TopicRuleKafkaHeader(dict):
+calass TopicRuleKafkaHeader(dict):
     def __init__(__self__, *,
                  key: str,
                  value: str):
@@ -3521,7 +3521,7 @@ class TopicRuleKafkaHeader(dict):
 
 
 @pulumi.output_type
-class TopicRuleKinesis(dict):
+calass TopicRuleKinesis(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3583,7 +3583,7 @@ class TopicRuleKinesis(dict):
 
 
 @pulumi.output_type
-class TopicRuleLambda(dict):
+calass TopicRuleLambda(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3618,7 +3618,7 @@ class TopicRuleLambda(dict):
 
 
 @pulumi.output_type
-class TopicRuleRepublish(dict):
+calass TopicRuleRepublish(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3680,7 +3680,7 @@ class TopicRuleRepublish(dict):
 
 
 @pulumi.output_type
-class TopicRuleS3(dict):
+calass TopicRuleS3(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3753,7 +3753,7 @@ class TopicRuleS3(dict):
 
 
 @pulumi.output_type
-class TopicRuleSns(dict):
+calass TopicRuleSns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3815,7 +3815,7 @@ class TopicRuleSns(dict):
 
 
 @pulumi.output_type
-class TopicRuleSqs(dict):
+calass TopicRuleSqs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3876,7 +3876,7 @@ class TopicRuleSqs(dict):
 
 
 @pulumi.output_type
-class TopicRuleStepFunction(dict):
+calass TopicRuleStepFunction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3938,7 +3938,7 @@ class TopicRuleStepFunction(dict):
 
 
 @pulumi.output_type
-class TopicRuleTimestream(dict):
+calass TopicRuleTimestream(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3968,10 +3968,10 @@ class TopicRuleTimestream(dict):
                  timestamp: Optional['outputs.TopicRuleTimestreamTimestamp'] = None):
         """
         :param str database_name: The name of an Amazon Timestream database.
-        :param Sequence['TopicRuleTimestreamDimensionArgs'] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        :param Sequence['TopicRuleTimestreamDimensionArrgs'] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
         :param str role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
         :param str table_name: The name of the database table into which to write the measure records.
-        :param 'TopicRuleTimestreamTimestampArgs' timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        :param 'TopicRuleTimestreamTimestampArrgs' timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "dimensions", dimensions)
@@ -4022,7 +4022,7 @@ class TopicRuleTimestream(dict):
 
 
 @pulumi.output_type
-class TopicRuleTimestreamDimension(dict):
+calass TopicRuleTimestreamDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -4051,7 +4051,7 @@ class TopicRuleTimestreamDimension(dict):
 
 
 @pulumi.output_type
-class TopicRuleTimestreamTimestamp(dict):
+calass TopicRuleTimestreamTimestamp(dict):
     def __init__(__self__, *,
                  unit: str,
                  value: str):

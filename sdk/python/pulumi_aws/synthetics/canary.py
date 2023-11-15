@@ -11,28 +11,28 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CanaryArgs', 'Canary']
+__all__ = ['CanaryArrgs', 'Canary']
 
 @pulumi.input_type
-class CanaryArgs:
+calass CanaryArrgs:
     def __init__(__self__, *,
                  artifact_s3_location: pulumi.Input[str],
                  execution_role_arn: pulumi.Input[str],
                  handler: pulumi.Input[str],
                  runtime_version: pulumi.Input[str],
-                 schedule: pulumi.Input['CanaryScheduleArgs'],
-                 artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
+                 schedule: pulumi.Input['CanaryScheduleArrgs'],
+                 artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArrgs']] = None,
                  delete_lambda: Optional[pulumi.Input[bool]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
+                 run_config: Optional[pulumi.Input['CanaryRunConfigArrgs']] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_version: Optional[pulumi.Input[str]] = None,
                  start_canary: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None,
+                 vpc_config: Optional[pulumi.Input['CanaryVpcConfigArrgs']] = None,
                  zip_file: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Canary resource.
@@ -40,21 +40,21 @@ class CanaryArgs:
         :param pulumi.Input[str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         :param pulumi.Input[str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
-        :param pulumi.Input['CanaryScheduleArgs'] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        :param pulumi.Input['CanaryScheduleArrgs'] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
                
                The following arguments are optional:
-        :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        :param pulumi.Input['CanaryArtifactConfigArrgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
-        :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
+        :param pulumi.Input['CanaryRunConfigArrgs'] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_version: S3 version ID of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[bool] start_canary: Whether to run or stop the canary.
         :param pulumi.Input[int] success_retention_period: Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
+        :param pulumi.Input['CanaryVpcConfigArrgs'] vpc_config: Configuration block. Detailed below.
         :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
         pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
@@ -139,7 +139,7 @@ class CanaryArgs:
 
     @property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input['CanaryScheduleArgs']:
+    def schedule(self) -> pulumi.Input['CanaryScheduleArrgs']:
         """
         Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
 
@@ -148,19 +148,19 @@ class CanaryArgs:
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input['CanaryScheduleArgs']):
+    def schedule(self, value: pulumi.Input['CanaryScheduleArrgs']):
         pulumi.set(self, "schedule", value)
 
     @property
     @pulumi.getter(name="artifactConfig")
-    def artifact_config(self) -> Optional[pulumi.Input['CanaryArtifactConfigArgs']]:
+    def artifact_config(self) -> Optional[pulumi.Input['CanaryArtifactConfigArrgs']]:
         """
         configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         """
         return pulumi.get(self, "artifact_config")
 
     @artifact_config.setter
-    def artifact_config(self, value: Optional[pulumi.Input['CanaryArtifactConfigArgs']]):
+    def artifact_config(self, value: Optional[pulumi.Input['CanaryArtifactConfigArrgs']]):
         pulumi.set(self, "artifact_config", value)
 
     @property
@@ -201,14 +201,14 @@ class CanaryArgs:
 
     @property
     @pulumi.getter(name="runConfig")
-    def run_config(self) -> Optional[pulumi.Input['CanaryRunConfigArgs']]:
+    def run_config(self) -> Optional[pulumi.Input['CanaryRunConfigArrgs']]:
         """
         Configuration block for individual canary runs. Detailed below.
         """
         return pulumi.get(self, "run_config")
 
     @run_config.setter
-    def run_config(self, value: Optional[pulumi.Input['CanaryRunConfigArgs']]):
+    def run_config(self, value: Optional[pulumi.Input['CanaryRunConfigArrgs']]):
         pulumi.set(self, "run_config", value)
 
     @property
@@ -285,14 +285,14 @@ class CanaryArgs:
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['CanaryVpcConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['CanaryVpcConfigArrgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['CanaryVpcConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['CanaryVpcConfigArrgs']]):
         pulumi.set(self, "vpc_config", value)
 
     @property
@@ -309,10 +309,10 @@ class CanaryArgs:
 
 
 @pulumi.input_type
-class _CanaryState:
+calass _CanaryState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
+                 artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArrgs']] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
                  delete_lambda: Optional[pulumi.Input[bool]] = None,
                  engine_arn: Optional[pulumi.Input[str]] = None,
@@ -320,25 +320,25 @@ class _CanaryState:
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
+                 run_config: Optional[pulumi.Input['CanaryRunConfigArrgs']] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_version: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input['CanaryScheduleArgs']] = None,
+                 schedule: Optional[pulumi.Input['CanaryScheduleArrgs']] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  start_canary: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timelines: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]]] = None,
-                 vpc_config: Optional[pulumi.Input['CanaryVpcConfigArgs']] = None,
+                 timelines: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArrgs']]]] = None,
+                 vpc_config: Optional[pulumi.Input['CanaryVpcConfigArrgs']] = None,
                  zip_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Canary resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Canary.
-        :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        :param pulumi.Input['CanaryArtifactConfigArrgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[str] engine_arn: ARN of the Lambda function that is used as your canary's engine.
@@ -346,12 +346,12 @@ class _CanaryState:
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         :param pulumi.Input[str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
-        :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
+        :param pulumi.Input['CanaryRunConfigArrgs'] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         :param pulumi.Input[str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_version: S3 version ID of your script. **Conflicts with `zip_file`.**
-        :param pulumi.Input['CanaryScheduleArgs'] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        :param pulumi.Input['CanaryScheduleArrgs'] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] source_location_arn: ARN of the Lambda layer where Synthetics stores the canary script code.
@@ -360,8 +360,8 @@ class _CanaryState:
         :param pulumi.Input[int] success_retention_period: Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]] timelines: Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
-        :param pulumi.Input['CanaryVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArrgs']]] timelines: Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
+        :param pulumi.Input['CanaryVpcConfigArrgs'] vpc_config: Configuration block. Detailed below.
         :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
         if arn is not None:
@@ -430,14 +430,14 @@ class _CanaryState:
 
     @property
     @pulumi.getter(name="artifactConfig")
-    def artifact_config(self) -> Optional[pulumi.Input['CanaryArtifactConfigArgs']]:
+    def artifact_config(self) -> Optional[pulumi.Input['CanaryArtifactConfigArrgs']]:
         """
         configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         """
         return pulumi.get(self, "artifact_config")
 
     @artifact_config.setter
-    def artifact_config(self, value: Optional[pulumi.Input['CanaryArtifactConfigArgs']]):
+    def artifact_config(self, value: Optional[pulumi.Input['CanaryArtifactConfigArrgs']]):
         pulumi.set(self, "artifact_config", value)
 
     @property
@@ -526,14 +526,14 @@ class _CanaryState:
 
     @property
     @pulumi.getter(name="runConfig")
-    def run_config(self) -> Optional[pulumi.Input['CanaryRunConfigArgs']]:
+    def run_config(self) -> Optional[pulumi.Input['CanaryRunConfigArrgs']]:
         """
         Configuration block for individual canary runs. Detailed below.
         """
         return pulumi.get(self, "run_config")
 
     @run_config.setter
-    def run_config(self, value: Optional[pulumi.Input['CanaryRunConfigArgs']]):
+    def run_config(self, value: Optional[pulumi.Input['CanaryRunConfigArrgs']]):
         pulumi.set(self, "run_config", value)
 
     @property
@@ -586,7 +586,7 @@ class _CanaryState:
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['CanaryScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['CanaryScheduleArrgs']]:
         """
         Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
 
@@ -595,7 +595,7 @@ class _CanaryState:
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['CanaryScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['CanaryScheduleArrgs']]):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -675,26 +675,26 @@ class _CanaryState:
 
     @property
     @pulumi.getter
-    def timelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]]]:
+    def timelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArrgs']]]]:
         """
         Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
         """
         return pulumi.get(self, "timelines")
 
     @timelines.setter
-    def timelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArgs']]]]):
+    def timelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CanaryTimelineArrgs']]]]):
         pulumi.set(self, "timelines", value)
 
     @property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['CanaryVpcConfigArgs']]:
+    def vpc_config(self) -> Optional[pulumi.Input['CanaryVpcConfigArrgs']]:
         """
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "vpc_config")
 
     @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['CanaryVpcConfigArgs']]):
+    def vpc_config(self, value: Optional[pulumi.Input['CanaryVpcConfigArrgs']]):
         pulumi.set(self, "vpc_config", value)
 
     @property
@@ -710,28 +710,28 @@ class _CanaryState:
         pulumi.set(self, "zip_file", value)
 
 
-class Canary(pulumi.CustomResource):
+calass Canary(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
+                 artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArrgs']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
                  delete_lambda: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']]] = None,
+                 run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArrgs']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_version: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArrgs']]] = None,
                  start_canary: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArrgs']]] = None,
                  zip_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -750,7 +750,7 @@ class Canary(pulumi.CustomResource):
             execution_role_arn="some-role",
             handler="exports.handler",
             runtime_version="syn-1.0",
-            schedule=aws.synthetics.CanaryScheduleArgs(
+            schedule=aws.synthetics.CanaryScheduleArrgs(
                 expression="rate(0 minute)",
             ),
             zip_file="test-fixtures/lambdatest.zip")
@@ -766,32 +766,32 @@ class Canary(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArrgs']] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         :param pulumi.Input[str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
-        :param pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']] run_config: Configuration block for individual canary runs. Detailed below.
+        :param pulumi.Input[pulumi.InputType['CanaryRunConfigArrgs']] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         :param pulumi.Input[str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_version: S3 version ID of your script. **Conflicts with `zip_file`.**
-        :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        :param pulumi.Input[pulumi.InputType['CanaryScheduleArrgs']] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[bool] start_canary: Whether to run or stop the canary.
         :param pulumi.Input[int] success_retention_period: Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['CanaryVpcConfigArrgs']] vpc_config: Configuration block. Detailed below.
         :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CanaryArgs,
+                 args: CanaryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Synthetics Canary resource.
@@ -809,7 +809,7 @@ class Canary(pulumi.CustomResource):
             execution_role_arn="some-role",
             handler="exports.handler",
             runtime_version="syn-1.0",
-            schedule=aws.synthetics.CanaryScheduleArgs(
+            schedule=aws.synthetics.CanaryScheduleArrgs(
                 expression="rate(0 minute)",
             ),
             zip_file="test-fixtures/lambdatest.zip")
@@ -824,12 +824,12 @@ class Canary(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CanaryArgs args: The arguments to use to populate this resource's properties.
+        :param CanaryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CanaryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CanaryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -838,23 +838,23 @@ class Canary(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
+                 artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArrgs']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
                  delete_lambda: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']]] = None,
+                 run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArrgs']]] = None,
                  runtime_version: Optional[pulumi.Input[str]] = None,
                  s3_bucket: Optional[pulumi.Input[str]] = None,
                  s3_key: Optional[pulumi.Input[str]] = None,
                  s3_version: Optional[pulumi.Input[str]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArrgs']]] = None,
                  start_canary: Optional[pulumi.Input[bool]] = None,
                  success_retention_period: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
+                 vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArrgs']]] = None,
                  zip_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -863,7 +863,7 @@ class Canary(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CanaryArgs.__new__(CanaryArgs)
+            __props__ = CanaryArrgs.__new__(CanaryArrgs)
 
             __props__.__dict__["artifact_config"] = artifact_config
             if artifact_s3_location is None and not opts.urn:
@@ -912,7 +912,7 @@ class Canary(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
+            artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArrgs']]] = None,
             artifact_s3_location: Optional[pulumi.Input[str]] = None,
             delete_lambda: Optional[pulumi.Input[bool]] = None,
             engine_arn: Optional[pulumi.Input[str]] = None,
@@ -920,20 +920,20 @@ class Canary(pulumi.CustomResource):
             failure_retention_period: Optional[pulumi.Input[int]] = None,
             handler: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']]] = None,
+            run_config: Optional[pulumi.Input[pulumi.InputType['CanaryRunConfigArrgs']]] = None,
             runtime_version: Optional[pulumi.Input[str]] = None,
             s3_bucket: Optional[pulumi.Input[str]] = None,
             s3_key: Optional[pulumi.Input[str]] = None,
             s3_version: Optional[pulumi.Input[str]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArgs']]] = None,
+            schedule: Optional[pulumi.Input[pulumi.InputType['CanaryScheduleArrgs']]] = None,
             source_location_arn: Optional[pulumi.Input[str]] = None,
             start_canary: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
             success_retention_period: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CanaryTimelineArgs']]]]] = None,
-            vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']]] = None,
+            timelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CanaryTimelineArrgs']]]]] = None,
+            vpc_config: Optional[pulumi.Input[pulumi.InputType['CanaryVpcConfigArrgs']]] = None,
             zip_file: Optional[pulumi.Input[str]] = None) -> 'Canary':
         """
         Get an existing Canary resource's state with the given name, id, and optional extra
@@ -943,7 +943,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Canary.
-        :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArrgs']] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[str] engine_arn: ARN of the Lambda function that is used as your canary's engine.
@@ -951,12 +951,12 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
         :param pulumi.Input[str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
-        :param pulumi.Input[pulumi.InputType['CanaryRunConfigArgs']] run_config: Configuration block for individual canary runs. Detailed below.
+        :param pulumi.Input[pulumi.InputType['CanaryRunConfigArrgs']] run_config: Configuration block for individual canary runs. Detailed below.
         :param pulumi.Input[str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         :param pulumi.Input[str] s3_bucket: Full bucket name which is used if your canary script is located in S3. The bucket must already exist. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_key: S3 key of your script. **Conflicts with `zip_file`.**
         :param pulumi.Input[str] s3_version: S3 version ID of your script. **Conflicts with `zip_file`.**
-        :param pulumi.Input[pulumi.InputType['CanaryScheduleArgs']] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
+        :param pulumi.Input[pulumi.InputType['CanaryScheduleArrgs']] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] source_location_arn: ARN of the Lambda layer where Synthetics stores the canary script code.
@@ -965,8 +965,8 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[int] success_retention_period: Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CanaryTimelineArgs']]]] timelines: Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
-        :param pulumi.Input[pulumi.InputType['CanaryVpcConfigArgs']] vpc_config: Configuration block. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CanaryTimelineArrgs']]]] timelines: Structure that contains information about when the canary was created, modified, and most recently run. see Timeline.
+        :param pulumi.Input[pulumi.InputType['CanaryVpcConfigArrgs']] vpc_config: Configuration block. Detailed below.
         :param pulumi.Input[str] zip_file: ZIP file that contains the script, if you input your canary script directly into the canary instead of referring to an S3 location. It can be up to 225KB. **Conflicts with `s3_bucket`, `s3_key`, and `s3_version`.**
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

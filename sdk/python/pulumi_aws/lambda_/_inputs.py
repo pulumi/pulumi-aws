@@ -11,35 +11,35 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AliasRoutingConfigArgs',
-    'CodeSigningConfigAllowedPublishersArgs',
-    'CodeSigningConfigPoliciesArgs',
-    'EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs',
-    'EventSourceMappingDestinationConfigArgs',
-    'EventSourceMappingDestinationConfigOnFailureArgs',
-    'EventSourceMappingDocumentDbEventSourceConfigArgs',
-    'EventSourceMappingFilterCriteriaArgs',
-    'EventSourceMappingFilterCriteriaFilterArgs',
-    'EventSourceMappingScalingConfigArgs',
-    'EventSourceMappingSelfManagedEventSourceArgs',
-    'EventSourceMappingSelfManagedKafkaEventSourceConfigArgs',
-    'EventSourceMappingSourceAccessConfigurationArgs',
-    'FunctionDeadLetterConfigArgs',
-    'FunctionEnvironmentArgs',
-    'FunctionEphemeralStorageArgs',
-    'FunctionEventInvokeConfigDestinationConfigArgs',
-    'FunctionEventInvokeConfigDestinationConfigOnFailureArgs',
-    'FunctionEventInvokeConfigDestinationConfigOnSuccessArgs',
-    'FunctionFileSystemConfigArgs',
-    'FunctionImageConfigArgs',
-    'FunctionSnapStartArgs',
-    'FunctionTracingConfigArgs',
-    'FunctionUrlCorsArgs',
-    'FunctionVpcConfigArgs',
+    'AliasRoutingConfigArrgs',
+    'CodeSigningConfigAllowedPublishersArrgs',
+    'CodeSigningConfigPoliciesArrgs',
+    'EventSourceMappingAmazonManagedKafkaEventSourceConfigArrgs',
+    'EventSourceMappingDestinationConfigArrgs',
+    'EventSourceMappingDestinationConfigOnFailureArrgs',
+    'EventSourceMappingDocumentDbEventSourceConfigArrgs',
+    'EventSourceMappingFilterCriteriaArrgs',
+    'EventSourceMappingFilterCriteriaFilterArrgs',
+    'EventSourceMappingScalingConfigArrgs',
+    'EventSourceMappingSelfManagedEventSourceArrgs',
+    'EventSourceMappingSelfManagedKafkaEventSourceConfigArrgs',
+    'EventSourceMappingSourceAccessConfigurationArrgs',
+    'FunctionDeadLetterConfigArrgs',
+    'FunctionEnvironmentArrgs',
+    'FunctionEphemeralStorageArrgs',
+    'FunctionEventInvokeConfigDestinationConfigArrgs',
+    'FunctionEventInvokeConfigDestinationConfigOnFailureArrgs',
+    'FunctionEventInvokeConfigDestinationConfigOnSuccessArrgs',
+    'FunctionFileSystemConfigArrgs',
+    'FunctionImageConfigArrgs',
+    'FunctionSnapStartArrgs',
+    'FunctionTracingConfigArrgs',
+    'FunctionUrlCorsArrgs',
+    'FunctionVpcConfigArrgs',
 ]
 
 @pulumi.input_type
-class AliasRoutingConfigArgs:
+calass AliasRoutingConfigArrgs:
     def __init__(__self__, *,
                  additional_version_weights: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]] = None):
         """
@@ -62,7 +62,7 @@ class AliasRoutingConfigArgs:
 
 
 @pulumi.input_type
-class CodeSigningConfigAllowedPublishersArgs:
+calass CodeSigningConfigAllowedPublishersArrgs:
     def __init__(__self__, *,
                  signing_profile_version_arns: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -84,7 +84,7 @@ class CodeSigningConfigAllowedPublishersArgs:
 
 
 @pulumi.input_type
-class CodeSigningConfigPoliciesArgs:
+calass CodeSigningConfigPoliciesArrgs:
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: pulumi.Input[str]):
         """
@@ -106,7 +106,7 @@ class CodeSigningConfigPoliciesArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
+calass EventSourceMappingAmazonManagedKafkaEventSourceConfigArrgs:
     def __init__(__self__, *,
                  consumer_group_id: Optional[pulumi.Input[str]] = None):
         """
@@ -129,30 +129,30 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfigArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingDestinationConfigArgs:
+calass EventSourceMappingDestinationConfigArrgs:
     def __init__(__self__, *,
-                 on_failure: Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs']] = None):
+                 on_failure: Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArrgs']] = None):
         """
-        :param pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs'] on_failure: The destination configuration for failed invocations. Detailed below.
+        :param pulumi.Input['EventSourceMappingDestinationConfigOnFailureArrgs'] on_failure: The destination configuration for failed invocations. Detailed below.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
 
     @property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs']]:
+    def on_failure(self) -> Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArrgs']]:
         """
         The destination configuration for failed invocations. Detailed below.
         """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArgs']]):
+    def on_failure(self, value: Optional[pulumi.Input['EventSourceMappingDestinationConfigOnFailureArrgs']]):
         pulumi.set(self, "on_failure", value)
 
 
 @pulumi.input_type
-class EventSourceMappingDestinationConfigOnFailureArgs:
+calass EventSourceMappingDestinationConfigOnFailureArrgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str]):
         """
@@ -174,7 +174,7 @@ class EventSourceMappingDestinationConfigOnFailureArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingDocumentDbEventSourceConfigArgs:
+calass EventSourceMappingDocumentDbEventSourceConfigArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  collection_name: Optional[pulumi.Input[str]] = None,
@@ -228,30 +228,30 @@ class EventSourceMappingDocumentDbEventSourceConfigArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingFilterCriteriaArgs:
+calass EventSourceMappingFilterCriteriaArrgs:
     def __init__(__self__, *,
-                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]] = None):
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]] filters: A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArrgs']]] filters: A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
 
     @property
     @pulumi.getter
-    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]]:
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArrgs']]]]:
         """
         A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]]):
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArrgs']]]]):
         pulumi.set(self, "filters", value)
 
 
 @pulumi.input_type
-class EventSourceMappingFilterCriteriaFilterArgs:
+calass EventSourceMappingFilterCriteriaFilterArrgs:
     def __init__(__self__, *,
                  pattern: Optional[pulumi.Input[str]] = None):
         """
@@ -274,7 +274,7 @@ class EventSourceMappingFilterCriteriaFilterArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingScalingConfigArgs:
+calass EventSourceMappingScalingConfigArrgs:
     def __init__(__self__, *,
                  maximum_concurrency: Optional[pulumi.Input[int]] = None):
         """
@@ -297,7 +297,7 @@ class EventSourceMappingScalingConfigArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingSelfManagedEventSourceArgs:
+calass EventSourceMappingSelfManagedEventSourceArrgs:
     def __init__(__self__, *,
                  endpoints: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
         """
@@ -319,7 +319,7 @@ class EventSourceMappingSelfManagedEventSourceArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
+calass EventSourceMappingSelfManagedKafkaEventSourceConfigArrgs:
     def __init__(__self__, *,
                  consumer_group_id: Optional[pulumi.Input[str]] = None):
         """
@@ -342,7 +342,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfigArgs:
 
 
 @pulumi.input_type
-class EventSourceMappingSourceAccessConfigurationArgs:
+calass EventSourceMappingSourceAccessConfigurationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  uri: pulumi.Input[str]):
@@ -379,7 +379,7 @@ class EventSourceMappingSourceAccessConfigurationArgs:
 
 
 @pulumi.input_type
-class FunctionDeadLetterConfigArgs:
+calass FunctionDeadLetterConfigArrgs:
     def __init__(__self__, *,
                  target_arn: pulumi.Input[str]):
         """
@@ -401,7 +401,7 @@ class FunctionDeadLetterConfigArgs:
 
 
 @pulumi.input_type
-class FunctionEnvironmentArgs:
+calass FunctionEnvironmentArrgs:
     def __init__(__self__, *,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -424,7 +424,7 @@ class FunctionEnvironmentArgs:
 
 
 @pulumi.input_type
-class FunctionEphemeralStorageArgs:
+calass FunctionEphemeralStorageArrgs:
     def __init__(__self__, *,
                  size: Optional[pulumi.Input[int]] = None):
         """
@@ -447,13 +447,13 @@ class FunctionEphemeralStorageArgs:
 
 
 @pulumi.input_type
-class FunctionEventInvokeConfigDestinationConfigArgs:
+calass FunctionEventInvokeConfigDestinationConfigArrgs:
     def __init__(__self__, *,
-                 on_failure: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']] = None,
-                 on_success: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs']] = None):
+                 on_failure: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArrgs']] = None,
+                 on_success: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArrgs']] = None):
         """
-        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs'] on_failure: Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs'] on_success: Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArrgs'] on_failure: Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+        :param pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArrgs'] on_success: Configuration block with destination configuration for successful asynchronous invocations. See below for details.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -462,31 +462,31 @@ class FunctionEventInvokeConfigDestinationConfigArgs:
 
     @property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']]:
+    def on_failure(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArrgs']]:
         """
         Configuration block with destination configuration for failed asynchronous invocations. See below for details.
         """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArgs']]):
+    def on_failure(self, value: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnFailureArrgs']]):
         pulumi.set(self, "on_failure", value)
 
     @property
     @pulumi.getter(name="onSuccess")
-    def on_success(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs']]:
+    def on_success(self) -> Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArrgs']]:
         """
         Configuration block with destination configuration for successful asynchronous invocations. See below for details.
         """
         return pulumi.get(self, "on_success")
 
     @on_success.setter
-    def on_success(self, value: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArgs']]):
+    def on_success(self, value: Optional[pulumi.Input['FunctionEventInvokeConfigDestinationConfigOnSuccessArrgs']]):
         pulumi.set(self, "on_success", value)
 
 
 @pulumi.input_type
-class FunctionEventInvokeConfigDestinationConfigOnFailureArgs:
+calass FunctionEventInvokeConfigDestinationConfigOnFailureArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str]):
         """
@@ -508,7 +508,7 @@ class FunctionEventInvokeConfigDestinationConfigOnFailureArgs:
 
 
 @pulumi.input_type
-class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs:
+calass FunctionEventInvokeConfigDestinationConfigOnSuccessArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str]):
         """
@@ -530,7 +530,7 @@ class FunctionEventInvokeConfigDestinationConfigOnSuccessArgs:
 
 
 @pulumi.input_type
-class FunctionFileSystemConfigArgs:
+calass FunctionFileSystemConfigArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  local_mount_path: pulumi.Input[str]):
@@ -567,7 +567,7 @@ class FunctionFileSystemConfigArgs:
 
 
 @pulumi.input_type
-class FunctionImageConfigArgs:
+calass FunctionImageConfigArrgs:
     def __init__(__self__, *,
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  entry_points: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -622,7 +622,7 @@ class FunctionImageConfigArgs:
 
 
 @pulumi.input_type
-class FunctionSnapStartArgs:
+calass FunctionSnapStartArrgs:
     def __init__(__self__, *,
                  apply_on: pulumi.Input[str],
                  optimization_status: Optional[pulumi.Input[str]] = None):
@@ -656,7 +656,7 @@ class FunctionSnapStartArgs:
 
 
 @pulumi.input_type
-class FunctionTracingConfigArgs:
+calass FunctionTracingConfigArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str]):
         """
@@ -678,7 +678,7 @@ class FunctionTracingConfigArgs:
 
 
 @pulumi.input_type
-class FunctionUrlCorsArgs:
+calass FunctionUrlCorsArrgs:
     def __init__(__self__, *,
                  allow_credentials: Optional[pulumi.Input[bool]] = None,
                  allow_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -781,7 +781,7 @@ class FunctionUrlCorsArgs:
 
 
 @pulumi.input_type
-class FunctionVpcConfigArgs:
+calass FunctionVpcConfigArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],

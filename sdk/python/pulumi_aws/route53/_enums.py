@@ -9,7 +9,7 @@ __all__ = [
 ]
 
 
-class RecordType(str, Enum):
+calass RecordType(str, Enum):
     A = "A"
     AAAA = "AAAA"
     CNAME = "CNAME"

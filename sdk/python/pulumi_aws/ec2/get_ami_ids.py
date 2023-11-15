@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAmiIdsResult:
+calass GetAmiIdsResult:
     """
     A collection of values returned by getAmiIds.
     """
@@ -93,7 +93,7 @@ class GetAmiIdsResult:
         return pulumi.get(self, "sort_ascending")
 
 
-class AwaitableGetAmiIdsResult(GetAmiIdsResult):
+calass AwaitableGetAmiIdsResult(GetAmiIdsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -110,7 +110,7 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
 
 
 def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
-                filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs']]] = None,
+                filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArrgs']]] = None,
                 include_deprecated: Optional[bool] = None,
                 name_regex: Optional[str] = None,
                 owners: Optional[Sequence[str]] = None,
@@ -125,7 +125,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    ubuntu = aws.ec2.get_ami_ids(filters=[aws.ec2.GetAmiIdsFilterArgs(
+    ubuntu = aws.ec2.get_ami_ids(filters=[aws.ec2.GetAmiIdsFilterArrgs(
             name="name",
             values=["ubuntu/images/ubuntu-*-*-amd64-server-*"],
         )],
@@ -135,7 +135,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch
            permission on  the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArrgs']] filters: One or more name/value pairs to filter off of. There
            are several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
     :param bool include_deprecated: If true, all deprecated AMIs are included in the response.
@@ -172,7 +172,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
 
 @_utilities.lift_output_func(get_ami_ids)
 def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                       filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs']]]]] = None,
+                       filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArrgs']]]]] = None,
                        include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                        name_regex: Optional[pulumi.Input[Optional[str]]] = None,
                        owners: Optional[pulumi.Input[Sequence[str]]] = None,
@@ -187,7 +187,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
     import pulumi
     import pulumi_aws as aws
 
-    ubuntu = aws.ec2.get_ami_ids(filters=[aws.ec2.GetAmiIdsFilterArgs(
+    ubuntu = aws.ec2.get_ami_ids(filters=[aws.ec2.GetAmiIdsFilterArrgs(
             name="name",
             values=["ubuntu/images/ubuntu-*-*-amd64-server-*"],
         )],
@@ -197,7 +197,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch
            permission on  the image. Valid items are the numeric account ID or `self`.
-    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: One or more name/value pairs to filter off of. There
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArrgs']] filters: One or more name/value pairs to filter off of. There
            are several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
     :param bool include_deprecated: If true, all deprecated AMIs are included in the response.

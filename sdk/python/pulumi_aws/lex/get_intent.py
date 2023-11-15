@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetIntentResult:
+calass GetIntentResult:
     """
     A collection of values returned by getIntent.
     """
@@ -127,7 +127,7 @@ class GetIntentResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetIntentResult(GetIntentResult):
+calass AwaitableGetIntentResult(GetIntentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

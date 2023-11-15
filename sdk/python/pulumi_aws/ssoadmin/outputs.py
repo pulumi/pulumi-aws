@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference(dict):
+calass CustomerManagedPolicyAttachmentCustomerManagedPolicyReference(dict):
     def __init__(__self__, *,
                  name: str,
                  path: Optional[str] = None):
@@ -49,13 +49,13 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference(dict):
 
 
 @pulumi.output_type
-class InstanceAccessControlAttributesAttribute(dict):
+calass InstanceAccessControlAttributesAttribute(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence['outputs.InstanceAccessControlAttributesAttributeValue']):
         """
         :param str key: The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        :param Sequence['InstanceAccessControlAttributesAttributeValueArgs'] values: The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+        :param Sequence['InstanceAccessControlAttributesAttributeValueArrgs'] values: The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -78,7 +78,7 @@ class InstanceAccessControlAttributesAttribute(dict):
 
 
 @pulumi.output_type
-class InstanceAccessControlAttributesAttributeValue(dict):
+calass InstanceAccessControlAttributesAttributeValue(dict):
     def __init__(__self__, *,
                  sources: Sequence[str]):
         """
@@ -96,7 +96,7 @@ class InstanceAccessControlAttributesAttributeValue(dict):
 
 
 @pulumi.output_type
-class PermissionsBoundaryAttachmentPermissionsBoundary(dict):
+calass PermissionsBoundaryAttachmentPermissionsBoundary(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -120,7 +120,7 @@ class PermissionsBoundaryAttachmentPermissionsBoundary(dict):
                  customer_managed_policy_reference: Optional['outputs.PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference'] = None,
                  managed_policy_arn: Optional[str] = None):
         """
-        :param 'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs' customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
+        :param 'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArrgs' customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param str managed_policy_arn: AWS-managed IAM policy ARN to use as the permissions boundary.
         """
         if customer_managed_policy_reference is not None:
@@ -146,7 +146,7 @@ class PermissionsBoundaryAttachmentPermissionsBoundary(dict):
 
 
 @pulumi.output_type
-class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference(dict):
+calass PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference(dict):
     def __init__(__self__, *,
                  name: str,
                  path: Optional[str] = None):

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRouterConfigurationResult:
+calass GetRouterConfigurationResult:
     """
     A collection of values returned by getRouterConfiguration.
     """
@@ -85,7 +85,7 @@ class GetRouterConfigurationResult:
         return pulumi.get(self, "virtual_interface_name")
 
 
-class AwaitableGetRouterConfigurationResult(GetRouterConfigurationResult):
+calass AwaitableGetRouterConfigurationResult(GetRouterConfigurationResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

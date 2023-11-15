@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserLoginProfileArgs', 'UserLoginProfile']
+__all__ = ['UserLoginProfileArrgs', 'UserLoginProfile']
 
 @pulumi.input_type
-class UserLoginProfileArgs:
+calass UserLoginProfileArrgs:
     def __init__(__self__, *,
                  user: pulumi.Input[str],
                  password_length: Optional[pulumi.Input[int]] = None,
@@ -83,7 +83,7 @@ class UserLoginProfileArgs:
 
 
 @pulumi.input_type
-class _UserLoginProfileState:
+calass _UserLoginProfileState:
     def __init__(__self__, *,
                  encrypted_password: Optional[pulumi.Input[str]] = None,
                  key_fingerprint: Optional[pulumi.Input[str]] = None,
@@ -202,7 +202,7 @@ class _UserLoginProfileState:
         pulumi.set(self, "user", value)
 
 
-class UserLoginProfile(pulumi.CustomResource):
+calass UserLoginProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -252,7 +252,7 @@ class UserLoginProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserLoginProfileArgs,
+                 args: UserLoginProfileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IAM User Login Profile with limited support for password creation during this provider resource creation. Uses PGP to encrypt the password for safe transport to the user. PGP keys can be obtained from Keybase.
@@ -284,12 +284,12 @@ class UserLoginProfile(pulumi.CustomResource):
          Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
 
         :param str resource_name: The name of the resource.
-        :param UserLoginProfileArgs args: The arguments to use to populate this resource's properties.
+        :param UserLoginProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserLoginProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserLoginProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -309,7 +309,7 @@ class UserLoginProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserLoginProfileArgs.__new__(UserLoginProfileArgs)
+            __props__ = UserLoginProfileArrgs.__new__(UserLoginProfileArrgs)
 
             __props__.__dict__["password_length"] = password_length
             __props__.__dict__["password_reset_required"] = password_reset_required

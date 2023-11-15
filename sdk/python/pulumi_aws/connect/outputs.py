@@ -79,7 +79,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BotAssociationLexBot(dict):
+calass BotAssociationLexBot(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -126,7 +126,7 @@ class BotAssociationLexBot(dict):
 
 
 @pulumi.output_type
-class HoursOfOperationConfig(dict):
+calass HoursOfOperationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -152,8 +152,8 @@ class HoursOfOperationConfig(dict):
                  start_time: 'outputs.HoursOfOperationConfigStartTime'):
         """
         :param str day: Specifies the day that the hours of operation applies to.
-        :param 'HoursOfOperationConfigEndTimeArgs' end_time: A end time block specifies the time that your contact center closes. The `end_time` is documented below.
-        :param 'HoursOfOperationConfigStartTimeArgs' start_time: A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+        :param 'HoursOfOperationConfigEndTimeArrgs' end_time: A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+        :param 'HoursOfOperationConfigStartTimeArrgs' start_time: A start time block specifies the time that your contact center opens. The `start_time` is documented below.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "end_time", end_time)
@@ -185,7 +185,7 @@ class HoursOfOperationConfig(dict):
 
 
 @pulumi.output_type
-class HoursOfOperationConfigEndTime(dict):
+calass HoursOfOperationConfigEndTime(dict):
     def __init__(__self__, *,
                  hours: int,
                  minutes: int):
@@ -214,7 +214,7 @@ class HoursOfOperationConfigEndTime(dict):
 
 
 @pulumi.output_type
-class HoursOfOperationConfigStartTime(dict):
+calass HoursOfOperationConfigStartTime(dict):
     def __init__(__self__, *,
                  hours: int,
                  minutes: int):
@@ -243,7 +243,7 @@ class HoursOfOperationConfigStartTime(dict):
 
 
 @pulumi.output_type
-class InstanceStorageConfigStorageConfig(dict):
+calass InstanceStorageConfigStorageConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -277,10 +277,10 @@ class InstanceStorageConfigStorageConfig(dict):
                  s3_config: Optional['outputs.InstanceStorageConfigStorageConfigS3Config'] = None):
         """
         :param str storage_type: A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        :param 'InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs' kinesis_firehose_config: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        :param 'InstanceStorageConfigStorageConfigKinesisStreamConfigArgs' kinesis_stream_config: A block that specifies the configuration of the Kinesis data stream. Documented below.
-        :param 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs' kinesis_video_stream_config: A block that specifies the configuration of the Kinesis video stream. Documented below.
-        :param 'InstanceStorageConfigStorageConfigS3ConfigArgs' s3_config: A block that specifies the configuration of S3 Bucket. Documented below.
+        :param 'InstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs' kinesis_firehose_config: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+        :param 'InstanceStorageConfigStorageConfigKinesisStreamConfigArrgs' kinesis_stream_config: A block that specifies the configuration of the Kinesis data stream. Documented below.
+        :param 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs' kinesis_video_stream_config: A block that specifies the configuration of the Kinesis video stream. Documented below.
+        :param 'InstanceStorageConfigStorageConfigS3ConfigArrgs' s3_config: A block that specifies the configuration of S3 Bucket. Documented below.
         """
         pulumi.set(__self__, "storage_type", storage_type)
         if kinesis_firehose_config is not None:
@@ -334,7 +334,7 @@ class InstanceStorageConfigStorageConfig(dict):
 
 
 @pulumi.output_type
-class InstanceStorageConfigStorageConfigKinesisFirehoseConfig(dict):
+calass InstanceStorageConfigStorageConfigKinesisFirehoseConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -369,7 +369,7 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfig(dict):
 
 
 @pulumi.output_type
-class InstanceStorageConfigStorageConfigKinesisStreamConfig(dict):
+calass InstanceStorageConfigStorageConfigKinesisStreamConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -404,7 +404,7 @@ class InstanceStorageConfigStorageConfigKinesisStreamConfig(dict):
 
 
 @pulumi.output_type
-class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(dict):
+calass InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -429,7 +429,7 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(dict):
                  prefix: str,
                  retention_period_hours: int):
         """
-        :param 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs' encryption_config: The encryption configuration. Documented below.
+        :param 'InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs' encryption_config: The encryption configuration. Documented below.
         :param str prefix: The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
         :param int retention_period_hours: The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
         """
@@ -463,7 +463,7 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfig(dict):
 
 
 @pulumi.output_type
-class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig(dict):
+calass InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -511,7 +511,7 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig
 
 
 @pulumi.output_type
-class InstanceStorageConfigStorageConfigS3Config(dict):
+calass InstanceStorageConfigStorageConfigS3Config(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -540,7 +540,7 @@ class InstanceStorageConfigStorageConfigS3Config(dict):
         """
         :param str bucket_name: The S3 bucket name.
         :param str bucket_prefix: The S3 bucket prefix.
-        :param 'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs' encryption_config: The encryption configuration. Documented below.
+        :param 'InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs' encryption_config: The encryption configuration. Documented below.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
@@ -573,7 +573,7 @@ class InstanceStorageConfigStorageConfigS3Config(dict):
 
 
 @pulumi.output_type
-class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig(dict):
+calass InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -621,7 +621,7 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfig(dict):
 
 
 @pulumi.output_type
-class PhoneNumberStatus(dict):
+calass PhoneNumberStatus(dict):
     def __init__(__self__, *,
                  message: Optional[str] = None,
                  status: Optional[str] = None):
@@ -652,7 +652,7 @@ class PhoneNumberStatus(dict):
 
 
 @pulumi.output_type
-class QueueOutboundCallerConfig(dict):
+calass QueueOutboundCallerConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -716,7 +716,7 @@ class QueueOutboundCallerConfig(dict):
 
 
 @pulumi.output_type
-class QuickConnectQuickConnectConfig(dict):
+calass QuickConnectQuickConnectConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -747,9 +747,9 @@ class QuickConnectQuickConnectConfig(dict):
                  user_configs: Optional[Sequence['outputs.QuickConnectQuickConnectConfigUserConfig']] = None):
         """
         :param str quick_connect_type: Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        :param Sequence['QuickConnectQuickConnectConfigPhoneConfigArgs'] phone_configs: Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        :param Sequence['QuickConnectQuickConnectConfigQueueConfigArgs'] queue_configs: Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
-        :param Sequence['QuickConnectQuickConnectConfigUserConfigArgs'] user_configs: Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        :param Sequence['QuickConnectQuickConnectConfigPhoneConfigArrgs'] phone_configs: Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        :param Sequence['QuickConnectQuickConnectConfigQueueConfigArrgs'] queue_configs: Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        :param Sequence['QuickConnectQuickConnectConfigUserConfigArrgs'] user_configs: Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         """
         pulumi.set(__self__, "quick_connect_type", quick_connect_type)
         if phone_configs is not None:
@@ -793,7 +793,7 @@ class QuickConnectQuickConnectConfig(dict):
 
 
 @pulumi.output_type
-class QuickConnectQuickConnectConfigPhoneConfig(dict):
+calass QuickConnectQuickConnectConfigPhoneConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -828,7 +828,7 @@ class QuickConnectQuickConnectConfigPhoneConfig(dict):
 
 
 @pulumi.output_type
-class QuickConnectQuickConnectConfigQueueConfig(dict):
+calass QuickConnectQuickConnectConfigQueueConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -876,7 +876,7 @@ class QuickConnectQuickConnectConfigQueueConfig(dict):
 
 
 @pulumi.output_type
-class QuickConnectQuickConnectConfigUserConfig(dict):
+calass QuickConnectQuickConnectConfigUserConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -924,7 +924,7 @@ class QuickConnectQuickConnectConfigUserConfig(dict):
 
 
 @pulumi.output_type
-class RoutingProfileMediaConcurrency(dict):
+calass RoutingProfileMediaConcurrency(dict):
     def __init__(__self__, *,
                  channel: str,
                  concurrency: int):
@@ -953,7 +953,7 @@ class RoutingProfileMediaConcurrency(dict):
 
 
 @pulumi.output_type
-class RoutingProfileQueueConfig(dict):
+calass RoutingProfileQueueConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1049,7 +1049,7 @@ class RoutingProfileQueueConfig(dict):
 
 
 @pulumi.output_type
-class UserHierarchyGroupHierarchyPath(dict):
+calass UserHierarchyGroupHierarchyPath(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1082,11 +1082,11 @@ class UserHierarchyGroupHierarchyPath(dict):
                  level_threes: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelThree']] = None,
                  level_twos: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelTwo']] = None):
         """
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelFifeArgs'] level_fives: A block that defines the details of level five. The level block is documented below.
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelFourArgs'] level_fours: A block that defines the details of level four. The level block is documented below.
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelOneArgs'] level_ones: A block that defines the details of level one. The level block is documented below.
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelThreeArgs'] level_threes: A block that defines the details of level three. The level block is documented below.
-        :param Sequence['UserHierarchyGroupHierarchyPathLevelTwoArgs'] level_twos: A block that defines the details of level two. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelFifeArrgs'] level_fives: A block that defines the details of level five. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelFourArrgs'] level_fours: A block that defines the details of level four. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelOneArrgs'] level_ones: A block that defines the details of level one. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelThreeArrgs'] level_threes: A block that defines the details of level three. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelTwoArrgs'] level_twos: A block that defines the details of level two. The level block is documented below.
         """
         if level_fives is not None:
             pulumi.set(__self__, "level_fives", level_fives)
@@ -1141,7 +1141,7 @@ class UserHierarchyGroupHierarchyPath(dict):
 
 
 @pulumi.output_type
-class UserHierarchyGroupHierarchyPathLevelFife(dict):
+calass UserHierarchyGroupHierarchyPathLevelFife(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -1184,7 +1184,7 @@ class UserHierarchyGroupHierarchyPathLevelFife(dict):
 
 
 @pulumi.output_type
-class UserHierarchyGroupHierarchyPathLevelFour(dict):
+calass UserHierarchyGroupHierarchyPathLevelFour(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -1227,7 +1227,7 @@ class UserHierarchyGroupHierarchyPathLevelFour(dict):
 
 
 @pulumi.output_type
-class UserHierarchyGroupHierarchyPathLevelOne(dict):
+calass UserHierarchyGroupHierarchyPathLevelOne(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -1270,7 +1270,7 @@ class UserHierarchyGroupHierarchyPathLevelOne(dict):
 
 
 @pulumi.output_type
-class UserHierarchyGroupHierarchyPathLevelThree(dict):
+calass UserHierarchyGroupHierarchyPathLevelThree(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -1313,7 +1313,7 @@ class UserHierarchyGroupHierarchyPathLevelThree(dict):
 
 
 @pulumi.output_type
-class UserHierarchyGroupHierarchyPathLevelTwo(dict):
+calass UserHierarchyGroupHierarchyPathLevelTwo(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None,
                  id: Optional[str] = None,
@@ -1356,7 +1356,7 @@ class UserHierarchyGroupHierarchyPathLevelTwo(dict):
 
 
 @pulumi.output_type
-class UserHierarchyStructureHierarchyStructure(dict):
+calass UserHierarchyStructureHierarchyStructure(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1389,13 +1389,13 @@ class UserHierarchyStructureHierarchyStructure(dict):
                  level_three: Optional['outputs.UserHierarchyStructureHierarchyStructureLevelThree'] = None,
                  level_two: Optional['outputs.UserHierarchyStructureHierarchyStructureLevelTwo'] = None):
         """
-        :param 'UserHierarchyStructureHierarchyStructureLevelFiveArgs' level_five: A block that defines the details of level five. The level block is documented below.
+        :param 'UserHierarchyStructureHierarchyStructureLevelFiveArrgs' level_five: A block that defines the details of level five. The level block is documented below.
                
                Each level block supports the following arguments:
-        :param 'UserHierarchyStructureHierarchyStructureLevelFourArgs' level_four: A block that defines the details of level four. The level block is documented below.
-        :param 'UserHierarchyStructureHierarchyStructureLevelOneArgs' level_one: A block that defines the details of level one. The level block is documented below.
-        :param 'UserHierarchyStructureHierarchyStructureLevelThreeArgs' level_three: A block that defines the details of level three. The level block is documented below.
-        :param 'UserHierarchyStructureHierarchyStructureLevelTwoArgs' level_two: A block that defines the details of level two. The level block is documented below.
+        :param 'UserHierarchyStructureHierarchyStructureLevelFourArrgs' level_four: A block that defines the details of level four. The level block is documented below.
+        :param 'UserHierarchyStructureHierarchyStructureLevelOneArrgs' level_one: A block that defines the details of level one. The level block is documented below.
+        :param 'UserHierarchyStructureHierarchyStructureLevelThreeArrgs' level_three: A block that defines the details of level three. The level block is documented below.
+        :param 'UserHierarchyStructureHierarchyStructureLevelTwoArrgs' level_two: A block that defines the details of level two. The level block is documented below.
         """
         if level_five is not None:
             pulumi.set(__self__, "level_five", level_five)
@@ -1452,7 +1452,7 @@ class UserHierarchyStructureHierarchyStructure(dict):
 
 
 @pulumi.output_type
-class UserHierarchyStructureHierarchyStructureLevelFive(dict):
+calass UserHierarchyStructureHierarchyStructureLevelFive(dict):
     def __init__(__self__, *,
                  name: str,
                  arn: Optional[str] = None,
@@ -1494,7 +1494,7 @@ class UserHierarchyStructureHierarchyStructureLevelFive(dict):
 
 
 @pulumi.output_type
-class UserHierarchyStructureHierarchyStructureLevelFour(dict):
+calass UserHierarchyStructureHierarchyStructureLevelFour(dict):
     def __init__(__self__, *,
                  name: str,
                  arn: Optional[str] = None,
@@ -1536,7 +1536,7 @@ class UserHierarchyStructureHierarchyStructureLevelFour(dict):
 
 
 @pulumi.output_type
-class UserHierarchyStructureHierarchyStructureLevelOne(dict):
+calass UserHierarchyStructureHierarchyStructureLevelOne(dict):
     def __init__(__self__, *,
                  name: str,
                  arn: Optional[str] = None,
@@ -1578,7 +1578,7 @@ class UserHierarchyStructureHierarchyStructureLevelOne(dict):
 
 
 @pulumi.output_type
-class UserHierarchyStructureHierarchyStructureLevelThree(dict):
+calass UserHierarchyStructureHierarchyStructureLevelThree(dict):
     def __init__(__self__, *,
                  name: str,
                  arn: Optional[str] = None,
@@ -1620,7 +1620,7 @@ class UserHierarchyStructureHierarchyStructureLevelThree(dict):
 
 
 @pulumi.output_type
-class UserHierarchyStructureHierarchyStructureLevelTwo(dict):
+calass UserHierarchyStructureHierarchyStructureLevelTwo(dict):
     def __init__(__self__, *,
                  name: str,
                  arn: Optional[str] = None,
@@ -1662,7 +1662,7 @@ class UserHierarchyStructureHierarchyStructureLevelTwo(dict):
 
 
 @pulumi.output_type
-class UserIdentityInfo(dict):
+calass UserIdentityInfo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1724,7 +1724,7 @@ class UserIdentityInfo(dict):
 
 
 @pulumi.output_type
-class UserPhoneConfig(dict):
+calass UserPhoneConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1801,7 +1801,7 @@ class UserPhoneConfig(dict):
 
 
 @pulumi.output_type
-class GetBotAssociationLexBotResult(dict):
+calass GetBotAssociationLexBotResult(dict):
     def __init__(__self__, *,
                  lex_region: str,
                  name: str):
@@ -1830,15 +1830,15 @@ class GetBotAssociationLexBotResult(dict):
 
 
 @pulumi.output_type
-class GetHoursOfOperationConfigResult(dict):
+calass GetHoursOfOperationConfigResult(dict):
     def __init__(__self__, *,
                  day: str,
                  end_times: Sequence['outputs.GetHoursOfOperationConfigEndTimeResult'],
                  start_times: Sequence['outputs.GetHoursOfOperationConfigStartTimeResult']):
         """
         :param str day: Day that the hours of operation applies to.
-        :param Sequence['GetHoursOfOperationConfigEndTimeArgs'] end_times: End time block specifies the time that your contact center closes. The `end_time` is documented below.
-        :param Sequence['GetHoursOfOperationConfigStartTimeArgs'] start_times: Start time block specifies the time that your contact center opens. The `start_time` is documented below.
+        :param Sequence['GetHoursOfOperationConfigEndTimeArrgs'] end_times: End time block specifies the time that your contact center closes. The `end_time` is documented below.
+        :param Sequence['GetHoursOfOperationConfigStartTimeArrgs'] start_times: Start time block specifies the time that your contact center opens. The `start_time` is documented below.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "end_times", end_times)
@@ -1870,7 +1870,7 @@ class GetHoursOfOperationConfigResult(dict):
 
 
 @pulumi.output_type
-class GetHoursOfOperationConfigEndTimeResult(dict):
+calass GetHoursOfOperationConfigEndTimeResult(dict):
     def __init__(__self__, *,
                  hours: int,
                  minutes: int):
@@ -1899,7 +1899,7 @@ class GetHoursOfOperationConfigEndTimeResult(dict):
 
 
 @pulumi.output_type
-class GetHoursOfOperationConfigStartTimeResult(dict):
+calass GetHoursOfOperationConfigStartTimeResult(dict):
     def __init__(__self__, *,
                  hours: int,
                  minutes: int):
@@ -1928,7 +1928,7 @@ class GetHoursOfOperationConfigStartTimeResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceStorageConfigStorageConfigResult(dict):
+calass GetInstanceStorageConfigStorageConfigResult(dict):
     def __init__(__self__, *,
                  kinesis_firehose_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult'],
                  kinesis_stream_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult'],
@@ -1936,10 +1936,10 @@ class GetInstanceStorageConfigStorageConfigResult(dict):
                  s3_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigS3ConfigResult'],
                  storage_type: str):
         """
-        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs'] kinesis_firehose_configs: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisStreamConfigArgs'] kinesis_stream_configs: A block that specifies the configuration of the Kinesis data stream. Documented below.
-        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs'] kinesis_video_stream_configs: A block that specifies the configuration of the Kinesis video stream. Documented below.
-        :param Sequence['GetInstanceStorageConfigStorageConfigS3ConfigArgs'] s3_configs: A block that specifies the configuration of S3 Bucket. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArrgs'] kinesis_firehose_configs: A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisStreamConfigArrgs'] kinesis_stream_configs: A block that specifies the configuration of the Kinesis data stream. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigArrgs'] kinesis_video_stream_configs: A block that specifies the configuration of the Kinesis video stream. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigS3ConfigArrgs'] s3_configs: A block that specifies the configuration of S3 Bucket. Documented below.
         :param str storage_type: A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
         """
         pulumi.set(__self__, "kinesis_firehose_configs", kinesis_firehose_configs)
@@ -1990,7 +1990,7 @@ class GetInstanceStorageConfigStorageConfigResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult(dict):
+calass GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult(dict):
     def __init__(__self__, *,
                  firehose_arn: str):
         """
@@ -2008,7 +2008,7 @@ class GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult(dict):
+calass GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult(dict):
     def __init__(__self__, *,
                  stream_arn: str):
         """
@@ -2026,13 +2026,13 @@ class GetInstanceStorageConfigStorageConfigKinesisStreamConfigResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult(dict):
+calass GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult(dict):
     def __init__(__self__, *,
                  encryption_configs: Sequence['outputs.GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult'],
                  prefix: str,
                  retention_period_hours: int):
         """
-        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs'] encryption_configs: The encryption configuration. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArrgs'] encryption_configs: The encryption configuration. Documented below.
         :param str prefix: The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
         :param int retention_period_hours: The number of hours to retain the data in a data store associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0` indicates that the stream does not persist data.
         """
@@ -2066,7 +2066,7 @@ class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult(dict):
+calass GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigResult(dict):
     def __init__(__self__, *,
                  encryption_type: str,
                  key_id: str):
@@ -2095,7 +2095,7 @@ class GetInstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionCon
 
 
 @pulumi.output_type
-class GetInstanceStorageConfigStorageConfigS3ConfigResult(dict):
+calass GetInstanceStorageConfigStorageConfigS3ConfigResult(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  bucket_prefix: str,
@@ -2103,7 +2103,7 @@ class GetInstanceStorageConfigStorageConfigS3ConfigResult(dict):
         """
         :param str bucket_name: The S3 bucket name.
         :param str bucket_prefix: The S3 bucket prefix.
-        :param Sequence['GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs'] encryption_configs: The encryption configuration. Documented below.
+        :param Sequence['GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArrgs'] encryption_configs: The encryption configuration. Documented below.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "bucket_prefix", bucket_prefix)
@@ -2135,7 +2135,7 @@ class GetInstanceStorageConfigStorageConfigS3ConfigResult(dict):
 
 
 @pulumi.output_type
-class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult(dict):
+calass GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult(dict):
     def __init__(__self__, *,
                  encryption_type: str,
                  key_id: str):
@@ -2164,7 +2164,7 @@ class GetInstanceStorageConfigStorageConfigS3ConfigEncryptionConfigResult(dict):
 
 
 @pulumi.output_type
-class GetQueueOutboundCallerConfigResult(dict):
+calass GetQueueOutboundCallerConfigResult(dict):
     def __init__(__self__, *,
                  outbound_caller_id_name: str,
                  outbound_caller_id_number_id: str,
@@ -2204,17 +2204,17 @@ class GetQueueOutboundCallerConfigResult(dict):
 
 
 @pulumi.output_type
-class GetQuickConnectQuickConnectConfigResult(dict):
+calass GetQuickConnectQuickConnectConfigResult(dict):
     def __init__(__self__, *,
                  phone_configs: Sequence['outputs.GetQuickConnectQuickConnectConfigPhoneConfigResult'],
                  queue_configs: Sequence['outputs.GetQuickConnectQuickConnectConfigQueueConfigResult'],
                  quick_connect_type: str,
                  user_configs: Sequence['outputs.GetQuickConnectQuickConnectConfigUserConfigResult']):
         """
-        :param Sequence['GetQuickConnectQuickConnectConfigPhoneConfigArgs'] phone_configs: Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        :param Sequence['GetQuickConnectQuickConnectConfigQueueConfigArgs'] queue_configs: Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+        :param Sequence['GetQuickConnectQuickConnectConfigPhoneConfigArrgs'] phone_configs: Phone configuration of the Quick Connect. This is returned only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+        :param Sequence['GetQuickConnectQuickConnectConfigQueueConfigArrgs'] queue_configs: Queue configuration of the Quick Connect. This is returned only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
         :param str quick_connect_type: Configuration type of the Quick Connect. Valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        :param Sequence['GetQuickConnectQuickConnectConfigUserConfigArgs'] user_configs: User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+        :param Sequence['GetQuickConnectQuickConnectConfigUserConfigArrgs'] user_configs: User configuration of the Quick Connect. This is returned only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
         """
         pulumi.set(__self__, "phone_configs", phone_configs)
         pulumi.set(__self__, "queue_configs", queue_configs)
@@ -2255,7 +2255,7 @@ class GetQuickConnectQuickConnectConfigResult(dict):
 
 
 @pulumi.output_type
-class GetQuickConnectQuickConnectConfigPhoneConfigResult(dict):
+calass GetQuickConnectQuickConnectConfigPhoneConfigResult(dict):
     def __init__(__self__, *,
                  phone_number: str):
         """
@@ -2273,7 +2273,7 @@ class GetQuickConnectQuickConnectConfigPhoneConfigResult(dict):
 
 
 @pulumi.output_type
-class GetQuickConnectQuickConnectConfigQueueConfigResult(dict):
+calass GetQuickConnectQuickConnectConfigQueueConfigResult(dict):
     def __init__(__self__, *,
                  contact_flow_id: str,
                  queue_id: str):
@@ -2302,7 +2302,7 @@ class GetQuickConnectQuickConnectConfigQueueConfigResult(dict):
 
 
 @pulumi.output_type
-class GetQuickConnectQuickConnectConfigUserConfigResult(dict):
+calass GetQuickConnectQuickConnectConfigUserConfigResult(dict):
     def __init__(__self__, *,
                  contact_flow_id: str,
                  user_id: str):
@@ -2331,7 +2331,7 @@ class GetQuickConnectQuickConnectConfigUserConfigResult(dict):
 
 
 @pulumi.output_type
-class GetRoutingProfileMediaConcurrencyResult(dict):
+calass GetRoutingProfileMediaConcurrencyResult(dict):
     def __init__(__self__, *,
                  channel: str,
                  concurrency: int):
@@ -2360,7 +2360,7 @@ class GetRoutingProfileMediaConcurrencyResult(dict):
 
 
 @pulumi.output_type
-class GetRoutingProfileQueueConfigResult(dict):
+calass GetRoutingProfileQueueConfigResult(dict):
     def __init__(__self__, *,
                  channel: str,
                  delay: int,
@@ -2433,7 +2433,7 @@ class GetRoutingProfileQueueConfigResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyGroupHierarchyPathResult(dict):
+calass GetUserHierarchyGroupHierarchyPathResult(dict):
     def __init__(__self__, *,
                  level_fives: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelFifeResult'],
                  level_fours: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelFourResult'],
@@ -2441,11 +2441,11 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
                  level_threes: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelThreeResult'],
                  level_twos: Sequence['outputs.GetUserHierarchyGroupHierarchyPathLevelTwoResult']):
         """
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFifeArgs'] level_fives: Details of level five. See below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFourArgs'] level_fours: Details of level four. See below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelOneArgs'] level_ones: Details of level one. See below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelThreeArgs'] level_threes: Details of level three. See below.
-        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelTwoArgs'] level_twos: Details of level two. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFifeArrgs'] level_fives: Details of level five. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelFourArrgs'] level_fours: Details of level four. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelOneArrgs'] level_ones: Details of level one. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelThreeArrgs'] level_threes: Details of level three. See below.
+        :param Sequence['GetUserHierarchyGroupHierarchyPathLevelTwoArrgs'] level_twos: Details of level two. See below.
         """
         pulumi.set(__self__, "level_fives", level_fives)
         pulumi.set(__self__, "level_fours", level_fours)
@@ -2495,7 +2495,7 @@ class GetUserHierarchyGroupHierarchyPathResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
+calass GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2535,7 +2535,7 @@ class GetUserHierarchyGroupHierarchyPathLevelFifeResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
+calass GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2575,7 +2575,7 @@ class GetUserHierarchyGroupHierarchyPathLevelFourResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
+calass GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2615,7 +2615,7 @@ class GetUserHierarchyGroupHierarchyPathLevelOneResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
+calass GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2655,7 +2655,7 @@ class GetUserHierarchyGroupHierarchyPathLevelThreeResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
+calass GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2695,7 +2695,7 @@ class GetUserHierarchyGroupHierarchyPathLevelTwoResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyStructureHierarchyStructureResult(dict):
+calass GetUserHierarchyStructureHierarchyStructureResult(dict):
     def __init__(__self__, *,
                  level_fives: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFifeResult'],
                  level_fours: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFourResult'],
@@ -2703,11 +2703,11 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
                  level_threes: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelThreeResult'],
                  level_twos: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelTwoResult']):
         """
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFifeArgs'] level_fives: Details of level five. See below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFourArgs'] level_fours: Details of level four. See below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelOneArgs'] level_ones: Details of level one. See below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_threes: Details of level three. See below.
-        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelTwoArgs'] level_twos: Details of level two. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFifeArrgs'] level_fives: Details of level five. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFourArrgs'] level_fours: Details of level four. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelOneArrgs'] level_ones: Details of level one. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelThreeArrgs'] level_threes: Details of level three. See below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelTwoArrgs'] level_twos: Details of level two. See below.
         """
         pulumi.set(__self__, "level_fives", level_fives)
         pulumi.set(__self__, "level_fours", level_fours)
@@ -2757,7 +2757,7 @@ class GetUserHierarchyStructureHierarchyStructureResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
+calass GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2797,7 +2797,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
+calass GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2837,7 +2837,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
+calass GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2877,7 +2877,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
+calass GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2917,7 +2917,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
 
 
 @pulumi.output_type
-class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
+calass GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  id: str,
@@ -2957,7 +2957,7 @@ class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
 
 
 @pulumi.output_type
-class GetUserIdentityInfoResult(dict):
+calass GetUserIdentityInfoResult(dict):
     def __init__(__self__, *,
                  email: str,
                  first_name: str,
@@ -2997,7 +2997,7 @@ class GetUserIdentityInfoResult(dict):
 
 
 @pulumi.output_type
-class GetUserPhoneConfigResult(dict):
+calass GetUserPhoneConfigResult(dict):
     def __init__(__self__, *,
                  after_contact_work_time_limit: int,
                  auto_accept: bool,

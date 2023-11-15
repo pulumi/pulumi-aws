@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstancesResult:
+calass GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
@@ -75,7 +75,7 @@ class GetInstancesResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetInstancesResult(GetInstancesResult):
+calass AwaitableGetInstancesResult(GetInstancesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -88,7 +88,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             tags=self.tags)
 
 
-def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]] = None,
+def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArrgs']]] = None,
                   tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
     """
@@ -101,7 +101,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.rds.get_instances(filters=[aws.rds.GetInstancesFilterArgs(
+    example = aws.rds.get_instances(filters=[aws.rds.GetInstancesFilterArrgs(
         name="db-instance-id",
         values=["my-database-id"],
     )])
@@ -118,7 +118,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstancesFilterArrgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instances.
     """
     __args__ = dict()
@@ -136,7 +136,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
 
 
 @_utilities.lift_output_func(get_instances)
-def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]]]] = None,
+def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArrgs']]]]] = None,
                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
     """
@@ -149,7 +149,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.rds.get_instances(filters=[aws.rds.GetInstancesFilterArgs(
+    example = aws.rds.get_instances(filters=[aws.rds.GetInstancesFilterArrgs(
         name="db-instance-id",
         values=["my-database-id"],
     )])
@@ -166,7 +166,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
+    :param Sequence[pulumi.InputType['GetInstancesFilterArrgs']] filters: Configuration block(s) used to filter instances with AWS supported attributes, such as `engine`, `db-cluster-id` or `db-instance-id` for example. Detailed below.
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match a pair on the desired instances.
     """
     ...

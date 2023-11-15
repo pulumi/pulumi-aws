@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['JobQueueArgs', 'JobQueue']
+__all__ = ['JobQueueArrgs', 'JobQueue']
 
 @pulumi.input_type
-class JobQueueArgs:
+calass JobQueueArrgs:
     def __init__(__self__, *,
                  compute_environments: pulumi.Input[Sequence[pulumi.Input[str]]],
                  priority: pulumi.Input[int],
@@ -22,7 +22,7 @@ class JobQueueArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['JobQueueTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['JobQueueTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a JobQueue resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: List of compute environment ARNs mapped to a job queue.
@@ -122,16 +122,16 @@ class JobQueueArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['JobQueueTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['JobQueueTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['JobQueueTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['JobQueueTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _JobQueueState:
+calass _JobQueueState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  compute_environments: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -141,7 +141,7 @@ class _JobQueueState:
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['JobQueueTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['JobQueueTimeoutsArrgs']] = None):
         """
         Input properties used for looking up and filtering JobQueue resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name of the job queue.
@@ -280,15 +280,15 @@ class _JobQueueState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['JobQueueTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['JobQueueTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['JobQueueTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['JobQueueTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
-class JobQueue(pulumi.CustomResource):
+calass JobQueue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -299,7 +299,7 @@ class JobQueue(pulumi.CustomResource):
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArrgs']]] = None,
                  __props__=None):
         """
         Provides a Batch Job Queue resource.
@@ -325,10 +325,10 @@ class JobQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_scheduling_policy = aws.batch.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
+        example_scheduling_policy = aws.batch.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArrgs(
             compute_reservation=1,
             share_decay_seconds=3600,
-            share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
+            share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArrgs(
                 share_identifier="A1*",
                 weight_factor=0.1,
             )],
@@ -366,7 +366,7 @@ class JobQueue(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: JobQueueArgs,
+                 args: JobQueueArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Batch Job Queue resource.
@@ -392,10 +392,10 @@ class JobQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_scheduling_policy = aws.batch.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArgs(
+        example_scheduling_policy = aws.batch.SchedulingPolicy("exampleSchedulingPolicy", fair_share_policy=aws.batch.SchedulingPolicyFairSharePolicyArrgs(
             compute_reservation=1,
             share_decay_seconds=3600,
-            share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArgs(
+            share_distributions=[aws.batch.SchedulingPolicyFairSharePolicyShareDistributionArrgs(
                 share_identifier="A1*",
                 weight_factor=0.1,
             )],
@@ -419,12 +419,12 @@ class JobQueue(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param JobQueueArgs args: The arguments to use to populate this resource's properties.
+        :param JobQueueArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(JobQueueArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(JobQueueArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -439,7 +439,7 @@ class JobQueue(pulumi.CustomResource):
                  scheduling_policy_arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -447,7 +447,7 @@ class JobQueue(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = JobQueueArgs.__new__(JobQueueArgs)
+            __props__ = JobQueueArrgs.__new__(JobQueueArrgs)
 
             if compute_environments is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_environments'")
@@ -484,7 +484,7 @@ class JobQueue(pulumi.CustomResource):
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArgs']]] = None) -> 'JobQueue':
+            timeouts: Optional[pulumi.Input[pulumi.InputType['JobQueueTimeoutsArrgs']]] = None) -> 'JobQueue':
         """
         Get an existing JobQueue resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

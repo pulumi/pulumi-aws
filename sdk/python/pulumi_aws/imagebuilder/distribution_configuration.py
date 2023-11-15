@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DistributionConfigurationArgs', 'DistributionConfiguration']
+__all__ = ['DistributionConfigurationArrgs', 'DistributionConfiguration']
 
 @pulumi.input_type
-class DistributionConfigurationArgs:
+calass DistributionConfigurationArrgs:
     def __init__(__self__, *,
-                 distributions: pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]],
+                 distributions: pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArrgs']]],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DistributionConfiguration resource.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArrgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] description: Description of the distribution configuration.
@@ -39,7 +39,7 @@ class DistributionConfigurationArgs:
 
     @property
     @pulumi.getter
-    def distributions(self) -> pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]:
+    def distributions(self) -> pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArrgs']]]:
         """
         One or more configuration blocks with distribution settings. Detailed below.
 
@@ -48,7 +48,7 @@ class DistributionConfigurationArgs:
         return pulumi.get(self, "distributions")
 
     @distributions.setter
-    def distributions(self, value: pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]):
+    def distributions(self, value: pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArrgs']]]):
         pulumi.set(self, "distributions", value)
 
     @property
@@ -89,13 +89,13 @@ class DistributionConfigurationArgs:
 
 
 @pulumi.input_type
-class _DistributionConfigurationState:
+calass _DistributionConfigurationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  date_created: Optional[pulumi.Input[str]] = None,
                  date_updated: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]] = None,
+                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -105,7 +105,7 @@ class _DistributionConfigurationState:
         :param pulumi.Input[str] date_created: Date the distribution configuration was created.
         :param pulumi.Input[str] date_updated: Date the distribution configuration was updated.
         :param pulumi.Input[str] description: Description of the distribution configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArrgs']]] distributions: One or more configuration blocks with distribution settings. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Name of the distribution configuration.
@@ -182,7 +182,7 @@ class _DistributionConfigurationState:
 
     @property
     @pulumi.getter
-    def distributions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]]:
+    def distributions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArrgs']]]]:
         """
         One or more configuration blocks with distribution settings. Detailed below.
 
@@ -191,7 +191,7 @@ class _DistributionConfigurationState:
         return pulumi.get(self, "distributions")
 
     @distributions.setter
-    def distributions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArgs']]]]):
+    def distributions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionArrgs']]]]):
         pulumi.set(self, "distributions", value)
 
     @property
@@ -234,13 +234,13 @@ class _DistributionConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
-class DistributionConfiguration(pulumi.CustomResource):
+calass DistributionConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
+                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -253,17 +253,17 @@ class DistributionConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.DistributionConfiguration("example", distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
-            ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
+        example = aws.imagebuilder.DistributionConfiguration("example", distributions=[aws.imagebuilder.DistributionConfigurationDistributionArrgs(
+            ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArrgs(
                 ami_tags={
                     "CostCenter": "IT",
                 },
-                launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
+                launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrgs(
                     user_ids=["123456789012"],
                 ),
                 name="example-{{ imagebuilder:buildDate }}",
             ),
-            launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
+            launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArrgs(
                 launch_template_id="lt-0aaa1bcde2ff3456",
             )],
             region="us-east-1",
@@ -281,7 +281,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the distribution configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArrgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Name of the distribution configuration.
@@ -291,7 +291,7 @@ class DistributionConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DistributionConfigurationArgs,
+                 args: DistributionConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Image Builder Distribution Configuration.
@@ -302,17 +302,17 @@ class DistributionConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.imagebuilder.DistributionConfiguration("example", distributions=[aws.imagebuilder.DistributionConfigurationDistributionArgs(
-            ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs(
+        example = aws.imagebuilder.DistributionConfiguration("example", distributions=[aws.imagebuilder.DistributionConfigurationDistributionArrgs(
+            ami_distribution_configuration=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArrgs(
                 ami_tags={
                     "CostCenter": "IT",
                 },
-                launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs(
+                launch_permission=aws.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrgs(
                     user_ids=["123456789012"],
                 ),
                 name="example-{{ imagebuilder:buildDate }}",
             ),
-            launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs(
+            launch_template_configurations=[aws.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArrgs(
                 launch_template_id="lt-0aaa1bcde2ff3456",
             )],
             region="us-east-1",
@@ -328,12 +328,12 @@ class DistributionConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DistributionConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param DistributionConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DistributionConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DistributionConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -343,7 +343,7 @@ class DistributionConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
+                 distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -353,7 +353,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DistributionConfigurationArgs.__new__(DistributionConfigurationArgs)
+            __props__ = DistributionConfigurationArrgs.__new__(DistributionConfigurationArrgs)
 
             __props__.__dict__["description"] = description
             if distributions is None and not opts.urn:
@@ -381,7 +381,7 @@ class DistributionConfiguration(pulumi.CustomResource):
             date_created: Optional[pulumi.Input[str]] = None,
             date_updated: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]]] = None,
+            distributions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'DistributionConfiguration':
@@ -396,7 +396,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] date_created: Date the distribution configuration was created.
         :param pulumi.Input[str] date_updated: Date the distribution configuration was updated.
         :param pulumi.Input[str] description: Description of the distribution configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DistributionConfigurationDistributionArrgs']]]] distributions: One or more configuration blocks with distribution settings. Detailed below.
                
                The following arguments are optional:
         :param pulumi.Input[str] name: Name of the distribution configuration.

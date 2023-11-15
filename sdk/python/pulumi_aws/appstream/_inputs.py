@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DirectoryConfigServiceAccountCredentialsArgs',
-    'FleetComputeCapacityArgs',
-    'FleetDomainJoinInfoArgs',
-    'FleetVpcConfigArgs',
-    'ImageBuilderAccessEndpointArgs',
-    'ImageBuilderDomainJoinInfoArgs',
-    'ImageBuilderVpcConfigArgs',
-    'StackAccessEndpointArgs',
-    'StackApplicationSettingsArgs',
-    'StackStorageConnectorArgs',
-    'StackStreamingExperienceSettingsArgs',
-    'StackUserSettingArgs',
+    'DirectoryConfigServiceAccountCredentialsArrgs',
+    'FleetComputeCapacityArrgs',
+    'FleetDomainJoinInfoArrgs',
+    'FleetVpcConfigArrgs',
+    'ImageBuilderAccessEndpointArrgs',
+    'ImageBuilderDomainJoinInfoArrgs',
+    'ImageBuilderVpcConfigArrgs',
+    'StackAccessEndpointArrgs',
+    'StackApplicationSettingsArrgs',
+    'StackStorageConnectorArrgs',
+    'StackStreamingExperienceSettingsArrgs',
+    'StackUserSettingArrgs',
 ]
 
 @pulumi.input_type
-class DirectoryConfigServiceAccountCredentialsArgs:
+calass DirectoryConfigServiceAccountCredentialsArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  account_password: pulumi.Input[str]):
@@ -62,7 +62,7 @@ class DirectoryConfigServiceAccountCredentialsArgs:
 
 
 @pulumi.input_type
-class FleetComputeCapacityArgs:
+calass FleetComputeCapacityArrgs:
     def __init__(__self__, *,
                  desired_instances: pulumi.Input[int],
                  available: Optional[pulumi.Input[int]] = None,
@@ -132,7 +132,7 @@ class FleetComputeCapacityArgs:
 
 
 @pulumi.input_type
-class FleetDomainJoinInfoArgs:
+calass FleetDomainJoinInfoArrgs:
     def __init__(__self__, *,
                  directory_name: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
@@ -171,7 +171,7 @@ class FleetDomainJoinInfoArgs:
 
 
 @pulumi.input_type
-class FleetVpcConfigArgs:
+calass FleetVpcConfigArrgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -210,7 +210,7 @@ class FleetVpcConfigArgs:
 
 
 @pulumi.input_type
-class ImageBuilderAccessEndpointArgs:
+calass ImageBuilderAccessEndpointArrgs:
     def __init__(__self__, *,
                  endpoint_type: pulumi.Input[str],
                  vpce_id: Optional[pulumi.Input[str]] = None):
@@ -248,7 +248,7 @@ class ImageBuilderAccessEndpointArgs:
 
 
 @pulumi.input_type
-class ImageBuilderDomainJoinInfoArgs:
+calass ImageBuilderDomainJoinInfoArrgs:
     def __init__(__self__, *,
                  directory_name: Optional[pulumi.Input[str]] = None,
                  organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
@@ -287,7 +287,7 @@ class ImageBuilderDomainJoinInfoArgs:
 
 
 @pulumi.input_type
-class ImageBuilderVpcConfigArgs:
+calass ImageBuilderVpcConfigArrgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -326,7 +326,7 @@ class ImageBuilderVpcConfigArgs:
 
 
 @pulumi.input_type
-class StackAccessEndpointArgs:
+calass StackAccessEndpointArrgs:
     def __init__(__self__, *,
                  endpoint_type: pulumi.Input[str],
                  vpce_id: Optional[pulumi.Input[str]] = None):
@@ -366,7 +366,7 @@ class StackAccessEndpointArgs:
 
 
 @pulumi.input_type
-class StackApplicationSettingsArgs:
+calass StackApplicationSettingsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  settings_group: Optional[pulumi.Input[str]] = None):
@@ -408,7 +408,7 @@ class StackApplicationSettingsArgs:
 
 
 @pulumi.input_type
-class StackStorageConnectorArgs:
+calass StackStorageConnectorArrgs:
     def __init__(__self__, *,
                  connector_type: pulumi.Input[str],
                  domains: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -464,7 +464,7 @@ class StackStorageConnectorArgs:
 
 
 @pulumi.input_type
-class StackStreamingExperienceSettingsArgs:
+calass StackStreamingExperienceSettingsArrgs:
     def __init__(__self__, *,
                  preferred_protocol: Optional[pulumi.Input[str]] = None):
         """
@@ -489,7 +489,7 @@ class StackStreamingExperienceSettingsArgs:
 
 
 @pulumi.input_type
-class StackUserSettingArgs:
+calass StackUserSettingArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  permission: pulumi.Input[str]):

@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcEndpointResult:
+calass GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
     """
@@ -236,7 +236,7 @@ class GetVpcEndpointResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
+calass AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -265,7 +265,7 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             vpc_id=self.vpc_id)
 
 
-def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']]] = None,
+def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpointFilterArrgs']]] = None,
                      id: Optional[str] = None,
                      service_name: Optional[str] = None,
                      state: Optional[str] = None,
@@ -290,7 +290,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcEndpointFilterArrgs']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPC Endpoint to retrieve.
     :param str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str state: State of the specific VPC Endpoint to retrieve.
@@ -336,7 +336,7 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
 
 
 @_utilities.lift_output_func(get_vpc_endpoint)
-def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']]]]] = None,
+def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcEndpointFilterArrgs']]]]] = None,
                             id: Optional[pulumi.Input[Optional[str]]] = None,
                             service_name: Optional[pulumi.Input[Optional[str]]] = None,
                             state: Optional[pulumi.Input[Optional[str]]] = None,
@@ -361,7 +361,7 @@ def get_vpc_endpoint_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcEndpointFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcEndpointFilterArrgs']] filters: Custom filter block as described below.
     :param str id: ID of the specific VPC Endpoint to retrieve.
     :param str service_name: Service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str state: State of the specific VPC Endpoint to retrieve.

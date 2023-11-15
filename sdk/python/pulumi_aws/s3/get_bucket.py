@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBucketResult:
+calass GetBucketResult:
     """
     A collection of values returned by getBucket.
     """
@@ -120,7 +120,7 @@ class GetBucketResult:
         return pulumi.get(self, "website_endpoint")
 
 
-class AwaitableGetBucketResult(GetBucketResult):
+calass AwaitableGetBucketResult(GetBucketResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -158,7 +158,7 @@ def get_bucket(bucket: Optional[str] = None,
         zone_id=test_zone.id,
         name="bucket",
         type="A",
-        aliases=[aws.route53.RecordAliasArgs(
+        aliases=[aws.route53.RecordAliasArrgs(
             name=selected.website_domain,
             zone_id=selected.hosted_zone_id,
         )])
@@ -170,7 +170,7 @@ def get_bucket(bucket: Optional[str] = None,
     import pulumi_aws as aws
 
     selected = aws.s3.get_bucket(bucket="a-test-bucket")
-    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
+    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArrgs(
         domain_name=selected.bucket_domain_name,
         origin_id="s3-selected-bucket",
     )])
@@ -218,7 +218,7 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
         zone_id=test_zone.id,
         name="bucket",
         type="A",
-        aliases=[aws.route53.RecordAliasArgs(
+        aliases=[aws.route53.RecordAliasArrgs(
             name=selected.website_domain,
             zone_id=selected.hosted_zone_id,
         )])
@@ -230,7 +230,7 @@ def get_bucket_output(bucket: Optional[pulumi.Input[str]] = None,
     import pulumi_aws as aws
 
     selected = aws.s3.get_bucket(bucket="a-test-bucket")
-    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArgs(
+    test = aws.cloudfront.Distribution("test", origins=[aws.cloudfront.DistributionOriginArrgs(
         domain_name=selected.bucket_domain_name,
         origin_id="s3-selected-bucket",
     )])

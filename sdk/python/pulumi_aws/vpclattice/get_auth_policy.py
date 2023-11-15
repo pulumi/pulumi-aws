@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAuthPolicyResult:
+calass GetAuthPolicyResult:
     """
     A collection of values returned by getAuthPolicy.
     """
@@ -65,7 +65,7 @@ class GetAuthPolicyResult:
         return pulumi.get(self, "state")
 
 
-class AwaitableGetAuthPolicyResult(GetAuthPolicyResult):
+calass AwaitableGetAuthPolicyResult(GetAuthPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

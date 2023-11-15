@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserHierarchyStructureArgs', 'UserHierarchyStructure']
+__all__ = ['UserHierarchyStructureArrgs', 'UserHierarchyStructure']
 
 @pulumi.input_type
-class UserHierarchyStructureArgs:
+calass UserHierarchyStructureArrgs:
     def __init__(__self__, *,
-                 hierarchy_structure: pulumi.Input['UserHierarchyStructureHierarchyStructureArgs'],
+                 hierarchy_structure: pulumi.Input['UserHierarchyStructureHierarchyStructureArrgs'],
                  instance_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a UserHierarchyStructure resource.
-        :param pulumi.Input['UserHierarchyStructureHierarchyStructureArgs'] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureArrgs'] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         """
         pulumi.set(__self__, "hierarchy_structure", hierarchy_structure)
@@ -28,14 +28,14 @@ class UserHierarchyStructureArgs:
 
     @property
     @pulumi.getter(name="hierarchyStructure")
-    def hierarchy_structure(self) -> pulumi.Input['UserHierarchyStructureHierarchyStructureArgs']:
+    def hierarchy_structure(self) -> pulumi.Input['UserHierarchyStructureHierarchyStructureArrgs']:
         """
         A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         """
         return pulumi.get(self, "hierarchy_structure")
 
     @hierarchy_structure.setter
-    def hierarchy_structure(self, value: pulumi.Input['UserHierarchyStructureHierarchyStructureArgs']):
+    def hierarchy_structure(self, value: pulumi.Input['UserHierarchyStructureHierarchyStructureArrgs']):
         pulumi.set(self, "hierarchy_structure", value)
 
     @property
@@ -52,13 +52,13 @@ class UserHierarchyStructureArgs:
 
 
 @pulumi.input_type
-class _UserHierarchyStructureState:
+calass _UserHierarchyStructureState:
     def __init__(__self__, *,
-                 hierarchy_structure: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArgs']] = None,
+                 hierarchy_structure: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArrgs']] = None,
                  instance_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering UserHierarchyStructure resources.
-        :param pulumi.Input['UserHierarchyStructureHierarchyStructureArgs'] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        :param pulumi.Input['UserHierarchyStructureHierarchyStructureArrgs'] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         """
         if hierarchy_structure is not None:
@@ -68,14 +68,14 @@ class _UserHierarchyStructureState:
 
     @property
     @pulumi.getter(name="hierarchyStructure")
-    def hierarchy_structure(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArgs']]:
+    def hierarchy_structure(self) -> Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArrgs']]:
         """
         A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         """
         return pulumi.get(self, "hierarchy_structure")
 
     @hierarchy_structure.setter
-    def hierarchy_structure(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArgs']]):
+    def hierarchy_structure(self, value: Optional[pulumi.Input['UserHierarchyStructureHierarchyStructureArrgs']]):
         pulumi.set(self, "hierarchy_structure", value)
 
     @property
@@ -91,12 +91,12 @@ class _UserHierarchyStructureState:
         pulumi.set(self, "instance_id", value)
 
 
-class UserHierarchyStructure(pulumi.CustomResource):
+calass UserHierarchyStructure(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hierarchy_structure: Optional[pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArgs']]] = None,
+                 hierarchy_structure: Optional[pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArrgs']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -111,8 +111,8 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
-            hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
-                level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
+            hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArrgs(
+                level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArrgs(
                     name="levelone",
                 ),
             ),
@@ -125,20 +125,20 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
-            hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
-                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
+            hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArrgs(
+                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArrgs(
                     name="levelfive",
                 ),
-                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
+                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArrgs(
                     name="levelfour",
                 ),
-                level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
+                level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArrgs(
                     name="levelone",
                 ),
-                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
+                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArrgs(
                     name="levelthree",
                 ),
-                level_two=aws.connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs(
+                level_two=aws.connect.UserHierarchyStructureHierarchyStructureLevelTwoArrgs(
                     name="leveltwo",
                 ),
             ),
@@ -155,14 +155,14 @@ class UserHierarchyStructure(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArgs']] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        :param pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArrgs']] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserHierarchyStructureArgs,
+                 args: UserHierarchyStructureArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Amazon Connect User Hierarchy Structure resource. For more information see
@@ -176,8 +176,8 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
-            hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
-                level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
+            hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArrgs(
+                level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArrgs(
                     name="levelone",
                 ),
             ),
@@ -190,20 +190,20 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
-            hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArgs(
-                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArgs(
+            hierarchy_structure=aws.connect.UserHierarchyStructureHierarchyStructureArrgs(
+                level_five=aws.connect.UserHierarchyStructureHierarchyStructureLevelFiveArrgs(
                     name="levelfive",
                 ),
-                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArgs(
+                level_four=aws.connect.UserHierarchyStructureHierarchyStructureLevelFourArrgs(
                     name="levelfour",
                 ),
-                level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArgs(
+                level_one=aws.connect.UserHierarchyStructureHierarchyStructureLevelOneArrgs(
                     name="levelone",
                 ),
-                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArgs(
+                level_three=aws.connect.UserHierarchyStructureHierarchyStructureLevelThreeArrgs(
                     name="levelthree",
                 ),
-                level_two=aws.connect.UserHierarchyStructureHierarchyStructureLevelTwoArgs(
+                level_two=aws.connect.UserHierarchyStructureHierarchyStructureLevelTwoArrgs(
                     name="leveltwo",
                 ),
             ),
@@ -219,12 +219,12 @@ class UserHierarchyStructure(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserHierarchyStructureArgs args: The arguments to use to populate this resource's properties.
+        :param UserHierarchyStructureArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserHierarchyStructureArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserHierarchyStructureArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -233,7 +233,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hierarchy_structure: Optional[pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArgs']]] = None,
+                 hierarchy_structure: Optional[pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArrgs']]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -242,7 +242,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserHierarchyStructureArgs.__new__(UserHierarchyStructureArgs)
+            __props__ = UserHierarchyStructureArrgs.__new__(UserHierarchyStructureArrgs)
 
             if hierarchy_structure is None and not opts.urn:
                 raise TypeError("Missing required property 'hierarchy_structure'")
@@ -260,7 +260,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            hierarchy_structure: Optional[pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArgs']]] = None,
+            hierarchy_structure: Optional[pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArrgs']]] = None,
             instance_id: Optional[pulumi.Input[str]] = None) -> 'UserHierarchyStructure':
         """
         Get an existing UserHierarchyStructure resource's state with the given name, id, and optional extra
@@ -269,7 +269,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArgs']] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
+        :param pulumi.Input[pulumi.InputType['UserHierarchyStructureHierarchyStructureArrgs']] hierarchy_structure: A block that defines the hierarchy structure's levels. The `hierarchy_structure` block is documented below.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

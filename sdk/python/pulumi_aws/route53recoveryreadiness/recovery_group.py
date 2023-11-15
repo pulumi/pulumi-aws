@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RecoveryGroupArgs', 'RecoveryGroup']
+__all__ = ['RecoveryGroupArrgs', 'RecoveryGroup']
 
 @pulumi.input_type
-class RecoveryGroupArgs:
+calass RecoveryGroupArrgs:
     def __init__(__self__, *,
                  recovery_group_name: pulumi.Input[str],
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -71,7 +71,7 @@ class RecoveryGroupArgs:
 
 
 @pulumi.input_type
-class _RecoveryGroupState:
+calass _RecoveryGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cells: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -168,7 +168,7 @@ class _RecoveryGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class RecoveryGroup(pulumi.CustomResource):
+calass RecoveryGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -209,7 +209,7 @@ class RecoveryGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RecoveryGroupArgs,
+                 args: RecoveryGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Route 53 Recovery Readiness Recovery Group.
@@ -232,12 +232,12 @@ class RecoveryGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RecoveryGroupArgs args: The arguments to use to populate this resource's properties.
+        :param RecoveryGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RecoveryGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RecoveryGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -256,7 +256,7 @@ class RecoveryGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RecoveryGroupArgs.__new__(RecoveryGroupArgs)
+            __props__ = RecoveryGroupArrgs.__new__(RecoveryGroupArrgs)
 
             __props__.__dict__["cells"] = cells
             if recovery_group_name is None and not opts.urn:

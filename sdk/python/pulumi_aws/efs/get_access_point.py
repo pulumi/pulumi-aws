@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAccessPointResult:
+calass GetAccessPointResult:
     """
     A collection of values returned by getAccessPoint.
     """
@@ -118,7 +118,7 @@ class GetAccessPointResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetAccessPointResult(GetAccessPointResult):
+calass AwaitableGetAccessPointResult(GetAccessPointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

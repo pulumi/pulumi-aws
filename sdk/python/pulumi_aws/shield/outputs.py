@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationLayerAutomaticResponseTimeouts(dict):
+calass ApplicationLayerAutomaticResponseTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
@@ -45,7 +45,7 @@ class ApplicationLayerAutomaticResponseTimeouts(dict):
 
 
 @pulumi.output_type
-class DrtAccessLogBucketAssociationTimeouts(dict):
+calass DrtAccessLogBucketAssociationTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
@@ -74,7 +74,7 @@ class DrtAccessLogBucketAssociationTimeouts(dict):
 
 
 @pulumi.output_type
-class DrtAccessRoleArnAssociationTimeouts(dict):
+calass DrtAccessRoleArnAssociationTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,

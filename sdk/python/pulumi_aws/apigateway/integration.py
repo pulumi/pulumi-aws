@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IntegrationArgs', 'Integration']
+__all__ = ['IntegrationArrgs', 'Integration']
 
 @pulumi.input_type
-class IntegrationArgs:
+calass IntegrationArrgs:
     def __init__(__self__, *,
                  http_method: pulumi.Input[str],
                  resource_id: pulumi.Input[str],
@@ -31,7 +31,7 @@ class IntegrationArgs:
                  request_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  request_templates: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[int]] = None,
-                 tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
+                 tls_config: Optional[pulumi.Input['IntegrationTlsConfigArrgs']] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Integration resource.
@@ -56,7 +56,7 @@ class IntegrationArgs:
                For example: `request_parameters = { "integration.request.header.X-Some-Other-Header" = "method.request.header.X-Some-Header" }`
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_templates: Map of the integration's request templates.
         :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
-        :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration. See below.
+        :param pulumi.Input['IntegrationTlsConfigArrgs'] tls_config: TLS configuration. See below.
         :param pulumi.Input[str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
                e.g., `arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:012345678901:function:my-func/invocations`. For private integrations, the URI parameter is not used for routing requests to your endpoint, but is used for setting the Host header and for certificate validation.
@@ -280,14 +280,14 @@ class IntegrationArgs:
 
     @property
     @pulumi.getter(name="tlsConfig")
-    def tls_config(self) -> Optional[pulumi.Input['IntegrationTlsConfigArgs']]:
+    def tls_config(self) -> Optional[pulumi.Input['IntegrationTlsConfigArrgs']]:
         """
         TLS configuration. See below.
         """
         return pulumi.get(self, "tls_config")
 
     @tls_config.setter
-    def tls_config(self, value: Optional[pulumi.Input['IntegrationTlsConfigArgs']]):
+    def tls_config(self, value: Optional[pulumi.Input['IntegrationTlsConfigArrgs']]):
         pulumi.set(self, "tls_config", value)
 
     @property
@@ -306,7 +306,7 @@ class IntegrationArgs:
 
 
 @pulumi.input_type
-class _IntegrationState:
+calass _IntegrationState:
     def __init__(__self__, *,
                  cache_key_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cache_namespace: Optional[pulumi.Input[str]] = None,
@@ -322,7 +322,7 @@ class _IntegrationState:
                  resource_id: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[int]] = None,
-                 tls_config: Optional[pulumi.Input['IntegrationTlsConfigArgs']] = None,
+                 tls_config: Optional[pulumi.Input['IntegrationTlsConfigArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None):
         """
@@ -347,7 +347,7 @@ class _IntegrationState:
         :param pulumi.Input[str] resource_id: API resource ID.
         :param pulumi.Input[str] rest_api: ID of the associated REST API.
         :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
-        :param pulumi.Input['IntegrationTlsConfigArgs'] tls_config: TLS configuration. See below.
+        :param pulumi.Input['IntegrationTlsConfigArrgs'] tls_config: TLS configuration. See below.
         :param pulumi.Input[str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
@@ -564,14 +564,14 @@ class _IntegrationState:
 
     @property
     @pulumi.getter(name="tlsConfig")
-    def tls_config(self) -> Optional[pulumi.Input['IntegrationTlsConfigArgs']]:
+    def tls_config(self) -> Optional[pulumi.Input['IntegrationTlsConfigArrgs']]:
         """
         TLS configuration. See below.
         """
         return pulumi.get(self, "tls_config")
 
     @tls_config.setter
-    def tls_config(self, value: Optional[pulumi.Input['IntegrationTlsConfigArgs']]):
+    def tls_config(self, value: Optional[pulumi.Input['IntegrationTlsConfigArrgs']]):
         pulumi.set(self, "tls_config", value)
 
     @property
@@ -601,7 +601,7 @@ class _IntegrationState:
         pulumi.set(self, "uri", value)
 
 
-class Integration(pulumi.CustomResource):
+calass Integration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -620,7 +620,7 @@ class Integration(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[int]] = None,
-                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
+                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -681,9 +681,9 @@ class Integration(pulumi.CustomResource):
             resource_id=resource.id,
             http_method="GET",
             authorization="NONE")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["lambda.amazonaws.com"],
             )],
@@ -740,7 +740,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: API resource ID.
         :param pulumi.Input[str] rest_api: ID of the associated REST API.
         :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
-        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: TLS configuration. See below.
+        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArrgs']] tls_config: TLS configuration. See below.
         :param pulumi.Input[str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.
@@ -750,7 +750,7 @@ class Integration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationArgs,
+                 args: IntegrationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an HTTP Method Integration for an API Gateway Integration.
@@ -809,9 +809,9 @@ class Integration(pulumi.CustomResource):
             resource_id=resource.id,
             http_method="GET",
             authorization="NONE")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["lambda.amazonaws.com"],
             )],
@@ -847,12 +847,12 @@ class Integration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -875,7 +875,7 @@ class Integration(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  rest_api: Optional[pulumi.Input[str]] = None,
                  timeout_milliseconds: Optional[pulumi.Input[int]] = None,
-                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
+                 tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -885,7 +885,7 @@ class Integration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationArgs.__new__(IntegrationArgs)
+            __props__ = IntegrationArrgs.__new__(IntegrationArrgs)
 
             __props__.__dict__["cache_key_parameters"] = cache_key_parameters
             __props__.__dict__["cache_namespace"] = cache_namespace
@@ -936,7 +936,7 @@ class Integration(pulumi.CustomResource):
             resource_id: Optional[pulumi.Input[str]] = None,
             rest_api: Optional[pulumi.Input[str]] = None,
             timeout_milliseconds: Optional[pulumi.Input[int]] = None,
-            tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']]] = None,
+            tls_config: Optional[pulumi.Input[pulumi.InputType['IntegrationTlsConfigArrgs']]] = None,
             type: Optional[pulumi.Input[str]] = None,
             uri: Optional[pulumi.Input[str]] = None) -> 'Integration':
         """
@@ -966,7 +966,7 @@ class Integration(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: API resource ID.
         :param pulumi.Input[str] rest_api: ID of the associated REST API.
         :param pulumi.Input[int] timeout_milliseconds: Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds.
-        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArgs']] tls_config: TLS configuration. See below.
+        :param pulumi.Input[pulumi.InputType['IntegrationTlsConfigArrgs']] tls_config: TLS configuration. See below.
         :param pulumi.Input[str] type: Integration input's [type](https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/). Valid values are `HTTP` (for HTTP backends), `MOCK` (not calling any real backend), `AWS` (for AWS services), `AWS_PROXY` (for Lambda proxy integration) and `HTTP_PROXY` (for HTTP proxy integration). An `HTTP` or `HTTP_PROXY` integration with a `connection_type` of `VPC_LINK` is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.
         :param pulumi.Input[str] uri: Input's URI. **Required** if `type` is `AWS`, `AWS_PROXY`, `HTTP` or `HTTP_PROXY`.
                For HTTP integrations, the URI must be a fully formed, encoded HTTP(S) URL according to the RFC-3986 specification . For AWS integrations, the URI should be of the form `arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}`. `region`, `subdomain` and `service` are used to determine the right endpoint.

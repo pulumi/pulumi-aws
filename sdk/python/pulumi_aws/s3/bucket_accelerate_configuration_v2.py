@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BucketAccelerateConfigurationV2Args', 'BucketAccelerateConfigurationV2']
+__all__ = ['BucketAccelerateConfigurationV2Arrgs', 'BucketAccelerateConfigurationV2']
 
 @pulumi.input_type
-class BucketAccelerateConfigurationV2Args:
+calass BucketAccelerateConfigurationV2Arrgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
                  status: pulumi.Input[str],
@@ -66,7 +66,7 @@ class BucketAccelerateConfigurationV2Args:
 
 
 @pulumi.input_type
-class _BucketAccelerateConfigurationV2State:
+calass _BucketAccelerateConfigurationV2State:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _BucketAccelerateConfigurationV2State:
         pulumi.set(self, "status", value)
 
 
-class BucketAccelerateConfigurationV2(pulumi.CustomResource):
+calass BucketAccelerateConfigurationV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -172,7 +172,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BucketAccelerateConfigurationV2Args,
+                 args: BucketAccelerateConfigurationV2Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
@@ -207,12 +207,12 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BucketAccelerateConfigurationV2Args args: The arguments to use to populate this resource's properties.
+        :param BucketAccelerateConfigurationV2Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BucketAccelerateConfigurationV2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BucketAccelerateConfigurationV2Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -231,7 +231,7 @@ class BucketAccelerateConfigurationV2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BucketAccelerateConfigurationV2Args.__new__(BucketAccelerateConfigurationV2Args)
+            __props__ = BucketAccelerateConfigurationV2Arrgs.__new__(BucketAccelerateConfigurationV2Arrgs)
 
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")

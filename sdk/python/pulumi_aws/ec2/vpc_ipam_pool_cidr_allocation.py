@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcIpamPoolCidrAllocationArgs', 'VpcIpamPoolCidrAllocation']
+__all__ = ['VpcIpamPoolCidrAllocationArrgs', 'VpcIpamPoolCidrAllocation']
 
 @pulumi.input_type
-class VpcIpamPoolCidrAllocationArgs:
+calass VpcIpamPoolCidrAllocationArrgs:
     def __init__(__self__, *,
                  ipam_pool_id: pulumi.Input[str],
                  cidr: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class VpcIpamPoolCidrAllocationArgs:
 
 
 @pulumi.input_type
-class _VpcIpamPoolCidrAllocationState:
+calass _VpcIpamPoolCidrAllocationState:
     def __init__(__self__, *,
                  cidr: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -246,7 +246,7 @@ class _VpcIpamPoolCidrAllocationState:
         pulumi.set(self, "resource_type", value)
 
 
-class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
+calass VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -269,7 +269,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
@@ -292,7 +292,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
@@ -329,7 +329,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcIpamPoolCidrAllocationArgs,
+                 args: VpcIpamPoolCidrAllocationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allocates (reserves) a CIDR from an IPAM address pool, preventing usage by IPAM. Only works for private IPv4.
@@ -343,7 +343,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
@@ -366,7 +366,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         current = aws.get_region()
-        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArgs(
+        example_vpc_ipam = aws.ec2.VpcIpam("exampleVpcIpam", operating_regions=[aws.ec2.VpcIpamOperatingRegionArrgs(
             region_name=current.name,
         )])
         example_vpc_ipam_pool = aws.ec2.VpcIpamPool("exampleVpcIpamPool",
@@ -392,12 +392,12 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcIpamPoolCidrAllocationArgs args: The arguments to use to populate this resource's properties.
+        :param VpcIpamPoolCidrAllocationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamPoolCidrAllocationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamPoolCidrAllocationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -418,7 +418,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcIpamPoolCidrAllocationArgs.__new__(VpcIpamPoolCidrAllocationArgs)
+            __props__ = VpcIpamPoolCidrAllocationArrgs.__new__(VpcIpamPoolCidrAllocationArrgs)
 
             __props__.__dict__["cidr"] = cidr
             __props__.__dict__["description"] = description

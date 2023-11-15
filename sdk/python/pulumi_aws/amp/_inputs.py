@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'WorkspaceLoggingConfigurationArgs',
+    'WorkspaceLoggingConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class WorkspaceLoggingConfigurationArgs:
+calass WorkspaceLoggingConfigurationArrgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[str]):
         """

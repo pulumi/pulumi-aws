@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApplicationLayerAutomaticResponseArgs', 'ApplicationLayerAutomaticResponse']
+__all__ = ['ApplicationLayerAutomaticResponseArrgs', 'ApplicationLayerAutomaticResponse']
 
 @pulumi.input_type
-class ApplicationLayerAutomaticResponseArgs:
+calass ApplicationLayerAutomaticResponseArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  resource_arn: pulumi.Input[str],
-                 timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a ApplicationLayerAutomaticResponse resource.
         :param pulumi.Input[str] action: One of `COUNT` or `BLOCK`
@@ -55,20 +55,20 @@ class ApplicationLayerAutomaticResponseArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _ApplicationLayerAutomaticResponseState:
+calass _ApplicationLayerAutomaticResponseState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArrgs']] = None):
         """
         Input properties used for looking up and filtering ApplicationLayerAutomaticResponse resources.
         :param pulumi.Input[str] action: One of `COUNT` or `BLOCK`
@@ -107,22 +107,22 @@ class _ApplicationLayerAutomaticResponseState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['ApplicationLayerAutomaticResponseTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
-class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
+calass ApplicationLayerAutomaticResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationLayerAutomaticResponseTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationLayerAutomaticResponseTimeoutsArrgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
@@ -151,7 +151,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationLayerAutomaticResponseArgs,
+                 args: ApplicationLayerAutomaticResponseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Shield Application Layer Automatic Response for automatic DDoS mitigation.
@@ -172,12 +172,12 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationLayerAutomaticResponseArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationLayerAutomaticResponseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationLayerAutomaticResponseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationLayerAutomaticResponseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -188,7 +188,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[pulumi.Input[str]] = None,
                  resource_arn: Optional[pulumi.Input[str]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationLayerAutomaticResponseTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationLayerAutomaticResponseTimeoutsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -196,7 +196,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationLayerAutomaticResponseArgs.__new__(ApplicationLayerAutomaticResponseArgs)
+            __props__ = ApplicationLayerAutomaticResponseArrgs.__new__(ApplicationLayerAutomaticResponseArrgs)
 
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
@@ -217,7 +217,7 @@ class ApplicationLayerAutomaticResponse(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             action: Optional[pulumi.Input[str]] = None,
             resource_arn: Optional[pulumi.Input[str]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationLayerAutomaticResponseTimeoutsArgs']]] = None) -> 'ApplicationLayerAutomaticResponse':
+            timeouts: Optional[pulumi.Input[pulumi.InputType['ApplicationLayerAutomaticResponseTimeoutsArrgs']]] = None) -> 'ApplicationLayerAutomaticResponse':
         """
         Get an existing ApplicationLayerAutomaticResponse resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDataLakeSettingsResult:
+calass GetDataLakeSettingsResult:
     """
     A collection of values returned by getDataLakeSettings.
     """
@@ -132,7 +132,7 @@ class GetDataLakeSettingsResult:
         return pulumi.get(self, "trusted_resource_owners")
 
 
-class AwaitableGetDataLakeSettingsResult(GetDataLakeSettingsResult):
+calass AwaitableGetDataLakeSettingsResult(GetDataLakeSettingsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

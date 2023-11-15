@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPlanResult:
+calass GetPlanResult:
     """
     A collection of values returned by getPlan.
     """
@@ -55,7 +55,7 @@ class GetPlanResult:
         return pulumi.get(self, "stages")
 
 
-class AwaitableGetPlanResult(GetPlanResult):
+calass AwaitableGetPlanResult(GetPlanResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

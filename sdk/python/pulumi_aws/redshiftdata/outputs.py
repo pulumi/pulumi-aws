@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class StatementParameter(dict):
+calass StatementParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):

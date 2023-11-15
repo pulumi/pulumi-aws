@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TransitGatewayRouteTableAttachmentArgs', 'TransitGatewayRouteTableAttachment']
+__all__ = ['TransitGatewayRouteTableAttachmentArrgs', 'TransitGatewayRouteTableAttachment']
 
 @pulumi.input_type
-class TransitGatewayRouteTableAttachmentArgs:
+calass TransitGatewayRouteTableAttachmentArrgs:
     def __init__(__self__, *,
                  peering_id: pulumi.Input[str],
                  transit_gateway_route_table_arn: pulumi.Input[str],
@@ -66,7 +66,7 @@ class TransitGatewayRouteTableAttachmentArgs:
 
 
 @pulumi.input_type
-class _TransitGatewayRouteTableAttachmentState:
+calass _TransitGatewayRouteTableAttachmentState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  attachment_policy_rule_number: Optional[pulumi.Input[int]] = None,
@@ -303,7 +303,7 @@ class _TransitGatewayRouteTableAttachmentState:
         pulumi.set(self, "transit_gateway_route_table_arn", value)
 
 
-class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
+calass TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -344,7 +344,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TransitGatewayRouteTableAttachmentArgs,
+                 args: TransitGatewayRouteTableAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a transit gateway route table attachment.
@@ -369,12 +369,12 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TransitGatewayRouteTableAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param TransitGatewayRouteTableAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayRouteTableAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TransitGatewayRouteTableAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -393,7 +393,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TransitGatewayRouteTableAttachmentArgs.__new__(TransitGatewayRouteTableAttachmentArgs)
+            __props__ = TransitGatewayRouteTableAttachmentArrgs.__new__(TransitGatewayRouteTableAttachmentArrgs)
 
             if peering_id is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_id'")

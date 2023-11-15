@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClusterArgs', 'Cluster']
+__all__ = ['ClusterArrgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterArgs:
+calass ClusterArrgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['ClusterConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArrgs']] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster. Detailed below.
+        :param pulumi.Input['ClusterConfigurationArrgs'] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        :param pulumi.Input['ClusterServiceConnectDefaultsArrgs'] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArrgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if configuration is not None:
@@ -42,14 +42,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArrgs']]:
         """
         The execute command configuration for the cluster. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ClusterConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['ClusterConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -66,26 +66,26 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="serviceConnectDefaults")
-    def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
+    def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArrgs']]:
         """
         Configures a default Service Connect namespace. Detailed below.
         """
         return pulumi.get(self, "service_connect_defaults")
 
     @service_connect_defaults.setter
-    def service_connect_defaults(self, value: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]):
+    def service_connect_defaults(self, value: Optional[pulumi.Input['ClusterServiceConnectDefaultsArrgs']]):
         pulumi.set(self, "service_connect_defaults", value)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]:
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArrgs']]]]:
         """
         Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]):
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArrgs']]]]):
         pulumi.set(self, "settings", value)
 
     @property
@@ -102,22 +102,22 @@ class ClusterArgs:
 
 
 @pulumi.input_type
-class _ClusterState:
+calass _ClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input['ClusterConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['ClusterConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input['ClusterServiceConnectDefaultsArrgs']] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] arn: ARN that identifies the cluster.
-        :param pulumi.Input['ClusterConfigurationArgs'] configuration: The execute command configuration for the cluster. Detailed below.
+        :param pulumi.Input['ClusterConfigurationArrgs'] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        :param pulumi.Input['ClusterServiceConnectDefaultsArgs'] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        :param pulumi.Input['ClusterServiceConnectDefaultsArrgs'] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArrgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -153,14 +153,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['ClusterConfigurationArrgs']]:
         """
         The execute command configuration for the cluster. Detailed below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['ClusterConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['ClusterConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -177,26 +177,26 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="serviceConnectDefaults")
-    def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]:
+    def service_connect_defaults(self) -> Optional[pulumi.Input['ClusterServiceConnectDefaultsArrgs']]:
         """
         Configures a default Service Connect namespace. Detailed below.
         """
         return pulumi.get(self, "service_connect_defaults")
 
     @service_connect_defaults.setter
-    def service_connect_defaults(self, value: Optional[pulumi.Input['ClusterServiceConnectDefaultsArgs']]):
+    def service_connect_defaults(self, value: Optional[pulumi.Input['ClusterServiceConnectDefaultsArrgs']]):
         pulumi.set(self, "service_connect_defaults", value)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]:
+    def settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArrgs']]]]:
         """
         Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]]]):
+    def settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterSettingArrgs']]]]):
         pulumi.set(self, "settings", value)
 
     @property
@@ -227,15 +227,15 @@ class _ClusterState:
         pulumi.set(self, "tags_all", value)
 
 
-class Cluster(pulumi.CustomResource):
+calass Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArrgs']]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -247,7 +247,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArgs(
+        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArrgs(
             name="containerInsights",
             value="enabled",
         )])
@@ -262,11 +262,11 @@ class Cluster(pulumi.CustomResource):
             description="example",
             deletion_window_in_days=7)
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
-            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
+        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArrgs(
+            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArrgs(
                 kms_key_id=example_key.arn,
                 logging="OVERRIDE",
-                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
+                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs(
                     cloud_watch_encryption_enabled=True,
                     cloud_watch_log_group_name=example_log_group.name,
                 ),
@@ -284,17 +284,17 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']] configuration: The execute command configuration for the cluster. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ClusterConfigurationArrgs']] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        :param pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArrgs']] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArrgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ClusterArgs] = None,
+                 args: Optional[ClusterArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an ECS cluster.
@@ -305,7 +305,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArgs(
+        foo = aws.ecs.Cluster("foo", settings=[aws.ecs.ClusterSettingArrgs(
             name="containerInsights",
             value="enabled",
         )])
@@ -320,11 +320,11 @@ class Cluster(pulumi.CustomResource):
             description="example",
             deletion_window_in_days=7)
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArgs(
-            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArgs(
+        test = aws.ecs.Cluster("test", configuration=aws.ecs.ClusterConfigurationArrgs(
+            execute_command_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationArrgs(
                 kms_key_id=example_key.arn,
                 logging="OVERRIDE",
-                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArgs(
+                log_configuration=aws.ecs.ClusterConfigurationExecuteCommandConfigurationLogConfigurationArrgs(
                     cloud_watch_encryption_enabled=True,
                     cloud_watch_log_group_name=example_log_group.name,
                 ),
@@ -341,12 +341,12 @@ class Cluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -355,10 +355,10 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
-                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
+                 service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArrgs']]] = None,
+                 settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -367,7 +367,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterArgs.__new__(ClusterArgs)
+            __props__ = ClusterArrgs.__new__(ClusterArrgs)
 
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["name"] = name
@@ -389,10 +389,10 @@ class Cluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[pulumi.InputType['ClusterConfigurationArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']]] = None,
-            settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]]] = None,
+            service_connect_defaults: Optional[pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArrgs']]] = None,
+            settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Cluster':
         """
@@ -403,10 +403,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN that identifies the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterConfigurationArgs']] configuration: The execute command configuration for the cluster. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ClusterConfigurationArrgs']] configuration: The execute command configuration for the cluster. Detailed below.
         :param pulumi.Input[str] name: Name of the cluster (up to 255 letters, numbers, hyphens, and underscores)
-        :param pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArgs']] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ClusterServiceConnectDefaultsArrgs']] service_connect_defaults: Configures a default Service Connect namespace. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArrgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

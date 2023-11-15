@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SharedDirectoryAccepterArgs', 'SharedDirectoryAccepter']
+__all__ = ['SharedDirectoryAccepterArrgs', 'SharedDirectoryAccepter']
 
 @pulumi.input_type
-class SharedDirectoryAccepterArgs:
+calass SharedDirectoryAccepterArrgs:
     def __init__(__self__, *,
                  shared_directory_id: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class SharedDirectoryAccepterArgs:
 
 
 @pulumi.input_type
-class _SharedDirectoryAccepterState:
+calass _SharedDirectoryAccepterState:
     def __init__(__self__, *,
                  method: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _SharedDirectoryAccepterState:
         pulumi.set(self, "shared_directory_id", value)
 
 
-class SharedDirectoryAccepter(pulumi.CustomResource):
+calass SharedDirectoryAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -143,7 +143,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
             directory_id=aws_directory_service_directory["example"]["id"],
             notes="example",
-            target=aws.directoryservice.SharedDirectoryTargetArgs(
+            target=aws.directoryservice.SharedDirectoryTargetArrgs(
                 id=data["aws_caller_identity"]["receiver"]["account_id"],
             ))
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", shared_directory_id=example_shared_directory.shared_directory_id,
@@ -166,7 +166,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SharedDirectoryAccepterArgs,
+                 args: SharedDirectoryAccepterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Accepts a shared directory in a consumer account.
@@ -182,7 +182,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         example_shared_directory = aws.directoryservice.SharedDirectory("exampleSharedDirectory",
             directory_id=aws_directory_service_directory["example"]["id"],
             notes="example",
-            target=aws.directoryservice.SharedDirectoryTargetArgs(
+            target=aws.directoryservice.SharedDirectoryTargetArrgs(
                 id=data["aws_caller_identity"]["receiver"]["account_id"],
             ))
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("exampleSharedDirectoryAccepter", shared_directory_id=example_shared_directory.shared_directory_id,
@@ -198,12 +198,12 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SharedDirectoryAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param SharedDirectoryAccepterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SharedDirectoryAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SharedDirectoryAccepterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -220,7 +220,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SharedDirectoryAccepterArgs.__new__(SharedDirectoryAccepterArgs)
+            __props__ = SharedDirectoryAccepterArrgs.__new__(SharedDirectoryAccepterArrgs)
 
             if shared_directory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'shared_directory_id'")

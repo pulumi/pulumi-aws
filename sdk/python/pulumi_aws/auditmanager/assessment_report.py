@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AssessmentReportArgs', 'AssessmentReport']
+__all__ = ['AssessmentReportArrgs', 'AssessmentReport']
 
 @pulumi.input_type
-class AssessmentReportArgs:
+calass AssessmentReportArrgs:
     def __init__(__self__, *,
                  assessment_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -71,7 +71,7 @@ class AssessmentReportArgs:
 
 
 @pulumi.input_type
-class _AssessmentReportState:
+calass _AssessmentReportState:
     def __init__(__self__, *,
                  assessment_id: Optional[pulumi.Input[str]] = None,
                  author: Optional[pulumi.Input[str]] = None,
@@ -162,7 +162,7 @@ class _AssessmentReportState:
         pulumi.set(self, "status", value)
 
 
-class AssessmentReport(pulumi.CustomResource):
+calass AssessmentReport(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -204,7 +204,7 @@ class AssessmentReport(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssessmentReportArgs,
+                 args: AssessmentReportArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Audit Manager Assessment Report.
@@ -228,12 +228,12 @@ class AssessmentReport(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssessmentReportArgs args: The arguments to use to populate this resource's properties.
+        :param AssessmentReportArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssessmentReportArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssessmentReportArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -252,7 +252,7 @@ class AssessmentReport(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssessmentReportArgs.__new__(AssessmentReportArgs)
+            __props__ = AssessmentReportArrgs.__new__(AssessmentReportArrgs)
 
             if assessment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_id'")

@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['JobTemplateArgs', 'JobTemplate']
+__all__ = ['JobTemplateArrgs', 'JobTemplate']
 
 @pulumi.input_type
-class JobTemplateArgs:
+calass JobTemplateArrgs:
     def __init__(__self__, *,
-                 job_template_data: pulumi.Input['JobTemplateJobTemplateDataArgs'],
+                 job_template_data: pulumi.Input['JobTemplateJobTemplateDataArrgs'],
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a JobTemplate resource.
-        :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
+        :param pulumi.Input['JobTemplateJobTemplateDataArrgs'] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[str] name: The specified name of the job template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -37,14 +37,14 @@ class JobTemplateArgs:
 
     @property
     @pulumi.getter(name="jobTemplateData")
-    def job_template_data(self) -> pulumi.Input['JobTemplateJobTemplateDataArgs']:
+    def job_template_data(self) -> pulumi.Input['JobTemplateJobTemplateDataArrgs']:
         """
         The job template data which holds values of StartJobRun API request.
         """
         return pulumi.get(self, "job_template_data")
 
     @job_template_data.setter
-    def job_template_data(self, value: pulumi.Input['JobTemplateJobTemplateDataArgs']):
+    def job_template_data(self, value: pulumi.Input['JobTemplateJobTemplateDataArrgs']):
         pulumi.set(self, "job_template_data", value)
 
     @property
@@ -85,10 +85,10 @@ class JobTemplateArgs:
 
 
 @pulumi.input_type
-class _JobTemplateState:
+calass _JobTemplateState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 job_template_data: Optional[pulumi.Input['JobTemplateJobTemplateDataArgs']] = None,
+                 job_template_data: Optional[pulumi.Input['JobTemplateJobTemplateDataArrgs']] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -96,7 +96,7 @@ class _JobTemplateState:
         """
         Input properties used for looking up and filtering JobTemplate resources.
         :param pulumi.Input[str] arn: ARN of the job template.
-        :param pulumi.Input['JobTemplateJobTemplateDataArgs'] job_template_data: The job template data which holds values of StartJobRun API request.
+        :param pulumi.Input['JobTemplateJobTemplateDataArrgs'] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[str] name: The specified name of the job template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -132,14 +132,14 @@ class _JobTemplateState:
 
     @property
     @pulumi.getter(name="jobTemplateData")
-    def job_template_data(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataArgs']]:
+    def job_template_data(self) -> Optional[pulumi.Input['JobTemplateJobTemplateDataArrgs']]:
         """
         The job template data which holds values of StartJobRun API request.
         """
         return pulumi.get(self, "job_template_data")
 
     @job_template_data.setter
-    def job_template_data(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataArgs']]):
+    def job_template_data(self, value: Optional[pulumi.Input['JobTemplateJobTemplateDataArrgs']]):
         pulumi.set(self, "job_template_data", value)
 
     @property
@@ -194,12 +194,12 @@ class _JobTemplateState:
         pulumi.set(self, "tags_all", value)
 
 
-class JobTemplate(pulumi.CustomResource):
+calass JobTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']]] = None,
+                 job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArrgs']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -214,11 +214,11 @@ class JobTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.JobTemplate("example", job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
+        example = aws.emrcontainers.JobTemplate("example", job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArrgs(
             execution_role_arn=aws_iam_role["example"]["arn"],
             release_label="emr-6.10.0-latest",
-            job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
-                spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
+            job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArrgs(
+                spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs(
                     entry_point="default",
                 ),
             ),
@@ -235,7 +235,7 @@ class JobTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']] job_template_data: The job template data which holds values of StartJobRun API request.
+        :param pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArrgs']] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[str] name: The specified name of the job template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -244,7 +244,7 @@ class JobTemplate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: JobTemplateArgs,
+                 args: JobTemplateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EMR Containers (EMR on EKS) Job Template.
@@ -256,11 +256,11 @@ class JobTemplate(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emrcontainers.JobTemplate("example", job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArgs(
+        example = aws.emrcontainers.JobTemplate("example", job_template_data=aws.emrcontainers.JobTemplateJobTemplateDataArrgs(
             execution_role_arn=aws_iam_role["example"]["arn"],
             release_label="emr-6.10.0-latest",
-            job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArgs(
-                spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs(
+            job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverArrgs(
+                spark_sql_job_driver=aws.emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArrgs(
                     entry_point="default",
                 ),
             ),
@@ -276,12 +276,12 @@ class JobTemplate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param JobTemplateArgs args: The arguments to use to populate this resource's properties.
+        :param JobTemplateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(JobTemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(JobTemplateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -290,7 +290,7 @@ class JobTemplate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']]] = None,
+                 job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArrgs']]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -301,7 +301,7 @@ class JobTemplate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = JobTemplateArgs.__new__(JobTemplateArgs)
+            __props__ = JobTemplateArrgs.__new__(JobTemplateArrgs)
 
             if job_template_data is None and not opts.urn:
                 raise TypeError("Missing required property 'job_template_data'")
@@ -324,7 +324,7 @@ class JobTemplate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']]] = None,
+            job_template_data: Optional[pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArrgs']]] = None,
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -337,7 +337,7 @@ class JobTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the job template.
-        :param pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArgs']] job_template_data: The job template data which holds values of StartJobRun API request.
+        :param pulumi.Input[pulumi.InputType['JobTemplateJobTemplateDataArrgs']] job_template_data: The job template data which holds values of StartJobRun API request.
         :param pulumi.Input[str] kms_key_arn: The KMS key ARN used to encrypt the job template.
         :param pulumi.Input[str] name: The specified name of the job template.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

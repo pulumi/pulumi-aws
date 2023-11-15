@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ResourceSetResource(dict):
+calass ResourceSetResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -49,7 +49,7 @@ class ResourceSetResource(dict):
                  readiness_scopes: Optional[Sequence[str]] = None,
                  resource_arn: Optional[str] = None):
         """
-        :param 'ResourceSetResourceDnsTargetResourceArgs' dns_target_resource: Component for DNS/Routing Control Readiness Checks.
+        :param 'ResourceSetResourceDnsTargetResourceArrgs' dns_target_resource: Component for DNS/Routing Control Readiness Checks.
         :param Sequence[str] readiness_scopes: Recovery group ARN or cell ARN that contains this resource set.
         :param str resource_arn: ARN of the resource.
         """
@@ -93,7 +93,7 @@ class ResourceSetResource(dict):
 
 
 @pulumi.output_type
-class ResourceSetResourceDnsTargetResource(dict):
+calass ResourceSetResourceDnsTargetResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -130,7 +130,7 @@ class ResourceSetResourceDnsTargetResource(dict):
         :param str hosted_zone_arn: Hosted Zone ARN that contains the DNS record with the provided name of target resource.
         :param str record_set_id: Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
         :param str record_type: Type of DNS Record of target resource.
-        :param 'ResourceSetResourceDnsTargetResourceTargetResourceArgs' target_resource: Target resource the R53 record specified with the above params points to.
+        :param 'ResourceSetResourceDnsTargetResourceTargetResourceArrgs' target_resource: Target resource the R53 record specified with the above params points to.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         if hosted_zone_arn is not None:
@@ -184,7 +184,7 @@ class ResourceSetResourceDnsTargetResource(dict):
 
 
 @pulumi.output_type
-class ResourceSetResourceDnsTargetResourceTargetResource(dict):
+calass ResourceSetResourceDnsTargetResourceTargetResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -208,8 +208,8 @@ class ResourceSetResourceDnsTargetResourceTargetResource(dict):
                  nlb_resource: Optional['outputs.ResourceSetResourceDnsTargetResourceTargetResourceNlbResource'] = None,
                  r53_resource: Optional['outputs.ResourceSetResourceDnsTargetResourceTargetResourceR53Resource'] = None):
         """
-        :param 'ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs' nlb_resource: NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
-        :param 'ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs' r53_resource: Route53 resource a DNS Target Resource record points to.
+        :param 'ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArrgs' nlb_resource: NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+        :param 'ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArrgs' r53_resource: Route53 resource a DNS Target Resource record points to.
         """
         if nlb_resource is not None:
             pulumi.set(__self__, "nlb_resource", nlb_resource)
@@ -234,7 +234,7 @@ class ResourceSetResourceDnsTargetResourceTargetResource(dict):
 
 
 @pulumi.output_type
-class ResourceSetResourceDnsTargetResourceTargetResourceNlbResource(dict):
+calass ResourceSetResourceDnsTargetResourceTargetResourceNlbResource(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None):
         """
@@ -253,7 +253,7 @@ class ResourceSetResourceDnsTargetResourceTargetResourceNlbResource(dict):
 
 
 @pulumi.output_type
-class ResourceSetResourceDnsTargetResourceTargetResourceR53Resource(dict):
+calass ResourceSetResourceDnsTargetResourceTargetResourceR53Resource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

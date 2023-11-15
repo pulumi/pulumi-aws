@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocationFsxLustreArgs', 'LocationFsxLustre']
+__all__ = ['LocationFsxLustreArrgs', 'LocationFsxLustre']
 
 @pulumi.input_type
-class LocationFsxLustreArgs:
+calass LocationFsxLustreArrgs:
     def __init__(__self__, *,
                  fsx_filesystem_arn: pulumi.Input[str],
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -82,7 +82,7 @@ class LocationFsxLustreArgs:
 
 
 @pulumi.input_type
-class _LocationFsxLustreState:
+calass _LocationFsxLustreState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
@@ -223,7 +223,7 @@ class _LocationFsxLustreState:
         pulumi.set(self, "uri", value)
 
 
-class LocationFsxLustre(pulumi.CustomResource):
+calass LocationFsxLustre(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -266,7 +266,7 @@ class LocationFsxLustre(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationFsxLustreArgs,
+                 args: LocationFsxLustreArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS DataSync FSx Lustre Location.
@@ -291,12 +291,12 @@ class LocationFsxLustre(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocationFsxLustreArgs args: The arguments to use to populate this resource's properties.
+        :param LocationFsxLustreArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationFsxLustreArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationFsxLustreArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -316,7 +316,7 @@ class LocationFsxLustre(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationFsxLustreArgs.__new__(LocationFsxLustreArgs)
+            __props__ = LocationFsxLustreArrgs.__new__(LocationFsxLustreArrgs)
 
             if fsx_filesystem_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'fsx_filesystem_arn'")

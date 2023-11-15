@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DefaultVpcDhcpOptionsArgs', 'DefaultVpcDhcpOptions']
+__all__ = ['DefaultVpcDhcpOptionsArrgs', 'DefaultVpcDhcpOptions']
 
 @pulumi.input_type
-class DefaultVpcDhcpOptionsArgs:
+calass DefaultVpcDhcpOptionsArrgs:
     def __init__(__self__, *,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -52,7 +52,7 @@ class DefaultVpcDhcpOptionsArgs:
 
 
 @pulumi.input_type
-class _DefaultVpcDhcpOptionsState:
+calass _DefaultVpcDhcpOptionsState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -193,7 +193,7 @@ class _DefaultVpcDhcpOptionsState:
         pulumi.set(self, "tags_all", value)
 
 
-class DefaultVpcDhcpOptions(pulumi.CustomResource):
+calass DefaultVpcDhcpOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -243,7 +243,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[DefaultVpcDhcpOptionsArgs] = None,
+                 args: Optional[DefaultVpcDhcpOptionsArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage the [default AWS DHCP Options Set](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html#AmazonDNS)
@@ -279,12 +279,12 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DefaultVpcDhcpOptionsArgs args: The arguments to use to populate this resource's properties.
+        :param DefaultVpcDhcpOptionsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DefaultVpcDhcpOptionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DefaultVpcDhcpOptionsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -302,7 +302,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DefaultVpcDhcpOptionsArgs.__new__(DefaultVpcDhcpOptionsArgs)
+            __props__ = DefaultVpcDhcpOptionsArrgs.__new__(DefaultVpcDhcpOptionsArrgs)
 
             __props__.__dict__["owner_id"] = owner_id
             __props__.__dict__["tags"] = tags

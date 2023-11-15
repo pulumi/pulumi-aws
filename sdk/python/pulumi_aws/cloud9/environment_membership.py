@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EnvironmentMembershipArgs', 'EnvironmentMembership']
+__all__ = ['EnvironmentMembershipArrgs', 'EnvironmentMembership']
 
 @pulumi.input_type
-class EnvironmentMembershipArgs:
+calass EnvironmentMembershipArrgs:
     def __init__(__self__, *,
                  environment_id: pulumi.Input[str],
                  permissions: pulumi.Input[str],
@@ -65,7 +65,7 @@ class EnvironmentMembershipArgs:
 
 
 @pulumi.input_type
-class _EnvironmentMembershipState:
+calass _EnvironmentMembershipState:
     def __init__(__self__, *,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  permissions: Optional[pulumi.Input[str]] = None,
@@ -136,7 +136,7 @@ class _EnvironmentMembershipState:
         pulumi.set(self, "user_id", value)
 
 
-class EnvironmentMembership(pulumi.CustomResource):
+calass EnvironmentMembership(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -180,7 +180,7 @@ class EnvironmentMembership(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentMembershipArgs,
+                 args: EnvironmentMembershipArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an environment member to an AWS Cloud9 development environment.
@@ -208,12 +208,12 @@ class EnvironmentMembership(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EnvironmentMembershipArgs args: The arguments to use to populate this resource's properties.
+        :param EnvironmentMembershipArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentMembershipArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentMembershipArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -232,7 +232,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnvironmentMembershipArgs.__new__(EnvironmentMembershipArgs)
+            __props__ = EnvironmentMembershipArrgs.__new__(EnvironmentMembershipArrgs)
 
             if environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_id'")

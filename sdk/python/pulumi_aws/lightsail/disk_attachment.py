@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['Disk_attachmentArgs', 'Disk_attachment']
+__all__ = ['Disk_attachmentArrgs', 'Disk_attachment']
 
 @pulumi.input_type
-class Disk_attachmentArgs:
+calass Disk_attachmentArrgs:
     def __init__(__self__, *,
                  disk_name: pulumi.Input[str],
                  disk_path: pulumi.Input[str],
@@ -65,7 +65,7 @@ class Disk_attachmentArgs:
 
 
 @pulumi.input_type
-class _Disk_attachmentState:
+calass _Disk_attachmentState:
     def __init__(__self__, *,
                  disk_name: Optional[pulumi.Input[str]] = None,
                  disk_path: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _Disk_attachmentState:
         pulumi.set(self, "instance_name", value)
 
 
-class Disk_attachment(pulumi.CustomResource):
+calass Disk_attachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -139,7 +139,7 @@ class Disk_attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
+            filters=[aws.GetAvailabilityZonesFilterArrgs(
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
@@ -174,7 +174,7 @@ class Disk_attachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Disk_attachmentArgs,
+                 args: Disk_attachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a Lightsail disk to a Lightsail Instance
@@ -186,7 +186,7 @@ class Disk_attachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available",
-            filters=[aws.GetAvailabilityZonesFilterArgs(
+            filters=[aws.GetAvailabilityZonesFilterArrgs(
                 name="opt-in-status",
                 values=["opt-in-not-required"],
             )])
@@ -212,12 +212,12 @@ class Disk_attachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param Disk_attachmentArgs args: The arguments to use to populate this resource's properties.
+        :param Disk_attachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(Disk_attachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(Disk_attachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -236,7 +236,7 @@ class Disk_attachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = Disk_attachmentArgs.__new__(Disk_attachmentArgs)
+            __props__ = Disk_attachmentArrgs.__new__(Disk_attachmentArrgs)
 
             if disk_name is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_name'")

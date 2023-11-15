@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OptionGroupArgs', 'OptionGroup']
+__all__ = ['OptionGroupArrgs', 'OptionGroup']
 
 @pulumi.input_type
-class OptionGroupArgs:
+calass OptionGroupArrgs:
     def __init__(__self__, *,
                  engine_name: pulumi.Input[str],
                  major_engine_version: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a OptionGroup resource.
@@ -30,7 +30,7 @@ class OptionGroupArgs:
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: List of options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArrgs']]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "engine_name", engine_name)
@@ -110,14 +110,14 @@ class OptionGroupArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArrgs']]]]:
         """
         List of options to apply.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]):
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArrgs']]]]):
         pulumi.set(self, "options", value)
 
     @property
@@ -134,7 +134,7 @@ class OptionGroupArgs:
 
 
 @pulumi.input_type
-class _OptionGroupState:
+calass _OptionGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  engine_name: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,7 @@ class _OptionGroupState:
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -153,7 +153,7 @@ class _OptionGroupState:
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]] options: List of options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArrgs']]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -255,14 +255,14 @@ class _OptionGroupState:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]:
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArrgs']]]]:
         """
         List of options to apply.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArgs']]]]):
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionArrgs']]]]):
         pulumi.set(self, "options", value)
 
     @property
@@ -293,7 +293,7 @@ class _OptionGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class OptionGroup(pulumi.CustomResource):
+calass OptionGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -303,7 +303,7 @@ class OptionGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -325,21 +325,21 @@ class OptionGroup(pulumi.CustomResource):
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
             options=[
-                aws.rds.OptionGroupOptionArgs(
+                aws.rds.OptionGroupOptionArrgs(
                     option_name="Timezone",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
+                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArrgs(
                         name="TIME_ZONE",
                         value="UTC",
                     )],
                 ),
-                aws.rds.OptionGroupOptionArgs(
+                aws.rds.OptionGroupOptionArrgs(
                     option_name="SQLSERVER_BACKUP_RESTORE",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
+                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArrgs(
                         name="IAM_ROLE_ARN",
                         value=aws_iam_role["example"]["arn"],
                     )],
                 ),
-                aws.rds.OptionGroupOptionArgs(
+                aws.rds.OptionGroupOptionArrgs(
                     option_name="TDE",
                 ),
             ])
@@ -370,14 +370,14 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: List of options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArrgs']]]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OptionGroupArgs,
+                 args: OptionGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an RDS DB option group resource. Documentation of the available options for various RDS engines can be found at:
@@ -398,21 +398,21 @@ class OptionGroup(pulumi.CustomResource):
             engine_name="sqlserver-ee",
             major_engine_version="11.00",
             options=[
-                aws.rds.OptionGroupOptionArgs(
+                aws.rds.OptionGroupOptionArrgs(
                     option_name="Timezone",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
+                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArrgs(
                         name="TIME_ZONE",
                         value="UTC",
                     )],
                 ),
-                aws.rds.OptionGroupOptionArgs(
+                aws.rds.OptionGroupOptionArrgs(
                     option_name="SQLSERVER_BACKUP_RESTORE",
-                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArgs(
+                    option_settings=[aws.rds.OptionGroupOptionOptionSettingArrgs(
                         name="IAM_ROLE_ARN",
                         value=aws_iam_role["example"]["arn"],
                     )],
                 ),
-                aws.rds.OptionGroupOptionArgs(
+                aws.rds.OptionGroupOptionArrgs(
                     option_name="TDE",
                 ),
             ])
@@ -437,12 +437,12 @@ class OptionGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OptionGroupArgs args: The arguments to use to populate this resource's properties.
+        :param OptionGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OptionGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OptionGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -456,7 +456,7 @@ class OptionGroup(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  option_group_description: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArrgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -465,7 +465,7 @@ class OptionGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OptionGroupArgs.__new__(OptionGroupArgs)
+            __props__ = OptionGroupArrgs.__new__(OptionGroupArrgs)
 
             if engine_name is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_name'")
@@ -500,7 +500,7 @@ class OptionGroup(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             option_group_description: Optional[pulumi.Input[str]] = None,
-            options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]]] = None,
+            options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'OptionGroup':
         """
@@ -516,7 +516,7 @@ class OptionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Must be lowercase, to match as it is stored in AWS.
         :param pulumi.Input[str] option_group_description: Description of the option group.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArgs']]]] options: List of options to apply.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OptionGroupOptionArrgs']]]] options: List of options to apply.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

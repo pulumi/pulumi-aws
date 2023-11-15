@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DirectoryConnectSettings(dict):
+calass DirectoryConnectSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -118,7 +118,7 @@ class DirectoryConnectSettings(dict):
 
 
 @pulumi.output_type
-class DirectoryVpcSettings(dict):
+calass DirectoryVpcSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -176,7 +176,7 @@ class DirectoryVpcSettings(dict):
 
 
 @pulumi.output_type
-class ServiceRegionVpcSettings(dict):
+calass ServiceRegionVpcSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -224,7 +224,7 @@ class ServiceRegionVpcSettings(dict):
 
 
 @pulumi.output_type
-class SharedDirectoryTarget(dict):
+calass SharedDirectoryTarget(dict):
     def __init__(__self__, *,
                  id: str,
                  type: Optional[str] = None):
@@ -254,7 +254,7 @@ class SharedDirectoryTarget(dict):
 
 
 @pulumi.output_type
-class GetDirectoryConnectSettingResult(dict):
+calass GetDirectoryConnectSettingResult(dict):
     def __init__(__self__, *,
                  availability_zones: Sequence[str],
                  connect_ips: Sequence[str],
@@ -323,7 +323,7 @@ class GetDirectoryConnectSettingResult(dict):
 
 
 @pulumi.output_type
-class GetDirectoryRadiusSettingResult(dict):
+calass GetDirectoryRadiusSettingResult(dict):
     def __init__(__self__, *,
                  authentication_protocol: str,
                  display_label: str,
@@ -407,7 +407,7 @@ class GetDirectoryRadiusSettingResult(dict):
 
 
 @pulumi.output_type
-class GetDirectoryVpcSettingResult(dict):
+calass GetDirectoryVpcSettingResult(dict):
     def __init__(__self__, *,
                  availability_zones: Sequence[str],
                  subnet_ids: Sequence[str],

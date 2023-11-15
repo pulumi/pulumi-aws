@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['KeySigningKeyArgs', 'KeySigningKey']
+__all__ = ['KeySigningKeyArrgs', 'KeySigningKey']
 
 @pulumi.input_type
-class KeySigningKeyArgs:
+calass KeySigningKeyArrgs:
     def __init__(__self__, *,
                  hosted_zone_id: pulumi.Input[str],
                  key_management_service_arn: pulumi.Input[str],
@@ -86,7 +86,7 @@ class KeySigningKeyArgs:
 
 
 @pulumi.input_type
-class _KeySigningKeyState:
+calass _KeySigningKeyState:
     def __init__(__self__, *,
                  digest_algorithm_mnemonic: Optional[pulumi.Input[str]] = None,
                  digest_algorithm_type: Optional[pulumi.Input[int]] = None,
@@ -321,7 +321,7 @@ class _KeySigningKeyState:
         pulumi.set(self, "status", value)
 
 
-class KeySigningKey(pulumi.CustomResource):
+calass KeySigningKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -424,7 +424,7 @@ class KeySigningKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KeySigningKeyArgs,
+                 args: KeySigningKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Route 53 Key Signing Key. To manage Domain Name System Security Extensions (DNSSEC) for a Hosted Zone, see the `route53.HostedZoneDnsSec` resource. For more information about managing DNSSEC in Route 53, see the [Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html).
@@ -507,12 +507,12 @@ class KeySigningKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KeySigningKeyArgs args: The arguments to use to populate this resource's properties.
+        :param KeySigningKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KeySigningKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KeySigningKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -532,7 +532,7 @@ class KeySigningKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KeySigningKeyArgs.__new__(KeySigningKeyArgs)
+            __props__ = KeySigningKeyArrgs.__new__(KeySigningKeyArrgs)
 
             if hosted_zone_id is None and not opts.urn:
                 raise TypeError("Missing required property 'hosted_zone_id'")

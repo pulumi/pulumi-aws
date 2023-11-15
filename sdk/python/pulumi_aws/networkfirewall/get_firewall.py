@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFirewallResult:
+calass GetFirewallResult:
     """
     A collection of values returned by getFirewall.
     """
@@ -179,7 +179,7 @@ class GetFirewallResult:
         return pulumi.get(self, "vpc_id")
 
 
-class AwaitableGetFirewallResult(GetFirewallResult):
+calass AwaitableGetFirewallResult(GetFirewallResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

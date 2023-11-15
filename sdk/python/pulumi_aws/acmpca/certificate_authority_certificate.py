@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CertificateAuthorityCertificateArgs', 'CertificateAuthorityCertificate']
+__all__ = ['CertificateAuthorityCertificateArrgs', 'CertificateAuthorityCertificate']
 
 @pulumi.input_type
-class CertificateAuthorityCertificateArgs:
+calass CertificateAuthorityCertificateArrgs:
     def __init__(__self__, *,
                  certificate: pulumi.Input[str],
                  certificate_authority_arn: pulumi.Input[str],
@@ -66,7 +66,7 @@ class CertificateAuthorityCertificateArgs:
 
 
 @pulumi.input_type
-class _CertificateAuthorityCertificateState:
+calass _CertificateAuthorityCertificateState:
     def __init__(__self__, *,
                  certificate: Optional[pulumi.Input[str]] = None,
                  certificate_authority_arn: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _CertificateAuthorityCertificateState:
         pulumi.set(self, "certificate_chain", value)
 
 
-class CertificateAuthorityCertificate(pulumi.CustomResource):
+calass CertificateAuthorityCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -142,10 +142,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
             type="ROOT",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_4096",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="example.com",
                 ),
             ))
@@ -155,7 +155,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             certificate_signing_request=example_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
+            validity=aws.acmpca.CertificateValidityArrgs(
                 type="YEARS",
                 value="1",
             ))
@@ -174,10 +174,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinateCertificateAuthority",
             type="SUBORDINATE",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_2048",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="sub.example.com",
                 ),
             ))
@@ -189,7 +189,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             certificate_signing_request=subordinate_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
+            validity=aws.acmpca.CertificateValidityArrgs(
                 type="YEARS",
                 value="1",
             ))
@@ -213,7 +213,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CertificateAuthorityCertificateArgs,
+                 args: CertificateAuthorityCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
@@ -227,10 +227,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         example_certificate_authority = aws.acmpca.CertificateAuthority("exampleCertificateAuthority",
             type="ROOT",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_4096",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="example.com",
                 ),
             ))
@@ -240,7 +240,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             certificate_signing_request=example_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
+            validity=aws.acmpca.CertificateValidityArrgs(
                 type="YEARS",
                 value="1",
             ))
@@ -259,10 +259,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
 
         subordinate_certificate_authority = aws.acmpca.CertificateAuthority("subordinateCertificateAuthority",
             type="SUBORDINATE",
-            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs(
+            certificate_authority_configuration=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationArrgs(
                 key_algorithm="RSA_2048",
                 signing_algorithm="SHA512WITHRSA",
-                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs(
+                subject=aws.acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArrgs(
                     common_name="sub.example.com",
                 ),
             ))
@@ -274,7 +274,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             certificate_signing_request=subordinate_certificate_authority.certificate_signing_request,
             signing_algorithm="SHA512WITHRSA",
             template_arn=f"arn:{current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1",
-            validity=aws.acmpca.CertificateValidityArgs(
+            validity=aws.acmpca.CertificateValidityArrgs(
                 type="YEARS",
                 value="1",
             ))
@@ -289,12 +289,12 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CertificateAuthorityCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param CertificateAuthorityCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CertificateAuthorityCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateAuthorityCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -313,7 +313,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CertificateAuthorityCertificateArgs.__new__(CertificateAuthorityCertificateArgs)
+            __props__ = CertificateAuthorityCertificateArrgs.__new__(CertificateAuthorityCertificateArrgs)
 
             if certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate'")

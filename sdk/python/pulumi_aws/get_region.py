@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRegionResult:
+calass GetRegionResult:
     """
     A collection of values returned by getRegion.
     """
@@ -65,7 +65,7 @@ class GetRegionResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetRegionResult(GetRegionResult):
+calass AwaitableGetRegionResult(GetRegionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

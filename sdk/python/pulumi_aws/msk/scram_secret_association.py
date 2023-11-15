@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ScramSecretAssociationArgs', 'ScramSecretAssociation']
+__all__ = ['ScramSecretAssociationArrgs', 'ScramSecretAssociation']
 
 @pulumi.input_type
-class ScramSecretAssociationArgs:
+calass ScramSecretAssociationArrgs:
     def __init__(__self__, *,
                  cluster_arn: pulumi.Input[str],
                  secret_arn_lists: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -50,7 +50,7 @@ class ScramSecretAssociationArgs:
 
 
 @pulumi.input_type
-class _ScramSecretAssociationState:
+calass _ScramSecretAssociationState:
     def __init__(__self__, *,
                  cluster_arn: Optional[pulumi.Input[str]] = None,
                  secret_arn_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -89,7 +89,7 @@ class _ScramSecretAssociationState:
         pulumi.set(self, "secret_arn_lists", value)
 
 
-class ScramSecretAssociation(pulumi.CustomResource):
+calass ScramSecretAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -117,8 +117,8 @@ class ScramSecretAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArgs(
-            sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
+        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArrgs(
+            sasl=aws.msk.ClusterClientAuthenticationSaslArrgs(
                 scram=True,
             ),
         ))
@@ -134,10 +134,10 @@ class ScramSecretAssociation(pulumi.CustomResource):
             cluster_arn=example_cluster.arn,
             secret_arn_lists=[example_secret.arn],
             opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="AWSKafkaResourcePolicy",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["kafka.amazonaws.com"],
             )],
@@ -166,7 +166,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScramSecretAssociationArgs,
+                 args: ScramSecretAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates SCRAM secrets stored in the Secrets Manager service with a Managed Streaming for Kafka (MSK) cluster.
@@ -188,8 +188,8 @@ class ScramSecretAssociation(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArgs(
-            sasl=aws.msk.ClusterClientAuthenticationSaslArgs(
+        example_cluster = aws.msk.Cluster("exampleCluster", client_authentication=aws.msk.ClusterClientAuthenticationArrgs(
+            sasl=aws.msk.ClusterClientAuthenticationSaslArrgs(
                 scram=True,
             ),
         ))
@@ -205,10 +205,10 @@ class ScramSecretAssociation(pulumi.CustomResource):
             cluster_arn=example_cluster.arn,
             secret_arn_lists=[example_secret.arn],
             opts=pulumi.ResourceOptions(depends_on=[example_secret_version]))
-        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="AWSKafkaResourcePolicy",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["kafka.amazonaws.com"],
             )],
@@ -229,12 +229,12 @@ class ScramSecretAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScramSecretAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ScramSecretAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScramSecretAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScramSecretAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -252,7 +252,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScramSecretAssociationArgs.__new__(ScramSecretAssociationArgs)
+            __props__ = ScramSecretAssociationArrgs.__new__(ScramSecretAssociationArrgs)
 
             if cluster_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_arn'")

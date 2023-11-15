@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DataCatalogEncryptionSettingsArgs', 'DataCatalogEncryptionSettings']
+__all__ = ['DataCatalogEncryptionSettingsArrgs', 'DataCatalogEncryptionSettings']
 
 @pulumi.input_type
-class DataCatalogEncryptionSettingsArgs:
+calass DataCatalogEncryptionSettingsArrgs:
     def __init__(__self__, *,
-                 data_catalog_encryption_settings: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs'],
+                 data_catalog_encryption_settings: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs'],
                  catalog_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DataCatalogEncryptionSettings resource.
-        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
         """
         pulumi.set(__self__, "data_catalog_encryption_settings", data_catalog_encryption_settings)
@@ -29,14 +29,14 @@ class DataCatalogEncryptionSettingsArgs:
 
     @property
     @pulumi.getter(name="dataCatalogEncryptionSettings")
-    def data_catalog_encryption_settings(self) -> pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']:
+    def data_catalog_encryption_settings(self) -> pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']:
         """
         The security configuration to set. see Data Catalog Encryption Settings.
         """
         return pulumi.get(self, "data_catalog_encryption_settings")
 
     @data_catalog_encryption_settings.setter
-    def data_catalog_encryption_settings(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']):
+    def data_catalog_encryption_settings(self, value: pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']):
         pulumi.set(self, "data_catalog_encryption_settings", value)
 
     @property
@@ -53,14 +53,14 @@ class DataCatalogEncryptionSettingsArgs:
 
 
 @pulumi.input_type
-class _DataCatalogEncryptionSettingsState:
+calass _DataCatalogEncryptionSettingsState:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 data_catalog_encryption_settings: Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']] = None):
+                 data_catalog_encryption_settings: Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']] = None):
         """
         Input properties used for looking up and filtering DataCatalogEncryptionSettings resources.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        :param pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs'] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -81,24 +81,24 @@ class _DataCatalogEncryptionSettingsState:
 
     @property
     @pulumi.getter(name="dataCatalogEncryptionSettings")
-    def data_catalog_encryption_settings(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]:
+    def data_catalog_encryption_settings(self) -> Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']]:
         """
         The security configuration to set. see Data Catalog Encryption Settings.
         """
         return pulumi.get(self, "data_catalog_encryption_settings")
 
     @data_catalog_encryption_settings.setter
-    def data_catalog_encryption_settings(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]):
+    def data_catalog_encryption_settings(self, value: Optional[pulumi.Input['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']]):
         pulumi.set(self, "data_catalog_encryption_settings", value)
 
 
-class DataCatalogEncryptionSettings(pulumi.CustomResource):
+calass DataCatalogEncryptionSettings(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]] = None,
+                 data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']]] = None,
                  __props__=None):
         """
         Provides a Glue Data Catalog Encryption Settings resource.
@@ -109,12 +109,12 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
-            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
+        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs(
+            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs(
                 aws_kms_key_id=aws_kms_key["test"]["arn"],
                 return_connection_password_encrypted=True,
             ),
-            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
+            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs(
                 catalog_encryption_mode="SSE-KMS",
                 sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
             ),
@@ -132,13 +132,13 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-        :param pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        :param pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataCatalogEncryptionSettingsArgs,
+                 args: DataCatalogEncryptionSettingsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue Data Catalog Encryption Settings resource.
@@ -149,12 +149,12 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs(
-            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs(
+        example = aws.glue.DataCatalogEncryptionSettings("example", data_catalog_encryption_settings=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs(
+            connection_password_encryption=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArrgs(
                 aws_kms_key_id=aws_kms_key["test"]["arn"],
                 return_connection_password_encrypted=True,
             ),
-            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs(
+            encryption_at_rest=aws.glue.DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArrgs(
                 catalog_encryption_mode="SSE-KMS",
                 sse_aws_kms_key_id=aws_kms_key["test"]["arn"],
             ),
@@ -170,12 +170,12 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataCatalogEncryptionSettingsArgs args: The arguments to use to populate this resource's properties.
+        :param DataCatalogEncryptionSettingsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataCatalogEncryptionSettingsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataCatalogEncryptionSettingsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -185,7 +185,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
-                 data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]] = None,
+                 data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,7 +193,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataCatalogEncryptionSettingsArgs.__new__(DataCatalogEncryptionSettingsArgs)
+            __props__ = DataCatalogEncryptionSettingsArrgs.__new__(DataCatalogEncryptionSettingsArrgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
             if data_catalog_encryption_settings is None and not opts.urn:
@@ -210,7 +210,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: Optional[pulumi.Input[str]] = None,
-            data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']]] = None) -> 'DataCatalogEncryptionSettings':
+            data_catalog_encryption_settings: Optional[pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']]] = None) -> 'DataCatalogEncryptionSettings':
         """
         Get an existing DataCatalogEncryptionSettings resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -219,7 +219,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog to set the security configuration for. If none is provided, the AWS account ID is used by default.
-        :param pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
+        :param pulumi.Input[pulumi.InputType['DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArrgs']] data_catalog_encryption_settings: The security configuration to set. see Data Catalog Encryption Settings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
