@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DomainIdentityVerificationArgs', 'DomainIdentityVerification']
+__all__ = ['DomainIdentityVerificationArrgs', 'DomainIdentityVerification']
 
 @pulumi.input_type
-class DomainIdentityVerificationArgs:
+calass DomainIdentityVerificationArrgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class DomainIdentityVerificationArgs:
 
 
 @pulumi.input_type
-class _DomainIdentityVerificationState:
+calass _DomainIdentityVerificationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None):
@@ -74,7 +74,7 @@ class _DomainIdentityVerificationState:
         pulumi.set(self, "domain", value)
 
 
-class DomainIdentityVerification(pulumi.CustomResource):
+calass DomainIdentityVerification(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -115,7 +115,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DomainIdentityVerificationArgs,
+                 args: DomainIdentityVerificationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a successful verification of an SES domain identity.
@@ -144,12 +144,12 @@ class DomainIdentityVerification(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DomainIdentityVerificationArgs args: The arguments to use to populate this resource's properties.
+        :param DomainIdentityVerificationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DomainIdentityVerificationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DomainIdentityVerificationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -166,7 +166,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DomainIdentityVerificationArgs.__new__(DomainIdentityVerificationArgs)
+            __props__ = DomainIdentityVerificationArrgs.__new__(DomainIdentityVerificationArrgs)
 
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")

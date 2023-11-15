@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetQueueResult:
+calass GetQueueResult:
     """
     A collection of values returned by getQueue.
     """
@@ -76,7 +76,7 @@ class GetQueueResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetQueueResult(GetQueueResult):
+calass AwaitableGetQueueResult(GetQueueResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

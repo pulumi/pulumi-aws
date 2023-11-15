@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetGlobalNetworksResult:
+calass GetGlobalNetworksResult:
     """
     A collection of values returned by getGlobalNetworks.
     """
@@ -54,7 +54,7 @@ class GetGlobalNetworksResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetGlobalNetworksResult(GetGlobalNetworksResult):
+calass AwaitableGetGlobalNetworksResult(GetGlobalNetworksResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

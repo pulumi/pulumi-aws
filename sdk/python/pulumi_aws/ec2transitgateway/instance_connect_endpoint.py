@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['InstanceConnectEndpointArgs', 'InstanceConnectEndpoint']
+__all__ = ['InstanceConnectEndpointArrgs', 'InstanceConnectEndpoint']
 
 @pulumi.input_type
-class InstanceConnectEndpointArgs:
+calass InstanceConnectEndpointArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  preserve_client_ip: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArgs']] = None):
+                 timeouts: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArrgs']] = None):
         """
         The set of arguments for constructing a InstanceConnectEndpoint resource.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in which to create the EC2 Instance Connect Endpoint.
@@ -88,16 +88,16 @@ class InstanceConnectEndpointArgs:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
 
 @pulumi.input_type
-class _InstanceConnectEndpointState:
+calass _InstanceConnectEndpointState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -110,7 +110,7 @@ class _InstanceConnectEndpointState:
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArgs']] = None,
+                 timeouts: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArrgs']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering InstanceConnectEndpoint resources.
@@ -294,11 +294,11 @@ class _InstanceConnectEndpointState:
 
     @property
     @pulumi.getter
-    def timeouts(self) -> Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArgs']]:
+    def timeouts(self) -> Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArrgs']]:
         return pulumi.get(self, "timeouts")
 
     @timeouts.setter
-    def timeouts(self, value: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArgs']]):
+    def timeouts(self, value: Optional[pulumi.Input['InstanceConnectEndpointTimeoutsArrgs']]):
         pulumi.set(self, "timeouts", value)
 
     @property
@@ -314,7 +314,7 @@ class _InstanceConnectEndpointState:
         pulumi.set(self, "vpc_id", value)
 
 
-class InstanceConnectEndpoint(pulumi.CustomResource):
+calass InstanceConnectEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -323,7 +323,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArrgs']]] = None,
                  __props__=None):
         """
         Manages an EC2 Instance Connect Endpoint.
@@ -356,7 +356,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InstanceConnectEndpointArgs,
+                 args: InstanceConnectEndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Instance Connect Endpoint.
@@ -379,12 +379,12 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InstanceConnectEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param InstanceConnectEndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InstanceConnectEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceConnectEndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -397,7 +397,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArgs']]] = None,
+                 timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -405,7 +405,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InstanceConnectEndpointArgs.__new__(InstanceConnectEndpointArgs)
+            __props__ = InstanceConnectEndpointArrgs.__new__(InstanceConnectEndpointArrgs)
 
             __props__.__dict__["preserve_client_ip"] = preserve_client_ip
             __props__.__dict__["security_group_ids"] = security_group_ids
@@ -445,7 +445,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArgs']]] = None,
+            timeouts: Optional[pulumi.Input[pulumi.InputType['InstanceConnectEndpointTimeoutsArrgs']]] = None,
             vpc_id: Optional[pulumi.Input[str]] = None) -> 'InstanceConnectEndpoint':
         """
         Get an existing InstanceConnectEndpoint resource's state with the given name, id, and optional extra

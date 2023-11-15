@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRateBasedRuleResult:
+calass GetRateBasedRuleResult:
     """
     A collection of values returned by getRateBasedRule.
     """
@@ -43,7 +43,7 @@ class GetRateBasedRuleResult:
         return pulumi.get(self, "name")
 
 
-class AwaitableGetRateBasedRuleResult(GetRateBasedRuleResult):
+calass AwaitableGetRateBasedRuleResult(GetRateBasedRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

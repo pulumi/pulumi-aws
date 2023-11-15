@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StreamArgs', 'Stream']
+__all__ = ['StreamArrgs', 'Stream']
 
 @pulumi.input_type
-class StreamArgs:
+calass StreamArrgs:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class StreamArgs:
                  retention_period: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 stream_mode_details: Optional[pulumi.Input['StreamStreamModeDetailsArgs']] = None,
+                 stream_mode_details: Optional[pulumi.Input['StreamStreamModeDetailsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Stream resource.
@@ -37,7 +37,7 @@ class StreamArgs:
         :param pulumi.Input[int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input['StreamStreamModeDetailsArgs'] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input['StreamStreamModeDetailsArrgs'] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
@@ -160,14 +160,14 @@ class StreamArgs:
 
     @property
     @pulumi.getter(name="streamModeDetails")
-    def stream_mode_details(self) -> Optional[pulumi.Input['StreamStreamModeDetailsArgs']]:
+    def stream_mode_details(self) -> Optional[pulumi.Input['StreamStreamModeDetailsArrgs']]:
         """
         Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         """
         return pulumi.get(self, "stream_mode_details")
 
     @stream_mode_details.setter
-    def stream_mode_details(self, value: Optional[pulumi.Input['StreamStreamModeDetailsArgs']]):
+    def stream_mode_details(self, value: Optional[pulumi.Input['StreamStreamModeDetailsArrgs']]):
         pulumi.set(self, "stream_mode_details", value)
 
     @property
@@ -184,7 +184,7 @@ class StreamArgs:
 
 
 @pulumi.input_type
-class _StreamState:
+calass _StreamState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[str]] = None,
@@ -194,7 +194,7 @@ class _StreamState:
                  retention_period: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 stream_mode_details: Optional[pulumi.Input['StreamStreamModeDetailsArgs']] = None,
+                 stream_mode_details: Optional[pulumi.Input['StreamStreamModeDetailsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -208,7 +208,7 @@ class _StreamState:
         :param pulumi.Input[int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input['StreamStreamModeDetailsArgs'] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input['StreamStreamModeDetailsArrgs'] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -337,14 +337,14 @@ class _StreamState:
 
     @property
     @pulumi.getter(name="streamModeDetails")
-    def stream_mode_details(self) -> Optional[pulumi.Input['StreamStreamModeDetailsArgs']]:
+    def stream_mode_details(self) -> Optional[pulumi.Input['StreamStreamModeDetailsArrgs']]:
         """
         Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         """
         return pulumi.get(self, "stream_mode_details")
 
     @stream_mode_details.setter
-    def stream_mode_details(self, value: Optional[pulumi.Input['StreamStreamModeDetailsArgs']]):
+    def stream_mode_details(self, value: Optional[pulumi.Input['StreamStreamModeDetailsArrgs']]):
         pulumi.set(self, "stream_mode_details", value)
 
     @property
@@ -375,7 +375,7 @@ class _StreamState:
         pulumi.set(self, "tags_all", value)
 
 
-class Stream(pulumi.CustomResource):
+calass Stream(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -388,7 +388,7 @@ class Stream(pulumi.CustomResource):
                  retention_period: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArgs']]] = None,
+                 stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -410,7 +410,7 @@ class Stream(pulumi.CustomResource):
                 "IncomingBytes",
                 "OutgoingBytes",
             ],
-            stream_mode_details=aws.kinesis.StreamStreamModeDetailsArgs(
+            stream_mode_details=aws.kinesis.StreamStreamModeDetailsArrgs(
                 stream_mode="PROVISIONED",
             ),
             tags={
@@ -437,14 +437,14 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArgs']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArrgs']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[StreamArgs] = None,
+                 args: Optional[StreamArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Kinesis Stream resource. Amazon Kinesis is a managed service that
@@ -465,7 +465,7 @@ class Stream(pulumi.CustomResource):
                 "IncomingBytes",
                 "OutgoingBytes",
             ],
-            stream_mode_details=aws.kinesis.StreamStreamModeDetailsArgs(
+            stream_mode_details=aws.kinesis.StreamStreamModeDetailsArrgs(
                 stream_mode="PROVISIONED",
             ),
             tags={
@@ -482,12 +482,12 @@ class Stream(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StreamArgs args: The arguments to use to populate this resource's properties.
+        :param StreamArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StreamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StreamArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -504,7 +504,7 @@ class Stream(pulumi.CustomResource):
                  retention_period: Optional[pulumi.Input[int]] = None,
                  shard_count: Optional[pulumi.Input[int]] = None,
                  shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArgs']]] = None,
+                 stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -513,7 +513,7 @@ class Stream(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StreamArgs.__new__(StreamArgs)
+            __props__ = StreamArrgs.__new__(StreamArrgs)
 
             __props__.__dict__["arn"] = arn
             __props__.__dict__["encryption_type"] = encryption_type
@@ -546,7 +546,7 @@ class Stream(pulumi.CustomResource):
             retention_period: Optional[pulumi.Input[int]] = None,
             shard_count: Optional[pulumi.Input[int]] = None,
             shard_level_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArgs']]] = None,
+            stream_mode_details: Optional[pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Stream':
         """
@@ -565,7 +565,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[int] shard_count: The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
                Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] shard_level_metrics: A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-        :param pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArgs']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        :param pulumi.Input[pulumi.InputType['StreamStreamModeDetailsArrgs']] stream_mode_details: Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

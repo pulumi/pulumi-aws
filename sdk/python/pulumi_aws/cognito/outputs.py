@@ -56,7 +56,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class IdentityPoolCognitoIdentityProvider(dict):
+calass IdentityPoolCognitoIdentityProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -120,7 +120,7 @@ class IdentityPoolCognitoIdentityProvider(dict):
 
 
 @pulumi.output_type
-class IdentityPoolRoleAttachmentRoleMapping(dict):
+calass IdentityPoolRoleAttachmentRoleMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -151,7 +151,7 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
         :param str identity_provider: A string identifying the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id". Depends on `cognito_identity_providers` set on `cognito.IdentityPool` resource or a `cognito.IdentityProvider` resource.
         :param str type: The role mapping type.
         :param str ambiguous_role_resolution: Specifies the action to be taken if either no rules match the claim value for the Rules type, or there is no cognito:preferred_role claim and there are multiple cognito:roles matches for the Token type. `Required` if you specify Token or Rules as the Type.
-        :param Sequence['IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs'] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
+        :param Sequence['IdentityPoolRoleAttachmentRoleMappingMappingRuleArrgs'] mapping_rules: The Rules Configuration to be used for mapping users to roles. You can specify up to 25 rules per identity provider. Rules are evaluated in order. The first one to match specifies the role.
         """
         pulumi.set(__self__, "identity_provider", identity_provider)
         pulumi.set(__self__, "type", type)
@@ -194,7 +194,7 @@ class IdentityPoolRoleAttachmentRoleMapping(dict):
 
 
 @pulumi.output_type
-class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
+calass IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -264,7 +264,7 @@ class IdentityPoolRoleAttachmentRoleMappingMappingRule(dict):
 
 
 @pulumi.output_type
-class ManagedUserPoolClientAnalyticsConfiguration(dict):
+calass ManagedUserPoolClientAnalyticsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -356,7 +356,7 @@ class ManagedUserPoolClientAnalyticsConfiguration(dict):
 
 
 @pulumi.output_type
-class ManagedUserPoolClientTokenValidityUnits(dict):
+calass ManagedUserPoolClientTokenValidityUnits(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -420,7 +420,7 @@ class ManagedUserPoolClientTokenValidityUnits(dict):
 
 
 @pulumi.output_type
-class ResourceServerScope(dict):
+calass ResourceServerScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -468,7 +468,7 @@ class ResourceServerScope(dict):
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
+calass RiskConfigurationAccountTakeoverRiskConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -490,8 +490,8 @@ class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
                  actions: 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions',
                  notify_configuration: 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration'):
         """
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs' actions: Account takeover risk configuration actions. See details below.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs' notify_configuration: The notify configuration used to construct email notifications. See details below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArrgs' actions: Account takeover risk configuration actions. See details below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArrgs' notify_configuration: The notify configuration used to construct email notifications. See details below.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "notify_configuration", notify_configuration)
@@ -514,7 +514,7 @@ class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfigurationActions(dict):
+calass RiskConfigurationAccountTakeoverRiskConfigurationActions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -541,9 +541,9 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActions(dict):
                  low_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction'] = None,
                  medium_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction'] = None):
         """
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs' high_action: Action to take for a high risk. See action block below.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs' low_action: Action to take for a low risk. See action block below.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs' medium_action: Action to take for a medium risk. See action block below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArrgs' high_action: Action to take for a high risk. See action block below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArrgs' low_action: Action to take for a low risk. See action block below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArrgs' medium_action: Action to take for a medium risk. See action block below.
         """
         if high_action is not None:
             pulumi.set(__self__, "high_action", high_action)
@@ -578,7 +578,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActions(dict):
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
+calass RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -624,7 +624,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
+calass RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -670,7 +670,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict):
+calass RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -716,7 +716,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict)
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(dict):
+calass RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -753,10 +753,10 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(dict)
                  reply_to: Optional[str] = None):
         """
         :param str source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs' block_email: Email template used when a detected risk event is blocked. See notify email type below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArrgs' block_email: Email template used when a detected risk event is blocked. See notify email type below.
         :param str from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs' mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
-        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs' no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArrgs' mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArrgs' no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
         :param str reply_to: The destination to which the receiver of an email should reply to.
         """
         pulumi.set(__self__, "source_arn", source_arn)
@@ -821,7 +821,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(dict)
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail(dict):
+calass RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -880,7 +880,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockE
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail(dict):
+calass RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -939,7 +939,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEma
 
 
 @pulumi.output_type
-class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail(dict):
+calass RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -998,7 +998,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActi
 
 
 @pulumi.output_type
-class RiskConfigurationCompromisedCredentialsRiskConfiguration(dict):
+calass RiskConfigurationCompromisedCredentialsRiskConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1020,7 +1020,7 @@ class RiskConfigurationCompromisedCredentialsRiskConfiguration(dict):
                  actions: 'outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions',
                  event_filters: Optional[Sequence[str]] = None):
         """
-        :param 'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs' actions: The compromised credentials risk configuration actions. See details below.
+        :param 'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArrgs' actions: The compromised credentials risk configuration actions. See details below.
         :param Sequence[str] event_filters: Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
         """
         pulumi.set(__self__, "actions", actions)
@@ -1045,7 +1045,7 @@ class RiskConfigurationCompromisedCredentialsRiskConfiguration(dict):
 
 
 @pulumi.output_type
-class RiskConfigurationCompromisedCredentialsRiskConfigurationActions(dict):
+calass RiskConfigurationCompromisedCredentialsRiskConfigurationActions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1080,7 +1080,7 @@ class RiskConfigurationCompromisedCredentialsRiskConfigurationActions(dict):
 
 
 @pulumi.output_type
-class RiskConfigurationRiskExceptionConfiguration(dict):
+calass RiskConfigurationRiskExceptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1138,7 +1138,7 @@ class RiskConfigurationRiskExceptionConfiguration(dict):
 
 
 @pulumi.output_type
-class UserPoolAccountRecoverySetting(dict):
+calass UserPoolAccountRecoverySetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1159,7 +1159,7 @@ class UserPoolAccountRecoverySetting(dict):
     def __init__(__self__, *,
                  recovery_mechanisms: Optional[Sequence['outputs.UserPoolAccountRecoverySettingRecoveryMechanism']] = None):
         """
-        :param Sequence['UserPoolAccountRecoverySettingRecoveryMechanismArgs'] recovery_mechanisms: List of Account Recovery Options of the following structure:
+        :param Sequence['UserPoolAccountRecoverySettingRecoveryMechanismArrgs'] recovery_mechanisms: List of Account Recovery Options of the following structure:
         """
         if recovery_mechanisms is not None:
             pulumi.set(__self__, "recovery_mechanisms", recovery_mechanisms)
@@ -1174,7 +1174,7 @@ class UserPoolAccountRecoverySetting(dict):
 
 
 @pulumi.output_type
-class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
+calass UserPoolAccountRecoverySettingRecoveryMechanism(dict):
     def __init__(__self__, *,
                  name: str,
                  priority: int):
@@ -1207,7 +1207,7 @@ class UserPoolAccountRecoverySettingRecoveryMechanism(dict):
 
 
 @pulumi.output_type
-class UserPoolAdminCreateUserConfig(dict):
+calass UserPoolAdminCreateUserConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1232,7 +1232,7 @@ class UserPoolAdminCreateUserConfig(dict):
                  invite_message_template: Optional['outputs.UserPoolAdminCreateUserConfigInviteMessageTemplate'] = None):
         """
         :param bool allow_admin_create_user_only: Set to True if only the administrator is allowed to create user profiles. Set to False if users can sign themselves up via an app.
-        :param 'UserPoolAdminCreateUserConfigInviteMessageTemplateArgs' invite_message_template: Invite message template structure. Detailed below.
+        :param 'UserPoolAdminCreateUserConfigInviteMessageTemplateArrgs' invite_message_template: Invite message template structure. Detailed below.
         """
         if allow_admin_create_user_only is not None:
             pulumi.set(__self__, "allow_admin_create_user_only", allow_admin_create_user_only)
@@ -1257,7 +1257,7 @@ class UserPoolAdminCreateUserConfig(dict):
 
 
 @pulumi.output_type
-class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
+calass UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1321,7 +1321,7 @@ class UserPoolAdminCreateUserConfigInviteMessageTemplate(dict):
 
 
 @pulumi.output_type
-class UserPoolClientAnalyticsConfiguration(dict):
+calass UserPoolClientAnalyticsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1413,7 +1413,7 @@ class UserPoolClientAnalyticsConfiguration(dict):
 
 
 @pulumi.output_type
-class UserPoolClientTokenValidityUnits(dict):
+calass UserPoolClientTokenValidityUnits(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1477,7 +1477,7 @@ class UserPoolClientTokenValidityUnits(dict):
 
 
 @pulumi.output_type
-class UserPoolDeviceConfiguration(dict):
+calass UserPoolDeviceConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1527,7 +1527,7 @@ class UserPoolDeviceConfiguration(dict):
 
 
 @pulumi.output_type
-class UserPoolEmailConfiguration(dict):
+calass UserPoolEmailConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1619,7 +1619,7 @@ class UserPoolEmailConfiguration(dict):
 
 
 @pulumi.output_type
-class UserPoolLambdaConfig(dict):
+calass UserPoolLambdaConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1677,9 +1677,9 @@ class UserPoolLambdaConfig(dict):
                  verify_auth_challenge_response: Optional[str] = None):
         """
         :param str create_auth_challenge: ARN of the lambda creating an authentication challenge.
-        :param 'UserPoolLambdaConfigCustomEmailSenderArgs' custom_email_sender: A custom email sender AWS Lambda trigger. See custom_email_sender Below.
+        :param 'UserPoolLambdaConfigCustomEmailSenderArrgs' custom_email_sender: A custom email sender AWS Lambda trigger. See custom_email_sender Below.
         :param str custom_message: Custom Message AWS Lambda trigger.
-        :param 'UserPoolLambdaConfigCustomSmsSenderArgs' custom_sms_sender: A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
+        :param 'UserPoolLambdaConfigCustomSmsSenderArrgs' custom_sms_sender: A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
         :param str define_auth_challenge: Defines the authentication challenge.
         :param str kms_key_id: The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
         :param str post_authentication: Post-authentication AWS Lambda trigger.
@@ -1823,7 +1823,7 @@ class UserPoolLambdaConfig(dict):
 
 
 @pulumi.output_type
-class UserPoolLambdaConfigCustomEmailSender(dict):
+calass UserPoolLambdaConfigCustomEmailSender(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1871,7 +1871,7 @@ class UserPoolLambdaConfigCustomEmailSender(dict):
 
 
 @pulumi.output_type
-class UserPoolLambdaConfigCustomSmsSender(dict):
+calass UserPoolLambdaConfigCustomSmsSender(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1919,7 +1919,7 @@ class UserPoolLambdaConfigCustomSmsSender(dict):
 
 
 @pulumi.output_type
-class UserPoolPasswordPolicy(dict):
+calass UserPoolPasswordPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2025,7 +2025,7 @@ class UserPoolPasswordPolicy(dict):
 
 
 @pulumi.output_type
-class UserPoolSchema(dict):
+calass UserPoolSchema(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2062,9 +2062,9 @@ class UserPoolSchema(dict):
         :param str name: Name of the attribute.
         :param bool developer_only_attribute: Whether the attribute type is developer only.
         :param bool mutable: Whether the attribute can be changed once it has been created.
-        :param 'UserPoolSchemaNumberAttributeConstraintsArgs' number_attribute_constraints: Configuration block for the constraints for an attribute of the number type. Detailed below.
+        :param 'UserPoolSchemaNumberAttributeConstraintsArrgs' number_attribute_constraints: Configuration block for the constraints for an attribute of the number type. Detailed below.
         :param bool required: Whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.
-        :param 'UserPoolSchemaStringAttributeConstraintsArgs' string_attribute_constraints: Constraints for an attribute of the string type. Detailed below.
+        :param 'UserPoolSchemaStringAttributeConstraintsArrgs' string_attribute_constraints: Constraints for an attribute of the string type. Detailed below.
         """
         pulumi.set(__self__, "attribute_data_type", attribute_data_type)
         pulumi.set(__self__, "name", name)
@@ -2137,7 +2137,7 @@ class UserPoolSchema(dict):
 
 
 @pulumi.output_type
-class UserPoolSchemaNumberAttributeConstraints(dict):
+calass UserPoolSchemaNumberAttributeConstraints(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2187,7 +2187,7 @@ class UserPoolSchemaNumberAttributeConstraints(dict):
 
 
 @pulumi.output_type
-class UserPoolSchemaStringAttributeConstraints(dict):
+calass UserPoolSchemaStringAttributeConstraints(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2237,7 +2237,7 @@ class UserPoolSchemaStringAttributeConstraints(dict):
 
 
 @pulumi.output_type
-class UserPoolSmsConfiguration(dict):
+calass UserPoolSmsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2299,7 +2299,7 @@ class UserPoolSmsConfiguration(dict):
 
 
 @pulumi.output_type
-class UserPoolSoftwareTokenMfaConfiguration(dict):
+calass UserPoolSoftwareTokenMfaConfiguration(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -2317,7 +2317,7 @@ class UserPoolSoftwareTokenMfaConfiguration(dict):
 
 
 @pulumi.output_type
-class UserPoolUserAttributeUpdateSettings(dict):
+calass UserPoolUserAttributeUpdateSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2352,7 +2352,7 @@ class UserPoolUserAttributeUpdateSettings(dict):
 
 
 @pulumi.output_type
-class UserPoolUserPoolAddOns(dict):
+calass UserPoolUserPoolAddOns(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2387,7 +2387,7 @@ class UserPoolUserPoolAddOns(dict):
 
 
 @pulumi.output_type
-class UserPoolUsernameConfiguration(dict):
+calass UserPoolUsernameConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2422,7 +2422,7 @@ class UserPoolUsernameConfiguration(dict):
 
 
 @pulumi.output_type
-class UserPoolVerificationMessageTemplate(dict):
+calass UserPoolVerificationMessageTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2528,7 +2528,7 @@ class UserPoolVerificationMessageTemplate(dict):
 
 
 @pulumi.output_type
-class GetIdentityPoolCognitoIdentityProviderResult(dict):
+calass GetIdentityPoolCognitoIdentityProviderResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  provider_name: str,
@@ -2554,7 +2554,7 @@ class GetIdentityPoolCognitoIdentityProviderResult(dict):
 
 
 @pulumi.output_type
-class GetUserPoolClientAnalyticsConfigurationResult(dict):
+calass GetUserPoolClientAnalyticsConfigurationResult(dict):
     def __init__(__self__, *,
                  application_arn: str,
                  application_id: str,
@@ -2616,7 +2616,7 @@ class GetUserPoolClientAnalyticsConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetUserPoolClientTokenValidityUnitResult(dict):
+calass GetUserPoolClientTokenValidityUnitResult(dict):
     def __init__(__self__, *,
                  access_token: str,
                  id_token: str,

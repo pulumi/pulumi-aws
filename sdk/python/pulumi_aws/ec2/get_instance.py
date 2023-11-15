@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstanceResult:
+calass GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
@@ -528,7 +528,7 @@ class GetInstanceResult:
         return pulumi.get(self, "vpc_security_group_ids")
 
 
-class AwaitableGetInstanceResult(GetInstanceResult):
+calass AwaitableGetInstanceResult(GetInstanceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -583,7 +583,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             vpc_security_group_ids=self.vpc_security_group_ids)
 
 
-def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterArgs']]] = None,
+def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterArrgs']]] = None,
                  get_password_data: Optional[bool] = None,
                  get_user_data: Optional[bool] = None,
                  instance_id: Optional[str] = None,
@@ -600,11 +600,11 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
     import pulumi_aws as aws
 
     foo = aws.ec2.get_instance(filters=[
-            aws.ec2.GetInstanceFilterArgs(
+            aws.ec2.GetInstanceFilterArrgs(
                 name="image-id",
                 values=["ami-xxxxxxxx"],
             ),
-            aws.ec2.GetInstanceFilterArgs(
+            aws.ec2.GetInstanceFilterArrgs(
                 name="tag:Name",
                 values=["instance-name-tag"],
             ),
@@ -613,7 +613,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[pulumi.InputType['GetInstanceFilterArrgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
@@ -690,7 +690,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
 
 
 @_utilities.lift_output_func(get_instance)
-def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceFilterArgs']]]]] = None,
+def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstanceFilterArrgs']]]]] = None,
                         get_password_data: Optional[pulumi.Input[Optional[bool]]] = None,
                         get_user_data: Optional[pulumi.Input[Optional[bool]]] = None,
                         instance_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -707,11 +707,11 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     import pulumi_aws as aws
 
     foo = aws.ec2.get_instance(filters=[
-            aws.ec2.GetInstanceFilterArgs(
+            aws.ec2.GetInstanceFilterArrgs(
                 name="image-id",
                 values=["ami-xxxxxxxx"],
             ),
-            aws.ec2.GetInstanceFilterArgs(
+            aws.ec2.GetInstanceFilterArrgs(
                 name="tag:Name",
                 values=["instance-name-tag"],
             ),
@@ -720,7 +720,7 @@ def get_instance_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstanceFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[pulumi.InputType['GetInstanceFilterArrgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param bool get_password_data: If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.

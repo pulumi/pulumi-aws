@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceActionArgs', 'ServiceAction']
+__all__ = ['ServiceActionArrgs', 'ServiceAction']
 
 @pulumi.input_type
-class ServiceActionArgs:
+calass ServiceActionArrgs:
     def __init__(__self__, *,
-                 definition: pulumi.Input['ServiceActionDefinitionArgs'],
+                 definition: pulumi.Input['ServiceActionDefinitionArrgs'],
                  accept_language: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceAction resource.
-        :param pulumi.Input['ServiceActionDefinitionArgs'] definition: Self-service action definition configuration block. Detailed below.
+        :param pulumi.Input['ServiceActionDefinitionArrgs'] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
         :param pulumi.Input[str] description: Self-service action description.
         :param pulumi.Input[str] name: Self-service action name.
@@ -39,14 +39,14 @@ class ServiceActionArgs:
 
     @property
     @pulumi.getter
-    def definition(self) -> pulumi.Input['ServiceActionDefinitionArgs']:
+    def definition(self) -> pulumi.Input['ServiceActionDefinitionArrgs']:
         """
         Self-service action definition configuration block. Detailed below.
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: pulumi.Input['ServiceActionDefinitionArgs']):
+    def definition(self, value: pulumi.Input['ServiceActionDefinitionArrgs']):
         pulumi.set(self, "definition", value)
 
     @property
@@ -89,16 +89,16 @@ class ServiceActionArgs:
 
 
 @pulumi.input_type
-class _ServiceActionState:
+calass _ServiceActionState:
     def __init__(__self__, *,
                  accept_language: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input['ServiceActionDefinitionArgs']] = None,
+                 definition: Optional[pulumi.Input['ServiceActionDefinitionArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceAction resources.
         :param pulumi.Input[str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-        :param pulumi.Input['ServiceActionDefinitionArgs'] definition: Self-service action definition configuration block. Detailed below.
+        :param pulumi.Input['ServiceActionDefinitionArrgs'] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[str] description: Self-service action description.
         :param pulumi.Input[str] name: Self-service action name.
                
@@ -127,14 +127,14 @@ class _ServiceActionState:
 
     @property
     @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['ServiceActionDefinitionArgs']]:
+    def definition(self) -> Optional[pulumi.Input['ServiceActionDefinitionArrgs']]:
         """
         Self-service action definition configuration block. Detailed below.
         """
         return pulumi.get(self, "definition")
 
     @definition.setter
-    def definition(self, value: Optional[pulumi.Input['ServiceActionDefinitionArgs']]):
+    def definition(self, value: Optional[pulumi.Input['ServiceActionDefinitionArrgs']]):
         pulumi.set(self, "definition", value)
 
     @property
@@ -164,13 +164,13 @@ class _ServiceActionState:
         pulumi.set(self, "name", value)
 
 
-class ServiceAction(pulumi.CustomResource):
+calass ServiceAction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_language: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ServiceActionDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['ServiceActionDefinitionArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -185,7 +185,7 @@ class ServiceAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.servicecatalog.ServiceAction("example",
-            definition=aws.servicecatalog.ServiceActionDefinitionArgs(
+            definition=aws.servicecatalog.ServiceActionDefinitionArrgs(
                 name="AWS-RestartEC2Instance",
             ),
             description="Motor generator unit")
@@ -202,7 +202,7 @@ class ServiceAction(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-        :param pulumi.Input[pulumi.InputType['ServiceActionDefinitionArgs']] definition: Self-service action definition configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ServiceActionDefinitionArrgs']] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[str] description: Self-service action description.
         :param pulumi.Input[str] name: Self-service action name.
                
@@ -212,7 +212,7 @@ class ServiceAction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceActionArgs,
+                 args: ServiceActionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Service Catalog self-service action.
@@ -225,7 +225,7 @@ class ServiceAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.servicecatalog.ServiceAction("example",
-            definition=aws.servicecatalog.ServiceActionDefinitionArgs(
+            definition=aws.servicecatalog.ServiceActionDefinitionArrgs(
                 name="AWS-RestartEC2Instance",
             ),
             description="Motor generator unit")
@@ -240,12 +240,12 @@ class ServiceAction(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceActionArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceActionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceActionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceActionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -255,7 +255,7 @@ class ServiceAction(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accept_language: Optional[pulumi.Input[str]] = None,
-                 definition: Optional[pulumi.Input[pulumi.InputType['ServiceActionDefinitionArgs']]] = None,
+                 definition: Optional[pulumi.Input[pulumi.InputType['ServiceActionDefinitionArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -265,7 +265,7 @@ class ServiceAction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceActionArgs.__new__(ServiceActionArgs)
+            __props__ = ServiceActionArrgs.__new__(ServiceActionArrgs)
 
             __props__.__dict__["accept_language"] = accept_language
             if definition is None and not opts.urn:
@@ -284,7 +284,7 @@ class ServiceAction(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accept_language: Optional[pulumi.Input[str]] = None,
-            definition: Optional[pulumi.Input[pulumi.InputType['ServiceActionDefinitionArgs']]] = None,
+            definition: Optional[pulumi.Input[pulumi.InputType['ServiceActionDefinitionArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ServiceAction':
         """
@@ -295,7 +295,7 @@ class ServiceAction(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] accept_language: Language code. Valid values are `en` (English), `jp` (Japanese), and `zh` (Chinese). Default is `en`.
-        :param pulumi.Input[pulumi.InputType['ServiceActionDefinitionArgs']] definition: Self-service action definition configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['ServiceActionDefinitionArrgs']] definition: Self-service action definition configuration block. Detailed below.
         :param pulumi.Input[str] description: Self-service action description.
         :param pulumi.Input[str] name: Self-service action name.
                

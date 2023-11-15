@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ExternalKeyArgs', 'ExternalKey']
+__all__ = ['ExternalKeyArrgs', 'ExternalKey']
 
 @pulumi.input_type
-class ExternalKeyArgs:
+calass ExternalKeyArrgs:
     def __init__(__self__, *,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
                  deletion_window_in_days: Optional[pulumi.Input[int]] = None,
@@ -164,7 +164,7 @@ class ExternalKeyArgs:
 
 
 @pulumi.input_type
-class _ExternalKeyState:
+calass _ExternalKeyState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  bypass_policy_lockout_safety_check: Optional[pulumi.Input[bool]] = None,
@@ -401,7 +401,7 @@ class _ExternalKeyState:
         pulumi.set(self, "valid_to", value)
 
 
-class ExternalKey(pulumi.CustomResource):
+calass ExternalKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -453,7 +453,7 @@ class ExternalKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ExternalKeyArgs] = None,
+                 args: Optional[ExternalKeyArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a single-Region or multi-Region primary KMS key that uses external key material.
@@ -477,12 +477,12 @@ class ExternalKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExternalKeyArgs args: The arguments to use to populate this resource's properties.
+        :param ExternalKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExternalKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExternalKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -507,7 +507,7 @@ class ExternalKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExternalKeyArgs.__new__(ExternalKeyArgs)
+            __props__ = ExternalKeyArrgs.__new__(ExternalKeyArrgs)
 
             __props__.__dict__["bypass_policy_lockout_safety_check"] = bypass_policy_lockout_safety_check
             __props__.__dict__["deletion_window_in_days"] = deletion_window_in_days

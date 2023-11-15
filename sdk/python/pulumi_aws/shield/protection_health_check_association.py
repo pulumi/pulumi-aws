@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProtectionHealthCheckAssociationArgs', 'ProtectionHealthCheckAssociation']
+__all__ = ['ProtectionHealthCheckAssociationArrgs', 'ProtectionHealthCheckAssociation']
 
 @pulumi.input_type
-class ProtectionHealthCheckAssociationArgs:
+calass ProtectionHealthCheckAssociationArrgs:
     def __init__(__self__, *,
                  health_check_arn: pulumi.Input[str],
                  shield_protection_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ProtectionHealthCheckAssociationArgs:
 
 
 @pulumi.input_type
-class _ProtectionHealthCheckAssociationState:
+calass _ProtectionHealthCheckAssociationState:
     def __init__(__self__, *,
                  health_check_arn: Optional[pulumi.Input[str]] = None,
                  shield_protection_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ProtectionHealthCheckAssociationState:
         pulumi.set(self, "shield_protection_id", value)
 
 
-class ProtectionHealthCheckAssociation(pulumi.CustomResource):
+calass ProtectionHealthCheckAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -151,7 +151,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProtectionHealthCheckAssociationArgs,
+                 args: ProtectionHealthCheckAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an association between a Route53 Health Check and a Shield Advanced protected resource.
@@ -199,12 +199,12 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProtectionHealthCheckAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ProtectionHealthCheckAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProtectionHealthCheckAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProtectionHealthCheckAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -222,7 +222,7 @@ class ProtectionHealthCheckAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProtectionHealthCheckAssociationArgs.__new__(ProtectionHealthCheckAssociationArgs)
+            __props__ = ProtectionHealthCheckAssociationArrgs.__new__(ProtectionHealthCheckAssociationArrgs)
 
             if health_check_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'health_check_arn'")

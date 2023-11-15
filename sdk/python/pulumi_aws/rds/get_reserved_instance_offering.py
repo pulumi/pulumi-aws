@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReservedInstanceOfferingResult:
+calass GetReservedInstanceOfferingResult:
     """
     A collection of values returned by getReservedInstanceOffering.
     """
@@ -108,7 +108,7 @@ class GetReservedInstanceOfferingResult:
         return pulumi.get(self, "product_description")
 
 
-class AwaitableGetReservedInstanceOfferingResult(GetReservedInstanceOfferingResult):
+calass AwaitableGetReservedInstanceOfferingResult(GetReservedInstanceOfferingResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

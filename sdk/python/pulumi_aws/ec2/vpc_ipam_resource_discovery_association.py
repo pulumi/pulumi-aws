@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcIpamResourceDiscoveryAssociationArgs', 'VpcIpamResourceDiscoveryAssociation']
+__all__ = ['VpcIpamResourceDiscoveryAssociationArrgs', 'VpcIpamResourceDiscoveryAssociation']
 
 @pulumi.input_type
-class VpcIpamResourceDiscoveryAssociationArgs:
+calass VpcIpamResourceDiscoveryAssociationArrgs:
     def __init__(__self__, *,
                  ipam_id: pulumi.Input[str],
                  ipam_resource_discovery_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class VpcIpamResourceDiscoveryAssociationArgs:
 
 
 @pulumi.input_type
-class _VpcIpamResourceDiscoveryAssociationState:
+calass _VpcIpamResourceDiscoveryAssociationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  ipam_arn: Optional[pulumi.Input[str]] = None,
@@ -239,7 +239,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
         pulumi.set(self, "tags_all", value)
 
 
-class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
+calass VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -287,7 +287,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcIpamResourceDiscoveryAssociationArgs,
+                 args: VpcIpamResourceDiscoveryAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an association between an Amazon IP Address Manager (IPAM) and a IPAM Resource Discovery. IPAM Resource Discoveries are resources meant for multi-organization customers. If you wish to use a single IPAM across multiple orgs, a resource discovery can be created and shared from a subordinate organization to the management organizations IPAM delegated admin account.
@@ -319,12 +319,12 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcIpamResourceDiscoveryAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param VpcIpamResourceDiscoveryAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamResourceDiscoveryAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIpamResourceDiscoveryAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -343,7 +343,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcIpamResourceDiscoveryAssociationArgs.__new__(VpcIpamResourceDiscoveryAssociationArgs)
+            __props__ = VpcIpamResourceDiscoveryAssociationArrgs.__new__(VpcIpamResourceDiscoveryAssociationArrgs)
 
             if ipam_id is None and not opts.urn:
                 raise TypeError("Missing required property 'ipam_id'")

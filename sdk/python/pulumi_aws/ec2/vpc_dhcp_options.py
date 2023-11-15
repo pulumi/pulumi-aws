@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcDhcpOptionsArgs', 'VpcDhcpOptions']
+__all__ = ['VpcDhcpOptionsArrgs', 'VpcDhcpOptions']
 
 @pulumi.input_type
-class VpcDhcpOptionsArgs:
+calass VpcDhcpOptionsArrgs:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  domain_name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -116,7 +116,7 @@ class VpcDhcpOptionsArgs:
 
 
 @pulumi.input_type
-class _VpcDhcpOptionsState:
+calass _VpcDhcpOptionsState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -273,7 +273,7 @@ class _VpcDhcpOptionsState:
         pulumi.set(self, "tags_all", value)
 
 
-class VpcDhcpOptions(pulumi.CustomResource):
+calass VpcDhcpOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -350,7 +350,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VpcDhcpOptionsArgs] = None,
+                 args: Optional[VpcDhcpOptionsArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC DHCP Options resource.
@@ -405,12 +405,12 @@ class VpcDhcpOptions(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcDhcpOptionsArgs args: The arguments to use to populate this resource's properties.
+        :param VpcDhcpOptionsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcDhcpOptionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcDhcpOptionsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -432,7 +432,7 @@ class VpcDhcpOptions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcDhcpOptionsArgs.__new__(VpcDhcpOptionsArgs)
+            __props__ = VpcDhcpOptionsArrgs.__new__(VpcDhcpOptionsArrgs)
 
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_name_servers"] = domain_name_servers

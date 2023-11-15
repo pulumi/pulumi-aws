@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServerlessAccessPolicyResult:
+calass GetServerlessAccessPolicyResult:
     """
     A collection of values returned by getServerlessAccessPolicy.
     """
@@ -81,7 +81,7 @@ class GetServerlessAccessPolicyResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetServerlessAccessPolicyResult(GetServerlessAccessPolicyResult):
+calass AwaitableGetServerlessAccessPolicyResult(GetServerlessAccessPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

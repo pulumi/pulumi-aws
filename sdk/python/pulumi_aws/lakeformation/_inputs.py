@@ -10,30 +10,30 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DataLakeSettingsCreateDatabaseDefaultPermissionArgs',
-    'DataLakeSettingsCreateTableDefaultPermissionArgs',
-    'PermissionsDataLocationArgs',
-    'PermissionsDatabaseArgs',
-    'PermissionsLfTagArgs',
-    'PermissionsLfTagPolicyArgs',
-    'PermissionsLfTagPolicyExpressionArgs',
-    'PermissionsTableArgs',
-    'PermissionsTableWithColumnsArgs',
-    'ResourceLfTagsDatabaseArgs',
-    'ResourceLfTagsLfTagArgs',
-    'ResourceLfTagsTableArgs',
-    'ResourceLfTagsTableWithColumnsArgs',
-    'GetPermissionsDataLocationArgs',
-    'GetPermissionsDatabaseArgs',
-    'GetPermissionsLfTagArgs',
-    'GetPermissionsLfTagPolicyArgs',
-    'GetPermissionsLfTagPolicyExpressionArgs',
-    'GetPermissionsTableArgs',
-    'GetPermissionsTableWithColumnsArgs',
+    'DataLakeSettingsCreateDatabaseDefaultPermissionArrgs',
+    'DataLakeSettingsCreateTableDefaultPermissionArrgs',
+    'PermissionsDataLocationArrgs',
+    'PermissionsDatabaseArrgs',
+    'PermissionsLfTagArrgs',
+    'PermissionsLfTagPolicyArrgs',
+    'PermissionsLfTagPolicyExpressionArrgs',
+    'PermissionsTableArrgs',
+    'PermissionsTableWithColumnsArrgs',
+    'ResourceLfTagsDatabaseArrgs',
+    'ResourceLfTagsLfTagArrgs',
+    'ResourceLfTagsTableArrgs',
+    'ResourceLfTagsTableWithColumnsArrgs',
+    'GetPermissionsDataLocationArrgs',
+    'GetPermissionsDatabaseArrgs',
+    'GetPermissionsLfTagArrgs',
+    'GetPermissionsLfTagPolicyArrgs',
+    'GetPermissionsLfTagPolicyExpressionArrgs',
+    'GetPermissionsTableArrgs',
+    'GetPermissionsTableWithColumnsArrgs',
 ]
 
 @pulumi.input_type
-class DataLakeSettingsCreateDatabaseDefaultPermissionArgs:
+calass DataLakeSettingsCreateDatabaseDefaultPermissionArrgs:
     def __init__(__self__, *,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal: Optional[pulumi.Input[str]] = None):
@@ -72,7 +72,7 @@ class DataLakeSettingsCreateDatabaseDefaultPermissionArgs:
 
 
 @pulumi.input_type
-class DataLakeSettingsCreateTableDefaultPermissionArgs:
+calass DataLakeSettingsCreateTableDefaultPermissionArrgs:
     def __init__(__self__, *,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal: Optional[pulumi.Input[str]] = None):
@@ -111,7 +111,7 @@ class DataLakeSettingsCreateTableDefaultPermissionArgs:
 
 
 @pulumi.input_type
-class PermissionsDataLocationArgs:
+calass PermissionsDataLocationArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
@@ -153,7 +153,7 @@ class PermissionsDataLocationArgs:
 
 
 @pulumi.input_type
-class PermissionsDatabaseArgs:
+calass PermissionsDatabaseArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
@@ -195,7 +195,7 @@ class PermissionsDatabaseArgs:
 
 
 @pulumi.input_type
-class PermissionsLfTagArgs:
+calass PermissionsLfTagArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -252,13 +252,13 @@ class PermissionsLfTagArgs:
 
 
 @pulumi.input_type
-class PermissionsLfTagPolicyArgs:
+calass PermissionsLfTagPolicyArrgs:
     def __init__(__self__, *,
-                 expressions: pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgs']]],
+                 expressions: pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArrgs']]],
                  resource_type: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgs']]] expressions: A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        :param pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArrgs']]] expressions: A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
                
                The following argument is optional:
         :param pulumi.Input[str] resource_type: The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
@@ -271,7 +271,7 @@ class PermissionsLfTagPolicyArgs:
 
     @property
     @pulumi.getter
-    def expressions(self) -> pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgs']]]:
+    def expressions(self) -> pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArrgs']]]:
         """
         A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
 
@@ -280,7 +280,7 @@ class PermissionsLfTagPolicyArgs:
         return pulumi.get(self, "expressions")
 
     @expressions.setter
-    def expressions(self, value: pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgs']]]):
+    def expressions(self, value: pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArrgs']]]):
         pulumi.set(self, "expressions", value)
 
     @property
@@ -309,7 +309,7 @@ class PermissionsLfTagPolicyArgs:
 
 
 @pulumi.input_type
-class PermissionsLfTagPolicyExpressionArgs:
+calass PermissionsLfTagPolicyExpressionArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -346,7 +346,7 @@ class PermissionsLfTagPolicyExpressionArgs:
 
 
 @pulumi.input_type
-class PermissionsTableArgs:
+calass PermissionsTableArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None,
@@ -420,7 +420,7 @@ class PermissionsTableArgs:
 
 
 @pulumi.input_type
-class PermissionsTableWithColumnsArgs:
+calass PermissionsTableWithColumnsArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -525,7 +525,7 @@ class PermissionsTableWithColumnsArgs:
 
 
 @pulumi.input_type
-class ResourceLfTagsDatabaseArgs:
+calass ResourceLfTagsDatabaseArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None):
@@ -567,7 +567,7 @@ class ResourceLfTagsDatabaseArgs:
 
 
 @pulumi.input_type
-class ResourceLfTagsLfTagArgs:
+calass ResourceLfTagsLfTagArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
                  value: pulumi.Input[str],
@@ -624,7 +624,7 @@ class ResourceLfTagsLfTagArgs:
 
 
 @pulumi.input_type
-class ResourceLfTagsTableArgs:
+calass ResourceLfTagsTableArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None,
@@ -698,7 +698,7 @@ class ResourceLfTagsTableArgs:
 
 
 @pulumi.input_type
-class ResourceLfTagsTableWithColumnsArgs:
+calass ResourceLfTagsTableWithColumnsArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -803,7 +803,7 @@ class ResourceLfTagsTableWithColumnsArgs:
 
 
 @pulumi.input_type
-class GetPermissionsDataLocationArgs:
+calass GetPermissionsDataLocationArrgs:
     def __init__(__self__, *,
                  arn: str,
                  catalog_id: str):
@@ -844,7 +844,7 @@ class GetPermissionsDataLocationArgs:
 
 
 @pulumi.input_type
-class GetPermissionsDatabaseArgs:
+calass GetPermissionsDatabaseArrgs:
     def __init__(__self__, *,
                  catalog_id: str,
                  name: str):
@@ -885,7 +885,7 @@ class GetPermissionsDatabaseArgs:
 
 
 @pulumi.input_type
-class GetPermissionsLfTagArgs:
+calass GetPermissionsLfTagArrgs:
     def __init__(__self__, *,
                  catalog_id: str,
                  key: str,
@@ -941,14 +941,14 @@ class GetPermissionsLfTagArgs:
 
 
 @pulumi.input_type
-class GetPermissionsLfTagPolicyArgs:
+calass GetPermissionsLfTagPolicyArrgs:
     def __init__(__self__, *,
                  catalog_id: str,
-                 expressions: Sequence['GetPermissionsLfTagPolicyExpressionArgs'],
+                 expressions: Sequence['GetPermissionsLfTagPolicyExpressionArrgs'],
                  resource_type: str):
         """
         :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        :param Sequence['GetPermissionsLfTagPolicyExpressionArgs'] expressions: List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        :param Sequence['GetPermissionsLfTagPolicyExpressionArrgs'] expressions: List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
                
                The following argument is optional:
         :param str resource_type: Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
@@ -971,7 +971,7 @@ class GetPermissionsLfTagPolicyArgs:
 
     @property
     @pulumi.getter
-    def expressions(self) -> Sequence['GetPermissionsLfTagPolicyExpressionArgs']:
+    def expressions(self) -> Sequence['GetPermissionsLfTagPolicyExpressionArrgs']:
         """
         List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
 
@@ -980,7 +980,7 @@ class GetPermissionsLfTagPolicyArgs:
         return pulumi.get(self, "expressions")
 
     @expressions.setter
-    def expressions(self, value: Sequence['GetPermissionsLfTagPolicyExpressionArgs']):
+    def expressions(self, value: Sequence['GetPermissionsLfTagPolicyExpressionArrgs']):
         pulumi.set(self, "expressions", value)
 
     @property
@@ -997,7 +997,7 @@ class GetPermissionsLfTagPolicyArgs:
 
 
 @pulumi.input_type
-class GetPermissionsLfTagPolicyExpressionArgs:
+calass GetPermissionsLfTagPolicyExpressionArrgs:
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1034,7 +1034,7 @@ class GetPermissionsLfTagPolicyExpressionArgs:
 
 
 @pulumi.input_type
-class GetPermissionsTableArgs:
+calass GetPermissionsTableArrgs:
     def __init__(__self__, *,
                  catalog_id: str,
                  database_name: str,
@@ -1106,7 +1106,7 @@ class GetPermissionsTableArgs:
 
 
 @pulumi.input_type
-class GetPermissionsTableWithColumnsArgs:
+calass GetPermissionsTableWithColumnsArrgs:
     def __init__(__self__, *,
                  catalog_id: str,
                  database_name: str,

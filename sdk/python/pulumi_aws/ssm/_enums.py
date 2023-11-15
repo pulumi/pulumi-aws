@@ -9,7 +9,7 @@ __all__ = [
 ]
 
 
-class ParameterType(str, Enum):
+calass ParameterType(str, Enum):
     STRING = "String"
     STRING_LIST = "StringList"
     SECURE_STRING = "SecureString"

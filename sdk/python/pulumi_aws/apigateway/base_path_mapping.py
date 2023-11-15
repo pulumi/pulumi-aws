@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BasePathMappingArgs', 'BasePathMapping']
+__all__ = ['BasePathMappingArrgs', 'BasePathMapping']
 
 @pulumi.input_type
-class BasePathMappingArgs:
+calass BasePathMappingArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  rest_api: pulumi.Input[str],
@@ -82,7 +82,7 @@ class BasePathMappingArgs:
 
 
 @pulumi.input_type
-class _BasePathMappingState:
+calass _BasePathMappingState:
     def __init__(__self__, *,
                  base_path: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _BasePathMappingState:
         pulumi.set(self, "stage_name", value)
 
 
-class BasePathMapping(pulumi.CustomResource):
+calass BasePathMapping(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -218,7 +218,7 @@ class BasePathMapping(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BasePathMappingArgs,
+                 args: BasePathMappingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Connects a custom domain name registered via `apigateway.DomainName`
@@ -265,12 +265,12 @@ class BasePathMapping(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BasePathMappingArgs args: The arguments to use to populate this resource's properties.
+        :param BasePathMappingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BasePathMappingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BasePathMappingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -290,7 +290,7 @@ class BasePathMapping(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BasePathMappingArgs.__new__(BasePathMappingArgs)
+            __props__ = BasePathMappingArrgs.__new__(BasePathMappingArrgs)
 
             __props__.__dict__["base_path"] = base_path
             if domain_name is None and not opts.urn:

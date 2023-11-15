@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApplicationArgs', 'Application']
+__all__ = ['ApplicationArrgs', 'Application']
 
 @pulumi.input_type
-class ApplicationArgs:
+calass ApplicationArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  auto_config_enabled: Optional[pulumi.Input[bool]] = None,
@@ -151,7 +151,7 @@ class ApplicationArgs:
 
 
 @pulumi.input_type
-class _ApplicationState:
+calass _ApplicationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_config_enabled: Optional[pulumi.Input[bool]] = None,
@@ -328,7 +328,7 @@ class _ApplicationState:
         pulumi.set(self, "tags_all", value)
 
 
-class Application(pulumi.CustomResource):
+calass Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -352,7 +352,7 @@ class Application(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_group = aws.resourcegroups.Group("exampleGroup", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
+        example_group = aws.resourcegroups.Group("exampleGroup", resource_query=aws.resourcegroups.GroupResourceQueryArrgs(
             query=json.dumps({
                 "ResourceTypeFilters": ["AWS::EC2::Instance"],
                 "TagFilters": [{
@@ -389,7 +389,7 @@ class Application(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationArgs,
+                 args: ApplicationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a ApplicationInsights Application resource.
@@ -401,7 +401,7 @@ class Application(pulumi.CustomResource):
         import json
         import pulumi_aws as aws
 
-        example_group = aws.resourcegroups.Group("exampleGroup", resource_query=aws.resourcegroups.GroupResourceQueryArgs(
+        example_group = aws.resourcegroups.Group("exampleGroup", resource_query=aws.resourcegroups.GroupResourceQueryArrgs(
             query=json.dumps({
                 "ResourceTypeFilters": ["AWS::EC2::Instance"],
                 "TagFilters": [{
@@ -422,12 +422,12 @@ class Application(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -451,7 +451,7 @@ class Application(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationArgs.__new__(ApplicationArgs)
+            __props__ = ApplicationArrgs.__new__(ApplicationArrgs)
 
             __props__.__dict__["auto_config_enabled"] = auto_config_enabled
             __props__.__dict__["auto_create"] = auto_create

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConnectorResult:
+calass GetConnectorResult:
     """
     A collection of values returned by getConnector.
     """
@@ -76,7 +76,7 @@ class GetConnectorResult:
         return pulumi.get(self, "version")
 
 
-class AwaitableGetConnectorResult(GetConnectorResult):
+calass AwaitableGetConnectorResult(GetConnectorResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'PipelineContentConfigArgs',
-    'PipelineContentConfigPermissionArgs',
-    'PipelineNotificationsArgs',
-    'PipelineThumbnailConfigArgs',
-    'PipelineThumbnailConfigPermissionArgs',
-    'PresetAudioArgs',
-    'PresetAudioCodecOptionsArgs',
-    'PresetThumbnailsArgs',
-    'PresetVideoArgs',
-    'PresetVideoWatermarkArgs',
+    'PipelineContentConfigArrgs',
+    'PipelineContentConfigPermissionArrgs',
+    'PipelineNotificationsArrgs',
+    'PipelineThumbnailConfigArrgs',
+    'PipelineThumbnailConfigPermissionArrgs',
+    'PresetAudioArrgs',
+    'PresetAudioCodecOptionsArrgs',
+    'PresetThumbnailsArrgs',
+    'PresetVideoArrgs',
+    'PresetVideoWatermarkArrgs',
 ]
 
 @pulumi.input_type
-class PipelineContentConfigArgs:
+calass PipelineContentConfigArrgs:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None):
@@ -62,7 +62,7 @@ class PipelineContentConfigArgs:
 
 
 @pulumi.input_type
-class PipelineContentConfigPermissionArgs:
+calass PipelineContentConfigPermissionArrgs:
     def __init__(__self__, *,
                  accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  grantee: Optional[pulumi.Input[str]] = None,
@@ -117,7 +117,7 @@ class PipelineContentConfigPermissionArgs:
 
 
 @pulumi.input_type
-class PipelineNotificationsArgs:
+calass PipelineNotificationsArrgs:
     def __init__(__self__, *,
                  completed: Optional[pulumi.Input[str]] = None,
                  error: Optional[pulumi.Input[str]] = None,
@@ -208,7 +208,7 @@ class PipelineNotificationsArgs:
 
 
 @pulumi.input_type
-class PipelineThumbnailConfigArgs:
+calass PipelineThumbnailConfigArrgs:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  storage_class: Optional[pulumi.Input[str]] = None):
@@ -247,7 +247,7 @@ class PipelineThumbnailConfigArgs:
 
 
 @pulumi.input_type
-class PipelineThumbnailConfigPermissionArgs:
+calass PipelineThumbnailConfigPermissionArrgs:
     def __init__(__self__, *,
                  accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  grantee: Optional[pulumi.Input[str]] = None,
@@ -302,7 +302,7 @@ class PipelineThumbnailConfigPermissionArgs:
 
 
 @pulumi.input_type
-class PresetAudioArgs:
+calass PresetAudioArrgs:
     def __init__(__self__, *,
                  audio_packing_mode: Optional[pulumi.Input[str]] = None,
                  bit_rate: Optional[pulumi.Input[str]] = None,
@@ -389,7 +389,7 @@ class PresetAudioArgs:
 
 
 @pulumi.input_type
-class PresetAudioCodecOptionsArgs:
+calass PresetAudioCodecOptionsArrgs:
     def __init__(__self__, *,
                  bit_depth: Optional[pulumi.Input[str]] = None,
                  bit_order: Optional[pulumi.Input[str]] = None,
@@ -460,7 +460,7 @@ class PresetAudioCodecOptionsArgs:
 
 
 @pulumi.input_type
-class PresetThumbnailsArgs:
+calass PresetThumbnailsArrgs:
     def __init__(__self__, *,
                  aspect_ratio: Optional[pulumi.Input[str]] = None,
                  format: Optional[pulumi.Input[str]] = None,
@@ -595,7 +595,7 @@ class PresetThumbnailsArgs:
 
 
 @pulumi.input_type
-class PresetVideoArgs:
+calass PresetVideoArrgs:
     def __init__(__self__, *,
                  aspect_ratio: Optional[pulumi.Input[str]] = None,
                  bit_rate: Optional[pulumi.Input[str]] = None,
@@ -810,7 +810,7 @@ class PresetVideoArgs:
 
 
 @pulumi.input_type
-class PresetVideoWatermarkArgs:
+calass PresetVideoWatermarkArrgs:
     def __init__(__self__, *,
                  horizontal_align: Optional[pulumi.Input[str]] = None,
                  horizontal_offset: Optional[pulumi.Input[str]] = None,

@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class SdkvoiceGlobalSettingsVoiceConnector(dict):
+calass SdkvoiceGlobalSettingsVoiceConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -57,7 +57,7 @@ class SdkvoiceGlobalSettingsVoiceConnector(dict):
 
 
 @pulumi.output_type
-class SdkvoiceSipMediaApplicationEndpoints(dict):
+calass SdkvoiceSipMediaApplicationEndpoints(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -92,7 +92,7 @@ class SdkvoiceSipMediaApplicationEndpoints(dict):
 
 
 @pulumi.output_type
-class SdkvoiceSipRuleTargetApplication(dict):
+calass SdkvoiceSipRuleTargetApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -151,7 +151,7 @@ class SdkvoiceSipRuleTargetApplication(dict):
 
 
 @pulumi.output_type
-class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration(dict):
+calass SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -190,7 +190,7 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class VoiceConnectorGroupConnector(dict):
+calass VoiceConnectorGroupConnector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -236,7 +236,7 @@ class VoiceConnectorGroupConnector(dict):
 
 
 @pulumi.output_type
-class VoiceConnectorOrganizationRoute(dict):
+calass VoiceConnectorOrganizationRoute(dict):
     def __init__(__self__, *,
                  host: str,
                  priority: int,
@@ -299,7 +299,7 @@ class VoiceConnectorOrganizationRoute(dict):
 
 
 @pulumi.output_type
-class VoiceConnectorStreamingMediaInsightsConfiguration(dict):
+calass VoiceConnectorStreamingMediaInsightsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -347,7 +347,7 @@ class VoiceConnectorStreamingMediaInsightsConfiguration(dict):
 
 
 @pulumi.output_type
-class VoiceConnectorTerminationCredentialsCredential(dict):
+calass VoiceConnectorTerminationCredentialsCredential(dict):
     def __init__(__self__, *,
                  password: str,
                  username: str):

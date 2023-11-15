@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRouteTableResult:
+calass GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
@@ -100,7 +100,7 @@ class GetRouteTableResult:
         return pulumi.get(self, "transit_gateway_id")
 
 
-class AwaitableGetRouteTableResult(GetRouteTableResult):
+calass AwaitableGetRouteTableResult(GetRouteTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -115,7 +115,7 @@ class AwaitableGetRouteTableResult(GetRouteTableResult):
             transit_gateway_id=self.transit_gateway_id)
 
 
-def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]] = None,
+def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFilterArrgs']]] = None,
                     id: Optional[str] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRouteTableResult:
@@ -130,11 +130,11 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_route_table(filters=[
-        aws.ec2transitgateway.GetRouteTableFilterArgs(
+        aws.ec2transitgateway.GetRouteTableFilterArrgs(
             name="default-association-route-table",
             values=["true"],
         ),
-        aws.ec2transitgateway.GetRouteTableFilterArgs(
+        aws.ec2transitgateway.GetRouteTableFilterArrgs(
             name="transit-gateway-id",
             values=["tgw-12345678"],
         ),
@@ -150,7 +150,7 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetRouteTableFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Route Table.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Route Table
     """
@@ -172,7 +172,7 @@ def get_route_table(filters: Optional[Sequence[pulumi.InputType['GetRouteTableFi
 
 
 @_utilities.lift_output_func(get_route_table)
-def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTableFilterArgs']]]]] = None,
+def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetRouteTableFilterArrgs']]]]] = None,
                            id: Optional[pulumi.Input[Optional[str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteTableResult]:
@@ -187,11 +187,11 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_route_table(filters=[
-        aws.ec2transitgateway.GetRouteTableFilterArgs(
+        aws.ec2transitgateway.GetRouteTableFilterArrgs(
             name="default-association-route-table",
             values=["true"],
         ),
-        aws.ec2transitgateway.GetRouteTableFilterArgs(
+        aws.ec2transitgateway.GetRouteTableFilterArrgs(
             name="transit-gateway-id",
             values=["tgw-12345678"],
         ),
@@ -207,7 +207,7 @@ def get_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetRouteTableFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetRouteTableFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     :param str id: Identifier of the EC2 Transit Gateway Route Table.
     :param Mapping[str, str] tags: Key-value tags for the EC2 Transit Gateway Route Table
     """

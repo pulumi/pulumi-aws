@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HsmConfigurationArgs', 'HsmConfiguration']
+__all__ = ['HsmConfigurationArrgs', 'HsmConfiguration']
 
 @pulumi.input_type
-class HsmConfigurationArgs:
+calass HsmConfigurationArrgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  hsm_configuration_identifier: pulumi.Input[str],
@@ -126,7 +126,7 @@ class HsmConfigurationArgs:
 
 
 @pulumi.input_type
-class _HsmConfigurationState:
+calass _HsmConfigurationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -283,7 +283,7 @@ class _HsmConfigurationState:
         pulumi.set(self, "tags_all", value)
 
 
-class HsmConfiguration(pulumi.CustomResource):
+calass HsmConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -336,7 +336,7 @@ class HsmConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HsmConfigurationArgs,
+                 args: HsmConfigurationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an HSM configuration that contains the information required by an Amazon Redshift cluster to store and use database encryption keys in a Hardware Security Module (HSM).
@@ -365,12 +365,12 @@ class HsmConfiguration(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HsmConfigurationArgs args: The arguments to use to populate this resource's properties.
+        :param HsmConfigurationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HsmConfigurationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HsmConfigurationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -393,7 +393,7 @@ class HsmConfiguration(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HsmConfigurationArgs.__new__(HsmConfigurationArgs)
+            __props__ = HsmConfigurationArrgs.__new__(HsmConfigurationArrgs)
 
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")

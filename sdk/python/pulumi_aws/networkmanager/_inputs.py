@@ -10,28 +10,28 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConnectAttachmentOptionsArgs',
-    'ConnectPeerBgpOptionsArgs',
-    'ConnectPeerConfigurationArgs',
-    'ConnectPeerConfigurationBgpConfigurationArgs',
-    'CoreNetworkEdgeArgs',
-    'CoreNetworkSegmentArgs',
-    'DeviceAwsLocationArgs',
-    'DeviceLocationArgs',
-    'LinkBandwidthArgs',
-    'SiteLocationArgs',
-    'VpcAttachmentOptionsArgs',
-    'GetCoreNetworkPolicyDocumentAttachmentPolicyArgs',
-    'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs',
-    'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs',
-    'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs',
-    'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs',
-    'GetCoreNetworkPolicyDocumentSegmentArgs',
-    'GetCoreNetworkPolicyDocumentSegmentActionArgs',
+    'ConnectAttachmentOptionsArrgs',
+    'ConnectPeerBgpOptionsArrgs',
+    'ConnectPeerConfigurationArrgs',
+    'ConnectPeerConfigurationBgpConfigurationArrgs',
+    'CoreNetworkEdgeArrgs',
+    'CoreNetworkSegmentArrgs',
+    'DeviceAwsLocationArrgs',
+    'DeviceLocationArrgs',
+    'LinkBandwidthArrgs',
+    'SiteLocationArrgs',
+    'VpcAttachmentOptionsArrgs',
+    'GetCoreNetworkPolicyDocumentAttachmentPolicyArrgs',
+    'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArrgs',
+    'GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrgs',
+    'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrgs',
+    'GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrgs',
+    'GetCoreNetworkPolicyDocumentSegmentArrgs',
+    'GetCoreNetworkPolicyDocumentSegmentActionArrgs',
 ]
 
 @pulumi.input_type
-class ConnectAttachmentOptionsArgs:
+calass ConnectAttachmentOptionsArrgs:
     def __init__(__self__, *,
                  protocol: Optional[pulumi.Input[str]] = None):
         """
@@ -54,7 +54,7 @@ class ConnectAttachmentOptionsArgs:
 
 
 @pulumi.input_type
-class ConnectPeerBgpOptionsArgs:
+calass ConnectPeerBgpOptionsArrgs:
     def __init__(__self__, *,
                  peer_asn: Optional[pulumi.Input[int]] = None):
         if peer_asn is not None:
@@ -71,9 +71,9 @@ class ConnectPeerBgpOptionsArgs:
 
 
 @pulumi.input_type
-class ConnectPeerConfigurationArgs:
+calass ConnectPeerConfigurationArrgs:
     def __init__(__self__, *,
-                 bgp_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]] = None,
+                 bgp_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArrgs']]]] = None,
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
@@ -98,11 +98,11 @@ class ConnectPeerConfigurationArgs:
 
     @property
     @pulumi.getter(name="bgpConfigurations")
-    def bgp_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]]:
+    def bgp_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArrgs']]]]:
         return pulumi.get(self, "bgp_configurations")
 
     @bgp_configurations.setter
-    def bgp_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgs']]]]):
+    def bgp_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArrgs']]]]):
         pulumi.set(self, "bgp_configurations", value)
 
     @property
@@ -154,7 +154,7 @@ class ConnectPeerConfigurationArgs:
 
 
 @pulumi.input_type
-class ConnectPeerConfigurationBgpConfigurationArgs:
+calass ConnectPeerConfigurationBgpConfigurationArrgs:
     def __init__(__self__, *,
                  core_network_address: Optional[pulumi.Input[str]] = None,
                  core_network_asn: Optional[pulumi.Input[int]] = None,
@@ -221,7 +221,7 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
 
 
 @pulumi.input_type
-class CoreNetworkEdgeArgs:
+calass CoreNetworkEdgeArrgs:
     def __init__(__self__, *,
                  asn: Optional[pulumi.Input[int]] = None,
                  edge_location: Optional[pulumi.Input[str]] = None,
@@ -276,7 +276,7 @@ class CoreNetworkEdgeArgs:
 
 
 @pulumi.input_type
-class CoreNetworkSegmentArgs:
+calass CoreNetworkSegmentArrgs:
     def __init__(__self__, *,
                  edge_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -331,7 +331,7 @@ class CoreNetworkSegmentArgs:
 
 
 @pulumi.input_type
-class DeviceAwsLocationArgs:
+calass DeviceAwsLocationArrgs:
     def __init__(__self__, *,
                  subnet_arn: Optional[pulumi.Input[str]] = None,
                  zone: Optional[pulumi.Input[str]] = None):
@@ -370,7 +370,7 @@ class DeviceAwsLocationArgs:
 
 
 @pulumi.input_type
-class DeviceLocationArgs:
+calass DeviceLocationArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  latitude: Optional[pulumi.Input[str]] = None,
@@ -425,7 +425,7 @@ class DeviceLocationArgs:
 
 
 @pulumi.input_type
-class LinkBandwidthArgs:
+calass LinkBandwidthArrgs:
     def __init__(__self__, *,
                  download_speed: Optional[pulumi.Input[int]] = None,
                  upload_speed: Optional[pulumi.Input[int]] = None):
@@ -464,7 +464,7 @@ class LinkBandwidthArgs:
 
 
 @pulumi.input_type
-class SiteLocationArgs:
+calass SiteLocationArrgs:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[str]] = None,
                  latitude: Optional[pulumi.Input[str]] = None,
@@ -519,7 +519,7 @@ class SiteLocationArgs:
 
 
 @pulumi.input_type
-class VpcAttachmentOptionsArgs:
+calass VpcAttachmentOptionsArrgs:
     def __init__(__self__, *,
                  appliance_mode_support: Optional[pulumi.Input[bool]] = None,
                  ipv6_support: Optional[pulumi.Input[bool]] = None):
@@ -558,16 +558,16 @@ class VpcAttachmentOptionsArgs:
 
 
 @pulumi.input_type
-class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
+calass GetCoreNetworkPolicyDocumentAttachmentPolicyArrgs:
     def __init__(__self__, *,
-                 action: 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs',
-                 conditions: Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs'],
+                 action: 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArrgs',
+                 conditions: Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrgs'],
                  rule_number: int,
                  condition_logic: Optional[str] = None,
                  description: Optional[str] = None):
         """
-        :param 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs' action: Action to take when a condition is true. Detailed Below.
-        :param Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs'] conditions: A block argument. Detailed Below.
+        :param 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArrgs' action: Action to take when a condition is true. Detailed Below.
+        :param Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrgs'] conditions: A block argument. Detailed Below.
         :param int rule_number: An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
         :param str condition_logic: Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
         :param str description: A user-defined description that further helps identify the rule.
@@ -582,26 +582,26 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs':
+    def action(self) -> 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArrgs':
         """
         Action to take when a condition is true. Detailed Below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs'):
+    def action(self, value: 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArrgs'):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def conditions(self) -> Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs']:
+    def conditions(self) -> Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrgs']:
         """
         A block argument. Detailed Below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs']):
+    def conditions(self, value: Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrgs']):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -642,7 +642,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
 
 
 @pulumi.input_type
-class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
+calass GetCoreNetworkPolicyDocumentAttachmentPolicyActionArrgs:
     def __init__(__self__, *,
                  association_method: str,
                  require_acceptance: Optional[bool] = None,
@@ -712,7 +712,7 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
 
 
 @pulumi.input_type
-class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs:
+calass GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrgs:
     def __init__(__self__, *,
                  type: str,
                  key: Optional[str] = None,
@@ -782,15 +782,15 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs:
 
 
 @pulumi.input_type
-class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
+calass GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  asn_ranges: Sequence[str],
-                 edge_locations: Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs'],
+                 edge_locations: Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrgs'],
                  inside_cidr_blocks: Optional[Sequence[str]] = None,
                  vpn_ecmp_support: Optional[bool] = None):
         """
         :param Sequence[str] asn_ranges: List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
-        :param Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs'] edge_locations: A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
+        :param Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrgs'] edge_locations: A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
         :param Sequence[str] inside_cidr_blocks: The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
         :param bool vpn_ecmp_support: Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
         """
@@ -815,14 +815,14 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
 
     @property
     @pulumi.getter(name="edgeLocations")
-    def edge_locations(self) -> Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs']:
+    def edge_locations(self) -> Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrgs']:
         """
         A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
         """
         return pulumi.get(self, "edge_locations")
 
     @edge_locations.setter
-    def edge_locations(self, value: Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs']):
+    def edge_locations(self, value: Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrgs']):
         pulumi.set(self, "edge_locations", value)
 
     @property
@@ -851,7 +851,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
 
 
 @pulumi.input_type
-class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
+calass GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrgs:
     def __init__(__self__, *,
                  location: str,
                  asn: Optional[str] = None,
@@ -901,7 +901,7 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
 
 
 @pulumi.input_type
-class GetCoreNetworkPolicyDocumentSegmentArgs:
+calass GetCoreNetworkPolicyDocumentSegmentArrgs:
     def __init__(__self__, *,
                  name: str,
                  allow_filters: Optional[Sequence[str]] = None,
@@ -1019,7 +1019,7 @@ class GetCoreNetworkPolicyDocumentSegmentArgs:
 
 
 @pulumi.input_type
-class GetCoreNetworkPolicyDocumentSegmentActionArgs:
+calass GetCoreNetworkPolicyDocumentSegmentActionArrgs:
     def __init__(__self__, *,
                  action: str,
                  segment: str,

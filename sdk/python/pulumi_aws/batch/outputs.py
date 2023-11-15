@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ComputeEnvironmentComputeResources(dict):
+calass ComputeEnvironmentComputeResources(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -96,12 +96,12 @@ class ComputeEnvironmentComputeResources(dict):
         :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int bid_percentage: Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param Sequence['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs'] ec2_configurations: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        :param Sequence['ComputeEnvironmentComputeResourcesEc2ConfigurationArrgs'] ec2_configurations: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         :param str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param Sequence[str] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArrgs' launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param str placement_group: The Amazon EC2 placement group to associate with your compute resources.
         :param Sequence[str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
@@ -278,7 +278,7 @@ class ComputeEnvironmentComputeResources(dict):
 
 
 @pulumi.output_type
-class ComputeEnvironmentComputeResourcesEc2Configuration(dict):
+calass ComputeEnvironmentComputeResourcesEc2Configuration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -328,7 +328,7 @@ class ComputeEnvironmentComputeResourcesEc2Configuration(dict):
 
 
 @pulumi.output_type
-class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
+calass ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -390,7 +390,7 @@ class ComputeEnvironmentComputeResourcesLaunchTemplate(dict):
 
 
 @pulumi.output_type
-class ComputeEnvironmentEksConfiguration(dict):
+calass ComputeEnvironmentEksConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -438,7 +438,7 @@ class ComputeEnvironmentEksConfiguration(dict):
 
 
 @pulumi.output_type
-class JobDefinitionRetryStrategy(dict):
+calass JobDefinitionRetryStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -461,7 +461,7 @@ class JobDefinitionRetryStrategy(dict):
                  evaluate_on_exits: Optional[Sequence['outputs.JobDefinitionRetryStrategyEvaluateOnExit']] = None):
         """
         :param int attempts: The number of times to move a job to the `RUNNABLE` status. You may specify between `1` and `10` attempts.
-        :param Sequence['JobDefinitionRetryStrategyEvaluateOnExitArgs'] evaluate_on_exits: The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
+        :param Sequence['JobDefinitionRetryStrategyEvaluateOnExitArrgs'] evaluate_on_exits: The evaluate on exit conditions under which the job should be retried or failed. If this parameter is specified, then the `attempts` parameter must also be specified. You may specify up to 5 configuration blocks.
         """
         if attempts is not None:
             pulumi.set(__self__, "attempts", attempts)
@@ -486,7 +486,7 @@ class JobDefinitionRetryStrategy(dict):
 
 
 @pulumi.output_type
-class JobDefinitionRetryStrategyEvaluateOnExit(dict):
+calass JobDefinitionRetryStrategyEvaluateOnExit(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -561,7 +561,7 @@ class JobDefinitionRetryStrategyEvaluateOnExit(dict):
 
 
 @pulumi.output_type
-class JobDefinitionTimeout(dict):
+calass JobDefinitionTimeout(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -597,7 +597,7 @@ class JobDefinitionTimeout(dict):
 
 
 @pulumi.output_type
-class JobQueueTimeouts(dict):
+calass JobQueueTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
@@ -626,7 +626,7 @@ class JobQueueTimeouts(dict):
 
 
 @pulumi.output_type
-class SchedulingPolicyFairSharePolicy(dict):
+calass SchedulingPolicyFairSharePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -654,7 +654,7 @@ class SchedulingPolicyFairSharePolicy(dict):
                  share_distributions: Optional[Sequence['outputs.SchedulingPolicyFairSharePolicyShareDistribution']] = None):
         """
         :param int compute_reservation: A value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-        :param Sequence['SchedulingPolicyFairSharePolicyShareDistributionArgs'] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        :param Sequence['SchedulingPolicyFairSharePolicyShareDistributionArrgs'] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
         """
         if compute_reservation is not None:
             pulumi.set(__self__, "compute_reservation", compute_reservation)
@@ -686,7 +686,7 @@ class SchedulingPolicyFairSharePolicy(dict):
 
 
 @pulumi.output_type
-class SchedulingPolicyFairSharePolicyShareDistribution(dict):
+calass SchedulingPolicyFairSharePolicyShareDistribution(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -735,7 +735,7 @@ class SchedulingPolicyFairSharePolicyShareDistribution(dict):
 
 
 @pulumi.output_type
-class GetJobQueueComputeEnvironmentOrderResult(dict):
+calass GetJobQueueComputeEnvironmentOrderResult(dict):
     def __init__(__self__, *,
                  compute_environment: str,
                  order: int):
@@ -754,14 +754,14 @@ class GetJobQueueComputeEnvironmentOrderResult(dict):
 
 
 @pulumi.output_type
-class GetSchedulingPolicyFairSharePolicyResult(dict):
+calass GetSchedulingPolicyFairSharePolicyResult(dict):
     def __init__(__self__, *,
                  compute_reservation: int,
                  share_decay_seconds: int,
                  share_distributions: Sequence['outputs.GetSchedulingPolicyFairSharePolicyShareDistributionResult']):
         """
         :param int compute_reservation: Value used to reserve some of the available maximum vCPU for fair share identifiers that have not yet been used. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html).
-        :param Sequence['GetSchedulingPolicyFairSharePolicyShareDistributionArgs'] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
+        :param Sequence['GetSchedulingPolicyFairSharePolicyShareDistributionArrgs'] share_distributions: One or more share distribution blocks which define the weights for the fair share identifiers for the fair share policy. For more information, see [FairsharePolicy](https://docs.aws.amazon.com/batch/latest/APIReference/API_FairsharePolicy.html). The `share_distribution` block is documented below.
         """
         pulumi.set(__self__, "compute_reservation", compute_reservation)
         pulumi.set(__self__, "share_decay_seconds", share_decay_seconds)
@@ -790,7 +790,7 @@ class GetSchedulingPolicyFairSharePolicyResult(dict):
 
 
 @pulumi.output_type
-class GetSchedulingPolicyFairSharePolicyShareDistributionResult(dict):
+calass GetSchedulingPolicyFairSharePolicyShareDistributionResult(dict):
     def __init__(__self__, *,
                  share_identifier: str,
                  weight_factor: float):

@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StreamArgs', 'Stream']
+__all__ = ['StreamArrgs', 'Stream']
 
 @pulumi.input_type
-class StreamArgs:
+calass StreamArrgs:
     def __init__(__self__, *,
                  inclusive_start_time: pulumi.Input[str],
-                 kinesis_configuration: pulumi.Input['StreamKinesisConfigurationArgs'],
+                 kinesis_configuration: pulumi.Input['StreamKinesisConfigurationArrgs'],
                  ledger_name: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  stream_name: pulumi.Input[str],
@@ -26,7 +26,7 @@ class StreamArgs:
         """
         The set of arguments for constructing a Stream resource.
         :param pulumi.Input[str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
-        :param pulumi.Input['StreamKinesisConfigurationArgs'] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        :param pulumi.Input['StreamKinesisConfigurationArrgs'] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         :param pulumi.Input[str] ledger_name: The name of the QLDB ledger.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         :param pulumi.Input[str] stream_name: The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
@@ -57,14 +57,14 @@ class StreamArgs:
 
     @property
     @pulumi.getter(name="kinesisConfiguration")
-    def kinesis_configuration(self) -> pulumi.Input['StreamKinesisConfigurationArgs']:
+    def kinesis_configuration(self) -> pulumi.Input['StreamKinesisConfigurationArrgs']:
         """
         The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         """
         return pulumi.get(self, "kinesis_configuration")
 
     @kinesis_configuration.setter
-    def kinesis_configuration(self, value: pulumi.Input['StreamKinesisConfigurationArgs']):
+    def kinesis_configuration(self, value: pulumi.Input['StreamKinesisConfigurationArrgs']):
         pulumi.set(self, "kinesis_configuration", value)
 
     @property
@@ -129,12 +129,12 @@ class StreamArgs:
 
 
 @pulumi.input_type
-class _StreamState:
+calass _StreamState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  exclusive_end_time: Optional[pulumi.Input[str]] = None,
                  inclusive_start_time: Optional[pulumi.Input[str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input['StreamKinesisConfigurationArgs']] = None,
+                 kinesis_configuration: Optional[pulumi.Input['StreamKinesisConfigurationArrgs']] = None,
                  ledger_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stream_name: Optional[pulumi.Input[str]] = None,
@@ -145,7 +145,7 @@ class _StreamState:
         :param pulumi.Input[str] arn: The ARN of the QLDB Stream.
         :param pulumi.Input[str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         :param pulumi.Input[str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
-        :param pulumi.Input['StreamKinesisConfigurationArgs'] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        :param pulumi.Input['StreamKinesisConfigurationArrgs'] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         :param pulumi.Input[str] ledger_name: The name of the QLDB ledger.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         :param pulumi.Input[str] stream_name: The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
@@ -212,14 +212,14 @@ class _StreamState:
 
     @property
     @pulumi.getter(name="kinesisConfiguration")
-    def kinesis_configuration(self) -> Optional[pulumi.Input['StreamKinesisConfigurationArgs']]:
+    def kinesis_configuration(self) -> Optional[pulumi.Input['StreamKinesisConfigurationArrgs']]:
         """
         The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         """
         return pulumi.get(self, "kinesis_configuration")
 
     @kinesis_configuration.setter
-    def kinesis_configuration(self, value: Optional[pulumi.Input['StreamKinesisConfigurationArgs']]):
+    def kinesis_configuration(self, value: Optional[pulumi.Input['StreamKinesisConfigurationArrgs']]):
         pulumi.set(self, "kinesis_configuration", value)
 
     @property
@@ -286,14 +286,14 @@ class _StreamState:
         pulumi.set(self, "tags_all", value)
 
 
-class Stream(pulumi.CustomResource):
+calass Stream(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusive_end_time: Optional[pulumi.Input[str]] = None,
                  inclusive_start_time: Optional[pulumi.Input[str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']]] = None,
+                 kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArrgs']]] = None,
                  ledger_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stream_name: Optional[pulumi.Input[str]] = None,
@@ -310,7 +310,7 @@ class Stream(pulumi.CustomResource):
 
         example = aws.qldb.Stream("example",
             inclusive_start_time="2021-01-01T00:00:00Z",
-            kinesis_configuration=aws.qldb.StreamKinesisConfigurationArgs(
+            kinesis_configuration=aws.qldb.StreamKinesisConfigurationArrgs(
                 aggregation_enabled=False,
                 stream_arn="arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
             ),
@@ -326,7 +326,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         :param pulumi.Input[str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
-        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArrgs']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         :param pulumi.Input[str] ledger_name: The name of the QLDB ledger.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         :param pulumi.Input[str] stream_name: The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
@@ -336,7 +336,7 @@ class Stream(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StreamArgs,
+                 args: StreamArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Quantum Ledger Database (QLDB) Stream resource
@@ -349,7 +349,7 @@ class Stream(pulumi.CustomResource):
 
         example = aws.qldb.Stream("example",
             inclusive_start_time="2021-01-01T00:00:00Z",
-            kinesis_configuration=aws.qldb.StreamKinesisConfigurationArgs(
+            kinesis_configuration=aws.qldb.StreamKinesisConfigurationArrgs(
                 aggregation_enabled=False,
                 stream_arn="arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
             ),
@@ -362,12 +362,12 @@ class Stream(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StreamArgs args: The arguments to use to populate this resource's properties.
+        :param StreamArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StreamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StreamArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -378,7 +378,7 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusive_end_time: Optional[pulumi.Input[str]] = None,
                  inclusive_start_time: Optional[pulumi.Input[str]] = None,
-                 kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']]] = None,
+                 kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArrgs']]] = None,
                  ledger_name: Optional[pulumi.Input[str]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stream_name: Optional[pulumi.Input[str]] = None,
@@ -390,7 +390,7 @@ class Stream(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StreamArgs.__new__(StreamArgs)
+            __props__ = StreamArrgs.__new__(StreamArrgs)
 
             __props__.__dict__["exclusive_end_time"] = exclusive_end_time
             if inclusive_start_time is None and not opts.urn:
@@ -426,7 +426,7 @@ class Stream(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             exclusive_end_time: Optional[pulumi.Input[str]] = None,
             inclusive_start_time: Optional[pulumi.Input[str]] = None,
-            kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']]] = None,
+            kinesis_configuration: Optional[pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArrgs']]] = None,
             ledger_name: Optional[pulumi.Input[str]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
             stream_name: Optional[pulumi.Input[str]] = None,
@@ -442,7 +442,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the QLDB Stream.
         :param pulumi.Input[str] exclusive_end_time: The exclusive date and time that specifies when the stream ends. If you don't define this parameter, the stream runs indefinitely until you cancel it. It must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.
         :param pulumi.Input[str] inclusive_start_time: The inclusive start date and time from which to start streaming journal data. This parameter must be in ISO 8601 date and time format and in Universal Coordinated Time (UTC). For example: `"2019-06-13T21:36:34Z"`.  This cannot be in the future and must be before `exclusive_end_time`.  If you provide a value that is before the ledger's `CreationDateTime`, QLDB effectively defaults it to the ledger's `CreationDateTime`.
-        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArgs']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
+        :param pulumi.Input[pulumi.InputType['StreamKinesisConfigurationArrgs']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request. Documented below.
         :param pulumi.Input[str] ledger_name: The name of the QLDB ledger.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         :param pulumi.Input[str] stream_name: The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).

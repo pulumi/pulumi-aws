@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RepositoryAssociationArgs', 'RepositoryAssociation']
+__all__ = ['RepositoryAssociationArrgs', 'RepositoryAssociation']
 
 @pulumi.input_type
-class RepositoryAssociationArgs:
+calass RepositoryAssociationArrgs:
     def __init__(__self__, *,
-                 repository: pulumi.Input['RepositoryAssociationRepositoryArgs'],
-                 kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']] = None,
+                 repository: pulumi.Input['RepositoryAssociationRepositoryArrgs'],
+                 kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RepositoryAssociation resource.
-        :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        :param pulumi.Input['RepositoryAssociationRepositoryArrgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
-        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArrgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
         """
         pulumi.set(__self__, "repository", repository)
         if kms_key_details is not None:
@@ -34,7 +34,7 @@ class RepositoryAssociationArgs:
 
     @property
     @pulumi.getter
-    def repository(self) -> pulumi.Input['RepositoryAssociationRepositoryArgs']:
+    def repository(self) -> pulumi.Input['RepositoryAssociationRepositoryArrgs']:
         """
         An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
 
@@ -43,19 +43,19 @@ class RepositoryAssociationArgs:
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: pulumi.Input['RepositoryAssociationRepositoryArgs']):
+    def repository(self, value: pulumi.Input['RepositoryAssociationRepositoryArrgs']):
         pulumi.set(self, "repository", value)
 
     @property
     @pulumi.getter(name="kmsKeyDetails")
-    def kms_key_details(self) -> Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]:
+    def kms_key_details(self) -> Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArrgs']]:
         """
         An object describing the KMS key to asssociate. Block is documented below.
         """
         return pulumi.get(self, "kms_key_details")
 
     @kms_key_details.setter
-    def kms_key_details(self, value: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]):
+    def kms_key_details(self, value: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArrgs']]):
         pulumi.set(self, "kms_key_details", value)
 
     @property
@@ -69,17 +69,17 @@ class RepositoryAssociationArgs:
 
 
 @pulumi.input_type
-class _RepositoryAssociationState:
+calass _RepositoryAssociationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  association_id: Optional[pulumi.Input[str]] = None,
                  connection_arn: Optional[pulumi.Input[str]] = None,
-                 kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']] = None,
+                 kms_key_details: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  provider_type: Optional[pulumi.Input[str]] = None,
-                 repository: Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']] = None,
-                 s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]] = None,
+                 repository: Optional[pulumi.Input['RepositoryAssociationRepositoryArrgs']] = None,
+                 s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArrgs']]]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  state_reason: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -89,11 +89,11 @@ class _RepositoryAssociationState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) identifying the repository association.
         :param pulumi.Input[str] association_id: The ID of the repository association.
         :param pulumi.Input[str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArrgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
         :param pulumi.Input[str] name: The name of the third party source repository.
         :param pulumi.Input[str] owner: The username for the account that owns the repository.
         :param pulumi.Input[str] provider_type: The provider type of the repository association.
-        :param pulumi.Input['RepositoryAssociationRepositoryArgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        :param pulumi.Input['RepositoryAssociationRepositoryArrgs'] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
         :param pulumi.Input[str] state: The state of the repository association.
@@ -167,14 +167,14 @@ class _RepositoryAssociationState:
 
     @property
     @pulumi.getter(name="kmsKeyDetails")
-    def kms_key_details(self) -> Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]:
+    def kms_key_details(self) -> Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArrgs']]:
         """
         An object describing the KMS key to asssociate. Block is documented below.
         """
         return pulumi.get(self, "kms_key_details")
 
     @kms_key_details.setter
-    def kms_key_details(self, value: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs']]):
+    def kms_key_details(self, value: Optional[pulumi.Input['RepositoryAssociationKmsKeyDetailsArrgs']]):
         pulumi.set(self, "kms_key_details", value)
 
     @property
@@ -215,7 +215,7 @@ class _RepositoryAssociationState:
 
     @property
     @pulumi.getter
-    def repository(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']]:
+    def repository(self) -> Optional[pulumi.Input['RepositoryAssociationRepositoryArrgs']]:
         """
         An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
 
@@ -224,16 +224,16 @@ class _RepositoryAssociationState:
         return pulumi.get(self, "repository")
 
     @repository.setter
-    def repository(self, value: Optional[pulumi.Input['RepositoryAssociationRepositoryArgs']]):
+    def repository(self, value: Optional[pulumi.Input['RepositoryAssociationRepositoryArrgs']]):
         pulumi.set(self, "repository", value)
 
     @property
     @pulumi.getter(name="s3RepositoryDetails")
-    def s3_repository_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]]:
+    def s3_repository_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArrgs']]]]:
         return pulumi.get(self, "s3_repository_details")
 
     @s3_repository_details.setter
-    def s3_repository_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArgs']]]]):
+    def s3_repository_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailArrgs']]]]):
         pulumi.set(self, "s3_repository_details", value)
 
     @property
@@ -282,13 +282,13 @@ class _RepositoryAssociationState:
         pulumi.set(self, "tags_all", value)
 
 
-class RepositoryAssociation(pulumi.CustomResource):
+calass RepositoryAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_key_details: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']]] = None,
-                 repository: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']]] = None,
+                 kms_key_details: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArrgs']]] = None,
+                 repository: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -303,12 +303,12 @@ class RepositoryAssociation(pulumi.CustomResource):
         example_key = aws.kms.Key("exampleKey")
         example_repository = aws.codecommit.Repository("exampleRepository", repository_name="example-repo")
         example_repository_association = aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation",
-            repository=aws.codegurureviewer.RepositoryAssociationRepositoryArgs(
-                codecommit=aws.codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs(
+            repository=aws.codegurureviewer.RepositoryAssociationRepositoryArrgs(
+                codecommit=aws.codegurureviewer.RepositoryAssociationRepositoryCodecommitArrgs(
                     name=example_repository.repository_name,
                 ),
             ),
-            kms_key_details=aws.codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs(
+            kms_key_details=aws.codegurureviewer.RepositoryAssociationKmsKeyDetailsArrgs(
                 encryption_option="CUSTOMER_MANAGED_CMK",
                 kms_key_id=example_key.key_id,
             ))
@@ -316,8 +316,8 @@ class RepositoryAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
-        :param pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        :param pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArrgs']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArrgs']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
         """
@@ -325,7 +325,7 @@ class RepositoryAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RepositoryAssociationArgs,
+                 args: RepositoryAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS CodeGuru Reviewer Repository Association.
@@ -339,24 +339,24 @@ class RepositoryAssociation(pulumi.CustomResource):
         example_key = aws.kms.Key("exampleKey")
         example_repository = aws.codecommit.Repository("exampleRepository", repository_name="example-repo")
         example_repository_association = aws.codegurureviewer.RepositoryAssociation("exampleRepositoryAssociation",
-            repository=aws.codegurureviewer.RepositoryAssociationRepositoryArgs(
-                codecommit=aws.codegurureviewer.RepositoryAssociationRepositoryCodecommitArgs(
+            repository=aws.codegurureviewer.RepositoryAssociationRepositoryArrgs(
+                codecommit=aws.codegurureviewer.RepositoryAssociationRepositoryCodecommitArrgs(
                     name=example_repository.repository_name,
                 ),
             ),
-            kms_key_details=aws.codegurureviewer.RepositoryAssociationKmsKeyDetailsArgs(
+            kms_key_details=aws.codegurureviewer.RepositoryAssociationKmsKeyDetailsArrgs(
                 encryption_option="CUSTOMER_MANAGED_CMK",
                 kms_key_id=example_key.key_id,
             ))
         ```
 
         :param str resource_name: The name of the resource.
-        :param RepositoryAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param RepositoryAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RepositoryAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -365,8 +365,8 @@ class RepositoryAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kms_key_details: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']]] = None,
-                 repository: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']]] = None,
+                 kms_key_details: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArrgs']]] = None,
+                 repository: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -375,7 +375,7 @@ class RepositoryAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RepositoryAssociationArgs.__new__(RepositoryAssociationArgs)
+            __props__ = RepositoryAssociationArrgs.__new__(RepositoryAssociationArrgs)
 
             __props__.__dict__["kms_key_details"] = kms_key_details
             if repository is None and not opts.urn:
@@ -407,12 +407,12 @@ class RepositoryAssociation(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             association_id: Optional[pulumi.Input[str]] = None,
             connection_arn: Optional[pulumi.Input[str]] = None,
-            kms_key_details: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']]] = None,
+            kms_key_details: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             provider_type: Optional[pulumi.Input[str]] = None,
-            repository: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']]] = None,
-            s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryAssociationS3RepositoryDetailArgs']]]]] = None,
+            repository: Optional[pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArrgs']]] = None,
+            s3_repository_details: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryAssociationS3RepositoryDetailArrgs']]]]] = None,
             state: Optional[pulumi.Input[str]] = None,
             state_reason: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -427,11 +427,11 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) identifying the repository association.
         :param pulumi.Input[str] association_id: The ID of the repository association.
         :param pulumi.Input[str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        :param pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArgs']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
+        :param pulumi.Input[pulumi.InputType['RepositoryAssociationKmsKeyDetailsArrgs']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
         :param pulumi.Input[str] name: The name of the third party source repository.
         :param pulumi.Input[str] owner: The username for the account that owns the repository.
         :param pulumi.Input[str] provider_type: The provider type of the repository association.
-        :param pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArgs']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
+        :param pulumi.Input[pulumi.InputType['RepositoryAssociationRepositoryArrgs']] repository: An object describing the repository to associate. Valid values: `bitbucket`, `codecommit`, `github_enterprise_server`, or `s3_bucket`. Block is documented below. Note: for repositories that leverage CodeStar connections (ex. `bitbucket`, `github_enterprise_server`) the connection must be in `Available` status prior to creating this resource.
                
                The following arguments are optional:
         :param pulumi.Input[str] state: The state of the repository association.

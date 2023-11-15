@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLoadBalancerResult:
+calass GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
@@ -244,7 +244,7 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "zone_id")
 
 
-class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
+calass AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

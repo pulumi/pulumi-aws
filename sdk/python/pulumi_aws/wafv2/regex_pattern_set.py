@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RegexPatternSetArgs', 'RegexPatternSet']
+__all__ = ['RegexPatternSetArrgs', 'RegexPatternSet']
 
 @pulumi.input_type
-class RegexPatternSetArgs:
+calass RegexPatternSetArrgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]] = None,
+                 regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RegexPatternSet resource.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[str] name: A friendly name of the regular expression pattern set.
-        :param pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArrgs']]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "scope", scope)
@@ -77,14 +77,14 @@ class RegexPatternSetArgs:
 
     @property
     @pulumi.getter(name="regularExpressions")
-    def regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]]:
+    def regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArrgs']]]]:
         """
         One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         """
         return pulumi.get(self, "regular_expressions")
 
     @regular_expressions.setter
-    def regular_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]]):
+    def regular_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArrgs']]]]):
         pulumi.set(self, "regular_expressions", value)
 
     @property
@@ -101,13 +101,13 @@ class RegexPatternSetArgs:
 
 
 @pulumi.input_type
-class _RegexPatternSetState:
+calass _RegexPatternSetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lock_token: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]] = None,
+                 regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArrgs']]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -116,7 +116,7 @@ class _RegexPatternSetState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the cluster.
         :param pulumi.Input[str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[str] name: A friendly name of the regular expression pattern set.
-        :param pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArrgs']]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -188,14 +188,14 @@ class _RegexPatternSetState:
 
     @property
     @pulumi.getter(name="regularExpressions")
-    def regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]]:
+    def regular_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArrgs']]]]:
         """
         One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         """
         return pulumi.get(self, "regular_expressions")
 
     @regular_expressions.setter
-    def regular_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArgs']]]]):
+    def regular_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegexPatternSetRegularExpressionArrgs']]]]):
         pulumi.set(self, "regular_expressions", value)
 
     @property
@@ -238,14 +238,14 @@ class _RegexPatternSetState:
         pulumi.set(self, "tags_all", value)
 
 
-class RegexPatternSet(pulumi.CustomResource):
+calass RegexPatternSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArgs']]]]] = None,
+                 regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArrgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -261,10 +261,10 @@ class RegexPatternSet(pulumi.CustomResource):
         example = aws.wafv2.RegexPatternSet("example",
             description="Example regex pattern set",
             regular_expressions=[
-                aws.wafv2.RegexPatternSetRegularExpressionArgs(
+                aws.wafv2.RegexPatternSetRegularExpressionArrgs(
                     regex_string="one",
                 ),
-                aws.wafv2.RegexPatternSetRegularExpressionArgs(
+                aws.wafv2.RegexPatternSetRegularExpressionArrgs(
                     regex_string="two",
                 ),
             ],
@@ -287,7 +287,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[str] name: A friendly name of the regular expression pattern set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArgs']]]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArrgs']]]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -295,7 +295,7 @@ class RegexPatternSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RegexPatternSetArgs,
+                 args: RegexPatternSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS WAFv2 Regex Pattern Set Resource
@@ -309,10 +309,10 @@ class RegexPatternSet(pulumi.CustomResource):
         example = aws.wafv2.RegexPatternSet("example",
             description="Example regex pattern set",
             regular_expressions=[
-                aws.wafv2.RegexPatternSetRegularExpressionArgs(
+                aws.wafv2.RegexPatternSetRegularExpressionArrgs(
                     regex_string="one",
                 ),
-                aws.wafv2.RegexPatternSetRegularExpressionArgs(
+                aws.wafv2.RegexPatternSetRegularExpressionArrgs(
                     regex_string="two",
                 ),
             ],
@@ -332,12 +332,12 @@ class RegexPatternSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegexPatternSetArgs args: The arguments to use to populate this resource's properties.
+        :param RegexPatternSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegexPatternSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegexPatternSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -348,7 +348,7 @@ class RegexPatternSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArgs']]]]] = None,
+                 regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArrgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -358,7 +358,7 @@ class RegexPatternSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegexPatternSetArgs.__new__(RegexPatternSetArgs)
+            __props__ = RegexPatternSetArrgs.__new__(RegexPatternSetArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
@@ -386,7 +386,7 @@ class RegexPatternSet(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             lock_token: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArgs']]]]] = None,
+            regular_expressions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArrgs']]]]] = None,
             scope: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'RegexPatternSet':
@@ -400,7 +400,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the cluster.
         :param pulumi.Input[str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[str] name: A friendly name of the regular expression pattern set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArgs']]]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegexPatternSetRegularExpressionArrgs']]]] regular_expressions: One or more blocks of regular expression patterns that you want AWS WAF to search for, such as `B[a@]dB[o0]t`. See Regular Expression below for details. A maximum of 10 `regular_expression` blocks may be specified.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An array of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IpSetArgs', 'IpSet']
+__all__ = ['IpSetArrgs', 'IpSet']
 
 @pulumi.input_type
-class IpSetArgs:
+calass IpSetArrgs:
     def __init__(__self__, *,
                  ip_address_version: pulumi.Input[str],
                  scope: pulumi.Input[str],
@@ -114,7 +114,7 @@ class IpSetArgs:
 
 
 @pulumi.input_type
-class _IpSetState:
+calass _IpSetState:
     def __init__(__self__, *,
                  addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -267,7 +267,7 @@ class _IpSetState:
         pulumi.set(self, "tags_all", value)
 
 
-class IpSet(pulumi.CustomResource):
+calass IpSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -323,7 +323,7 @@ class IpSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IpSetArgs,
+                 args: IpSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a WAFv2 IP Set Resource
@@ -357,12 +357,12 @@ class IpSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IpSetArgs args: The arguments to use to populate this resource's properties.
+        :param IpSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IpSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IpSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -384,7 +384,7 @@ class IpSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IpSetArgs.__new__(IpSetArgs)
+            __props__ = IpSetArrgs.__new__(IpSetArrgs)
 
             __props__.__dict__["addresses"] = addresses
             __props__.__dict__["description"] = description

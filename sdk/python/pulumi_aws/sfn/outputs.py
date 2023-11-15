@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AliasRoutingConfiguration(dict):
+calass AliasRoutingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -63,7 +63,7 @@ class AliasRoutingConfiguration(dict):
 
 
 @pulumi.output_type
-class StateMachineLoggingConfiguration(dict):
+calass StateMachineLoggingConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -125,7 +125,7 @@ class StateMachineLoggingConfiguration(dict):
 
 
 @pulumi.output_type
-class StateMachineTracingConfiguration(dict):
+calass StateMachineTracingConfiguration(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -144,7 +144,7 @@ class StateMachineTracingConfiguration(dict):
 
 
 @pulumi.output_type
-class GetAliasRoutingConfigurationResult(dict):
+calass GetAliasRoutingConfigurationResult(dict):
     def __init__(__self__, *,
                  state_machine_version_arn: str,
                  weight: int):

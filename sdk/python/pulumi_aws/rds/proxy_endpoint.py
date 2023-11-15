@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProxyEndpointArgs', 'ProxyEndpoint']
+__all__ = ['ProxyEndpointArrgs', 'ProxyEndpoint']
 
 @pulumi.input_type
-class ProxyEndpointArgs:
+calass ProxyEndpointArrgs:
     def __init__(__self__, *,
                  db_proxy_endpoint_name: pulumi.Input[str],
                  db_proxy_name: pulumi.Input[str],
@@ -113,7 +113,7 @@ class ProxyEndpointArgs:
 
 
 @pulumi.input_type
-class _ProxyEndpointState:
+calass _ProxyEndpointState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  db_proxy_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -298,7 +298,7 @@ class _ProxyEndpointState:
         pulumi.set(self, "vpc_subnet_ids", value)
 
 
-class ProxyEndpoint(pulumi.CustomResource):
+calass ProxyEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -347,7 +347,7 @@ class ProxyEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProxyEndpointArgs,
+                 args: ProxyEndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
@@ -374,12 +374,12 @@ class ProxyEndpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProxyEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param ProxyEndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProxyEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProxyEndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -401,7 +401,7 @@ class ProxyEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProxyEndpointArgs.__new__(ProxyEndpointArgs)
+            __props__ = ProxyEndpointArrgs.__new__(ProxyEndpointArrgs)
 
             if db_proxy_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'db_proxy_endpoint_name'")

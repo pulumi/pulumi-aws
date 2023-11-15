@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PipelineContentConfig(dict):
+calass PipelineContentConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -71,7 +71,7 @@ class PipelineContentConfig(dict):
 
 
 @pulumi.output_type
-class PipelineContentConfigPermission(dict):
+calass PipelineContentConfigPermission(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -131,7 +131,7 @@ class PipelineContentConfigPermission(dict):
 
 
 @pulumi.output_type
-class PipelineNotifications(dict):
+calass PipelineNotifications(dict):
     def __init__(__self__, *,
                  completed: Optional[str] = None,
                  error: Optional[str] = None,
@@ -206,7 +206,7 @@ class PipelineNotifications(dict):
 
 
 @pulumi.output_type
-class PipelineThumbnailConfig(dict):
+calass PipelineThumbnailConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -254,7 +254,7 @@ class PipelineThumbnailConfig(dict):
 
 
 @pulumi.output_type
-class PipelineThumbnailConfigPermission(dict):
+calass PipelineThumbnailConfigPermission(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -314,7 +314,7 @@ class PipelineThumbnailConfigPermission(dict):
 
 
 @pulumi.output_type
-class PresetAudio(dict):
+calass PresetAudio(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -402,7 +402,7 @@ class PresetAudio(dict):
 
 
 @pulumi.output_type
-class PresetAudioCodecOptions(dict):
+calass PresetAudioCodecOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -476,7 +476,7 @@ class PresetAudioCodecOptions(dict):
 
 
 @pulumi.output_type
-class PresetThumbnails(dict):
+calass PresetThumbnails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -604,7 +604,7 @@ class PresetThumbnails(dict):
 
 
 @pulumi.output_type
-class PresetVideo(dict):
+calass PresetVideo(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -804,7 +804,7 @@ class PresetVideo(dict):
 
 
 @pulumi.output_type
-class PresetVideoWatermark(dict):
+calass PresetVideoWatermark(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

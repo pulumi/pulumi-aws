@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetGatewayRouteResult:
+calass GetGatewayRouteResult:
     """
     A collection of values returned by getGatewayRoute.
     """
@@ -134,7 +134,7 @@ class GetGatewayRouteResult:
         return pulumi.get(self, "virtual_gateway_name")
 
 
-class AwaitableGetGatewayRouteResult(GetGatewayRouteResult):
+calass AwaitableGetGatewayRouteResult(GetGatewayRouteResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

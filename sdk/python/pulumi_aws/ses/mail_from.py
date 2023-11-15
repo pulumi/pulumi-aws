@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MailFromArgs', 'MailFrom']
+__all__ = ['MailFromArrgs', 'MailFrom']
 
 @pulumi.input_type
-class MailFromArgs:
+calass MailFromArrgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
                  mail_from_domain: pulumi.Input[str],
@@ -70,7 +70,7 @@ class MailFromArgs:
 
 
 @pulumi.input_type
-class _MailFromState:
+calass _MailFromState:
     def __init__(__self__, *,
                  behavior_on_mx_failure: Optional[pulumi.Input[str]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class _MailFromState:
         pulumi.set(self, "mail_from_domain", value)
 
 
-class MailFrom(pulumi.CustomResource):
+calass MailFrom(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -204,7 +204,7 @@ class MailFrom(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MailFromArgs,
+                 args: MailFromArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SES domain MAIL FROM resource.
@@ -261,12 +261,12 @@ class MailFrom(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MailFromArgs args: The arguments to use to populate this resource's properties.
+        :param MailFromArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MailFromArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MailFromArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -285,7 +285,7 @@ class MailFrom(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MailFromArgs.__new__(MailFromArgs)
+            __props__ = MailFromArrgs.__new__(MailFromArrgs)
 
             __props__.__dict__["behavior_on_mx_failure"] = behavior_on_mx_failure
             if domain is None and not opts.urn:

@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
-__all__ = ['ParameterArgs', 'Parameter']
+__all__ = ['ParameterArrgs', 'Parameter']
 
 @pulumi.input_type
-class ParameterArgs:
+calass ParameterArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ParameterType']],
                  allowed_pattern: Optional[pulumi.Input[str]] = None,
@@ -226,7 +226,7 @@ class ParameterArgs:
 
 
 @pulumi.input_type
-class _ParameterState:
+calass _ParameterState:
     def __init__(__self__, *,
                  allowed_pattern: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
@@ -477,7 +477,7 @@ class _ParameterState:
         pulumi.set(self, "version", value)
 
 
-class Parameter(pulumi.CustomResource):
+calass Parameter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -568,7 +568,7 @@ class Parameter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ParameterArgs,
+                 args: ParameterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SSM Parameter resource.
@@ -621,12 +621,12 @@ class Parameter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ParameterArgs args: The arguments to use to populate this resource's properties.
+        :param ParameterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ParameterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ParameterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -654,7 +654,7 @@ class Parameter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ParameterArgs.__new__(ParameterArgs)
+            __props__ = ParameterArrgs.__new__(ParameterArrgs)
 
             __props__.__dict__["allowed_pattern"] = allowed_pattern
             __props__.__dict__["arn"] = arn

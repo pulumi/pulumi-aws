@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLocalGatewayRouteTableResult:
+calass GetLocalGatewayRouteTableResult:
     """
     A collection of values returned by getLocalGatewayRouteTable.
     """
@@ -85,7 +85,7 @@ class GetLocalGatewayRouteTableResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
+calass AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -100,7 +100,7 @@ class AwaitableGetLocalGatewayRouteTableResult(GetLocalGatewayRouteTableResult):
             tags=self.tags)
 
 
-def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTableFilterArgs']]] = None,
+def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTableFilterArrgs']]] = None,
                                   local_gateway_id: Optional[str] = None,
                                   local_gateway_route_table_id: Optional[str] = None,
                                   outpost_arn: Optional[str] = None,
@@ -158,7 +158,7 @@ def get_local_gateway_route_table(filters: Optional[Sequence[pulumi.InputType['G
 
 
 @_utilities.lift_output_func(get_local_gateway_route_table)
-def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTableFilterArgs']]]]] = None,
+def get_local_gateway_route_table_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetLocalGatewayRouteTableFilterArrgs']]]]] = None,
                                          local_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          local_gateway_route_table_id: Optional[pulumi.Input[Optional[str]]] = None,
                                          outpost_arn: Optional[pulumi.Input[Optional[str]]] = None,

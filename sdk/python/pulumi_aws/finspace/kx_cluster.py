@@ -11,55 +11,55 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['KxClusterArgs', 'KxCluster']
+__all__ = ['KxClusterArrgs', 'KxCluster']
 
 @pulumi.input_type
-class KxClusterArgs:
+calass KxClusterArrgs:
     def __init__(__self__, *,
                  az_mode: pulumi.Input[str],
-                 capacity_configuration: pulumi.Input['KxClusterCapacityConfigurationArgs'],
+                 capacity_configuration: pulumi.Input['KxClusterCapacityConfigurationArrgs'],
                  environment_id: pulumi.Input[str],
                  release_label: pulumi.Input[str],
                  type: pulumi.Input[str],
-                 vpc_configuration: pulumi.Input['KxClusterVpcConfigurationArgs'],
-                 auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']] = None,
+                 vpc_configuration: pulumi.Input['KxClusterVpcConfigurationArrgs'],
+                 auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArrgs']] = None,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
-                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
-                 code: Optional[pulumi.Input['KxClusterCodeArgs']] = None,
+                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArrgs']]]] = None,
+                 code: Optional[pulumi.Input['KxClusterCodeArrgs']] = None,
                  command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role: Optional[pulumi.Input[str]] = None,
                  initialization_script: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
+                 savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a KxCluster resource.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
                * SINGLE - Assigns one availability zone per cluster.
                * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        :param pulumi.Input['KxClusterCapacityConfigurationArrgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
                * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        :param pulumi.Input['KxClusterVpcConfigurationArgs'] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+        :param pulumi.Input['KxClusterVpcConfigurationArrgs'] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
                
                The following arguments are optional:
-        :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+        :param pulumi.Input['KxClusterAutoScalingConfigurationArrgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        :param pulumi.Input['KxClusterCodeArgs'] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+        :param pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArrgs']]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        :param pulumi.Input['KxClusterCodeArrgs'] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]] databases: KX database that will be available for querying. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArrgs']]] databases: KX database that will be available for querying. Defined below.
         :param pulumi.Input[str] description: Description of the cluster.
         :param pulumi.Input[str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         :param pulumi.Input[str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
-        :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        :param pulumi.Input['KxClusterSavedownStorageConfigurationArrgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "az_mode", az_mode)
@@ -109,14 +109,14 @@ class KxClusterArgs:
 
     @property
     @pulumi.getter(name="capacityConfiguration")
-    def capacity_configuration(self) -> pulumi.Input['KxClusterCapacityConfigurationArgs']:
+    def capacity_configuration(self) -> pulumi.Input['KxClusterCapacityConfigurationArrgs']:
         """
         Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         """
         return pulumi.get(self, "capacity_configuration")
 
     @capacity_configuration.setter
-    def capacity_configuration(self, value: pulumi.Input['KxClusterCapacityConfigurationArgs']):
+    def capacity_configuration(self, value: pulumi.Input['KxClusterCapacityConfigurationArrgs']):
         pulumi.set(self, "capacity_configuration", value)
 
     @property
@@ -160,7 +160,7 @@ class KxClusterArgs:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> pulumi.Input['KxClusterVpcConfigurationArgs']:
+    def vpc_configuration(self) -> pulumi.Input['KxClusterVpcConfigurationArrgs']:
         """
         Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
 
@@ -169,19 +169,19 @@ class KxClusterArgs:
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: pulumi.Input['KxClusterVpcConfigurationArgs']):
+    def vpc_configuration(self, value: pulumi.Input['KxClusterVpcConfigurationArrgs']):
         pulumi.set(self, "vpc_configuration", value)
 
     @property
     @pulumi.getter(name="autoScalingConfiguration")
-    def auto_scaling_configuration(self) -> Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]:
+    def auto_scaling_configuration(self) -> Optional[pulumi.Input['KxClusterAutoScalingConfigurationArrgs']]:
         """
         Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         """
         return pulumi.get(self, "auto_scaling_configuration")
 
     @auto_scaling_configuration.setter
-    def auto_scaling_configuration(self, value: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]):
+    def auto_scaling_configuration(self, value: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArrgs']]):
         pulumi.set(self, "auto_scaling_configuration", value)
 
     @property
@@ -198,26 +198,26 @@ class KxClusterArgs:
 
     @property
     @pulumi.getter(name="cacheStorageConfigurations")
-    def cache_storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]:
+    def cache_storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArrgs']]]]:
         """
         Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         """
         return pulumi.get(self, "cache_storage_configurations")
 
     @cache_storage_configurations.setter
-    def cache_storage_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]):
+    def cache_storage_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArrgs']]]]):
         pulumi.set(self, "cache_storage_configurations", value)
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input['KxClusterCodeArgs']]:
+    def code(self) -> Optional[pulumi.Input['KxClusterCodeArrgs']]:
         """
         Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input['KxClusterCodeArgs']]):
+    def code(self, value: Optional[pulumi.Input['KxClusterCodeArrgs']]):
         pulumi.set(self, "code", value)
 
     @property
@@ -234,14 +234,14 @@ class KxClusterArgs:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]:
+    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArrgs']]]]:
         """
         KX database that will be available for querying. Defined below.
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]):
+    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArrgs']]]]):
         pulumi.set(self, "databases", value)
 
     @property
@@ -294,14 +294,14 @@ class KxClusterArgs:
 
     @property
     @pulumi.getter(name="savedownStorageConfiguration")
-    def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]:
+    def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArrgs']]:
         """
         Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         """
         return pulumi.get(self, "savedown_storage_configuration")
 
     @savedown_storage_configuration.setter
-    def savedown_storage_configuration(self, value: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]):
+    def savedown_storage_configuration(self, value: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArrgs']]):
         pulumi.set(self, "savedown_storage_configuration", value)
 
     @property
@@ -318,18 +318,18 @@ class KxClusterArgs:
 
 
 @pulumi.input_type
-class _KxClusterState:
+calass _KxClusterState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']] = None,
+                 auto_scaling_configuration: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArrgs']] = None,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  az_mode: Optional[pulumi.Input[str]] = None,
-                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]] = None,
-                 capacity_configuration: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']] = None,
-                 code: Optional[pulumi.Input['KxClusterCodeArgs']] = None,
+                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArrgs']]]] = None,
+                 capacity_configuration: Optional[pulumi.Input['KxClusterCapacityConfigurationArrgs']] = None,
+                 code: Optional[pulumi.Input['KxClusterCodeArrgs']] = None,
                  command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  created_timestamp: Optional[pulumi.Input[str]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  execution_role: Optional[pulumi.Input[str]] = None,
@@ -337,27 +337,27 @@ class _KxClusterState:
                  last_modified_timestamp: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
-                 savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']] = None,
+                 savedown_storage_configuration: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArrgs']] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  status_reason: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 vpc_configuration: Optional[pulumi.Input['KxClusterVpcConfigurationArgs']] = None):
+                 vpc_configuration: Optional[pulumi.Input['KxClusterVpcConfigurationArrgs']] = None):
         """
         Input properties used for looking up and filtering KxCluster resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
-        :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+        :param pulumi.Input['KxClusterAutoScalingConfigurationArrgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
                * SINGLE - Assigns one availability zone per cluster.
                * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        :param pulumi.Input['KxClusterCapacityConfigurationArgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        :param pulumi.Input['KxClusterCodeArgs'] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+        :param pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArrgs']]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        :param pulumi.Input['KxClusterCapacityConfigurationArrgs'] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        :param pulumi.Input['KxClusterCodeArrgs'] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
         :param pulumi.Input[str] created_timestamp: Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]] databases: KX database that will be available for querying. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArrgs']]] databases: KX database that will be available for querying. Defined below.
         :param pulumi.Input[str] description: Description of the cluster.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
@@ -365,14 +365,14 @@ class _KxClusterState:
         :param pulumi.Input[str] last_modified_timestamp: Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
-        :param pulumi.Input['KxClusterSavedownStorageConfigurationArgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        :param pulumi.Input['KxClusterSavedownStorageConfigurationArrgs'] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
                * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        :param pulumi.Input['KxClusterVpcConfigurationArgs'] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+        :param pulumi.Input['KxClusterVpcConfigurationArrgs'] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
                
                The following arguments are optional:
         """
@@ -442,14 +442,14 @@ class _KxClusterState:
 
     @property
     @pulumi.getter(name="autoScalingConfiguration")
-    def auto_scaling_configuration(self) -> Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]:
+    def auto_scaling_configuration(self) -> Optional[pulumi.Input['KxClusterAutoScalingConfigurationArrgs']]:
         """
         Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         """
         return pulumi.get(self, "auto_scaling_configuration")
 
     @auto_scaling_configuration.setter
-    def auto_scaling_configuration(self, value: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArgs']]):
+    def auto_scaling_configuration(self, value: Optional[pulumi.Input['KxClusterAutoScalingConfigurationArrgs']]):
         pulumi.set(self, "auto_scaling_configuration", value)
 
     @property
@@ -480,38 +480,38 @@ class _KxClusterState:
 
     @property
     @pulumi.getter(name="cacheStorageConfigurations")
-    def cache_storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]:
+    def cache_storage_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArrgs']]]]:
         """
         Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
         """
         return pulumi.get(self, "cache_storage_configurations")
 
     @cache_storage_configurations.setter
-    def cache_storage_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArgs']]]]):
+    def cache_storage_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterCacheStorageConfigurationArrgs']]]]):
         pulumi.set(self, "cache_storage_configurations", value)
 
     @property
     @pulumi.getter(name="capacityConfiguration")
-    def capacity_configuration(self) -> Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]:
+    def capacity_configuration(self) -> Optional[pulumi.Input['KxClusterCapacityConfigurationArrgs']]:
         """
         Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
         """
         return pulumi.get(self, "capacity_configuration")
 
     @capacity_configuration.setter
-    def capacity_configuration(self, value: Optional[pulumi.Input['KxClusterCapacityConfigurationArgs']]):
+    def capacity_configuration(self, value: Optional[pulumi.Input['KxClusterCapacityConfigurationArrgs']]):
         pulumi.set(self, "capacity_configuration", value)
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input['KxClusterCodeArgs']]:
+    def code(self) -> Optional[pulumi.Input['KxClusterCodeArrgs']]:
         """
         Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input['KxClusterCodeArgs']]):
+    def code(self, value: Optional[pulumi.Input['KxClusterCodeArrgs']]):
         pulumi.set(self, "code", value)
 
     @property
@@ -540,14 +540,14 @@ class _KxClusterState:
 
     @property
     @pulumi.getter
-    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]:
+    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArrgs']]]]:
         """
         KX database that will be available for querying. Defined below.
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArgs']]]]):
+    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseArrgs']]]]):
         pulumi.set(self, "databases", value)
 
     @property
@@ -636,14 +636,14 @@ class _KxClusterState:
 
     @property
     @pulumi.getter(name="savedownStorageConfiguration")
-    def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]:
+    def savedown_storage_configuration(self) -> Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArrgs']]:
         """
         Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         """
         return pulumi.get(self, "savedown_storage_configuration")
 
     @savedown_storage_configuration.setter
-    def savedown_storage_configuration(self, value: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArgs']]):
+    def savedown_storage_configuration(self, value: Optional[pulumi.Input['KxClusterSavedownStorageConfigurationArrgs']]):
         pulumi.set(self, "savedown_storage_configuration", value)
 
     @property
@@ -708,7 +708,7 @@ class _KxClusterState:
 
     @property
     @pulumi.getter(name="vpcConfiguration")
-    def vpc_configuration(self) -> Optional[pulumi.Input['KxClusterVpcConfigurationArgs']]:
+    def vpc_configuration(self) -> Optional[pulumi.Input['KxClusterVpcConfigurationArrgs']]:
         """
         Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
 
@@ -717,33 +717,33 @@ class _KxClusterState:
         return pulumi.get(self, "vpc_configuration")
 
     @vpc_configuration.setter
-    def vpc_configuration(self, value: Optional[pulumi.Input['KxClusterVpcConfigurationArgs']]):
+    def vpc_configuration(self, value: Optional[pulumi.Input['KxClusterVpcConfigurationArrgs']]):
         pulumi.set(self, "vpc_configuration", value)
 
 
-class KxCluster(pulumi.CustomResource):
+calass KxCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArgs']]] = None,
+                 auto_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArrgs']]] = None,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  az_mode: Optional[pulumi.Input[str]] = None,
-                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArgs']]]]] = None,
-                 capacity_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArgs']]] = None,
-                 code: Optional[pulumi.Input[pulumi.InputType['KxClusterCodeArgs']]] = None,
+                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArrgs']]]]] = None,
+                 capacity_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArrgs']]] = None,
+                 code: Optional[pulumi.Input[pulumi.InputType['KxClusterCodeArrgs']]] = None,
                  command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArgs']]]]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  execution_role: Optional[pulumi.Input[str]] = None,
                  initialization_script: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
-                 savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']]] = None,
+                 savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArgs']]] = None,
+                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArrgs']]] = None,
                  __props__=None):
         """
         Resource for managing an AWS FinSpace Kx Cluster.
@@ -760,29 +760,29 @@ class KxCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArgs']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArrgs']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
                * SINGLE - Assigns one availability zone per cluster.
                * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArgs']]]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        :param pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArgs']] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        :param pulumi.Input[pulumi.InputType['KxClusterCodeArgs']] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArrgs']]]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArrgs']] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterCodeArrgs']] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArgs']]]] databases: KX database that will be available for querying. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArrgs']]]] databases: KX database that will be available for querying. Defined below.
         :param pulumi.Input[str] description: Description of the cluster.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
         :param pulumi.Input[str] initialization_script: Path to Q program that will be run at launch of a cluster. This is a relative path within .zip file that contains the custom code, which will be loaded on the cluster. It must include the file name itself. For example, somedir/init.q.
         :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
-        :param pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArrgs']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
                * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        :param pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArgs']] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArrgs']] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
                
                The following arguments are optional:
         """
@@ -790,7 +790,7 @@ class KxCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KxClusterArgs,
+                 args: KxClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS FinSpace Kx Cluster.
@@ -806,12 +806,12 @@ class KxCluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KxClusterArgs args: The arguments to use to populate this resource's properties.
+        :param KxClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KxClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KxClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -820,24 +820,24 @@ class KxCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArgs']]] = None,
+                 auto_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArrgs']]] = None,
                  availability_zone_id: Optional[pulumi.Input[str]] = None,
                  az_mode: Optional[pulumi.Input[str]] = None,
-                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArgs']]]]] = None,
-                 capacity_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArgs']]] = None,
-                 code: Optional[pulumi.Input[pulumi.InputType['KxClusterCodeArgs']]] = None,
+                 cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArrgs']]]]] = None,
+                 capacity_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArrgs']]] = None,
+                 code: Optional[pulumi.Input[pulumi.InputType['KxClusterCodeArrgs']]] = None,
                  command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArgs']]]]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  execution_role: Optional[pulumi.Input[str]] = None,
                  initialization_script: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
-                 savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']]] = None,
+                 savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArgs']]] = None,
+                 vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -845,7 +845,7 @@ class KxCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KxClusterArgs.__new__(KxClusterArgs)
+            __props__ = KxClusterArrgs.__new__(KxClusterArrgs)
 
             __props__.__dict__["auto_scaling_configuration"] = auto_scaling_configuration
             __props__.__dict__["availability_zone_id"] = availability_zone_id
@@ -896,15 +896,15 @@ class KxCluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            auto_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArgs']]] = None,
+            auto_scaling_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArrgs']]] = None,
             availability_zone_id: Optional[pulumi.Input[str]] = None,
             az_mode: Optional[pulumi.Input[str]] = None,
-            cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArgs']]]]] = None,
-            capacity_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArgs']]] = None,
-            code: Optional[pulumi.Input[pulumi.InputType['KxClusterCodeArgs']]] = None,
+            cache_storage_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArrgs']]]]] = None,
+            capacity_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArrgs']]] = None,
+            code: Optional[pulumi.Input[pulumi.InputType['KxClusterCodeArrgs']]] = None,
             command_line_arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             created_timestamp: Optional[pulumi.Input[str]] = None,
-            databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArgs']]]]] = None,
+            databases: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArrgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             environment_id: Optional[pulumi.Input[str]] = None,
             execution_role: Optional[pulumi.Input[str]] = None,
@@ -912,13 +912,13 @@ class KxCluster(pulumi.CustomResource):
             last_modified_timestamp: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             release_label: Optional[pulumi.Input[str]] = None,
-            savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']]] = None,
+            savedown_storage_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArrgs']]] = None,
             status: Optional[pulumi.Input[str]] = None,
             status_reason: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArgs']]] = None) -> 'KxCluster':
+            vpc_configuration: Optional[pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArrgs']]] = None) -> 'KxCluster':
         """
         Get an existing KxCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -927,17 +927,17 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
-        :param pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArgs']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterAutoScalingConfigurationArrgs']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See auto_scaling_configuration.
         :param pulumi.Input[str] availability_zone_id: The availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         :param pulumi.Input[str] az_mode: The number of availability zones you want to assign per cluster. This can be one of the following:
                * SINGLE - Assigns one availability zone per cluster.
                * MULTI - Assigns all the availability zones per cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArgs']]]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
-        :param pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArgs']] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
-        :param pulumi.Input[pulumi.InputType['KxClusterCodeArgs']] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterCacheStorageConfigurationArrgs']]]] cache_storage_configurations: Configurations for a read only cache storage associated with a cluster. This cache will be stored as an FSx Lustre that reads from the S3 store. See cache_storage_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterCapacityConfigurationArrgs']] capacity_configuration: Structure for the metadata of a cluster. Includes information like the CPUs needed, memory of instances, and number of instances. See capacity_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterCodeArrgs']] code: Details of the custom code that you want to use inside a cluster when analyzing data. Consists of the S3 source bucket, location, object version, and the relative path from where the custom code is loaded into the cluster. See code.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] command_line_arguments: List of key-value pairs to make available inside the cluster.
         :param pulumi.Input[str] created_timestamp: Timestamp at which the cluster is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArgs']]]] databases: KX database that will be available for querying. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxClusterDatabaseArrgs']]]] databases: KX database that will be available for querying. Defined below.
         :param pulumi.Input[str] description: Description of the cluster.
         :param pulumi.Input[str] environment_id: Unique identifier for the KX environment.
         :param pulumi.Input[str] execution_role: An IAM role that defines a set of permissions associated with a cluster. These permissions are assumed when a cluster attempts to access another cluster.
@@ -945,14 +945,14 @@ class KxCluster(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified_timestamp: Last timestamp at which the cluster was updated in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[str] name: Unique name for the cluster that you want to create.
         :param pulumi.Input[str] release_label: Version of FinSpace Managed kdb to run.
-        :param pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArgs']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterSavedownStorageConfigurationArrgs']] savedown_storage_configuration: Size and type of the temporary storage that is used to hold data during the savedown process. This parameter is required when you choose `type` as RDB. All the data written to this storage space is lost when the cluster node is restarted. See savedown_storage_configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: Type of KDB database. The following types are available:
                * HDB - Historical Database. The data is only accessible with read-only permissions from one of the FinSpace managed KX databases mounted to the cluster.
                * RDB - Realtime Database. This type of database captures all the data from a ticker plant and stores it in memory until the end of day, after which it writes all of its data to a disk and reloads the HDB. This cluster type requires local storage for temporary storage of data during the savedown process. If you specify this field in your request, you must provide the `savedownStorageConfiguration` parameter.
                * GATEWAY - A gateway cluster allows you to access data across processes in kdb systems. It allows you to create your own routing logic using the initialization scripts and custom code. This type of cluster does not require a  writable local storage.
-        :param pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArgs']] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
+        :param pulumi.Input[pulumi.InputType['KxClusterVpcConfigurationArrgs']] vpc_configuration: Configuration details about the network where the Privatelink endpoint of the cluster resides. See vpc_configuration.
                
                The following arguments are optional:
         """

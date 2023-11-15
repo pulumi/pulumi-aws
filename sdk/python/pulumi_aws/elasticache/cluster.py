@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClusterArgs', 'Cluster']
+__all__ = ['ClusterArrgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterArgs:
+calass ClusterArrgs:
     def __init__(__self__, *,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class ClusterArgs:
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  ip_discovery: Optional[pulumi.Input[str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArrgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -65,7 +65,7 @@ class ClusterArgs:
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArrgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -268,14 +268,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter(name="logDeliveryConfigurations")
-    def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]:
+    def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArrgs']]]]:
         """
         Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         """
         return pulumi.get(self, "log_delivery_configurations")
 
     @log_delivery_configurations.setter
-    def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]):
+    def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArrgs']]]]):
         pulumi.set(self, "log_delivery_configurations", value)
 
     @property
@@ -512,14 +512,14 @@ class ClusterArgs:
 
 
 @pulumi.input_type
-class _ClusterState:
+calass _ClusterState:
     def __init__(__self__, *,
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  az_mode: Optional[pulumi.Input[str]] = None,
-                 cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArgs']]]] = None,
+                 cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArrgs']]]] = None,
                  cluster_address: Optional[pulumi.Input[str]] = None,
                  cluster_id: Optional[pulumi.Input[str]] = None,
                  configuration_endpoint: Optional[pulumi.Input[str]] = None,
@@ -528,7 +528,7 @@ class _ClusterState:
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  ip_discovery: Optional[pulumi.Input[str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArrgs']]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -558,7 +558,7 @@ class _ClusterState:
                Defaults to `true`.
         :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArgs']]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArrgs']]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
         :param pulumi.Input[str] cluster_address: (Memcached only) DNS name of the cache cluster without the port appended.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[str] configuration_endpoint: (Memcached only) Configuration endpoint to allow host discovery.
@@ -574,7 +574,7 @@ class _ClusterState:
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-        :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArrgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -738,14 +738,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="cacheNodes")
-    def cache_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArgs']]]]:
+    def cache_nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArrgs']]]]:
         """
         List of node objects including `id`, `address`, `port` and `availability_zone`.
         """
         return pulumi.get(self, "cache_nodes")
 
     @cache_nodes.setter
-    def cache_nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArgs']]]]):
+    def cache_nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCacheNodeArrgs']]]]):
         pulumi.set(self, "cache_nodes", value)
 
     @property
@@ -853,14 +853,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter(name="logDeliveryConfigurations")
-    def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]:
+    def log_delivery_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArrgs']]]]:
         """
         Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         """
         return pulumi.get(self, "log_delivery_configurations")
 
     @log_delivery_configurations.setter
-    def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]]]):
+    def log_delivery_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArrgs']]]]):
         pulumi.set(self, "log_delivery_configurations", value)
 
     @property
@@ -1111,7 +1111,7 @@ class _ClusterState:
         pulumi.set(self, "transit_encryption_enabled", value)
 
 
-class Cluster(pulumi.CustomResource):
+calass Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1125,7 +1125,7 @@ class Cluster(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  ip_discovery: Optional[pulumi.Input[str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArrgs']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -1218,13 +1218,13 @@ class Cluster(pulumi.CustomResource):
             port=6379,
             apply_immediately=True,
             log_delivery_configurations=[
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
+                aws.elasticache.ClusterLogDeliveryConfigurationArrgs(
                     destination=aws_cloudwatch_log_group["example"]["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
+                aws.elasticache.ClusterLogDeliveryConfigurationArrgs(
                     destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
@@ -1261,7 +1261,7 @@ class Cluster(pulumi.CustomResource):
                The actual engine version used is returned in the attribute `engine_version_actual`, see Attribute Reference below. Cannot be provided with `replication_group_id.`
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArrgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -1290,7 +1290,7 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ClusterArgs] = None,
+                 args: Optional[ClusterArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an ElastiCache Cluster resource, which manages either a
@@ -1364,13 +1364,13 @@ class Cluster(pulumi.CustomResource):
             port=6379,
             apply_immediately=True,
             log_delivery_configurations=[
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
+                aws.elasticache.ClusterLogDeliveryConfigurationArrgs(
                     destination=aws_cloudwatch_log_group["example"]["name"],
                     destination_type="cloudwatch-logs",
                     log_format="text",
                     log_type="slow-log",
                 ),
-                aws.elasticache.ClusterLogDeliveryConfigurationArgs(
+                aws.elasticache.ClusterLogDeliveryConfigurationArrgs(
                     destination=aws_kinesis_firehose_delivery_stream["example"]["name"],
                     destination_type="kinesis-firehose",
                     log_format="json",
@@ -1388,12 +1388,12 @@ class Cluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1411,7 +1411,7 @@ class Cluster(pulumi.CustomResource):
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  ip_discovery: Optional[pulumi.Input[str]] = None,
-                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
+                 log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArrgs']]]]] = None,
                  maintenance_window: Optional[pulumi.Input[str]] = None,
                  network_type: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -1438,7 +1438,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterArgs.__new__(ClusterArgs)
+            __props__ = ClusterArrgs.__new__(ClusterArrgs)
 
             __props__.__dict__["apply_immediately"] = apply_immediately
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
@@ -1492,7 +1492,7 @@ class Cluster(pulumi.CustomResource):
             auto_minor_version_upgrade: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             az_mode: Optional[pulumi.Input[str]] = None,
-            cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]]] = None,
+            cache_nodes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArrgs']]]]] = None,
             cluster_address: Optional[pulumi.Input[str]] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
             configuration_endpoint: Optional[pulumi.Input[str]] = None,
@@ -1501,7 +1501,7 @@ class Cluster(pulumi.CustomResource):
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
             ip_discovery: Optional[pulumi.Input[str]] = None,
-            log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]]] = None,
+            log_delivery_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArrgs']]]]] = None,
             maintenance_window: Optional[pulumi.Input[str]] = None,
             network_type: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
@@ -1536,7 +1536,7 @@ class Cluster(pulumi.CustomResource):
                Defaults to `true`.
         :param pulumi.Input[str] availability_zone: Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         :param pulumi.Input[str] az_mode: Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `num_cache_nodes` must be greater than `1`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArgs']]]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCacheNodeArrgs']]]] cache_nodes: List of node objects including `id`, `address`, `port` and `availability_zone`.
         :param pulumi.Input[str] cluster_address: (Memcached only) DNS name of the cache cluster without the port appended.
         :param pulumi.Input[str] cluster_id: Group identifier. ElastiCache converts this name to lowercase. Changing this value will re-create the resource.
         :param pulumi.Input[str] configuration_endpoint: (Memcached only) Configuration endpoint to allow host discovery.
@@ -1552,7 +1552,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] ip_discovery: The IP version to advertise in the discovery protocol. Valid values are `ipv4` or `ipv6`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArrgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
                The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.

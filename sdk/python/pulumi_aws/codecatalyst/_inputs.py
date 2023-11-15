@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DevEnvironmentIdesArgs',
-    'DevEnvironmentPersistentStorageArgs',
-    'DevEnvironmentRepositoryArgs',
-    'GetDevEnvironmentRepositoryArgs',
+    'DevEnvironmentIdesArrgs',
+    'DevEnvironmentPersistentStorageArrgs',
+    'DevEnvironmentRepositoryArrgs',
+    'GetDevEnvironmentRepositoryArrgs',
 ]
 
 @pulumi.input_type
-class DevEnvironmentIdesArgs:
+calass DevEnvironmentIdesArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  runtime: Optional[pulumi.Input[str]] = None):
@@ -56,7 +56,7 @@ class DevEnvironmentIdesArgs:
 
 
 @pulumi.input_type
-class DevEnvironmentPersistentStorageArgs:
+calass DevEnvironmentPersistentStorageArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int]):
         """
@@ -78,7 +78,7 @@ class DevEnvironmentPersistentStorageArgs:
 
 
 @pulumi.input_type
-class DevEnvironmentRepositoryArgs:
+calass DevEnvironmentRepositoryArrgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[str],
                  branch_name: Optional[pulumi.Input[str]] = None):
@@ -120,7 +120,7 @@ class DevEnvironmentRepositoryArgs:
 
 
 @pulumi.input_type
-class GetDevEnvironmentRepositoryArgs:
+calass GetDevEnvironmentRepositoryArrgs:
     def __init__(__self__, *,
                  branch_name: str,
                  repository_name: str):

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocationFsxWindowsArgs', 'LocationFsxWindows']
+__all__ = ['LocationFsxWindowsArrgs', 'LocationFsxWindows']
 
 @pulumi.input_type
-class LocationFsxWindowsArgs:
+calass LocationFsxWindowsArrgs:
     def __init__(__self__, *,
                  fsx_filesystem_arn: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -128,7 +128,7 @@ class LocationFsxWindowsArgs:
 
 
 @pulumi.input_type
-class _LocationFsxWindowsState:
+calass _LocationFsxWindowsState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
@@ -317,7 +317,7 @@ class _LocationFsxWindowsState:
         pulumi.set(self, "user", value)
 
 
-class LocationFsxWindows(pulumi.CustomResource):
+calass LocationFsxWindows(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -368,7 +368,7 @@ class LocationFsxWindows(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationFsxWindowsArgs,
+                 args: LocationFsxWindowsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS DataSync FSx Windows Location.
@@ -395,12 +395,12 @@ class LocationFsxWindows(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocationFsxWindowsArgs args: The arguments to use to populate this resource's properties.
+        :param LocationFsxWindowsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationFsxWindowsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationFsxWindowsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -423,7 +423,7 @@ class LocationFsxWindows(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationFsxWindowsArgs.__new__(LocationFsxWindowsArgs)
+            __props__ = LocationFsxWindowsArrgs.__new__(LocationFsxWindowsArrgs)
 
             __props__.__dict__["domain"] = domain
             if fsx_filesystem_arn is None and not opts.urn:

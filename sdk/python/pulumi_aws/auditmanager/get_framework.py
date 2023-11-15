@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrameworkResult:
+calass GetFrameworkResult:
     """
     A collection of values returned by getFramework.
     """
@@ -90,7 +90,7 @@ class GetFrameworkResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetFrameworkResult(GetFrameworkResult):
+calass AwaitableGetFrameworkResult(GetFrameworkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -106,7 +106,7 @@ class AwaitableGetFrameworkResult(GetFrameworkResult):
             tags=self.tags)
 
 
-def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFrameworkControlSetArgs']]] = None,
+def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFrameworkControlSetArrgs']]] = None,
                   framework_type: Optional[str] = None,
                   name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrameworkResult:
@@ -146,7 +146,7 @@ def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFramework
 
 
 @_utilities.lift_output_func(get_framework)
-def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFrameworkControlSetArgs']]]]] = None,
+def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetFrameworkControlSetArrgs']]]]] = None,
                          framework_type: Optional[pulumi.Input[str]] = None,
                          name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcNetworkPerformanceMetricSubscriptionArgs', 'VpcNetworkPerformanceMetricSubscription']
+__all__ = ['VpcNetworkPerformanceMetricSubscriptionArrgs', 'VpcNetworkPerformanceMetricSubscription']
 
 @pulumi.input_type
-class VpcNetworkPerformanceMetricSubscriptionArgs:
+calass VpcNetworkPerformanceMetricSubscriptionArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  source: pulumi.Input[str],
@@ -82,7 +82,7 @@ class VpcNetworkPerformanceMetricSubscriptionArgs:
 
 
 @pulumi.input_type
-class _VpcNetworkPerformanceMetricSubscriptionState:
+calass _VpcNetworkPerformanceMetricSubscriptionState:
     def __init__(__self__, *,
                  destination: Optional[pulumi.Input[str]] = None,
                  metric: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class _VpcNetworkPerformanceMetricSubscriptionState:
         pulumi.set(self, "statistic", value)
 
 
-class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
+calass VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -204,7 +204,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcNetworkPerformanceMetricSubscriptionArgs,
+                 args: VpcNetworkPerformanceMetricSubscriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an Infrastructure Performance subscription.
@@ -221,12 +221,12 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcNetworkPerformanceMetricSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param VpcNetworkPerformanceMetricSubscriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcNetworkPerformanceMetricSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcNetworkPerformanceMetricSubscriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -246,7 +246,7 @@ class VpcNetworkPerformanceMetricSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcNetworkPerformanceMetricSubscriptionArgs.__new__(VpcNetworkPerformanceMetricSubscriptionArgs)
+            __props__ = VpcNetworkPerformanceMetricSubscriptionArrgs.__new__(VpcNetworkPerformanceMetricSubscriptionArrgs)
 
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")

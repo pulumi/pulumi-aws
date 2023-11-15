@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataCatalogArgs', 'DataCatalog']
+__all__ = ['DataCatalogArrgs', 'DataCatalog']
 
 @pulumi.input_type
-class DataCatalogArgs:
+calass DataCatalogArrgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
                  parameters: pulumi.Input[Mapping[str, pulumi.Input[str]]],
@@ -97,7 +97,7 @@ class DataCatalogArgs:
 
 
 @pulumi.input_type
-class _DataCatalogState:
+calass _DataCatalogState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -222,7 +222,7 @@ class _DataCatalogState:
         pulumi.set(self, "type", value)
 
 
-class DataCatalog(pulumi.CustomResource):
+calass DataCatalog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -317,7 +317,7 @@ class DataCatalog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataCatalogArgs,
+                 args: DataCatalogArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Athena data catalog.
@@ -392,12 +392,12 @@ class DataCatalog(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataCatalogArgs args: The arguments to use to populate this resource's properties.
+        :param DataCatalogArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataCatalogArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataCatalogArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -418,7 +418,7 @@ class DataCatalog(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataCatalogArgs.__new__(DataCatalogArgs)
+            __props__ = DataCatalogArrgs.__new__(DataCatalogArrgs)
 
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")

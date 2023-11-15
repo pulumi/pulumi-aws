@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DeploymentArgs', 'Deployment']
+__all__ = ['DeploymentArrgs', 'Deployment']
 
 @pulumi.input_type
-class DeploymentArgs:
+calass DeploymentArrgs:
     def __init__(__self__, *,
                  rest_api: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,7 @@ class DeploymentArgs:
 
 
 @pulumi.input_type
-class _DeploymentState:
+calass _DeploymentState:
     def __init__(__self__, *,
                  created_date: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -272,7 +272,7 @@ class _DeploymentState:
         pulumi.set(self, "variables", value)
 
 
-class Deployment(pulumi.CustomResource):
+calass Deployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -394,7 +394,7 @@ class Deployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DeploymentArgs,
+                 args: DeploymentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Gateway REST Deployment. A deployment is a snapshot of the REST API configuration. The deployment can then be published to callable endpoints via the `apigateway.Stage` resource and optionally managed further with the `apigateway.BasePathMapping` resource, `apigateway.DomainName` resource, and `aws_api_method_settings` resource. For more information, see the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-deploy-api.html).
@@ -494,12 +494,12 @@ class Deployment(pulumi.CustomResource):
         The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.
-        :param DeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param DeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -521,7 +521,7 @@ class Deployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DeploymentArgs.__new__(DeploymentArgs)
+            __props__ = DeploymentArrgs.__new__(DeploymentArrgs)
 
             __props__.__dict__["description"] = description
             if rest_api is None and not opts.urn:

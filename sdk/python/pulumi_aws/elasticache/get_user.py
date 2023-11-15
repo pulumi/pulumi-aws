@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetUserResult:
+calass GetUserResult:
     """
     A collection of values returned by getUser.
     """
@@ -102,7 +102,7 @@ class GetUserResult:
         return pulumi.get(self, "user_name")
 
 
-class AwaitableGetUserResult(GetUserResult):
+calass AwaitableGetUserResult(GetUserResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -119,7 +119,7 @@ class AwaitableGetUserResult(GetUserResult):
 
 
 def get_user(access_string: Optional[str] = None,
-             authentication_modes: Optional[Sequence[pulumi.InputType['GetUserAuthenticationModeArgs']]] = None,
+             authentication_modes: Optional[Sequence[pulumi.InputType['GetUserAuthenticationModeArrgs']]] = None,
              engine: Optional[str] = None,
              no_password_required: Optional[bool] = None,
              passwords: Optional[Sequence[str]] = None,
@@ -167,7 +167,7 @@ def get_user(access_string: Optional[str] = None,
 
 @_utilities.lift_output_func(get_user)
 def get_user_output(access_string: Optional[pulumi.Input[Optional[str]]] = None,
-                    authentication_modes: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserAuthenticationModeArgs']]]]] = None,
+                    authentication_modes: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetUserAuthenticationModeArrgs']]]]] = None,
                     engine: Optional[pulumi.Input[Optional[str]]] = None,
                     no_password_required: Optional[pulumi.Input[Optional[bool]]] = None,
                     passwords: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConnectionAssociationArgs', 'ConnectionAssociation']
+__all__ = ['ConnectionAssociationArrgs', 'ConnectionAssociation']
 
 @pulumi.input_type
-class ConnectionAssociationArgs:
+calass ConnectionAssociationArrgs:
     def __init__(__self__, *,
                  connection_id: pulumi.Input[str],
                  lag_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ConnectionAssociationArgs:
 
 
 @pulumi.input_type
-class _ConnectionAssociationState:
+calass _ConnectionAssociationState:
     def __init__(__self__, *,
                  connection_id: Optional[pulumi.Input[str]] = None,
                  lag_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ConnectionAssociationState:
         pulumi.set(self, "lag_id", value)
 
 
-class ConnectionAssociation(pulumi.CustomResource):
+calass ConnectionAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -126,7 +126,7 @@ class ConnectionAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionAssociationArgs,
+                 args: ConnectionAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Direct Connect Connection with a LAG.
@@ -149,12 +149,12 @@ class ConnectionAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectionAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectionAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectionAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -172,7 +172,7 @@ class ConnectionAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectionAssociationArgs.__new__(ConnectionAssociationArgs)
+            __props__ = ConnectionAssociationArrgs.__new__(ConnectionAssociationArrgs)
 
             if connection_id is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_id'")

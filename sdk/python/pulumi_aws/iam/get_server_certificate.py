@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServerCertificateResult:
+calass GetServerCertificateResult:
     """
     A collection of values returned by getServerCertificate.
     """
@@ -133,7 +133,7 @@ class GetServerCertificateResult:
         return pulumi.get(self, "upload_date")
 
 
-class AwaitableGetServerCertificateResult(GetServerCertificateResult):
+calass AwaitableGetServerCertificateResult(GetServerCertificateResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -168,7 +168,7 @@ def get_server_certificate(latest: Optional[bool] = None,
 
     my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
         latest=True)
-    elb = aws.elb.LoadBalancer("elb", listeners=[aws.elb.LoadBalancerListenerArgs(
+    elb = aws.elb.LoadBalancer("elb", listeners=[aws.elb.LoadBalancerListenerArrgs(
         instance_port=8000,
         instance_protocol="https",
         lb_port=443,
@@ -222,7 +222,7 @@ def get_server_certificate_output(latest: Optional[pulumi.Input[Optional[bool]]]
 
     my_domain = aws.iam.get_server_certificate(name_prefix="my-domain.org",
         latest=True)
-    elb = aws.elb.LoadBalancer("elb", listeners=[aws.elb.LoadBalancerListenerArgs(
+    elb = aws.elb.LoadBalancer("elb", listeners=[aws.elb.LoadBalancerListenerArrgs(
         instance_port=8000,
         instance_protocol="https",
         lb_port=443,

@@ -26,7 +26,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RoleInlinePolicy(dict):
+calass RoleInlinePolicy(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  policy: Optional[str] = None):
@@ -57,7 +57,7 @@ class RoleInlinePolicy(dict):
 
 
 @pulumi.output_type
-class GetAccessKeysAccessKeyResult(dict):
+calass GetAccessKeysAccessKeyResult(dict):
     def __init__(__self__, *,
                  access_key_id: str,
                  create_date: str,
@@ -97,7 +97,7 @@ class GetAccessKeysAccessKeyResult(dict):
 
 
 @pulumi.output_type
-class GetGroupUserResult(dict):
+calass GetGroupUserResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  path: str,
@@ -148,7 +148,7 @@ class GetGroupUserResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyDocumentStatementResult(dict):
+calass GetPolicyDocumentStatementResult(dict):
     def __init__(__self__, *,
                  actions: Optional[Sequence[str]] = None,
                  conditions: Optional[Sequence['outputs.GetPolicyDocumentStatementConditionResult']] = None,
@@ -161,12 +161,12 @@ class GetPolicyDocumentStatementResult(dict):
                  sid: Optional[str] = None):
         """
         :param Sequence[str] actions: List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
-        :param Sequence['GetPolicyDocumentStatementConditionArgs'] conditions: Configuration block for a condition. Detailed below.
+        :param Sequence['GetPolicyDocumentStatementConditionArrgs'] conditions: Configuration block for a condition. Detailed below.
         :param str effect: Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence[str] not_actions: List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-        :param Sequence['GetPolicyDocumentStatementNotPrincipalArgs'] not_principals: Like `principals` except these are principals that the statement does *not* apply to.
+        :param Sequence['GetPolicyDocumentStatementNotPrincipalArrgs'] not_principals: Like `principals` except these are principals that the statement does *not* apply to.
         :param Sequence[str] not_resources: List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-        :param Sequence['GetPolicyDocumentStatementPrincipalArgs'] principals: Configuration block for principals. Detailed below.
+        :param Sequence['GetPolicyDocumentStatementPrincipalArrgs'] principals: Configuration block for principals. Detailed below.
         :param Sequence[str] resources: List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
         :param str sid: Sid (statement ID) is an identifier for a policy statement.
         """
@@ -263,7 +263,7 @@ class GetPolicyDocumentStatementResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyDocumentStatementConditionResult(dict):
+calass GetPolicyDocumentStatementConditionResult(dict):
     def __init__(__self__, *,
                  test: str,
                  values: Sequence[str],
@@ -303,7 +303,7 @@ class GetPolicyDocumentStatementConditionResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyDocumentStatementNotPrincipalResult(dict):
+calass GetPolicyDocumentStatementNotPrincipalResult(dict):
     def __init__(__self__, *,
                  identifiers: Sequence[str],
                  type: str):
@@ -332,7 +332,7 @@ class GetPolicyDocumentStatementNotPrincipalResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyDocumentStatementPrincipalResult(dict):
+calass GetPolicyDocumentStatementPrincipalResult(dict):
     def __init__(__self__, *,
                  identifiers: Sequence[str],
                  type: str):
@@ -361,7 +361,7 @@ class GetPolicyDocumentStatementPrincipalResult(dict):
 
 
 @pulumi.output_type
-class GetPrincipalPolicySimulationContextResult(dict):
+calass GetPrincipalPolicySimulationContextResult(dict):
     def __init__(__self__, *,
                  key: str,
                  type: str,
@@ -409,7 +409,7 @@ class GetPrincipalPolicySimulationContextResult(dict):
 
 
 @pulumi.output_type
-class GetPrincipalPolicySimulationResultResult(dict):
+calass GetPrincipalPolicySimulationResultResult(dict):
     def __init__(__self__, *,
                  action_name: str,
                  allowed: bool,
@@ -423,7 +423,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
         :param bool allowed: `true` if `decision` is "allowed", and `false` otherwise.
         :param str decision: The raw decision determined from all of the policies in scope; either "allowed", "explicitDeny", or "implicitDeny".
         :param Mapping[str, str] decision_details: A map of arbitrary metadata entries returned by the policy simulator for this request.
-        :param Sequence['GetPrincipalPolicySimulationResultMatchedStatementArgs'] matched_statements: A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
+        :param Sequence['GetPrincipalPolicySimulationResultMatchedStatementArrgs'] matched_statements: A nested set of objects describing which policies contained statements that were relevant to this simulation request. Each object has attributes `source_policy_id` and `source_policy_type` to identify one of the policies.
         :param Sequence[str] missing_context_keys: A set of context keys (or condition keys) that were needed by some of the policies contributing to this result but not specified using a `context` block in the configuration. Missing or incorrect context keys will typically cause a simulated request to be disallowed.
         :param str resource_arn: ARN of the resource that was used for this particular request. When you specify multiple actions and multiple resource ARNs, that causes a separate policy request for each combination of unique action and resource.
         """
@@ -493,7 +493,7 @@ class GetPrincipalPolicySimulationResultResult(dict):
 
 
 @pulumi.output_type
-class GetPrincipalPolicySimulationResultMatchedStatementResult(dict):
+calass GetPrincipalPolicySimulationResultMatchedStatementResult(dict):
     def __init__(__self__, *,
                  source_policy_id: str,
                  source_policy_type: str):
@@ -512,7 +512,7 @@ class GetPrincipalPolicySimulationResultMatchedStatementResult(dict):
 
 
 @pulumi.output_type
-class GetRoleRoleLastUsedResult(dict):
+calass GetRoleRoleLastUsedResult(dict):
     def __init__(__self__, *,
                  last_used_date: str,
                  region: str):

@@ -11,30 +11,30 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TaskArgs', 'Task']
+__all__ = ['TaskArrgs', 'Task']
 
 @pulumi.input_type
-class TaskArgs:
+calass TaskArrgs:
     def __init__(__self__, *,
                  destination_location_arn: pulumi.Input[str],
                  source_location_arn: pulumi.Input[str],
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
-                 excludes: Optional[pulumi.Input['TaskExcludesArgs']] = None,
-                 includes: Optional[pulumi.Input['TaskIncludesArgs']] = None,
+                 excludes: Optional[pulumi.Input['TaskExcludesArrgs']] = None,
+                 includes: Optional[pulumi.Input['TaskIncludesArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
-                 schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
+                 options: Optional[pulumi.Input['TaskOptionsArrgs']] = None,
+                 schedule: Optional[pulumi.Input['TaskScheduleArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Task resource.
         :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
-        :param pulumi.Input['TaskExcludesArgs'] excludes: Filter rules that determines which files to exclude from a task.
-        :param pulumi.Input['TaskIncludesArgs'] includes: Filter rules that determines which files to include in a task.
+        :param pulumi.Input['TaskExcludesArrgs'] excludes: Filter rules that determines which files to exclude from a task.
+        :param pulumi.Input['TaskIncludesArrgs'] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[str] name: Name of the DataSync Task.
-        :param pulumi.Input['TaskOptionsArgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
+        :param pulumi.Input['TaskOptionsArrgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
+        :param pulumi.Input['TaskScheduleArrgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "destination_location_arn", destination_location_arn)
@@ -92,26 +92,26 @@ class TaskArgs:
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input['TaskExcludesArgs']]:
+    def excludes(self) -> Optional[pulumi.Input['TaskExcludesArrgs']]:
         """
         Filter rules that determines which files to exclude from a task.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input['TaskExcludesArgs']]):
+    def excludes(self, value: Optional[pulumi.Input['TaskExcludesArrgs']]):
         pulumi.set(self, "excludes", value)
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input['TaskIncludesArgs']]:
+    def includes(self) -> Optional[pulumi.Input['TaskIncludesArrgs']]:
         """
         Filter rules that determines which files to include in a task.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input['TaskIncludesArgs']]):
+    def includes(self, value: Optional[pulumi.Input['TaskIncludesArrgs']]):
         pulumi.set(self, "includes", value)
 
     @property
@@ -128,26 +128,26 @@ class TaskArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['TaskOptionsArgs']]:
+    def options(self) -> Optional[pulumi.Input['TaskOptionsArrgs']]:
         """
         Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['TaskOptionsArgs']]):
+    def options(self, value: Optional[pulumi.Input['TaskOptionsArrgs']]):
         pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['TaskScheduleArrgs']]:
         """
         Specifies a schedule used to periodically transfer files from a source to a destination location.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['TaskScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['TaskScheduleArrgs']]):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -164,16 +164,16 @@ class TaskArgs:
 
 
 @pulumi.input_type
-class _TaskState:
+calass _TaskState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
-                 excludes: Optional[pulumi.Input['TaskExcludesArgs']] = None,
-                 includes: Optional[pulumi.Input['TaskIncludesArgs']] = None,
+                 excludes: Optional[pulumi.Input['TaskExcludesArrgs']] = None,
+                 includes: Optional[pulumi.Input['TaskIncludesArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input['TaskOptionsArgs']] = None,
-                 schedule: Optional[pulumi.Input['TaskScheduleArgs']] = None,
+                 options: Optional[pulumi.Input['TaskOptionsArrgs']] = None,
+                 schedule: Optional[pulumi.Input['TaskScheduleArrgs']] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -182,11 +182,11 @@ class _TaskState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Task.
         :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
-        :param pulumi.Input['TaskExcludesArgs'] excludes: Filter rules that determines which files to exclude from a task.
-        :param pulumi.Input['TaskIncludesArgs'] includes: Filter rules that determines which files to include in a task.
+        :param pulumi.Input['TaskExcludesArrgs'] excludes: Filter rules that determines which files to exclude from a task.
+        :param pulumi.Input['TaskIncludesArrgs'] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[str] name: Name of the DataSync Task.
-        :param pulumi.Input['TaskOptionsArgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input['TaskScheduleArgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
+        :param pulumi.Input['TaskOptionsArrgs'] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
+        :param pulumi.Input['TaskScheduleArrgs'] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -255,26 +255,26 @@ class _TaskState:
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input['TaskExcludesArgs']]:
+    def excludes(self) -> Optional[pulumi.Input['TaskExcludesArrgs']]:
         """
         Filter rules that determines which files to exclude from a task.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input['TaskExcludesArgs']]):
+    def excludes(self, value: Optional[pulumi.Input['TaskExcludesArrgs']]):
         pulumi.set(self, "excludes", value)
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input['TaskIncludesArgs']]:
+    def includes(self) -> Optional[pulumi.Input['TaskIncludesArrgs']]:
         """
         Filter rules that determines which files to include in a task.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input['TaskIncludesArgs']]):
+    def includes(self, value: Optional[pulumi.Input['TaskIncludesArrgs']]):
         pulumi.set(self, "includes", value)
 
     @property
@@ -291,26 +291,26 @@ class _TaskState:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[pulumi.Input['TaskOptionsArgs']]:
+    def options(self) -> Optional[pulumi.Input['TaskOptionsArrgs']]:
         """
         Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[pulumi.Input['TaskOptionsArgs']]):
+    def options(self, value: Optional[pulumi.Input['TaskOptionsArrgs']]):
         pulumi.set(self, "options", value)
 
     @property
     @pulumi.getter
-    def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['TaskScheduleArrgs']]:
         """
         Specifies a schedule used to periodically transfer files from a source to a destination location.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: Optional[pulumi.Input['TaskScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['TaskScheduleArrgs']]):
         pulumi.set(self, "schedule", value)
 
     @property
@@ -353,18 +353,18 @@ class _TaskState:
         pulumi.set(self, "tags_all", value)
 
 
-class Task(pulumi.CustomResource):
+calass Task(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
-                 excludes: Optional[pulumi.Input[pulumi.InputType['TaskExcludesArgs']]] = None,
-                 includes: Optional[pulumi.Input[pulumi.InputType['TaskIncludesArgs']]] = None,
+                 excludes: Optional[pulumi.Input[pulumi.InputType['TaskExcludesArrgs']]] = None,
+                 includes: Optional[pulumi.Input[pulumi.InputType['TaskIncludesArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArrgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArrgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -381,7 +381,7 @@ class Task(pulumi.CustomResource):
         example = aws.datasync.Task("example",
             destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
             source_location_arn=aws_datasync_location_nfs["source"]["arn"],
-            schedule=aws.datasync.TaskScheduleArgs(
+            schedule=aws.datasync.TaskScheduleArrgs(
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
@@ -394,11 +394,11 @@ class Task(pulumi.CustomResource):
         example = aws.datasync.Task("example",
             destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
             source_location_arn=aws_datasync_location_nfs["source"]["arn"],
-            excludes=aws.datasync.TaskExcludesArgs(
+            excludes=aws.datasync.TaskExcludesArrgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",
             ),
-            includes=aws.datasync.TaskIncludesArgs(
+            includes=aws.datasync.TaskIncludesArrgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",
             ))
@@ -416,11 +416,11 @@ class Task(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
-        :param pulumi.Input[pulumi.InputType['TaskExcludesArgs']] excludes: Filter rules that determines which files to exclude from a task.
-        :param pulumi.Input[pulumi.InputType['TaskIncludesArgs']] includes: Filter rules that determines which files to include in a task.
+        :param pulumi.Input[pulumi.InputType['TaskExcludesArrgs']] excludes: Filter rules that determines which files to exclude from a task.
+        :param pulumi.Input[pulumi.InputType['TaskIncludesArrgs']] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[str] name: Name of the DataSync Task.
-        :param pulumi.Input[pulumi.InputType['TaskOptionsArgs']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[pulumi.InputType['TaskScheduleArgs']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
+        :param pulumi.Input[pulumi.InputType['TaskOptionsArrgs']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
+        :param pulumi.Input[pulumi.InputType['TaskScheduleArrgs']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -428,7 +428,7 @@ class Task(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TaskArgs,
+                 args: TaskArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
@@ -443,7 +443,7 @@ class Task(pulumi.CustomResource):
         example = aws.datasync.Task("example",
             destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
             source_location_arn=aws_datasync_location_nfs["source"]["arn"],
-            schedule=aws.datasync.TaskScheduleArgs(
+            schedule=aws.datasync.TaskScheduleArrgs(
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
@@ -456,11 +456,11 @@ class Task(pulumi.CustomResource):
         example = aws.datasync.Task("example",
             destination_location_arn=aws_datasync_location_s3["destination"]["arn"],
             source_location_arn=aws_datasync_location_nfs["source"]["arn"],
-            excludes=aws.datasync.TaskExcludesArgs(
+            excludes=aws.datasync.TaskExcludesArrgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",
             ),
-            includes=aws.datasync.TaskIncludesArgs(
+            includes=aws.datasync.TaskIncludesArrgs(
                 filter_type="SIMPLE_PATTERN",
                 value="/folder1|/folder2",
             ))
@@ -475,12 +475,12 @@ class Task(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TaskArgs args: The arguments to use to populate this resource's properties.
+        :param TaskArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TaskArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TaskArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -491,11 +491,11 @@ class Task(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
                  destination_location_arn: Optional[pulumi.Input[str]] = None,
-                 excludes: Optional[pulumi.Input[pulumi.InputType['TaskExcludesArgs']]] = None,
-                 includes: Optional[pulumi.Input[pulumi.InputType['TaskIncludesArgs']]] = None,
+                 excludes: Optional[pulumi.Input[pulumi.InputType['TaskExcludesArrgs']]] = None,
+                 includes: Optional[pulumi.Input[pulumi.InputType['TaskIncludesArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
-                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
+                 options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArrgs']]] = None,
+                 schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArrgs']]] = None,
                  source_location_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -505,7 +505,7 @@ class Task(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TaskArgs.__new__(TaskArgs)
+            __props__ = TaskArrgs.__new__(TaskArrgs)
 
             __props__.__dict__["cloudwatch_log_group_arn"] = cloudwatch_log_group_arn
             if destination_location_arn is None and not opts.urn:
@@ -537,11 +537,11 @@ class Task(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             cloudwatch_log_group_arn: Optional[pulumi.Input[str]] = None,
             destination_location_arn: Optional[pulumi.Input[str]] = None,
-            excludes: Optional[pulumi.Input[pulumi.InputType['TaskExcludesArgs']]] = None,
-            includes: Optional[pulumi.Input[pulumi.InputType['TaskIncludesArgs']]] = None,
+            excludes: Optional[pulumi.Input[pulumi.InputType['TaskExcludesArrgs']]] = None,
+            includes: Optional[pulumi.Input[pulumi.InputType['TaskIncludesArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArgs']]] = None,
-            schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArgs']]] = None,
+            options: Optional[pulumi.Input[pulumi.InputType['TaskOptionsArrgs']]] = None,
+            schedule: Optional[pulumi.Input[pulumi.InputType['TaskScheduleArrgs']]] = None,
             source_location_arn: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Task':
@@ -555,11 +555,11 @@ class Task(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the DataSync Task.
         :param pulumi.Input[str] cloudwatch_log_group_arn: Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
         :param pulumi.Input[str] destination_location_arn: Amazon Resource Name (ARN) of destination DataSync Location.
-        :param pulumi.Input[pulumi.InputType['TaskExcludesArgs']] excludes: Filter rules that determines which files to exclude from a task.
-        :param pulumi.Input[pulumi.InputType['TaskIncludesArgs']] includes: Filter rules that determines which files to include in a task.
+        :param pulumi.Input[pulumi.InputType['TaskExcludesArrgs']] excludes: Filter rules that determines which files to exclude from a task.
+        :param pulumi.Input[pulumi.InputType['TaskIncludesArrgs']] includes: Filter rules that determines which files to include in a task.
         :param pulumi.Input[str] name: Name of the DataSync Task.
-        :param pulumi.Input[pulumi.InputType['TaskOptionsArgs']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
-        :param pulumi.Input[pulumi.InputType['TaskScheduleArgs']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
+        :param pulumi.Input[pulumi.InputType['TaskOptionsArrgs']] options: Configuration block containing option that controls the default behavior when you start an execution of this DataSync Task. For each individual task execution, you can override these options by specifying an overriding configuration in those executions.
+        :param pulumi.Input[pulumi.InputType['TaskScheduleArrgs']] schedule: Specifies a schedule used to periodically transfer files from a source to a destination location.
         :param pulumi.Input[str] source_location_arn: Amazon Resource Name (ARN) of source DataSync Location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

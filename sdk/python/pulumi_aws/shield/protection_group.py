@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProtectionGroupArgs', 'ProtectionGroup']
+__all__ = ['ProtectionGroupArrgs', 'ProtectionGroup']
 
 @pulumi.input_type
-class ProtectionGroupArgs:
+calass ProtectionGroupArrgs:
     def __init__(__self__, *,
                  aggregation: pulumi.Input[str],
                  pattern: pulumi.Input[str],
@@ -113,7 +113,7 @@ class ProtectionGroupArgs:
 
 
 @pulumi.input_type
-class _ProtectionGroupState:
+calass _ProtectionGroupState:
     def __init__(__self__, *,
                  aggregation: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -254,7 +254,7 @@ class _ProtectionGroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class ProtectionGroup(pulumi.CustomResource):
+calass ProtectionGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -334,7 +334,7 @@ class ProtectionGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProtectionGroupArgs,
+                 args: ProtectionGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a grouping of protected resources so they can be handled as a collective.
@@ -392,12 +392,12 @@ class ProtectionGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProtectionGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ProtectionGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProtectionGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProtectionGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -419,7 +419,7 @@ class ProtectionGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProtectionGroupArgs.__new__(ProtectionGroupArgs)
+            __props__ = ProtectionGroupArrgs.__new__(ProtectionGroupArrgs)
 
             if aggregation is None and not opts.urn:
                 raise TypeError("Missing required property 'aggregation'")

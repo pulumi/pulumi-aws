@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSecurityProfileResult:
+calass GetSecurityProfileResult:
     """
     A collection of values returned by getSecurityProfile.
     """
@@ -114,7 +114,7 @@ class GetSecurityProfileResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetSecurityProfileResult(GetSecurityProfileResult):
+calass AwaitableGetSecurityProfileResult(GetSecurityProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

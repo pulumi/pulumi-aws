@@ -24,13 +24,13 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PipelineDefinitionParameterObject(dict):
+calass PipelineDefinitionParameterObject(dict):
     def __init__(__self__, *,
                  id: str,
                  attributes: Optional[Sequence['outputs.PipelineDefinitionParameterObjectAttribute']] = None):
         """
         :param str id: ID of the parameter object.
-        :param Sequence['PipelineDefinitionParameterObjectAttributeArgs'] attributes: Configuration block for attributes of the parameter object. See below
+        :param Sequence['PipelineDefinitionParameterObjectAttributeArrgs'] attributes: Configuration block for attributes of the parameter object. See below
         """
         pulumi.set(__self__, "id", id)
         if attributes is not None:
@@ -54,7 +54,7 @@ class PipelineDefinitionParameterObject(dict):
 
 
 @pulumi.output_type
-class PipelineDefinitionParameterObjectAttribute(dict):
+calass PipelineDefinitionParameterObjectAttribute(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -100,7 +100,7 @@ class PipelineDefinitionParameterObjectAttribute(dict):
 
 
 @pulumi.output_type
-class PipelineDefinitionParameterValue(dict):
+calass PipelineDefinitionParameterValue(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -146,7 +146,7 @@ class PipelineDefinitionParameterValue(dict):
 
 
 @pulumi.output_type
-class PipelineDefinitionPipelineObject(dict):
+calass PipelineDefinitionPipelineObject(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -154,7 +154,7 @@ class PipelineDefinitionPipelineObject(dict):
         """
         :param str id: ID of the object.
         :param str name: ARN of the storage connector.
-        :param Sequence['PipelineDefinitionPipelineObjectFieldArgs'] fields: Configuration block for Key-value pairs that define the properties of the object. See below
+        :param Sequence['PipelineDefinitionPipelineObjectFieldArrgs'] fields: Configuration block for Key-value pairs that define the properties of the object. See below
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -187,7 +187,7 @@ class PipelineDefinitionPipelineObject(dict):
 
 
 @pulumi.output_type
-class PipelineDefinitionPipelineObjectField(dict):
+calass PipelineDefinitionPipelineObjectField(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -248,7 +248,7 @@ class PipelineDefinitionPipelineObjectField(dict):
 
 
 @pulumi.output_type
-class GetPipelineDefinitionParameterObjectResult(dict):
+calass GetPipelineDefinitionParameterObjectResult(dict):
     def __init__(__self__, *,
                  attributes: Sequence['outputs.GetPipelineDefinitionParameterObjectAttributeResult'],
                  id: str):
@@ -273,7 +273,7 @@ class GetPipelineDefinitionParameterObjectResult(dict):
 
 
 @pulumi.output_type
-class GetPipelineDefinitionParameterObjectAttributeResult(dict):
+calass GetPipelineDefinitionParameterObjectAttributeResult(dict):
     def __init__(__self__, *,
                  key: str,
                  string_value: str):
@@ -302,7 +302,7 @@ class GetPipelineDefinitionParameterObjectAttributeResult(dict):
 
 
 @pulumi.output_type
-class GetPipelineDefinitionParameterValueResult(dict):
+calass GetPipelineDefinitionParameterValueResult(dict):
     def __init__(__self__, *,
                  id: str,
                  string_value: str):
@@ -331,7 +331,7 @@ class GetPipelineDefinitionParameterValueResult(dict):
 
 
 @pulumi.output_type
-class GetPipelineDefinitionPipelineObjectResult(dict):
+calass GetPipelineDefinitionPipelineObjectResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -339,7 +339,7 @@ class GetPipelineDefinitionPipelineObjectResult(dict):
         """
         :param str id: ID of the object.
         :param str name: ARN of the storage connector.
-        :param Sequence['GetPipelineDefinitionPipelineObjectFieldArgs'] fields: Key-value pairs that define the properties of the object. See below
+        :param Sequence['GetPipelineDefinitionPipelineObjectFieldArrgs'] fields: Key-value pairs that define the properties of the object. See below
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -372,7 +372,7 @@ class GetPipelineDefinitionPipelineObjectResult(dict):
 
 
 @pulumi.output_type
-class GetPipelineDefinitionPipelineObjectFieldResult(dict):
+calass GetPipelineDefinitionPipelineObjectFieldResult(dict):
     def __init__(__self__, *,
                  key: str,
                  ref_value: str,

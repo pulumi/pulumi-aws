@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAuthorizersResult:
+calass GetAuthorizersResult:
     """
     A collection of values returned by getAuthorizers.
     """
@@ -54,7 +54,7 @@ class GetAuthorizersResult:
         return pulumi.get(self, "rest_api_id")
 
 
-class AwaitableGetAuthorizersResult(GetAuthorizersResult):
+calass AwaitableGetAuthorizersResult(GetAuthorizersResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

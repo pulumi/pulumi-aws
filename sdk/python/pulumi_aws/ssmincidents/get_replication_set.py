@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReplicationSetResult:
+calass GetReplicationSetResult:
     """
     A collection of values returned by getReplicationSet.
     """
@@ -111,7 +111,7 @@ class GetReplicationSetResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetReplicationSetResult(GetReplicationSetResult):
+calass AwaitableGetReplicationSetResult(GetReplicationSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

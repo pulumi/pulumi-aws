@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResolverFirewallRulesResult:
+calass GetResolverFirewallRulesResult:
     """
     A collection of values returned by getResolverFirewallRules.
     """
@@ -71,7 +71,7 @@ class GetResolverFirewallRulesResult:
         return pulumi.get(self, "priority")
 
 
-class AwaitableGetResolverFirewallRulesResult(GetResolverFirewallRulesResult):
+calass AwaitableGetResolverFirewallRulesResult(GetResolverFirewallRulesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

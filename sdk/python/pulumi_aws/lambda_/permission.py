@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PermissionArgs', 'Permission']
+__all__ = ['PermissionArrgs', 'Permission']
 
 @pulumi.input_type
-class PermissionArgs:
+calass PermissionArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  function: pulumi.Input[str],
@@ -209,7 +209,7 @@ class PermissionArgs:
 
 
 @pulumi.input_type
-class _PermissionState:
+calass _PermissionState:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
                  event_source_token: Optional[pulumi.Input[str]] = None,
@@ -408,7 +408,7 @@ class _PermissionState:
         pulumi.set(self, "statement_id_prefix", value)
 
 
-class Permission(pulumi.CustomResource):
+calass Permission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -517,9 +517,9 @@ class Permission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_log_group = aws.cloudwatch.LogGroup("defaultLogGroup")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["lambda.amazonaws.com"],
             )],
@@ -610,7 +610,7 @@ class Permission(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PermissionArgs,
+                 args: PermissionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
@@ -704,9 +704,9 @@ class Permission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default_log_group = aws.cloudwatch.LogGroup("defaultLogGroup")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["lambda.amazonaws.com"],
             )],
@@ -772,12 +772,12 @@ class Permission(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PermissionArgs args: The arguments to use to populate this resource's properties.
+        :param PermissionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PermissionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PermissionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -804,7 +804,7 @@ class Permission(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PermissionArgs.__new__(PermissionArgs)
+            __props__ = PermissionArrgs.__new__(PermissionArrgs)
 
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")

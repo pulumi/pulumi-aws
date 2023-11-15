@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TrackerArgs', 'Tracker']
+__all__ = ['TrackerArrgs', 'Tracker']
 
 @pulumi.input_type
-class TrackerArgs:
+calass TrackerArrgs:
     def __init__(__self__, *,
                  tracker_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class TrackerArgs:
 
 
 @pulumi.input_type
-class _TrackerState:
+calass _TrackerState:
     def __init__(__self__, *,
                  create_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -264,7 +264,7 @@ class _TrackerState:
         pulumi.set(self, "update_time", value)
 
 
-class Tracker(pulumi.CustomResource):
+calass Tracker(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -309,7 +309,7 @@ class Tracker(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TrackerArgs,
+                 args: TrackerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Location Service Tracker.
@@ -332,12 +332,12 @@ class Tracker(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TrackerArgs args: The arguments to use to populate this resource's properties.
+        :param TrackerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrackerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrackerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -358,7 +358,7 @@ class Tracker(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrackerArgs.__new__(TrackerArgs)
+            __props__ = TrackerArrgs.__new__(TrackerArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_id"] = kms_key_id

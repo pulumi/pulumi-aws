@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RouteArgs', 'Route']
+__all__ = ['RouteArrgs', 'Route']
 
 @pulumi.input_type
-class RouteArgs:
+calass RouteArrgs:
     def __init__(__self__, *,
                  client_vpn_endpoint_id: pulumi.Input[str],
                  destination_cidr_block: pulumi.Input[str],
@@ -81,7 +81,7 @@ class RouteArgs:
 
 
 @pulumi.input_type
-class _RouteState:
+calass _RouteState:
     def __init__(__self__, *,
                  client_vpn_endpoint_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _RouteState:
         pulumi.set(self, "type", value)
 
 
-class Route(pulumi.CustomResource):
+calass Route(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -208,11 +208,11 @@ class Route(pulumi.CustomResource):
             description="Example Client VPN endpoint",
             server_certificate_arn=aws_acm_certificate["example"]["arn"],
             client_cidr_block="10.0.0.0/16",
-            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
+            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArrgs(
                 type="certificate-authentication",
                 root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
             )],
-            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
+            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArrgs(
                 enabled=False,
             ))
         example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
@@ -243,7 +243,7 @@ class Route(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteArgs,
+                 args: RouteArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides additional routes for AWS Client VPN endpoints. For more information on usage, please see the
@@ -259,11 +259,11 @@ class Route(pulumi.CustomResource):
             description="Example Client VPN endpoint",
             server_certificate_arn=aws_acm_certificate["example"]["arn"],
             client_cidr_block="10.0.0.0/16",
-            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArgs(
+            authentication_options=[aws.ec2clientvpn.EndpointAuthenticationOptionArrgs(
                 type="certificate-authentication",
                 root_certificate_chain_arn=aws_acm_certificate["example"]["arn"],
             )],
-            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArgs(
+            connection_log_options=aws.ec2clientvpn.EndpointConnectionLogOptionsArrgs(
                 enabled=False,
             ))
         example_network_association = aws.ec2clientvpn.NetworkAssociation("exampleNetworkAssociation",
@@ -284,12 +284,12 @@ class Route(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RouteArgs args: The arguments to use to populate this resource's properties.
+        :param RouteArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -309,7 +309,7 @@ class Route(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteArgs.__new__(RouteArgs)
+            __props__ = RouteArrgs.__new__(RouteArrgs)
 
             if client_vpn_endpoint_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_vpn_endpoint_id'")

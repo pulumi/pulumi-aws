@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVpcIpamPoolsResult:
+calass GetVpcIpamPoolsResult:
     """
     A collection of values returned by getVpcIpamPools.
     """
@@ -56,7 +56,7 @@ class GetVpcIpamPoolsResult:
         return pulumi.get(self, "ipam_pools")
 
 
-class AwaitableGetVpcIpamPoolsResult(GetVpcIpamPoolsResult):
+calass AwaitableGetVpcIpamPoolsResult(GetVpcIpamPoolsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -67,7 +67,7 @@ class AwaitableGetVpcIpamPoolsResult(GetVpcIpamPoolsResult):
             ipam_pools=self.ipam_pools)
 
 
-def get_vpc_ipam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArgs']]] = None,
+def get_vpc_ipam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArrgs']]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIpamPoolsResult:
     """
     `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
@@ -83,11 +83,11 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPo
     import pulumi_aws as aws
 
     test = aws.ec2.get_vpc_ipam_pools(filters=[
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
+        aws.ec2.GetVpcIpamPoolsFilterArrgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
+        aws.ec2.GetVpcIpamPoolsFilterArrgs(
             name="address-family",
             values=["ipv4"],
         ),
@@ -95,7 +95,7 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPo
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArrgs']] filters: Custom filter block as described below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -109,7 +109,7 @@ def get_vpc_ipam_pools(filters: Optional[Sequence[pulumi.InputType['GetVpcIpamPo
 
 
 @_utilities.lift_output_func(get_vpc_ipam_pools)
-def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArgs']]]]] = None,
+def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArrgs']]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIpamPoolsResult]:
     """
     `ec2_get_vpc_ipam_pools` provides details about IPAM pools.
@@ -125,11 +125,11 @@ def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     import pulumi_aws as aws
 
     test = aws.ec2.get_vpc_ipam_pools(filters=[
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
+        aws.ec2.GetVpcIpamPoolsFilterArrgs(
             name="description",
             values=["*test*"],
         ),
-        aws.ec2.GetVpcIpamPoolsFilterArgs(
+        aws.ec2.GetVpcIpamPoolsFilterArrgs(
             name="address-family",
             values=["ipv4"],
         ),
@@ -137,6 +137,6 @@ def get_vpc_ipam_pools_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ```
 
 
-    :param Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIpamPoolsFilterArrgs']] filters: Custom filter block as described below.
     """
     ...

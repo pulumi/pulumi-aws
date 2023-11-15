@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ComponentArgs', 'Component']
+__all__ = ['ComponentArrgs', 'Component']
 
 @pulumi.input_type
-class ComponentArgs:
+calass ComponentArrgs:
     def __init__(__self__, *,
                  platform: pulumi.Input[str],
                  version: pulumi.Input[str],
@@ -202,7 +202,7 @@ class ComponentArgs:
 
 
 @pulumi.input_type
-class _ComponentState:
+calass _ComponentState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  change_description: Optional[pulumi.Input[str]] = None,
@@ -495,7 +495,7 @@ class _ComponentState:
         pulumi.set(self, "version", value)
 
 
-class Component(pulumi.CustomResource):
+calass Component(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -559,7 +559,7 @@ class Component(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ComponentArgs,
+                 args: ComponentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Image Builder Component.
@@ -587,12 +587,12 @@ class Component(pulumi.CustomResource):
          Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
-        :param ComponentArgs args: The arguments to use to populate this resource's properties.
+        :param ComponentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ComponentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ComponentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -619,7 +619,7 @@ class Component(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ComponentArgs.__new__(ComponentArgs)
+            __props__ = ComponentArrgs.__new__(ComponentArrgs)
 
             __props__.__dict__["change_description"] = change_description
             __props__.__dict__["data"] = data

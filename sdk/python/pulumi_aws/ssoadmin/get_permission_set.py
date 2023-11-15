@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPermissionSetResult:
+calass GetPermissionSetResult:
     """
     A collection of values returned by getPermissionSet.
     """
@@ -111,7 +111,7 @@ class GetPermissionSetResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetPermissionSetResult(GetPermissionSetResult):
+calass AwaitableGetPermissionSetResult(GetPermissionSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

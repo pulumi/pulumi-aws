@@ -10,18 +10,18 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApplicationAutoStartConfigurationArgs',
-    'ApplicationAutoStopConfigurationArgs',
-    'ApplicationImageConfigurationArgs',
-    'ApplicationInitialCapacityArgs',
-    'ApplicationInitialCapacityInitialCapacityConfigArgs',
-    'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs',
-    'ApplicationMaximumCapacityArgs',
-    'ApplicationNetworkConfigurationArgs',
+    'ApplicationAutoStartConfigurationArrgs',
+    'ApplicationAutoStopConfigurationArrgs',
+    'ApplicationImageConfigurationArrgs',
+    'ApplicationInitialCapacityArrgs',
+    'ApplicationInitialCapacityInitialCapacityConfigArrgs',
+    'ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArrgs',
+    'ApplicationMaximumCapacityArrgs',
+    'ApplicationNetworkConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class ApplicationAutoStartConfigurationArgs:
+calass ApplicationAutoStartConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -44,7 +44,7 @@ class ApplicationAutoStartConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationAutoStopConfigurationArgs:
+calass ApplicationAutoStopConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  idle_timeout_minutes: Optional[pulumi.Input[int]] = None):
@@ -83,7 +83,7 @@ class ApplicationAutoStopConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationImageConfigurationArgs:
+calass ApplicationImageConfigurationArrgs:
     def __init__(__self__, *,
                  image_uri: pulumi.Input[str]):
         """
@@ -105,13 +105,13 @@ class ApplicationImageConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationInitialCapacityArgs:
+calass ApplicationInitialCapacityArrgs:
     def __init__(__self__, *,
                  initial_capacity_type: pulumi.Input[str],
-                 initial_capacity_config: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs']] = None):
+                 initial_capacity_config: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArrgs']] = None):
         """
         :param pulumi.Input[str] initial_capacity_type: The worker type for an analytics framework. For Spark applications, the key can either be set to `Driver` or `Executor`. For Hive applications, it can be set to `HiveDriver` or `TezTask`.
-        :param pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs'] initial_capacity_config: The initial capacity configuration per worker.
+        :param pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArrgs'] initial_capacity_config: The initial capacity configuration per worker.
         """
         pulumi.set(__self__, "initial_capacity_type", initial_capacity_type)
         if initial_capacity_config is not None:
@@ -131,25 +131,25 @@ class ApplicationInitialCapacityArgs:
 
     @property
     @pulumi.getter(name="initialCapacityConfig")
-    def initial_capacity_config(self) -> Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs']]:
+    def initial_capacity_config(self) -> Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArrgs']]:
         """
         The initial capacity configuration per worker.
         """
         return pulumi.get(self, "initial_capacity_config")
 
     @initial_capacity_config.setter
-    def initial_capacity_config(self, value: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArgs']]):
+    def initial_capacity_config(self, value: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigArrgs']]):
         pulumi.set(self, "initial_capacity_config", value)
 
 
 @pulumi.input_type
-class ApplicationInitialCapacityInitialCapacityConfigArgs:
+calass ApplicationInitialCapacityInitialCapacityConfigArrgs:
     def __init__(__self__, *,
                  worker_count: pulumi.Input[int],
-                 worker_configuration: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']] = None):
+                 worker_configuration: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArrgs']] = None):
         """
         :param pulumi.Input[int] worker_count: The number of workers in the initial capacity configuration.
-        :param pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs'] worker_configuration: The resource configuration of the initial capacity configuration.
+        :param pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArrgs'] worker_configuration: The resource configuration of the initial capacity configuration.
         """
         pulumi.set(__self__, "worker_count", worker_count)
         if worker_configuration is not None:
@@ -169,19 +169,19 @@ class ApplicationInitialCapacityInitialCapacityConfigArgs:
 
     @property
     @pulumi.getter(name="workerConfiguration")
-    def worker_configuration(self) -> Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]:
+    def worker_configuration(self) -> Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArrgs']]:
         """
         The resource configuration of the initial capacity configuration.
         """
         return pulumi.get(self, "worker_configuration")
 
     @worker_configuration.setter
-    def worker_configuration(self, value: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs']]):
+    def worker_configuration(self, value: Optional[pulumi.Input['ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArrgs']]):
         pulumi.set(self, "worker_configuration", value)
 
 
 @pulumi.input_type
-class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
+calass ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArrgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[str],
                  memory: pulumi.Input[str],
@@ -234,7 +234,7 @@ class ApplicationInitialCapacityInitialCapacityConfigWorkerConfigurationArgs:
 
 
 @pulumi.input_type
-class ApplicationMaximumCapacityArgs:
+calass ApplicationMaximumCapacityArrgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[str],
                  memory: pulumi.Input[str],
@@ -287,7 +287,7 @@ class ApplicationMaximumCapacityArgs:
 
 
 @pulumi.input_type
-class ApplicationNetworkConfigurationArgs:
+calass ApplicationNetworkConfigurationArrgs:
     def __init__(__self__, *,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):

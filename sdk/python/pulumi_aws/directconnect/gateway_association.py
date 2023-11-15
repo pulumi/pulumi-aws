@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GatewayAssociationArgs', 'GatewayAssociation']
+__all__ = ['GatewayAssociationArrgs', 'GatewayAssociation']
 
 @pulumi.input_type
-class GatewayAssociationArgs:
+calass GatewayAssociationArrgs:
     def __init__(__self__, *,
                  dx_gateway_id: pulumi.Input[str],
                  allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -123,7 +123,7 @@ class GatewayAssociationArgs:
 
 
 @pulumi.input_type
-class _GatewayAssociationState:
+calass _GatewayAssociationState:
     def __init__(__self__, *,
                  allowed_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  associated_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -282,7 +282,7 @@ class _GatewayAssociationState:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
-class GatewayAssociation(pulumi.CustomResource):
+calass GatewayAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -372,7 +372,7 @@ class GatewayAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GatewayAssociationArgs,
+                 args: GatewayAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Direct Connect Gateway with a VGW or transit gateway.
@@ -438,12 +438,12 @@ class GatewayAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GatewayAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param GatewayAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GatewayAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GatewayAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -465,7 +465,7 @@ class GatewayAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GatewayAssociationArgs.__new__(GatewayAssociationArgs)
+            __props__ = GatewayAssociationArrgs.__new__(GatewayAssociationArrgs)
 
             __props__.__dict__["allowed_prefixes"] = allowed_prefixes
             __props__.__dict__["associated_gateway_id"] = associated_gateway_id

@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DataIntegrationScheduleConfig(dict):
+calass DataIntegrationScheduleConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -74,7 +74,7 @@ class DataIntegrationScheduleConfig(dict):
 
 
 @pulumi.output_type
-class GetEventIntegrationEventFilterResult(dict):
+calass GetEventIntegrationEventFilterResult(dict):
     def __init__(__self__, *,
                  source: str):
         """

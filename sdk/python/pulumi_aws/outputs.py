@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAvailabilityZoneFilterResult(dict):
+calass GetAvailabilityZoneFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -46,7 +46,7 @@ class GetAvailabilityZoneFilterResult(dict):
 
 
 @pulumi.output_type
-class GetAvailabilityZonesFilterResult(dict):
+calass GetAvailabilityZonesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -75,7 +75,7 @@ class GetAvailabilityZonesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRegionsFilterResult(dict):
+calass GetRegionsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ObjectLambdaAccessPointPolicyArgs', 'ObjectLambdaAccessPointPolicy']
+__all__ = ['ObjectLambdaAccessPointPolicyArrgs', 'ObjectLambdaAccessPointPolicy']
 
 @pulumi.input_type
-class ObjectLambdaAccessPointPolicyArgs:
+calass ObjectLambdaAccessPointPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  account_id: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class ObjectLambdaAccessPointPolicyArgs:
 
 
 @pulumi.input_type
-class _ObjectLambdaAccessPointPolicyState:
+calass _ObjectLambdaAccessPointPolicyState:
     def __init__(__self__, *,
                  account_id: Optional[pulumi.Input[str]] = None,
                  has_public_access_policy: Optional[pulumi.Input[bool]] = None,
@@ -138,7 +138,7 @@ class _ObjectLambdaAccessPointPolicyState:
         pulumi.set(self, "policy", value)
 
 
-class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
+calass ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -159,12 +159,12 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
+        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArrgs(
             supporting_access_point=example_access_point.arn,
-            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
+            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArrgs(
                 actions=["GetObject"],
-                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
+                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArrgs(
+                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArrgs(
                         function_arn=aws_lambda_function["example"]["arn"],
                     ),
                 ),
@@ -201,7 +201,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ObjectLambdaAccessPointPolicyArgs,
+                 args: ObjectLambdaAccessPointPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage an S3 Object Lambda Access Point resource policy.
@@ -215,12 +215,12 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2")
         example_access_point = aws.s3.AccessPoint("exampleAccessPoint", bucket=example_bucket_v2.id)
-        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArgs(
+        example_object_lambda_access_point = aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", configuration=aws.s3control.ObjectLambdaAccessPointConfigurationArrgs(
             supporting_access_point=example_access_point.arn,
-            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs(
+            transformation_configurations=[aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArrgs(
                 actions=["GetObject"],
-                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs(
-                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs(
+                content_transformation=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArrgs(
+                    aws_lambda=aws.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArrgs(
                         function_arn=aws_lambda_function["example"]["arn"],
                     ),
                 ),
@@ -248,12 +248,12 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ObjectLambdaAccessPointPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ObjectLambdaAccessPointPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ObjectLambdaAccessPointPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ObjectLambdaAccessPointPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -272,7 +272,7 @@ class ObjectLambdaAccessPointPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ObjectLambdaAccessPointPolicyArgs.__new__(ObjectLambdaAccessPointPolicyArgs)
+            __props__ = ObjectLambdaAccessPointPolicyArrgs.__new__(ObjectLambdaAccessPointPolicyArrgs)
 
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["name"] = name

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResolverQueryLogConfigAssociationArgs', 'ResolverQueryLogConfigAssociation']
+__all__ = ['ResolverQueryLogConfigAssociationArrgs', 'ResolverQueryLogConfigAssociation']
 
 @pulumi.input_type
-class ResolverQueryLogConfigAssociationArgs:
+calass ResolverQueryLogConfigAssociationArrgs:
     def __init__(__self__, *,
                  resolver_query_log_config_id: pulumi.Input[str],
                  resource_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ResolverQueryLogConfigAssociationArgs:
 
 
 @pulumi.input_type
-class _ResolverQueryLogConfigAssociationState:
+calass _ResolverQueryLogConfigAssociationState:
     def __init__(__self__, *,
                  resolver_query_log_config_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _ResolverQueryLogConfigAssociationState:
         pulumi.set(self, "resource_id", value)
 
 
-class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
+calass ResolverQueryLogConfigAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -130,7 +130,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResolverQueryLogConfigAssociationArgs,
+                 args: ResolverQueryLogConfigAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Route 53 Resolver query logging configuration association resource.
@@ -157,12 +157,12 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResolverQueryLogConfigAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ResolverQueryLogConfigAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResolverQueryLogConfigAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverQueryLogConfigAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -180,7 +180,7 @@ class ResolverQueryLogConfigAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResolverQueryLogConfigAssociationArgs.__new__(ResolverQueryLogConfigAssociationArgs)
+            __props__ = ResolverQueryLogConfigAssociationArrgs.__new__(ResolverQueryLogConfigAssociationArrgs)
 
             if resolver_query_log_config_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resolver_query_log_config_id'")

@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AcceleratorAttributesArgs',
-    'AcceleratorIpSetArgs',
-    'CustomRoutingAcceleratorAttributesArgs',
-    'CustomRoutingAcceleratorIpSetArgs',
-    'CustomRoutingEndpointGroupDestinationConfigurationArgs',
-    'CustomRoutingEndpointGroupEndpointConfigurationArgs',
-    'CustomRoutingListenerPortRangeArgs',
-    'EndpointGroupEndpointConfigurationArgs',
-    'EndpointGroupPortOverrideArgs',
-    'ListenerPortRangeArgs',
+    'AcceleratorAttributesArrgs',
+    'AcceleratorIpSetArrgs',
+    'CustomRoutingAcceleratorAttributesArrgs',
+    'CustomRoutingAcceleratorIpSetArrgs',
+    'CustomRoutingEndpointGroupDestinationConfigurationArrgs',
+    'CustomRoutingEndpointGroupEndpointConfigurationArrgs',
+    'CustomRoutingListenerPortRangeArrgs',
+    'EndpointGroupEndpointConfigurationArrgs',
+    'EndpointGroupPortOverrideArrgs',
+    'ListenerPortRangeArrgs',
 ]
 
 @pulumi.input_type
-class AcceleratorAttributesArgs:
+calass AcceleratorAttributesArrgs:
     def __init__(__self__, *,
                  flow_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  flow_logs_s3_bucket: Optional[pulumi.Input[str]] = None,
@@ -78,7 +78,7 @@ class AcceleratorAttributesArgs:
 
 
 @pulumi.input_type
-class AcceleratorIpSetArgs:
+calass AcceleratorIpSetArrgs:
     def __init__(__self__, *,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_family: Optional[pulumi.Input[str]] = None):
@@ -117,7 +117,7 @@ class AcceleratorIpSetArgs:
 
 
 @pulumi.input_type
-class CustomRoutingAcceleratorAttributesArgs:
+calass CustomRoutingAcceleratorAttributesArrgs:
     def __init__(__self__, *,
                  flow_logs_enabled: Optional[pulumi.Input[bool]] = None,
                  flow_logs_s3_bucket: Optional[pulumi.Input[str]] = None,
@@ -172,7 +172,7 @@ class CustomRoutingAcceleratorAttributesArgs:
 
 
 @pulumi.input_type
-class CustomRoutingAcceleratorIpSetArgs:
+calass CustomRoutingAcceleratorIpSetArrgs:
     def __init__(__self__, *,
                  ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_family: Optional[pulumi.Input[str]] = None):
@@ -211,7 +211,7 @@ class CustomRoutingAcceleratorIpSetArgs:
 
 
 @pulumi.input_type
-class CustomRoutingEndpointGroupDestinationConfigurationArgs:
+calass CustomRoutingEndpointGroupDestinationConfigurationArrgs:
     def __init__(__self__, *,
                  from_port: pulumi.Input[int],
                  protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -263,7 +263,7 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
 
 
 @pulumi.input_type
-class CustomRoutingEndpointGroupEndpointConfigurationArgs:
+calass CustomRoutingEndpointGroupEndpointConfigurationArrgs:
     def __init__(__self__, *,
                  endpoint_id: Optional[pulumi.Input[str]] = None):
         """
@@ -286,7 +286,7 @@ class CustomRoutingEndpointGroupEndpointConfigurationArgs:
 
 
 @pulumi.input_type
-class CustomRoutingListenerPortRangeArgs:
+calass CustomRoutingListenerPortRangeArrgs:
     def __init__(__self__, *,
                  from_port: Optional[pulumi.Input[int]] = None,
                  to_port: Optional[pulumi.Input[int]] = None):
@@ -325,7 +325,7 @@ class CustomRoutingListenerPortRangeArgs:
 
 
 @pulumi.input_type
-class EndpointGroupEndpointConfigurationArgs:
+calass EndpointGroupEndpointConfigurationArrgs:
     def __init__(__self__, *,
                  client_ip_preservation_enabled: Optional[pulumi.Input[bool]] = None,
                  endpoint_id: Optional[pulumi.Input[str]] = None,
@@ -382,7 +382,7 @@ class EndpointGroupEndpointConfigurationArgs:
 
 
 @pulumi.input_type
-class EndpointGroupPortOverrideArgs:
+calass EndpointGroupPortOverrideArrgs:
     def __init__(__self__, *,
                  endpoint_port: pulumi.Input[int],
                  listener_port: pulumi.Input[int]):
@@ -419,7 +419,7 @@ class EndpointGroupPortOverrideArgs:
 
 
 @pulumi.input_type
-class ListenerPortRangeArgs:
+calass ListenerPortRangeArrgs:
     def __init__(__self__, *,
                  from_port: Optional[pulumi.Input[int]] = None,
                  to_port: Optional[pulumi.Input[int]] = None):

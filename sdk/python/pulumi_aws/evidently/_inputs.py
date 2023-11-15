@@ -10,23 +10,23 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'FeatureEvaluationRuleArgs',
-    'FeatureVariationArgs',
-    'FeatureVariationValueArgs',
-    'LaunchExecutionArgs',
-    'LaunchGroupArgs',
-    'LaunchMetricMonitorArgs',
-    'LaunchMetricMonitorMetricDefinitionArgs',
-    'LaunchScheduledSplitsConfigArgs',
-    'LaunchScheduledSplitsConfigStepArgs',
-    'LaunchScheduledSplitsConfigStepSegmentOverrideArgs',
-    'ProjectDataDeliveryArgs',
-    'ProjectDataDeliveryCloudwatchLogsArgs',
-    'ProjectDataDeliveryS3DestinationArgs',
+    'FeatureEvaluationRuleArrgs',
+    'FeatureVariationArrgs',
+    'FeatureVariationValueArrgs',
+    'LaunchExecutionArrgs',
+    'LaunchGroupArrgs',
+    'LaunchMetricMonitorArrgs',
+    'LaunchMetricMonitorMetricDefinitionArrgs',
+    'LaunchScheduledSplitsConfigArrgs',
+    'LaunchScheduledSplitsConfigStepArrgs',
+    'LaunchScheduledSplitsConfigStepSegmentOverrideArrgs',
+    'ProjectDataDeliveryArrgs',
+    'ProjectDataDeliveryCloudwatchLogsArrgs',
+    'ProjectDataDeliveryS3DestinationArrgs',
 ]
 
 @pulumi.input_type
-class FeatureEvaluationRuleArgs:
+calass FeatureEvaluationRuleArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
@@ -65,13 +65,13 @@ class FeatureEvaluationRuleArgs:
 
 
 @pulumi.input_type
-class FeatureVariationArgs:
+calass FeatureVariationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 value: pulumi.Input['FeatureVariationValueArgs']):
+                 value: pulumi.Input['FeatureVariationValueArrgs']):
         """
         :param pulumi.Input[str] name: The name of the variation. Minimum length of `1`. Maximum length of `127`.
-        :param pulumi.Input['FeatureVariationValueArgs'] value: A block that specifies the value assigned to this variation. Detailed below
+        :param pulumi.Input['FeatureVariationValueArrgs'] value: A block that specifies the value assigned to this variation. Detailed below
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -90,19 +90,19 @@ class FeatureVariationArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Input['FeatureVariationValueArgs']:
+    def value(self) -> pulumi.Input['FeatureVariationValueArrgs']:
         """
         A block that specifies the value assigned to this variation. Detailed below
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input['FeatureVariationValueArgs']):
+    def value(self, value: pulumi.Input['FeatureVariationValueArrgs']):
         pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
-class FeatureVariationValueArgs:
+calass FeatureVariationValueArrgs:
     def __init__(__self__, *,
                  bool_value: Optional[pulumi.Input[str]] = None,
                  double_value: Optional[pulumi.Input[str]] = None,
@@ -173,7 +173,7 @@ class FeatureVariationValueArgs:
 
 
 @pulumi.input_type
-class LaunchExecutionArgs:
+calass LaunchExecutionArrgs:
     def __init__(__self__, *,
                  ended_time: Optional[pulumi.Input[str]] = None,
                  started_time: Optional[pulumi.Input[str]] = None):
@@ -212,7 +212,7 @@ class LaunchExecutionArgs:
 
 
 @pulumi.input_type
-class LaunchGroupArgs:
+calass LaunchGroupArrgs:
     def __init__(__self__, *,
                  feature: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -280,29 +280,29 @@ class LaunchGroupArgs:
 
 
 @pulumi.input_type
-class LaunchMetricMonitorArgs:
+calass LaunchMetricMonitorArrgs:
     def __init__(__self__, *,
-                 metric_definition: pulumi.Input['LaunchMetricMonitorMetricDefinitionArgs']):
+                 metric_definition: pulumi.Input['LaunchMetricMonitorMetricDefinitionArrgs']):
         """
-        :param pulumi.Input['LaunchMetricMonitorMetricDefinitionArgs'] metric_definition: A block that defines the metric. Detailed below.
+        :param pulumi.Input['LaunchMetricMonitorMetricDefinitionArrgs'] metric_definition: A block that defines the metric. Detailed below.
         """
         pulumi.set(__self__, "metric_definition", metric_definition)
 
     @property
     @pulumi.getter(name="metricDefinition")
-    def metric_definition(self) -> pulumi.Input['LaunchMetricMonitorMetricDefinitionArgs']:
+    def metric_definition(self) -> pulumi.Input['LaunchMetricMonitorMetricDefinitionArrgs']:
         """
         A block that defines the metric. Detailed below.
         """
         return pulumi.get(self, "metric_definition")
 
     @metric_definition.setter
-    def metric_definition(self, value: pulumi.Input['LaunchMetricMonitorMetricDefinitionArgs']):
+    def metric_definition(self, value: pulumi.Input['LaunchMetricMonitorMetricDefinitionArrgs']):
         pulumi.set(self, "metric_definition", value)
 
 
 @pulumi.input_type
-class LaunchMetricMonitorMetricDefinitionArgs:
+calass LaunchMetricMonitorMetricDefinitionArrgs:
     def __init__(__self__, *,
                  entity_id_key: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -386,37 +386,37 @@ class LaunchMetricMonitorMetricDefinitionArgs:
 
 
 @pulumi.input_type
-class LaunchScheduledSplitsConfigArgs:
+calass LaunchScheduledSplitsConfigArrgs:
     def __init__(__self__, *,
-                 steps: pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArgs']]]):
+                 steps: pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArrgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArgs']]] steps: One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArrgs']]] steps: One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
         """
         pulumi.set(__self__, "steps", steps)
 
     @property
     @pulumi.getter
-    def steps(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArgs']]]:
+    def steps(self) -> pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArrgs']]]:
         """
         One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
         """
         return pulumi.get(self, "steps")
 
     @steps.setter
-    def steps(self, value: pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArgs']]]):
+    def steps(self, value: pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArrgs']]]):
         pulumi.set(self, "steps", value)
 
 
 @pulumi.input_type
-class LaunchScheduledSplitsConfigStepArgs:
+calass LaunchScheduledSplitsConfigStepArrgs:
     def __init__(__self__, *,
                  group_weights: pulumi.Input[Mapping[str, pulumi.Input[int]]],
                  start_time: pulumi.Input[str],
-                 segment_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]] = None):
+                 segment_overrides: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArrgs']]]] = None):
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[int]]] group_weights: The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
         :param pulumi.Input[str] start_time: Specifies the date and time that this step of the launch starts.
-        :param pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]] segment_overrides: One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArrgs']]] segment_overrides: One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
         """
         pulumi.set(__self__, "group_weights", group_weights)
         pulumi.set(__self__, "start_time", start_time)
@@ -449,19 +449,19 @@ class LaunchScheduledSplitsConfigStepArgs:
 
     @property
     @pulumi.getter(name="segmentOverrides")
-    def segment_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]]:
+    def segment_overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArrgs']]]]:
         """
         One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
         """
         return pulumi.get(self, "segment_overrides")
 
     @segment_overrides.setter
-    def segment_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgs']]]]):
+    def segment_overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArrgs']]]]):
         pulumi.set(self, "segment_overrides", value)
 
 
 @pulumi.input_type
-class LaunchScheduledSplitsConfigStepSegmentOverrideArgs:
+calass LaunchScheduledSplitsConfigStepSegmentOverrideArrgs:
     def __init__(__self__, *,
                  evaluation_order: pulumi.Input[int],
                  segment: pulumi.Input[str],
@@ -513,13 +513,13 @@ class LaunchScheduledSplitsConfigStepSegmentOverrideArgs:
 
 
 @pulumi.input_type
-class ProjectDataDeliveryArgs:
+calass ProjectDataDeliveryArrgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs']] = None,
-                 s3_destination: Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArgs']] = None):
+                 cloudwatch_logs: Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArrgs']] = None,
+                 s3_destination: Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArrgs']] = None):
         """
-        :param pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs'] cloudwatch_logs: A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
-        :param pulumi.Input['ProjectDataDeliveryS3DestinationArgs'] s3_destination: A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
+        :param pulumi.Input['ProjectDataDeliveryCloudwatchLogsArrgs'] cloudwatch_logs: A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
+        :param pulumi.Input['ProjectDataDeliveryS3DestinationArrgs'] s3_destination: A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -528,31 +528,31 @@ class ProjectDataDeliveryArgs:
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArrgs']]:
         """
         A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArrgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @property
     @pulumi.getter(name="s3Destination")
-    def s3_destination(self) -> Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArgs']]:
+    def s3_destination(self) -> Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArrgs']]:
         """
         A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
         """
         return pulumi.get(self, "s3_destination")
 
     @s3_destination.setter
-    def s3_destination(self, value: Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArgs']]):
+    def s3_destination(self, value: Optional[pulumi.Input['ProjectDataDeliveryS3DestinationArrgs']]):
         pulumi.set(self, "s3_destination", value)
 
 
 @pulumi.input_type
-class ProjectDataDeliveryCloudwatchLogsArgs:
+calass ProjectDataDeliveryCloudwatchLogsArrgs:
     def __init__(__self__, *,
                  log_group: Optional[pulumi.Input[str]] = None):
         """
@@ -579,7 +579,7 @@ class ProjectDataDeliveryCloudwatchLogsArgs:
 
 
 @pulumi.input_type
-class ProjectDataDeliveryS3DestinationArgs:
+calass ProjectDataDeliveryS3DestinationArrgs:
     def __init__(__self__, *,
                  bucket: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):

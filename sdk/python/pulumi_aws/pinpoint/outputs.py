@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AppCampaignHook(dict):
+calass AppCampaignHook(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -78,7 +78,7 @@ class AppCampaignHook(dict):
 
 
 @pulumi.output_type
-class AppLimits(dict):
+calass AppLimits(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -152,7 +152,7 @@ class AppLimits(dict):
 
 
 @pulumi.output_type
-class AppQuietTime(dict):
+calass AppQuietTime(dict):
     def __init__(__self__, *,
                  end: Optional[str] = None,
                  start: Optional[str] = None):

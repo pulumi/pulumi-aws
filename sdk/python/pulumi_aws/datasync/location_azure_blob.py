@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LocationAzureBlobArgs', 'LocationAzureBlob']
+__all__ = ['LocationAzureBlobArrgs', 'LocationAzureBlob']
 
 @pulumi.input_type
-class LocationAzureBlobArgs:
+calass LocationAzureBlobArrgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  authentication_type: pulumi.Input[str],
                  container_url: pulumi.Input[str],
                  access_tier: Optional[pulumi.Input[str]] = None,
                  blob_type: Optional[pulumi.Input[str]] = None,
-                 sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
+                 sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArrgs']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -31,7 +31,7 @@ class LocationAzureBlobArgs:
         :param pulumi.Input[str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
         :param pulumi.Input[str] access_tier: The access tier that you want your objects or files transferred into. Valid values: `HOT`, `COOL` and `ARCHIVE`. Default: `HOT`.
         :param pulumi.Input[str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
-        :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
+        :param pulumi.Input['LocationAzureBlobSasConfigurationArrgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -111,14 +111,14 @@ class LocationAzureBlobArgs:
 
     @property
     @pulumi.getter(name="sasConfiguration")
-    def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]:
+    def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArrgs']]:
         """
         The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         """
         return pulumi.get(self, "sas_configuration")
 
     @sas_configuration.setter
-    def sas_configuration(self, value: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]):
+    def sas_configuration(self, value: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArrgs']]):
         pulumi.set(self, "sas_configuration", value)
 
     @property
@@ -147,7 +147,7 @@ class LocationAzureBlobArgs:
 
 
 @pulumi.input_type
-class _LocationAzureBlobState:
+calass _LocationAzureBlobState:
     def __init__(__self__, *,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  agent_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -155,7 +155,7 @@ class _LocationAzureBlobState:
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  blob_type: Optional[pulumi.Input[str]] = None,
                  container_url: Optional[pulumi.Input[str]] = None,
-                 sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']] = None,
+                 sas_configuration: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArrgs']] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -168,7 +168,7 @@ class _LocationAzureBlobState:
         :param pulumi.Input[str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input['LocationAzureBlobSasConfigurationArgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
+        :param pulumi.Input['LocationAzureBlobSasConfigurationArrgs'] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -273,14 +273,14 @@ class _LocationAzureBlobState:
 
     @property
     @pulumi.getter(name="sasConfiguration")
-    def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]:
+    def sas_configuration(self) -> Optional[pulumi.Input['LocationAzureBlobSasConfigurationArrgs']]:
         """
         The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         """
         return pulumi.get(self, "sas_configuration")
 
     @sas_configuration.setter
-    def sas_configuration(self, value: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArgs']]):
+    def sas_configuration(self, value: Optional[pulumi.Input['LocationAzureBlobSasConfigurationArrgs']]):
         pulumi.set(self, "sas_configuration", value)
 
     @property
@@ -332,7 +332,7 @@ class _LocationAzureBlobState:
         pulumi.set(self, "uri", value)
 
 
-class LocationAzureBlob(pulumi.CustomResource):
+calass LocationAzureBlob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -342,7 +342,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  blob_type: Optional[pulumi.Input[str]] = None,
                  container_url: Optional[pulumi.Input[str]] = None,
-                 sas_configuration: Optional[pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArgs']]] = None,
+                 sas_configuration: Optional[pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArrgs']]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -361,7 +361,7 @@ class LocationAzureBlob(pulumi.CustomResource):
             agent_arns=[aws_datasync_agent["example"]["arn"]],
             authentication_type="SAS",
             container_url="https://example.com/path",
-            sas_configuration=aws.datasync.LocationAzureBlobSasConfigurationArgs(
+            sas_configuration=aws.datasync.LocationAzureBlobSasConfigurationArrgs(
                 token="sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
             ))
         ```
@@ -381,7 +381,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArgs']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
+        :param pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArrgs']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -389,7 +389,7 @@ class LocationAzureBlob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocationAzureBlobArgs,
+                 args: LocationAzureBlobArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft Azure Blob Storage Location within AWS DataSync.
@@ -406,7 +406,7 @@ class LocationAzureBlob(pulumi.CustomResource):
             agent_arns=[aws_datasync_agent["example"]["arn"]],
             authentication_type="SAS",
             container_url="https://example.com/path",
-            sas_configuration=aws.datasync.LocationAzureBlobSasConfigurationArgs(
+            sas_configuration=aws.datasync.LocationAzureBlobSasConfigurationArrgs(
                 token="sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
             ))
         ```
@@ -420,12 +420,12 @@ class LocationAzureBlob(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocationAzureBlobArgs args: The arguments to use to populate this resource's properties.
+        :param LocationAzureBlobArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocationAzureBlobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocationAzureBlobArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -439,7 +439,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  blob_type: Optional[pulumi.Input[str]] = None,
                  container_url: Optional[pulumi.Input[str]] = None,
-                 sas_configuration: Optional[pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArgs']]] = None,
+                 sas_configuration: Optional[pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArrgs']]] = None,
                  subdirectory: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -449,7 +449,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocationAzureBlobArgs.__new__(LocationAzureBlobArgs)
+            __props__ = LocationAzureBlobArrgs.__new__(LocationAzureBlobArrgs)
 
             __props__.__dict__["access_tier"] = access_tier
             if agent_arns is None and not opts.urn:
@@ -486,7 +486,7 @@ class LocationAzureBlob(pulumi.CustomResource):
             authentication_type: Optional[pulumi.Input[str]] = None,
             blob_type: Optional[pulumi.Input[str]] = None,
             container_url: Optional[pulumi.Input[str]] = None,
-            sas_configuration: Optional[pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArgs']]] = None,
+            sas_configuration: Optional[pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArrgs']]] = None,
             subdirectory: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -504,7 +504,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input[str] authentication_type: The authentication method DataSync uses to access your Azure Blob Storage. Valid values: `SAS`.
         :param pulumi.Input[str] blob_type: The type of blob that you want your objects or files to be when transferring them into Azure Blob Storage. Valid values: `BLOB`. Default: `BLOB`.
         :param pulumi.Input[str] container_url: The URL of the Azure Blob Storage container involved in your transfer.
-        :param pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArgs']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
+        :param pulumi.Input[pulumi.InputType['LocationAzureBlobSasConfigurationArrgs']] sas_configuration: The SAS configuration that allows DataSync to access your Azure Blob Storage. See configuration below.
         :param pulumi.Input[str] subdirectory: Path segments if you want to limit your transfer to a virtual directory in the container.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

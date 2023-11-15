@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DetectorFeatureArgs', 'DetectorFeature']
+__all__ = ['DetectorFeatureArrgs', 'DetectorFeature']
 
 @pulumi.input_type
-class DetectorFeatureArgs:
+calass DetectorFeatureArrgs:
     def __init__(__self__, *,
                  detector_id: pulumi.Input[str],
                  status: pulumi.Input[str],
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DetectorFeature resource.
         :param pulumi.Input[str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArrgs']]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         """
         pulumi.set(__self__, "detector_id", detector_id)
@@ -60,14 +60,14 @@ class DetectorFeatureArgs:
 
     @property
     @pulumi.getter(name="additionalConfigurations")
-    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]:
+    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArrgs']]]]:
         """
         Additional feature configuration block. See below.
         """
         return pulumi.get(self, "additional_configurations")
 
     @additional_configurations.setter
-    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]):
+    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArrgs']]]]):
         pulumi.set(self, "additional_configurations", value)
 
     @property
@@ -84,15 +84,15 @@ class DetectorFeatureArgs:
 
 
 @pulumi.input_type
-class _DetectorFeatureState:
+calass _DetectorFeatureState:
     def __init__(__self__, *,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArrgs']]]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DetectorFeature resources.
-        :param pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]] additional_configurations: Additional feature configuration block. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArrgs']]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
@@ -108,14 +108,14 @@ class _DetectorFeatureState:
 
     @property
     @pulumi.getter(name="additionalConfigurations")
-    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]:
+    def additional_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArrgs']]]]:
         """
         Additional feature configuration block. See below.
         """
         return pulumi.get(self, "additional_configurations")
 
     @additional_configurations.setter
-    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArgs']]]]):
+    def additional_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DetectorFeatureAdditionalConfigurationArrgs']]]]):
         pulumi.set(self, "additional_configurations", value)
 
     @property
@@ -155,12 +155,12 @@ class _DetectorFeatureState:
         pulumi.set(self, "status", value)
 
 
-class DetectorFeature(pulumi.CustomResource):
+calass DetectorFeature(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArgs']]]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArrgs']]]]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -180,7 +180,7 @@ class DetectorFeature(pulumi.CustomResource):
         eks_runtime_monitoring = aws.guardduty.DetectorFeature("eksRuntimeMonitoring",
             detector_id=example.id,
             status="ENABLED",
-            additional_configurations=[aws.guardduty.DetectorFeatureAdditionalConfigurationArgs(
+            additional_configurations=[aws.guardduty.DetectorFeatureAdditionalConfigurationArrgs(
                 name="EKS_ADDON_MANAGEMENT",
                 status="ENABLED",
             )])
@@ -188,7 +188,7 @@ class DetectorFeature(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArgs']]]] additional_configurations: Additional feature configuration block. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArrgs']]]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.
@@ -197,7 +197,7 @@ class DetectorFeature(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DetectorFeatureArgs,
+                 args: DetectorFeatureArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a single Amazon GuardDuty [detector feature](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-features-activation-model.html#guardduty-features).
@@ -214,19 +214,19 @@ class DetectorFeature(pulumi.CustomResource):
         eks_runtime_monitoring = aws.guardduty.DetectorFeature("eksRuntimeMonitoring",
             detector_id=example.id,
             status="ENABLED",
-            additional_configurations=[aws.guardduty.DetectorFeatureAdditionalConfigurationArgs(
+            additional_configurations=[aws.guardduty.DetectorFeatureAdditionalConfigurationArrgs(
                 name="EKS_ADDON_MANAGEMENT",
                 status="ENABLED",
             )])
         ```
 
         :param str resource_name: The name of the resource.
-        :param DetectorFeatureArgs args: The arguments to use to populate this resource's properties.
+        :param DetectorFeatureArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DetectorFeatureArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DetectorFeatureArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -235,7 +235,7 @@ class DetectorFeature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArgs']]]]] = None,
+                 additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArrgs']]]]] = None,
                  detector_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -246,7 +246,7 @@ class DetectorFeature(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DetectorFeatureArgs.__new__(DetectorFeatureArgs)
+            __props__ = DetectorFeatureArrgs.__new__(DetectorFeatureArrgs)
 
             __props__.__dict__["additional_configurations"] = additional_configurations
             if detector_id is None and not opts.urn:
@@ -266,7 +266,7 @@ class DetectorFeature(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArgs']]]]] = None,
+            additional_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArrgs']]]]] = None,
             detector_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None) -> 'DetectorFeature':
@@ -277,7 +277,7 @@ class DetectorFeature(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArgs']]]] additional_configurations: Additional feature configuration block. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DetectorFeatureAdditionalConfigurationArrgs']]]] additional_configurations: Additional feature configuration block. See below.
         :param pulumi.Input[str] detector_id: Amazon GuardDuty detector ID.
         :param pulumi.Input[str] name: The name of the detector feature. Valid values: `S3_DATA_EVENTS`, `EKS_AUDIT_LOGS`, `EBS_MALWARE_PROTECTION`, `RDS_LOGIN_EVENTS`, `EKS_RUNTIME_MONITORING`, `LAMBDA_NETWORK_LOGS`.
         :param pulumi.Input[str] status: The status of the detector feature. Valid values: `ENABLED`, `DISABLED`.

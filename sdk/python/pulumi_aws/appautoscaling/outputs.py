@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PolicyStepScalingPolicyConfiguration(dict):
+calass PolicyStepScalingPolicyConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -60,20 +60,20 @@ class PolicyStepScalingPolicyConfiguration(dict):
         :param int cooldown: Amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         :param str metric_aggregation_type: Aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param int min_adjustment_magnitude: Minimum number to adjust your scalable dimension as a result of a scaling activity. If the adjustment type is PercentChangeInCapacity, the scaling policy changes the scalable dimension of the scalable target by this amount.
-        :param Sequence['PolicyStepScalingPolicyConfigurationStepAdjustmentArgs'] step_adjustments: Set of adjustments that manage scaling. These have the following structure:
+        :param Sequence['PolicyStepScalingPolicyConfigurationStepAdjustmentArrgs'] step_adjustments: Set of adjustments that manage scaling. These have the following structure:
                
                ```python
                import pulumi
                import pulumi_aws as aws
                
-               ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
+               ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArrgs(
                    step_adjustments=[
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
+                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArrgs(
                            metric_interval_lower_bound="1",
                            metric_interval_upper_bound="2",
                            scaling_adjustment=-1,
                        ),
-                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
+                       aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArrgs(
                            metric_interval_lower_bound="2",
                            metric_interval_upper_bound="3",
                            scaling_adjustment=1,
@@ -135,14 +135,14 @@ class PolicyStepScalingPolicyConfiguration(dict):
         import pulumi
         import pulumi_aws as aws
 
-        ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArgs(
+        ecs_policy = aws.appautoscaling.Policy("ecsPolicy", step_scaling_policy_configuration=aws.appautoscaling.PolicyStepScalingPolicyConfigurationArrgs(
             step_adjustments=[
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
+                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArrgs(
                     metric_interval_lower_bound="1",
                     metric_interval_upper_bound="2",
                     scaling_adjustment=-1,
                 ),
-                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArgs(
+                aws.appautoscaling.PolicyStepScalingPolicyConfigurationStepAdjustmentArrgs(
                     metric_interval_lower_bound="2",
                     metric_interval_upper_bound="3",
                     scaling_adjustment=1,
@@ -155,7 +155,7 @@ class PolicyStepScalingPolicyConfiguration(dict):
 
 
 @pulumi.output_type
-class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
+calass PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -218,7 +218,7 @@ class PolicyStepScalingPolicyConfigurationStepAdjustment(dict):
 
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfiguration(dict):
+calass PolicyTargetTrackingScalingPolicyConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -255,9 +255,9 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
                  scale_out_cooldown: Optional[int] = None):
         """
         :param float target_value: Target value for the metric.
-        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs' customized_metric_specification: Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
+        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArrgs' customized_metric_specification: Custom CloudWatch metric. Documentation can be found  at: [AWS Customized Metric Specification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CustomizedMetricSpecification.html). See supported fields below.
         :param bool disable_scale_in: Whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is `false`.
-        :param 'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs' predefined_metric_specification: Predefined metric. See supported fields below.
+        :param 'PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArrgs' predefined_metric_specification: Predefined metric. See supported fields below.
         :param int scale_in_cooldown: Amount of time, in seconds, after a scale in activity completes before another scale in activity can start.
         :param int scale_out_cooldown: Amount of time, in seconds, after a scale out activity completes before another scale out activity can start.
         """
@@ -323,7 +323,7 @@ class PolicyTargetTrackingScalingPolicyConfiguration(dict):
 
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification(dict):
+calass PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -349,9 +349,9 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
                  statistic: Optional[str] = None,
                  unit: Optional[str] = None):
         """
-        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs'] dimensions: Dimensions of the metric.
+        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrgs'] dimensions: Dimensions of the metric.
         :param str metric_name: Name of the metric.
-        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArgs'] metrics: Metrics to include, as a metric data query.
+        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricArrgs'] metrics: Metrics to include, as a metric data query.
         :param str namespace: Namespace of the metric.
         :param str statistic: Statistic of the metric. Valid values: `Average`, `Minimum`, `Maximum`, `SampleCount`, and `Sum`.
         :param str unit: Unit of the metrics to return.
@@ -419,7 +419,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension(dict):
+calass PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -448,7 +448,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric(dict):
+calass PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -478,7 +478,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         :param str id: Short name for the metric used in target tracking scaling policy.
         :param str expression: Math expression used on the returned metric. You must specify either `expression` or `metric_stat`, but not both.
         :param str label: Human-readable label for this metric or expression.
-        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArgs' metric_stat: Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
+        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatArrgs' metric_stat: Structure that defines CloudWatch metric to be used in target tracking scaling policy. You must specify either `expression` or `metric_stat`, but not both.
         :param bool return_data: Boolean that indicates whether to return the timestamps and raw data values of this metric, the default is true
         """
         pulumi.set(__self__, "id", id)
@@ -533,13 +533,13 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat(dict):
+calass PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStat(dict):
     def __init__(__self__, *,
                  metric: 'outputs.PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric',
                  stat: str,
                  unit: Optional[str] = None):
         """
-        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
+        :param 'PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricArrgs' metric: Structure that defines the CloudWatch metric to return, including the metric name, namespace, and dimensions.
         :param str stat: Statistic of the metrics to return.
         :param str unit: Unit of the metrics to return.
         """
@@ -574,7 +574,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric(dict):
+calass PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetric(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -599,7 +599,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
         """
         :param str metric_name: Name of the metric.
         :param str namespace: Namespace of the metric.
-        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArgs'] dimensions: Dimensions of the metric.
+        :param Sequence['PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimensionArrgs'] dimensions: Dimensions of the metric.
         """
         pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "namespace", namespace)
@@ -632,7 +632,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension(dict):
+calass PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationMetricMetricStatMetricDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -661,7 +661,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificatio
 
 
 @pulumi.output_type
-class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification(dict):
+calass PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -710,7 +710,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
 
 
 @pulumi.output_type
-class ScheduledActionScalableTargetAction(dict):
+calass ScheduledActionScalableTargetAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

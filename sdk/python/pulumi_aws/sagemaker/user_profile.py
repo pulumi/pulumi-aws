@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['UserProfileArgs', 'UserProfile']
+__all__ = ['UserProfileArrgs', 'UserProfile']
 
 @pulumi.input_type
-class UserProfileArgs:
+calass UserProfileArrgs:
     def __init__(__self__, *,
                  domain_id: pulumi.Input[str],
                  user_profile_name: pulumi.Input[str],
                  single_sign_on_user_identifier: Optional[pulumi.Input[str]] = None,
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
+                 user_settings: Optional[pulumi.Input['UserProfileUserSettingsArrgs']] = None):
         """
         The set of arguments for constructing a UserProfile resource.
         :param pulumi.Input[str] domain_id: The ID of the associated Domain.
@@ -29,7 +29,7 @@ class UserProfileArgs:
         :param pulumi.Input[str] single_sign_on_user_identifier: A specifier for the type of value specified in `single_sign_on_user_value`. Currently, the only supported value is `UserName`. If the Domain's AuthMode is SSO, this field is required. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: The user settings. See User Settings below.
+        :param pulumi.Input['UserProfileUserSettingsArrgs'] user_settings: The user settings. See User Settings below.
         """
         pulumi.set(__self__, "domain_id", domain_id)
         pulumi.set(__self__, "user_profile_name", user_profile_name)
@@ -104,19 +104,19 @@ class UserProfileArgs:
 
     @property
     @pulumi.getter(name="userSettings")
-    def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArgs']]:
+    def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArrgs']]:
         """
         The user settings. See User Settings below.
         """
         return pulumi.get(self, "user_settings")
 
     @user_settings.setter
-    def user_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsArgs']]):
+    def user_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsArrgs']]):
         pulumi.set(self, "user_settings", value)
 
 
 @pulumi.input_type
-class _UserProfileState:
+calass _UserProfileState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  domain_id: Optional[pulumi.Input[str]] = None,
@@ -126,7 +126,7 @@ class _UserProfileState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
-                 user_settings: Optional[pulumi.Input['UserProfileUserSettingsArgs']] = None):
+                 user_settings: Optional[pulumi.Input['UserProfileUserSettingsArrgs']] = None):
         """
         Input properties used for looking up and filtering UserProfile resources.
         :param pulumi.Input[str] arn: The user profile Amazon Resource Name (ARN).
@@ -137,7 +137,7 @@ class _UserProfileState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input['UserProfileUserSettingsArgs'] user_settings: The user settings. See User Settings below.
+        :param pulumi.Input['UserProfileUserSettingsArrgs'] user_settings: The user settings. See User Settings below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -262,18 +262,18 @@ class _UserProfileState:
 
     @property
     @pulumi.getter(name="userSettings")
-    def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArgs']]:
+    def user_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsArrgs']]:
         """
         The user settings. See User Settings below.
         """
         return pulumi.get(self, "user_settings")
 
     @user_settings.setter
-    def user_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsArgs']]):
+    def user_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsArrgs']]):
         pulumi.set(self, "user_settings", value)
 
 
-class UserProfile(pulumi.CustomResource):
+calass UserProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -283,7 +283,7 @@ class UserProfile(pulumi.CustomResource):
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
-                 user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None,
+                 user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArrgs']]] = None,
                  __props__=None):
         """
         Provides a SageMaker User Profile resource.
@@ -315,13 +315,13 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[str] single_sign_on_user_value: The username of the associated AWS Single Sign-On User for this User Profile. If the Domain's AuthMode is SSO, this field is required, and must match a valid username of a user in your directory. If the Domain's AuthMode is not SSO, this field cannot be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']] user_settings: The user settings. See User Settings below.
+        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArrgs']] user_settings: The user settings. See User Settings below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserProfileArgs,
+                 args: UserProfileArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a SageMaker User Profile resource.
@@ -347,12 +347,12 @@ class UserProfile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserProfileArgs args: The arguments to use to populate this resource's properties.
+        :param UserProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -366,7 +366,7 @@ class UserProfile(pulumi.CustomResource):
                  single_sign_on_user_value: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_profile_name: Optional[pulumi.Input[str]] = None,
-                 user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None,
+                 user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -374,7 +374,7 @@ class UserProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserProfileArgs.__new__(UserProfileArgs)
+            __props__ = UserProfileArrgs.__new__(UserProfileArrgs)
 
             if domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_id'")
@@ -409,7 +409,7 @@ class UserProfile(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             user_profile_name: Optional[pulumi.Input[str]] = None,
-            user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']]] = None) -> 'UserProfile':
+            user_settings: Optional[pulumi.Input[pulumi.InputType['UserProfileUserSettingsArrgs']]] = None) -> 'UserProfile':
         """
         Get an existing UserProfile resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -425,7 +425,7 @@ class UserProfile(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_profile_name: The name for the User Profile.
-        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArgs']] user_settings: The user settings. See User Settings below.
+        :param pulumi.Input[pulumi.InputType['UserProfileUserSettingsArrgs']] user_settings: The user settings. See User Settings below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

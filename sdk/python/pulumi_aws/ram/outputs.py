@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResourceShareFilterResult(dict):
+calass GetResourceShareFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

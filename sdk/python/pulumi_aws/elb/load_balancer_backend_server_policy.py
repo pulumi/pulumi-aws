@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LoadBalancerBackendServerPolicyArgs', 'LoadBalancerBackendServerPolicy']
+__all__ = ['LoadBalancerBackendServerPolicyArrgs', 'LoadBalancerBackendServerPolicy']
 
 @pulumi.input_type
-class LoadBalancerBackendServerPolicyArgs:
+calass LoadBalancerBackendServerPolicyArrgs:
     def __init__(__self__, *,
                  instance_port: pulumi.Input[int],
                  load_balancer_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class LoadBalancerBackendServerPolicyArgs:
 
 
 @pulumi.input_type
-class _LoadBalancerBackendServerPolicyState:
+calass _LoadBalancerBackendServerPolicyState:
     def __init__(__self__, *,
                  instance_port: Optional[pulumi.Input[int]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _LoadBalancerBackendServerPolicyState:
         pulumi.set(self, "policy_names", value)
 
 
-class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
+calass LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -141,7 +141,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=443,
                 instance_protocol="http",
                 lb_port=443,
@@ -155,7 +155,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             load_balancer_name=wu_tang.name,
             policy_name="wu-tang-ca-pubkey-policy",
             policy_type_name="PublicKeyPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                 name="PublicKey",
                 value=(lambda path: open(path).read())("wu-tang-pubkey"),
             )])
@@ -163,7 +163,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             load_balancer_name=wu_tang.name,
             policy_name="wu-tang-root-ca-backend-auth-policy",
             policy_type_name="BackendServerAuthenticationPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                 name="PublicKeyPolicyName",
                 value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
             )])
@@ -183,7 +183,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LoadBalancerBackendServerPolicyArgs,
+                 args: LoadBalancerBackendServerPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attaches a load balancer policy to an ELB backend server.
@@ -196,7 +196,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
 
         wu_tang = aws.elb.LoadBalancer("wu-tang",
             availability_zones=["us-east-1a"],
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=443,
                 instance_protocol="http",
                 lb_port=443,
@@ -210,7 +210,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             load_balancer_name=wu_tang.name,
             policy_name="wu-tang-ca-pubkey-policy",
             policy_type_name="PublicKeyPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                 name="PublicKey",
                 value=(lambda path: open(path).read())("wu-tang-pubkey"),
             )])
@@ -218,7 +218,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
             load_balancer_name=wu_tang.name,
             policy_name="wu-tang-root-ca-backend-auth-policy",
             policy_type_name="BackendServerAuthenticationPolicyType",
-            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArgs(
+            policy_attributes=[aws.elb.LoadBalancerPolicyPolicyAttributeArrgs(
                 name="PublicKeyPolicyName",
                 value=aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"]["policy_name"],
             )])
@@ -229,12 +229,12 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LoadBalancerBackendServerPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param LoadBalancerBackendServerPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerBackendServerPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LoadBalancerBackendServerPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -253,7 +253,7 @@ class LoadBalancerBackendServerPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LoadBalancerBackendServerPolicyArgs.__new__(LoadBalancerBackendServerPolicyArgs)
+            __props__ = LoadBalancerBackendServerPolicyArrgs.__new__(LoadBalancerBackendServerPolicyArrgs)
 
             if instance_port is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_port'")

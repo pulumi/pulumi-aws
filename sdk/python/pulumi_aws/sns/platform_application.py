@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PlatformApplicationArgs', 'PlatformApplication']
+__all__ = ['PlatformApplicationArrgs', 'PlatformApplication']
 
 @pulumi.input_type
-class PlatformApplicationArgs:
+calass PlatformApplicationArrgs:
     def __init__(__self__, *,
                  platform: pulumi.Input[str],
                  platform_credential: pulumi.Input[str],
@@ -230,7 +230,7 @@ class PlatformApplicationArgs:
 
 
 @pulumi.input_type
-class _PlatformApplicationState:
+calass _PlatformApplicationState:
     def __init__(__self__, *,
                  apple_platform_bundle_id: Optional[pulumi.Input[str]] = None,
                  apple_platform_team_id: Optional[pulumi.Input[str]] = None,
@@ -465,7 +465,7 @@ class _PlatformApplicationState:
         pulumi.set(self, "success_feedback_sample_rate", value)
 
 
-class PlatformApplication(pulumi.CustomResource):
+calass PlatformApplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -553,7 +553,7 @@ class PlatformApplication(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PlatformApplicationArgs,
+                 args: PlatformApplicationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SNS platform application resource
@@ -603,12 +603,12 @@ class PlatformApplication(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PlatformApplicationArgs args: The arguments to use to populate this resource's properties.
+        :param PlatformApplicationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PlatformApplicationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PlatformApplicationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -637,7 +637,7 @@ class PlatformApplication(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PlatformApplicationArgs.__new__(PlatformApplicationArgs)
+            __props__ = PlatformApplicationArrgs.__new__(PlatformApplicationArrgs)
 
             __props__.__dict__["apple_platform_bundle_id"] = apple_platform_bundle_id
             __props__.__dict__["apple_platform_team_id"] = apple_platform_team_id

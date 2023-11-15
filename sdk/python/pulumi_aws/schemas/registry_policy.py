@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RegistryPolicyArgs', 'RegistryPolicy']
+__all__ = ['RegistryPolicyArrgs', 'RegistryPolicy']
 
 @pulumi.input_type
-class RegistryPolicyArgs:
+calass RegistryPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  registry_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class RegistryPolicyArgs:
 
 
 @pulumi.input_type
-class _RegistryPolicyState:
+calass _RegistryPolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None,
                  registry_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _RegistryPolicyState:
         pulumi.set(self, "registry_name", value)
 
 
-class RegistryPolicy(pulumi.CustomResource):
+calass RegistryPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -107,10 +107,10 @@ class RegistryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="example",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["109876543210"],
             )],
@@ -142,7 +142,7 @@ class RegistryPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RegistryPolicyArgs,
+                 args: RegistryPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS EventBridge Schemas Registry Policy.
@@ -154,10 +154,10 @@ class RegistryPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="example",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["109876543210"],
             )],
@@ -181,12 +181,12 @@ class RegistryPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegistryPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param RegistryPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegistryPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegistryPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -204,7 +204,7 @@ class RegistryPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegistryPolicyArgs.__new__(RegistryPolicyArgs)
+            __props__ = RegistryPolicyArrgs.__new__(RegistryPolicyArrgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

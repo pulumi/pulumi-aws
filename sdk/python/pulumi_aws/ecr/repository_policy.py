@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RepositoryPolicyArgs', 'RepositoryPolicy']
+__all__ = ['RepositoryPolicyArrgs', 'RepositoryPolicy']
 
 @pulumi.input_type
-class RepositoryPolicyArgs:
+calass RepositoryPolicyArrgs:
     def __init__(__self__, *,
                  policy: pulumi.Input[str],
                  repository: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class RepositoryPolicyArgs:
 
 
 @pulumi.input_type
-class _RepositoryPolicyState:
+calass _RepositoryPolicyState:
     def __init__(__self__, *,
                  policy: Optional[pulumi.Input[str]] = None,
                  registry_id: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class _RepositoryPolicyState:
         pulumi.set(self, "repository", value)
 
 
-class RepositoryPolicy(pulumi.CustomResource):
+calass RepositoryPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -125,10 +125,10 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ecr.Repository("foo")
-        foopolicy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        foopolicy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="new policy",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["123456789012"],
             )],
@@ -171,7 +171,7 @@ class RepositoryPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RepositoryPolicyArgs,
+                 args: RepositoryPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Elastic Container Registry Repository Policy.
@@ -185,10 +185,10 @@ class RepositoryPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ecr.Repository("foo")
-        foopolicy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        foopolicy_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="new policy",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="AWS",
                 identifiers=["123456789012"],
             )],
@@ -223,12 +223,12 @@ class RepositoryPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RepositoryPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param RepositoryPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RepositoryPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RepositoryPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -246,7 +246,7 @@ class RepositoryPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RepositoryPolicyArgs.__new__(RepositoryPolicyArgs)
+            __props__ = RepositoryPolicyArrgs.__new__(RepositoryPolicyArrgs)
 
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")

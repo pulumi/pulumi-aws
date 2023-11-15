@@ -10,23 +10,23 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'KxClusterAutoScalingConfigurationArgs',
-    'KxClusterCacheStorageConfigurationArgs',
-    'KxClusterCapacityConfigurationArgs',
-    'KxClusterCodeArgs',
-    'KxClusterDatabaseArgs',
-    'KxClusterDatabaseCacheConfigurationArgs',
-    'KxClusterSavedownStorageConfigurationArgs',
-    'KxClusterVpcConfigurationArgs',
-    'KxEnvironmentCustomDnsConfigurationArgs',
-    'KxEnvironmentTransitGatewayConfigurationArgs',
-    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs',
-    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs',
-    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs',
+    'KxClusterAutoScalingConfigurationArrgs',
+    'KxClusterCacheStorageConfigurationArrgs',
+    'KxClusterCapacityConfigurationArrgs',
+    'KxClusterCodeArrgs',
+    'KxClusterDatabaseArrgs',
+    'KxClusterDatabaseCacheConfigurationArrgs',
+    'KxClusterSavedownStorageConfigurationArrgs',
+    'KxClusterVpcConfigurationArrgs',
+    'KxEnvironmentCustomDnsConfigurationArrgs',
+    'KxEnvironmentTransitGatewayConfigurationArrgs',
+    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrgs',
+    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArrgs',
+    'KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArrgs',
 ]
 
 @pulumi.input_type
-class KxClusterAutoScalingConfigurationArgs:
+calass KxClusterAutoScalingConfigurationArrgs:
     def __init__(__self__, *,
                  auto_scaling_metric: pulumi.Input[str],
                  max_node_count: pulumi.Input[int],
@@ -123,7 +123,7 @@ class KxClusterAutoScalingConfigurationArgs:
 
 
 @pulumi.input_type
-class KxClusterCacheStorageConfigurationArgs:
+calass KxClusterCacheStorageConfigurationArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  type: pulumi.Input[str]):
@@ -166,7 +166,7 @@ class KxClusterCacheStorageConfigurationArgs:
 
 
 @pulumi.input_type
-class KxClusterCapacityConfigurationArgs:
+calass KxClusterCapacityConfigurationArrgs:
     def __init__(__self__, *,
                  node_count: pulumi.Input[int],
                  node_type: pulumi.Input[str]):
@@ -221,7 +221,7 @@ class KxClusterCapacityConfigurationArgs:
 
 
 @pulumi.input_type
-class KxClusterCodeArgs:
+calass KxClusterCodeArrgs:
     def __init__(__self__, *,
                  s3_bucket: pulumi.Input[str],
                  s3_key: pulumi.Input[str],
@@ -274,14 +274,14 @@ class KxClusterCodeArgs:
 
 
 @pulumi.input_type
-class KxClusterDatabaseArgs:
+calass KxClusterDatabaseArrgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
-                 cache_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]] = None,
+                 cache_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArrgs']]]] = None,
                  changeset_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] database_name: Name of the KX database.
-        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArrgs']]] cache_configurations: Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         :param pulumi.Input[str] changeset_id: A unique identifier of the changeset that is associated with the cluster.
         """
         pulumi.set(__self__, "database_name", database_name)
@@ -304,14 +304,14 @@ class KxClusterDatabaseArgs:
 
     @property
     @pulumi.getter(name="cacheConfigurations")
-    def cache_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]]:
+    def cache_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArrgs']]]]:
         """
         Configuration details for the disk cache to increase performance reading from a KX database mounted to the cluster. See cache_configurations.
         """
         return pulumi.get(self, "cache_configurations")
 
     @cache_configurations.setter
-    def cache_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArgs']]]]):
+    def cache_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxClusterDatabaseCacheConfigurationArrgs']]]]):
         pulumi.set(self, "cache_configurations", value)
 
     @property
@@ -328,7 +328,7 @@ class KxClusterDatabaseArgs:
 
 
 @pulumi.input_type
-class KxClusterDatabaseCacheConfigurationArgs:
+calass KxClusterDatabaseCacheConfigurationArrgs:
     def __init__(__self__, *,
                  cache_type: pulumi.Input[str],
                  db_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -366,7 +366,7 @@ class KxClusterDatabaseCacheConfigurationArgs:
 
 
 @pulumi.input_type
-class KxClusterSavedownStorageConfigurationArgs:
+calass KxClusterSavedownStorageConfigurationArrgs:
     def __init__(__self__, *,
                  size: pulumi.Input[int],
                  type: pulumi.Input[str]):
@@ -405,7 +405,7 @@ class KxClusterSavedownStorageConfigurationArgs:
 
 
 @pulumi.input_type
-class KxClusterVpcConfigurationArgs:
+calass KxClusterVpcConfigurationArrgs:
     def __init__(__self__, *,
                  ip_address_type: pulumi.Input[str],
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -470,7 +470,7 @@ class KxClusterVpcConfigurationArgs:
 
 
 @pulumi.input_type
-class KxEnvironmentCustomDnsConfigurationArgs:
+calass KxEnvironmentCustomDnsConfigurationArrgs:
     def __init__(__self__, *,
                  custom_dns_server_ip: pulumi.Input[str],
                  custom_dns_server_name: pulumi.Input[str]):
@@ -507,15 +507,15 @@ class KxEnvironmentCustomDnsConfigurationArgs:
 
 
 @pulumi.input_type
-class KxEnvironmentTransitGatewayConfigurationArgs:
+calass KxEnvironmentTransitGatewayConfigurationArrgs:
     def __init__(__self__, *,
                  routable_cidr_space: pulumi.Input[str],
                  transit_gateway_id: pulumi.Input[str],
-                 attachment_network_acl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]]] = None):
+                 attachment_network_acl_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrgs']]]] = None):
         """
         :param pulumi.Input[str] routable_cidr_space: Routing CIDR on behalf of KX environment. It could be any “/26 range in the 100.64.0.0 CIDR space. After providing, it will be added to the customer’s transit gateway routing table so that the traffics could be routed to KX network.
         :param pulumi.Input[str] transit_gateway_id: Identifier of the transit gateway created by the customer to connect outbound traffics from KX network to your internal network.
-        :param pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]] attachment_network_acl_configurations: Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrgs']]] attachment_network_acl_configurations: Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
         """
         pulumi.set(__self__, "routable_cidr_space", routable_cidr_space)
         pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
@@ -548,33 +548,33 @@ class KxEnvironmentTransitGatewayConfigurationArgs:
 
     @property
     @pulumi.getter(name="attachmentNetworkAclConfigurations")
-    def attachment_network_acl_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]]]:
+    def attachment_network_acl_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrgs']]]]:
         """
         Rules that define how you manage outbound traffic from kdb network to your internal network. Defined below.
         """
         return pulumi.get(self, "attachment_network_acl_configurations")
 
     @attachment_network_acl_configurations.setter
-    def attachment_network_acl_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs']]]]):
+    def attachment_network_acl_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrgs']]]]):
         pulumi.set(self, "attachment_network_acl_configurations", value)
 
 
 @pulumi.input_type
-class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArgs:
+calass KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationArrgs:
     def __init__(__self__, *,
                  cidr_block: pulumi.Input[str],
                  protocol: pulumi.Input[str],
                  rule_action: pulumi.Input[str],
                  rule_number: pulumi.Input[int],
-                 icmp_type_code: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs']] = None,
-                 port_range: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs']] = None):
+                 icmp_type_code: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArrgs']] = None,
+                 port_range: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArrgs']] = None):
         """
         :param pulumi.Input[str] cidr_block: The IPv4 network range to allow or deny, in CIDR notation. The specified CIDR block is modified to its canonical form. For example, `100.68.0.18/18` will be converted to `100.68.0.0/18`.
         :param pulumi.Input[str] protocol: Protocol number. A value of `1` means all the protocols.
         :param pulumi.Input[str] rule_action: Indicates whether to `allow` or `deny` the traffic that matches the rule.
         :param pulumi.Input[int] rule_number: Rule number for the entry. All the network ACL entries are processed in ascending order by rule number.
-        :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs'] icmp_type_code: Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
-        :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs'] port_range: Range of ports the rule applies to. Defined below.
+        :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArrgs'] icmp_type_code: Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
+        :param pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArrgs'] port_range: Range of ports the rule applies to. Defined below.
         """
         pulumi.set(__self__, "cidr_block", cidr_block)
         pulumi.set(__self__, "protocol", protocol)
@@ -635,31 +635,31 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationA
 
     @property
     @pulumi.getter(name="icmpTypeCode")
-    def icmp_type_code(self) -> Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs']]:
+    def icmp_type_code(self) -> Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArrgs']]:
         """
         Defines the ICMP protocol that consists of the ICMP type and code. Defined below.
         """
         return pulumi.get(self, "icmp_type_code")
 
     @icmp_type_code.setter
-    def icmp_type_code(self, value: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs']]):
+    def icmp_type_code(self, value: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArrgs']]):
         pulumi.set(self, "icmp_type_code", value)
 
     @property
     @pulumi.getter(name="portRange")
-    def port_range(self) -> Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs']]:
+    def port_range(self) -> Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArrgs']]:
         """
         Range of ports the rule applies to. Defined below.
         """
         return pulumi.get(self, "port_range")
 
     @port_range.setter
-    def port_range(self, value: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs']]):
+    def port_range(self, value: Optional[pulumi.Input['KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArrgs']]):
         pulumi.set(self, "port_range", value)
 
 
 @pulumi.input_type
-class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArgs:
+calass KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationIcmpTypeCodeArrgs:
     def __init__(__self__, *,
                  code: pulumi.Input[int],
                  type: pulumi.Input[int]):
@@ -696,7 +696,7 @@ class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationI
 
 
 @pulumi.input_type
-class KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArgs:
+calass KxEnvironmentTransitGatewayConfigurationAttachmentNetworkAclConfigurationPortRangeArrgs:
     def __init__(__self__, *,
                  from_: pulumi.Input[int],
                  to: pulumi.Input[int]):

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EnvironmentEC2Args', 'EnvironmentEC2']
+__all__ = ['EnvironmentEC2Arrgs', 'EnvironmentEC2']
 
 @pulumi.input_type
-class EnvironmentEC2Args:
+calass EnvironmentEC2Arrgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
@@ -179,7 +179,7 @@ class EnvironmentEC2Args:
 
 
 @pulumi.input_type
-class _EnvironmentEC2State:
+calass _EnvironmentEC2State:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  automatic_stop_time_minutes: Optional[pulumi.Input[int]] = None,
@@ -400,7 +400,7 @@ class _EnvironmentEC2State:
         pulumi.set(self, "type", value)
 
 
-class EnvironmentEC2(pulumi.CustomResource):
+calass EnvironmentEC2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -436,7 +436,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
+        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArrgs(
             name="tag:aws:cloud9:environment",
             values=[example.id],
         )])
@@ -450,7 +450,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
+        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArrgs(
             name="tag:aws:cloud9:environment",
             values=[example.id],
         )])
@@ -484,7 +484,7 @@ class EnvironmentEC2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnvironmentEC2Args,
+                 args: EnvironmentEC2Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Cloud9 EC2 Development Environment.
@@ -507,7 +507,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
+        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArrgs(
             name="tag:aws:cloud9:environment",
             values=[example.id],
         )])
@@ -521,7 +521,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloud9.EnvironmentEC2("example", instance_type="t2.micro")
-        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArgs(
+        cloud9_instance = aws.ec2.get_instance_output(filters=[aws.ec2.GetInstanceFilterArrgs(
             name="tag:aws:cloud9:environment",
             values=[example.id],
         )])
@@ -532,12 +532,12 @@ class EnvironmentEC2(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EnvironmentEC2Args args: The arguments to use to populate this resource's properties.
+        :param EnvironmentEC2Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentEC2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnvironmentEC2Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -562,7 +562,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnvironmentEC2Args.__new__(EnvironmentEC2Args)
+            __props__ = EnvironmentEC2Arrgs.__new__(EnvironmentEC2Arrgs)
 
             __props__.__dict__["automatic_stop_time_minutes"] = automatic_stop_time_minutes
             __props__.__dict__["connection_type"] = connection_type

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCustomKeyStoreResult:
+calass GetCustomKeyStoreResult:
     """
     A collection of values returned by getCustomKeyStore.
     """
@@ -92,7 +92,7 @@ class GetCustomKeyStoreResult:
         return pulumi.get(self, "trust_anchor_certificate")
 
 
-class AwaitableGetCustomKeyStoreResult(GetCustomKeyStoreResult):
+calass AwaitableGetCustomKeyStoreResult(GetCustomKeyStoreResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

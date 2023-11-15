@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCustomPluginResult:
+calass GetCustomPluginResult:
     """
     A collection of values returned by getCustomPlugin.
     """
@@ -87,7 +87,7 @@ class GetCustomPluginResult:
         return pulumi.get(self, "state")
 
 
-class AwaitableGetCustomPluginResult(GetCustomPluginResult):
+calass AwaitableGetCustomPluginResult(GetCustomPluginResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

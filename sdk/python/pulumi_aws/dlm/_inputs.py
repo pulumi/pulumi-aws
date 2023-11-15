@@ -10,44 +10,44 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LifecyclePolicyPolicyDetailsArgs',
-    'LifecyclePolicyPolicyDetailsActionArgs',
-    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs',
-    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs',
-    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs',
-    'LifecyclePolicyPolicyDetailsEventSourceArgs',
-    'LifecyclePolicyPolicyDetailsEventSourceParametersArgs',
-    'LifecyclePolicyPolicyDetailsParametersArgs',
-    'LifecyclePolicyPolicyDetailsScheduleArgs',
-    'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs',
-    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs',
-    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs',
-    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs',
-    'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs',
-    'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs',
-    'LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs',
-    'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs',
+    'LifecyclePolicyPolicyDetailsArrgs',
+    'LifecyclePolicyPolicyDetailsActionArrgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs',
+    'LifecyclePolicyPolicyDetailsEventSourceArrgs',
+    'LifecyclePolicyPolicyDetailsEventSourceParametersArrgs',
+    'LifecyclePolicyPolicyDetailsParametersArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleCreateRuleArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleRetainRuleArrgs',
+    'LifecyclePolicyPolicyDetailsScheduleShareRuleArrgs',
 ]
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsArgs:
+calass LifecyclePolicyPolicyDetailsArrgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs']] = None,
-                 event_source: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs']] = None,
-                 parameters: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs']] = None,
+                 action: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArrgs']] = None,
+                 event_source: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArrgs']] = None,
+                 parameters: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArrgs']] = None,
                  policy_type: Optional[pulumi.Input[str]] = None,
                  resource_locations: Optional[pulumi.Input[str]] = None,
                  resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArrgs']]]] = None,
                  target_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs'] action: The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs'] event_source: The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs'] parameters: Information about the event. See the `parameters` configuration block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionArrgs'] action: The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArrgs'] event_source: The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsParametersArrgs'] parameters: Information about the event. See the `parameters` configuration block.
         :param pulumi.Input[str] policy_type: The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
         :param pulumi.Input[str] resource_locations: The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
-        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]] schedules: See the `schedule` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArrgs']]] schedules: See the `schedule` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_tags: A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
                
                > Note: You cannot have overlapping lifecycle policies that share the same `target_tags`. Pulumi is unable to detect this at plan time but it will fail during apply.
@@ -71,38 +71,38 @@ class LifecyclePolicyPolicyDetailsArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArrgs']]:
         """
         The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter(name="eventSource")
-    def event_source(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs']]:
+    def event_source(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArrgs']]:
         """
         The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
         """
         return pulumi.get(self, "event_source")
 
     @event_source.setter
-    def event_source(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs']]):
+    def event_source(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArrgs']]):
         pulumi.set(self, "event_source", value)
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs']]:
+    def parameters(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArrgs']]:
         """
         Information about the event. See the `parameters` configuration block.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs']]):
+    def parameters(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArrgs']]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -143,14 +143,14 @@ class LifecyclePolicyPolicyDetailsArgs:
 
     @property
     @pulumi.getter
-    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]]:
+    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArrgs']]]]:
         """
         See the `schedule` configuration block.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]]):
+    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArrgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @property
@@ -169,12 +169,12 @@ class LifecyclePolicyPolicyDetailsArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsActionArgs:
+calass LifecyclePolicyPolicyDetailsActionArrgs:
     def __init__(__self__, *,
-                 cross_region_copies: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]],
+                 cross_region_copies: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs']]],
                  name: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]] cross_region_copies: The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs']]] cross_region_copies: The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
         :param pulumi.Input[str] name: A descriptive name for the action.
         """
         pulumi.set(__self__, "cross_region_copies", cross_region_copies)
@@ -182,14 +182,14 @@ class LifecyclePolicyPolicyDetailsActionArgs:
 
     @property
     @pulumi.getter(name="crossRegionCopies")
-    def cross_region_copies(self) -> pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]]:
+    def cross_region_copies(self) -> pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs']]]:
         """
         The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
         """
         return pulumi.get(self, "cross_region_copies")
 
     @cross_region_copies.setter
-    def cross_region_copies(self, value: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]]):
+    def cross_region_copies(self, value: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs']]]):
         pulumi.set(self, "cross_region_copies", value)
 
     @property
@@ -206,15 +206,15 @@ class LifecyclePolicyPolicyDetailsActionArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
+calass LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrgs:
     def __init__(__self__, *,
-                 encryption_configuration: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs'],
+                 encryption_configuration: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs'],
                  target: pulumi.Input[str],
-                 retain_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs']] = None):
+                 retain_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs']] = None):
         """
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs'] encryption_configuration: The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs'] encryption_configuration: The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
         :param pulumi.Input[str] target: The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs'] retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs'] retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         """
         pulumi.set(__self__, "encryption_configuration", encryption_configuration)
         pulumi.set(__self__, "target", target)
@@ -223,14 +223,14 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs']:
+    def encryption_configuration(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs']:
         """
         The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs']):
+    def encryption_configuration(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs']):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
@@ -247,19 +247,19 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
 
     @property
     @pulumi.getter(name="retainRule")
-    def retain_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs']]:
+    def retain_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs']]:
         """
         Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         """
         return pulumi.get(self, "retain_rule")
 
     @retain_rule.setter
-    def retain_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs']]):
+    def retain_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs']]):
         pulumi.set(self, "retain_rule", value)
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs:
+calass LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArrgs:
     def __init__(__self__, *,
                  cmk_arn: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None):
@@ -298,7 +298,7 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationAr
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs:
+calass LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArrgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[int],
                  interval_unit: pulumi.Input[str]):
@@ -335,12 +335,12 @@ class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsEventSourceArgs:
+calass LifecyclePolicyPolicyDetailsEventSourceArrgs:
     def __init__(__self__, *,
-                 parameters: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs'],
+                 parameters: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArrgs'],
                  type: pulumi.Input[str]):
         """
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs'] parameters: Information about the event. See the `parameters` configuration block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArrgs'] parameters: Information about the event. See the `parameters` configuration block.
         :param pulumi.Input[str] type: The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
         """
         pulumi.set(__self__, "parameters", parameters)
@@ -348,14 +348,14 @@ class LifecyclePolicyPolicyDetailsEventSourceArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs']:
+    def parameters(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArrgs']:
         """
         Information about the event. See the `parameters` configuration block.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs']):
+    def parameters(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArrgs']):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -372,7 +372,7 @@ class LifecyclePolicyPolicyDetailsEventSourceArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
+calass LifecyclePolicyPolicyDetailsEventSourceParametersArrgs:
     def __init__(__self__, *,
                  description_regex: pulumi.Input[str],
                  event_type: pulumi.Input[str],
@@ -424,7 +424,7 @@ class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsParametersArgs:
+calass LifecyclePolicyPolicyDetailsParametersArrgs:
     def __init__(__self__, *,
                  exclude_boot_volume: Optional[pulumi.Input[bool]] = None,
                  no_reboot: Optional[pulumi.Input[bool]] = None):
@@ -463,27 +463,27 @@ class LifecyclePolicyPolicyDetailsParametersArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleArrgs:
     def __init__(__self__, *,
-                 create_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs'],
+                 create_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArrgs'],
                  name: pulumi.Input[str],
-                 retain_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs'],
+                 retain_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArrgs'],
                  copy_tags: Optional[pulumi.Input[bool]] = None,
-                 cross_region_copy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]]] = None,
-                 deprecate_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs']] = None,
-                 fast_restore_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs']] = None,
-                 share_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']] = None,
+                 cross_region_copy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrgs']]]] = None,
+                 deprecate_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArrgs']] = None,
+                 fast_restore_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArrgs']] = None,
+                 share_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArrgs']] = None,
                  tags_to_add: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  variable_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs'] create_rule: See the `create_rule` block. Max of 1 per schedule.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArrgs'] create_rule: See the `create_rule` block. Max of 1 per schedule.
         :param pulumi.Input[str] name: A descriptive name for the action.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs'] retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArrgs'] retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         :param pulumi.Input[bool] copy_tags: Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]] cross_region_copy_rules: See the `cross_region_copy_rule` block. Max of 3 per schedule.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs'] deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs'] fast_restore_rule: See the `fast_restore_rule` block. Max of 1 per schedule.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs'] share_rule: See the `share_rule` block. Max of 1 per schedule.
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrgs']]] cross_region_copy_rules: See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArrgs'] deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArrgs'] fast_restore_rule: See the `fast_restore_rule` block. Max of 1 per schedule.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArrgs'] share_rule: See the `share_rule` block. Max of 1 per schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_to_add: A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variable_tags: A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
         """
@@ -507,14 +507,14 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
 
     @property
     @pulumi.getter(name="createRule")
-    def create_rule(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs']:
+    def create_rule(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArrgs']:
         """
         See the `create_rule` block. Max of 1 per schedule.
         """
         return pulumi.get(self, "create_rule")
 
     @create_rule.setter
-    def create_rule(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs']):
+    def create_rule(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArrgs']):
         pulumi.set(self, "create_rule", value)
 
     @property
@@ -531,14 +531,14 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
 
     @property
     @pulumi.getter(name="retainRule")
-    def retain_rule(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs']:
+    def retain_rule(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArrgs']:
         """
         Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         """
         return pulumi.get(self, "retain_rule")
 
     @retain_rule.setter
-    def retain_rule(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs']):
+    def retain_rule(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArrgs']):
         pulumi.set(self, "retain_rule", value)
 
     @property
@@ -555,50 +555,50 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
 
     @property
     @pulumi.getter(name="crossRegionCopyRules")
-    def cross_region_copy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]]]:
+    def cross_region_copy_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrgs']]]]:
         """
         See the `cross_region_copy_rule` block. Max of 3 per schedule.
         """
         return pulumi.get(self, "cross_region_copy_rules")
 
     @cross_region_copy_rules.setter
-    def cross_region_copy_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]]]):
+    def cross_region_copy_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrgs']]]]):
         pulumi.set(self, "cross_region_copy_rules", value)
 
     @property
     @pulumi.getter(name="deprecateRule")
-    def deprecate_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs']]:
+    def deprecate_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArrgs']]:
         """
         The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
         """
         return pulumi.get(self, "deprecate_rule")
 
     @deprecate_rule.setter
-    def deprecate_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs']]):
+    def deprecate_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArrgs']]):
         pulumi.set(self, "deprecate_rule", value)
 
     @property
     @pulumi.getter(name="fastRestoreRule")
-    def fast_restore_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs']]:
+    def fast_restore_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArrgs']]:
         """
         See the `fast_restore_rule` block. Max of 1 per schedule.
         """
         return pulumi.get(self, "fast_restore_rule")
 
     @fast_restore_rule.setter
-    def fast_restore_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs']]):
+    def fast_restore_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArrgs']]):
         pulumi.set(self, "fast_restore_rule", value)
 
     @property
     @pulumi.getter(name="shareRule")
-    def share_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']]:
+    def share_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArrgs']]:
         """
         See the `share_rule` block. Max of 1 per schedule.
         """
         return pulumi.get(self, "share_rule")
 
     @share_rule.setter
-    def share_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']]):
+    def share_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArrgs']]):
         pulumi.set(self, "share_rule", value)
 
     @property
@@ -627,7 +627,7 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleCreateRuleArrgs:
     def __init__(__self__, *,
                  cron_expression: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -714,21 +714,21 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrgs:
     def __init__(__self__, *,
                  encrypted: pulumi.Input[bool],
                  target: pulumi.Input[str],
                  cmk_arn: Optional[pulumi.Input[str]] = None,
                  copy_tags: Optional[pulumi.Input[bool]] = None,
-                 deprecate_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs']] = None,
-                 retain_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs']] = None):
+                 deprecate_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArrgs']] = None,
+                 retain_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArrgs']] = None):
         """
         :param pulumi.Input[bool] encrypted: To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
         :param pulumi.Input[str] target: The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
         :param pulumi.Input[str] cmk_arn: The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
         :param pulumi.Input[bool] copy_tags: Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs'] deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
-        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs'] retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArrgs'] deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArrgs'] retain_rule: Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         """
         pulumi.set(__self__, "encrypted", encrypted)
         pulumi.set(__self__, "target", target)
@@ -791,31 +791,31 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs:
 
     @property
     @pulumi.getter(name="deprecateRule")
-    def deprecate_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs']]:
+    def deprecate_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArrgs']]:
         """
         The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
         """
         return pulumi.get(self, "deprecate_rule")
 
     @deprecate_rule.setter
-    def deprecate_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs']]):
+    def deprecate_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArrgs']]):
         pulumi.set(self, "deprecate_rule", value)
 
     @property
     @pulumi.getter(name="retainRule")
-    def retain_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs']]:
+    def retain_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArrgs']]:
         """
         Specifies the retention rule for cross-Region snapshot copies. See the `retain_rule` block. Max of 1 per action.
         """
         return pulumi.get(self, "retain_rule")
 
     @retain_rule.setter
-    def retain_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs']]):
+    def retain_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArrgs']]):
         pulumi.set(self, "retain_rule", value)
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArrgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[int],
                  interval_unit: pulumi.Input[str]):
@@ -852,7 +852,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArrgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[int],
                  interval_unit: pulumi.Input[str]):
@@ -889,7 +889,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArrgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -944,7 +944,7 @@ class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArrgs:
     def __init__(__self__, *,
                  availability_zones: pulumi.Input[Sequence[pulumi.Input[str]]],
                  count: Optional[pulumi.Input[int]] = None,
@@ -1014,7 +1014,7 @@ class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleRetainRuleArrgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -1069,7 +1069,7 @@ class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs:
+calass LifecyclePolicyPolicyDetailsScheduleShareRuleArrgs:
     def __init__(__self__, *,
                  target_accounts: pulumi.Input[Sequence[pulumi.Input[str]]],
                  unshare_interval: Optional[pulumi.Input[int]] = None,

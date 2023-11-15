@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PatchGroupArgs', 'PatchGroup']
+__all__ = ['PatchGroupArrgs', 'PatchGroup']
 
 @pulumi.input_type
-class PatchGroupArgs:
+calass PatchGroupArrgs:
     def __init__(__self__, *,
                  baseline_id: pulumi.Input[str],
                  patch_group: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class PatchGroupArgs:
 
 
 @pulumi.input_type
-class _PatchGroupState:
+calass _PatchGroupState:
     def __init__(__self__, *,
                  baseline_id: Optional[pulumi.Input[str]] = None,
                  patch_group: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _PatchGroupState:
         pulumi.set(self, "patch_group", value)
 
 
-class PatchGroup(pulumi.CustomResource):
+calass PatchGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -121,7 +121,7 @@ class PatchGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PatchGroupArgs,
+                 args: PatchGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SSM Patch Group resource
@@ -139,12 +139,12 @@ class PatchGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PatchGroupArgs args: The arguments to use to populate this resource's properties.
+        :param PatchGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PatchGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PatchGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -162,7 +162,7 @@ class PatchGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PatchGroupArgs.__new__(PatchGroupArgs)
+            __props__ = PatchGroupArrgs.__new__(PatchGroupArrgs)
 
             if baseline_id is None and not opts.urn:
                 raise TypeError("Missing required property 'baseline_id'")

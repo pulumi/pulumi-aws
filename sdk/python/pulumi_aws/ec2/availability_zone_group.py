@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AvailabilityZoneGroupArgs', 'AvailabilityZoneGroup']
+__all__ = ['AvailabilityZoneGroupArrgs', 'AvailabilityZoneGroup']
 
 @pulumi.input_type
-class AvailabilityZoneGroupArgs:
+calass AvailabilityZoneGroupArrgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[str],
                  opt_in_status: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class AvailabilityZoneGroupArgs:
 
 
 @pulumi.input_type
-class _AvailabilityZoneGroupState:
+calass _AvailabilityZoneGroupState:
     def __init__(__self__, *,
                  group_name: Optional[pulumi.Input[str]] = None,
                  opt_in_status: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _AvailabilityZoneGroupState:
         pulumi.set(self, "opt_in_status", value)
 
 
-class AvailabilityZoneGroup(pulumi.CustomResource):
+calass AvailabilityZoneGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -130,7 +130,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AvailabilityZoneGroupArgs,
+                 args: AvailabilityZoneGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Availability Zone Group, such as updating its opt-in status.
@@ -157,12 +157,12 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AvailabilityZoneGroupArgs args: The arguments to use to populate this resource's properties.
+        :param AvailabilityZoneGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AvailabilityZoneGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AvailabilityZoneGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -180,7 +180,7 @@ class AvailabilityZoneGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AvailabilityZoneGroupArgs.__new__(AvailabilityZoneGroupArgs)
+            __props__ = AvailabilityZoneGroupArrgs.__new__(AvailabilityZoneGroupArrgs)
 
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")

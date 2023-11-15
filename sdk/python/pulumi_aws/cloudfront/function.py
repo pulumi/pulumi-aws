@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FunctionArgs', 'Function']
+__all__ = ['FunctionArrgs', 'Function']
 
 @pulumi.input_type
-class FunctionArgs:
+calass FunctionArrgs:
     def __init__(__self__, *,
                  code: pulumi.Input[str],
                  runtime: pulumi.Input[str],
@@ -102,7 +102,7 @@ class FunctionArgs:
 
 
 @pulumi.input_type
-class _FunctionState:
+calass _FunctionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[str]] = None,
@@ -257,7 +257,7 @@ class _FunctionState:
         pulumi.set(self, "status", value)
 
 
-class Function(pulumi.CustomResource):
+calass Function(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -311,7 +311,7 @@ class Function(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FunctionArgs,
+                 args: FunctionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudFront Function resource. With CloudFront Functions in Amazon CloudFront, you can write lightweight functions in JavaScript for high-scale, latency-sensitive CDN customizations.
@@ -343,12 +343,12 @@ class Function(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FunctionArgs args: The arguments to use to populate this resource's properties.
+        :param FunctionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FunctionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FunctionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -369,7 +369,7 @@ class Function(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FunctionArgs.__new__(FunctionArgs)
+            __props__ = FunctionArrgs.__new__(FunctionArrgs)
 
             if code is None and not opts.urn:
                 raise TypeError("Missing required property 'code'")

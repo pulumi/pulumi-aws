@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetServerResult:
+calass GetServerResult:
     """
     A collection of values returned by getServer.
     """
@@ -175,7 +175,7 @@ class GetServerResult:
         return pulumi.get(self, "url")
 
 
-class AwaitableGetServerResult(GetServerResult):
+calass AwaitableGetServerResult(GetServerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

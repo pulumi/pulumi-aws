@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventSubscriptionArgs', 'EventSubscription']
+__all__ = ['EventSubscriptionArrgs', 'EventSubscription']
 
 @pulumi.input_type
-class EventSubscriptionArgs:
+calass EventSubscriptionArrgs:
     def __init__(__self__, *,
                  sns_topic: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -147,7 +147,7 @@ class EventSubscriptionArgs:
 
 
 @pulumi.input_type
-class _EventSubscriptionState:
+calass _EventSubscriptionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  customer_aws_id: Optional[pulumi.Input[str]] = None,
@@ -336,7 +336,7 @@ class _EventSubscriptionState:
         pulumi.set(self, "tags_all", value)
 
 
-class EventSubscription(pulumi.CustomResource):
+calass EventSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -411,7 +411,7 @@ class EventSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventSubscriptionArgs,
+                 args: EventSubscriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a DB event subscription resource.
@@ -460,12 +460,12 @@ class EventSubscription(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param EventSubscriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventSubscriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -489,7 +489,7 @@ class EventSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventSubscriptionArgs.__new__(EventSubscriptionArgs)
+            __props__ = EventSubscriptionArrgs.__new__(EventSubscriptionArrgs)
 
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["event_categories"] = event_categories

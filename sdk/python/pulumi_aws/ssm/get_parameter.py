@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetParameterResult:
+calass GetParameterResult:
     """
     A collection of values returned by getParameter.
     """
@@ -91,7 +91,7 @@ class GetParameterResult:
         return pulumi.get(self, "with_decryption")
 
 
-class AwaitableGetParameterResult(GetParameterResult):
+calass AwaitableGetParameterResult(GetParameterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RouteCalculationArgs', 'RouteCalculation']
+__all__ = ['RouteCalculationArrgs', 'RouteCalculation']
 
 @pulumi.input_type
-class RouteCalculationArgs:
+calass RouteCalculationArrgs:
     def __init__(__self__, *,
                  calculator_name: pulumi.Input[str],
                  data_source: pulumi.Input[str],
@@ -86,7 +86,7 @@ class RouteCalculationArgs:
 
 
 @pulumi.input_type
-class _RouteCalculationState:
+calass _RouteCalculationState:
     def __init__(__self__, *,
                  calculator_arn: Optional[pulumi.Input[str]] = None,
                  calculator_name: Optional[pulumi.Input[str]] = None,
@@ -231,7 +231,7 @@ class _RouteCalculationState:
         pulumi.set(self, "update_time", value)
 
 
-class RouteCalculation(pulumi.CustomResource):
+calass RouteCalculation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -276,7 +276,7 @@ class RouteCalculation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RouteCalculationArgs,
+                 args: RouteCalculationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Location Service Route Calculator.
@@ -301,12 +301,12 @@ class RouteCalculation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RouteCalculationArgs args: The arguments to use to populate this resource's properties.
+        :param RouteCalculationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RouteCalculationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RouteCalculationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -326,7 +326,7 @@ class RouteCalculation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RouteCalculationArgs.__new__(RouteCalculationArgs)
+            __props__ = RouteCalculationArrgs.__new__(RouteCalculationArrgs)
 
             if calculator_name is None and not opts.urn:
                 raise TypeError("Missing required property 'calculator_name'")

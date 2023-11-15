@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountSettingDefaultArgs', 'AccountSettingDefault']
+__all__ = ['AccountSettingDefaultArrgs', 'AccountSettingDefault']
 
 @pulumi.input_type
-class AccountSettingDefaultArgs:
+calass AccountSettingDefaultArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class AccountSettingDefaultArgs:
 
 
 @pulumi.input_type
-class _AccountSettingDefaultState:
+calass _AccountSettingDefaultState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  principal_arn: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class _AccountSettingDefaultState:
         pulumi.set(self, "value", value)
 
 
-class AccountSettingDefault(pulumi.CustomResource):
+calass AccountSettingDefault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -143,7 +143,7 @@ class AccountSettingDefault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountSettingDefaultArgs,
+                 args: AccountSettingDefaultArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an ECS default account setting for a specific ECS Resource name within a specific region. More information can be found on the [ECS Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html).
@@ -170,12 +170,12 @@ class AccountSettingDefault(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountSettingDefaultArgs args: The arguments to use to populate this resource's properties.
+        :param AccountSettingDefaultArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountSettingDefaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountSettingDefaultArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -193,7 +193,7 @@ class AccountSettingDefault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountSettingDefaultArgs.__new__(AccountSettingDefaultArgs)
+            __props__ = AccountSettingDefaultArrgs.__new__(AccountSettingDefaultArrgs)
 
             __props__.__dict__["name"] = name
             if value is None and not opts.urn:

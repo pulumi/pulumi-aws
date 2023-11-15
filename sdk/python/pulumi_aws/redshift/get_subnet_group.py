@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSubnetGroupResult:
+calass GetSubnetGroupResult:
     """
     A collection of values returned by getSubnetGroup.
     """
@@ -87,7 +87,7 @@ class GetSubnetGroupResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
+calass AwaitableGetSubnetGroupResult(GetSubnetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

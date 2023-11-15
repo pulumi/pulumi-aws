@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SecurityTokenServicePreferencesArgs', 'SecurityTokenServicePreferences']
+__all__ = ['SecurityTokenServicePreferencesArrgs', 'SecurityTokenServicePreferences']
 
 @pulumi.input_type
-class SecurityTokenServicePreferencesArgs:
+calass SecurityTokenServicePreferencesArrgs:
     def __init__(__self__, *,
                  global_endpoint_token_version: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class SecurityTokenServicePreferencesArgs:
 
 
 @pulumi.input_type
-class _SecurityTokenServicePreferencesState:
+calass _SecurityTokenServicePreferencesState:
     def __init__(__self__, *,
                  global_endpoint_token_version: Optional[pulumi.Input[str]] = None):
         """
@@ -58,7 +58,7 @@ class _SecurityTokenServicePreferencesState:
         pulumi.set(self, "global_endpoint_token_version", value)
 
 
-class SecurityTokenServicePreferences(pulumi.CustomResource):
+calass SecurityTokenServicePreferences(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -85,7 +85,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecurityTokenServicePreferencesArgs,
+                 args: SecurityTokenServicePreferencesArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM Security Token Service Preferences resource.
@@ -100,12 +100,12 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SecurityTokenServicePreferencesArgs args: The arguments to use to populate this resource's properties.
+        :param SecurityTokenServicePreferencesArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SecurityTokenServicePreferencesArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SecurityTokenServicePreferencesArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -122,7 +122,7 @@ class SecurityTokenServicePreferences(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SecurityTokenServicePreferencesArgs.__new__(SecurityTokenServicePreferencesArgs)
+            __props__ = SecurityTokenServicePreferencesArrgs.__new__(SecurityTokenServicePreferencesArrgs)
 
             if global_endpoint_token_version is None and not opts.urn:
                 raise TypeError("Missing required property 'global_endpoint_token_version'")

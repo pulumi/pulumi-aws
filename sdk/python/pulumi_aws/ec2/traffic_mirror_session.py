@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TrafficMirrorSessionArgs', 'TrafficMirrorSession']
+__all__ = ['TrafficMirrorSessionArrgs', 'TrafficMirrorSession']
 
 @pulumi.input_type
-class TrafficMirrorSessionArgs:
+calass TrafficMirrorSessionArrgs:
     def __init__(__self__, *,
                  network_interface_id: pulumi.Input[str],
                  session_number: pulumi.Input[int],
@@ -144,7 +144,7 @@ class TrafficMirrorSessionArgs:
 
 
 @pulumi.input_type
-class _TrafficMirrorSessionState:
+calass _TrafficMirrorSessionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -333,7 +333,7 @@ class _TrafficMirrorSessionState:
         pulumi.set(self, "virtual_network_id", value)
 
 
-class TrafficMirrorSession(pulumi.CustomResource):
+calass TrafficMirrorSession(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -394,7 +394,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TrafficMirrorSessionArgs,
+                 args: TrafficMirrorSessionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Traffic mirror session.\\
@@ -429,12 +429,12 @@ class TrafficMirrorSession(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TrafficMirrorSessionArgs args: The arguments to use to populate this resource's properties.
+        :param TrafficMirrorSessionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TrafficMirrorSessionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TrafficMirrorSessionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -458,7 +458,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TrafficMirrorSessionArgs.__new__(TrafficMirrorSessionArgs)
+            __props__ = TrafficMirrorSessionArrgs.__new__(TrafficMirrorSessionArrgs)
 
             __props__.__dict__["description"] = description
             if network_interface_id is None and not opts.urn:

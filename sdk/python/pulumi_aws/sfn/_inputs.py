@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AliasRoutingConfigurationArgs',
-    'StateMachineLoggingConfigurationArgs',
-    'StateMachineTracingConfigurationArgs',
+    'AliasRoutingConfigurationArrgs',
+    'StateMachineLoggingConfigurationArrgs',
+    'StateMachineTracingConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class AliasRoutingConfigurationArgs:
+calass AliasRoutingConfigurationArrgs:
     def __init__(__self__, *,
                  state_machine_version_arn: pulumi.Input[str],
                  weight: pulumi.Input[int]):
@@ -53,7 +53,7 @@ class AliasRoutingConfigurationArgs:
 
 
 @pulumi.input_type
-class StateMachineLoggingConfigurationArgs:
+calass StateMachineLoggingConfigurationArrgs:
     def __init__(__self__, *,
                  include_execution_data: Optional[pulumi.Input[bool]] = None,
                  level: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class StateMachineLoggingConfigurationArgs:
 
 
 @pulumi.input_type
-class StateMachineTracingConfigurationArgs:
+calass StateMachineTracingConfigurationArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """

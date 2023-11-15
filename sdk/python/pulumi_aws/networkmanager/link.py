@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinkArgs', 'Link']
+__all__ = ['LinkArrgs', 'Link']
 
 @pulumi.input_type
-class LinkArgs:
+calass LinkArrgs:
     def __init__(__self__, *,
-                 bandwidth: pulumi.Input['LinkBandwidthArgs'],
+                 bandwidth: pulumi.Input['LinkBandwidthArrgs'],
                  global_network_id: pulumi.Input[str],
                  site_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class LinkArgs:
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Link resource.
-        :param pulumi.Input['LinkBandwidthArgs'] bandwidth: The upload speed and download speed in Mbps. Documented below.
+        :param pulumi.Input['LinkBandwidthArrgs'] bandwidth: The upload speed and download speed in Mbps. Documented below.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] site_id: The ID of the site.
         :param pulumi.Input[str] description: A description of the link.
@@ -47,14 +47,14 @@ class LinkArgs:
 
     @property
     @pulumi.getter
-    def bandwidth(self) -> pulumi.Input['LinkBandwidthArgs']:
+    def bandwidth(self) -> pulumi.Input['LinkBandwidthArrgs']:
         """
         The upload speed and download speed in Mbps. Documented below.
         """
         return pulumi.get(self, "bandwidth")
 
     @bandwidth.setter
-    def bandwidth(self, value: pulumi.Input['LinkBandwidthArgs']):
+    def bandwidth(self, value: pulumi.Input['LinkBandwidthArrgs']):
         pulumi.set(self, "bandwidth", value)
 
     @property
@@ -131,10 +131,10 @@ class LinkArgs:
 
 
 @pulumi.input_type
-class _LinkState:
+calass _LinkState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 bandwidth: Optional[pulumi.Input['LinkBandwidthArgs']] = None,
+                 bandwidth: Optional[pulumi.Input['LinkBandwidthArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
@@ -145,7 +145,7 @@ class _LinkState:
         """
         Input properties used for looking up and filtering Link resources.
         :param pulumi.Input[str] arn: Link Amazon Resource Name (ARN).
-        :param pulumi.Input['LinkBandwidthArgs'] bandwidth: The upload speed and download speed in Mbps. Documented below.
+        :param pulumi.Input['LinkBandwidthArrgs'] bandwidth: The upload speed and download speed in Mbps. Documented below.
         :param pulumi.Input[str] description: A description of the link.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider_name: The provider of the link.
@@ -190,14 +190,14 @@ class _LinkState:
 
     @property
     @pulumi.getter
-    def bandwidth(self) -> Optional[pulumi.Input['LinkBandwidthArgs']]:
+    def bandwidth(self) -> Optional[pulumi.Input['LinkBandwidthArrgs']]:
         """
         The upload speed and download speed in Mbps. Documented below.
         """
         return pulumi.get(self, "bandwidth")
 
     @bandwidth.setter
-    def bandwidth(self, value: Optional[pulumi.Input['LinkBandwidthArgs']]):
+    def bandwidth(self, value: Optional[pulumi.Input['LinkBandwidthArrgs']]):
         pulumi.set(self, "bandwidth", value)
 
     @property
@@ -288,12 +288,12 @@ class _LinkState:
         pulumi.set(self, "type", value)
 
 
-class Link(pulumi.CustomResource):
+calass Link(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: Optional[pulumi.Input[pulumi.InputType['LinkBandwidthArgs']]] = None,
+                 bandwidth: Optional[pulumi.Input[pulumi.InputType['LinkBandwidthArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
@@ -313,7 +313,7 @@ class Link(pulumi.CustomResource):
         example = aws.networkmanager.Link("example",
             global_network_id=aws_networkmanager_global_network["example"]["id"],
             site_id=aws_networkmanager_site["example"]["id"],
-            bandwidth=aws.networkmanager.LinkBandwidthArgs(
+            bandwidth=aws.networkmanager.LinkBandwidthArrgs(
                 upload_speed=10,
                 download_speed=50,
             ),
@@ -330,7 +330,7 @@ class Link(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['LinkBandwidthArgs']] bandwidth: The upload speed and download speed in Mbps. Documented below.
+        :param pulumi.Input[pulumi.InputType['LinkBandwidthArrgs']] bandwidth: The upload speed and download speed in Mbps. Documented below.
         :param pulumi.Input[str] description: A description of the link.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider_name: The provider of the link.
@@ -342,7 +342,7 @@ class Link(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkArgs,
+                 args: LinkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates a link for a site.
@@ -356,7 +356,7 @@ class Link(pulumi.CustomResource):
         example = aws.networkmanager.Link("example",
             global_network_id=aws_networkmanager_global_network["example"]["id"],
             site_id=aws_networkmanager_site["example"]["id"],
-            bandwidth=aws.networkmanager.LinkBandwidthArgs(
+            bandwidth=aws.networkmanager.LinkBandwidthArrgs(
                 upload_speed=10,
                 download_speed=50,
             ),
@@ -372,12 +372,12 @@ class Link(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkArgs args: The arguments to use to populate this resource's properties.
+        :param LinkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -386,7 +386,7 @@ class Link(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth: Optional[pulumi.Input[pulumi.InputType['LinkBandwidthArgs']]] = None,
+                 bandwidth: Optional[pulumi.Input[pulumi.InputType['LinkBandwidthArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
@@ -400,7 +400,7 @@ class Link(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkArgs.__new__(LinkArgs)
+            __props__ = LinkArrgs.__new__(LinkArrgs)
 
             if bandwidth is None and not opts.urn:
                 raise TypeError("Missing required property 'bandwidth'")
@@ -430,7 +430,7 @@ class Link(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            bandwidth: Optional[pulumi.Input[pulumi.InputType['LinkBandwidthArgs']]] = None,
+            bandwidth: Optional[pulumi.Input[pulumi.InputType['LinkBandwidthArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             global_network_id: Optional[pulumi.Input[str]] = None,
             provider_name: Optional[pulumi.Input[str]] = None,
@@ -446,7 +446,7 @@ class Link(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Link Amazon Resource Name (ARN).
-        :param pulumi.Input[pulumi.InputType['LinkBandwidthArgs']] bandwidth: The upload speed and download speed in Mbps. Documented below.
+        :param pulumi.Input[pulumi.InputType['LinkBandwidthArrgs']] bandwidth: The upload speed and download speed in Mbps. Documented below.
         :param pulumi.Input[str] description: A description of the link.
         :param pulumi.Input[str] global_network_id: The ID of the global network.
         :param pulumi.Input[str] provider_name: The provider of the link.

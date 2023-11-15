@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VideoStreamArgs', 'VideoStream']
+__all__ = ['VideoStreamArrgs', 'VideoStream']
 
 @pulumi.input_type
-class VideoStreamArgs:
+calass VideoStreamArrgs:
     def __init__(__self__, *,
                  data_retention_in_hours: Optional[pulumi.Input[int]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
@@ -118,7 +118,7 @@ class VideoStreamArgs:
 
 
 @pulumi.input_type
-class _VideoStreamState:
+calass _VideoStreamState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_time: Optional[pulumi.Input[str]] = None,
@@ -293,7 +293,7 @@ class _VideoStreamState:
         pulumi.set(self, "version", value)
 
 
-class VideoStream(pulumi.CustomResource):
+calass VideoStream(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -347,7 +347,7 @@ class VideoStream(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VideoStreamArgs] = None,
+                 args: Optional[VideoStreamArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Kinesis Video Stream resource. Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning (ML), playback, and other processing.
@@ -378,12 +378,12 @@ class VideoStream(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VideoStreamArgs args: The arguments to use to populate this resource's properties.
+        :param VideoStreamArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VideoStreamArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VideoStreamArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -405,7 +405,7 @@ class VideoStream(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VideoStreamArgs.__new__(VideoStreamArgs)
+            __props__ = VideoStreamArrgs.__new__(VideoStreamArrgs)
 
             __props__.__dict__["data_retention_in_hours"] = data_retention_in_hours
             __props__.__dict__["device_name"] = device_name

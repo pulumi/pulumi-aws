@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'EndpointNetworkInterfaceArgs',
+    'EndpointNetworkInterfaceArrgs',
 ]
 
 @pulumi.input_type
-class EndpointNetworkInterfaceArgs:
+calass EndpointNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  network_interface_id: Optional[pulumi.Input[str]] = None):
         """

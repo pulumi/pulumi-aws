@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'WorkspaceNetworkAccessControlArgs',
-    'WorkspaceVpcConfigurationArgs',
+    'WorkspaceNetworkAccessControlArrgs',
+    'WorkspaceVpcConfigurationArrgs',
 ]
 
 @pulumi.input_type
-class WorkspaceNetworkAccessControlArgs:
+calass WorkspaceNetworkAccessControlArrgs:
     def __init__(__self__, *,
                  prefix_list_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  vpce_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -52,7 +52,7 @@ class WorkspaceNetworkAccessControlArgs:
 
 
 @pulumi.input_type
-class WorkspaceVpcConfigurationArgs:
+calass WorkspaceVpcConfigurationArrgs:
     def __init__(__self__, *,
                  security_group_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):

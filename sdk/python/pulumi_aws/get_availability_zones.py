@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAvailabilityZonesResult:
+calass GetAvailabilityZonesResult:
     """
     A collection of values returned by getAvailabilityZones.
     """
@@ -110,7 +110,7 @@ class GetAvailabilityZonesResult:
         return pulumi.get(self, "zone_ids")
 
 
-class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
+calass AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -130,7 +130,7 @@ class AwaitableGetAvailabilityZonesResult(GetAvailabilityZonesResult):
 def get_availability_zones(all_availability_zones: Optional[bool] = None,
                            exclude_names: Optional[Sequence[str]] = None,
                            exclude_zone_ids: Optional[Sequence[str]] = None,
-                           filters: Optional[Sequence[pulumi.InputType['GetAvailabilityZonesFilterArgs']]] = None,
+                           filters: Optional[Sequence[pulumi.InputType['GetAvailabilityZonesFilterArrgs']]] = None,
                            state: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAvailabilityZonesResult:
     """
@@ -165,7 +165,7 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
     import pulumi_aws as aws
 
     example = aws.get_availability_zones(all_availability_zones=True,
-        filters=[aws.GetAvailabilityZonesFilterArgs(
+        filters=[aws.GetAvailabilityZonesFilterArrgs(
             name="opt-in-status",
             values=[
                 "not-opted-in",
@@ -180,7 +180,7 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.get_availability_zones(filters=[aws.GetAvailabilityZonesFilterArgs(
+    example = aws.get_availability_zones(filters=[aws.GetAvailabilityZonesFilterArrgs(
         name="opt-in-status",
         values=["opt-in-not-required"],
     )])
@@ -190,7 +190,7 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[str] exclude_names: List of Availability Zone names to exclude.
     :param Sequence[str] exclude_zone_ids: List of Availability Zone IDs to exclude.
-    :param Sequence[pulumi.InputType['GetAvailabilityZonesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetAvailabilityZonesFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str state: Allows to filter list of Availability Zones based on their
            current state. Can be either `"available"`, `"information"`, `"impaired"` or
            `"unavailable"`. By default the list includes a complete set of Availability Zones
@@ -221,7 +221,7 @@ def get_availability_zones(all_availability_zones: Optional[bool] = None,
 def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[Optional[bool]]] = None,
                                   exclude_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                   exclude_zone_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                                  filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAvailabilityZonesFilterArgs']]]]] = None,
+                                  filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAvailabilityZonesFilterArrgs']]]]] = None,
                                   state: Optional[pulumi.Input[Optional[str]]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAvailabilityZonesResult]:
     """
@@ -256,7 +256,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
     import pulumi_aws as aws
 
     example = aws.get_availability_zones(all_availability_zones=True,
-        filters=[aws.GetAvailabilityZonesFilterArgs(
+        filters=[aws.GetAvailabilityZonesFilterArrgs(
             name="opt-in-status",
             values=[
                 "not-opted-in",
@@ -271,7 +271,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.get_availability_zones(filters=[aws.GetAvailabilityZonesFilterArgs(
+    example = aws.get_availability_zones(filters=[aws.GetAvailabilityZonesFilterArrgs(
         name="opt-in-status",
         values=["opt-in-not-required"],
     )])
@@ -281,7 +281,7 @@ def get_availability_zones_output(all_availability_zones: Optional[pulumi.Input[
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
     :param Sequence[str] exclude_names: List of Availability Zone names to exclude.
     :param Sequence[str] exclude_zone_ids: List of Availability Zone IDs to exclude.
-    :param Sequence[pulumi.InputType['GetAvailabilityZonesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetAvailabilityZonesFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str state: Allows to filter list of Availability Zones based on their
            current state. Can be either `"available"`, `"information"`, `"impaired"` or
            `"unavailable"`. By default the list includes a complete set of Availability Zones

@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from ._enums import *
 
-__all__ = ['CapacityReservationArgs', 'CapacityReservation']
+__all__ = ['CapacityReservationArrgs', 'CapacityReservation']
 
 @pulumi.input_type
-class CapacityReservationArgs:
+calass CapacityReservationArrgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  instance_count: pulumi.Input[int],
@@ -225,7 +225,7 @@ class CapacityReservationArgs:
 
 
 @pulumi.input_type
-class _CapacityReservationState:
+calass _CapacityReservationState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -494,7 +494,7 @@ class _CapacityReservationState:
         pulumi.set(self, "tenancy", value)
 
 
-class CapacityReservation(pulumi.CustomResource):
+calass CapacityReservation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -557,7 +557,7 @@ class CapacityReservation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CapacityReservationArgs,
+                 args: CapacityReservationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
@@ -584,12 +584,12 @@ class CapacityReservation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.
+        :param CapacityReservationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CapacityReservationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CapacityReservationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -618,7 +618,7 @@ class CapacityReservation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CapacityReservationArgs.__new__(CapacityReservationArgs)
+            __props__ = CapacityReservationArrgs.__new__(CapacityReservationArrgs)
 
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")

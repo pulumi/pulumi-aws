@@ -21,7 +21,7 @@ __all__ = [
 warnings.warn("""aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs""", DeprecationWarning)
 
 @pulumi.output_type
-class GetVpcIamPoolCidrsResult:
+calass GetVpcIamPoolCidrsResult:
     """
     A collection of values returned by getVpcIamPoolCidrs.
     """
@@ -66,7 +66,7 @@ class GetVpcIamPoolCidrsResult:
         return pulumi.get(self, "ipam_pool_id")
 
 
-class AwaitableGetVpcIamPoolCidrsResult(GetVpcIamPoolCidrsResult):
+calass AwaitableGetVpcIamPoolCidrsResult(GetVpcIamPoolCidrsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -78,7 +78,7 @@ class AwaitableGetVpcIamPoolCidrsResult(GetVpcIamPoolCidrsResult):
             ipam_pool_id=self.ipam_pool_id)
 
 
-def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']]] = None,
+def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArrgs']]] = None,
                            ipam_pool_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVpcIamPoolCidrsResult:
     """
@@ -87,7 +87,7 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
     This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 
 
-    :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArrgs']] filters: Custom filter block as described below.
     :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     """
     pulumi.log.warn("""get_vpc_iam_pool_cidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs""")
@@ -105,7 +105,7 @@ def get_vpc_iam_pool_cidrs(filters: Optional[Sequence[pulumi.InputType['GetVpcIa
 
 
 @_utilities.lift_output_func(get_vpc_iam_pool_cidrs)
-def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']]]]] = None,
+def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArrgs']]]]] = None,
                                   ipam_pool_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcIamPoolCidrsResult]:
     """
@@ -114,7 +114,7 @@ def get_vpc_iam_pool_cidrs_output(filters: Optional[pulumi.Input[Optional[Sequen
     This resource can prove useful when an ipam pool was shared to your account and you want to know all (or a filtered list) of the CIDRs that are provisioned into the pool.
 
 
-    :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArgs']] filters: Custom filter block as described below.
+    :param Sequence[pulumi.InputType['GetVpcIamPoolCidrsFilterArrgs']] filters: Custom filter block as described below.
     :param str ipam_pool_id: ID of the IPAM pool you would like the list of provisioned CIDRs.
     """
     pulumi.log.warn("""get_vpc_iam_pool_cidrs is deprecated: aws.ec2/getvpciampoolcidrs.getVpcIamPoolCidrs has been deprecated in favor of aws.ec2/getvpcipampoolcidrs.getVpcIpamPoolCidrs""")

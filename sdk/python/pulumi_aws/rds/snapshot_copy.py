@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SnapshotCopyArgs', 'SnapshotCopy']
+__all__ = ['SnapshotCopyArrgs', 'SnapshotCopy']
 
 @pulumi.input_type
-class SnapshotCopyArgs:
+calass SnapshotCopyArrgs:
     def __init__(__self__, *,
                  source_db_snapshot_identifier: pulumi.Input[str],
                  target_db_snapshot_identifier: pulumi.Input[str],
@@ -162,7 +162,7 @@ class SnapshotCopyArgs:
 
 
 @pulumi.input_type
-class _SnapshotCopyState:
+calass _SnapshotCopyState:
     def __init__(__self__, *,
                  allocated_storage: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -535,7 +535,7 @@ class _SnapshotCopyState:
         pulumi.set(self, "vpc_id", value)
 
 
-class SnapshotCopy(pulumi.CustomResource):
+calass SnapshotCopy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -602,7 +602,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SnapshotCopyArgs,
+                 args: SnapshotCopyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `rds.ClusterSnapshot` resource.
@@ -641,12 +641,12 @@ class SnapshotCopy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SnapshotCopyArgs args: The arguments to use to populate this resource's properties.
+        :param SnapshotCopyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SnapshotCopyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotCopyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -671,7 +671,7 @@ class SnapshotCopy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SnapshotCopyArgs.__new__(SnapshotCopyArgs)
+            __props__ = SnapshotCopyArrgs.__new__(SnapshotCopyArrgs)
 
             __props__.__dict__["copy_tags"] = copy_tags
             __props__.__dict__["destination_region"] = destination_region

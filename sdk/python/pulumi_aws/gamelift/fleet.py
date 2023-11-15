@@ -11,39 +11,39 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FleetArgs', 'Fleet']
+__all__ = ['FleetArrgs', 'Fleet']
 
 @pulumi.input_type
-class FleetArgs:
+calass FleetArrgs:
     def __init__(__self__, *,
                  ec2_instance_type: pulumi.Input[str],
                  build_id: Optional[pulumi.Input[str]] = None,
-                 certificate_configuration: Optional[pulumi.Input['FleetCertificateConfigurationArgs']] = None,
+                 certificate_configuration: Optional[pulumi.Input['FleetCertificateConfigurationArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArrgs']]]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
-                 resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
-                 runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
+                 resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArrgs']] = None,
+                 runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArrgs']] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Fleet resource.
         :param pulumi.Input[str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
         :param pulumi.Input[str] build_id: ID of the GameLift Build to be deployed on the fleet.
-        :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+        :param pulumi.Input['FleetCertificateConfigurationArrgs'] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         :param pulumi.Input[str] description: Human-readable description of the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArrgs']]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         :param pulumi.Input[str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         :param pulumi.Input[str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
         :param pulumi.Input[str] name: The name of the fleet.
         :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
+        :param pulumi.Input['FleetResourceCreationLimitPolicyArrgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
+        :param pulumi.Input['FleetRuntimeConfigurationArrgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[str] script_id: ID of the GameLift Script to be deployed on the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -101,14 +101,14 @@ class FleetArgs:
 
     @property
     @pulumi.getter(name="certificateConfiguration")
-    def certificate_configuration(self) -> Optional[pulumi.Input['FleetCertificateConfigurationArgs']]:
+    def certificate_configuration(self) -> Optional[pulumi.Input['FleetCertificateConfigurationArrgs']]:
         """
         Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         """
         return pulumi.get(self, "certificate_configuration")
 
     @certificate_configuration.setter
-    def certificate_configuration(self, value: Optional[pulumi.Input['FleetCertificateConfigurationArgs']]):
+    def certificate_configuration(self, value: Optional[pulumi.Input['FleetCertificateConfigurationArrgs']]):
         pulumi.set(self, "certificate_configuration", value)
 
     @property
@@ -125,14 +125,14 @@ class FleetArgs:
 
     @property
     @pulumi.getter(name="ec2InboundPermissions")
-    def ec2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]]:
+    def ec2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArrgs']]]]:
         """
         Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         """
         return pulumi.get(self, "ec2_inbound_permissions")
 
     @ec2_inbound_permissions.setter
-    def ec2_inbound_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]]):
+    def ec2_inbound_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArrgs']]]]):
         pulumi.set(self, "ec2_inbound_permissions", value)
 
     @property
@@ -197,26 +197,26 @@ class FleetArgs:
 
     @property
     @pulumi.getter(name="resourceCreationLimitPolicy")
-    def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
+    def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArrgs']]:
         """
         Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         """
         return pulumi.get(self, "resource_creation_limit_policy")
 
     @resource_creation_limit_policy.setter
-    def resource_creation_limit_policy(self, value: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]):
+    def resource_creation_limit_policy(self, value: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArrgs']]):
         pulumi.set(self, "resource_creation_limit_policy", value)
 
     @property
     @pulumi.getter(name="runtimeConfiguration")
-    def runtime_configuration(self) -> Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]:
+    def runtime_configuration(self) -> Optional[pulumi.Input['FleetRuntimeConfigurationArrgs']]:
         """
         Instructions for launching server processes on each instance in the fleet. See below.
         """
         return pulumi.get(self, "runtime_configuration")
 
     @runtime_configuration.setter
-    def runtime_configuration(self, value: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]):
+    def runtime_configuration(self, value: Optional[pulumi.Input['FleetRuntimeConfigurationArrgs']]):
         pulumi.set(self, "runtime_configuration", value)
 
     @property
@@ -245,14 +245,14 @@ class FleetArgs:
 
 
 @pulumi.input_type
-class _FleetState:
+calass _FleetState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  build_arn: Optional[pulumi.Input[str]] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
-                 certificate_configuration: Optional[pulumi.Input['FleetCertificateConfigurationArgs']] = None,
+                 certificate_configuration: Optional[pulumi.Input['FleetCertificateConfigurationArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArrgs']]]] = None,
                  ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
@@ -261,8 +261,8 @@ class _FleetState:
                  name: Optional[pulumi.Input[str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
                  operating_system: Optional[pulumi.Input[str]] = None,
-                 resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']] = None,
-                 runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']] = None,
+                 resource_creation_limit_policy: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArrgs']] = None,
+                 runtime_configuration: Optional[pulumi.Input['FleetRuntimeConfigurationArrgs']] = None,
                  script_arn: Optional[pulumi.Input[str]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -272,9 +272,9 @@ class _FleetState:
         :param pulumi.Input[str] arn: Fleet ARN.
         :param pulumi.Input[str] build_arn: Build ARN.
         :param pulumi.Input[str] build_id: ID of the GameLift Build to be deployed on the fleet.
-        :param pulumi.Input['FleetCertificateConfigurationArgs'] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+        :param pulumi.Input['FleetCertificateConfigurationArrgs'] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         :param pulumi.Input[str] description: Human-readable description of the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArrgs']]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         :param pulumi.Input[str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
         :param pulumi.Input[str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         :param pulumi.Input[str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
@@ -282,8 +282,8 @@ class _FleetState:
         :param pulumi.Input[str] name: The name of the fleet.
         :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[str] operating_system: Operating system of the fleet's computing resources.
-        :param pulumi.Input['FleetResourceCreationLimitPolicyArgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        :param pulumi.Input['FleetRuntimeConfigurationArgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
+        :param pulumi.Input['FleetResourceCreationLimitPolicyArrgs'] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
+        :param pulumi.Input['FleetRuntimeConfigurationArrgs'] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[str] script_arn: Script ARN.
         :param pulumi.Input[str] script_id: ID of the GameLift Script to be deployed on the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -371,14 +371,14 @@ class _FleetState:
 
     @property
     @pulumi.getter(name="certificateConfiguration")
-    def certificate_configuration(self) -> Optional[pulumi.Input['FleetCertificateConfigurationArgs']]:
+    def certificate_configuration(self) -> Optional[pulumi.Input['FleetCertificateConfigurationArrgs']]:
         """
         Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         """
         return pulumi.get(self, "certificate_configuration")
 
     @certificate_configuration.setter
-    def certificate_configuration(self, value: Optional[pulumi.Input['FleetCertificateConfigurationArgs']]):
+    def certificate_configuration(self, value: Optional[pulumi.Input['FleetCertificateConfigurationArrgs']]):
         pulumi.set(self, "certificate_configuration", value)
 
     @property
@@ -395,14 +395,14 @@ class _FleetState:
 
     @property
     @pulumi.getter(name="ec2InboundPermissions")
-    def ec2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]]:
+    def ec2_inbound_permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArrgs']]]]:
         """
         Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         """
         return pulumi.get(self, "ec2_inbound_permissions")
 
     @ec2_inbound_permissions.setter
-    def ec2_inbound_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArgs']]]]):
+    def ec2_inbound_permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FleetEc2InboundPermissionArrgs']]]]):
         pulumi.set(self, "ec2_inbound_permissions", value)
 
     @property
@@ -500,26 +500,26 @@ class _FleetState:
 
     @property
     @pulumi.getter(name="resourceCreationLimitPolicy")
-    def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]:
+    def resource_creation_limit_policy(self) -> Optional[pulumi.Input['FleetResourceCreationLimitPolicyArrgs']]:
         """
         Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
         """
         return pulumi.get(self, "resource_creation_limit_policy")
 
     @resource_creation_limit_policy.setter
-    def resource_creation_limit_policy(self, value: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArgs']]):
+    def resource_creation_limit_policy(self, value: Optional[pulumi.Input['FleetResourceCreationLimitPolicyArrgs']]):
         pulumi.set(self, "resource_creation_limit_policy", value)
 
     @property
     @pulumi.getter(name="runtimeConfiguration")
-    def runtime_configuration(self) -> Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]:
+    def runtime_configuration(self) -> Optional[pulumi.Input['FleetRuntimeConfigurationArrgs']]:
         """
         Instructions for launching server processes on each instance in the fleet. See below.
         """
         return pulumi.get(self, "runtime_configuration")
 
     @runtime_configuration.setter
-    def runtime_configuration(self, value: Optional[pulumi.Input['FleetRuntimeConfigurationArgs']]):
+    def runtime_configuration(self, value: Optional[pulumi.Input['FleetRuntimeConfigurationArrgs']]):
         pulumi.set(self, "runtime_configuration", value)
 
     @property
@@ -574,23 +574,23 @@ class _FleetState:
         pulumi.set(self, "tags_all", value)
 
 
-class Fleet(pulumi.CustomResource):
+calass Fleet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
-                 certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
+                 certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArgs']]]]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArrgs']]]]] = None,
                  ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
-                 resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
-                 runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
+                 resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArrgs']]] = None,
+                 runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArrgs']]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -607,8 +607,8 @@ class Fleet(pulumi.CustomResource):
             build_id=aws_gamelift_build["example"]["id"],
             ec2_instance_type="t2.micro",
             fleet_type="ON_DEMAND",
-            runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArgs(
-                server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArgs(
+            runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArrgs(
+                server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArrgs(
                     concurrent_executions=1,
                     launch_path="C:\\\\game\\\\GomokuServer.exe",
                 )],
@@ -626,17 +626,17 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_id: ID of the GameLift Build to be deployed on the fleet.
-        :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+        :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArrgs']] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         :param pulumi.Input[str] description: Human-readable description of the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArgs']]]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArrgs']]]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         :param pulumi.Input[str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
         :param pulumi.Input[str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         :param pulumi.Input[str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] metric_groups: List of names of metric groups to add this fleet to. A metric group tracks metrics across all fleets in the group. Defaults to `default`.
         :param pulumi.Input[str] name: The name of the fleet.
         :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
-        :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
+        :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArrgs']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
+        :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArrgs']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[str] script_id: ID of the GameLift Script to be deployed on the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -644,7 +644,7 @@ class Fleet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FleetArgs,
+                 args: FleetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a GameLift Fleet resource.
@@ -659,8 +659,8 @@ class Fleet(pulumi.CustomResource):
             build_id=aws_gamelift_build["example"]["id"],
             ec2_instance_type="t2.micro",
             fleet_type="ON_DEMAND",
-            runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArgs(
-                server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArgs(
+            runtime_configuration=aws.gamelift.FleetRuntimeConfigurationArrgs(
+                server_processes=[aws.gamelift.FleetRuntimeConfigurationServerProcessArrgs(
                     concurrent_executions=1,
                     launch_path="C:\\\\game\\\\GomokuServer.exe",
                 )],
@@ -676,12 +676,12 @@ class Fleet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FleetArgs args: The arguments to use to populate this resource's properties.
+        :param FleetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FleetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FleetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -691,17 +691,17 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_id: Optional[pulumi.Input[str]] = None,
-                 certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
+                 certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArgs']]]]] = None,
+                 ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArrgs']]]]] = None,
                  ec2_instance_type: Optional[pulumi.Input[str]] = None,
                  fleet_type: Optional[pulumi.Input[str]] = None,
                  instance_role_arn: Optional[pulumi.Input[str]] = None,
                  metric_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
-                 resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
-                 runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
+                 resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArrgs']]] = None,
+                 runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArrgs']]] = None,
                  script_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -711,7 +711,7 @@ class Fleet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FleetArgs.__new__(FleetArgs)
+            __props__ = FleetArrgs.__new__(FleetArrgs)
 
             __props__.__dict__["build_id"] = build_id
             __props__.__dict__["certificate_configuration"] = certificate_configuration
@@ -750,9 +750,9 @@ class Fleet(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             build_arn: Optional[pulumi.Input[str]] = None,
             build_id: Optional[pulumi.Input[str]] = None,
-            certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']]] = None,
+            certificate_configuration: Optional[pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArgs']]]]] = None,
+            ec2_inbound_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArrgs']]]]] = None,
             ec2_instance_type: Optional[pulumi.Input[str]] = None,
             fleet_type: Optional[pulumi.Input[str]] = None,
             instance_role_arn: Optional[pulumi.Input[str]] = None,
@@ -761,8 +761,8 @@ class Fleet(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             new_game_session_protection_policy: Optional[pulumi.Input[str]] = None,
             operating_system: Optional[pulumi.Input[str]] = None,
-            resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']]] = None,
-            runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']]] = None,
+            resource_creation_limit_policy: Optional[pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArrgs']]] = None,
+            runtime_configuration: Optional[pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArrgs']]] = None,
             script_arn: Optional[pulumi.Input[str]] = None,
             script_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -777,9 +777,9 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Fleet ARN.
         :param pulumi.Input[str] build_arn: Build ARN.
         :param pulumi.Input[str] build_id: ID of the GameLift Build to be deployed on the fleet.
-        :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArgs']] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
+        :param pulumi.Input[pulumi.InputType['FleetCertificateConfigurationArrgs']] certificate_configuration: Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
         :param pulumi.Input[str] description: Human-readable description of the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArgs']]]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FleetEc2InboundPermissionArrgs']]]] ec2_inbound_permissions: Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
         :param pulumi.Input[str] ec2_instance_type: Name of an EC2 instance typeE.g., `t2.micro`
         :param pulumi.Input[str] fleet_type: Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
         :param pulumi.Input[str] instance_role_arn: ARN of an IAM role that instances in the fleet can assume.
@@ -787,8 +787,8 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the fleet.
         :param pulumi.Input[str] new_game_session_protection_policy: Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         :param pulumi.Input[str] operating_system: Operating system of the fleet's computing resources.
-        :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArgs']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
-        :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArgs']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
+        :param pulumi.Input[pulumi.InputType['FleetResourceCreationLimitPolicyArrgs']] resource_creation_limit_policy: Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
+        :param pulumi.Input[pulumi.InputType['FleetRuntimeConfigurationArrgs']] runtime_configuration: Instructions for launching server processes on each instance in the fleet. See below.
         :param pulumi.Input[str] script_arn: Script ARN.
         :param pulumi.Input[str] script_id: ID of the GameLift Script to be deployed on the fleet.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

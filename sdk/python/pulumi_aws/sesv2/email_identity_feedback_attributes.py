@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EmailIdentityFeedbackAttributesArgs', 'EmailIdentityFeedbackAttributes']
+__all__ = ['EmailIdentityFeedbackAttributesArrgs', 'EmailIdentityFeedbackAttributes']
 
 @pulumi.input_type
-class EmailIdentityFeedbackAttributesArgs:
+calass EmailIdentityFeedbackAttributesArrgs:
     def __init__(__self__, *,
                  email_identity: pulumi.Input[str],
                  email_forwarding_enabled: Optional[pulumi.Input[bool]] = None):
@@ -51,7 +51,7 @@ class EmailIdentityFeedbackAttributesArgs:
 
 
 @pulumi.input_type
-class _EmailIdentityFeedbackAttributesState:
+calass _EmailIdentityFeedbackAttributesState:
     def __init__(__self__, *,
                  email_forwarding_enabled: Optional[pulumi.Input[bool]] = None,
                  email_identity: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _EmailIdentityFeedbackAttributesState:
         pulumi.set(self, "email_identity", value)
 
 
-class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
+calass EmailIdentityFeedbackAttributes(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +131,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EmailIdentityFeedbackAttributesArgs,
+                 args: EmailIdentityFeedbackAttributesArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
@@ -158,12 +158,12 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EmailIdentityFeedbackAttributesArgs args: The arguments to use to populate this resource's properties.
+        :param EmailIdentityFeedbackAttributesArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityFeedbackAttributesArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityFeedbackAttributesArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -181,7 +181,7 @@ class EmailIdentityFeedbackAttributes(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EmailIdentityFeedbackAttributesArgs.__new__(EmailIdentityFeedbackAttributesArgs)
+            __props__ = EmailIdentityFeedbackAttributesArrgs.__new__(EmailIdentityFeedbackAttributesArrgs)
 
             __props__.__dict__["email_forwarding_enabled"] = email_forwarding_enabled
             if email_identity is None and not opts.urn:

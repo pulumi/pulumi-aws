@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CollaborationDataEncryptionMetadata(dict):
+calass CollaborationDataEncryptionMetadata(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -72,7 +72,7 @@ class CollaborationDataEncryptionMetadata(dict):
 
 
 @pulumi.output_type
-class CollaborationMember(dict):
+calass CollaborationMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -127,7 +127,7 @@ class CollaborationMember(dict):
 
 
 @pulumi.output_type
-class ConfiguredTableTableReference(dict):
+calass ConfiguredTableTableReference(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

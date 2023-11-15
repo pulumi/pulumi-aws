@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetUserHierarchyStructureResult:
+calass GetUserHierarchyStructureResult:
     """
     A collection of values returned by getUserHierarchyStructure.
     """
@@ -55,7 +55,7 @@ class GetUserHierarchyStructureResult:
         return pulumi.get(self, "instance_id")
 
 
-class AwaitableGetUserHierarchyStructureResult(GetUserHierarchyStructureResult):
+calass AwaitableGetUserHierarchyStructureResult(GetUserHierarchyStructureResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

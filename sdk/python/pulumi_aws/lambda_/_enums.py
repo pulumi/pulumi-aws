@@ -9,7 +9,7 @@ __all__ = [
 ]
 
 
-class Runtime(str, Enum):
+calass Runtime(str, Enum):
     """
     See https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html
     """

@@ -10,36 +10,36 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConnectorCapacityArgs',
-    'ConnectorCapacityAutoscalingArgs',
-    'ConnectorCapacityAutoscalingScaleInPolicyArgs',
-    'ConnectorCapacityAutoscalingScaleOutPolicyArgs',
-    'ConnectorCapacityProvisionedCapacityArgs',
-    'ConnectorKafkaClusterArgs',
-    'ConnectorKafkaClusterApacheKafkaClusterArgs',
-    'ConnectorKafkaClusterApacheKafkaClusterVpcArgs',
-    'ConnectorKafkaClusterClientAuthenticationArgs',
-    'ConnectorKafkaClusterEncryptionInTransitArgs',
-    'ConnectorLogDeliveryArgs',
-    'ConnectorLogDeliveryWorkerLogDeliveryArgs',
-    'ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs',
-    'ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs',
-    'ConnectorLogDeliveryWorkerLogDeliveryS3Args',
-    'ConnectorPluginArgs',
-    'ConnectorPluginCustomPluginArgs',
-    'ConnectorWorkerConfigurationArgs',
-    'CustomPluginLocationArgs',
-    'CustomPluginLocationS3Args',
+    'ConnectorCapacityArrgs',
+    'ConnectorCapacityAutoscalingArrgs',
+    'ConnectorCapacityAutoscalingScaleInPolicyArrgs',
+    'ConnectorCapacityAutoscalingScaleOutPolicyArrgs',
+    'ConnectorCapacityProvisionedCapacityArrgs',
+    'ConnectorKafkaClusterArrgs',
+    'ConnectorKafkaClusterApacheKafkaClusterArrgs',
+    'ConnectorKafkaClusterApacheKafkaClusterVpcArrgs',
+    'ConnectorKafkaClusterClientAuthenticationArrgs',
+    'ConnectorKafkaClusterEncryptionInTransitArrgs',
+    'ConnectorLogDeliveryArrgs',
+    'ConnectorLogDeliveryWorkerLogDeliveryArrgs',
+    'ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArrgs',
+    'ConnectorLogDeliveryWorkerLogDeliveryFirehoseArrgs',
+    'ConnectorLogDeliveryWorkerLogDeliveryS3Arrgs',
+    'ConnectorPluginArrgs',
+    'ConnectorPluginCustomPluginArrgs',
+    'ConnectorWorkerConfigurationArrgs',
+    'CustomPluginLocationArrgs',
+    'CustomPluginLocationS3Arrgs',
 ]
 
 @pulumi.input_type
-class ConnectorCapacityArgs:
+calass ConnectorCapacityArrgs:
     def __init__(__self__, *,
-                 autoscaling: Optional[pulumi.Input['ConnectorCapacityAutoscalingArgs']] = None,
-                 provisioned_capacity: Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArgs']] = None):
+                 autoscaling: Optional[pulumi.Input['ConnectorCapacityAutoscalingArrgs']] = None,
+                 provisioned_capacity: Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArrgs']] = None):
         """
-        :param pulumi.Input['ConnectorCapacityAutoscalingArgs'] autoscaling: Information about the auto scaling parameters for the connector. See below.
-        :param pulumi.Input['ConnectorCapacityProvisionedCapacityArgs'] provisioned_capacity: Details about a fixed capacity allocated to a connector. See below.
+        :param pulumi.Input['ConnectorCapacityAutoscalingArrgs'] autoscaling: Information about the auto scaling parameters for the connector. See below.
+        :param pulumi.Input['ConnectorCapacityProvisionedCapacityArrgs'] provisioned_capacity: Details about a fixed capacity allocated to a connector. See below.
         """
         if autoscaling is not None:
             pulumi.set(__self__, "autoscaling", autoscaling)
@@ -48,43 +48,43 @@ class ConnectorCapacityArgs:
 
     @property
     @pulumi.getter
-    def autoscaling(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingArgs']]:
+    def autoscaling(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingArrgs']]:
         """
         Information about the auto scaling parameters for the connector. See below.
         """
         return pulumi.get(self, "autoscaling")
 
     @autoscaling.setter
-    def autoscaling(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingArgs']]):
+    def autoscaling(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingArrgs']]):
         pulumi.set(self, "autoscaling", value)
 
     @property
     @pulumi.getter(name="provisionedCapacity")
-    def provisioned_capacity(self) -> Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArgs']]:
+    def provisioned_capacity(self) -> Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArrgs']]:
         """
         Details about a fixed capacity allocated to a connector. See below.
         """
         return pulumi.get(self, "provisioned_capacity")
 
     @provisioned_capacity.setter
-    def provisioned_capacity(self, value: Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArgs']]):
+    def provisioned_capacity(self, value: Optional[pulumi.Input['ConnectorCapacityProvisionedCapacityArrgs']]):
         pulumi.set(self, "provisioned_capacity", value)
 
 
 @pulumi.input_type
-class ConnectorCapacityAutoscalingArgs:
+calass ConnectorCapacityAutoscalingArrgs:
     def __init__(__self__, *,
                  max_worker_count: pulumi.Input[int],
                  min_worker_count: pulumi.Input[int],
                  mcu_count: Optional[pulumi.Input[int]] = None,
-                 scale_in_policy: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs']] = None,
-                 scale_out_policy: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs']] = None):
+                 scale_in_policy: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArrgs']] = None,
+                 scale_out_policy: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArrgs']] = None):
         """
         :param pulumi.Input[int] max_worker_count: The maximum number of workers allocated to the connector.
         :param pulumi.Input[int] min_worker_count: The minimum number of workers allocated to the connector.
         :param pulumi.Input[int] mcu_count: The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-        :param pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs'] scale_in_policy: The scale-in policy for the connector. See below.
-        :param pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs'] scale_out_policy: The scale-out policy for the connector. See below.
+        :param pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArrgs'] scale_in_policy: The scale-in policy for the connector. See below.
+        :param pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArrgs'] scale_out_policy: The scale-out policy for the connector. See below.
         """
         pulumi.set(__self__, "max_worker_count", max_worker_count)
         pulumi.set(__self__, "min_worker_count", min_worker_count)
@@ -133,31 +133,31 @@ class ConnectorCapacityAutoscalingArgs:
 
     @property
     @pulumi.getter(name="scaleInPolicy")
-    def scale_in_policy(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs']]:
+    def scale_in_policy(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArrgs']]:
         """
         The scale-in policy for the connector. See below.
         """
         return pulumi.get(self, "scale_in_policy")
 
     @scale_in_policy.setter
-    def scale_in_policy(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgs']]):
+    def scale_in_policy(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArrgs']]):
         pulumi.set(self, "scale_in_policy", value)
 
     @property
     @pulumi.getter(name="scaleOutPolicy")
-    def scale_out_policy(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs']]:
+    def scale_out_policy(self) -> Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArrgs']]:
         """
         The scale-out policy for the connector. See below.
         """
         return pulumi.get(self, "scale_out_policy")
 
     @scale_out_policy.setter
-    def scale_out_policy(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgs']]):
+    def scale_out_policy(self, value: Optional[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArrgs']]):
         pulumi.set(self, "scale_out_policy", value)
 
 
 @pulumi.input_type
-class ConnectorCapacityAutoscalingScaleInPolicyArgs:
+calass ConnectorCapacityAutoscalingScaleInPolicyArrgs:
     def __init__(__self__, *,
                  cpu_utilization_percentage: Optional[pulumi.Input[int]] = None):
         """
@@ -180,7 +180,7 @@ class ConnectorCapacityAutoscalingScaleInPolicyArgs:
 
 
 @pulumi.input_type
-class ConnectorCapacityAutoscalingScaleOutPolicyArgs:
+calass ConnectorCapacityAutoscalingScaleOutPolicyArrgs:
     def __init__(__self__, *,
                  cpu_utilization_percentage: Optional[pulumi.Input[int]] = None):
         """
@@ -203,7 +203,7 @@ class ConnectorCapacityAutoscalingScaleOutPolicyArgs:
 
 
 @pulumi.input_type
-class ConnectorCapacityProvisionedCapacityArgs:
+calass ConnectorCapacityProvisionedCapacityArrgs:
     def __init__(__self__, *,
                  worker_count: pulumi.Input[int],
                  mcu_count: Optional[pulumi.Input[int]] = None):
@@ -241,35 +241,35 @@ class ConnectorCapacityProvisionedCapacityArgs:
 
 
 @pulumi.input_type
-class ConnectorKafkaClusterArgs:
+calass ConnectorKafkaClusterArrgs:
     def __init__(__self__, *,
-                 apache_kafka_cluster: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArgs']):
+                 apache_kafka_cluster: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArrgs']):
         """
-        :param pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArgs'] apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
+        :param pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArrgs'] apache_kafka_cluster: The Apache Kafka cluster to which the connector is connected.
         """
         pulumi.set(__self__, "apache_kafka_cluster", apache_kafka_cluster)
 
     @property
     @pulumi.getter(name="apacheKafkaCluster")
-    def apache_kafka_cluster(self) -> pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArgs']:
+    def apache_kafka_cluster(self) -> pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArrgs']:
         """
         The Apache Kafka cluster to which the connector is connected.
         """
         return pulumi.get(self, "apache_kafka_cluster")
 
     @apache_kafka_cluster.setter
-    def apache_kafka_cluster(self, value: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArgs']):
+    def apache_kafka_cluster(self, value: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArrgs']):
         pulumi.set(self, "apache_kafka_cluster", value)
 
 
 @pulumi.input_type
-class ConnectorKafkaClusterApacheKafkaClusterArgs:
+calass ConnectorKafkaClusterApacheKafkaClusterArrgs:
     def __init__(__self__, *,
                  bootstrap_servers: pulumi.Input[str],
-                 vpc: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArgs']):
+                 vpc: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArrgs']):
         """
         :param pulumi.Input[str] bootstrap_servers: The bootstrap servers of the cluster.
-        :param pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArgs'] vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+        :param pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArrgs'] vpc: Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         pulumi.set(__self__, "bootstrap_servers", bootstrap_servers)
         pulumi.set(__self__, "vpc", vpc)
@@ -288,19 +288,19 @@ class ConnectorKafkaClusterApacheKafkaClusterArgs:
 
     @property
     @pulumi.getter
-    def vpc(self) -> pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArgs']:
+    def vpc(self) -> pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArrgs']:
         """
         Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
         """
         return pulumi.get(self, "vpc")
 
     @vpc.setter
-    def vpc(self, value: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArgs']):
+    def vpc(self, value: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArrgs']):
         pulumi.set(self, "vpc", value)
 
 
 @pulumi.input_type
-class ConnectorKafkaClusterApacheKafkaClusterVpcArgs:
+calass ConnectorKafkaClusterApacheKafkaClusterVpcArrgs:
     def __init__(__self__, *,
                  security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]]):
@@ -337,7 +337,7 @@ class ConnectorKafkaClusterApacheKafkaClusterVpcArgs:
 
 
 @pulumi.input_type
-class ConnectorKafkaClusterClientAuthenticationArgs:
+calass ConnectorKafkaClusterClientAuthenticationArrgs:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[str]] = None):
         """
@@ -360,7 +360,7 @@ class ConnectorKafkaClusterClientAuthenticationArgs:
 
 
 @pulumi.input_type
-class ConnectorKafkaClusterEncryptionInTransitArgs:
+calass ConnectorKafkaClusterEncryptionInTransitArrgs:
     def __init__(__self__, *,
                  encryption_type: Optional[pulumi.Input[str]] = None):
         """
@@ -383,37 +383,37 @@ class ConnectorKafkaClusterEncryptionInTransitArgs:
 
 
 @pulumi.input_type
-class ConnectorLogDeliveryArgs:
+calass ConnectorLogDeliveryArrgs:
     def __init__(__self__, *,
-                 worker_log_delivery: pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArgs']):
+                 worker_log_delivery: pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArrgs']):
         """
-        :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArgs'] worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+        :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArrgs'] worker_log_delivery: The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
         """
         pulumi.set(__self__, "worker_log_delivery", worker_log_delivery)
 
     @property
     @pulumi.getter(name="workerLogDelivery")
-    def worker_log_delivery(self) -> pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArgs']:
+    def worker_log_delivery(self) -> pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArrgs']:
         """
         The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
         """
         return pulumi.get(self, "worker_log_delivery")
 
     @worker_log_delivery.setter
-    def worker_log_delivery(self, value: pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArgs']):
+    def worker_log_delivery(self, value: pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArrgs']):
         pulumi.set(self, "worker_log_delivery", value)
 
 
 @pulumi.input_type
-class ConnectorLogDeliveryWorkerLogDeliveryArgs:
+calass ConnectorLogDeliveryWorkerLogDeliveryArrgs:
     def __init__(__self__, *,
-                 cloudwatch_logs: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']] = None,
-                 firehose: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']] = None,
-                 s3: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args']] = None):
+                 cloudwatch_logs: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArrgs']] = None,
+                 firehose: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArrgs']] = None,
+                 s3: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Arrgs']] = None):
         """
-        :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs'] cloudwatch_logs: Details about delivering logs to Amazon CloudWatch Logs. See below.
-        :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs'] firehose: Details about delivering logs to Amazon Kinesis Data Firehose. See below.
-        :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args'] s3: Details about delivering logs to Amazon S3. See below.
+        :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArrgs'] cloudwatch_logs: Details about delivering logs to Amazon CloudWatch Logs. See below.
+        :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArrgs'] firehose: Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+        :param pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Arrgs'] s3: Details about delivering logs to Amazon S3. See below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -424,43 +424,43 @@ class ConnectorLogDeliveryWorkerLogDeliveryArgs:
 
     @property
     @pulumi.getter(name="cloudwatchLogs")
-    def cloudwatch_logs(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']]:
+    def cloudwatch_logs(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArrgs']]:
         """
         Details about delivering logs to Amazon CloudWatch Logs. See below.
         """
         return pulumi.get(self, "cloudwatch_logs")
 
     @cloudwatch_logs.setter
-    def cloudwatch_logs(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs']]):
+    def cloudwatch_logs(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArrgs']]):
         pulumi.set(self, "cloudwatch_logs", value)
 
     @property
     @pulumi.getter
-    def firehose(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']]:
+    def firehose(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArrgs']]:
         """
         Details about delivering logs to Amazon Kinesis Data Firehose. See below.
         """
         return pulumi.get(self, "firehose")
 
     @firehose.setter
-    def firehose(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs']]):
+    def firehose(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArrgs']]):
         pulumi.set(self, "firehose", value)
 
     @property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args']]:
+    def s3(self) -> Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Arrgs']]:
         """
         Details about delivering logs to Amazon S3. See below.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Args']]):
+    def s3(self, value: Optional[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3Arrgs']]):
         pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type
-class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
+calass ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  log_group: Optional[pulumi.Input[str]] = None):
@@ -498,7 +498,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
 
 
 @pulumi.input_type
-class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
+calass ConnectorLogDeliveryWorkerLogDeliveryFirehoseArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  delivery_stream: Optional[pulumi.Input[str]] = None):
@@ -536,7 +536,7 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
 
 
 @pulumi.input_type
-class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
+calass ConnectorLogDeliveryWorkerLogDeliveryS3Arrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  bucket: Optional[pulumi.Input[str]] = None,
@@ -590,29 +590,29 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
 
 
 @pulumi.input_type
-class ConnectorPluginArgs:
+calass ConnectorPluginArrgs:
     def __init__(__self__, *,
-                 custom_plugin: pulumi.Input['ConnectorPluginCustomPluginArgs']):
+                 custom_plugin: pulumi.Input['ConnectorPluginCustomPluginArrgs']):
         """
-        :param pulumi.Input['ConnectorPluginCustomPluginArgs'] custom_plugin: Details about a custom plugin. See below.
+        :param pulumi.Input['ConnectorPluginCustomPluginArrgs'] custom_plugin: Details about a custom plugin. See below.
         """
         pulumi.set(__self__, "custom_plugin", custom_plugin)
 
     @property
     @pulumi.getter(name="customPlugin")
-    def custom_plugin(self) -> pulumi.Input['ConnectorPluginCustomPluginArgs']:
+    def custom_plugin(self) -> pulumi.Input['ConnectorPluginCustomPluginArrgs']:
         """
         Details about a custom plugin. See below.
         """
         return pulumi.get(self, "custom_plugin")
 
     @custom_plugin.setter
-    def custom_plugin(self, value: pulumi.Input['ConnectorPluginCustomPluginArgs']):
+    def custom_plugin(self, value: pulumi.Input['ConnectorPluginCustomPluginArrgs']):
         pulumi.set(self, "custom_plugin", value)
 
 
 @pulumi.input_type
-class ConnectorPluginCustomPluginArgs:
+calass ConnectorPluginCustomPluginArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  revision: pulumi.Input[int]):
@@ -649,7 +649,7 @@ class ConnectorPluginCustomPluginArgs:
 
 
 @pulumi.input_type
-class ConnectorWorkerConfigurationArgs:
+calass ConnectorWorkerConfigurationArrgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[str],
                  revision: pulumi.Input[int]):
@@ -686,29 +686,29 @@ class ConnectorWorkerConfigurationArgs:
 
 
 @pulumi.input_type
-class CustomPluginLocationArgs:
+calass CustomPluginLocationArrgs:
     def __init__(__self__, *,
-                 s3: pulumi.Input['CustomPluginLocationS3Args']):
+                 s3: pulumi.Input['CustomPluginLocationS3Arrgs']):
         """
-        :param pulumi.Input['CustomPluginLocationS3Args'] s3: Information of the plugin file stored in Amazon S3. See below.
+        :param pulumi.Input['CustomPluginLocationS3Arrgs'] s3: Information of the plugin file stored in Amazon S3. See below.
         """
         pulumi.set(__self__, "s3", s3)
 
     @property
     @pulumi.getter
-    def s3(self) -> pulumi.Input['CustomPluginLocationS3Args']:
+    def s3(self) -> pulumi.Input['CustomPluginLocationS3Arrgs']:
         """
         Information of the plugin file stored in Amazon S3. See below.
         """
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: pulumi.Input['CustomPluginLocationS3Args']):
+    def s3(self, value: pulumi.Input['CustomPluginLocationS3Arrgs']):
         pulumi.set(self, "s3", value)
 
 
 @pulumi.input_type
-class CustomPluginLocationS3Args:
+calass CustomPluginLocationS3Arrgs:
     def __init__(__self__, *,
                  bucket_arn: pulumi.Input[str],
                  file_key: pulumi.Input[str],

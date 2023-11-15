@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetParameterGroupResult:
+calass GetParameterGroupResult:
     """
     A collection of values returned by getParameterGroup.
     """
@@ -102,7 +102,7 @@ class GetParameterGroupResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetParameterGroupResult(GetParameterGroupResult):
+calass AwaitableGetParameterGroupResult(GetParameterGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

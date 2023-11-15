@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcConnectorArgs', 'VpcConnector']
+__all__ = ['VpcConnectorArrgs', 'VpcConnector']
 
 @pulumi.input_type
-class VpcConnectorArgs:
+calass VpcConnectorArrgs:
     def __init__(__self__, *,
                  security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -81,7 +81,7 @@ class VpcConnectorArgs:
 
 
 @pulumi.input_type
-class _VpcConnectorState:
+calass _VpcConnectorState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -222,7 +222,7 @@ class _VpcConnectorState:
         pulumi.set(self, "vpc_connector_revision", value)
 
 
-class VpcConnector(pulumi.CustomResource):
+calass VpcConnector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -272,7 +272,7 @@ class VpcConnector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcConnectorArgs,
+                 args: VpcConnectorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Runner VPC Connector.
@@ -304,12 +304,12 @@ class VpcConnector(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcConnectorArgs args: The arguments to use to populate this resource's properties.
+        :param VpcConnectorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcConnectorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcConnectorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -329,7 +329,7 @@ class VpcConnector(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcConnectorArgs.__new__(VpcConnectorArgs)
+            __props__ = VpcConnectorArrgs.__new__(VpcConnectorArrgs)
 
             if security_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'security_groups'")

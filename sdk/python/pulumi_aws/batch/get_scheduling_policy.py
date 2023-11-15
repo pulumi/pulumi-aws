@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSchedulingPolicyResult:
+calass GetSchedulingPolicyResult:
     """
     A collection of values returned by getSchedulingPolicy.
     """
@@ -74,7 +74,7 @@ class GetSchedulingPolicyResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetSchedulingPolicyResult(GetSchedulingPolicyResult):
+calass AwaitableGetSchedulingPolicyResult(GetSchedulingPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

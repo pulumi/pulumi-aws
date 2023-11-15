@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ChannelArgs', 'Channel']
+__all__ = ['ChannelArrgs', 'Channel']
 
 @pulumi.input_type
-class ChannelArgs:
+calass ChannelArrgs:
     def __init__(__self__, *,
                  channel_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -71,12 +71,12 @@ class ChannelArgs:
 
 
 @pulumi.input_type
-class _ChannelState:
+calass _ChannelState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  channel_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 hls_ingests: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArgs']]]] = None,
+                 hls_ingests: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -84,7 +84,7 @@ class _ChannelState:
         :param pulumi.Input[str] arn: The ARN of the channel
         :param pulumi.Input[str] channel_id: A unique identifier describing the channel
         :param pulumi.Input[str] description: A description of the channel
-        :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArgs']]] hls_ingests: A single item list of HLS ingest information
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArrgs']]] hls_ingests: A single item list of HLS ingest information
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -144,14 +144,14 @@ class _ChannelState:
 
     @property
     @pulumi.getter(name="hlsIngests")
-    def hls_ingests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArgs']]]]:
+    def hls_ingests(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArrgs']]]]:
         """
         A single item list of HLS ingest information
         """
         return pulumi.get(self, "hls_ingests")
 
     @hls_ingests.setter
-    def hls_ingests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArgs']]]]):
+    def hls_ingests(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestArrgs']]]]):
         pulumi.set(self, "hls_ingests", value)
 
     @property
@@ -182,7 +182,7 @@ class _ChannelState:
         pulumi.set(self, "tags_all", value)
 
 
-class Channel(pulumi.CustomResource):
+calass Channel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -223,7 +223,7 @@ class Channel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ChannelArgs,
+                 args: ChannelArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Elemental MediaPackage Channel.
@@ -248,12 +248,12 @@ class Channel(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ChannelArgs args: The arguments to use to populate this resource's properties.
+        :param ChannelArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ChannelArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ChannelArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -272,7 +272,7 @@ class Channel(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ChannelArgs.__new__(ChannelArgs)
+            __props__ = ChannelArrgs.__new__(ChannelArrgs)
 
             if channel_id is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_id'")
@@ -299,7 +299,7 @@ class Channel(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             channel_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            hls_ingests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]]]] = None,
+            hls_ingests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelHlsIngestArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Channel':
         """
@@ -312,7 +312,7 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the channel
         :param pulumi.Input[str] channel_id: A unique identifier describing the channel
         :param pulumi.Input[str] description: A description of the channel
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelHlsIngestArgs']]]] hls_ingests: A single item list of HLS ingest information
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ChannelHlsIngestArrgs']]]] hls_ingests: A single item list of HLS ingest information
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

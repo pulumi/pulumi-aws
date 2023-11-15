@@ -11,16 +11,16 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'RoleInlinePolicyArgs',
-    'GetPolicyDocumentStatementArgs',
-    'GetPolicyDocumentStatementConditionArgs',
-    'GetPolicyDocumentStatementNotPrincipalArgs',
-    'GetPolicyDocumentStatementPrincipalArgs',
-    'GetPrincipalPolicySimulationContextArgs',
+    'RoleInlinePolicyArrgs',
+    'GetPolicyDocumentStatementArrgs',
+    'GetPolicyDocumentStatementConditionArrgs',
+    'GetPolicyDocumentStatementNotPrincipalArrgs',
+    'GetPolicyDocumentStatementPrincipalArrgs',
+    'GetPrincipalPolicySimulationContextArrgs',
 ]
 
 @pulumi.input_type
-class RoleInlinePolicyArgs:
+calass RoleInlinePolicyArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None):
@@ -59,25 +59,25 @@ class RoleInlinePolicyArgs:
 
 
 @pulumi.input_type
-class GetPolicyDocumentStatementArgs:
+calass GetPolicyDocumentStatementArrgs:
     def __init__(__self__, *,
                  actions: Optional[Sequence[str]] = None,
-                 conditions: Optional[Sequence['GetPolicyDocumentStatementConditionArgs']] = None,
+                 conditions: Optional[Sequence['GetPolicyDocumentStatementConditionArrgs']] = None,
                  effect: Optional[str] = None,
                  not_actions: Optional[Sequence[str]] = None,
-                 not_principals: Optional[Sequence['GetPolicyDocumentStatementNotPrincipalArgs']] = None,
+                 not_principals: Optional[Sequence['GetPolicyDocumentStatementNotPrincipalArrgs']] = None,
                  not_resources: Optional[Sequence[str]] = None,
-                 principals: Optional[Sequence['GetPolicyDocumentStatementPrincipalArgs']] = None,
+                 principals: Optional[Sequence['GetPolicyDocumentStatementPrincipalArrgs']] = None,
                  resources: Optional[Sequence[str]] = None,
                  sid: Optional[str] = None):
         """
         :param Sequence[str] actions: List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
-        :param Sequence['GetPolicyDocumentStatementConditionArgs'] conditions: Configuration block for a condition. Detailed below.
+        :param Sequence['GetPolicyDocumentStatementConditionArrgs'] conditions: Configuration block for a condition. Detailed below.
         :param str effect: Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence[str] not_actions: List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-        :param Sequence['GetPolicyDocumentStatementNotPrincipalArgs'] not_principals: Like `principals` except these are principals that the statement does *not* apply to.
+        :param Sequence['GetPolicyDocumentStatementNotPrincipalArrgs'] not_principals: Like `principals` except these are principals that the statement does *not* apply to.
         :param Sequence[str] not_resources: List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-        :param Sequence['GetPolicyDocumentStatementPrincipalArgs'] principals: Configuration block for principals. Detailed below.
+        :param Sequence['GetPolicyDocumentStatementPrincipalArrgs'] principals: Configuration block for principals. Detailed below.
         :param Sequence[str] resources: List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
         :param str sid: Sid (statement ID) is an identifier for a policy statement.
         """
@@ -114,14 +114,14 @@ class GetPolicyDocumentStatementArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[Sequence['GetPolicyDocumentStatementConditionArgs']]:
+    def conditions(self) -> Optional[Sequence['GetPolicyDocumentStatementConditionArrgs']]:
         """
         Configuration block for a condition. Detailed below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[Sequence['GetPolicyDocumentStatementConditionArgs']]):
+    def conditions(self, value: Optional[Sequence['GetPolicyDocumentStatementConditionArrgs']]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -150,14 +150,14 @@ class GetPolicyDocumentStatementArgs:
 
     @property
     @pulumi.getter(name="notPrincipals")
-    def not_principals(self) -> Optional[Sequence['GetPolicyDocumentStatementNotPrincipalArgs']]:
+    def not_principals(self) -> Optional[Sequence['GetPolicyDocumentStatementNotPrincipalArrgs']]:
         """
         Like `principals` except these are principals that the statement does *not* apply to.
         """
         return pulumi.get(self, "not_principals")
 
     @not_principals.setter
-    def not_principals(self, value: Optional[Sequence['GetPolicyDocumentStatementNotPrincipalArgs']]):
+    def not_principals(self, value: Optional[Sequence['GetPolicyDocumentStatementNotPrincipalArrgs']]):
         pulumi.set(self, "not_principals", value)
 
     @property
@@ -174,14 +174,14 @@ class GetPolicyDocumentStatementArgs:
 
     @property
     @pulumi.getter
-    def principals(self) -> Optional[Sequence['GetPolicyDocumentStatementPrincipalArgs']]:
+    def principals(self) -> Optional[Sequence['GetPolicyDocumentStatementPrincipalArrgs']]:
         """
         Configuration block for principals. Detailed below.
         """
         return pulumi.get(self, "principals")
 
     @principals.setter
-    def principals(self, value: Optional[Sequence['GetPolicyDocumentStatementPrincipalArgs']]):
+    def principals(self, value: Optional[Sequence['GetPolicyDocumentStatementPrincipalArrgs']]):
         pulumi.set(self, "principals", value)
 
     @property
@@ -210,7 +210,7 @@ class GetPolicyDocumentStatementArgs:
 
 
 @pulumi.input_type
-class GetPolicyDocumentStatementConditionArgs:
+calass GetPolicyDocumentStatementConditionArrgs:
     def __init__(__self__, *,
                  test: str,
                  values: Sequence[str],
@@ -262,7 +262,7 @@ class GetPolicyDocumentStatementConditionArgs:
 
 
 @pulumi.input_type
-class GetPolicyDocumentStatementNotPrincipalArgs:
+calass GetPolicyDocumentStatementNotPrincipalArrgs:
     def __init__(__self__, *,
                  identifiers: Sequence[str],
                  type: str):
@@ -299,7 +299,7 @@ class GetPolicyDocumentStatementNotPrincipalArgs:
 
 
 @pulumi.input_type
-class GetPolicyDocumentStatementPrincipalArgs:
+calass GetPolicyDocumentStatementPrincipalArrgs:
     def __init__(__self__, *,
                  identifiers: Sequence[str],
                  type: str):
@@ -336,7 +336,7 @@ class GetPolicyDocumentStatementPrincipalArgs:
 
 
 @pulumi.input_type
-class GetPrincipalPolicySimulationContextArgs:
+calass GetPrincipalPolicySimulationContextArrgs:
     def __init__(__self__, *,
                  key: str,
                  type: str,

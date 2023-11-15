@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EmailIdentityArgs', 'EmailIdentity']
+__all__ = ['EmailIdentityArrgs', 'EmailIdentity']
 
 @pulumi.input_type
-class EmailIdentityArgs:
+calass EmailIdentityArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class EmailIdentityArgs:
 
 
 @pulumi.input_type
-class _EmailIdentityState:
+calass _EmailIdentityState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None):
@@ -74,7 +74,7 @@ class _EmailIdentityState:
         pulumi.set(self, "email", value)
 
 
-class EmailIdentity(pulumi.CustomResource):
+calass EmailIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -109,7 +109,7 @@ class EmailIdentity(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EmailIdentityArgs,
+                 args: EmailIdentityArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an SES email identity resource
@@ -132,12 +132,12 @@ class EmailIdentity(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EmailIdentityArgs args: The arguments to use to populate this resource's properties.
+        :param EmailIdentityArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EmailIdentityArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -154,7 +154,7 @@ class EmailIdentity(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EmailIdentityArgs.__new__(EmailIdentityArgs)
+            __props__ = EmailIdentityArrgs.__new__(EmailIdentityArrgs)
 
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")

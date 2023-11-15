@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WorkgroupArgs', 'Workgroup']
+__all__ = ['WorkgroupArrgs', 'Workgroup']
 
 @pulumi.input_type
-class WorkgroupArgs:
+calass WorkgroupArrgs:
     def __init__(__self__, *,
-                 configuration: Optional[pulumi.Input['WorkgroupConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['WorkgroupConfigurationArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class WorkgroupArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workgroup resource.
-        :param pulumi.Input['WorkgroupConfigurationArgs'] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input['WorkgroupConfigurationArrgs'] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[str] description: Description of the workgroup.
         :param pulumi.Input[bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.
@@ -46,14 +46,14 @@ class WorkgroupArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['WorkgroupConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['WorkgroupConfigurationArrgs']]:
         """
         Configuration block with various settings for the workgroup. Documented below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -118,10 +118,10 @@ class WorkgroupArgs:
 
 
 @pulumi.input_type
-class _WorkgroupState:
+calass _WorkgroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input['WorkgroupConfigurationArgs']] = None,
+                 configuration: Optional[pulumi.Input['WorkgroupConfigurationArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class _WorkgroupState:
         """
         Input properties used for looking up and filtering Workgroup resources.
         :param pulumi.Input[str] arn: ARN of the workgroup
-        :param pulumi.Input['WorkgroupConfigurationArgs'] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input['WorkgroupConfigurationArrgs'] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[str] description: Description of the workgroup.
         :param pulumi.Input[bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.
@@ -173,14 +173,14 @@ class _WorkgroupState:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['WorkgroupConfigurationArgs']]:
+    def configuration(self) -> Optional[pulumi.Input['WorkgroupConfigurationArrgs']]:
         """
         Configuration block with various settings for the workgroup. Documented below.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationArgs']]):
+    def configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationArrgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -259,12 +259,12 @@ class _WorkgroupState:
         pulumi.set(self, "tags_all", value)
 
 
-class Workgroup(pulumi.CustomResource):
+calass Workgroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -280,12 +280,12 @@ class Workgroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.Workgroup("example", configuration=aws.athena.WorkgroupConfigurationArgs(
+        example = aws.athena.Workgroup("example", configuration=aws.athena.WorkgroupConfigurationArrgs(
             enforce_workgroup_configuration=True,
             publish_cloudwatch_metrics_enabled=True,
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
+            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArrgs(
                 output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArrgs(
                     encryption_option="SSE_KMS",
                     kms_key_arn=aws_kms_key["example"]["arn"],
                 ),
@@ -303,7 +303,7 @@ class Workgroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input[pulumi.InputType['WorkgroupConfigurationArrgs']] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[str] description: Description of the workgroup.
         :param pulumi.Input[bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.
@@ -314,7 +314,7 @@ class Workgroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[WorkgroupArgs] = None,
+                 args: Optional[WorkgroupArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an Athena Workgroup.
@@ -325,12 +325,12 @@ class Workgroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.athena.Workgroup("example", configuration=aws.athena.WorkgroupConfigurationArgs(
+        example = aws.athena.Workgroup("example", configuration=aws.athena.WorkgroupConfigurationArrgs(
             enforce_workgroup_configuration=True,
             publish_cloudwatch_metrics_enabled=True,
-            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArgs(
+            result_configuration=aws.athena.WorkgroupConfigurationResultConfigurationArrgs(
                 output_location=f"s3://{aws_s3_bucket['example']['bucket']}/output/",
-                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs(
+                encryption_configuration=aws.athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArrgs(
                     encryption_option="SSE_KMS",
                     kms_key_arn=aws_kms_key["example"]["arn"],
                 ),
@@ -347,12 +347,12 @@ class Workgroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkgroupArgs args: The arguments to use to populate this resource's properties.
+        :param WorkgroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkgroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkgroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -361,7 +361,7 @@ class Workgroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']]] = None,
+                 configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -374,7 +374,7 @@ class Workgroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkgroupArgs.__new__(WorkgroupArgs)
+            __props__ = WorkgroupArrgs.__new__(WorkgroupArrgs)
 
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["description"] = description
@@ -397,7 +397,7 @@ class Workgroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']]] = None,
+            configuration: Optional[pulumi.Input[pulumi.InputType['WorkgroupConfigurationArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -412,7 +412,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the workgroup
-        :param pulumi.Input[pulumi.InputType['WorkgroupConfigurationArgs']] configuration: Configuration block with various settings for the workgroup. Documented below.
+        :param pulumi.Input[pulumi.InputType['WorkgroupConfigurationArrgs']] configuration: Configuration block with various settings for the workgroup. Documented below.
         :param pulumi.Input[str] description: Description of the workgroup.
         :param pulumi.Input[bool] force_destroy: Option to delete the workgroup and its contents even if the workgroup contains any named queries.
         :param pulumi.Input[str] name: Name of the workgroup.

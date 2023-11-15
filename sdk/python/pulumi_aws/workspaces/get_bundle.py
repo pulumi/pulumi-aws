@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBundleResult:
+calass GetBundleResult:
     """
     A collection of values returned by getBundle.
     """
@@ -113,7 +113,7 @@ class GetBundleResult:
         return pulumi.get(self, "user_storages")
 
 
-class AwaitableGetBundleResult(GetBundleResult):
+calass AwaitableGetBundleResult(GetBundleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

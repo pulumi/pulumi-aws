@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcIpv6CidrBlockAssociationArgs', 'VpcIpv6CidrBlockAssociation']
+__all__ = ['VpcIpv6CidrBlockAssociationArrgs', 'VpcIpv6CidrBlockAssociation']
 
 @pulumi.input_type
-class VpcIpv6CidrBlockAssociationArgs:
+calass VpcIpv6CidrBlockAssociationArrgs:
     def __init__(__self__, *,
                  ipv6_ipam_pool_id: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
@@ -82,7 +82,7 @@ class VpcIpv6CidrBlockAssociationArgs:
 
 
 @pulumi.input_type
-class _VpcIpv6CidrBlockAssociationState:
+calass _VpcIpv6CidrBlockAssociationState:
     def __init__(__self__, *,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _VpcIpv6CidrBlockAssociationState:
         pulumi.set(self, "vpc_id", value)
 
 
-class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
+calass VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -199,7 +199,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcIpv6CidrBlockAssociationArgs,
+                 args: VpcIpv6CidrBlockAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to associate additional IPv6 CIDR blocks with a VPC.
@@ -227,12 +227,12 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcIpv6CidrBlockAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param VpcIpv6CidrBlockAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcIpv6CidrBlockAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcIpv6CidrBlockAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -252,7 +252,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcIpv6CidrBlockAssociationArgs.__new__(VpcIpv6CidrBlockAssociationArgs)
+            __props__ = VpcIpv6CidrBlockAssociationArrgs.__new__(VpcIpv6CidrBlockAssociationArrgs)
 
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
             if ipv6_ipam_pool_id is None and not opts.urn:

@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTagsResult:
+calass GetTagsResult:
     """
     A collection of values returned by getTags.
     """
@@ -88,7 +88,7 @@ class GetTagsResult:
         return pulumi.get(self, "time_period")
 
 
-class AwaitableGetTagsResult(GetTagsResult):
+calass AwaitableGetTagsResult(GetTagsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -103,11 +103,11 @@ class AwaitableGetTagsResult(GetTagsResult):
             time_period=self.time_period)
 
 
-def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
+def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArrgs']] = None,
              search_string: Optional[str] = None,
-             sort_bies: Optional[Sequence[pulumi.InputType['GetTagsSortByArgs']]] = None,
+             sort_bies: Optional[Sequence[pulumi.InputType['GetTagsSortByArrgs']]] = None,
              tag_key: Optional[str] = None,
-             time_period: Optional[pulumi.InputType['GetTagsTimePeriodArgs']] = None,
+             time_period: Optional[pulumi.InputType['GetTagsTimePeriodArrgs']] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagsResult:
     """
     Provides details about a specific CE Tags.
@@ -118,18 +118,18 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
+    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArrgs(
         end="2022-12-01",
         start="2021-01-01",
     ))
     ```
 
 
-    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
+    :param pulumi.InputType['GetTagsFilterArrgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
     :param str search_string: Value that you want to search for.
-    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
+    :param Sequence[pulumi.InputType['GetTagsSortByArrgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
     :param str tag_key: Key of the tag that you want to return values for.
-    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+    :param pulumi.InputType['GetTagsTimePeriodArrgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
            
            The following arguments are optional:
     """
@@ -153,11 +153,11 @@ def get_tags(filter: Optional[pulumi.InputType['GetTagsFilterArgs']] = None,
 
 
 @_utilities.lift_output_func(get_tags)
-def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetTagsFilterArgs']]]] = None,
+def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['GetTagsFilterArrgs']]]] = None,
                     search_string: Optional[pulumi.Input[Optional[str]]] = None,
-                    sort_bies: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTagsSortByArgs']]]]] = None,
+                    sort_bies: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetTagsSortByArrgs']]]]] = None,
                     tag_key: Optional[pulumi.Input[Optional[str]]] = None,
-                    time_period: Optional[pulumi.Input[pulumi.InputType['GetTagsTimePeriodArgs']]] = None,
+                    time_period: Optional[pulumi.Input[pulumi.InputType['GetTagsTimePeriodArrgs']]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagsResult]:
     """
     Provides details about a specific CE Tags.
@@ -168,18 +168,18 @@ def get_tags_output(filter: Optional[pulumi.Input[Optional[pulumi.InputType['Get
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArgs(
+    test = aws.costexplorer.get_tags(time_period=aws.costexplorer.GetTagsTimePeriodArrgs(
         end="2022-12-01",
         start="2021-01-01",
     ))
     ```
 
 
-    :param pulumi.InputType['GetTagsFilterArgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
+    :param pulumi.InputType['GetTagsFilterArrgs'] filter: Configuration block for the `Expression` object used to categorize costs. See below.
     :param str search_string: Value that you want to search for.
-    :param Sequence[pulumi.InputType['GetTagsSortByArgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
+    :param Sequence[pulumi.InputType['GetTagsSortByArrgs']] sort_bies: Configuration block for the value by which you want to sort the data. See below.
     :param str tag_key: Key of the tag that you want to return values for.
-    :param pulumi.InputType['GetTagsTimePeriodArgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
+    :param pulumi.InputType['GetTagsTimePeriodArrgs'] time_period: Configuration block for the start and end dates for retrieving the dimension values.
            
            The following arguments are optional:
     """

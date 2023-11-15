@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstancesResult:
+calass GetInstancesResult:
     """
     A collection of values returned by getInstances.
     """
@@ -105,7 +105,7 @@ class GetInstancesResult:
         return pulumi.get(self, "public_ips")
 
 
-class AwaitableGetInstancesResult(GetInstancesResult):
+calass AwaitableGetInstancesResult(GetInstancesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -121,7 +121,7 @@ class AwaitableGetInstancesResult(GetInstancesResult):
             public_ips=self.public_ips)
 
 
-def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]] = None,
+def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilterArrgs']]] = None,
                   instance_state_names: Optional[Sequence[str]] = None,
                   instance_tags: Optional[Mapping[str, str]] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstancesResult:
@@ -143,7 +143,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     test_instances = aws.ec2.get_instances(instance_tags={
             "Role": "HardWorker",
         },
-        filters=[aws.ec2.GetInstancesFilterArgs(
+        filters=[aws.ec2.GetInstancesFilterArrgs(
             name="instance.group-id",
             values=["sg-12345678"],
         )],
@@ -157,7 +157,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[pulumi.InputType['GetInstancesFilterArrgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param Sequence[str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
@@ -183,7 +183,7 @@ def get_instances(filters: Optional[Sequence[pulumi.InputType['GetInstancesFilte
 
 
 @_utilities.lift_output_func(get_instances)
-def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArgs']]]]] = None,
+def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetInstancesFilterArrgs']]]]] = None,
                          instance_state_names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                          instance_tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstancesResult]:
@@ -205,7 +205,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     test_instances = aws.ec2.get_instances(instance_tags={
             "Role": "HardWorker",
         },
-        filters=[aws.ec2.GetInstancesFilterArgs(
+        filters=[aws.ec2.GetInstancesFilterArrgs(
             name="instance.group-id",
             values=["sg-12345678"],
         )],
@@ -219,7 +219,7 @@ def get_instances_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi
     ```
 
 
-    :param Sequence[pulumi.InputType['GetInstancesFilterArgs']] filters: One or more name/value pairs to use as filters. There are
+    :param Sequence[pulumi.InputType['GetInstancesFilterArrgs']] filters: One or more name/value pairs to use as filters. There are
            several valid keys, for a full reference, check out
            [describe-instances in the AWS CLI reference][1].
     :param Sequence[str] instance_state_names: List of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.

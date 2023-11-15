@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MLTransformArgs', 'MLTransform']
+__all__ = ['MLTransformArrgs', 'MLTransform']
 
 @pulumi.input_type
-class MLTransformArgs:
+calass MLTransformArrgs:
     def __init__(__self__, *,
-                 input_record_tables: pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]],
-                 parameters: pulumi.Input['MLTransformParametersArgs'],
+                 input_record_tables: pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArrgs']]],
+                 parameters: pulumi.Input['MLTransformParametersArrgs'],
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
@@ -30,8 +30,8 @@ class MLTransformArgs:
                  worker_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MLTransform resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
-        :param pulumi.Input['MLTransformParametersArgs'] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        :param pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArrgs']]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+        :param pulumi.Input['MLTransformParametersArrgs'] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[str] description: Description of the ML Transform.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
@@ -67,26 +67,26 @@ class MLTransformArgs:
 
     @property
     @pulumi.getter(name="inputRecordTables")
-    def input_record_tables(self) -> pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]]:
+    def input_record_tables(self) -> pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArrgs']]]:
         """
         A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         """
         return pulumi.get(self, "input_record_tables")
 
     @input_record_tables.setter
-    def input_record_tables(self, value: pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]]):
+    def input_record_tables(self, value: pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArrgs']]]):
         pulumi.set(self, "input_record_tables", value)
 
     @property
     @pulumi.getter
-    def parameters(self) -> pulumi.Input['MLTransformParametersArgs']:
+    def parameters(self) -> pulumi.Input['MLTransformParametersArrgs']:
         """
         The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: pulumi.Input['MLTransformParametersArgs']):
+    def parameters(self, value: pulumi.Input['MLTransformParametersArrgs']):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -211,20 +211,20 @@ class MLTransformArgs:
 
 
 @pulumi.input_type
-class _MLTransformState:
+calass _MLTransformState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
-                 input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]]] = None,
+                 input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArrgs']]]] = None,
                  label_count: Optional[pulumi.Input[int]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[pulumi.Input['MLTransformParametersArgs']] = None,
+                 parameters: Optional[pulumi.Input['MLTransformParametersArrgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
-                 schemas: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]]] = None,
+                 schemas: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArrgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -234,15 +234,15 @@ class _MLTransformState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue ML Transform.
         :param pulumi.Input[str] description: Description of the ML Transform.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-        :param pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+        :param pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArrgs']]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         :param pulumi.Input[int] label_count: The number of labels available for this transform.
         :param pulumi.Input[float] max_capacity: The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this ML Transform if it fails.
         :param pulumi.Input[str] name: The name you assign to this ML Transform. It must be unique in your account.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
-        :param pulumi.Input['MLTransformParametersArgs'] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        :param pulumi.Input['MLTransformParametersArrgs'] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
-        :param pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]] schemas: The object that represents the schema that this transform accepts. see Schema.
+        :param pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArrgs']]] schemas: The object that represents the schema that this transform accepts. see Schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
@@ -322,14 +322,14 @@ class _MLTransformState:
 
     @property
     @pulumi.getter(name="inputRecordTables")
-    def input_record_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]]]:
+    def input_record_tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArrgs']]]]:
         """
         A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         """
         return pulumi.get(self, "input_record_tables")
 
     @input_record_tables.setter
-    def input_record_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]]]):
+    def input_record_tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArrgs']]]]):
         pulumi.set(self, "input_record_tables", value)
 
     @property
@@ -394,14 +394,14 @@ class _MLTransformState:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input['MLTransformParametersArgs']]:
+    def parameters(self) -> Optional[pulumi.Input['MLTransformParametersArrgs']]:
         """
         The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input['MLTransformParametersArgs']]):
+    def parameters(self, value: Optional[pulumi.Input['MLTransformParametersArrgs']]):
         pulumi.set(self, "parameters", value)
 
     @property
@@ -418,14 +418,14 @@ class _MLTransformState:
 
     @property
     @pulumi.getter
-    def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]]]:
+    def schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArrgs']]]]:
         """
         The object that represents the schema that this transform accepts. see Schema.
         """
         return pulumi.get(self, "schemas")
 
     @schemas.setter
-    def schemas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]]]):
+    def schemas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArrgs']]]]):
         pulumi.set(self, "schemas", value)
 
     @property
@@ -480,19 +480,19 @@ class _MLTransformState:
         pulumi.set(self, "worker_type", value)
 
 
-class MLTransform(pulumi.CustomResource):
+calass MLTransform(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
-                 input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArgs']]]]] = None,
+                 input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArrgs']]]]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformParametersArgs']]] = None,
+                 parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformParametersArrgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -516,7 +516,7 @@ class MLTransform(pulumi.CustomResource):
             table_type="VIRTUAL_VIEW",
             view_expanded_text="view_expanded_text_1",
             view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
+            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArrgs(
                 bucket_columns=["bucket_column_1"],
                 compressed=False,
                 input_format="SequenceFileInputFormat",
@@ -528,29 +528,29 @@ class MLTransform(pulumi.CustomResource):
                     "param1": "param1_val",
                 },
                 columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         name="my_column_1",
                         type="int",
                         comment="my_column1_comment",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         name="my_column_2",
                         type="string",
                         comment="my_column2_comment",
                     ),
                 ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
+                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArrgs(
                     name="ser_de_name",
                     parameters={
                         "param1": "param_val_1",
                     },
                     serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
                 ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
+                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArrgs(
                     column="my_column_1",
                     sort_order=1,
                 )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
+                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArrgs(
                     skewed_column_names=["my_column_1"],
                     skewed_column_value_location_maps={
                         "my_column_1": "my_column_1_val_loc_map",
@@ -559,12 +559,12 @@ class MLTransform(pulumi.CustomResource):
                 ),
             ),
             partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
+                aws.glue.CatalogTablePartitionKeyArrgs(
                     name="my_column_1",
                     type="int",
                     comment="my_column_1_comment",
                 ),
-                aws.glue.CatalogTablePartitionKeyArgs(
+                aws.glue.CatalogTablePartitionKeyArrgs(
                     name="my_column_2",
                     type="string",
                     comment="my_column_2_comment",
@@ -575,13 +575,13 @@ class MLTransform(pulumi.CustomResource):
             })
         test_ml_transform = aws.glue.MLTransform("testMLTransform",
             role_arn=aws_iam_role["test"]["arn"],
-            input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
+            input_record_tables=[aws.glue.MLTransformInputRecordTableArrgs(
                 database_name=test_catalog_table.database_name,
                 table_name=test_catalog_table.name,
             )],
-            parameters=aws.glue.MLTransformParametersArgs(
+            parameters=aws.glue.MLTransformParametersArrgs(
                 transform_type="FIND_MATCHES",
-                find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
+                find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArrgs(
                     primary_key_column_name="my_column_1",
                 ),
             ),
@@ -600,12 +600,12 @@ class MLTransform(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the ML Transform.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArgs']]]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArrgs']]]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         :param pulumi.Input[float] max_capacity: The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this ML Transform if it fails.
         :param pulumi.Input[str] name: The name you assign to this ML Transform. It must be unique in your account.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
-        :param pulumi.Input[pulumi.InputType['MLTransformParametersArgs']] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        :param pulumi.Input[pulumi.InputType['MLTransformParametersArrgs']] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
@@ -615,7 +615,7 @@ class MLTransform(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MLTransformArgs,
+                 args: MLTransformArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue ML Transform resource.
@@ -635,7 +635,7 @@ class MLTransform(pulumi.CustomResource):
             table_type="VIRTUAL_VIEW",
             view_expanded_text="view_expanded_text_1",
             view_original_text="view_original_text_1",
-            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArgs(
+            storage_descriptor=aws.glue.CatalogTableStorageDescriptorArrgs(
                 bucket_columns=["bucket_column_1"],
                 compressed=False,
                 input_format="SequenceFileInputFormat",
@@ -647,29 +647,29 @@ class MLTransform(pulumi.CustomResource):
                     "param1": "param1_val",
                 },
                 columns=[
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         name="my_column_1",
                         type="int",
                         comment="my_column1_comment",
                     ),
-                    aws.glue.CatalogTableStorageDescriptorColumnArgs(
+                    aws.glue.CatalogTableStorageDescriptorColumnArrgs(
                         name="my_column_2",
                         type="string",
                         comment="my_column2_comment",
                     ),
                 ],
-                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArgs(
+                ser_de_info=aws.glue.CatalogTableStorageDescriptorSerDeInfoArrgs(
                     name="ser_de_name",
                     parameters={
                         "param1": "param_val_1",
                     },
                     serialization_library="org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
                 ),
-                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArgs(
+                sort_columns=[aws.glue.CatalogTableStorageDescriptorSortColumnArrgs(
                     column="my_column_1",
                     sort_order=1,
                 )],
-                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArgs(
+                skewed_info=aws.glue.CatalogTableStorageDescriptorSkewedInfoArrgs(
                     skewed_column_names=["my_column_1"],
                     skewed_column_value_location_maps={
                         "my_column_1": "my_column_1_val_loc_map",
@@ -678,12 +678,12 @@ class MLTransform(pulumi.CustomResource):
                 ),
             ),
             partition_keys=[
-                aws.glue.CatalogTablePartitionKeyArgs(
+                aws.glue.CatalogTablePartitionKeyArrgs(
                     name="my_column_1",
                     type="int",
                     comment="my_column_1_comment",
                 ),
-                aws.glue.CatalogTablePartitionKeyArgs(
+                aws.glue.CatalogTablePartitionKeyArrgs(
                     name="my_column_2",
                     type="string",
                     comment="my_column_2_comment",
@@ -694,13 +694,13 @@ class MLTransform(pulumi.CustomResource):
             })
         test_ml_transform = aws.glue.MLTransform("testMLTransform",
             role_arn=aws_iam_role["test"]["arn"],
-            input_record_tables=[aws.glue.MLTransformInputRecordTableArgs(
+            input_record_tables=[aws.glue.MLTransformInputRecordTableArrgs(
                 database_name=test_catalog_table.database_name,
                 table_name=test_catalog_table.name,
             )],
-            parameters=aws.glue.MLTransformParametersArgs(
+            parameters=aws.glue.MLTransformParametersArrgs(
                 transform_type="FIND_MATCHES",
-                find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArgs(
+                find_matches_parameters=aws.glue.MLTransformParametersFindMatchesParametersArrgs(
                     primary_key_column_name="my_column_1",
                 ),
             ),
@@ -716,12 +716,12 @@ class MLTransform(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MLTransformArgs args: The arguments to use to populate this resource's properties.
+        :param MLTransformArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MLTransformArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MLTransformArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -732,12 +732,12 @@ class MLTransform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  glue_version: Optional[pulumi.Input[str]] = None,
-                 input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArgs']]]]] = None,
+                 input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArrgs']]]]] = None,
                  max_capacity: Optional[pulumi.Input[float]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  number_of_workers: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformParametersArgs']]] = None,
+                 parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformParametersArrgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
@@ -749,7 +749,7 @@ class MLTransform(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MLTransformArgs.__new__(MLTransformArgs)
+            __props__ = MLTransformArrgs.__new__(MLTransformArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["glue_version"] = glue_version
@@ -788,15 +788,15 @@ class MLTransform(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             glue_version: Optional[pulumi.Input[str]] = None,
-            input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArgs']]]]] = None,
+            input_record_tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArrgs']]]]] = None,
             label_count: Optional[pulumi.Input[int]] = None,
             max_capacity: Optional[pulumi.Input[float]] = None,
             max_retries: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
             number_of_workers: Optional[pulumi.Input[int]] = None,
-            parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformParametersArgs']]] = None,
+            parameters: Optional[pulumi.Input[pulumi.InputType['MLTransformParametersArrgs']]] = None,
             role_arn: Optional[pulumi.Input[str]] = None,
-            schemas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformSchemaArgs']]]]] = None,
+            schemas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformSchemaArrgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             timeout: Optional[pulumi.Input[int]] = None,
@@ -811,15 +811,15 @@ class MLTransform(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Glue ML Transform.
         :param pulumi.Input[str] description: Description of the ML Transform.
         :param pulumi.Input[str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArgs']]]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformInputRecordTableArrgs']]]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
         :param pulumi.Input[int] label_count: The number of labels available for this transform.
         :param pulumi.Input[float] max_capacity: The number of AWS Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from `2` to `100` DPUs; the default is `10`. `max_capacity` is a mutually exclusive option with `number_of_workers` and `worker_type`.
         :param pulumi.Input[int] max_retries: The maximum number of times to retry this ML Transform if it fails.
         :param pulumi.Input[str] name: The name you assign to this ML Transform. It must be unique in your account.
         :param pulumi.Input[int] number_of_workers: The number of workers of a defined `worker_type` that are allocated when an ML Transform runs. Required with `worker_type`.
-        :param pulumi.Input[pulumi.InputType['MLTransformParametersArgs']] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
+        :param pulumi.Input[pulumi.InputType['MLTransformParametersArrgs']] parameters: The algorithmic parameters that are specific to the transform type used. Conditionally dependent on the transform type. see Parameters.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformSchemaArgs']]]] schemas: The object that represents the schema that this transform accepts. see Schema.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformSchemaArrgs']]]] schemas: The object that represents the schema that this transform accepts. see Schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).

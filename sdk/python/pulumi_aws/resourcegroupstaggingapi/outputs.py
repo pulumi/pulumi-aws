@@ -17,13 +17,13 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResourcesResourceTagMappingListResult(dict):
+calass GetResourcesResourceTagMappingListResult(dict):
     def __init__(__self__, *,
                  compliance_details: Sequence['outputs.GetResourcesResourceTagMappingListComplianceDetailResult'],
                  resource_arn: str,
                  tags: Mapping[str, str]):
         """
-        :param Sequence['GetResourcesResourceTagMappingListComplianceDetailArgs'] compliance_details: List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
+        :param Sequence['GetResourcesResourceTagMappingListComplianceDetailArrgs'] compliance_details: List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
         :param str resource_arn: ARN of the resource.
         :param Mapping[str, str] tags: Map of tags assigned to the resource.
         """
@@ -57,7 +57,7 @@ class GetResourcesResourceTagMappingListResult(dict):
 
 
 @pulumi.output_type
-class GetResourcesResourceTagMappingListComplianceDetailResult(dict):
+calass GetResourcesResourceTagMappingListComplianceDetailResult(dict):
     def __init__(__self__, *,
                  compliance_status: bool,
                  keys_with_noncompliant_values: Sequence[str],
@@ -93,7 +93,7 @@ class GetResourcesResourceTagMappingListComplianceDetailResult(dict):
 
 
 @pulumi.output_type
-class GetResourcesTagFilterResult(dict):
+calass GetResourcesTagFilterResult(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Optional[Sequence[str]] = None):

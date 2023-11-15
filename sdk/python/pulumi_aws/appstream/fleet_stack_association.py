@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FleetStackAssociationArgs', 'FleetStackAssociation']
+__all__ = ['FleetStackAssociationArrgs', 'FleetStackAssociation']
 
 @pulumi.input_type
-class FleetStackAssociationArgs:
+calass FleetStackAssociationArrgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[str],
                  stack_name: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class FleetStackAssociationArgs:
 
 
 @pulumi.input_type
-class _FleetStackAssociationState:
+calass _FleetStackAssociationState:
     def __init__(__self__, *,
                  fleet_name: Optional[pulumi.Input[str]] = None,
                  stack_name: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _FleetStackAssociationState:
         pulumi.set(self, "stack_name", value)
 
 
-class FleetStackAssociation(pulumi.CustomResource):
+calass FleetStackAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -109,7 +109,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         example_fleet = aws.appstream.Fleet("exampleFleet",
             image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.small",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
+            compute_capacity=aws.appstream.FleetComputeCapacityArrgs(
                 desired_instances=1,
             ))
         example_stack = aws.appstream.Stack("exampleStack")
@@ -135,7 +135,7 @@ class FleetStackAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FleetStackAssociationArgs,
+                 args: FleetStackAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AppStream Fleet Stack association.
@@ -149,7 +149,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         example_fleet = aws.appstream.Fleet("exampleFleet",
             image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.small",
-            compute_capacity=aws.appstream.FleetComputeCapacityArgs(
+            compute_capacity=aws.appstream.FleetComputeCapacityArrgs(
                 desired_instances=1,
             ))
         example_stack = aws.appstream.Stack("exampleStack")
@@ -167,12 +167,12 @@ class FleetStackAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FleetStackAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param FleetStackAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FleetStackAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FleetStackAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -190,7 +190,7 @@ class FleetStackAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FleetStackAssociationArgs.__new__(FleetStackAssociationArgs)
+            __props__ = FleetStackAssociationArrgs.__new__(FleetStackAssociationArrgs)
 
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")

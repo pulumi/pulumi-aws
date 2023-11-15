@@ -10,16 +10,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConnectionAliasTimeoutsArgs',
-    'DirectorySelfServicePermissionsArgs',
-    'DirectoryWorkspaceAccessPropertiesArgs',
-    'DirectoryWorkspaceCreationPropertiesArgs',
-    'IpGroupRuleArgs',
-    'WorkspaceWorkspacePropertiesArgs',
+    'ConnectionAliasTimeoutsArrgs',
+    'DirectorySelfServicePermissionsArrgs',
+    'DirectoryWorkspaceAccessPropertiesArrgs',
+    'DirectoryWorkspaceCreationPropertiesArrgs',
+    'IpGroupRuleArrgs',
+    'WorkspaceWorkspacePropertiesArrgs',
 ]
 
 @pulumi.input_type
-class ConnectionAliasTimeoutsArgs:
+calass ConnectionAliasTimeoutsArrgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,
@@ -60,7 +60,7 @@ class ConnectionAliasTimeoutsArgs:
 
 
 @pulumi.input_type
-class DirectorySelfServicePermissionsArgs:
+calass DirectorySelfServicePermissionsArrgs:
     def __init__(__self__, *,
                  change_compute_type: Optional[pulumi.Input[bool]] = None,
                  increase_volume_size: Optional[pulumi.Input[bool]] = None,
@@ -147,7 +147,7 @@ class DirectorySelfServicePermissionsArgs:
 
 
 @pulumi.input_type
-class DirectoryWorkspaceAccessPropertiesArgs:
+calass DirectoryWorkspaceAccessPropertiesArrgs:
     def __init__(__self__, *,
                  device_type_android: Optional[pulumi.Input[str]] = None,
                  device_type_chromeos: Optional[pulumi.Input[str]] = None,
@@ -282,7 +282,7 @@ class DirectoryWorkspaceAccessPropertiesArgs:
 
 
 @pulumi.input_type
-class DirectoryWorkspaceCreationPropertiesArgs:
+calass DirectoryWorkspaceCreationPropertiesArrgs:
     def __init__(__self__, *,
                  custom_security_group_id: Optional[pulumi.Input[str]] = None,
                  default_ou: Optional[pulumi.Input[str]] = None,
@@ -369,7 +369,7 @@ class DirectoryWorkspaceCreationPropertiesArgs:
 
 
 @pulumi.input_type
-class IpGroupRuleArgs:
+calass IpGroupRuleArrgs:
     def __init__(__self__, *,
                  source: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
@@ -407,7 +407,7 @@ class IpGroupRuleArgs:
 
 
 @pulumi.input_type
-class WorkspaceWorkspacePropertiesArgs:
+calass WorkspaceWorkspacePropertiesArrgs:
     def __init__(__self__, *,
                  compute_type_name: Optional[pulumi.Input[str]] = None,
                  root_volume_size_gib: Optional[pulumi.Input[int]] = None,

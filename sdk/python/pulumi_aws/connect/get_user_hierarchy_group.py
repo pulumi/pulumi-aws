@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetUserHierarchyGroupResult:
+calass GetUserHierarchyGroupResult:
     """
     A collection of values returned by getUserHierarchyGroup.
     """
@@ -107,7 +107,7 @@ class GetUserHierarchyGroupResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetUserHierarchyGroupResult(GetUserHierarchyGroupResult):
+calass AwaitableGetUserHierarchyGroupResult(GetUserHierarchyGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

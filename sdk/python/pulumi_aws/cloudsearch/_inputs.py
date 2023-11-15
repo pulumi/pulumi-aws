@@ -10,13 +10,13 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DomainEndpointOptionsArgs',
-    'DomainIndexFieldArgs',
-    'DomainScalingParametersArgs',
+    'DomainEndpointOptionsArrgs',
+    'DomainIndexFieldArrgs',
+    'DomainScalingParametersArrgs',
 ]
 
 @pulumi.input_type
-class DomainEndpointOptionsArgs:
+calass DomainEndpointOptionsArrgs:
     def __init__(__self__, *,
                  enforce_https: Optional[pulumi.Input[bool]] = None,
                  tls_security_policy: Optional[pulumi.Input[str]] = None):
@@ -55,7 +55,7 @@ class DomainEndpointOptionsArgs:
 
 
 @pulumi.input_type
-class DomainIndexFieldArgs:
+calass DomainIndexFieldArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -220,7 +220,7 @@ class DomainIndexFieldArgs:
 
 
 @pulumi.input_type
-class DomainScalingParametersArgs:
+calass DomainScalingParametersArrgs:
     def __init__(__self__, *,
                  desired_instance_type: Optional[pulumi.Input[str]] = None,
                  desired_partition_count: Optional[pulumi.Input[int]] = None,

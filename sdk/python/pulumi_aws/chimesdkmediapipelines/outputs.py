@@ -29,7 +29,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElement(dict):
+calass MediaInsightsPipelineConfigurationElement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -73,14 +73,14 @@ class MediaInsightsPipelineConfigurationElement(dict):
                  voice_analytics_processor_configuration: Optional['outputs.MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration'] = None):
         """
         :param str type: Element type.
-        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs' amazon_transcribe_call_analytics_processor_configuration: Configuration for Amazon Transcribe Call Analytics processor.
-        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs' amazon_transcribe_processor_configuration: Configuration for Amazon Transcribe processor.
-        :param 'MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs' kinesis_data_stream_sink_configuration: Configuration for Kinesis Data Stream sink.
-        :param 'MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs' lambda_function_sink_configuration: Configuration for Lambda Function sink.
-        :param 'MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs' s3_recording_sink_configuration: Configuration for S3 recording sink.
-        :param 'MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs' sns_topic_sink_configuration: Configuration for SNS Topic sink.
-        :param 'MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs' sqs_queue_sink_configuration: Configuration for SQS Queue sink.
-        :param 'MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs' voice_analytics_processor_configuration: Configuration for Voice analytics processor.
+        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArrgs' amazon_transcribe_call_analytics_processor_configuration: Configuration for Amazon Transcribe Call Analytics processor.
+        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArrgs' amazon_transcribe_processor_configuration: Configuration for Amazon Transcribe processor.
+        :param 'MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArrgs' kinesis_data_stream_sink_configuration: Configuration for Kinesis Data Stream sink.
+        :param 'MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArrgs' lambda_function_sink_configuration: Configuration for Lambda Function sink.
+        :param 'MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArrgs' s3_recording_sink_configuration: Configuration for S3 recording sink.
+        :param 'MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArrgs' sns_topic_sink_configuration: Configuration for SNS Topic sink.
+        :param 'MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArrgs' sqs_queue_sink_configuration: Configuration for SQS Queue sink.
+        :param 'MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArrgs' voice_analytics_processor_configuration: Configuration for Voice analytics processor.
         """
         pulumi.set(__self__, "type", type)
         if amazon_transcribe_call_analytics_processor_configuration is not None:
@@ -174,7 +174,7 @@ class MediaInsightsPipelineConfigurationElement(dict):
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration(dict):
+calass MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -240,7 +240,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
         :param str language_model_name: Name of custom language model for transcription.
         :param str partial_results_stability: Level of stability to use when partial results stabilization is enabled.
         :param str pii_entity_types: Types of personally identifiable information (PII) to redact from a Transcript event.
-        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs' post_call_analytics_settings: Settings for post call analytics.
+        :param 'MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArrgs' post_call_analytics_settings: Settings for post call analytics.
         :param str vocabulary_filter_method: Method for applying a vocabulary filter to Transcript events.
         :param str vocabulary_filter_name: Name of the custom vocabulary filter to use when processing Transcript events.
         :param str vocabulary_name: Name of the custom vocabulary to use when processing Transcript events.
@@ -377,7 +377,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings(dict):
+calass MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -453,7 +453,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration(dict):
+calass MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -642,7 +642,7 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration(dict):
+calass MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -677,7 +677,7 @@ class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguratio
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration(dict):
+calass MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -712,7 +712,7 @@ class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfiguration(d
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration(dict):
+calass MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration(dict):
     def __init__(__self__, *,
                  destination: Optional[str] = None):
         """
@@ -731,7 +731,7 @@ class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfiguration(dict
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration(dict):
+calass MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -766,7 +766,7 @@ class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfiguration(dict):
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration(dict):
+calass MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -801,7 +801,7 @@ class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfiguration(dict):
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration(dict):
+calass MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -849,12 +849,12 @@ class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurat
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration(dict):
+calass MediaInsightsPipelineConfigurationRealTimeAlertConfiguration(dict):
     def __init__(__self__, *,
                  rules: Sequence['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule'],
                  disabled: Optional[bool] = None):
         """
-        :param Sequence['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs'] rules: Collection of real time alert rules
+        :param Sequence['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArrgs'] rules: Collection of real time alert rules
         :param bool disabled: Disables real time alert rules.
         """
         pulumi.set(__self__, "rules", rules)
@@ -879,7 +879,7 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration(dict):
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule(dict):
+calass MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -908,9 +908,9 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule(dict):
                  sentiment_configuration: Optional['outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration'] = None):
         """
         :param str type: Element type.
-        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs' issue_detection_configuration: Configuration for an issue detection rule.
-        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs' keyword_match_configuration: Configuration for a keyword match rule.
-        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs' sentiment_configuration: Configuration for a sentiment rule.
+        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArrgs' issue_detection_configuration: Configuration for an issue detection rule.
+        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArrgs' keyword_match_configuration: Configuration for a keyword match rule.
+        :param 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArrgs' sentiment_configuration: Configuration for a sentiment rule.
         """
         pulumi.set(__self__, "type", type)
         if issue_detection_configuration is not None:
@@ -954,7 +954,7 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRule(dict):
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration(dict):
+calass MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -989,7 +989,7 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetec
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration(dict):
+calass MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1047,7 +1047,7 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
 
 
 @pulumi.output_type
-class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration(dict):
+calass MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

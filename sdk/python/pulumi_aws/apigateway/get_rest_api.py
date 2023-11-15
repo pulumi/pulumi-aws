@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRestApiResult:
+calass GetRestApiResult:
     """
     A collection of values returned by getRestApi.
     """
@@ -154,7 +154,7 @@ class GetRestApiResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetRestApiResult(GetRestApiResult):
+calass AwaitableGetRestApiResult(GetRestApiResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

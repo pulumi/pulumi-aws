@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class RepositoryAssociationKmsKeyDetails(dict):
+calass RepositoryAssociationKmsKeyDetails(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -72,7 +72,7 @@ class RepositoryAssociationKmsKeyDetails(dict):
 
 
 @pulumi.output_type
-class RepositoryAssociationRepository(dict):
+calass RepositoryAssociationRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -128,7 +128,7 @@ class RepositoryAssociationRepository(dict):
 
 
 @pulumi.output_type
-class RepositoryAssociationRepositoryBitbucket(dict):
+calass RepositoryAssociationRepositoryBitbucket(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -185,7 +185,7 @@ class RepositoryAssociationRepositoryBitbucket(dict):
 
 
 @pulumi.output_type
-class RepositoryAssociationRepositoryCodecommit(dict):
+calass RepositoryAssociationRepositoryCodecommit(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -203,7 +203,7 @@ class RepositoryAssociationRepositoryCodecommit(dict):
 
 
 @pulumi.output_type
-class RepositoryAssociationRepositoryGithubEnterpriseServer(dict):
+calass RepositoryAssociationRepositoryGithubEnterpriseServer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -260,7 +260,7 @@ class RepositoryAssociationRepositoryGithubEnterpriseServer(dict):
 
 
 @pulumi.output_type
-class RepositoryAssociationRepositoryS3Bucket(dict):
+calass RepositoryAssociationRepositoryS3Bucket(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -306,7 +306,7 @@ class RepositoryAssociationRepositoryS3Bucket(dict):
 
 
 @pulumi.output_type
-class RepositoryAssociationS3RepositoryDetail(dict):
+calass RepositoryAssociationS3RepositoryDetail(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -352,7 +352,7 @@ class RepositoryAssociationS3RepositoryDetail(dict):
 
 
 @pulumi.output_type
-class RepositoryAssociationS3RepositoryDetailCodeArtifact(dict):
+calass RepositoryAssociationS3RepositoryDetailCodeArtifact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

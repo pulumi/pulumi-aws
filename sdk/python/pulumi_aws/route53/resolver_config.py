@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResolverConfigArgs', 'ResolverConfig']
+__all__ = ['ResolverConfigArrgs', 'ResolverConfig']
 
 @pulumi.input_type
-class ResolverConfigArgs:
+calass ResolverConfigArrgs:
     def __init__(__self__, *,
                  autodefined_reverse_flag: pulumi.Input[str],
                  resource_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class ResolverConfigArgs:
 
 
 @pulumi.input_type
-class _ResolverConfigState:
+calass _ResolverConfigState:
     def __init__(__self__, *,
                  autodefined_reverse_flag: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
@@ -105,7 +105,7 @@ class _ResolverConfigState:
         pulumi.set(self, "resource_id", value)
 
 
-class ResolverConfig(pulumi.CustomResource):
+calass ResolverConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -148,7 +148,7 @@ class ResolverConfig(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResolverConfigArgs,
+                 args: ResolverConfigArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Route 53 Resolver config resource.
@@ -177,12 +177,12 @@ class ResolverConfig(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResolverConfigArgs args: The arguments to use to populate this resource's properties.
+        :param ResolverConfigArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResolverConfigArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverConfigArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -200,7 +200,7 @@ class ResolverConfig(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResolverConfigArgs.__new__(ResolverConfigArgs)
+            __props__ = ResolverConfigArrgs.__new__(ResolverConfigArrgs)
 
             if autodefined_reverse_flag is None and not opts.urn:
                 raise TypeError("Missing required property 'autodefined_reverse_flag'")

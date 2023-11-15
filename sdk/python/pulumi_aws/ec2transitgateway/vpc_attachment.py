@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VpcAttachmentArgs', 'VpcAttachment']
+__all__ = ['VpcAttachmentArrgs', 'VpcAttachment']
 
 @pulumi.input_type
-class VpcAttachmentArgs:
+calass VpcAttachmentArrgs:
     def __init__(__self__, *,
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  transit_gateway_id: pulumi.Input[str],
@@ -161,7 +161,7 @@ class VpcAttachmentArgs:
 
 
 @pulumi.input_type
-class _VpcAttachmentState:
+calass _VpcAttachmentState:
     def __init__(__self__, *,
                  appliance_mode_support: Optional[pulumi.Input[str]] = None,
                  dns_support: Optional[pulumi.Input[str]] = None,
@@ -350,7 +350,7 @@ class _VpcAttachmentState:
         pulumi.set(self, "vpc_owner_id", value)
 
 
-class VpcAttachment(pulumi.CustomResource):
+calass VpcAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -404,7 +404,7 @@ class VpcAttachment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VpcAttachmentArgs,
+                 args: VpcAttachmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Transit Gateway VPC Attachment. For examples of custom route table association and propagation, see the EC2 Transit Gateway Networking Examples Guide.
@@ -430,12 +430,12 @@ class VpcAttachment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VpcAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param VpcAttachmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VpcAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VpcAttachmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -460,7 +460,7 @@ class VpcAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VpcAttachmentArgs.__new__(VpcAttachmentArgs)
+            __props__ = VpcAttachmentArrgs.__new__(VpcAttachmentArrgs)
 
             __props__.__dict__["appliance_mode_support"] = appliance_mode_support
             __props__.__dict__["dns_support"] = dns_support

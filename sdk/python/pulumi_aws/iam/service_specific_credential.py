@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServiceSpecificCredentialArgs', 'ServiceSpecificCredential']
+__all__ = ['ServiceSpecificCredentialArrgs', 'ServiceSpecificCredential']
 
 @pulumi.input_type
-class ServiceSpecificCredentialArgs:
+calass ServiceSpecificCredentialArrgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[str],
                  user_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ServiceSpecificCredentialArgs:
 
 
 @pulumi.input_type
-class _ServiceSpecificCredentialState:
+calass _ServiceSpecificCredentialState:
     def __init__(__self__, *,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_password: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class _ServiceSpecificCredentialState:
         pulumi.set(self, "user_name", value)
 
 
-class ServiceSpecificCredential(pulumi.CustomResource):
+calass ServiceSpecificCredential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -211,7 +211,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceSpecificCredentialArgs,
+                 args: ServiceSpecificCredentialArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM Service Specific Credential.
@@ -237,12 +237,12 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceSpecificCredentialArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceSpecificCredentialArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceSpecificCredentialArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceSpecificCredentialArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -261,7 +261,7 @@ class ServiceSpecificCredential(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceSpecificCredentialArgs.__new__(ServiceSpecificCredentialArgs)
+            __props__ = ServiceSpecificCredentialArrgs.__new__(ServiceSpecificCredentialArrgs)
 
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

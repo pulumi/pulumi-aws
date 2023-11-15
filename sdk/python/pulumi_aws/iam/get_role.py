@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRoleResult:
+calass GetRoleResult:
     """
     A collection of values returned by getRole.
     """
@@ -154,7 +154,7 @@ class GetRoleResult:
         return pulumi.get(self, "unique_id")
 
 
-class AwaitableGetRoleResult(GetRoleResult):
+calass AwaitableGetRoleResult(GetRoleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

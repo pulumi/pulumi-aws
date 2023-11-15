@@ -11,30 +11,30 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['StateMachineArgs', 'StateMachine']
+__all__ = ['StateMachineArrgs', 'StateMachine']
 
 @pulumi.input_type
-class StateMachineArgs:
+calass StateMachineArrgs:
     def __init__(__self__, *,
                  definition: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
-                 logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
+                 logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
+                 tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a StateMachine resource.
         :param pulumi.Input[str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-        :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        :param pulumi.Input['StateMachineLoggingConfigurationArrgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
+        :param pulumi.Input['StateMachineTracingConfigurationArrgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         pulumi.set(__self__, "definition", definition)
@@ -80,14 +80,14 @@ class StateMachineArgs:
 
     @property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
+    def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArrgs']]:
         """
         Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]):
+    def logging_configuration(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationArrgs']]):
         pulumi.set(self, "logging_configuration", value)
 
     @property
@@ -140,14 +140,14 @@ class StateMachineArgs:
 
     @property
     @pulumi.getter(name="tracingConfiguration")
-    def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]:
+    def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArrgs']]:
         """
         Selects whether AWS X-Ray tracing is enabled.
         """
         return pulumi.get(self, "tracing_configuration")
 
     @tracing_configuration.setter
-    def tracing_configuration(self, value: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]):
+    def tracing_configuration(self, value: Optional[pulumi.Input['StateMachineTracingConfigurationArrgs']]):
         pulumi.set(self, "tracing_configuration", value)
 
     @property
@@ -164,13 +164,13 @@ class StateMachineArgs:
 
 
 @pulumi.input_type
-class _StateMachineState:
+calass _StateMachineState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  definition: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']] = None,
+                 logging_configuration: Optional[pulumi.Input['StateMachineLoggingConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
@@ -180,7 +180,7 @@ class _StateMachineState:
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']] = None,
+                 tracing_configuration: Optional[pulumi.Input['StateMachineTracingConfigurationArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None):
         """
@@ -188,7 +188,7 @@ class _StateMachineState:
         :param pulumi.Input[str] arn: The ARN of the state machine.
         :param pulumi.Input[str] creation_date: The date the state machine was created.
         :param pulumi.Input[str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input['StateMachineLoggingConfigurationArgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        :param pulumi.Input['StateMachineLoggingConfigurationArrgs'] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
@@ -196,7 +196,7 @@ class _StateMachineState:
         :param pulumi.Input[str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['StateMachineTracingConfigurationArgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
+        :param pulumi.Input['StateMachineTracingConfigurationArrgs'] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         if arn is not None:
@@ -284,14 +284,14 @@ class _StateMachineState:
 
     @property
     @pulumi.getter(name="loggingConfiguration")
-    def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]:
+    def logging_configuration(self) -> Optional[pulumi.Input['StateMachineLoggingConfigurationArrgs']]:
         """
         Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         """
         return pulumi.get(self, "logging_configuration")
 
     @logging_configuration.setter
-    def logging_configuration(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationArgs']]):
+    def logging_configuration(self, value: Optional[pulumi.Input['StateMachineLoggingConfigurationArrgs']]):
         pulumi.set(self, "logging_configuration", value)
 
     @property
@@ -401,14 +401,14 @@ class _StateMachineState:
 
     @property
     @pulumi.getter(name="tracingConfiguration")
-    def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]:
+    def tracing_configuration(self) -> Optional[pulumi.Input['StateMachineTracingConfigurationArrgs']]:
         """
         Selects whether AWS X-Ray tracing is enabled.
         """
         return pulumi.get(self, "tracing_configuration")
 
     @tracing_configuration.setter
-    def tracing_configuration(self, value: Optional[pulumi.Input['StateMachineTracingConfigurationArgs']]):
+    def tracing_configuration(self, value: Optional[pulumi.Input['StateMachineTracingConfigurationArrgs']]):
         pulumi.set(self, "tracing_configuration", value)
 
     @property
@@ -433,19 +433,19 @@ class _StateMachineState:
         pulumi.set(self, "version_description", value)
 
 
-class StateMachine(pulumi.CustomResource):
+calass StateMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
+                 tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -544,7 +544,7 @@ class StateMachine(pulumi.CustomResource):
           }}
         }}
         \"\"\",
-            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
+            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArrgs(
                 log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
                 include_execution_data=True,
                 level="ERROR",
@@ -562,20 +562,20 @@ class StateMachine(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArrgs']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
+        :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArrgs']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StateMachineArgs,
+                 args: StateMachineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Step Function State Machine resource
@@ -673,7 +673,7 @@ class StateMachine(pulumi.CustomResource):
           }}
         }}
         \"\"\",
-            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArgs(
+            logging_configuration=aws.sfn.StateMachineLoggingConfigurationArrgs(
                 log_destination=f"{aws_cloudwatch_log_group['log_group_for_sfn']['arn']}:*",
                 include_execution_data=True,
                 level="ERROR",
@@ -689,12 +689,12 @@ class StateMachine(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StateMachineArgs args: The arguments to use to populate this resource's properties.
+        :param StateMachineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StateMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StateMachineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -704,13 +704,13 @@ class StateMachine(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  definition: Optional[pulumi.Input[str]] = None,
-                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
+                 logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
+                 tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArrgs']]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -719,7 +719,7 @@ class StateMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StateMachineArgs.__new__(StateMachineArgs)
+            __props__ = StateMachineArrgs.__new__(StateMachineArrgs)
 
             if definition is None and not opts.urn:
                 raise TypeError("Missing required property 'definition'")
@@ -758,7 +758,7 @@ class StateMachine(pulumi.CustomResource):
             creation_date: Optional[pulumi.Input[str]] = None,
             definition: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']]] = None,
+            logging_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             name_prefix: Optional[pulumi.Input[str]] = None,
             publish: Optional[pulumi.Input[bool]] = None,
@@ -768,7 +768,7 @@ class StateMachine(pulumi.CustomResource):
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']]] = None,
+            tracing_configuration: Optional[pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArrgs']]] = None,
             type: Optional[pulumi.Input[str]] = None,
             version_description: Optional[pulumi.Input[str]] = None) -> 'StateMachine':
         """
@@ -781,7 +781,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the state machine.
         :param pulumi.Input[str] creation_date: The date the state machine was created.
         :param pulumi.Input[str] definition: The [Amazon States Language](https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html) definition of the state machine.
-        :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArgs']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
+        :param pulumi.Input[pulumi.InputType['StateMachineLoggingConfigurationArrgs']] logging_configuration: Defines what execution history events are logged and where they are logged. The `logging_configuration` parameter is only valid when `type` is set to `EXPRESS`. Defaults to `OFF`. For more information see [Logging Express Workflows](https://docs.aws.amazon.com/step-functions/latest/dg/cw-logs.html) and [Log Levels](https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[str] name: The name of the state machine. The name should only contain `0`-`9`, `A`-`Z`, `a`-`z`, `-` and `_`. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
@@ -789,7 +789,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArgs']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
+        :param pulumi.Input[pulumi.InputType['StateMachineTracingConfigurationArrgs']] tracing_configuration: Selects whether AWS X-Ray tracing is enabled.
         :param pulumi.Input[str] type: Determines whether a Standard or Express state machine is created. The default is `STANDARD`. You cannot update the type of a state machine once it has been created. Valid values: `STANDARD`, `EXPRESS`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNamespaceResult:
+calass GetNamespaceResult:
     """
     A collection of values returned by getNamespace.
     """
@@ -131,7 +131,7 @@ class GetNamespaceResult:
         return pulumi.get(self, "namespace_name")
 
 
-class AwaitableGetNamespaceResult(GetNamespaceResult):
+calass AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

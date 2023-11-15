@@ -11,28 +11,28 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CustomActionTypeArgs', 'CustomActionType']
+__all__ = ['CustomActionTypeArrgs', 'CustomActionType']
 
 @pulumi.input_type
-class CustomActionTypeArgs:
+calass CustomActionTypeArrgs:
     def __init__(__self__, *,
                  category: pulumi.Input[str],
-                 input_artifact_details: pulumi.Input['CustomActionTypeInputArtifactDetailsArgs'],
-                 output_artifact_details: pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs'],
+                 input_artifact_details: pulumi.Input['CustomActionTypeInputArtifactDetailsArrgs'],
+                 output_artifact_details: pulumi.Input['CustomActionTypeOutputArtifactDetailsArrgs'],
                  provider_name: pulumi.Input[str],
                  version: pulumi.Input[str],
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
-                 settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
+                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArrgs']]]] = None,
+                 settings: Optional[pulumi.Input['CustomActionTypeSettingsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CustomActionType resource.
         :param pulumi.Input[str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input['CustomActionTypeInputArtifactDetailsArgs'] input_artifact_details: The details of the input artifact for the action.
-        :param pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs'] output_artifact_details: The details of the output artifact of the action.
+        :param pulumi.Input['CustomActionTypeInputArtifactDetailsArrgs'] input_artifact_details: The details of the input artifact for the action.
+        :param pulumi.Input['CustomActionTypeOutputArtifactDetailsArrgs'] output_artifact_details: The details of the output artifact of the action.
         :param pulumi.Input[str] provider_name: The provider of the service used in the custom action
         :param pulumi.Input[str] version: The version identifier of the custom action.
-        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
-        :param pulumi.Input['CustomActionTypeSettingsArgs'] settings: The settings for an action type.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArrgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
+        :param pulumi.Input['CustomActionTypeSettingsArrgs'] settings: The settings for an action type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "category", category)
@@ -61,26 +61,26 @@ class CustomActionTypeArgs:
 
     @property
     @pulumi.getter(name="inputArtifactDetails")
-    def input_artifact_details(self) -> pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']:
+    def input_artifact_details(self) -> pulumi.Input['CustomActionTypeInputArtifactDetailsArrgs']:
         """
         The details of the input artifact for the action.
         """
         return pulumi.get(self, "input_artifact_details")
 
     @input_artifact_details.setter
-    def input_artifact_details(self, value: pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']):
+    def input_artifact_details(self, value: pulumi.Input['CustomActionTypeInputArtifactDetailsArrgs']):
         pulumi.set(self, "input_artifact_details", value)
 
     @property
     @pulumi.getter(name="outputArtifactDetails")
-    def output_artifact_details(self) -> pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']:
+    def output_artifact_details(self) -> pulumi.Input['CustomActionTypeOutputArtifactDetailsArrgs']:
         """
         The details of the output artifact of the action.
         """
         return pulumi.get(self, "output_artifact_details")
 
     @output_artifact_details.setter
-    def output_artifact_details(self, value: pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']):
+    def output_artifact_details(self, value: pulumi.Input['CustomActionTypeOutputArtifactDetailsArrgs']):
         pulumi.set(self, "output_artifact_details", value)
 
     @property
@@ -109,26 +109,26 @@ class CustomActionTypeArgs:
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]:
+    def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArrgs']]]]:
         """
         The configuration properties for the custom action. Max 10 items.
         """
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
-    def configuration_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]):
+    def configuration_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArrgs']]]]):
         pulumi.set(self, "configuration_properties", value)
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArgs']]:
+    def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArrgs']]:
         """
         The settings for an action type.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['CustomActionTypeSettingsArgs']]):
+    def settings(self, value: Optional[pulumi.Input['CustomActionTypeSettingsArrgs']]):
         pulumi.set(self, "settings", value)
 
     @property
@@ -145,16 +145,16 @@ class CustomActionTypeArgs:
 
 
 @pulumi.input_type
-class _CustomActionTypeState:
+calass _CustomActionTypeState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]] = None,
-                 input_artifact_details: Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']] = None,
-                 output_artifact_details: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']] = None,
+                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArrgs']]]] = None,
+                 input_artifact_details: Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArrgs']] = None,
+                 output_artifact_details: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArrgs']] = None,
                  owner: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input['CustomActionTypeSettingsArgs']] = None,
+                 settings: Optional[pulumi.Input['CustomActionTypeSettingsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -162,12 +162,12 @@ class _CustomActionTypeState:
         Input properties used for looking up and filtering CustomActionType resources.
         :param pulumi.Input[str] arn: The action ARN.
         :param pulumi.Input[str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
-        :param pulumi.Input['CustomActionTypeInputArtifactDetailsArgs'] input_artifact_details: The details of the input artifact for the action.
-        :param pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs'] output_artifact_details: The details of the output artifact of the action.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArrgs']]] configuration_properties: The configuration properties for the custom action. Max 10 items.
+        :param pulumi.Input['CustomActionTypeInputArtifactDetailsArrgs'] input_artifact_details: The details of the input artifact for the action.
+        :param pulumi.Input['CustomActionTypeOutputArtifactDetailsArrgs'] output_artifact_details: The details of the output artifact of the action.
         :param pulumi.Input[str] owner: The creator of the action being called.
         :param pulumi.Input[str] provider_name: The provider of the service used in the custom action
-        :param pulumi.Input['CustomActionTypeSettingsArgs'] settings: The settings for an action type.
+        :param pulumi.Input['CustomActionTypeSettingsArrgs'] settings: The settings for an action type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: The version identifier of the custom action.
@@ -224,38 +224,38 @@ class _CustomActionTypeState:
 
     @property
     @pulumi.getter(name="configurationProperties")
-    def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]:
+    def configuration_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArrgs']]]]:
         """
         The configuration properties for the custom action. Max 10 items.
         """
         return pulumi.get(self, "configuration_properties")
 
     @configuration_properties.setter
-    def configuration_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArgs']]]]):
+    def configuration_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionTypeConfigurationPropertyArrgs']]]]):
         pulumi.set(self, "configuration_properties", value)
 
     @property
     @pulumi.getter(name="inputArtifactDetails")
-    def input_artifact_details(self) -> Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']]:
+    def input_artifact_details(self) -> Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArrgs']]:
         """
         The details of the input artifact for the action.
         """
         return pulumi.get(self, "input_artifact_details")
 
     @input_artifact_details.setter
-    def input_artifact_details(self, value: Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArgs']]):
+    def input_artifact_details(self, value: Optional[pulumi.Input['CustomActionTypeInputArtifactDetailsArrgs']]):
         pulumi.set(self, "input_artifact_details", value)
 
     @property
     @pulumi.getter(name="outputArtifactDetails")
-    def output_artifact_details(self) -> Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']]:
+    def output_artifact_details(self) -> Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArrgs']]:
         """
         The details of the output artifact of the action.
         """
         return pulumi.get(self, "output_artifact_details")
 
     @output_artifact_details.setter
-    def output_artifact_details(self, value: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArgs']]):
+    def output_artifact_details(self, value: Optional[pulumi.Input['CustomActionTypeOutputArtifactDetailsArrgs']]):
         pulumi.set(self, "output_artifact_details", value)
 
     @property
@@ -284,14 +284,14 @@ class _CustomActionTypeState:
 
     @property
     @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArgs']]:
+    def settings(self) -> Optional[pulumi.Input['CustomActionTypeSettingsArrgs']]:
         """
         The settings for an action type.
         """
         return pulumi.get(self, "settings")
 
     @settings.setter
-    def settings(self, value: Optional[pulumi.Input['CustomActionTypeSettingsArgs']]):
+    def settings(self, value: Optional[pulumi.Input['CustomActionTypeSettingsArrgs']]):
         pulumi.set(self, "settings", value)
 
     @property
@@ -334,17 +334,17 @@ class _CustomActionTypeState:
         pulumi.set(self, "version", value)
 
 
-class CustomActionType(pulumi.CustomResource):
+calass CustomActionType(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArgs']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArgs']]] = None,
+                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArrgs']]]]] = None,
+                 input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArrgs']]] = None,
+                 output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArrgs']]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -359,11 +359,11 @@ class CustomActionType(pulumi.CustomResource):
 
         example = aws.codepipeline.CustomActionType("example",
             category="Build",
-            input_artifact_details=aws.codepipeline.CustomActionTypeInputArtifactDetailsArgs(
+            input_artifact_details=aws.codepipeline.CustomActionTypeInputArtifactDetailsArrgs(
                 maximum_count=1,
                 minimum_count=0,
             ),
-            output_artifact_details=aws.codepipeline.CustomActionTypeOutputArtifactDetailsArgs(
+            output_artifact_details=aws.codepipeline.CustomActionTypeOutputArtifactDetailsArrgs(
                 maximum_count=1,
                 minimum_count=0,
             ),
@@ -382,11 +382,11 @@ class CustomActionType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArgs']] input_artifact_details: The details of the input artifact for the action.
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArgs']] output_artifact_details: The details of the output artifact of the action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArrgs']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArrgs']] input_artifact_details: The details of the input artifact for the action.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArrgs']] output_artifact_details: The details of the output artifact of the action.
         :param pulumi.Input[str] provider_name: The provider of the service used in the custom action
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']] settings: The settings for an action type.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArrgs']] settings: The settings for an action type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] version: The version identifier of the custom action.
         """
@@ -394,7 +394,7 @@ class CustomActionType(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomActionTypeArgs,
+                 args: CustomActionTypeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CodeDeploy CustomActionType
@@ -407,11 +407,11 @@ class CustomActionType(pulumi.CustomResource):
 
         example = aws.codepipeline.CustomActionType("example",
             category="Build",
-            input_artifact_details=aws.codepipeline.CustomActionTypeInputArtifactDetailsArgs(
+            input_artifact_details=aws.codepipeline.CustomActionTypeInputArtifactDetailsArrgs(
                 maximum_count=1,
                 minimum_count=0,
             ),
-            output_artifact_details=aws.codepipeline.CustomActionTypeOutputArtifactDetailsArgs(
+            output_artifact_details=aws.codepipeline.CustomActionTypeOutputArtifactDetailsArrgs(
                 maximum_count=1,
                 minimum_count=0,
             ),
@@ -428,12 +428,12 @@ class CustomActionType(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomActionTypeArgs args: The arguments to use to populate this resource's properties.
+        :param CustomActionTypeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomActionTypeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomActionTypeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -443,11 +443,11 @@ class CustomActionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: Optional[pulumi.Input[str]] = None,
-                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]]] = None,
-                 input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArgs']]] = None,
-                 output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArgs']]] = None,
+                 configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArrgs']]]]] = None,
+                 input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArrgs']]] = None,
+                 output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArrgs']]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
+                 settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -457,7 +457,7 @@ class CustomActionType(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomActionTypeArgs.__new__(CustomActionTypeArgs)
+            __props__ = CustomActionTypeArrgs.__new__(CustomActionTypeArrgs)
 
             if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")
@@ -494,12 +494,12 @@ class CustomActionType(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             category: Optional[pulumi.Input[str]] = None,
-            configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]]] = None,
-            input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArgs']]] = None,
-            output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArgs']]] = None,
+            configuration_properties: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArrgs']]]]] = None,
+            input_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArrgs']]] = None,
+            output_artifact_details: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArrgs']]] = None,
             owner: Optional[pulumi.Input[str]] = None,
             provider_name: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']]] = None,
+            settings: Optional[pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'CustomActionType':
@@ -512,12 +512,12 @@ class CustomActionType(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The action ARN.
         :param pulumi.Input[str] category: The category of the custom action. Valid values: `Source`, `Build`, `Deploy`, `Test`, `Invoke`, `Approval`
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArgs']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArgs']] input_artifact_details: The details of the input artifact for the action.
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArgs']] output_artifact_details: The details of the output artifact of the action.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomActionTypeConfigurationPropertyArrgs']]]] configuration_properties: The configuration properties for the custom action. Max 10 items.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeInputArtifactDetailsArrgs']] input_artifact_details: The details of the input artifact for the action.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeOutputArtifactDetailsArrgs']] output_artifact_details: The details of the output artifact of the action.
         :param pulumi.Input[str] owner: The creator of the action being called.
         :param pulumi.Input[str] provider_name: The provider of the service used in the custom action
-        :param pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArgs']] settings: The settings for an action type.
+        :param pulumi.Input[pulumi.InputType['CustomActionTypeSettingsArrgs']] settings: The settings for an action type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to this resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: The version identifier of the custom action.

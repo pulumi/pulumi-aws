@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDelegationSetResult:
+calass GetDelegationSetResult:
     """
     A collection of values returned by getDelegationSet.
     """
@@ -56,7 +56,7 @@ class GetDelegationSetResult:
         return pulumi.get(self, "name_servers")
 
 
-class AwaitableGetDelegationSetResult(GetDelegationSetResult):
+calass AwaitableGetDelegationSetResult(GetDelegationSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

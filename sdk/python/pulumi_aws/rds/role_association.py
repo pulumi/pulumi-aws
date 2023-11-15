@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RoleAssociationArgs', 'RoleAssociation']
+__all__ = ['RoleAssociationArrgs', 'RoleAssociation']
 
 @pulumi.input_type
-class RoleAssociationArgs:
+calass RoleAssociationArrgs:
     def __init__(__self__, *,
                  db_instance_identifier: pulumi.Input[str],
                  feature_name: pulumi.Input[str],
@@ -65,7 +65,7 @@ class RoleAssociationArgs:
 
 
 @pulumi.input_type
-class _RoleAssociationState:
+calass _RoleAssociationState:
     def __init__(__self__, *,
                  db_instance_identifier: Optional[pulumi.Input[str]] = None,
                  feature_name: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _RoleAssociationState:
         pulumi.set(self, "role_arn", value)
 
 
-class RoleAssociation(pulumi.CustomResource):
+calass RoleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,7 +167,7 @@ class RoleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RoleAssociationArgs,
+                 args: RoleAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an RDS DB Instance association with an IAM Role. Example use cases:
@@ -198,12 +198,12 @@ class RoleAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RoleAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param RoleAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RoleAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RoleAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -222,7 +222,7 @@ class RoleAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RoleAssociationArgs.__new__(RoleAssociationArgs)
+            __props__ = RoleAssociationArrgs.__new__(RoleAssociationArrgs)
 
             if db_instance_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_instance_identifier'")

@@ -41,7 +41,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AssociationOutputLocation(dict):
+calass AssociationOutputLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -108,7 +108,7 @@ class AssociationOutputLocation(dict):
 
 
 @pulumi.output_type
-class AssociationTarget(dict):
+calass AssociationTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -137,7 +137,7 @@ class AssociationTarget(dict):
 
 
 @pulumi.output_type
-class DocumentAttachmentsSource(dict):
+calass DocumentAttachmentsSource(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str],
@@ -178,7 +178,7 @@ class DocumentAttachmentsSource(dict):
 
 
 @pulumi.output_type
-class DocumentParameter(dict):
+calass DocumentParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -242,7 +242,7 @@ class DocumentParameter(dict):
 
 
 @pulumi.output_type
-class MaintenanceWindowTargetTarget(dict):
+calass MaintenanceWindowTargetTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -261,7 +261,7 @@ class MaintenanceWindowTargetTarget(dict):
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTarget(dict):
+calass MaintenanceWindowTaskTarget(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -286,7 +286,7 @@ class MaintenanceWindowTaskTarget(dict):
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParameters(dict):
+calass MaintenanceWindowTaskTaskInvocationParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -316,10 +316,10 @@ class MaintenanceWindowTaskTaskInvocationParameters(dict):
                  run_command_parameters: Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters'] = None,
                  step_functions_parameters: Optional['outputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters'] = None):
         """
-        :param 'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs' automation_parameters: The parameters for an AUTOMATION task type. Documented below.
-        :param 'MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs' lambda_parameters: The parameters for a LAMBDA task type. Documented below.
-        :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs' run_command_parameters: The parameters for a RUN_COMMAND task type. Documented below.
-        :param 'MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs' step_functions_parameters: The parameters for a STEP_FUNCTIONS task type. Documented below.
+        :param 'MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArrgs' automation_parameters: The parameters for an AUTOMATION task type. Documented below.
+        :param 'MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArrgs' lambda_parameters: The parameters for a LAMBDA task type. Documented below.
+        :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArrgs' run_command_parameters: The parameters for a RUN_COMMAND task type. Documented below.
+        :param 'MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArrgs' step_functions_parameters: The parameters for a STEP_FUNCTIONS task type. Documented below.
         """
         if automation_parameters is not None:
             pulumi.set(__self__, "automation_parameters", automation_parameters)
@@ -364,7 +364,7 @@ class MaintenanceWindowTaskTaskInvocationParameters(dict):
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
+calass MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -387,7 +387,7 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
                  parameters: Optional[Sequence['outputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter']] = None):
         """
         :param str document_version: The version of an Automation document to use during task execution.
-        :param Sequence['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
+        :param Sequence['MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArrgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
         """
         if document_version is not None:
             pulumi.set(__self__, "document_version", document_version)
@@ -412,7 +412,7 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParameters(dict):
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter(dict):
+calass MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -441,7 +441,7 @@ class MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameter
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(dict):
+calass MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -501,7 +501,7 @@ class MaintenanceWindowTaskTaskInvocationParametersLambdaParameters(dict):
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
+calass MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -548,15 +548,15 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
                  service_role_arn: Optional[str] = None,
                  timeout_seconds: Optional[int] = None):
         """
-        :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArgs' cloudwatch_config: Configuration options for sending command output to CloudWatch Logs. Documented below.
+        :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfigArrgs' cloudwatch_config: Configuration options for sending command output to CloudWatch Logs. Documented below.
         :param str comment: Information about the command(s) to execute.
         :param str document_hash: The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.
         :param str document_hash_type: SHA-256 or SHA-1. SHA-1 hashes have been deprecated. Valid values: `Sha256` and `Sha1`
         :param str document_version: The version of an Automation document to use during task execution.
-        :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs' notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
+        :param 'MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArrgs' notification_config: Configurations for sending notifications about command status changes on a per-instance basis. Documented below.
         :param str output_s3_bucket: The name of the Amazon S3 bucket.
         :param str output_s3_key_prefix: The Amazon S3 bucket subfolder.
-        :param Sequence['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
+        :param Sequence['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
         :param str service_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         :param int timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
@@ -673,7 +673,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig(dict):
+calass MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatchConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -723,7 +723,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwatc
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig(dict):
+calass MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -787,7 +787,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificat
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter(dict):
+calass MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -816,7 +816,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter
 
 
 @pulumi.output_type
-class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(dict):
+calass MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(dict):
     def __init__(__self__, *,
                  input: Optional[str] = None,
                  name: Optional[str] = None):
@@ -847,7 +847,7 @@ class MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParameters(dict)
 
 
 @pulumi.output_type
-class PatchBaselineApprovalRule(dict):
+calass PatchBaselineApprovalRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -880,7 +880,7 @@ class PatchBaselineApprovalRule(dict):
                  compliance_level: Optional[str] = None,
                  enable_non_security: Optional[bool] = None):
         """
-        :param Sequence['PatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule.
+        :param Sequence['PatchBaselineApprovalRulePatchFilterArrgs'] patch_filters: The patch filter group that defines the criteria for the rule.
                Up to 5 patch filters can be specified per approval rule using Key/Value pairs.
                Valid combinations of these Keys and the `operating_system` value can be found in the [SSM DescribePatchProperties API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchProperties.html).
                Valid Values are exact values for the patch property given as the key, or a wildcard `*`, which matches all values.
@@ -962,7 +962,7 @@ class PatchBaselineApprovalRule(dict):
 
 
 @pulumi.output_type
-class PatchBaselineApprovalRulePatchFilter(dict):
+calass PatchBaselineApprovalRulePatchFilter(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -981,7 +981,7 @@ class PatchBaselineApprovalRulePatchFilter(dict):
 
 
 @pulumi.output_type
-class PatchBaselineGlobalFilter(dict):
+calass PatchBaselineGlobalFilter(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1000,7 +1000,7 @@ class PatchBaselineGlobalFilter(dict):
 
 
 @pulumi.output_type
-class PatchBaselineSource(dict):
+calass PatchBaselineSource(dict):
     def __init__(__self__, *,
                  configuration: str,
                  name: str,
@@ -1044,7 +1044,7 @@ class PatchBaselineSource(dict):
 
 
 @pulumi.output_type
-class ResourceDataSyncS3Destination(dict):
+calass ResourceDataSyncS3Destination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1130,7 +1130,7 @@ class ResourceDataSyncS3Destination(dict):
 
 
 @pulumi.output_type
-class GetInstancesFilterResult(dict):
+calass GetInstancesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1159,7 +1159,7 @@ class GetInstancesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetMaintenanceWindowsFilterResult(dict):
+calass GetMaintenanceWindowsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -1188,7 +1188,7 @@ class GetMaintenanceWindowsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetPatchBaselineApprovalRuleResult(dict):
+calass GetPatchBaselineApprovalRuleResult(dict):
     def __init__(__self__, *,
                  approve_after_days: int,
                  approve_until_date: str,
@@ -1200,7 +1200,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
         :param str approve_until_date: The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
         :param str compliance_level: The compliance level for patches approved by this rule.
         :param bool enable_non_security: Boolean enabling the application of non-security updates.
-        :param Sequence['GetPatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule.
+        :param Sequence['GetPatchBaselineApprovalRulePatchFilterArrgs'] patch_filters: The patch filter group that defines the criteria for the rule.
         """
         pulumi.set(__self__, "approve_after_days", approve_after_days)
         pulumi.set(__self__, "approve_until_date", approve_until_date)
@@ -1250,7 +1250,7 @@ class GetPatchBaselineApprovalRuleResult(dict):
 
 
 @pulumi.output_type
-class GetPatchBaselineApprovalRulePatchFilterResult(dict):
+calass GetPatchBaselineApprovalRulePatchFilterResult(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1279,7 +1279,7 @@ class GetPatchBaselineApprovalRulePatchFilterResult(dict):
 
 
 @pulumi.output_type
-class GetPatchBaselineGlobalFilterResult(dict):
+calass GetPatchBaselineGlobalFilterResult(dict):
     def __init__(__self__, *,
                  key: str,
                  values: Sequence[str]):
@@ -1308,7 +1308,7 @@ class GetPatchBaselineGlobalFilterResult(dict):
 
 
 @pulumi.output_type
-class GetPatchBaselineSourceResult(dict):
+calass GetPatchBaselineSourceResult(dict):
     def __init__(__self__, *,
                  configuration: str,
                  name: str,

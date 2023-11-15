@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TemplateArgs', 'Template']
+__all__ = ['TemplateArrgs', 'Template']
 
 @pulumi.input_type
-class TemplateArgs:
+calass TemplateArrgs:
     def __init__(__self__, *,
                  quota_code: pulumi.Input[str],
                  region: pulumi.Input[str],
@@ -80,7 +80,7 @@ class TemplateArgs:
 
 
 @pulumi.input_type
-class _TemplateState:
+calass _TemplateState:
     def __init__(__self__, *,
                  global_quota: Optional[pulumi.Input[bool]] = None,
                  quota_code: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _TemplateState:
         pulumi.set(self, "value", value)
 
 
-class Template(pulumi.CustomResource):
+calass Template(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -263,7 +263,7 @@ class Template(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TemplateArgs,
+                 args: TemplateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Service Quotas Template.
@@ -293,12 +293,12 @@ class Template(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TemplateArgs args: The arguments to use to populate this resource's properties.
+        :param TemplateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TemplateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -318,7 +318,7 @@ class Template(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TemplateArgs.__new__(TemplateArgs)
+            __props__ = TemplateArrgs.__new__(TemplateArrgs)
 
             if quota_code is None and not opts.urn:
                 raise TypeError("Missing required property 'quota_code'")

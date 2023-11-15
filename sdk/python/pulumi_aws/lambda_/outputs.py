@@ -49,7 +49,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AliasRoutingConfig(dict):
+calass AliasRoutingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -85,7 +85,7 @@ class AliasRoutingConfig(dict):
 
 
 @pulumi.output_type
-class CodeSigningConfigAllowedPublishers(dict):
+calass CodeSigningConfigAllowedPublishers(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -120,7 +120,7 @@ class CodeSigningConfigAllowedPublishers(dict):
 
 
 @pulumi.output_type
-class CodeSigningConfigPolicies(dict):
+calass CodeSigningConfigPolicies(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -155,7 +155,7 @@ class CodeSigningConfigPolicies(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
+calass EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -191,7 +191,7 @@ class EventSourceMappingAmazonManagedKafkaEventSourceConfig(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingDestinationConfig(dict):
+calass EventSourceMappingDestinationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -212,7 +212,7 @@ class EventSourceMappingDestinationConfig(dict):
     def __init__(__self__, *,
                  on_failure: Optional['outputs.EventSourceMappingDestinationConfigOnFailure'] = None):
         """
-        :param 'EventSourceMappingDestinationConfigOnFailureArgs' on_failure: The destination configuration for failed invocations. Detailed below.
+        :param 'EventSourceMappingDestinationConfigOnFailureArrgs' on_failure: The destination configuration for failed invocations. Detailed below.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -227,7 +227,7 @@ class EventSourceMappingDestinationConfig(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingDestinationConfigOnFailure(dict):
+calass EventSourceMappingDestinationConfigOnFailure(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -262,7 +262,7 @@ class EventSourceMappingDestinationConfigOnFailure(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingDocumentDbEventSourceConfig(dict):
+calass EventSourceMappingDocumentDbEventSourceConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -325,11 +325,11 @@ class EventSourceMappingDocumentDbEventSourceConfig(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingFilterCriteria(dict):
+calass EventSourceMappingFilterCriteria(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.EventSourceMappingFilterCriteriaFilter']] = None):
         """
-        :param Sequence['EventSourceMappingFilterCriteriaFilterArgs'] filters: A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+        :param Sequence['EventSourceMappingFilterCriteriaFilterArrgs'] filters: A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -344,7 +344,7 @@ class EventSourceMappingFilterCriteria(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingFilterCriteriaFilter(dict):
+calass EventSourceMappingFilterCriteriaFilter(dict):
     def __init__(__self__, *,
                  pattern: Optional[str] = None):
         """
@@ -363,7 +363,7 @@ class EventSourceMappingFilterCriteriaFilter(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingScalingConfig(dict):
+calass EventSourceMappingScalingConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -399,7 +399,7 @@ class EventSourceMappingScalingConfig(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingSelfManagedEventSource(dict):
+calass EventSourceMappingSelfManagedEventSource(dict):
     def __init__(__self__, *,
                  endpoints: Mapping[str, str]):
         """
@@ -417,7 +417,7 @@ class EventSourceMappingSelfManagedEventSource(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
+calass EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -453,7 +453,7 @@ class EventSourceMappingSelfManagedKafkaEventSourceConfig(dict):
 
 
 @pulumi.output_type
-class EventSourceMappingSourceAccessConfiguration(dict):
+calass EventSourceMappingSourceAccessConfiguration(dict):
     def __init__(__self__, *,
                  type: str,
                  uri: str):
@@ -482,7 +482,7 @@ class EventSourceMappingSourceAccessConfiguration(dict):
 
 
 @pulumi.output_type
-class FunctionDeadLetterConfig(dict):
+calass FunctionDeadLetterConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -517,7 +517,7 @@ class FunctionDeadLetterConfig(dict):
 
 
 @pulumi.output_type
-class FunctionEnvironment(dict):
+calass FunctionEnvironment(dict):
     def __init__(__self__, *,
                  variables: Optional[Mapping[str, str]] = None):
         """
@@ -536,7 +536,7 @@ class FunctionEnvironment(dict):
 
 
 @pulumi.output_type
-class FunctionEphemeralStorage(dict):
+calass FunctionEphemeralStorage(dict):
     def __init__(__self__, *,
                  size: Optional[int] = None):
         """
@@ -555,7 +555,7 @@ class FunctionEphemeralStorage(dict):
 
 
 @pulumi.output_type
-class FunctionEventInvokeConfigDestinationConfig(dict):
+calass FunctionEventInvokeConfigDestinationConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -579,8 +579,8 @@ class FunctionEventInvokeConfigDestinationConfig(dict):
                  on_failure: Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnFailure'] = None,
                  on_success: Optional['outputs.FunctionEventInvokeConfigDestinationConfigOnSuccess'] = None):
         """
-        :param 'FunctionEventInvokeConfigDestinationConfigOnFailureArgs' on_failure: Configuration block with destination configuration for failed asynchronous invocations. See below for details.
-        :param 'FunctionEventInvokeConfigDestinationConfigOnSuccessArgs' on_success: Configuration block with destination configuration for successful asynchronous invocations. See below for details.
+        :param 'FunctionEventInvokeConfigDestinationConfigOnFailureArrgs' on_failure: Configuration block with destination configuration for failed asynchronous invocations. See below for details.
+        :param 'FunctionEventInvokeConfigDestinationConfigOnSuccessArrgs' on_success: Configuration block with destination configuration for successful asynchronous invocations. See below for details.
         """
         if on_failure is not None:
             pulumi.set(__self__, "on_failure", on_failure)
@@ -605,7 +605,7 @@ class FunctionEventInvokeConfigDestinationConfig(dict):
 
 
 @pulumi.output_type
-class FunctionEventInvokeConfigDestinationConfigOnFailure(dict):
+calass FunctionEventInvokeConfigDestinationConfigOnFailure(dict):
     def __init__(__self__, *,
                  destination: str):
         """
@@ -623,7 +623,7 @@ class FunctionEventInvokeConfigDestinationConfigOnFailure(dict):
 
 
 @pulumi.output_type
-class FunctionEventInvokeConfigDestinationConfigOnSuccess(dict):
+calass FunctionEventInvokeConfigDestinationConfigOnSuccess(dict):
     def __init__(__self__, *,
                  destination: str):
         """
@@ -641,7 +641,7 @@ class FunctionEventInvokeConfigDestinationConfigOnSuccess(dict):
 
 
 @pulumi.output_type
-class FunctionFileSystemConfig(dict):
+calass FunctionFileSystemConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -687,7 +687,7 @@ class FunctionFileSystemConfig(dict):
 
 
 @pulumi.output_type
-class FunctionImageConfig(dict):
+calass FunctionImageConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -749,7 +749,7 @@ class FunctionImageConfig(dict):
 
 
 @pulumi.output_type
-class FunctionSnapStart(dict):
+calass FunctionSnapStart(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -794,7 +794,7 @@ class FunctionSnapStart(dict):
 
 
 @pulumi.output_type
-class FunctionTracingConfig(dict):
+calass FunctionTracingConfig(dict):
     def __init__(__self__, *,
                  mode: str):
         """
@@ -812,7 +812,7 @@ class FunctionTracingConfig(dict):
 
 
 @pulumi.output_type
-class FunctionUrlCors(dict):
+calass FunctionUrlCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -918,7 +918,7 @@ class FunctionUrlCors(dict):
 
 
 @pulumi.output_type
-class FunctionVpcConfig(dict):
+calass FunctionVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -990,7 +990,7 @@ class FunctionVpcConfig(dict):
 
 
 @pulumi.output_type
-class GetCodeSigningConfigAllowedPublisherResult(dict):
+calass GetCodeSigningConfigAllowedPublisherResult(dict):
     def __init__(__self__, *,
                  signing_profile_version_arns: Sequence[str]):
         """
@@ -1008,7 +1008,7 @@ class GetCodeSigningConfigAllowedPublisherResult(dict):
 
 
 @pulumi.output_type
-class GetCodeSigningConfigPolicyResult(dict):
+calass GetCodeSigningConfigPolicyResult(dict):
     def __init__(__self__, *,
                  untrusted_artifact_on_deployment: str):
         """
@@ -1026,7 +1026,7 @@ class GetCodeSigningConfigPolicyResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionDeadLetterConfigResult(dict):
+calass GetFunctionDeadLetterConfigResult(dict):
     def __init__(__self__, *,
                  target_arn: str):
         pulumi.set(__self__, "target_arn", target_arn)
@@ -1038,7 +1038,7 @@ class GetFunctionDeadLetterConfigResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionEnvironmentResult(dict):
+calass GetFunctionEnvironmentResult(dict):
     def __init__(__self__, *,
                  variables: Mapping[str, str]):
         pulumi.set(__self__, "variables", variables)
@@ -1050,7 +1050,7 @@ class GetFunctionEnvironmentResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionEphemeralStorageResult(dict):
+calass GetFunctionEphemeralStorageResult(dict):
     def __init__(__self__, *,
                  size: int):
         pulumi.set(__self__, "size", size)
@@ -1062,7 +1062,7 @@ class GetFunctionEphemeralStorageResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionFileSystemConfigResult(dict):
+calass GetFunctionFileSystemConfigResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  local_mount_path: str):
@@ -1087,7 +1087,7 @@ class GetFunctionFileSystemConfigResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionTracingConfigResult(dict):
+calass GetFunctionTracingConfigResult(dict):
     def __init__(__self__, *,
                  mode: str):
         pulumi.set(__self__, "mode", mode)
@@ -1099,7 +1099,7 @@ class GetFunctionTracingConfigResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionUrlCorResult(dict):
+calass GetFunctionUrlCorResult(dict):
     def __init__(__self__, *,
                  allow_credentials: bool,
                  allow_headers: Sequence[str],
@@ -1146,7 +1146,7 @@ class GetFunctionUrlCorResult(dict):
 
 
 @pulumi.output_type
-class GetFunctionVpcConfigResult(dict):
+calass GetFunctionVpcConfigResult(dict):
     def __init__(__self__, *,
                  ipv6_allowed_for_dual_stack: bool,
                  security_group_ids: Sequence[str],

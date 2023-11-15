@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetInstanceTypeOfferingsResult:
+calass GetInstanceTypeOfferingsResult:
     """
     A collection of values returned by getInstanceTypeOfferings.
     """
@@ -80,7 +80,7 @@ class GetInstanceTypeOfferingsResult:
         return pulumi.get(self, "storage_type")
 
 
-class AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
+calass AwaitableGetInstanceTypeOfferingsResult(GetInstanceTypeOfferingsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

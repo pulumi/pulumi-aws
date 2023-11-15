@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VaultArgs', 'Vault']
+__all__ = ['VaultArrgs', 'Vault']
 
 @pulumi.input_type
-class VaultArgs:
+calass VaultArrgs:
     def __init__(__self__, *,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification: Optional[pulumi.Input['VaultNotificationArgs']] = None,
+                 notification: Optional[pulumi.Input['VaultNotificationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Vault resource.
         :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
                The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input['VaultNotificationArgs'] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input['VaultNotificationArrgs'] notification: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if access_policy is not None:
@@ -64,14 +64,14 @@ class VaultArgs:
 
     @property
     @pulumi.getter
-    def notification(self) -> Optional[pulumi.Input['VaultNotificationArgs']]:
+    def notification(self) -> Optional[pulumi.Input['VaultNotificationArrgs']]:
         """
         The notifications for the Vault. Fields documented below.
         """
         return pulumi.get(self, "notification")
 
     @notification.setter
-    def notification(self, value: Optional[pulumi.Input['VaultNotificationArgs']]):
+    def notification(self, value: Optional[pulumi.Input['VaultNotificationArrgs']]):
         pulumi.set(self, "notification", value)
 
     @property
@@ -88,13 +88,13 @@ class VaultArgs:
 
 
 @pulumi.input_type
-class _VaultState:
+calass _VaultState:
     def __init__(__self__, *,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification: Optional[pulumi.Input['VaultNotificationArgs']] = None,
+                 notification: Optional[pulumi.Input['VaultNotificationArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -104,7 +104,7 @@ class _VaultState:
         :param pulumi.Input[str] arn: The ARN of the vault.
         :param pulumi.Input[str] location: The URI of the vault that was created.
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input['VaultNotificationArgs'] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input['VaultNotificationArrgs'] notification: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -177,14 +177,14 @@ class _VaultState:
 
     @property
     @pulumi.getter
-    def notification(self) -> Optional[pulumi.Input['VaultNotificationArgs']]:
+    def notification(self) -> Optional[pulumi.Input['VaultNotificationArrgs']]:
         """
         The notifications for the Vault. Fields documented below.
         """
         return pulumi.get(self, "notification")
 
     @notification.setter
-    def notification(self, value: Optional[pulumi.Input['VaultNotificationArgs']]):
+    def notification(self, value: Optional[pulumi.Input['VaultNotificationArrgs']]):
         pulumi.set(self, "notification", value)
 
     @property
@@ -215,14 +215,14 @@ class _VaultState:
         pulumi.set(self, "tags_all", value)
 
 
-class Vault(pulumi.CustomResource):
+calass Vault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification: Optional[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]] = None,
+                 notification: Optional[pulumi.Input[pulumi.InputType['VaultNotificationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -237,10 +237,10 @@ class Vault(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="add-read-only-perm",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="*",
                 identifiers=["*"],
             )],
@@ -251,7 +251,7 @@ class Vault(pulumi.CustomResource):
             resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         )])
         my_archive_vault = aws.glacier.Vault("myArchiveVault",
-            notification=aws.glacier.VaultNotificationArgs(
+            notification=aws.glacier.VaultNotificationArrgs(
                 sns_topic=aws_sns_topic.arn,
                 events=[
                     "ArchiveRetrievalCompleted",
@@ -277,14 +277,14 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] access_policy: The policy document. This is a JSON formatted string.
                The heredoc syntax or `file` function is helpful here. Use the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-access-policy.html) for more information on Glacier Vault Policy
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input[pulumi.InputType['VaultNotificationArgs']] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[pulumi.InputType['VaultNotificationArrgs']] notification: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VaultArgs] = None,
+                 args: Optional[VaultArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glacier Vault Resource. You can refer to the [Glacier Developer Guide](https://docs.aws.amazon.com/amazonglacier/latest/dev/working-with-vaults.html) for a full explanation of the Glacier Vault functionality
@@ -298,10 +298,10 @@ class Vault(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_sns_topic = aws.sns.Topic("awsSnsTopic")
-        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        my_archive_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             sid="add-read-only-perm",
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="*",
                 identifiers=["*"],
             )],
@@ -312,7 +312,7 @@ class Vault(pulumi.CustomResource):
             resources=["arn:aws:glacier:eu-west-1:432981146916:vaults/MyArchive"],
         )])
         my_archive_vault = aws.glacier.Vault("myArchiveVault",
-            notification=aws.glacier.VaultNotificationArgs(
+            notification=aws.glacier.VaultNotificationArrgs(
                 sns_topic=aws_sns_topic.arn,
                 events=[
                     "ArchiveRetrievalCompleted",
@@ -334,12 +334,12 @@ class Vault(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VaultArgs args: The arguments to use to populate this resource's properties.
+        :param VaultArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VaultArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -350,7 +350,7 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_policy: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 notification: Optional[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]] = None,
+                 notification: Optional[pulumi.Input[pulumi.InputType['VaultNotificationArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -359,7 +359,7 @@ class Vault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VaultArgs.__new__(VaultArgs)
+            __props__ = VaultArrgs.__new__(VaultArrgs)
 
             __props__.__dict__["access_policy"] = access_policy
             __props__.__dict__["name"] = name
@@ -384,7 +384,7 @@ class Vault(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            notification: Optional[pulumi.Input[pulumi.InputType['VaultNotificationArgs']]] = None,
+            notification: Optional[pulumi.Input[pulumi.InputType['VaultNotificationArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Vault':
         """
@@ -399,7 +399,7 @@ class Vault(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the vault.
         :param pulumi.Input[str] location: The URI of the vault that was created.
         :param pulumi.Input[str] name: The name of the Vault. Names can be between 1 and 255 characters long and the valid characters are a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), and '.' (period).
-        :param pulumi.Input[pulumi.InputType['VaultNotificationArgs']] notification: The notifications for the Vault. Fields documented below.
+        :param pulumi.Input[pulumi.InputType['VaultNotificationArrgs']] notification: The notifications for the Vault. Fields documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

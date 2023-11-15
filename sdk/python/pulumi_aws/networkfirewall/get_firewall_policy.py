@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFirewallPolicyResult:
+calass GetFirewallPolicyResult:
     """
     A collection of values returned by getFirewallPolicy.
     """
@@ -96,7 +96,7 @@ class GetFirewallPolicyResult:
         return pulumi.get(self, "update_token")
 
 
-class AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
+calass AwaitableGetFirewallPolicyResult(GetFirewallPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

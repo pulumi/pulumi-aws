@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDelegatedAdministratorsResult:
+calass GetDelegatedAdministratorsResult:
     """
     A collection of values returned by getDelegatedAdministrators.
     """
@@ -55,7 +55,7 @@ class GetDelegatedAdministratorsResult:
         return pulumi.get(self, "service_principal")
 
 
-class AwaitableGetDelegatedAdministratorsResult(GetDelegatedAdministratorsResult):
+calass AwaitableGetDelegatedAdministratorsResult(GetDelegatedAdministratorsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GeofenceCollectionArgs', 'GeofenceCollection']
+__all__ = ['GeofenceCollectionArrgs', 'GeofenceCollection']
 
 @pulumi.input_type
-class GeofenceCollectionArgs:
+calass GeofenceCollectionArrgs:
     def __init__(__self__, *,
                  collection_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class GeofenceCollectionArgs:
 
 
 @pulumi.input_type
-class _GeofenceCollectionState:
+calass _GeofenceCollectionState:
     def __init__(__self__, *,
                  collection_arn: Optional[pulumi.Input[str]] = None,
                  collection_name: Optional[pulumi.Input[str]] = None,
@@ -228,7 +228,7 @@ class _GeofenceCollectionState:
         pulumi.set(self, "update_time", value)
 
 
-class GeofenceCollection(pulumi.CustomResource):
+calass GeofenceCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -271,7 +271,7 @@ class GeofenceCollection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GeofenceCollectionArgs,
+                 args: GeofenceCollectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Location Geofence Collection.
@@ -294,12 +294,12 @@ class GeofenceCollection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GeofenceCollectionArgs args: The arguments to use to populate this resource's properties.
+        :param GeofenceCollectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GeofenceCollectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GeofenceCollectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -319,7 +319,7 @@ class GeofenceCollection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GeofenceCollectionArgs.__new__(GeofenceCollectionArgs)
+            __props__ = GeofenceCollectionArrgs.__new__(GeofenceCollectionArrgs)
 
             if collection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'collection_name'")

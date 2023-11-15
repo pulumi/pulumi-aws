@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PolicyTableArgs', 'PolicyTable']
+__all__ = ['PolicyTableArrgs', 'PolicyTable']
 
 @pulumi.input_type
-class PolicyTableArgs:
+calass PolicyTableArrgs:
     def __init__(__self__, *,
                  transit_gateway_id: pulumi.Input[str],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -51,7 +51,7 @@ class PolicyTableArgs:
 
 
 @pulumi.input_type
-class _PolicyTableState:
+calass _PolicyTableState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
@@ -144,7 +144,7 @@ class _PolicyTableState:
         pulumi.set(self, "transit_gateway_id", value)
 
 
-class PolicyTable(pulumi.CustomResource):
+calass PolicyTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -185,7 +185,7 @@ class PolicyTable(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PolicyTableArgs,
+                 args: PolicyTableArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an EC2 Transit Gateway Policy Table.
@@ -212,12 +212,12 @@ class PolicyTable(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PolicyTableArgs args: The arguments to use to populate this resource's properties.
+        :param PolicyTableArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PolicyTableArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PolicyTableArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -235,7 +235,7 @@ class PolicyTable(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PolicyTableArgs.__new__(PolicyTableArgs)
+            __props__ = PolicyTableArrgs.__new__(PolicyTableArrgs)
 
             __props__.__dict__["tags"] = tags
             if transit_gateway_id is None and not opts.urn:

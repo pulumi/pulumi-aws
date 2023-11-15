@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServerCertificateArgs', 'ServerCertificate']
+__all__ = ['ServerCertificateArrgs', 'ServerCertificate']
 
 @pulumi.input_type
-class ServerCertificateArgs:
+calass ServerCertificateArrgs:
     def __init__(__self__, *,
                  certificate_body: pulumi.Input[str],
                  private_key: pulumi.Input[str],
@@ -150,7 +150,7 @@ class ServerCertificateArgs:
 
 
 @pulumi.input_type
-class _ServerCertificateState:
+calass _ServerCertificateState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  certificate_body: Optional[pulumi.Input[str]] = None,
@@ -359,7 +359,7 @@ class _ServerCertificateState:
         pulumi.set(self, "upload_date", value)
 
 
-class ServerCertificate(pulumi.CustomResource):
+calass ServerCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -436,7 +436,7 @@ class ServerCertificate(pulumi.CustomResource):
         ourapp = aws.elb.LoadBalancer("ourapp",
             availability_zones=["us-west-2a"],
             cross_zone_load_balancing=True,
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=8000,
                 instance_protocol="http",
                 lb_port=443,
@@ -477,7 +477,7 @@ class ServerCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerCertificateArgs,
+                 args: ServerCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM Server Certificate resource to upload Server Certificates.
@@ -543,7 +543,7 @@ class ServerCertificate(pulumi.CustomResource):
         ourapp = aws.elb.LoadBalancer("ourapp",
             availability_zones=["us-west-2a"],
             cross_zone_load_balancing=True,
-            listeners=[aws.elb.LoadBalancerListenerArgs(
+            listeners=[aws.elb.LoadBalancerListenerArrgs(
                 instance_port=8000,
                 instance_protocol="http",
                 lb_port=443,
@@ -561,12 +561,12 @@ class ServerCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param ServerCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -589,7 +589,7 @@ class ServerCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerCertificateArgs.__new__(ServerCertificateArgs)
+            __props__ = ServerCertificateArrgs.__new__(ServerCertificateArrgs)
 
             if certificate_body is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_body'")

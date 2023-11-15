@@ -64,7 +64,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PipeEnrichmentParameters(dict):
+calass PipeEnrichmentParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -88,7 +88,7 @@ class PipeEnrichmentParameters(dict):
                  http_parameters: Optional['outputs.PipeEnrichmentParametersHttpParameters'] = None,
                  input_template: Optional[str] = None):
         """
-        :param 'PipeEnrichmentParametersHttpParametersArgs' http_parameters: Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
+        :param 'PipeEnrichmentParametersHttpParametersArrgs' http_parameters: Contains the HTTP parameters to use when the target is a API Gateway REST endpoint or EventBridge ApiDestination. If you specify an API Gateway REST API or EventBridge ApiDestination as a target, you can use this parameter to specify headers, path parameters, and query string keys/values as part of your target invoking request. If you're using ApiDestinations, the corresponding Connection can also have these values configured. In case of any conflicting keys, values from the Connection take precedence. Detailed below.
         :param str input_template: Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
         """
         if http_parameters is not None:
@@ -114,7 +114,7 @@ class PipeEnrichmentParameters(dict):
 
 
 @pulumi.output_type
-class PipeEnrichmentParametersHttpParameters(dict):
+calass PipeEnrichmentParametersHttpParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -178,7 +178,7 @@ class PipeEnrichmentParametersHttpParameters(dict):
 
 
 @pulumi.output_type
-class PipeSourceParameters(dict):
+calass PipeSourceParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -220,14 +220,14 @@ class PipeSourceParameters(dict):
                  self_managed_kafka_parameters: Optional['outputs.PipeSourceParametersSelfManagedKafkaParameters'] = None,
                  sqs_queue_parameters: Optional['outputs.PipeSourceParametersSqsQueueParameters'] = None):
         """
-        :param 'PipeSourceParametersActivemqBrokerParametersArgs' activemq_broker_parameters: The parameters for using an Active MQ broker as a source. Detailed below.
-        :param 'PipeSourceParametersDynamodbStreamParametersArgs' dynamodb_stream_parameters: The parameters for using a DynamoDB stream as a source.  Detailed below.
-        :param 'PipeSourceParametersFilterCriteriaArgs' filter_criteria: The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
-        :param 'PipeSourceParametersKinesisStreamParametersArgs' kinesis_stream_parameters: The parameters for using a Kinesis stream as a source. Detailed below.
-        :param 'PipeSourceParametersManagedStreamingKafkaParametersArgs' managed_streaming_kafka_parameters: The parameters for using an MSK stream as a source. Detailed below.
-        :param 'PipeSourceParametersRabbitmqBrokerParametersArgs' rabbitmq_broker_parameters: The parameters for using a Rabbit MQ broker as a source. Detailed below.
-        :param 'PipeSourceParametersSelfManagedKafkaParametersArgs' self_managed_kafka_parameters: The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
-        :param 'PipeSourceParametersSqsQueueParametersArgs' sqs_queue_parameters: The parameters for using a Amazon SQS stream as a source. Detailed below.
+        :param 'PipeSourceParametersActivemqBrokerParametersArrgs' activemq_broker_parameters: The parameters for using an Active MQ broker as a source. Detailed below.
+        :param 'PipeSourceParametersDynamodbStreamParametersArrgs' dynamodb_stream_parameters: The parameters for using a DynamoDB stream as a source.  Detailed below.
+        :param 'PipeSourceParametersFilterCriteriaArrgs' filter_criteria: The collection of event patterns used to [filter events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes-event-filtering.html). Detailed below.
+        :param 'PipeSourceParametersKinesisStreamParametersArrgs' kinesis_stream_parameters: The parameters for using a Kinesis stream as a source. Detailed below.
+        :param 'PipeSourceParametersManagedStreamingKafkaParametersArrgs' managed_streaming_kafka_parameters: The parameters for using an MSK stream as a source. Detailed below.
+        :param 'PipeSourceParametersRabbitmqBrokerParametersArrgs' rabbitmq_broker_parameters: The parameters for using a Rabbit MQ broker as a source. Detailed below.
+        :param 'PipeSourceParametersSelfManagedKafkaParametersArrgs' self_managed_kafka_parameters: The parameters for using a self-managed Apache Kafka stream as a source. Detailed below.
+        :param 'PipeSourceParametersSqsQueueParametersArrgs' sqs_queue_parameters: The parameters for using a Amazon SQS stream as a source. Detailed below.
         """
         if activemq_broker_parameters is not None:
             pulumi.set(__self__, "activemq_broker_parameters", activemq_broker_parameters)
@@ -312,7 +312,7 @@ class PipeSourceParameters(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersActivemqBrokerParameters(dict):
+calass PipeSourceParametersActivemqBrokerParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -340,7 +340,7 @@ class PipeSourceParametersActivemqBrokerParameters(dict):
                  batch_size: Optional[int] = None,
                  maximum_batching_window_in_seconds: Optional[int] = None):
         """
-        :param 'PipeSourceParametersActivemqBrokerParametersCredentialsArgs' credentials: The credentials needed to access the resource. Detailed below.
+        :param 'PipeSourceParametersActivemqBrokerParametersCredentialsArrgs' credentials: The credentials needed to access the resource. Detailed below.
         :param str queue_name: The name of the destination queue to consume. Maximum length of 1000.
         :param int batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
@@ -386,7 +386,7 @@ class PipeSourceParametersActivemqBrokerParameters(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersActivemqBrokerParametersCredentials(dict):
+calass PipeSourceParametersActivemqBrokerParametersCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -421,7 +421,7 @@ class PipeSourceParametersActivemqBrokerParametersCredentials(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersDynamodbStreamParameters(dict):
+calass PipeSourceParametersDynamodbStreamParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -465,7 +465,7 @@ class PipeSourceParametersDynamodbStreamParameters(dict):
         """
         :param str starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         :param int batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param 'PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArgs' dead_letter_config: Define the target queue to send dead-letter queue events to. Detailed below.
+        :param 'PipeSourceParametersDynamodbStreamParametersDeadLetterConfigArrgs' dead_letter_config: Define the target queue to send dead-letter queue events to. Detailed below.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
         :param int maximum_record_age_in_seconds: Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
         :param int maximum_retry_attempts: Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
@@ -554,7 +554,7 @@ class PipeSourceParametersDynamodbStreamParameters(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersDynamodbStreamParametersDeadLetterConfig(dict):
+calass PipeSourceParametersDynamodbStreamParametersDeadLetterConfig(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None):
         """
@@ -573,11 +573,11 @@ class PipeSourceParametersDynamodbStreamParametersDeadLetterConfig(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersFilterCriteria(dict):
+calass PipeSourceParametersFilterCriteria(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.PipeSourceParametersFilterCriteriaFilter']] = None):
         """
-        :param Sequence['PipeSourceParametersFilterCriteriaFilterArgs'] filters: An array of up to 5 event patterns. Detailed below.
+        :param Sequence['PipeSourceParametersFilterCriteriaFilterArrgs'] filters: An array of up to 5 event patterns. Detailed below.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -592,7 +592,7 @@ class PipeSourceParametersFilterCriteria(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersFilterCriteriaFilter(dict):
+calass PipeSourceParametersFilterCriteriaFilter(dict):
     def __init__(__self__, *,
                  pattern: str):
         """
@@ -610,7 +610,7 @@ class PipeSourceParametersFilterCriteriaFilter(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersKinesisStreamParameters(dict):
+calass PipeSourceParametersKinesisStreamParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -657,7 +657,7 @@ class PipeSourceParametersKinesisStreamParameters(dict):
         """
         :param str starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         :param int batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
-        :param 'PipeSourceParametersKinesisStreamParametersDeadLetterConfigArgs' dead_letter_config: Define the target queue to send dead-letter queue events to. Detailed below.
+        :param 'PipeSourceParametersKinesisStreamParametersDeadLetterConfigArrgs' dead_letter_config: Define the target queue to send dead-letter queue events to. Detailed below.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
         :param int maximum_record_age_in_seconds: Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, EventBridge never discards old records. Maximum value of 604,800.
         :param int maximum_retry_attempts: Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, EventBridge retries failed records until the record expires in the event source. Maximum value of 10,000.
@@ -757,7 +757,7 @@ class PipeSourceParametersKinesisStreamParameters(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersKinesisStreamParametersDeadLetterConfig(dict):
+calass PipeSourceParametersKinesisStreamParametersDeadLetterConfig(dict):
     def __init__(__self__, *,
                  arn: Optional[str] = None):
         """
@@ -776,7 +776,7 @@ class PipeSourceParametersKinesisStreamParametersDeadLetterConfig(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersManagedStreamingKafkaParameters(dict):
+calass PipeSourceParametersManagedStreamingKafkaParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -813,7 +813,7 @@ class PipeSourceParametersManagedStreamingKafkaParameters(dict):
         :param str topic_name: The name of the topic that the pipe will read from. Maximum length of 249.
         :param int batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
         :param str consumer_group_id: The name of the destination queue to consume. Maximum value of 200.
-        :param 'PipeSourceParametersManagedStreamingKafkaParametersCredentialsArgs' credentials: The credentials needed to access the resource. Detailed below.
+        :param 'PipeSourceParametersManagedStreamingKafkaParametersCredentialsArrgs' credentials: The credentials needed to access the resource. Detailed below.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
         :param str starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
         """
@@ -879,7 +879,7 @@ class PipeSourceParametersManagedStreamingKafkaParameters(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersManagedStreamingKafkaParametersCredentials(dict):
+calass PipeSourceParametersManagedStreamingKafkaParametersCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -929,7 +929,7 @@ class PipeSourceParametersManagedStreamingKafkaParametersCredentials(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersRabbitmqBrokerParameters(dict):
+calass PipeSourceParametersRabbitmqBrokerParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -960,7 +960,7 @@ class PipeSourceParametersRabbitmqBrokerParameters(dict):
                  maximum_batching_window_in_seconds: Optional[int] = None,
                  virtual_host: Optional[str] = None):
         """
-        :param 'PipeSourceParametersRabbitmqBrokerParametersCredentialsArgs' credentials: The credentials needed to access the resource. Detailed below.
+        :param 'PipeSourceParametersRabbitmqBrokerParametersCredentialsArrgs' credentials: The credentials needed to access the resource. Detailed below.
         :param str queue_name: The name of the destination queue to consume. Maximum length of 1000.
         :param int batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
@@ -1017,7 +1017,7 @@ class PipeSourceParametersRabbitmqBrokerParameters(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersRabbitmqBrokerParametersCredentials(dict):
+calass PipeSourceParametersRabbitmqBrokerParametersCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1052,7 +1052,7 @@ class PipeSourceParametersRabbitmqBrokerParametersCredentials(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersSelfManagedKafkaParameters(dict):
+calass PipeSourceParametersSelfManagedKafkaParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1097,11 +1097,11 @@ class PipeSourceParametersSelfManagedKafkaParameters(dict):
         :param Sequence[str] additional_bootstrap_servers: An array of server URLs. Maximum number of 2 items, each of maximum length 300.
         :param int batch_size: The maximum number of records to include in each batch. Maximum value of 10000.
         :param str consumer_group_id: The name of the destination queue to consume. Maximum value of 200.
-        :param 'PipeSourceParametersSelfManagedKafkaParametersCredentialsArgs' credentials: The credentials needed to access the resource. Detailed below.
+        :param 'PipeSourceParametersSelfManagedKafkaParametersCredentialsArrgs' credentials: The credentials needed to access the resource. Detailed below.
         :param int maximum_batching_window_in_seconds: The maximum length of a time to wait for events. Maximum value of 300.
         :param str server_root_ca_certificate: The ARN of the Secrets Manager secret used for certification.
         :param str starting_position: The position in a stream from which to start reading. Valid values: TRIM_HORIZON, LATEST.
-        :param 'PipeSourceParametersSelfManagedKafkaParametersVpcArgs' vpc: This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
+        :param 'PipeSourceParametersSelfManagedKafkaParametersVpcArrgs' vpc: This structure specifies the VPC subnets and security groups for the stream, and whether a public IP address is to be used. Detailed below.
         """
         pulumi.set(__self__, "topic_name", topic_name)
         if additional_bootstrap_servers is not None:
@@ -1195,7 +1195,7 @@ class PipeSourceParametersSelfManagedKafkaParameters(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersSelfManagedKafkaParametersCredentials(dict):
+calass PipeSourceParametersSelfManagedKafkaParametersCredentials(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1272,7 +1272,7 @@ class PipeSourceParametersSelfManagedKafkaParametersCredentials(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersSelfManagedKafkaParametersVpc(dict):
+calass PipeSourceParametersSelfManagedKafkaParametersVpc(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1320,7 +1320,7 @@ class PipeSourceParametersSelfManagedKafkaParametersVpc(dict):
 
 
 @pulumi.output_type
-class PipeSourceParametersSqsQueueParameters(dict):
+calass PipeSourceParametersSqsQueueParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1370,7 +1370,7 @@ class PipeSourceParametersSqsQueueParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParameters(dict):
+calass PipeTargetParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1424,18 +1424,18 @@ class PipeTargetParameters(dict):
                  sqs_queue_parameters: Optional['outputs.PipeTargetParametersSqsQueueParameters'] = None,
                  step_function_state_machine_parameters: Optional['outputs.PipeTargetParametersStepFunctionStateMachineParameters'] = None):
         """
-        :param 'PipeTargetParametersBatchJobParametersArgs' batch_job_parameters: The parameters for using an AWS Batch job as a target. Detailed below.
-        :param 'PipeTargetParametersCloudwatchLogsParametersArgs' cloudwatch_logs_parameters: The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
-        :param 'PipeTargetParametersEcsTaskParametersArgs' ecs_task_parameters: The parameters for using an Amazon ECS task as a target. Detailed below.
-        :param 'PipeTargetParametersEventbridgeEventBusParametersArgs' eventbridge_event_bus_parameters: The parameters for using an EventBridge event bus as a target. Detailed below.
-        :param 'PipeTargetParametersHttpParametersArgs' http_parameters: These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
+        :param 'PipeTargetParametersBatchJobParametersArrgs' batch_job_parameters: The parameters for using an AWS Batch job as a target. Detailed below.
+        :param 'PipeTargetParametersCloudwatchLogsParametersArrgs' cloudwatch_logs_parameters: The parameters for using an CloudWatch Logs log stream as a target. Detailed below.
+        :param 'PipeTargetParametersEcsTaskParametersArrgs' ecs_task_parameters: The parameters for using an Amazon ECS task as a target. Detailed below.
+        :param 'PipeTargetParametersEventbridgeEventBusParametersArrgs' eventbridge_event_bus_parameters: The parameters for using an EventBridge event bus as a target. Detailed below.
+        :param 'PipeTargetParametersHttpParametersArrgs' http_parameters: These are custom parameter to be used when the target is an API Gateway REST APIs or EventBridge ApiDestinations. Detailed below.
         :param str input_template: Valid JSON text passed to the target. In this case, nothing from the event itself is passed to the target. Maximum length of 8192 characters.
-        :param 'PipeTargetParametersKinesisStreamParametersArgs' kinesis_stream_parameters: The parameters for using a Kinesis stream as a source. Detailed below.
-        :param 'PipeTargetParametersLambdaFunctionParametersArgs' lambda_function_parameters: The parameters for using a Lambda function as a target. Detailed below.
-        :param 'PipeTargetParametersRedshiftDataParametersArgs' redshift_data_parameters: These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
-        :param 'PipeTargetParametersSagemakerPipelineParametersArgs' sagemaker_pipeline_parameters: The parameters for using a SageMaker pipeline as a target. Detailed below.
-        :param 'PipeTargetParametersSqsQueueParametersArgs' sqs_queue_parameters: The parameters for using a Amazon SQS stream as a target. Detailed below.
-        :param 'PipeTargetParametersStepFunctionStateMachineParametersArgs' step_function_state_machine_parameters: The parameters for using a Step Functions state machine as a target. Detailed below.
+        :param 'PipeTargetParametersKinesisStreamParametersArrgs' kinesis_stream_parameters: The parameters for using a Kinesis stream as a source. Detailed below.
+        :param 'PipeTargetParametersLambdaFunctionParametersArrgs' lambda_function_parameters: The parameters for using a Lambda function as a target. Detailed below.
+        :param 'PipeTargetParametersRedshiftDataParametersArrgs' redshift_data_parameters: These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement. Detailed below.
+        :param 'PipeTargetParametersSagemakerPipelineParametersArrgs' sagemaker_pipeline_parameters: The parameters for using a SageMaker pipeline as a target. Detailed below.
+        :param 'PipeTargetParametersSqsQueueParametersArrgs' sqs_queue_parameters: The parameters for using a Amazon SQS stream as a target. Detailed below.
+        :param 'PipeTargetParametersStepFunctionStateMachineParametersArrgs' step_function_state_machine_parameters: The parameters for using a Step Functions state machine as a target. Detailed below.
         """
         if batch_job_parameters is not None:
             pulumi.set(__self__, "batch_job_parameters", batch_job_parameters)
@@ -1560,7 +1560,7 @@ class PipeTargetParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersBatchJobParameters(dict):
+calass PipeTargetParametersBatchJobParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1599,11 +1599,11 @@ class PipeTargetParametersBatchJobParameters(dict):
         """
         :param str job_definition: The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
         :param str job_name: The name of the job. It can be up to 128 letters long.
-        :param 'PipeTargetParametersBatchJobParametersArrayPropertiesArgs' array_properties: The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
-        :param 'PipeTargetParametersBatchJobParametersContainerOverridesArgs' container_overrides: The overrides that are sent to a container. Detailed below.
-        :param Sequence['PipeTargetParametersBatchJobParametersDependsOnArgs'] depends_ons: A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
+        :param 'PipeTargetParametersBatchJobParametersArrayPropertiesArrgs' array_properties: The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job. Detailed below.
+        :param 'PipeTargetParametersBatchJobParametersContainerOverridesArrgs' container_overrides: The overrides that are sent to a container. Detailed below.
+        :param Sequence['PipeTargetParametersBatchJobParametersDependsOnArrgs'] depends_ons: A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You can specify a SEQUENTIAL type dependency without specifying a job ID for array jobs so that each child array job completes sequentially, starting at index 0. You can also specify an N_TO_N type dependency with a job ID for array jobs. In that case, each index child of this job must wait for the corresponding index child of each dependency to complete before it can begin. Detailed below.
         :param Mapping[str, str] parameters: Additional parameters passed to the job that replace parameter substitution placeholders that are set in the job definition. Parameters are specified as a key and value pair mapping. Parameters included here override any corresponding parameter defaults from the job definition. Detailed below.
-        :param 'PipeTargetParametersBatchJobParametersRetryStrategyArgs' retry_strategy: The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
+        :param 'PipeTargetParametersBatchJobParametersRetryStrategyArrgs' retry_strategy: The retry strategy to use for failed jobs. When a retry strategy is specified here, it overrides the retry strategy defined in the job definition. Detailed below.
         """
         pulumi.set(__self__, "job_definition", job_definition)
         pulumi.set(__self__, "job_name", job_name)
@@ -1676,7 +1676,7 @@ class PipeTargetParametersBatchJobParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersBatchJobParametersArrayProperties(dict):
+calass PipeTargetParametersBatchJobParametersArrayProperties(dict):
     def __init__(__self__, *,
                  size: Optional[int] = None):
         """
@@ -1695,7 +1695,7 @@ class PipeTargetParametersBatchJobParametersArrayProperties(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersBatchJobParametersContainerOverrides(dict):
+calass PipeTargetParametersBatchJobParametersContainerOverrides(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1722,9 +1722,9 @@ class PipeTargetParametersBatchJobParametersContainerOverrides(dict):
                  resource_requirements: Optional[Sequence['outputs.PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement']] = None):
         """
         :param Sequence[str] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
-        :param Sequence['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+        :param Sequence['PipeTargetParametersBatchJobParametersContainerOverridesEnvironmentArrgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
         :param str instance_type: The instance type to use for a multi-node parallel job. This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-        :param Sequence['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+        :param Sequence['PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirementArrgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
         """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
@@ -1769,7 +1769,7 @@ class PipeTargetParametersBatchJobParametersContainerOverrides(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersBatchJobParametersContainerOverridesEnvironment(dict):
+calass PipeTargetParametersBatchJobParametersContainerOverridesEnvironment(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
@@ -1800,7 +1800,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesEnvironment(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement(dict):
+calass PipeTargetParametersBatchJobParametersContainerOverridesResourceRequirement(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -1829,7 +1829,7 @@ class PipeTargetParametersBatchJobParametersContainerOverridesResourceRequiremen
 
 
 @pulumi.output_type
-class PipeTargetParametersBatchJobParametersDependsOn(dict):
+calass PipeTargetParametersBatchJobParametersDependsOn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1877,7 +1877,7 @@ class PipeTargetParametersBatchJobParametersDependsOn(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersBatchJobParametersRetryStrategy(dict):
+calass PipeTargetParametersBatchJobParametersRetryStrategy(dict):
     def __init__(__self__, *,
                  attempts: Optional[int] = None):
         """
@@ -1896,7 +1896,7 @@ class PipeTargetParametersBatchJobParametersRetryStrategy(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersCloudwatchLogsParameters(dict):
+calass PipeTargetParametersCloudwatchLogsParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1944,7 +1944,7 @@ class PipeTargetParametersCloudwatchLogsParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParameters(dict):
+calass PipeTargetParametersEcsTaskParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2002,15 +2002,15 @@ class PipeTargetParametersEcsTaskParameters(dict):
                  task_count: Optional[int] = None):
         """
         :param str task_definition_arn: The ARN of the task definition to use if the event target is an Amazon ECS task.
-        :param Sequence['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArgs'] capacity_provider_strategies: List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersCapacityProviderStrategyArrgs'] capacity_provider_strategies: List of capacity provider strategies to use for the task. If a capacityProviderStrategy is specified, the launchType parameter must be omitted. If no capacityProviderStrategy or launchType is specified, the defaultCapacityProviderStrategy for the cluster is used. Detailed below.
         :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task. Valid values: true, false.
         :param bool enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task. Valid values: true, false.
         :param str group: Specifies an Amazon ECS task group for the task. The maximum length is 255 characters.
         :param str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. The FARGATE value is supported only in the Regions where AWS Fargate with Amazon ECS is supported. Valid Values: EC2, FARGATE, EXTERNAL
-        :param 'PipeTargetParametersEcsTaskParametersNetworkConfigurationArgs' network_configuration: Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
-        :param 'PipeTargetParametersEcsTaskParametersOverridesArgs' overrides: The overrides that are associated with a task. Detailed below.
-        :param Sequence['PipeTargetParametersEcsTaskParametersPlacementConstraintArgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
-        :param Sequence['PipeTargetParametersEcsTaskParametersPlacementStrategyArgs'] placement_strategies: The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
+        :param 'PipeTargetParametersEcsTaskParametersNetworkConfigurationArrgs' network_configuration: Use this structure if the Amazon ECS task uses the awsvpc network mode. This structure specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. This structure is required if LaunchType is FARGATE because the awsvpc mode is required for Fargate tasks. If you specify NetworkConfiguration when the target ECS task does not use the awsvpc network mode, the task fails. Detailed below.
+        :param 'PipeTargetParametersEcsTaskParametersOverridesArrgs' overrides: The overrides that are associated with a task. Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersPlacementConstraintArrgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersPlacementStrategyArrgs'] placement_strategies: The placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task. Detailed below.
         :param str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This structure is used only if LaunchType is FARGATE.
         :param str propagate_tags: Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. To add tags to a task after task creation, use the TagResource API action. Valid Values: TASK_DEFINITION
         :param str reference_id: The reference ID to use for the task. Maximum length of 1,024.
@@ -2169,7 +2169,7 @@ class PipeTargetParametersEcsTaskParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersCapacityProviderStrategy(dict):
+calass PipeTargetParametersEcsTaskParametersCapacityProviderStrategy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2228,7 +2228,7 @@ class PipeTargetParametersEcsTaskParametersCapacityProviderStrategy(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersNetworkConfiguration(dict):
+calass PipeTargetParametersEcsTaskParametersNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2249,7 +2249,7 @@ class PipeTargetParametersEcsTaskParametersNetworkConfiguration(dict):
     def __init__(__self__, *,
                  aws_vpc_configuration: Optional['outputs.PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration'] = None):
         """
-        :param 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArgs' aws_vpc_configuration: Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
+        :param 'PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurationArrgs' aws_vpc_configuration: Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode. Detailed below.
         """
         if aws_vpc_configuration is not None:
             pulumi.set(__self__, "aws_vpc_configuration", aws_vpc_configuration)
@@ -2264,7 +2264,7 @@ class PipeTargetParametersEcsTaskParametersNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration(dict):
+calass PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2326,7 +2326,7 @@ class PipeTargetParametersEcsTaskParametersNetworkConfigurationAwsVpcConfigurati
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersOverrides(dict):
+calass PipeTargetParametersEcsTaskParametersOverrides(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2361,11 +2361,11 @@ class PipeTargetParametersEcsTaskParametersOverrides(dict):
                  memory: Optional[str] = None,
                  task_role_arn: Optional[str] = None):
         """
-        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArgs'] container_overrides: One or more container overrides that are sent to a task. Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideArrgs'] container_overrides: One or more container overrides that are sent to a task. Detailed below.
         :param str cpu: The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-        :param 'PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArgs' ephemeral_storage: The ephemeral storage setting override for the task.  Detailed below.
+        :param 'PipeTargetParametersEcsTaskParametersOverridesEphemeralStorageArrgs' ephemeral_storage: The ephemeral storage setting override for the task.  Detailed below.
         :param str execution_role_arn: The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
-        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArgs'] inference_accelerator_overrides: List of Elastic Inference accelerator overrides for the task. Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverrideArrgs'] inference_accelerator_overrides: List of Elastic Inference accelerator overrides for the task. Detailed below.
         :param str memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         :param str task_role_arn: The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
         """
@@ -2442,7 +2442,7 @@ class PipeTargetParametersEcsTaskParametersOverrides(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
+calass PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2476,12 +2476,12 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
         """
         :param Sequence[str] commands: List of commands to send to the container that overrides the default command from the Docker image or the task definition. You must also specify a container name.
         :param int cpu: The number of cpu units reserved for the container, instead of the default value from the task definition. You must also specify a container name.
-        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArgs'] environment_files: A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
-        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFileArrgs'] environment_files: A list of files containing the environment variables to pass to a container, instead of the value from the container definition. Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentArrgs'] environments: The environment variables to send to the container. You can add new environment variables, which are added to the container at launch, or you can override the existing environment variables from the Docker image or the task definition. You must also specify a container name. Detailed below.
         :param int memory: The hard limit (in MiB) of memory to present to the container, instead of the default value from the task definition. If your container attempts to exceed the memory specified here, the container is killed. You must also specify a container name.
         :param int memory_reservation: The soft limit (in MiB) of memory to reserve for the container, instead of the default value from the task definition. You must also specify a container name.
         :param str name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
-        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
+        :param Sequence['PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirementArrgs'] resource_requirements: The type and amount of a resource to assign to a container, instead of the default value from the task definition. The only supported resource is a GPU. Detailed below.
         """
         if commands is not None:
             pulumi.set(__self__, "commands", commands)
@@ -2566,7 +2566,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverride(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment(dict):
+calass PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
@@ -2597,7 +2597,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile(dict):
+calass PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironmentFile(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -2626,7 +2626,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideEnvironment
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement(dict):
+calass PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceRequirement(dict):
     def __init__(__self__, *,
                  type: str,
                  value: str):
@@ -2655,7 +2655,7 @@ class PipeTargetParametersEcsTaskParametersOverridesContainerOverrideResourceReq
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage(dict):
+calass PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2690,7 +2690,7 @@ class PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride(dict):
+calass PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2740,7 +2740,7 @@ class PipeTargetParametersEcsTaskParametersOverridesInferenceAcceleratorOverride
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersPlacementConstraint(dict):
+calass PipeTargetParametersEcsTaskParametersPlacementConstraint(dict):
     def __init__(__self__, *,
                  expression: Optional[str] = None,
                  type: Optional[str] = None):
@@ -2771,7 +2771,7 @@ class PipeTargetParametersEcsTaskParametersPlacementConstraint(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEcsTaskParametersPlacementStrategy(dict):
+calass PipeTargetParametersEcsTaskParametersPlacementStrategy(dict):
     def __init__(__self__, *,
                  field: Optional[str] = None,
                  type: Optional[str] = None):
@@ -2802,7 +2802,7 @@ class PipeTargetParametersEcsTaskParametersPlacementStrategy(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersEventbridgeEventBusParameters(dict):
+calass PipeTargetParametersEventbridgeEventBusParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2888,7 +2888,7 @@ class PipeTargetParametersEventbridgeEventBusParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersHttpParameters(dict):
+calass PipeTargetParametersHttpParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2952,7 +2952,7 @@ class PipeTargetParametersHttpParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersKinesisStreamParameters(dict):
+calass PipeTargetParametersKinesisStreamParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2987,7 +2987,7 @@ class PipeTargetParametersKinesisStreamParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersLambdaFunctionParameters(dict):
+calass PipeTargetParametersLambdaFunctionParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3022,7 +3022,7 @@ class PipeTargetParametersLambdaFunctionParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersRedshiftDataParameters(dict):
+calass PipeTargetParametersRedshiftDataParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3122,7 +3122,7 @@ class PipeTargetParametersRedshiftDataParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersSagemakerPipelineParameters(dict):
+calass PipeTargetParametersSagemakerPipelineParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3143,7 +3143,7 @@ class PipeTargetParametersSagemakerPipelineParameters(dict):
     def __init__(__self__, *,
                  pipeline_parameters: Optional[Sequence['outputs.PipeTargetParametersSagemakerPipelineParametersPipelineParameter']] = None):
         """
-        :param Sequence['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArgs'] pipeline_parameters: List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
+        :param Sequence['PipeTargetParametersSagemakerPipelineParametersPipelineParameterArrgs'] pipeline_parameters: List of Parameter names and values for SageMaker Model Building Pipeline execution. Detailed below.
         """
         if pipeline_parameters is not None:
             pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
@@ -3158,7 +3158,7 @@ class PipeTargetParametersSagemakerPipelineParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersSagemakerPipelineParametersPipelineParameter(dict):
+calass PipeTargetParametersSagemakerPipelineParametersPipelineParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -3187,7 +3187,7 @@ class PipeTargetParametersSagemakerPipelineParametersPipelineParameter(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersSqsQueueParameters(dict):
+calass PipeTargetParametersSqsQueueParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3237,7 +3237,7 @@ class PipeTargetParametersSqsQueueParameters(dict):
 
 
 @pulumi.output_type
-class PipeTargetParametersStepFunctionStateMachineParameters(dict):
+calass PipeTargetParametersStepFunctionStateMachineParameters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

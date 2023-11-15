@@ -11,33 +11,33 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RegisteredDomainArgs', 'RegisteredDomain']
+__all__ = ['RegisteredDomainArrgs', 'RegisteredDomain']
 
 @pulumi.input_type
-class RegisteredDomainArgs:
+calass RegisteredDomainArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
-                 admin_contact: Optional[pulumi.Input['RegisteredDomainAdminContactArgs']] = None,
+                 admin_contact: Optional[pulumi.Input['RegisteredDomainAdminContactArrgs']] = None,
                  admin_privacy: Optional[pulumi.Input[bool]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
-                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]] = None,
-                 registrant_contact: Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']] = None,
+                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArrgs']]]] = None,
+                 registrant_contact: Optional[pulumi.Input['RegisteredDomainRegistrantContactArrgs']] = None,
                  registrant_privacy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tech_contact: Optional[pulumi.Input['RegisteredDomainTechContactArgs']] = None,
+                 tech_contact: Optional[pulumi.Input['RegisteredDomainTechContactArrgs']] = None,
                  tech_privacy: Optional[pulumi.Input[bool]] = None,
                  transfer_lock: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a RegisteredDomain resource.
         :param pulumi.Input[str] domain_name: The name of the registered domain.
-        :param pulumi.Input['RegisteredDomainAdminContactArgs'] admin_contact: Details about the domain administrative contact.
+        :param pulumi.Input['RegisteredDomainAdminContactArrgs'] admin_contact: Details about the domain administrative contact.
         :param pulumi.Input[bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]] name_servers: The list of nameservers for the domain.
-        :param pulumi.Input['RegisteredDomainRegistrantContactArgs'] registrant_contact: Details about the domain registrant.
+        :param pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArrgs']]] name_servers: The list of nameservers for the domain.
+        :param pulumi.Input['RegisteredDomainRegistrantContactArrgs'] registrant_contact: Details about the domain registrant.
         :param pulumi.Input[bool] registrant_privacy: Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['RegisteredDomainTechContactArgs'] tech_contact: Details about the domain technical contact.
+        :param pulumi.Input['RegisteredDomainTechContactArrgs'] tech_contact: Details about the domain technical contact.
         :param pulumi.Input[bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
         """
@@ -77,14 +77,14 @@ class RegisteredDomainArgs:
 
     @property
     @pulumi.getter(name="adminContact")
-    def admin_contact(self) -> Optional[pulumi.Input['RegisteredDomainAdminContactArgs']]:
+    def admin_contact(self) -> Optional[pulumi.Input['RegisteredDomainAdminContactArrgs']]:
         """
         Details about the domain administrative contact.
         """
         return pulumi.get(self, "admin_contact")
 
     @admin_contact.setter
-    def admin_contact(self, value: Optional[pulumi.Input['RegisteredDomainAdminContactArgs']]):
+    def admin_contact(self, value: Optional[pulumi.Input['RegisteredDomainAdminContactArrgs']]):
         pulumi.set(self, "admin_contact", value)
 
     @property
@@ -113,26 +113,26 @@ class RegisteredDomainArgs:
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]]:
+    def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArrgs']]]]:
         """
         The list of nameservers for the domain.
         """
         return pulumi.get(self, "name_servers")
 
     @name_servers.setter
-    def name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]]):
+    def name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArrgs']]]]):
         pulumi.set(self, "name_servers", value)
 
     @property
     @pulumi.getter(name="registrantContact")
-    def registrant_contact(self) -> Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']]:
+    def registrant_contact(self) -> Optional[pulumi.Input['RegisteredDomainRegistrantContactArrgs']]:
         """
         Details about the domain registrant.
         """
         return pulumi.get(self, "registrant_contact")
 
     @registrant_contact.setter
-    def registrant_contact(self, value: Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']]):
+    def registrant_contact(self, value: Optional[pulumi.Input['RegisteredDomainRegistrantContactArrgs']]):
         pulumi.set(self, "registrant_contact", value)
 
     @property
@@ -161,14 +161,14 @@ class RegisteredDomainArgs:
 
     @property
     @pulumi.getter(name="techContact")
-    def tech_contact(self) -> Optional[pulumi.Input['RegisteredDomainTechContactArgs']]:
+    def tech_contact(self) -> Optional[pulumi.Input['RegisteredDomainTechContactArrgs']]:
         """
         Details about the domain technical contact.
         """
         return pulumi.get(self, "tech_contact")
 
     @tech_contact.setter
-    def tech_contact(self, value: Optional[pulumi.Input['RegisteredDomainTechContactArgs']]):
+    def tech_contact(self, value: Optional[pulumi.Input['RegisteredDomainTechContactArrgs']]):
         pulumi.set(self, "tech_contact", value)
 
     @property
@@ -197,18 +197,18 @@ class RegisteredDomainArgs:
 
 
 @pulumi.input_type
-class _RegisteredDomainState:
+calass _RegisteredDomainState:
     def __init__(__self__, *,
                  abuse_contact_email: Optional[pulumi.Input[str]] = None,
                  abuse_contact_phone: Optional[pulumi.Input[str]] = None,
-                 admin_contact: Optional[pulumi.Input['RegisteredDomainAdminContactArgs']] = None,
+                 admin_contact: Optional[pulumi.Input['RegisteredDomainAdminContactArrgs']] = None,
                  admin_privacy: Optional[pulumi.Input[bool]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
-                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]] = None,
-                 registrant_contact: Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']] = None,
+                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArrgs']]]] = None,
+                 registrant_contact: Optional[pulumi.Input['RegisteredDomainRegistrantContactArrgs']] = None,
                  registrant_privacy: Optional[pulumi.Input[bool]] = None,
                  registrar_name: Optional[pulumi.Input[str]] = None,
                  registrar_url: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _RegisteredDomainState:
                  status_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tech_contact: Optional[pulumi.Input['RegisteredDomainTechContactArgs']] = None,
+                 tech_contact: Optional[pulumi.Input['RegisteredDomainTechContactArrgs']] = None,
                  tech_privacy: Optional[pulumi.Input[bool]] = None,
                  transfer_lock: Optional[pulumi.Input[bool]] = None,
                  updated_date: Optional[pulumi.Input[str]] = None,
@@ -225,14 +225,14 @@ class _RegisteredDomainState:
         Input properties used for looking up and filtering RegisteredDomain resources.
         :param pulumi.Input[str] abuse_contact_email: Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
         :param pulumi.Input[str] abuse_contact_phone: Phone number for reporting abuse.
-        :param pulumi.Input['RegisteredDomainAdminContactArgs'] admin_contact: Details about the domain administrative contact.
+        :param pulumi.Input['RegisteredDomainAdminContactArrgs'] admin_contact: Details about the domain administrative contact.
         :param pulumi.Input[bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
         :param pulumi.Input[str] creation_date: The date when the domain was created as found in the response to a WHOIS query.
         :param pulumi.Input[str] domain_name: The name of the registered domain.
         :param pulumi.Input[str] expiration_date: The date when the registration for the domain is set to expire.
-        :param pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]] name_servers: The list of nameservers for the domain.
-        :param pulumi.Input['RegisteredDomainRegistrantContactArgs'] registrant_contact: Details about the domain registrant.
+        :param pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArrgs']]] name_servers: The list of nameservers for the domain.
+        :param pulumi.Input['RegisteredDomainRegistrantContactArrgs'] registrant_contact: Details about the domain registrant.
         :param pulumi.Input[bool] registrant_privacy: Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[str] registrar_name: Name of the registrar of the domain as identified in the registry.
         :param pulumi.Input[str] registrar_url: Web address of the registrar.
@@ -240,7 +240,7 @@ class _RegisteredDomainState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] status_lists: List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['RegisteredDomainTechContactArgs'] tech_contact: Details about the domain technical contact.
+        :param pulumi.Input['RegisteredDomainTechContactArrgs'] tech_contact: Details about the domain technical contact.
         :param pulumi.Input[bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
         :param pulumi.Input[str] updated_date: The last updated date of the domain as found in the response to a WHOIS query.
@@ -320,14 +320,14 @@ class _RegisteredDomainState:
 
     @property
     @pulumi.getter(name="adminContact")
-    def admin_contact(self) -> Optional[pulumi.Input['RegisteredDomainAdminContactArgs']]:
+    def admin_contact(self) -> Optional[pulumi.Input['RegisteredDomainAdminContactArrgs']]:
         """
         Details about the domain administrative contact.
         """
         return pulumi.get(self, "admin_contact")
 
     @admin_contact.setter
-    def admin_contact(self, value: Optional[pulumi.Input['RegisteredDomainAdminContactArgs']]):
+    def admin_contact(self, value: Optional[pulumi.Input['RegisteredDomainAdminContactArrgs']]):
         pulumi.set(self, "admin_contact", value)
 
     @property
@@ -392,26 +392,26 @@ class _RegisteredDomainState:
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]]:
+    def name_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArrgs']]]]:
         """
         The list of nameservers for the domain.
         """
         return pulumi.get(self, "name_servers")
 
     @name_servers.setter
-    def name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]]):
+    def name_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArrgs']]]]):
         pulumi.set(self, "name_servers", value)
 
     @property
     @pulumi.getter(name="registrantContact")
-    def registrant_contact(self) -> Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']]:
+    def registrant_contact(self) -> Optional[pulumi.Input['RegisteredDomainRegistrantContactArrgs']]:
         """
         Details about the domain registrant.
         """
         return pulumi.get(self, "registrant_contact")
 
     @registrant_contact.setter
-    def registrant_contact(self, value: Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']]):
+    def registrant_contact(self, value: Optional[pulumi.Input['RegisteredDomainRegistrantContactArrgs']]):
         pulumi.set(self, "registrant_contact", value)
 
     @property
@@ -503,14 +503,14 @@ class _RegisteredDomainState:
 
     @property
     @pulumi.getter(name="techContact")
-    def tech_contact(self) -> Optional[pulumi.Input['RegisteredDomainTechContactArgs']]:
+    def tech_contact(self) -> Optional[pulumi.Input['RegisteredDomainTechContactArrgs']]:
         """
         Details about the domain technical contact.
         """
         return pulumi.get(self, "tech_contact")
 
     @tech_contact.setter
-    def tech_contact(self, value: Optional[pulumi.Input['RegisteredDomainTechContactArgs']]):
+    def tech_contact(self, value: Optional[pulumi.Input['RegisteredDomainTechContactArrgs']]):
         pulumi.set(self, "tech_contact", value)
 
     @property
@@ -562,20 +562,20 @@ class _RegisteredDomainState:
         pulumi.set(self, "whois_server", value)
 
 
-class RegisteredDomain(pulumi.CustomResource):
+calass RegisteredDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']]] = None,
+                 admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArrgs']]] = None,
                  admin_privacy: Optional[pulumi.Input[bool]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArgs']]]]] = None,
-                 registrant_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArgs']]] = None,
+                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArrgs']]]]] = None,
+                 registrant_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArrgs']]] = None,
                  registrant_privacy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tech_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArgs']]] = None,
+                 tech_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArrgs']]] = None,
                  tech_privacy: Optional[pulumi.Input[bool]] = None,
                  transfer_lock: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -595,10 +595,10 @@ class RegisteredDomain(pulumi.CustomResource):
         example = aws.route53domains.RegisteredDomain("example",
             domain_name="example.com",
             name_servers=[
-                aws.route53domains.RegisteredDomainNameServerArgs(
+                aws.route53domains.RegisteredDomainNameServerArrgs(
                     name="ns-195.awsdns-24.com",
                 ),
-                aws.route53domains.RegisteredDomainNameServerArgs(
+                aws.route53domains.RegisteredDomainNameServerArrgs(
                     name="ns-874.awsdns-45.net",
                 ),
             ],
@@ -609,15 +609,15 @@ class RegisteredDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']] admin_contact: Details about the domain administrative contact.
+        :param pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArrgs']] admin_contact: Details about the domain administrative contact.
         :param pulumi.Input[bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
         :param pulumi.Input[str] domain_name: The name of the registered domain.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArgs']]]] name_servers: The list of nameservers for the domain.
-        :param pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArgs']] registrant_contact: Details about the domain registrant.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArrgs']]]] name_servers: The list of nameservers for the domain.
+        :param pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArrgs']] registrant_contact: Details about the domain registrant.
         :param pulumi.Input[bool] registrant_privacy: Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArgs']] tech_contact: Details about the domain technical contact.
+        :param pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArrgs']] tech_contact: Details about the domain technical contact.
         :param pulumi.Input[bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
         """
@@ -625,7 +625,7 @@ class RegisteredDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RegisteredDomainArgs,
+                 args: RegisteredDomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to manage a domain that has been [registered](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html) and associated with the current AWS account.
@@ -643,10 +643,10 @@ class RegisteredDomain(pulumi.CustomResource):
         example = aws.route53domains.RegisteredDomain("example",
             domain_name="example.com",
             name_servers=[
-                aws.route53domains.RegisteredDomainNameServerArgs(
+                aws.route53domains.RegisteredDomainNameServerArrgs(
                     name="ns-195.awsdns-24.com",
                 ),
-                aws.route53domains.RegisteredDomainNameServerArgs(
+                aws.route53domains.RegisteredDomainNameServerArrgs(
                     name="ns-874.awsdns-45.net",
                 ),
             ],
@@ -656,12 +656,12 @@ class RegisteredDomain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegisteredDomainArgs args: The arguments to use to populate this resource's properties.
+        :param RegisteredDomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegisteredDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegisteredDomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -670,15 +670,15 @@ class RegisteredDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']]] = None,
+                 admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArrgs']]] = None,
                  admin_privacy: Optional[pulumi.Input[bool]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
-                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArgs']]]]] = None,
-                 registrant_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArgs']]] = None,
+                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArrgs']]]]] = None,
+                 registrant_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArrgs']]] = None,
                  registrant_privacy: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tech_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArgs']]] = None,
+                 tech_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArrgs']]] = None,
                  tech_privacy: Optional[pulumi.Input[bool]] = None,
                  transfer_lock: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -688,7 +688,7 @@ class RegisteredDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegisteredDomainArgs.__new__(RegisteredDomainArgs)
+            __props__ = RegisteredDomainArrgs.__new__(RegisteredDomainArrgs)
 
             __props__.__dict__["admin_contact"] = admin_contact
             __props__.__dict__["admin_privacy"] = admin_privacy
@@ -728,14 +728,14 @@ class RegisteredDomain(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             abuse_contact_email: Optional[pulumi.Input[str]] = None,
             abuse_contact_phone: Optional[pulumi.Input[str]] = None,
-            admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']]] = None,
+            admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArrgs']]] = None,
             admin_privacy: Optional[pulumi.Input[bool]] = None,
             auto_renew: Optional[pulumi.Input[bool]] = None,
             creation_date: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             expiration_date: Optional[pulumi.Input[str]] = None,
-            name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArgs']]]]] = None,
-            registrant_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArgs']]] = None,
+            name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArrgs']]]]] = None,
+            registrant_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArrgs']]] = None,
             registrant_privacy: Optional[pulumi.Input[bool]] = None,
             registrar_name: Optional[pulumi.Input[str]] = None,
             registrar_url: Optional[pulumi.Input[str]] = None,
@@ -743,7 +743,7 @@ class RegisteredDomain(pulumi.CustomResource):
             status_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tech_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArgs']]] = None,
+            tech_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArrgs']]] = None,
             tech_privacy: Optional[pulumi.Input[bool]] = None,
             transfer_lock: Optional[pulumi.Input[bool]] = None,
             updated_date: Optional[pulumi.Input[str]] = None,
@@ -757,14 +757,14 @@ class RegisteredDomain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] abuse_contact_email: Email address to contact to report incorrect contact information for a domain, to report that the domain is being used to send spam, to report that someone is cybersquatting on a domain name, or report some other type of abuse.
         :param pulumi.Input[str] abuse_contact_phone: Phone number for reporting abuse.
-        :param pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']] admin_contact: Details about the domain administrative contact.
+        :param pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArrgs']] admin_contact: Details about the domain administrative contact.
         :param pulumi.Input[bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
         :param pulumi.Input[str] creation_date: The date when the domain was created as found in the response to a WHOIS query.
         :param pulumi.Input[str] domain_name: The name of the registered domain.
         :param pulumi.Input[str] expiration_date: The date when the registration for the domain is set to expire.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArgs']]]] name_servers: The list of nameservers for the domain.
-        :param pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArgs']] registrant_contact: Details about the domain registrant.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArrgs']]]] name_servers: The list of nameservers for the domain.
+        :param pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArrgs']] registrant_contact: Details about the domain registrant.
         :param pulumi.Input[bool] registrant_privacy: Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[str] registrar_name: Name of the registrar of the domain as identified in the registry.
         :param pulumi.Input[str] registrar_url: Web address of the registrar.
@@ -772,7 +772,7 @@ class RegisteredDomain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] status_lists: List of [domain name status codes](https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArgs']] tech_contact: Details about the domain technical contact.
+        :param pulumi.Input[pulumi.InputType['RegisteredDomainTechContactArrgs']] tech_contact: Details about the domain technical contact.
         :param pulumi.Input[bool] tech_privacy: Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] transfer_lock: Whether the domain is locked for transfer. Default: `true`.
         :param pulumi.Input[str] updated_date: The last updated date of the domain as found in the response to a WHOIS query.

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetReplicationTaskResult:
+calass GetReplicationTaskResult:
     """
     A collection of values returned by getReplicationTask.
     """
@@ -172,7 +172,7 @@ class GetReplicationTaskResult:
         return pulumi.get(self, "target_endpoint_arn")
 
 
-class AwaitableGetReplicationTaskResult(GetReplicationTaskResult):
+calass AwaitableGetReplicationTaskResult(GetReplicationTaskResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

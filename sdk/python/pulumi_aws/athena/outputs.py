@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DatabaseAclConfiguration(dict):
+calass DatabaseAclConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -60,7 +60,7 @@ class DatabaseAclConfiguration(dict):
 
 
 @pulumi.output_type
-class DatabaseEncryptionConfiguration(dict):
+calass DatabaseEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -109,7 +109,7 @@ class DatabaseEncryptionConfiguration(dict):
 
 
 @pulumi.output_type
-class WorkgroupConfiguration(dict):
+calass WorkgroupConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -150,11 +150,11 @@ class WorkgroupConfiguration(dict):
         """
         :param int bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         :param bool enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
-        :param 'WorkgroupConfigurationEngineVersionArgs' engine_version: Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
+        :param 'WorkgroupConfigurationEngineVersionArrgs' engine_version: Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
         :param str execution_role: Role used in a notebook session for accessing the user's resources.
         :param bool publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param bool requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
-        :param 'WorkgroupConfigurationResultConfigurationArgs' result_configuration: Configuration block with result settings. See Result Configuration below.
+        :param 'WorkgroupConfigurationResultConfigurationArrgs' result_configuration: Configuration block with result settings. See Result Configuration below.
         """
         if bytes_scanned_cutoff_per_query is not None:
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
@@ -229,7 +229,7 @@ class WorkgroupConfiguration(dict):
 
 
 @pulumi.output_type
-class WorkgroupConfigurationEngineVersion(dict):
+calass WorkgroupConfigurationEngineVersion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -279,7 +279,7 @@ class WorkgroupConfigurationEngineVersion(dict):
 
 
 @pulumi.output_type
-class WorkgroupConfigurationResultConfiguration(dict):
+calass WorkgroupConfigurationResultConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -309,8 +309,8 @@ class WorkgroupConfigurationResultConfiguration(dict):
                  expected_bucket_owner: Optional[str] = None,
                  output_location: Optional[str] = None):
         """
-        :param 'WorkgroupConfigurationResultConfigurationAclConfigurationArgs' acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        :param 'WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs' encryption_configuration: Configuration block with encryption settings. See Encryption Configuration below.
+        :param 'WorkgroupConfigurationResultConfigurationAclConfigurationArrgs' acl_configuration: That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+        :param 'WorkgroupConfigurationResultConfigurationEncryptionConfigurationArrgs' encryption_configuration: Configuration block with encryption settings. See Encryption Configuration below.
         :param str expected_bucket_owner: AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param str output_location: Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
         """
@@ -357,7 +357,7 @@ class WorkgroupConfigurationResultConfiguration(dict):
 
 
 @pulumi.output_type
-class WorkgroupConfigurationResultConfigurationAclConfiguration(dict):
+calass WorkgroupConfigurationResultConfigurationAclConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -392,7 +392,7 @@ class WorkgroupConfigurationResultConfigurationAclConfiguration(dict):
 
 
 @pulumi.output_type
-class WorkgroupConfigurationResultConfigurationEncryptionConfiguration(dict):
+calass WorkgroupConfigurationResultConfigurationEncryptionConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

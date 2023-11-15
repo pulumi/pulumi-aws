@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DedicatedIpAssignmentArgs', 'DedicatedIpAssignment']
+__all__ = ['DedicatedIpAssignmentArrgs', 'DedicatedIpAssignment']
 
 @pulumi.input_type
-class DedicatedIpAssignmentArgs:
+calass DedicatedIpAssignmentArrgs:
     def __init__(__self__, *,
                  destination_pool_name: pulumi.Input[str],
                  ip: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class DedicatedIpAssignmentArgs:
 
 
 @pulumi.input_type
-class _DedicatedIpAssignmentState:
+calass _DedicatedIpAssignmentState:
     def __init__(__self__, *,
                  destination_pool_name: Optional[pulumi.Input[str]] = None,
                  ip: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _DedicatedIpAssignmentState:
         pulumi.set(self, "ip", value)
 
 
-class DedicatedIpAssignment(pulumi.CustomResource):
+calass DedicatedIpAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,7 +131,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DedicatedIpAssignmentArgs,
+                 args: DedicatedIpAssignmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS SESv2 (Simple Email V2) Dedicated IP Assignment.
@@ -159,12 +159,12 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DedicatedIpAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param DedicatedIpAssignmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DedicatedIpAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DedicatedIpAssignmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -182,7 +182,7 @@ class DedicatedIpAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DedicatedIpAssignmentArgs.__new__(DedicatedIpAssignmentArgs)
+            __props__ = DedicatedIpAssignmentArrgs.__new__(DedicatedIpAssignmentArrgs)
 
             if destination_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_pool_name'")

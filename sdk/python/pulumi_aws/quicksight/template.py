@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TemplateArgs', 'Template']
+__all__ = ['TemplateArrgs', 'Template']
 
 @pulumi.input_type
-class TemplateArgs:
+calass TemplateArrgs:
     def __init__(__self__, *,
                  template_id: pulumi.Input[str],
                  version_description: pulumi.Input[str],
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArrgs']]]] = None,
+                 source_entity: Optional[pulumi.Input['TemplateSourceEntityArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Template resource.
@@ -31,8 +31,8 @@ class TemplateArgs:
                The following arguments are optional:
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArrgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input['TemplateSourceEntityArrgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "template_id", template_id)
@@ -100,26 +100,26 @@ class TemplateArgs:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]]:
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArrgs']]]]:
         """
         A set of resource permissions on the template. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]]):
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArrgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
+    def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArrgs']]:
         """
         The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['TemplateSourceEntityArgs']]):
+    def source_entity(self, value: Optional[pulumi.Input['TemplateSourceEntityArrgs']]):
         pulumi.set(self, "source_entity", value)
 
     @property
@@ -136,15 +136,15 @@ class TemplateArgs:
 
 
 @pulumi.input_type
-class _TemplateState:
+calass _TemplateState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
                  last_updated_time: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]] = None,
-                 source_entity: Optional[pulumi.Input['TemplateSourceEntityArgs']] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArrgs']]]] = None,
+                 source_entity: Optional[pulumi.Input['TemplateSourceEntityArrgs']] = None,
                  source_entity_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -159,8 +159,8 @@ class _TemplateState:
         :param pulumi.Input[str] created_time: The time that the template was created.
         :param pulumi.Input[str] last_updated_time: The time that the template was last updated.
         :param pulumi.Input[str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        :param pulumi.Input['TemplateSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArrgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input['TemplateSourceEntityArrgs'] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[str] source_entity_arn: Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
         :param pulumi.Input[str] status: The template creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -265,26 +265,26 @@ class _TemplateState:
 
     @property
     @pulumi.getter
-    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]]:
+    def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArrgs']]]]:
         """
         A set of resource permissions on the template. Maximum of 64 items. See permissions.
         """
         return pulumi.get(self, "permissions")
 
     @permissions.setter
-    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]]]):
+    def permissions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArrgs']]]]):
         pulumi.set(self, "permissions", value)
 
     @property
     @pulumi.getter(name="sourceEntity")
-    def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArgs']]:
+    def source_entity(self) -> Optional[pulumi.Input['TemplateSourceEntityArrgs']]:
         """
         The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         """
         return pulumi.get(self, "source_entity")
 
     @source_entity.setter
-    def source_entity(self, value: Optional[pulumi.Input['TemplateSourceEntityArgs']]):
+    def source_entity(self, value: Optional[pulumi.Input['TemplateSourceEntityArrgs']]):
         pulumi.set(self, "source_entity", value)
 
     @property
@@ -377,15 +377,15 @@ class _TemplateState:
         pulumi.set(self, "version_number", value)
 
 
-class Template(pulumi.CustomResource):
+calass Template(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArrgs']]]]] = None,
+                 source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -403,8 +403,8 @@ class Template(pulumi.CustomResource):
         example = aws.quicksight.Template("example",
             template_id="example-id",
             version_description="version",
-            source_entity=aws.quicksight.TemplateSourceEntityArgs(
-                source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
+            source_entity=aws.quicksight.TemplateSourceEntityArrgs(
+                source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArrgs(
                     arn=aws_quicksight_template["source"]["arn"],
                 ),
             ))
@@ -422,8 +422,8 @@ class Template(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_account_id: AWS account ID.
         :param pulumi.Input[str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        :param pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArrgs']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[pulumi.InputType['TemplateSourceEntityArrgs']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] template_id: Identifier for the template.
         :param pulumi.Input[str] version_description: A description of the current template version being created/updated.
@@ -434,7 +434,7 @@ class Template(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TemplateArgs,
+                 args: TemplateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing a QuickSight Template.
@@ -449,8 +449,8 @@ class Template(pulumi.CustomResource):
         example = aws.quicksight.Template("example",
             template_id="example-id",
             version_description="version",
-            source_entity=aws.quicksight.TemplateSourceEntityArgs(
-                source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArgs(
+            source_entity=aws.quicksight.TemplateSourceEntityArrgs(
+                source_template=aws.quicksight.TemplateSourceEntitySourceTemplateArrgs(
                     arn=aws_quicksight_template["source"]["arn"],
                 ),
             ))
@@ -465,12 +465,12 @@ class Template(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TemplateArgs args: The arguments to use to populate this resource's properties.
+        :param TemplateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TemplateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TemplateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -481,8 +481,8 @@ class Template(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]]] = None,
-                 source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
+                 permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArrgs']]]]] = None,
+                 source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template_id: Optional[pulumi.Input[str]] = None,
                  version_description: Optional[pulumi.Input[str]] = None,
@@ -493,7 +493,7 @@ class Template(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TemplateArgs.__new__(TemplateArgs)
+            __props__ = TemplateArrgs.__new__(TemplateArrgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
             __props__.__dict__["name"] = name
@@ -530,8 +530,8 @@ class Template(pulumi.CustomResource):
             created_time: Optional[pulumi.Input[str]] = None,
             last_updated_time: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]]] = None,
-            source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']]] = None,
+            permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArrgs']]]]] = None,
+            source_entity: Optional[pulumi.Input[pulumi.InputType['TemplateSourceEntityArrgs']]] = None,
             source_entity_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -551,8 +551,8 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[str] created_time: The time that the template was created.
         :param pulumi.Input[str] last_updated_time: The time that the template was last updated.
         :param pulumi.Input[str] name: Display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArgs']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
-        :param pulumi.Input[pulumi.InputType['TemplateSourceEntityArgs']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TemplatePermissionArrgs']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
+        :param pulumi.Input[pulumi.InputType['TemplateSourceEntityArrgs']] source_entity: The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[str] source_entity_arn: Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
         :param pulumi.Input[str] status: The template creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

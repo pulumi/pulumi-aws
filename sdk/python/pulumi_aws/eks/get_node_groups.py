@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNodeGroupsResult:
+calass GetNodeGroupsResult:
     """
     A collection of values returned by getNodeGroups.
     """
@@ -54,7 +54,7 @@ class GetNodeGroupsResult:
         return pulumi.get(self, "names")
 
 
-class AwaitableGetNodeGroupsResult(GetNodeGroupsResult):
+calass AwaitableGetNodeGroupsResult(GetNodeGroupsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

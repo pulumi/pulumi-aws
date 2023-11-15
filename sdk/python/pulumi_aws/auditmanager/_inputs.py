@@ -10,24 +10,24 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AssessmentAssessmentReportsDestinationArgs',
-    'AssessmentRoleArgs',
-    'AssessmentRolesAllArgs',
-    'AssessmentScopeArgs',
-    'AssessmentScopeAwsAccountArgs',
-    'AssessmentScopeAwsServiceArgs',
-    'ControlControlMappingSourceArgs',
-    'ControlControlMappingSourceSourceKeywordArgs',
-    'FrameworkControlSetArgs',
-    'FrameworkControlSetControlArgs',
-    'GetControlControlMappingSourceArgs',
-    'GetControlControlMappingSourceSourceKeywordArgs',
-    'GetFrameworkControlSetArgs',
-    'GetFrameworkControlSetControlArgs',
+    'AssessmentAssessmentReportsDestinationArrgs',
+    'AssessmentRoleArrgs',
+    'AssessmentRolesAllArrgs',
+    'AssessmentScopeArrgs',
+    'AssessmentScopeAwsAccountArrgs',
+    'AssessmentScopeAwsServiceArrgs',
+    'ControlControlMappingSourceArrgs',
+    'ControlControlMappingSourceSourceKeywordArrgs',
+    'FrameworkControlSetArrgs',
+    'FrameworkControlSetControlArrgs',
+    'GetControlControlMappingSourceArrgs',
+    'GetControlControlMappingSourceSourceKeywordArrgs',
+    'GetFrameworkControlSetArrgs',
+    'GetFrameworkControlSetControlArrgs',
 ]
 
 @pulumi.input_type
-class AssessmentAssessmentReportsDestinationArgs:
+calass AssessmentAssessmentReportsDestinationArrgs:
     def __init__(__self__, *,
                  destination: pulumi.Input[str],
                  destination_type: pulumi.Input[str]):
@@ -64,7 +64,7 @@ class AssessmentAssessmentReportsDestinationArgs:
 
 
 @pulumi.input_type
-class AssessmentRoleArgs:
+calass AssessmentRoleArrgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  role_type: pulumi.Input[str]):
@@ -101,7 +101,7 @@ class AssessmentRoleArgs:
 
 
 @pulumi.input_type
-class AssessmentRolesAllArgs:
+calass AssessmentRolesAllArrgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  role_type: pulumi.Input[str]):
@@ -138,13 +138,13 @@ class AssessmentRolesAllArgs:
 
 
 @pulumi.input_type
-class AssessmentScopeArgs:
+calass AssessmentScopeArrgs:
     def __init__(__self__, *,
-                 aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]] = None,
-                 aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]] = None):
+                 aws_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArrgs']]]] = None,
+                 aws_services: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]] aws_accounts: Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
-        :param pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]] aws_services: Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArrgs']]] aws_accounts: Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArrgs']]] aws_services: Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
         """
         if aws_accounts is not None:
             pulumi.set(__self__, "aws_accounts", aws_accounts)
@@ -153,31 +153,31 @@ class AssessmentScopeArgs:
 
     @property
     @pulumi.getter(name="awsAccounts")
-    def aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]]:
+    def aws_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArrgs']]]]:
         """
         Amazon Web Services accounts that are in scope for the assessment. See `aws_accounts` below.
         """
         return pulumi.get(self, "aws_accounts")
 
     @aws_accounts.setter
-    def aws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArgs']]]]):
+    def aws_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsAccountArrgs']]]]):
         pulumi.set(self, "aws_accounts", value)
 
     @property
     @pulumi.getter(name="awsServices")
-    def aws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]]:
+    def aws_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArrgs']]]]:
         """
         Amazon Web Services services that are included in the scope of the assessment. See `aws_services` below.
         """
         return pulumi.get(self, "aws_services")
 
     @aws_services.setter
-    def aws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArgs']]]]):
+    def aws_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssessmentScopeAwsServiceArrgs']]]]):
         pulumi.set(self, "aws_services", value)
 
 
 @pulumi.input_type
-class AssessmentScopeAwsAccountArgs:
+calass AssessmentScopeAwsAccountArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
@@ -199,7 +199,7 @@ class AssessmentScopeAwsAccountArgs:
 
 
 @pulumi.input_type
-class AssessmentScopeAwsServiceArgs:
+calass AssessmentScopeAwsServiceArrgs:
     def __init__(__self__, *,
                  service_name: pulumi.Input[str]):
         """
@@ -221,7 +221,7 @@ class AssessmentScopeAwsServiceArgs:
 
 
 @pulumi.input_type
-class ControlControlMappingSourceArgs:
+calass ControlControlMappingSourceArrgs:
     def __init__(__self__, *,
                  source_name: pulumi.Input[str],
                  source_set_up_option: pulumi.Input[str],
@@ -229,7 +229,7 @@ class ControlControlMappingSourceArgs:
                  source_description: Optional[pulumi.Input[str]] = None,
                  source_frequency: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
-                 source_keyword: Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArgs']] = None,
+                 source_keyword: Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArrgs']] = None,
                  troubleshooting_text: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] source_name: Name of the source.
@@ -239,7 +239,7 @@ class ControlControlMappingSourceArgs:
                The following arguments are optional:
         :param pulumi.Input[str] source_description: Description of the source.
         :param pulumi.Input[str] source_frequency: Frequency of evidence collection. Valid values are `DAILY`, `WEEKLY`, or `MONTHLY`.
-        :param pulumi.Input['ControlControlMappingSourceSourceKeywordArgs'] source_keyword: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
+        :param pulumi.Input['ControlControlMappingSourceSourceKeywordArrgs'] source_keyword: The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         :param pulumi.Input[str] troubleshooting_text: Instructions for troubleshooting the control.
         """
         pulumi.set(__self__, "source_name", source_name)
@@ -329,14 +329,14 @@ class ControlControlMappingSourceArgs:
 
     @property
     @pulumi.getter(name="sourceKeyword")
-    def source_keyword(self) -> Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArgs']]:
+    def source_keyword(self) -> Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArrgs']]:
         """
         The keyword to search for in CloudTrail logs, Config rules, Security Hub checks, and Amazon Web Services API names. See `source_keyword` below.
         """
         return pulumi.get(self, "source_keyword")
 
     @source_keyword.setter
-    def source_keyword(self, value: Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArgs']]):
+    def source_keyword(self, value: Optional[pulumi.Input['ControlControlMappingSourceSourceKeywordArrgs']]):
         pulumi.set(self, "source_keyword", value)
 
     @property
@@ -353,7 +353,7 @@ class ControlControlMappingSourceArgs:
 
 
 @pulumi.input_type
-class ControlControlMappingSourceSourceKeywordArgs:
+calass ControlControlMappingSourceSourceKeywordArrgs:
     def __init__(__self__, *,
                  keyword_input_type: pulumi.Input[str],
                  keyword_value: pulumi.Input[str]):
@@ -390,14 +390,14 @@ class ControlControlMappingSourceSourceKeywordArgs:
 
 
 @pulumi.input_type
-class FrameworkControlSetArgs:
+calass FrameworkControlSetArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]] = None,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArrgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of the control set.
-        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]] controls: List of controls within the control set. See `controls` below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArrgs']]] controls: List of controls within the control set. See `controls` below.
         :param pulumi.Input[str] id: Unique identifier of the control.
         """
         pulumi.set(__self__, "name", name)
@@ -420,14 +420,14 @@ class FrameworkControlSetArgs:
 
     @property
     @pulumi.getter
-    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]]:
+    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArrgs']]]]:
         """
         List of controls within the control set. See `controls` below.
         """
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArgs']]]]):
+    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FrameworkControlSetControlArrgs']]]]):
         pulumi.set(self, "controls", value)
 
     @property
@@ -444,7 +444,7 @@ class FrameworkControlSetArgs:
 
 
 @pulumi.input_type
-class FrameworkControlSetControlArgs:
+calass FrameworkControlSetControlArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str]):
         """
@@ -466,7 +466,7 @@ class FrameworkControlSetControlArgs:
 
 
 @pulumi.input_type
-class GetControlControlMappingSourceArgs:
+calass GetControlControlMappingSourceArrgs:
     def __init__(__self__, *,
                  source_description: str,
                  source_frequency: str,
@@ -475,7 +475,7 @@ class GetControlControlMappingSourceArgs:
                  source_set_up_option: str,
                  source_type: str,
                  troubleshooting_text: str,
-                 source_keyword: Optional['GetControlControlMappingSourceSourceKeywordArgs'] = None):
+                 source_keyword: Optional['GetControlControlMappingSourceSourceKeywordArrgs'] = None):
         pulumi.set(__self__, "source_description", source_description)
         pulumi.set(__self__, "source_frequency", source_frequency)
         pulumi.set(__self__, "source_id", source_id)
@@ -551,16 +551,16 @@ class GetControlControlMappingSourceArgs:
 
     @property
     @pulumi.getter(name="sourceKeyword")
-    def source_keyword(self) -> Optional['GetControlControlMappingSourceSourceKeywordArgs']:
+    def source_keyword(self) -> Optional['GetControlControlMappingSourceSourceKeywordArrgs']:
         return pulumi.get(self, "source_keyword")
 
     @source_keyword.setter
-    def source_keyword(self, value: Optional['GetControlControlMappingSourceSourceKeywordArgs']):
+    def source_keyword(self, value: Optional['GetControlControlMappingSourceSourceKeywordArrgs']):
         pulumi.set(self, "source_keyword", value)
 
 
 @pulumi.input_type
-class GetControlControlMappingSourceSourceKeywordArgs:
+calass GetControlControlMappingSourceSourceKeywordArrgs:
     def __init__(__self__, *,
                  keyword_input_type: str,
                  keyword_value: str):
@@ -587,11 +587,11 @@ class GetControlControlMappingSourceSourceKeywordArgs:
 
 
 @pulumi.input_type
-class GetFrameworkControlSetArgs:
+calass GetFrameworkControlSetArrgs:
     def __init__(__self__, *,
                  id: str,
                  name: str,
-                 controls: Optional[Sequence['GetFrameworkControlSetControlArgs']] = None):
+                 controls: Optional[Sequence['GetFrameworkControlSetControlArrgs']] = None):
         """
         :param str name: Name of the framework.
         """
@@ -623,16 +623,16 @@ class GetFrameworkControlSetArgs:
 
     @property
     @pulumi.getter
-    def controls(self) -> Optional[Sequence['GetFrameworkControlSetControlArgs']]:
+    def controls(self) -> Optional[Sequence['GetFrameworkControlSetControlArrgs']]:
         return pulumi.get(self, "controls")
 
     @controls.setter
-    def controls(self, value: Optional[Sequence['GetFrameworkControlSetControlArgs']]):
+    def controls(self, value: Optional[Sequence['GetFrameworkControlSetControlArrgs']]):
         pulumi.set(self, "controls", value)
 
 
 @pulumi.input_type
-class GetFrameworkControlSetControlArgs:
+calass GetFrameworkControlSetControlArrgs:
     def __init__(__self__, *,
                  id: str):
         pulumi.set(__self__, "id", id)

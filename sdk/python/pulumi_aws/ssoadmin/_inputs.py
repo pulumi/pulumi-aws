@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs',
-    'InstanceAccessControlAttributesAttributeArgs',
-    'InstanceAccessControlAttributesAttributeValueArgs',
-    'PermissionsBoundaryAttachmentPermissionsBoundaryArgs',
-    'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs',
+    'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs',
+    'InstanceAccessControlAttributesAttributeArrgs',
+    'InstanceAccessControlAttributesAttributeValueArrgs',
+    'PermissionsBoundaryAttachmentPermissionsBoundaryArrgs',
+    'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArrgs',
 ]
 
 @pulumi.input_type
-class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
+calass CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None):
@@ -56,13 +56,13 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
 
 
 @pulumi.input_type
-class InstanceAccessControlAttributesAttributeArgs:
+calass InstanceAccessControlAttributesAttributeArrgs:
     def __init__(__self__, *,
                  key: pulumi.Input[str],
-                 values: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]]):
+                 values: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArrgs']]]):
         """
         :param pulumi.Input[str] key: The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]] values: The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+        :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArrgs']]] values: The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "values", values)
@@ -81,19 +81,19 @@ class InstanceAccessControlAttributesAttributeArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]]:
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArrgs']]]:
         """
         The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgs']]]):
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArrgs']]]):
         pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
-class InstanceAccessControlAttributesAttributeValueArgs:
+calass InstanceAccessControlAttributesAttributeValueArrgs:
     def __init__(__self__, *,
                  sources: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -115,12 +115,12 @@ class InstanceAccessControlAttributesAttributeValueArgs:
 
 
 @pulumi.input_type
-class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
+calass PermissionsBoundaryAttachmentPermissionsBoundaryArrgs:
     def __init__(__self__, *,
-                 customer_managed_policy_reference: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']] = None,
+                 customer_managed_policy_reference: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArrgs']] = None,
                  managed_policy_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
+        :param pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArrgs'] customer_managed_policy_reference: Specifies the name and path of a customer managed policy. See below.
         :param pulumi.Input[str] managed_policy_arn: AWS-managed IAM policy ARN to use as the permissions boundary.
         """
         if customer_managed_policy_reference is not None:
@@ -130,14 +130,14 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
 
     @property
     @pulumi.getter(name="customerManagedPolicyReference")
-    def customer_managed_policy_reference(self) -> Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]:
+    def customer_managed_policy_reference(self) -> Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArrgs']]:
         """
         Specifies the name and path of a customer managed policy. See below.
         """
         return pulumi.get(self, "customer_managed_policy_reference")
 
     @customer_managed_policy_reference.setter
-    def customer_managed_policy_reference(self, value: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs']]):
+    def customer_managed_policy_reference(self, value: Optional[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArrgs']]):
         pulumi.set(self, "customer_managed_policy_reference", value)
 
     @property
@@ -154,7 +154,7 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
 
 
 @pulumi.input_type
-class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs:
+calass PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  path: Optional[pulumi.Input[str]] = None):

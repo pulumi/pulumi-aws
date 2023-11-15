@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'StatementParameterArgs',
+    'StatementParameterArrgs',
 ]
 
 @pulumi.input_type
-class StatementParameterArgs:
+calass StatementParameterArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):

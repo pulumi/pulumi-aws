@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'RepositoryExternalConnectionsArgs',
-    'RepositoryUpstreamArgs',
+    'RepositoryExternalConnectionsArrgs',
+    'RepositoryUpstreamArrgs',
 ]
 
 @pulumi.input_type
-class RepositoryExternalConnectionsArgs:
+calass RepositoryExternalConnectionsArrgs:
     def __init__(__self__, *,
                  external_connection_name: pulumi.Input[str],
                  package_format: Optional[pulumi.Input[str]] = None,
@@ -61,7 +61,7 @@ class RepositoryExternalConnectionsArgs:
 
 
 @pulumi.input_type
-class RepositoryUpstreamArgs:
+calass RepositoryUpstreamArrgs:
     def __init__(__self__, *,
                  repository_name: pulumi.Input[str]):
         """

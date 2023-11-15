@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPrebuiltEcrImageResult:
+calass GetPrebuiltEcrImageResult:
     """
     A collection of values returned by getPrebuiltEcrImage.
     """
@@ -89,7 +89,7 @@ class GetPrebuiltEcrImageResult:
         return pulumi.get(self, "repository_name")
 
 
-class AwaitableGetPrebuiltEcrImageResult(GetPrebuiltEcrImageResult):
+calass AwaitableGetPrebuiltEcrImageResult(GetPrebuiltEcrImageResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

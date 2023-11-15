@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAddonResult:
+calass GetAddonResult:
     """
     A collection of values returned by getAddon.
     """
@@ -126,7 +126,7 @@ class GetAddonResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetAddonResult(GetAddonResult):
+calass AwaitableGetAddonResult(GetAddonResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCodeSigningConfigResult:
+calass GetCodeSigningConfigResult:
     """
     A collection of values returned by getCodeSigningConfig.
     """
@@ -99,7 +99,7 @@ class GetCodeSigningConfigResult:
         return pulumi.get(self, "policies")
 
 
-class AwaitableGetCodeSigningConfigResult(GetCodeSigningConfigResult):
+calass AwaitableGetCodeSigningConfigResult(GetCodeSigningConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

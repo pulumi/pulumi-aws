@@ -10,20 +10,20 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ApiCorsConfigurationArgs',
-    'AuthorizerJwtConfigurationArgs',
-    'DomainNameDomainNameConfigurationArgs',
-    'DomainNameMutualTlsAuthenticationArgs',
-    'IntegrationResponseParameterArgs',
-    'IntegrationTlsConfigArgs',
-    'RouteRequestParameterArgs',
-    'StageAccessLogSettingsArgs',
-    'StageDefaultRouteSettingsArgs',
-    'StageRouteSettingArgs',
+    'ApiCorsConfigurationArrgs',
+    'AuthorizerJwtConfigurationArrgs',
+    'DomainNameDomainNameConfigurationArrgs',
+    'DomainNameMutualTlsAuthenticationArrgs',
+    'IntegrationResponseParameterArrgs',
+    'IntegrationTlsConfigArrgs',
+    'RouteRequestParameterArrgs',
+    'StageAccessLogSettingsArrgs',
+    'StageDefaultRouteSettingsArrgs',
+    'StageRouteSettingArrgs',
 ]
 
 @pulumi.input_type
-class ApiCorsConfigurationArgs:
+calass ApiCorsConfigurationArrgs:
     def __init__(__self__, *,
                  allow_credentials: Optional[pulumi.Input[bool]] = None,
                  allow_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -126,7 +126,7 @@ class ApiCorsConfigurationArgs:
 
 
 @pulumi.input_type
-class AuthorizerJwtConfigurationArgs:
+calass AuthorizerJwtConfigurationArrgs:
     def __init__(__self__, *,
                  audiences: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  issuer: Optional[pulumi.Input[str]] = None):
@@ -165,7 +165,7 @@ class AuthorizerJwtConfigurationArgs:
 
 
 @pulumi.input_type
-class DomainNameDomainNameConfigurationArgs:
+calass DomainNameDomainNameConfigurationArrgs:
     def __init__(__self__, *,
                  certificate_arn: pulumi.Input[str],
                  endpoint_type: pulumi.Input[str],
@@ -265,7 +265,7 @@ class DomainNameDomainNameConfigurationArgs:
 
 
 @pulumi.input_type
-class DomainNameMutualTlsAuthenticationArgs:
+calass DomainNameMutualTlsAuthenticationArrgs:
     def __init__(__self__, *,
                  truststore_uri: pulumi.Input[str],
                  truststore_version: Optional[pulumi.Input[str]] = None):
@@ -303,7 +303,7 @@ class DomainNameMutualTlsAuthenticationArgs:
 
 
 @pulumi.input_type
-class IntegrationResponseParameterArgs:
+calass IntegrationResponseParameterArrgs:
     def __init__(__self__, *,
                  mappings: pulumi.Input[Mapping[str, pulumi.Input[str]]],
                  status_code: pulumi.Input[str]):
@@ -342,7 +342,7 @@ class IntegrationResponseParameterArgs:
 
 
 @pulumi.input_type
-class IntegrationTlsConfigArgs:
+calass IntegrationTlsConfigArrgs:
     def __init__(__self__, *,
                  server_name_to_verify: Optional[pulumi.Input[str]] = None):
         """
@@ -365,7 +365,7 @@ class IntegrationTlsConfigArgs:
 
 
 @pulumi.input_type
-class RouteRequestParameterArgs:
+calass RouteRequestParameterArrgs:
     def __init__(__self__, *,
                  request_parameter_key: pulumi.Input[str],
                  required: pulumi.Input[bool]):
@@ -402,7 +402,7 @@ class RouteRequestParameterArgs:
 
 
 @pulumi.input_type
-class StageAccessLogSettingsArgs:
+calass StageAccessLogSettingsArrgs:
     def __init__(__self__, *,
                  destination_arn: pulumi.Input[str],
                  format: pulumi.Input[str]):
@@ -439,7 +439,7 @@ class StageAccessLogSettingsArgs:
 
 
 @pulumi.input_type
-class StageDefaultRouteSettingsArgs:
+calass StageDefaultRouteSettingsArrgs:
     def __init__(__self__, *,
                  data_trace_enabled: Optional[pulumi.Input[bool]] = None,
                  detailed_metrics_enabled: Optional[pulumi.Input[bool]] = None,
@@ -530,7 +530,7 @@ class StageDefaultRouteSettingsArgs:
 
 
 @pulumi.input_type
-class StageRouteSettingArgs:
+calass StageRouteSettingArrgs:
     def __init__(__self__, *,
                  route_key: pulumi.Input[str],
                  data_trace_enabled: Optional[pulumi.Input[bool]] = None,

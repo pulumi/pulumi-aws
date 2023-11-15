@@ -38,7 +38,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ProjectArtifacts(dict):
+calass ProjectArtifacts(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -189,7 +189,7 @@ class ProjectArtifacts(dict):
 
 
 @pulumi.output_type
-class ProjectBuildBatchConfig(dict):
+calass ProjectBuildBatchConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -219,7 +219,7 @@ class ProjectBuildBatchConfig(dict):
         """
         :param str service_role: Specifies the service role ARN for the batch build project.
         :param bool combine_artifacts: Specifies if the build artifacts for the batch build should be combined into a single artifact location.
-        :param 'ProjectBuildBatchConfigRestrictionsArgs' restrictions: Configuration block specifying the restrictions for the batch build. Detailed below.
+        :param 'ProjectBuildBatchConfigRestrictionsArrgs' restrictions: Configuration block specifying the restrictions for the batch build. Detailed below.
         :param int timeout_in_mins: Specifies the maximum amount of time, in minutes, that the batch build must be completed in.
         """
         pulumi.set(__self__, "service_role", service_role)
@@ -264,7 +264,7 @@ class ProjectBuildBatchConfig(dict):
 
 
 @pulumi.output_type
-class ProjectBuildBatchConfigRestrictions(dict):
+calass ProjectBuildBatchConfigRestrictions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -314,7 +314,7 @@ class ProjectBuildBatchConfigRestrictions(dict):
 
 
 @pulumi.output_type
-class ProjectCache(dict):
+calass ProjectCache(dict):
     def __init__(__self__, *,
                  location: Optional[str] = None,
                  modes: Optional[Sequence[str]] = None,
@@ -357,7 +357,7 @@ class ProjectCache(dict):
 
 
 @pulumi.output_type
-class ProjectEnvironment(dict):
+calass ProjectEnvironment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -397,10 +397,10 @@ class ProjectEnvironment(dict):
         :param str image: Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/amazonlinux2-x86_64-standard:4.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `pulumi/pulumi:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
         :param str type: Type of environment variable. Valid values: `PARAMETER_STORE`, `PLAINTEXT`, `SECRETS_MANAGER`.
         :param str certificate: ARN of the S3 bucket, path prefix and object key that contains the PEM-encoded certificate.
-        :param Sequence['ProjectEnvironmentEnvironmentVariableArgs'] environment_variables: Configuration block. Detailed below.
+        :param Sequence['ProjectEnvironmentEnvironmentVariableArrgs'] environment_variables: Configuration block. Detailed below.
         :param str image_pull_credentials_type: Type of credentials AWS CodeBuild uses to pull images in your build. Valid values: `CODEBUILD`, `SERVICE_ROLE`. When you use a cross-account or private registry image, you must use SERVICE_ROLE credentials. When you use an AWS CodeBuild curated image, you must use CodeBuild credentials. Defaults to `CODEBUILD`.
         :param bool privileged_mode: Whether to enable running the Docker daemon inside a Docker container. Defaults to `false`.
-        :param 'ProjectEnvironmentRegistryCredentialArgs' registry_credential: Configuration block. Detailed below.
+        :param 'ProjectEnvironmentRegistryCredentialArrgs' registry_credential: Configuration block. Detailed below.
         """
         pulumi.set(__self__, "compute_type", compute_type)
         pulumi.set(__self__, "image", image)
@@ -482,7 +482,7 @@ class ProjectEnvironment(dict):
 
 
 @pulumi.output_type
-class ProjectEnvironmentEnvironmentVariable(dict):
+calass ProjectEnvironmentEnvironmentVariable(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str,
@@ -523,7 +523,7 @@ class ProjectEnvironmentEnvironmentVariable(dict):
 
 
 @pulumi.output_type
-class ProjectEnvironmentRegistryCredential(dict):
+calass ProjectEnvironmentRegistryCredential(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -569,7 +569,7 @@ class ProjectEnvironmentRegistryCredential(dict):
 
 
 @pulumi.output_type
-class ProjectFileSystemLocation(dict):
+calass ProjectFileSystemLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -655,7 +655,7 @@ class ProjectFileSystemLocation(dict):
 
 
 @pulumi.output_type
-class ProjectLogsConfig(dict):
+calass ProjectLogsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -679,8 +679,8 @@ class ProjectLogsConfig(dict):
                  cloudwatch_logs: Optional['outputs.ProjectLogsConfigCloudwatchLogs'] = None,
                  s3_logs: Optional['outputs.ProjectLogsConfigS3Logs'] = None):
         """
-        :param 'ProjectLogsConfigCloudwatchLogsArgs' cloudwatch_logs: Configuration block. Detailed below.
-        :param 'ProjectLogsConfigS3LogsArgs' s3_logs: Configuration block. Detailed below.
+        :param 'ProjectLogsConfigCloudwatchLogsArrgs' cloudwatch_logs: Configuration block. Detailed below.
+        :param 'ProjectLogsConfigS3LogsArrgs' s3_logs: Configuration block. Detailed below.
         """
         if cloudwatch_logs is not None:
             pulumi.set(__self__, "cloudwatch_logs", cloudwatch_logs)
@@ -705,7 +705,7 @@ class ProjectLogsConfig(dict):
 
 
 @pulumi.output_type
-class ProjectLogsConfigCloudwatchLogs(dict):
+calass ProjectLogsConfigCloudwatchLogs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -767,7 +767,7 @@ class ProjectLogsConfigCloudwatchLogs(dict):
 
 
 @pulumi.output_type
-class ProjectLogsConfigS3Logs(dict):
+calass ProjectLogsConfigS3Logs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -841,7 +841,7 @@ class ProjectLogsConfigS3Logs(dict):
 
 
 @pulumi.output_type
-class ProjectSecondaryArtifact(dict):
+calass ProjectSecondaryArtifact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -991,7 +991,7 @@ class ProjectSecondaryArtifact(dict):
 
 
 @pulumi.output_type
-class ProjectSecondarySource(dict):
+calass ProjectSecondarySource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1032,10 +1032,10 @@ class ProjectSecondarySource(dict):
         """
         :param str source_identifier: An identifier for this project source. The identifier can only contain alphanumeric characters and underscores, and must be less than 128 characters in length.
         :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET` or `S3`.
-        :param 'ProjectSecondarySourceBuildStatusConfigArgs' build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+        :param 'ProjectSecondarySourceBuildStatusConfigArrgs' build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
         :param str buildspec: The build spec declaration to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`. It can either be a path to a file residing in the repository to be built or a local file path leveraging the `file()` built-in.
         :param int git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
-        :param 'ProjectSecondarySourceGitSubmodulesConfigArgs' git_submodules_config: Configuration block. Detailed below.
+        :param 'ProjectSecondarySourceGitSubmodulesConfigArrgs' git_submodules_config: Configuration block. Detailed below.
         :param bool insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param str location: Location of the source code from git or s3.
         :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when your source provider is `GITHUB`, `BITBUCKET`, or `GITHUB_ENTERPRISE`.
@@ -1131,7 +1131,7 @@ class ProjectSecondarySource(dict):
 
 
 @pulumi.output_type
-class ProjectSecondarySourceBuildStatusConfig(dict):
+calass ProjectSecondarySourceBuildStatusConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1179,7 +1179,7 @@ class ProjectSecondarySourceBuildStatusConfig(dict):
 
 
 @pulumi.output_type
-class ProjectSecondarySourceGitSubmodulesConfig(dict):
+calass ProjectSecondarySourceGitSubmodulesConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1214,7 +1214,7 @@ class ProjectSecondarySourceGitSubmodulesConfig(dict):
 
 
 @pulumi.output_type
-class ProjectSecondarySourceVersion(dict):
+calass ProjectSecondarySourceVersion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1262,7 +1262,7 @@ class ProjectSecondarySourceVersion(dict):
 
 
 @pulumi.output_type
-class ProjectSource(dict):
+calass ProjectSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1299,10 +1299,10 @@ class ProjectSource(dict):
                  report_build_status: Optional[bool] = None):
         """
         :param str type: Type of repository that contains the source code to be built. Valid values: `CODECOMMIT`, `CODEPIPELINE`, `GITHUB`, `GITHUB_ENTERPRISE`, `BITBUCKET`, `S3`, `NO_SOURCE`.
-        :param 'ProjectSourceBuildStatusConfigArgs' build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
+        :param 'ProjectSourceBuildStatusConfigArrgs' build_status_config: Configuration block that contains information that defines how the build project reports the build status to the source provider. This option is only used when the source provider is `GITHUB`, `GITHUB_ENTERPRISE`, or `BITBUCKET`. `build_status_config` blocks are documented below.
         :param str buildspec: Build specification to use for this build project's related builds. This must be set when `type` is `NO_SOURCE`.
         :param int git_clone_depth: Truncate git history to this many commits. Use `0` for a `Full` checkout which you need to run commands like `git branch --show-current`. See [AWS CodePipeline User Guide: Tutorial: Use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html) for details.
-        :param 'ProjectSourceGitSubmodulesConfigArgs' git_submodules_config: Configuration block. Detailed below.
+        :param 'ProjectSourceGitSubmodulesConfigArrgs' git_submodules_config: Configuration block. Detailed below.
         :param bool insecure_ssl: Ignore SSL warnings when connecting to source control.
         :param str location: Location of the source code from git or s3.
         :param bool report_build_status: Whether to report the status of a build's start and finish to your source provider. This option is only valid when the `type` is `BITBUCKET` or `GITHUB`.
@@ -1389,7 +1389,7 @@ class ProjectSource(dict):
 
 
 @pulumi.output_type
-class ProjectSourceBuildStatusConfig(dict):
+calass ProjectSourceBuildStatusConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1437,7 +1437,7 @@ class ProjectSourceBuildStatusConfig(dict):
 
 
 @pulumi.output_type
-class ProjectSourceGitSubmodulesConfig(dict):
+calass ProjectSourceGitSubmodulesConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1472,7 +1472,7 @@ class ProjectSourceGitSubmodulesConfig(dict):
 
 
 @pulumi.output_type
-class ProjectVpcConfig(dict):
+calass ProjectVpcConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1531,7 +1531,7 @@ class ProjectVpcConfig(dict):
 
 
 @pulumi.output_type
-class ReportGroupExportConfig(dict):
+calass ReportGroupExportConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1554,7 +1554,7 @@ class ReportGroupExportConfig(dict):
                  s3_destination: Optional['outputs.ReportGroupExportConfigS3Destination'] = None):
         """
         :param str type: The export configuration type. Valid values are `S3` and `NO_EXPORT`.
-        :param 'ReportGroupExportConfigS3DestinationArgs' s3_destination: contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
+        :param 'ReportGroupExportConfigS3DestinationArrgs' s3_destination: contains information about the S3 bucket where the run of a report is exported. see S3 Destination documented below.
         """
         pulumi.set(__self__, "type", type)
         if s3_destination is not None:
@@ -1578,7 +1578,7 @@ class ReportGroupExportConfig(dict):
 
 
 @pulumi.output_type
-class ReportGroupExportConfigS3Destination(dict):
+calass ReportGroupExportConfigS3Destination(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1664,11 +1664,11 @@ class ReportGroupExportConfigS3Destination(dict):
 
 
 @pulumi.output_type
-class WebhookFilterGroup(dict):
+calass WebhookFilterGroup(dict):
     def __init__(__self__, *,
                  filters: Optional[Sequence['outputs.WebhookFilterGroupFilter']] = None):
         """
-        :param Sequence['WebhookFilterGroupFilterArgs'] filters: A webhook filter for the group. Filter blocks are documented below.
+        :param Sequence['WebhookFilterGroupFilterArrgs'] filters: A webhook filter for the group. Filter blocks are documented below.
         """
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
@@ -1683,7 +1683,7 @@ class WebhookFilterGroup(dict):
 
 
 @pulumi.output_type
-class WebhookFilterGroupFilter(dict):
+calass WebhookFilterGroupFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

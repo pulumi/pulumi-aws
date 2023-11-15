@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MonitoringSubscriptionArgs', 'MonitoringSubscription']
+__all__ = ['MonitoringSubscriptionArrgs', 'MonitoringSubscription']
 
 @pulumi.input_type
-class MonitoringSubscriptionArgs:
+calass MonitoringSubscriptionArrgs:
     def __init__(__self__, *,
                  distribution_id: pulumi.Input[str],
-                 monitoring_subscription: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']):
+                 monitoring_subscription: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArrgs']):
         """
         The set of arguments for constructing a MonitoringSubscription resource.
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
-        :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArrgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
         pulumi.set(__self__, "distribution_id", distribution_id)
         pulumi.set(__self__, "monitoring_subscription", monitoring_subscription)
@@ -40,26 +40,26 @@ class MonitoringSubscriptionArgs:
 
     @property
     @pulumi.getter(name="monitoringSubscription")
-    def monitoring_subscription(self) -> pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']:
+    def monitoring_subscription(self) -> pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArrgs']:
         """
         A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
         return pulumi.get(self, "monitoring_subscription")
 
     @monitoring_subscription.setter
-    def monitoring_subscription(self, value: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']):
+    def monitoring_subscription(self, value: pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArrgs']):
         pulumi.set(self, "monitoring_subscription", value)
 
 
 @pulumi.input_type
-class _MonitoringSubscriptionState:
+calass _MonitoringSubscriptionState:
     def __init__(__self__, *,
                  distribution_id: Optional[pulumi.Input[str]] = None,
-                 monitoring_subscription: Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']] = None):
+                 monitoring_subscription: Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArrgs']] = None):
         """
         Input properties used for looking up and filtering MonitoringSubscription resources.
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
-        :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        :param pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArrgs'] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
         if distribution_id is not None:
             pulumi.set(__self__, "distribution_id", distribution_id)
@@ -80,24 +80,24 @@ class _MonitoringSubscriptionState:
 
     @property
     @pulumi.getter(name="monitoringSubscription")
-    def monitoring_subscription(self) -> Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']]:
+    def monitoring_subscription(self) -> Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArrgs']]:
         """
         A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
         return pulumi.get(self, "monitoring_subscription")
 
     @monitoring_subscription.setter
-    def monitoring_subscription(self, value: Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArgs']]):
+    def monitoring_subscription(self, value: Optional[pulumi.Input['MonitoringSubscriptionMonitoringSubscriptionArrgs']]):
         pulumi.set(self, "monitoring_subscription", value)
 
 
-class MonitoringSubscription(pulumi.CustomResource):
+calass MonitoringSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distribution_id: Optional[pulumi.Input[str]] = None,
-                 monitoring_subscription: Optional[pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArgs']]] = None,
+                 monitoring_subscription: Optional[pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArrgs']]] = None,
                  __props__=None):
         """
         Provides a CloudFront real-time log configuration resource.
@@ -110,8 +110,8 @@ class MonitoringSubscription(pulumi.CustomResource):
 
         example = aws.cloudfront.MonitoringSubscription("example",
             distribution_id=aws_cloudfront_distribution["example"]["id"],
-            monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs(
-                realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(
+            monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArrgs(
+                realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArrgs(
                     realtime_metrics_subscription_status="Enabled",
                 ),
             ))
@@ -128,13 +128,13 @@ class MonitoringSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
-        :param pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArgs']] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        :param pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArrgs']] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MonitoringSubscriptionArgs,
+                 args: MonitoringSubscriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a CloudFront real-time log configuration resource.
@@ -147,8 +147,8 @@ class MonitoringSubscription(pulumi.CustomResource):
 
         example = aws.cloudfront.MonitoringSubscription("example",
             distribution_id=aws_cloudfront_distribution["example"]["id"],
-            monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs(
-                realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs(
+            monitoring_subscription=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionArrgs(
+                realtime_metrics_subscription_config=aws.cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArrgs(
                     realtime_metrics_subscription_status="Enabled",
                 ),
             ))
@@ -163,12 +163,12 @@ class MonitoringSubscription(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MonitoringSubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param MonitoringSubscriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MonitoringSubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MonitoringSubscriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -178,7 +178,7 @@ class MonitoringSubscription(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  distribution_id: Optional[pulumi.Input[str]] = None,
-                 monitoring_subscription: Optional[pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArgs']]] = None,
+                 monitoring_subscription: Optional[pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -186,7 +186,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MonitoringSubscriptionArgs.__new__(MonitoringSubscriptionArgs)
+            __props__ = MonitoringSubscriptionArrgs.__new__(MonitoringSubscriptionArrgs)
 
             if distribution_id is None and not opts.urn:
                 raise TypeError("Missing required property 'distribution_id'")
@@ -205,7 +205,7 @@ class MonitoringSubscription(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             distribution_id: Optional[pulumi.Input[str]] = None,
-            monitoring_subscription: Optional[pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArgs']]] = None) -> 'MonitoringSubscription':
+            monitoring_subscription: Optional[pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArrgs']]] = None) -> 'MonitoringSubscription':
         """
         Get an existing MonitoringSubscription resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -214,7 +214,7 @@ class MonitoringSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] distribution_id: The ID of the distribution that you are enabling metrics for.
-        :param pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArgs']] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        :param pulumi.Input[pulumi.InputType['MonitoringSubscriptionMonitoringSubscriptionArrgs']] monitoring_subscription: A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

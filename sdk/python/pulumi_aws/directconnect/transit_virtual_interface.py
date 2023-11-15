@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TransitVirtualInterfaceArgs', 'TransitVirtualInterface']
+__all__ = ['TransitVirtualInterfaceArrgs', 'TransitVirtualInterface']
 
 @pulumi.input_type
-class TransitVirtualInterfaceArgs:
+calass TransitVirtualInterfaceArrgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[str],
                  bgp_asn: pulumi.Input[int],
@@ -209,7 +209,7 @@ class TransitVirtualInterfaceArgs:
 
 
 @pulumi.input_type
-class _TransitVirtualInterfaceState:
+calass _TransitVirtualInterfaceState:
     def __init__(__self__, *,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
@@ -492,7 +492,7 @@ class _TransitVirtualInterfaceState:
         pulumi.set(self, "vlan", value)
 
 
-class TransitVirtualInterface(pulumi.CustomResource):
+calass TransitVirtualInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -557,7 +557,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TransitVirtualInterfaceArgs,
+                 args: TransitVirtualInterfaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Direct Connect transit virtual interface resource.
@@ -587,12 +587,12 @@ class TransitVirtualInterface(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TransitVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
+        :param TransitVirtualInterfaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TransitVirtualInterfaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TransitVirtualInterfaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -620,7 +620,7 @@ class TransitVirtualInterface(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TransitVirtualInterfaceArgs.__new__(TransitVirtualInterfaceArgs)
+            __props__ = TransitVirtualInterfaceArrgs.__new__(TransitVirtualInterfaceArrgs)
 
             if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")

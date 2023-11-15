@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RecorderStatusArgs', 'RecorderStatus']
+__all__ = ['RecorderStatusArrgs', 'RecorderStatus']
 
 @pulumi.input_type
-class RecorderStatusArgs:
+calass RecorderStatusArrgs:
     def __init__(__self__, *,
                  is_enabled: pulumi.Input[bool],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class RecorderStatusArgs:
 
 
 @pulumi.input_type
-class _RecorderStatusState:
+calass _RecorderStatusState:
     def __init__(__self__, *,
                  is_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _RecorderStatusState:
         pulumi.set(self, "name", value)
 
 
-class RecorderStatus(pulumi.CustomResource):
+calass RecorderStatus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -113,9 +113,9 @@ class RecorderStatus(pulumi.CustomResource):
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
         opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["config.amazonaws.com"],
             )],
@@ -126,7 +126,7 @@ class RecorderStatus(pulumi.CustomResource):
             role=role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["s3:*"],
             resources=[
@@ -156,7 +156,7 @@ class RecorderStatus(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RecorderStatusArgs,
+                 args: RecorderStatusArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages status (recording / stopped) of an AWS Config Configuration Recorder.
@@ -173,9 +173,9 @@ class RecorderStatus(pulumi.CustomResource):
         foo_delivery_channel = aws.cfg.DeliveryChannel("fooDeliveryChannel", s3_bucket_name=bucket_v2.bucket)
         foo_recorder_status = aws.cfg.RecorderStatus("fooRecorderStatus", is_enabled=True,
         opts=pulumi.ResourceOptions(depends_on=[foo_delivery_channel]))
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["config.amazonaws.com"],
             )],
@@ -186,7 +186,7 @@ class RecorderStatus(pulumi.CustomResource):
             role=role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWS_ConfigRole")
         foo_recorder = aws.cfg.Recorder("fooRecorder", role_arn=role.arn)
-        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=["s3:*"],
             resources=[
@@ -208,12 +208,12 @@ class RecorderStatus(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RecorderStatusArgs args: The arguments to use to populate this resource's properties.
+        :param RecorderStatusArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RecorderStatusArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RecorderStatusArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -231,7 +231,7 @@ class RecorderStatus(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RecorderStatusArgs.__new__(RecorderStatusArgs)
+            __props__ = RecorderStatusArrgs.__new__(RecorderStatusArrgs)
 
             if is_enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'is_enabled'")

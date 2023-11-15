@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['InstanceProfileArgs', 'InstanceProfile']
+__all__ = ['InstanceProfileArrgs', 'InstanceProfile']
 
 @pulumi.input_type
-class InstanceProfileArgs:
+calass InstanceProfileArrgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  name_prefix: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class InstanceProfileArgs:
 
 
 @pulumi.input_type
-class _InstanceProfileState:
+calass _InstanceProfileState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  create_date: Optional[pulumi.Input[str]] = None,
@@ -257,7 +257,7 @@ class _InstanceProfileState:
         pulumi.set(self, "unique_id", value)
 
 
-class InstanceProfile(pulumi.CustomResource):
+calass InstanceProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -277,9 +277,9 @@ class InstanceProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["ec2.amazonaws.com"],
             )],
@@ -311,7 +311,7 @@ class InstanceProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[InstanceProfileArgs] = None,
+                 args: Optional[InstanceProfileArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an IAM instance profile.
@@ -322,9 +322,9 @@ class InstanceProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["ec2.amazonaws.com"],
             )],
@@ -345,12 +345,12 @@ class InstanceProfile(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InstanceProfileArgs args: The arguments to use to populate this resource's properties.
+        :param InstanceProfileArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InstanceProfileArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InstanceProfileArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -371,7 +371,7 @@ class InstanceProfile(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InstanceProfileArgs.__new__(InstanceProfileArgs)
+            __props__ = InstanceProfileArrgs.__new__(InstanceProfileArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PortfolioArgs', 'Portfolio']
+__all__ = ['PortfolioArrgs', 'Portfolio']
 
 @pulumi.input_type
-class PortfolioArgs:
+calass PortfolioArrgs:
     def __init__(__self__, *,
                  provider_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class PortfolioArgs:
 
 
 @pulumi.input_type
-class _PortfolioState:
+calass _PortfolioState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  created_time: Optional[pulumi.Input[str]] = None,
@@ -200,7 +200,7 @@ class _PortfolioState:
         pulumi.set(self, "tags_all", value)
 
 
-class Portfolio(pulumi.CustomResource):
+calass Portfolio(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -243,7 +243,7 @@ class Portfolio(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PortfolioArgs,
+                 args: PortfolioArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a resource to create a Service Catalog Portfolio.
@@ -268,12 +268,12 @@ class Portfolio(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PortfolioArgs args: The arguments to use to populate this resource's properties.
+        :param PortfolioArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PortfolioArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PortfolioArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -293,7 +293,7 @@ class Portfolio(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PortfolioArgs.__new__(PortfolioArgs)
+            __props__ = PortfolioArrgs.__new__(PortfolioArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

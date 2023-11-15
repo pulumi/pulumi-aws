@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ClusterRoleAssociationArgs', 'ClusterRoleAssociation']
+__all__ = ['ClusterRoleAssociationArrgs', 'ClusterRoleAssociation']
 
 @pulumi.input_type
-class ClusterRoleAssociationArgs:
+calass ClusterRoleAssociationArrgs:
     def __init__(__self__, *,
                  db_cluster_identifier: pulumi.Input[str],
                  feature_name: pulumi.Input[str],
@@ -65,7 +65,7 @@ class ClusterRoleAssociationArgs:
 
 
 @pulumi.input_type
-class _ClusterRoleAssociationState:
+calass _ClusterRoleAssociationState:
     def __init__(__self__, *,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  feature_name: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _ClusterRoleAssociationState:
         pulumi.set(self, "role_arn", value)
 
 
-class ClusterRoleAssociation(pulumi.CustomResource):
+calass ClusterRoleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -165,7 +165,7 @@ class ClusterRoleAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterRoleAssociationArgs,
+                 args: ClusterRoleAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a RDS DB Cluster association with an IAM Role. Example use cases:
@@ -194,12 +194,12 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterRoleAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterRoleAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterRoleAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterRoleAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -218,7 +218,7 @@ class ClusterRoleAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterRoleAssociationArgs.__new__(ClusterRoleAssociationArgs)
+            __props__ = ClusterRoleAssociationArrgs.__new__(ClusterRoleAssociationArrgs)
 
             if db_cluster_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'db_cluster_identifier'")

@@ -33,7 +33,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class InstanceConnectEndpointTimeouts(dict):
+calass InstanceConnectEndpointTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None):
@@ -54,7 +54,7 @@ class InstanceConnectEndpointTimeouts(dict):
 
 
 @pulumi.output_type
-class GetAttachmentFilterResult(dict):
+calass GetAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -83,7 +83,7 @@ class GetAttachmentFilterResult(dict):
 
 
 @pulumi.output_type
-class GetAttachmentsFilterResult(dict):
+calass GetAttachmentsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -112,7 +112,7 @@ class GetAttachmentsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetConnectFilterResult(dict):
+calass GetConnectFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -141,7 +141,7 @@ class GetConnectFilterResult(dict):
 
 
 @pulumi.output_type
-class GetConnectPeerFilterResult(dict):
+calass GetConnectPeerFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -170,7 +170,7 @@ class GetConnectPeerFilterResult(dict):
 
 
 @pulumi.output_type
-class GetDirectConnectGatewayAttachmentFilterResult(dict):
+calass GetDirectConnectGatewayAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -199,7 +199,7 @@ class GetDirectConnectGatewayAttachmentFilterResult(dict):
 
 
 @pulumi.output_type
-class GetMulticastDomainAssociationResult(dict):
+calass GetMulticastDomainAssociationResult(dict):
     def __init__(__self__, *,
                  subnet_id: str,
                  transit_gateway_attachment_id: str):
@@ -228,7 +228,7 @@ class GetMulticastDomainAssociationResult(dict):
 
 
 @pulumi.output_type
-class GetMulticastDomainFilterResult(dict):
+calass GetMulticastDomainFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -257,7 +257,7 @@ class GetMulticastDomainFilterResult(dict):
 
 
 @pulumi.output_type
-class GetMulticastDomainMemberResult(dict):
+calass GetMulticastDomainMemberResult(dict):
     def __init__(__self__, *,
                  group_ip_address: str,
                  network_interface_id: str):
@@ -286,7 +286,7 @@ class GetMulticastDomainMemberResult(dict):
 
 
 @pulumi.output_type
-class GetMulticastDomainSourceResult(dict):
+calass GetMulticastDomainSourceResult(dict):
     def __init__(__self__, *,
                  group_ip_address: str,
                  network_interface_id: str):
@@ -315,7 +315,7 @@ class GetMulticastDomainSourceResult(dict):
 
 
 @pulumi.output_type
-class GetPeeringAttachmentFilterResult(dict):
+calass GetPeeringAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -348,7 +348,7 @@ class GetPeeringAttachmentFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTableAssociationsFilterResult(dict):
+calass GetRouteTableAssociationsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -381,7 +381,7 @@ class GetRouteTableAssociationsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTableFilterResult(dict):
+calass GetRouteTableFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -410,7 +410,7 @@ class GetRouteTableFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTablePropagationsFilterResult(dict):
+calass GetRouteTablePropagationsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -443,7 +443,7 @@ class GetRouteTablePropagationsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTableRoutesFilterResult(dict):
+calass GetRouteTableRoutesFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -474,7 +474,7 @@ class GetRouteTableRoutesFilterResult(dict):
 
 
 @pulumi.output_type
-class GetRouteTableRoutesRouteResult(dict):
+calass GetRouteTableRoutesRouteResult(dict):
     def __init__(__self__, *,
                  destination_cidr_block: str,
                  prefix_list_id: str,
@@ -536,7 +536,7 @@ class GetRouteTableRoutesRouteResult(dict):
 
 
 @pulumi.output_type
-class GetTransitGatewayFilterResult(dict):
+calass GetTransitGatewayFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -565,7 +565,7 @@ class GetTransitGatewayFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcAttachmentFilterResult(dict):
+calass GetVpcAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -594,7 +594,7 @@ class GetVpcAttachmentFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpcAttachmentsFilterResult(dict):
+calass GetVpcAttachmentsFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):
@@ -623,7 +623,7 @@ class GetVpcAttachmentsFilterResult(dict):
 
 
 @pulumi.output_type
-class GetVpnAttachmentFilterResult(dict):
+calass GetVpnAttachmentFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str]):

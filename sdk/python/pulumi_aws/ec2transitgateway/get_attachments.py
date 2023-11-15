@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAttachmentsResult:
+calass GetAttachmentsResult:
     """
     A collection of values returned by getAttachments.
     """
@@ -64,7 +64,7 @@ class GetAttachmentsResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetAttachmentsResult(GetAttachmentsResult):
+calass AwaitableGetAttachmentsResult(GetAttachmentsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -76,7 +76,7 @@ class AwaitableGetAttachmentsResult(GetAttachmentsResult):
             tags=self.tags)
 
 
-def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsFilterArgs']]] = None,
+def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsFilterArrgs']]] = None,
                     tags: Optional[Mapping[str, str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachmentsResult:
     """
@@ -85,7 +85,7 @@ def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsF
     ## Example Usage
 
 
-    :param Sequence[pulumi.InputType['GetAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetAttachmentsFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -101,7 +101,7 @@ def get_attachments(filters: Optional[Sequence[pulumi.InputType['GetAttachmentsF
 
 
 @_utilities.lift_output_func(get_attachments)
-def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAttachmentsFilterArgs']]]]] = None,
+def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAttachmentsFilterArrgs']]]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachmentsResult]:
     """
@@ -110,6 +110,6 @@ def get_attachments_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     ## Example Usage
 
 
-    :param Sequence[pulumi.InputType['GetAttachmentsFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
+    :param Sequence[pulumi.InputType['GetAttachmentsFilterArrgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
     """
     ...

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ConnectionArgs', 'Connection']
+__all__ = ['ConnectionArrgs', 'Connection']
 
 @pulumi.input_type
-class ConnectionArgs:
+calass ConnectionArrgs:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  connection_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -22,7 +22,7 @@ class ConnectionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None,
+                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
@@ -32,7 +32,7 @@ class ConnectionArgs:
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArrgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if catalog_id is not None:
@@ -126,14 +126,14 @@ class ConnectionArgs:
 
     @property
     @pulumi.getter(name="physicalConnectionRequirements")
-    def physical_connection_requirements(self) -> Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]:
+    def physical_connection_requirements(self) -> Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArrgs']]:
         """
         A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         """
         return pulumi.get(self, "physical_connection_requirements")
 
     @physical_connection_requirements.setter
-    def physical_connection_requirements(self, value: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]):
+    def physical_connection_requirements(self, value: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArrgs']]):
         pulumi.set(self, "physical_connection_requirements", value)
 
     @property
@@ -150,7 +150,7 @@ class ConnectionArgs:
 
 
 @pulumi.input_type
-class _ConnectionState:
+calass _ConnectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class _ConnectionState:
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None,
+                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArrgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -171,7 +171,7 @@ class _ConnectionState:
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArrgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -285,14 +285,14 @@ class _ConnectionState:
 
     @property
     @pulumi.getter(name="physicalConnectionRequirements")
-    def physical_connection_requirements(self) -> Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]:
+    def physical_connection_requirements(self) -> Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArrgs']]:
         """
         A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         """
         return pulumi.get(self, "physical_connection_requirements")
 
     @physical_connection_requirements.setter
-    def physical_connection_requirements(self, value: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]):
+    def physical_connection_requirements(self, value: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArrgs']]):
         pulumi.set(self, "physical_connection_requirements", value)
 
     @property
@@ -323,7 +323,7 @@ class _ConnectionState:
         pulumi.set(self, "tags_all", value)
 
 
-class Connection(pulumi.CustomResource):
+calass Connection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -334,7 +334,7 @@ class Connection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+                 physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -367,7 +367,7 @@ class Connection(pulumi.CustomResource):
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
             },
-            physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
+            physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArrgs(
                 availability_zone=aws_subnet["example"]["availability_zone"],
                 security_group_id_lists=[aws_security_group["example"]["id"]],
                 subnet_id=aws_subnet["example"]["id"],
@@ -390,14 +390,14 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArrgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ConnectionArgs] = None,
+                 args: Optional[ConnectionArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Glue Connection resource.
@@ -429,7 +429,7 @@ class Connection(pulumi.CustomResource):
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
             },
-            physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArgs(
+            physical_connection_requirements=aws.glue.ConnectionPhysicalConnectionRequirementsArrgs(
                 availability_zone=aws_subnet["example"]["availability_zone"],
                 security_group_id_lists=[aws_security_group["example"]["id"]],
                 subnet_id=aws_subnet["example"]["id"],
@@ -445,12 +445,12 @@ class Connection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -465,7 +465,7 @@ class Connection(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+                 physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArrgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -474,7 +474,7 @@ class Connection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectionArgs.__new__(ConnectionArgs)
+            __props__ = ConnectionArrgs.__new__(ConnectionArrgs)
 
             __props__.__dict__["catalog_id"] = catalog_id
             __props__.__dict__["connection_properties"] = None if connection_properties is None else pulumi.Output.secret(connection_properties)
@@ -505,7 +505,7 @@ class Connection(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+            physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArrgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Connection':
         """
@@ -522,7 +522,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
-        :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArrgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """

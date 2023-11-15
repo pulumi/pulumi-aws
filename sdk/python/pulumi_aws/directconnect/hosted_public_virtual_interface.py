@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HostedPublicVirtualInterfaceArgs', 'HostedPublicVirtualInterface']
+__all__ = ['HostedPublicVirtualInterfaceArrgs', 'HostedPublicVirtualInterface']
 
 @pulumi.input_type
-class HostedPublicVirtualInterfaceArgs:
+calass HostedPublicVirtualInterfaceArrgs:
     def __init__(__self__, *,
                  address_family: pulumi.Input[str],
                  bgp_asn: pulumi.Input[int],
@@ -174,7 +174,7 @@ class HostedPublicVirtualInterfaceArgs:
 
 
 @pulumi.input_type
-class _HostedPublicVirtualInterfaceState:
+calass _HostedPublicVirtualInterfaceState:
     def __init__(__self__, *,
                  address_family: Optional[pulumi.Input[str]] = None,
                  amazon_address: Optional[pulumi.Input[str]] = None,
@@ -385,7 +385,7 @@ class _HostedPublicVirtualInterfaceState:
         pulumi.set(self, "vlan", value)
 
 
-class HostedPublicVirtualInterface(pulumi.CustomResource):
+calass HostedPublicVirtualInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -449,7 +449,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HostedPublicVirtualInterfaceArgs,
+                 args: HostedPublicVirtualInterfaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Direct Connect hosted public virtual interface resource. This resource represents the allocator's side of the hosted virtual interface.
@@ -483,12 +483,12 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HostedPublicVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
+        :param HostedPublicVirtualInterfaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HostedPublicVirtualInterfaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HostedPublicVirtualInterfaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -514,7 +514,7 @@ class HostedPublicVirtualInterface(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HostedPublicVirtualInterfaceArgs.__new__(HostedPublicVirtualInterfaceArgs)
+            __props__ = HostedPublicVirtualInterfaceArrgs.__new__(HostedPublicVirtualInterfaceArrgs)
 
             if address_family is None and not opts.urn:
                 raise TypeError("Missing required property 'address_family'")

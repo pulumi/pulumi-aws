@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSecurityGroupRuleResult:
+calass GetSecurityGroupRuleResult:
     """
     A collection of values returned by getSecurityGroupRule.
     """
@@ -182,7 +182,7 @@ class GetSecurityGroupRuleResult:
         return pulumi.get(self, "to_port")
 
 
-class AwaitableGetSecurityGroupRuleResult(GetSecurityGroupRuleResult):
+calass AwaitableGetSecurityGroupRuleResult(GetSecurityGroupRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
@@ -205,7 +205,7 @@ class AwaitableGetSecurityGroupRuleResult(GetSecurityGroupRuleResult):
             to_port=self.to_port)
 
 
-def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArgs']]] = None,
+def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArrgs']]] = None,
                             security_group_rule_id: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityGroupRuleResult:
     """
@@ -221,7 +221,7 @@ def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecu
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str security_group_rule_id: ID of the security group rule to select.
     """
     __args__ = dict()
@@ -249,7 +249,7 @@ def get_security_group_rule(filters: Optional[Sequence[pulumi.InputType['GetSecu
 
 
 @_utilities.lift_output_func(get_security_group_rule)
-def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArgs']]]]] = None,
+def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArrgs']]]]] = None,
                                    security_group_rule_id: Optional[pulumi.Input[Optional[str]]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupRuleResult]:
     """
@@ -265,7 +265,7 @@ def get_security_group_rule_output(filters: Optional[pulumi.Input[Optional[Seque
     ```
 
 
-    :param Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
+    :param Sequence[pulumi.InputType['GetSecurityGroupRuleFilterArrgs']] filters: Configuration block(s) for filtering. Detailed below.
     :param str security_group_rule_id: ID of the security group rule to select.
     """
     ...

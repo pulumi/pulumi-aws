@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RuleGroupArgs', 'RuleGroup']
+__all__ = ['RuleGroupArrgs', 'RuleGroup']
 
 @pulumi.input_type
-class RuleGroupArgs:
+calass RuleGroupArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']] = None,
+                 encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
+                 rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArrgs']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -29,9 +29,9 @@ class RuleGroupArgs:
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
         :param pulumi.Input[str] description: A friendly description of the rule group.
-        :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input['RuleGroupEncryptionConfigurationArrgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input['RuleGroupRuleGroupArrgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -88,14 +88,14 @@ class RuleGroupArgs:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> Optional[pulumi.Input['RuleGroupEncryptionConfigurationArrgs']]:
         """
         KMS encryption configuration settings. See Encryption Configuration below for details.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArrgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
@@ -112,14 +112,14 @@ class RuleGroupArgs:
 
     @property
     @pulumi.getter(name="ruleGroup")
-    def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArgs']]:
+    def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArrgs']]:
         """
         A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         """
         return pulumi.get(self, "rule_group")
 
     @rule_group.setter
-    def rule_group(self, value: Optional[pulumi.Input['RuleGroupRuleGroupArgs']]):
+    def rule_group(self, value: Optional[pulumi.Input['RuleGroupRuleGroupArrgs']]):
         pulumi.set(self, "rule_group", value)
 
     @property
@@ -148,14 +148,14 @@ class RuleGroupArgs:
 
 
 @pulumi.input_type
-class _RuleGroupState:
+calass _RuleGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']] = None,
+                 encryption_configuration: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArgs']] = None,
+                 rule_group: Optional[pulumi.Input['RuleGroupRuleGroupArrgs']] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -166,9 +166,9 @@ class _RuleGroupState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] description: A friendly description of the rule group.
-        :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input['RuleGroupEncryptionConfigurationArrgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input['RuleGroupRuleGroupArgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input['RuleGroupRuleGroupArrgs'] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -239,14 +239,14 @@ class _RuleGroupState:
 
     @property
     @pulumi.getter(name="encryptionConfiguration")
-    def encryption_configuration(self) -> Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]:
+    def encryption_configuration(self) -> Optional[pulumi.Input['RuleGroupEncryptionConfigurationArrgs']]:
         """
         KMS encryption configuration settings. See Encryption Configuration below for details.
         """
         return pulumi.get(self, "encryption_configuration")
 
     @encryption_configuration.setter
-    def encryption_configuration(self, value: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArgs']]):
+    def encryption_configuration(self, value: Optional[pulumi.Input['RuleGroupEncryptionConfigurationArrgs']]):
         pulumi.set(self, "encryption_configuration", value)
 
     @property
@@ -263,14 +263,14 @@ class _RuleGroupState:
 
     @property
     @pulumi.getter(name="ruleGroup")
-    def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArgs']]:
+    def rule_group(self) -> Optional[pulumi.Input['RuleGroupRuleGroupArrgs']]:
         """
         A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         """
         return pulumi.get(self, "rule_group")
 
     @rule_group.setter
-    def rule_group(self, value: Optional[pulumi.Input['RuleGroupRuleGroupArgs']]):
+    def rule_group(self, value: Optional[pulumi.Input['RuleGroupRuleGroupArrgs']]):
         pulumi.set(self, "rule_group", value)
 
     @property
@@ -337,16 +337,16 @@ class _RuleGroupState:
         pulumi.set(self, "update_token", value)
 
 
-class RuleGroup(pulumi.CustomResource):
+calass RuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
+                 rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArrgs']]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -363,9 +363,9 @@ class RuleGroup(pulumi.CustomResource):
 
         example = aws.networkfirewall.RuleGroup("example",
             capacity=100,
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArrgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArrgs(
+                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArrgs(
                         generated_rules_type="DENYLIST",
                         target_types=["HTTP_HOST"],
                         targets=["test.example.com"],
@@ -402,12 +402,12 @@ class RuleGroup(pulumi.CustomResource):
         example = aws.networkfirewall.RuleGroup("example",
             capacity=100,
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArrgs(
+                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArrgs(
                     ip_sets=[
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
+                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArrgs(
                             key="WEBSERVERS_HOSTS",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
+                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArrgs(
                                 definitions=[
                                     "10.0.0.0/16",
                                     "10.0.1.0/24",
@@ -415,16 +415,16 @@ class RuleGroup(pulumi.CustomResource):
                                 ],
                             ),
                         ),
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
+                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArrgs(
                             key="EXTERNAL_HOST",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
+                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArrgs(
                                 definitions=["1.2.3.4/32"],
                             ),
                         ),
                     ],
-                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
+                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArrgs(
                         key="HTTP_PORTS",
-                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
+                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArrgs(
                             definitions=[
                                 "443",
                                 "80",
@@ -432,7 +432,7 @@ class RuleGroup(pulumi.CustomResource):
                         ),
                     )],
                 ),
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArrgs(
                     rules_string=(lambda path: open(path).read())("suricata_rules_file"),
                 ),
             ),
@@ -450,18 +450,18 @@ class RuleGroup(pulumi.CustomResource):
         example = aws.networkfirewall.RuleGroup("example",
             capacity=100,
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArrgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArrgs(
+                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArrgs(
                         generated_rules_type="DENYLIST",
                         target_types=["HTTP_HOST"],
                         targets=["test.example.com"],
                     ),
                 ),
-                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
-                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
+                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArrgs(
+                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArrgs(
                         key="example",
-                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
+                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrgs(
                             reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
                         )],
                     )],
@@ -485,9 +485,9 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] description: A friendly description of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArrgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArrgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: Whether the rule group is stateless (containing stateless rules) or stateful (containing stateful rules). Valid values include: `STATEFUL` or `STATELESS`.
@@ -496,7 +496,7 @@ class RuleGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RuleGroupArgs,
+                 args: RuleGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AWS Network Firewall Rule Group Resource
@@ -510,9 +510,9 @@ class RuleGroup(pulumi.CustomResource):
 
         example = aws.networkfirewall.RuleGroup("example",
             capacity=100,
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArrgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArrgs(
+                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArrgs(
                         generated_rules_type="DENYLIST",
                         target_types=["HTTP_HOST"],
                         targets=["test.example.com"],
@@ -549,12 +549,12 @@ class RuleGroup(pulumi.CustomResource):
         example = aws.networkfirewall.RuleGroup("example",
             capacity=100,
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArgs(
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArrgs(
+                rule_variables=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesArrgs(
                     ip_sets=[
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
+                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArrgs(
                             key="WEBSERVERS_HOSTS",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
+                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArrgs(
                                 definitions=[
                                     "10.0.0.0/16",
                                     "10.0.1.0/24",
@@ -562,16 +562,16 @@ class RuleGroup(pulumi.CustomResource):
                                 ],
                             ),
                         ),
-                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArgs(
+                        aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetArrgs(
                             key="EXTERNAL_HOST",
-                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArgs(
+                            ip_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesIpSetIpSetArrgs(
                                 definitions=["1.2.3.4/32"],
                             ),
                         ),
                     ],
-                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArgs(
+                    port_sets=[aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetArrgs(
                         key="HTTP_PORTS",
-                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArgs(
+                        port_set=aws.networkfirewall.RuleGroupRuleGroupRuleVariablesPortSetPortSetArrgs(
                             definitions=[
                                 "443",
                                 "80",
@@ -579,7 +579,7 @@ class RuleGroup(pulumi.CustomResource):
                         ),
                     )],
                 ),
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArrgs(
                     rules_string=(lambda path: open(path).read())("suricata_rules_file"),
                 ),
             ),
@@ -597,18 +597,18 @@ class RuleGroup(pulumi.CustomResource):
         example = aws.networkfirewall.RuleGroup("example",
             capacity=100,
             type="STATEFUL",
-            rule_group=aws.networkfirewall.RuleGroupRuleGroupArgs(
-                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArgs(
-                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArgs(
+            rule_group=aws.networkfirewall.RuleGroupRuleGroupArrgs(
+                rules_source=aws.networkfirewall.RuleGroupRuleGroupRulesSourceArrgs(
+                    rules_source_list=aws.networkfirewall.RuleGroupRuleGroupRulesSourceRulesSourceListArrgs(
                         generated_rules_type="DENYLIST",
                         target_types=["HTTP_HOST"],
                         targets=["test.example.com"],
                     ),
                 ),
-                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArgs(
-                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArgs(
+                reference_sets=aws.networkfirewall.RuleGroupRuleGroupReferenceSetsArrgs(
+                    ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceArrgs(
                         key="example",
-                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArgs(
+                        ip_set_references=[aws.networkfirewall.RuleGroupRuleGroupReferenceSetsIpSetReferenceIpSetReferenceArrgs(
                             reference_arn=aws_ec2_managed_prefix_list["this"]["arn"],
                         )],
                     )],
@@ -629,12 +629,12 @@ class RuleGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RuleGroupArgs args: The arguments to use to populate this resource's properties.
+        :param RuleGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RuleGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RuleGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -645,9 +645,9 @@ class RuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
+                 encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
+                 rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArrgs']]] = None,
                  rules: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -658,7 +658,7 @@ class RuleGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RuleGroupArgs.__new__(RuleGroupArgs)
+            __props__ = RuleGroupArrgs.__new__(RuleGroupArrgs)
 
             if capacity is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity'")
@@ -690,9 +690,9 @@ class RuleGroup(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']]] = None,
+            encryption_configuration: Optional[pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']]] = None,
+            rule_group: Optional[pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArrgs']]] = None,
             rules: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -708,9 +708,9 @@ class RuleGroup(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
         :param pulumi.Input[int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[str] description: A friendly description of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
+        :param pulumi.Input[pulumi.InputType['RuleGroupEncryptionConfigurationArrgs']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
         :param pulumi.Input[str] name: A friendly name of the rule group.
-        :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
+        :param pulumi.Input[pulumi.InputType['RuleGroupRuleGroupArrgs']] rule_group: A configuration block that defines the rule group rules. Required unless `rules` is specified. See Rule Group below for details.
         :param pulumi.Input[str] rules: The stateful rule group rules specifications in Suricata file format, with one rule per line. Use this to import your existing Suricata compatible rule groups. Required unless `rule_group` is specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of key:value pairs to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.

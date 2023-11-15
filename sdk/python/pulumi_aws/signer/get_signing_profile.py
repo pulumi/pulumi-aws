@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSigningProfileResult:
+calass GetSigningProfileResult:
     """
     A collection of values returned by getSigningProfile.
     """
@@ -143,7 +143,7 @@ class GetSigningProfileResult:
         return pulumi.get(self, "version_arn")
 
 
-class AwaitableGetSigningProfileResult(GetSigningProfileResult):
+calass AwaitableGetSigningProfileResult(GetSigningProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

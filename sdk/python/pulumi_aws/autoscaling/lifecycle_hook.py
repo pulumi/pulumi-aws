@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LifecycleHookArgs', 'LifecycleHook']
+__all__ = ['LifecycleHookArrgs', 'LifecycleHook']
 
 @pulumi.input_type
-class LifecycleHookArgs:
+calass LifecycleHookArrgs:
     def __init__(__self__, *,
                  autoscaling_group_name: pulumi.Input[str],
                  lifecycle_transition: pulumi.Input[str],
@@ -146,7 +146,7 @@ class LifecycleHookArgs:
 
 
 @pulumi.input_type
-class _LifecycleHookState:
+calass _LifecycleHookState:
     def __init__(__self__, *,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  default_result: Optional[pulumi.Input[str]] = None,
@@ -281,7 +281,7 @@ class _LifecycleHookState:
         pulumi.set(self, "role_arn", value)
 
 
-class LifecycleHook(pulumi.CustomResource):
+calass LifecycleHook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -321,7 +321,7 @@ class LifecycleHook(pulumi.CustomResource):
             availability_zones=["us-west-2a"],
             health_check_type="EC2",
             termination_policies=["OldestInstance"],
-            tags=[aws.autoscaling.GroupTagArgs(
+            tags=[aws.autoscaling.GroupTagArrgs(
                 key="Foo",
                 value="foo-bar",
                 propagate_at_launch=True,
@@ -361,7 +361,7 @@ class LifecycleHook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LifecycleHookArgs,
+                 args: LifecycleHookArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AutoScaling Lifecycle Hook resource.
@@ -389,7 +389,7 @@ class LifecycleHook(pulumi.CustomResource):
             availability_zones=["us-west-2a"],
             health_check_type="EC2",
             termination_policies=["OldestInstance"],
-            tags=[aws.autoscaling.GroupTagArgs(
+            tags=[aws.autoscaling.GroupTagArrgs(
                 key="Foo",
                 value="foo-bar",
                 propagate_at_launch=True,
@@ -415,12 +415,12 @@ class LifecycleHook(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LifecycleHookArgs args: The arguments to use to populate this resource's properties.
+        :param LifecycleHookArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LifecycleHookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LifecycleHookArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -444,7 +444,7 @@ class LifecycleHook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LifecycleHookArgs.__new__(LifecycleHookArgs)
+            __props__ = LifecycleHookArrgs.__new__(LifecycleHookArrgs)
 
             if autoscaling_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'autoscaling_group_name'")

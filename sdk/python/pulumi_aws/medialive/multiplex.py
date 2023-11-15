@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MultiplexArgs', 'Multiplex']
+__all__ = ['MultiplexArrgs', 'Multiplex']
 
 @pulumi.input_type
-class MultiplexArgs:
+calass MultiplexArrgs:
     def __init__(__self__, *,
                  availability_zones: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 multiplex_settings: Optional[pulumi.Input['MultiplexMultiplexSettingsArgs']] = None,
+                 multiplex_settings: Optional[pulumi.Input['MultiplexMultiplexSettingsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  start_multiplex: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Multiplex resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input['MultiplexMultiplexSettingsArrgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[str] name: name of Multiplex.
                
                The following arguments are optional:
@@ -55,14 +55,14 @@ class MultiplexArgs:
 
     @property
     @pulumi.getter(name="multiplexSettings")
-    def multiplex_settings(self) -> Optional[pulumi.Input['MultiplexMultiplexSettingsArgs']]:
+    def multiplex_settings(self) -> Optional[pulumi.Input['MultiplexMultiplexSettingsArrgs']]:
         """
         Multiplex settings. See Multiplex Settings for more details.
         """
         return pulumi.get(self, "multiplex_settings")
 
     @multiplex_settings.setter
-    def multiplex_settings(self, value: Optional[pulumi.Input['MultiplexMultiplexSettingsArgs']]):
+    def multiplex_settings(self, value: Optional[pulumi.Input['MultiplexMultiplexSettingsArrgs']]):
         pulumi.set(self, "multiplex_settings", value)
 
     @property
@@ -105,11 +105,11 @@ class MultiplexArgs:
 
 
 @pulumi.input_type
-class _MultiplexState:
+calass _MultiplexState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 multiplex_settings: Optional[pulumi.Input['MultiplexMultiplexSettingsArgs']] = None,
+                 multiplex_settings: Optional[pulumi.Input['MultiplexMultiplexSettingsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  start_multiplex: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -118,7 +118,7 @@ class _MultiplexState:
         Input properties used for looking up and filtering Multiplex resources.
         :param pulumi.Input[str] arn: ARN of the Multiplex.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input['MultiplexMultiplexSettingsArgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input['MultiplexMultiplexSettingsArrgs'] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[str] name: name of Multiplex.
                
                The following arguments are optional:
@@ -169,14 +169,14 @@ class _MultiplexState:
 
     @property
     @pulumi.getter(name="multiplexSettings")
-    def multiplex_settings(self) -> Optional[pulumi.Input['MultiplexMultiplexSettingsArgs']]:
+    def multiplex_settings(self) -> Optional[pulumi.Input['MultiplexMultiplexSettingsArrgs']]:
         """
         Multiplex settings. See Multiplex Settings for more details.
         """
         return pulumi.get(self, "multiplex_settings")
 
     @multiplex_settings.setter
-    def multiplex_settings(self, value: Optional[pulumi.Input['MultiplexMultiplexSettingsArgs']]):
+    def multiplex_settings(self, value: Optional[pulumi.Input['MultiplexMultiplexSettingsArrgs']]):
         pulumi.set(self, "multiplex_settings", value)
 
     @property
@@ -230,13 +230,13 @@ class _MultiplexState:
         pulumi.set(self, "tags_all", value)
 
 
-class Multiplex(pulumi.CustomResource):
+calass Multiplex(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']]] = None,
+                 multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  start_multiplex: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -257,7 +257,7 @@ class Multiplex(pulumi.CustomResource):
                 available.names[0],
                 available.names[1],
             ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
+            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArrgs(
                 transport_stream_bitrate=1000000,
                 transport_stream_id=1,
                 transport_stream_reserved_bitrate=1,
@@ -280,7 +280,7 @@ class Multiplex(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArrgs']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[str] name: name of Multiplex.
                
                The following arguments are optional:
@@ -291,7 +291,7 @@ class Multiplex(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MultiplexArgs,
+                 args: MultiplexArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS MediaLive Multiplex.
@@ -309,7 +309,7 @@ class Multiplex(pulumi.CustomResource):
                 available.names[0],
                 available.names[1],
             ],
-            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArgs(
+            multiplex_settings=aws.medialive.MultiplexMultiplexSettingsArrgs(
                 transport_stream_bitrate=1000000,
                 transport_stream_id=1,
                 transport_stream_reserved_bitrate=1,
@@ -330,12 +330,12 @@ class Multiplex(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MultiplexArgs args: The arguments to use to populate this resource's properties.
+        :param MultiplexArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MultiplexArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MultiplexArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -345,7 +345,7 @@ class Multiplex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']]] = None,
+                 multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  start_multiplex: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -356,7 +356,7 @@ class Multiplex(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MultiplexArgs.__new__(MultiplexArgs)
+            __props__ = MultiplexArrgs.__new__(MultiplexArrgs)
 
             if availability_zones is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zones'")
@@ -381,7 +381,7 @@ class Multiplex(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']]] = None,
+            multiplex_settings: Optional[pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             start_multiplex: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -395,7 +395,7 @@ class Multiplex(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Multiplex.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of availability zones. You must specify exactly two.
-        :param pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArgs']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
+        :param pulumi.Input[pulumi.InputType['MultiplexMultiplexSettingsArrgs']] multiplex_settings: Multiplex settings. See Multiplex Settings for more details.
         :param pulumi.Input[str] name: name of Multiplex.
                
                The following arguments are optional:

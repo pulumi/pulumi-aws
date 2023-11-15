@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['InviteAccepterArgs', 'InviteAccepter']
+__all__ = ['InviteAccepterArrgs', 'InviteAccepter']
 
 @pulumi.input_type
-class InviteAccepterArgs:
+calass InviteAccepterArrgs:
     def __init__(__self__, *,
                  master_id: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class InviteAccepterArgs:
 
 
 @pulumi.input_type
-class _InviteAccepterState:
+calass _InviteAccepterState:
     def __init__(__self__, *,
                  invitation_id: Optional[pulumi.Input[str]] = None,
                  master_id: Optional[pulumi.Input[str]] = None):
@@ -74,7 +74,7 @@ class _InviteAccepterState:
         pulumi.set(self, "master_id", value)
 
 
-class InviteAccepter(pulumi.CustomResource):
+calass InviteAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -119,7 +119,7 @@ class InviteAccepter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: InviteAccepterArgs,
+                 args: InviteAccepterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note:** AWS accounts can only be associated with a single Security Hub master account. Destroying this resource will disassociate the member account from the master account.
@@ -152,12 +152,12 @@ class InviteAccepter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param InviteAccepterArgs args: The arguments to use to populate this resource's properties.
+        :param InviteAccepterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(InviteAccepterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(InviteAccepterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -174,7 +174,7 @@ class InviteAccepter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = InviteAccepterArgs.__new__(InviteAccepterArgs)
+            __props__ = InviteAccepterArrgs.__new__(InviteAccepterArrgs)
 
             if master_id is None and not opts.urn:
                 raise TypeError("Missing required property 'master_id'")

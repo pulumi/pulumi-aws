@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GrantConstraint(dict):
+calass GrantConstraint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -71,15 +71,15 @@ class GrantConstraint(dict):
 
 
 @pulumi.output_type
-class GetKeyMultiRegionConfigurationResult(dict):
+calass GetKeyMultiRegionConfigurationResult(dict):
     def __init__(__self__, *,
                  multi_region_key_type: str,
                  primary_keys: Sequence['outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult'],
                  replica_keys: Sequence['outputs.GetKeyMultiRegionConfigurationReplicaKeyResult']):
         """
         :param str multi_region_key_type: Indicates whether the KMS key is a `PRIMARY` or `REPLICA` key.
-        :param Sequence['GetKeyMultiRegionConfigurationPrimaryKeyArgs'] primary_keys: The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
-        :param Sequence['GetKeyMultiRegionConfigurationReplicaKeyArgs'] replica_keys: The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
+        :param Sequence['GetKeyMultiRegionConfigurationPrimaryKeyArrgs'] primary_keys: The key ARN and Region of the primary key. This is the current KMS key if it is the primary key.
+        :param Sequence['GetKeyMultiRegionConfigurationReplicaKeyArrgs'] replica_keys: The key ARNs and Regions of all replica keys. Includes the current KMS key if it is a replica key.
         """
         pulumi.set(__self__, "multi_region_key_type", multi_region_key_type)
         pulumi.set(__self__, "primary_keys", primary_keys)
@@ -111,7 +111,7 @@ class GetKeyMultiRegionConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
+calass GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  region: str):
@@ -140,7 +140,7 @@ class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
 
 
 @pulumi.output_type
-class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
+calass GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
     def __init__(__self__, *,
                  arn: str,
                  region: str):
@@ -169,7 +169,7 @@ class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
 
 
 @pulumi.output_type
-class GetKeyXksKeyConfigurationResult(dict):
+calass GetKeyXksKeyConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str):
         """
@@ -187,7 +187,7 @@ class GetKeyXksKeyConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetSecretSecretResult(dict):
+calass GetSecretSecretResult(dict):
     def __init__(__self__, *,
                  name: str,
                  payload: str,
@@ -222,7 +222,7 @@ class GetSecretSecretResult(dict):
 
 
 @pulumi.output_type
-class GetSecretsSecretResult(dict):
+calass GetSecretsSecretResult(dict):
     def __init__(__self__, *,
                  name: str,
                  payload: str,

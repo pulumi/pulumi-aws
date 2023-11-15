@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class IndexTimeouts(dict):
+calass IndexTimeouts(dict):
     def __init__(__self__, *,
                  create: Optional[str] = None,
                  delete: Optional[str] = None,
@@ -45,7 +45,7 @@ class IndexTimeouts(dict):
 
 
 @pulumi.output_type
-class ViewFilters(dict):
+calass ViewFilters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -80,7 +80,7 @@ class ViewFilters(dict):
 
 
 @pulumi.output_type
-class ViewIncludedProperty(dict):
+calass ViewIncludedProperty(dict):
     def __init__(__self__, *,
                  name: str):
         """

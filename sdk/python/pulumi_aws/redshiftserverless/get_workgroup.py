@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetWorkgroupResult:
+calass GetWorkgroupResult:
     """
     A collection of values returned by getWorkgroup.
     """
@@ -129,7 +129,7 @@ class GetWorkgroupResult:
         return pulumi.get(self, "workgroup_name")
 
 
-class AwaitableGetWorkgroupResult(GetWorkgroupResult):
+calass AwaitableGetWorkgroupResult(GetWorkgroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

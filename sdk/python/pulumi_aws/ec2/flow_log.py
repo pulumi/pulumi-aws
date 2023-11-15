@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FlowLogArgs', 'FlowLog']
+__all__ = ['FlowLogArrgs', 'FlowLog']
 
 @pulumi.input_type
-class FlowLogArgs:
+calass FlowLogArrgs:
     def __init__(__self__, *,
                  deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
-                 destination_options: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']] = None,
+                 destination_options: Optional[pulumi.Input['FlowLogDestinationOptionsArrgs']] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class FlowLogArgs:
         """
         The set of arguments for constructing a FlowLog resource.
         :param pulumi.Input[str] deliver_cross_account_role: ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
-        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
+        :param pulumi.Input['FlowLogDestinationOptionsArrgs'] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
@@ -100,14 +100,14 @@ class FlowLogArgs:
 
     @property
     @pulumi.getter(name="destinationOptions")
-    def destination_options(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]:
+    def destination_options(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsArrgs']]:
         """
         Describes the destination options for a flow log. More details below.
         """
         return pulumi.get(self, "destination_options")
 
     @destination_options.setter
-    def destination_options(self, value: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]):
+    def destination_options(self, value: Optional[pulumi.Input['FlowLogDestinationOptionsArrgs']]):
         pulumi.set(self, "destination_options", value)
 
     @property
@@ -274,11 +274,11 @@ class FlowLogArgs:
 
 
 @pulumi.input_type
-class _FlowLogState:
+calass _FlowLogState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
-                 destination_options: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']] = None,
+                 destination_options: Optional[pulumi.Input['FlowLogDestinationOptionsArrgs']] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -297,7 +297,7 @@ class _FlowLogState:
         Input properties used for looking up and filtering FlowLog resources.
         :param pulumi.Input[str] arn: The ARN of the Flow Log.
         :param pulumi.Input[str] deliver_cross_account_role: ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
-        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
+        :param pulumi.Input['FlowLogDestinationOptionsArrgs'] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
@@ -383,14 +383,14 @@ class _FlowLogState:
 
     @property
     @pulumi.getter(name="destinationOptions")
-    def destination_options(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]:
+    def destination_options(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsArrgs']]:
         """
         Describes the destination options for a flow log. More details below.
         """
         return pulumi.get(self, "destination_options")
 
     @destination_options.setter
-    def destination_options(self, value: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]):
+    def destination_options(self, value: Optional[pulumi.Input['FlowLogDestinationOptionsArrgs']]):
         pulumi.set(self, "destination_options", value)
 
     @property
@@ -571,13 +571,13 @@ class _FlowLogState:
         pulumi.set(self, "vpc_id", value)
 
 
-class FlowLog(pulumi.CustomResource):
+calass FlowLog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
-                 destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']]] = None,
+                 destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArrgs']]] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -604,9 +604,9 @@ class FlowLog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["vpc-flow-logs.amazonaws.com"],
             )],
@@ -618,7 +618,7 @@ class FlowLog(pulumi.CustomResource):
             log_destination=example_log_group.arn,
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -658,7 +658,7 @@ class FlowLog(pulumi.CustomResource):
             log_destination_type="s3",
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"],
-            destination_options=aws.ec2.FlowLogDestinationOptionsArgs(
+            destination_options=aws.ec2.FlowLogDestinationOptionsArrgs(
                 file_format="parquet",
                 per_hour_partition=True,
             ))
@@ -675,7 +675,7 @@ class FlowLog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deliver_cross_account_role: ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
-        :param pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']] destination_options: Describes the destination options for a flow log. More details below.
+        :param pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArrgs']] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
@@ -697,7 +697,7 @@ class FlowLog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[FlowLogArgs] = None,
+                 args: Optional[FlowLogArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
@@ -711,9 +711,9 @@ class FlowLog(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup")
-        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        assume_role = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
-            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArrgs(
                 type="Service",
                 identifiers=["vpc-flow-logs.amazonaws.com"],
             )],
@@ -725,7 +725,7 @@ class FlowLog(pulumi.CustomResource):
             log_destination=example_log_group.arn,
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
-        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        example_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArrgs(
             effect="Allow",
             actions=[
                 "logs:CreateLogGroup",
@@ -765,7 +765,7 @@ class FlowLog(pulumi.CustomResource):
             log_destination_type="s3",
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"],
-            destination_options=aws.ec2.FlowLogDestinationOptionsArgs(
+            destination_options=aws.ec2.FlowLogDestinationOptionsArrgs(
                 file_format="parquet",
                 per_hour_partition=True,
             ))
@@ -780,12 +780,12 @@ class FlowLog(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FlowLogArgs args: The arguments to use to populate this resource's properties.
+        :param FlowLogArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FlowLogArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FlowLogArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -795,7 +795,7 @@ class FlowLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
-                 destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']]] = None,
+                 destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArrgs']]] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -816,7 +816,7 @@ class FlowLog(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FlowLogArgs.__new__(FlowLogArgs)
+            __props__ = FlowLogArrgs.__new__(FlowLogArrgs)
 
             __props__.__dict__["deliver_cross_account_role"] = deliver_cross_account_role
             __props__.__dict__["destination_options"] = destination_options
@@ -849,7 +849,7 @@ class FlowLog(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             deliver_cross_account_role: Optional[pulumi.Input[str]] = None,
-            destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']]] = None,
+            destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArrgs']]] = None,
             eni_id: Optional[pulumi.Input[str]] = None,
             iam_role_arn: Optional[pulumi.Input[str]] = None,
             log_destination: Optional[pulumi.Input[str]] = None,
@@ -873,7 +873,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Flow Log.
         :param pulumi.Input[str] deliver_cross_account_role: ARN of the IAM role that allows Amazon EC2 to publish flow logs across accounts.
-        :param pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']] destination_options: Describes the destination options for a flow log. More details below.
+        :param pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArrgs']] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination. Either `log_destination` or `log_group_name` must be set.
