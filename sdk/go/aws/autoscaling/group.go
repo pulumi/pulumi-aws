@@ -530,7 +530,8 @@ type Group struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete         pulumi.BoolPtrOutput `pulumi:"forceDelete"`
+	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
+	// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
 	ForceDeleteWarmPool pulumi.BoolPtrOutput `pulumi:"forceDeleteWarmPool"`
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriod"`
@@ -683,7 +684,8 @@ type groupState struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete         *bool `pulumi:"forceDelete"`
+	ForceDelete *bool `pulumi:"forceDelete"`
+	// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
 	ForceDeleteWarmPool *bool `pulumi:"forceDeleteWarmPool"`
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod *int `pulumi:"healthCheckGracePeriod"`
@@ -801,7 +803,8 @@ type GroupState struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete         pulumi.BoolPtrInput
+	ForceDelete pulumi.BoolPtrInput
+	// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
 	ForceDeleteWarmPool pulumi.BoolPtrInput
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod pulumi.IntPtrInput
@@ -921,7 +924,8 @@ type groupArgs struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete         *bool `pulumi:"forceDelete"`
+	ForceDelete *bool `pulumi:"forceDelete"`
+	// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
 	ForceDeleteWarmPool *bool `pulumi:"forceDeleteWarmPool"`
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod *int `pulumi:"healthCheckGracePeriod"`
@@ -1034,7 +1038,8 @@ type GroupArgs struct {
 	// even if it's in the process of scaling a resource. Normally, this provider
 	// drains all the instances before deleting the group. This bypasses that
 	// behavior and potentially leaves resources dangling.
-	ForceDelete         pulumi.BoolPtrInput
+	ForceDelete pulumi.BoolPtrInput
+	// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
 	ForceDeleteWarmPool pulumi.BoolPtrInput
 	// Time (in seconds) after instance comes into service before checking health.
 	HealthCheckGracePeriod pulumi.IntPtrInput
@@ -1265,6 +1270,7 @@ func (o GroupOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
+// Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
 func (o GroupOutput) ForceDeleteWarmPool() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.ForceDeleteWarmPool }).(pulumi.BoolPtrOutput)
 }

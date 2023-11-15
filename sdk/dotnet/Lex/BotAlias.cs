@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Lex
         public Output<string> BotName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the bot.
+        /// The version of the bot.
         /// </summary>
         [Output("botVersion")]
         public Output<string> BotVersion { get; private set; } = null!;
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Lex
         public Input<string> BotName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the bot.
+        /// The version of the bot.
         /// </summary>
         [Input("botVersion", required: true)]
         public Input<string> BotVersion { get; set; } = null!;
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Lex
         public Input<string>? BotName { get; set; }
 
         /// <summary>
-        /// The name of the bot.
+        /// The version of the bot.
         /// </summary>
         [Input("botVersion")]
         public Input<string>? BotVersion { get; set; }

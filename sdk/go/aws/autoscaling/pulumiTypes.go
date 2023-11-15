@@ -7613,7 +7613,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedScaling
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification struct {
 	// Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -7631,7 +7631,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetric
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs struct {
 	// Metric type. Valid values are `ASGTotalCPUUtilization`, `ASGTotalNetworkIn`, `ASGTotalNetworkOut`, or `ALBTargetGroupRequestCount`.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -7719,7 +7719,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
 		return v.ResourceLabel
@@ -7760,7 +7760,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecification) *string {
 		if v == nil {
@@ -7773,7 +7773,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMet
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification struct {
 	// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -7791,7 +7791,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPair
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationArgs struct {
 	// Which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is `ASGCPUUtilization`, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric. Valid values are `ASGCPUUtilization`, `ASGNetworkIn`, `ASGNetworkOut`, or `ALBRequestCount`.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -7879,7 +7879,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
 		return v.ResourceLabel
@@ -7920,7 +7920,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricPairSpecification) *string {
 		if v == nil {
@@ -7933,7 +7933,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedMetricP
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification struct {
 	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -7951,7 +7951,7 @@ type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMet
 type PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationArgs struct {
 	// Describes a scaling metric for a predictive scaling policy. Valid values are `ASGAverageCPUUtilization`, `ASGAverageNetworkIn`, `ASGAverageNetworkOut`, or `ALBRequestCountPerTarget`.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+	// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -8039,7 +8039,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 	}).(pulumi.StringOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
 		return v.ResourceLabel
@@ -8080,7 +8080,7 @@ func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScaling
 	}).(pulumi.StringPtrOutput)
 }
 
-// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group.
+// Label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). Refer to [PredefinedMetricSpecification](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredefinedMetricSpecification.html) for more information.
 func (o PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedScalingMetricSpecification) *string {
 		if v == nil {

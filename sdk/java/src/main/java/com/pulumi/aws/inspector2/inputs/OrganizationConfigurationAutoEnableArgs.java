@@ -60,12 +60,28 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
         return Optional.ofNullable(this.lambda);
     }
 
+    /**
+     * Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+     * 
+     */
+    @Import(name="lambdaCode")
+    private @Nullable Output<Boolean> lambdaCode;
+
+    /**
+     * @return Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+     * 
+     */
+    public Optional<Output<Boolean>> lambdaCode() {
+        return Optional.ofNullable(this.lambdaCode);
+    }
+
     private OrganizationConfigurationAutoEnableArgs() {}
 
     private OrganizationConfigurationAutoEnableArgs(OrganizationConfigurationAutoEnableArgs $) {
         this.ec2 = $.ec2;
         this.ecr = $.ecr;
         this.lambda = $.lambda;
+        this.lambdaCode = $.lambdaCode;
     }
 
     public static Builder builder() {
@@ -147,6 +163,27 @@ public final class OrganizationConfigurationAutoEnableArgs extends com.pulumi.re
          */
         public Builder lambda(Boolean lambda) {
             return lambda(Output.of(lambda));
+        }
+
+        /**
+         * @param lambdaCode Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaCode(@Nullable Output<Boolean> lambdaCode) {
+            $.lambdaCode = lambdaCode;
+            return this;
+        }
+
+        /**
+         * @param lambdaCode Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lambdaCode(Boolean lambdaCode) {
+            return lambdaCode(Output.of(lambdaCode));
         }
 
         public OrganizationConfigurationAutoEnableArgs build() {

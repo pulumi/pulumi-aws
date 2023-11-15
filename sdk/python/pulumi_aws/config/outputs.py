@@ -403,6 +403,7 @@ class Endpoints(dict):
                  ssm: Optional[str] = None,
                  ssmcontacts: Optional[str] = None,
                  ssmincidents: Optional[str] = None,
+                 sso: Optional[str] = None,
                  ssoadmin: Optional[str] = None,
                  stepfunctions: Optional[str] = None,
                  storagegateway: Optional[str] = None,
@@ -885,6 +886,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "ssmcontacts", ssmcontacts)
         if ssmincidents is not None:
             pulumi.set(__self__, "ssmincidents", ssmincidents)
+        if sso is not None:
+            pulumi.set(__self__, "sso", sso)
         if ssoadmin is not None:
             pulumi.set(__self__, "ssoadmin", ssoadmin)
         if stepfunctions is not None:
@@ -2081,6 +2084,11 @@ class Endpoints(dict):
     @pulumi.getter
     def ssmincidents(self) -> Optional[str]:
         return pulumi.get(self, "ssmincidents")
+
+    @property
+    @pulumi.getter
+    def sso(self) -> Optional[str]:
+        return pulumi.get(self, "sso")
 
     @property
     @pulumi.getter

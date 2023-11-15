@@ -50,6 +50,11 @@ export type V2modelsBot = import("./v2modelsBot").V2modelsBot;
 export const V2modelsBot: typeof import("./v2modelsBot").V2modelsBot = null as any;
 utilities.lazyLoad(exports, ["V2modelsBot"], () => require("./v2modelsBot"));
 
+export { V2modelsBotLocaleArgs, V2modelsBotLocaleState } from "./v2modelsBotLocale";
+export type V2modelsBotLocale = import("./v2modelsBotLocale").V2modelsBotLocale;
+export const V2modelsBotLocale: typeof import("./v2modelsBotLocale").V2modelsBotLocale = null as any;
+utilities.lazyLoad(exports, ["V2modelsBotLocale"], () => require("./v2modelsBotLocale"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -65,6 +70,8 @@ const _module = {
                 return new SlotType(name, <any>undefined, { urn })
             case "aws:lex/v2modelsBot:V2modelsBot":
                 return new V2modelsBot(name, <any>undefined, { urn })
+            case "aws:lex/v2modelsBotLocale:V2modelsBotLocale":
+                return new V2modelsBotLocale(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -75,3 +82,4 @@ pulumi.runtime.registerResourceModule("aws", "lex/botAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "lex/intent", _module)
 pulumi.runtime.registerResourceModule("aws", "lex/slotType", _module)
 pulumi.runtime.registerResourceModule("aws", "lex/v2modelsBot", _module)
+pulumi.runtime.registerResourceModule("aws", "lex/v2modelsBotLocale", _module)

@@ -255,7 +255,8 @@ type Crawler struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the crawler
-	Arn            pulumi.StringOutput             `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
 	CatalogTargets CrawlerCatalogTargetArrayOutput `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers pulumi.StringArrayOutput `pulumi:"classifiers"`
@@ -346,7 +347,8 @@ func GetCrawler(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Crawler resources.
 type crawlerState struct {
 	// The ARN of the crawler
-	Arn            *string                `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
 	CatalogTargets []CrawlerCatalogTarget `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers []string `pulumi:"classifiers"`
@@ -398,7 +400,8 @@ type crawlerState struct {
 
 type CrawlerState struct {
 	// The ARN of the crawler
-	Arn            pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
 	CatalogTargets CrawlerCatalogTargetArrayInput
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers pulumi.StringArrayInput
@@ -453,6 +456,7 @@ func (CrawlerState) ElementType() reflect.Type {
 }
 
 type crawlerArgs struct {
+	// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
 	CatalogTargets []CrawlerCatalogTarget `pulumi:"catalogTargets"`
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers []string `pulumi:"classifiers"`
@@ -500,6 +504,7 @@ type crawlerArgs struct {
 
 // The set of arguments for constructing a Crawler resource.
 type CrawlerArgs struct {
+	// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
 	CatalogTargets CrawlerCatalogTargetArrayInput
 	// List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
 	Classifiers pulumi.StringArrayInput
@@ -637,6 +642,7 @@ func (o CrawlerOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Crawler) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
 func (o CrawlerOutput) CatalogTargets() CrawlerCatalogTargetArrayOutput {
 	return o.ApplyT(func(v *Crawler) CrawlerCatalogTargetArrayOutput { return v.CatalogTargets }).(CrawlerCatalogTargetArrayOutput)
 }

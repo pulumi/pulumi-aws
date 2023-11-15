@@ -141,6 +141,12 @@ namespace Pulumi.Aws.DataSync
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        /// </summary>
+        [Output("taskReportConfig")]
+        public Output<Outputs.TaskTaskReportConfig?> TaskReportConfig { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Task resource with the given unique name, arguments, and options.
@@ -251,6 +257,12 @@ namespace Pulumi.Aws.DataSync
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        /// </summary>
+        [Input("taskReportConfig")]
+        public Input<Inputs.TaskTaskReportConfigArgs>? TaskReportConfig { get; set; }
+
         public TaskArgs()
         {
         }
@@ -341,6 +353,12 @@ namespace Pulumi.Aws.DataSync
                 _tagsAll = Output.All(value, emptySecret).Apply(v => v[0]);
             }
         }
+
+        /// <summary>
+        /// Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+        /// </summary>
+        [Input("taskReportConfig")]
+        public Input<Inputs.TaskTaskReportConfigGetArgs>? TaskReportConfig { get; set; }
 
         public TaskState()
         {

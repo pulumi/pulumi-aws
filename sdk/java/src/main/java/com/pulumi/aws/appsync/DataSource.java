@@ -280,14 +280,14 @@ public class DataSource extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.relationalDatabaseConfig);
     }
     /**
-     * IAM service role ARN for the data source.
+     * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     @Export(name="serviceRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceRoleArn;
 
     /**
-     * @return IAM service role ARN for the data source.
+     * @return IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     public Output<Optional<String>> serviceRoleArn() {

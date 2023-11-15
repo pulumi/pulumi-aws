@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? ContainsHeader;
         /// <summary>
-        /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        /// Enables the custom datatype to be configured.
         /// </summary>
         public readonly bool? CustomDatatypeConfigured;
         /// <summary>

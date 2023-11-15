@@ -20,6 +20,8 @@ class OrganizationConfigurationAutoEnable(dict):
         suggest = None
         if key == "lambda":
             suggest = "lambda_"
+        elif key == "lambdaCode":
+            suggest = "lambda_code"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OrganizationConfigurationAutoEnable. Access the value via the '{suggest}' property getter instead.")
@@ -35,16 +37,20 @@ class OrganizationConfigurationAutoEnable(dict):
     def __init__(__self__, *,
                  ec2: bool,
                  ecr: bool,
-                 lambda_: Optional[bool] = None):
+                 lambda_: Optional[bool] = None,
+                 lambda_code: Optional[bool] = None):
         """
         :param bool ec2: Whether Amazon EC2 scans are automatically enabled for new members of your Amazon Inspector organization.
         :param bool ecr: Whether Amazon ECR scans are automatically enabled for new members of your Amazon Inspector organization.
         :param bool lambda_: Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
+        :param bool lambda_code: Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
         """
         pulumi.set(__self__, "ec2", ec2)
         pulumi.set(__self__, "ecr", ecr)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if lambda_code is not None:
+            pulumi.set(__self__, "lambda_code", lambda_code)
 
     @property
     @pulumi.getter
@@ -69,5 +75,13 @@ class OrganizationConfigurationAutoEnable(dict):
         Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
         """
         return pulumi.get(self, "lambda_")
+
+    @property
+    @pulumi.getter(name="lambdaCode")
+    def lambda_code(self) -> Optional[bool]:
+        """
+        Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+        """
+        return pulumi.get(self, "lambda_code")
 
 

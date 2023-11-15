@@ -5618,6 +5618,12 @@ func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefau
 }
 
 type DomainDefaultUserSettingsCanvasAppSettings struct {
+	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+	DirectDeploySettings *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings `pulumi:"directDeploySettings"`
+	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+	IdentityProviderOauthSettings []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting `pulumi:"identityProviderOauthSettings"`
+	// The settings for document querying. See Kendra Settings below.
+	KendraSettings *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings `pulumi:"kendraSettings"`
 	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 	ModelRegisterSettings *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
@@ -5638,6 +5644,12 @@ type DomainDefaultUserSettingsCanvasAppSettingsInput interface {
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsArgs struct {
+	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+	DirectDeploySettings DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput `pulumi:"directDeploySettings"`
+	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+	IdentityProviderOauthSettings DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput `pulumi:"identityProviderOauthSettings"`
+	// The settings for document querying. See Kendra Settings below.
+	KendraSettings DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrInput `pulumi:"kendraSettings"`
 	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 	ModelRegisterSettings DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
@@ -5723,6 +5735,27 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ToDomainDefaultUserSet
 	}).(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) DirectDeploySettings() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
+		return v.DirectDeploySettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) IdentityProviderOauthSettings() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
+		return v.IdentityProviderOauthSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput)
+}
+
+// The settings for document querying. See Kendra Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) KendraSettings() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
+		return v.KendraSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
+}
+
 // The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsOutput) ModelRegisterSettings() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
@@ -5768,6 +5801,36 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) Elem() DomainDefaul
 	}).(DomainDefaultUserSettingsCanvasAppSettingsOutput)
 }
 
+// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) DirectDeploySettings() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
+		if v == nil {
+			return nil
+		}
+		return v.DirectDeploySettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) IdentityProviderOauthSettings() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityProviderOauthSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput)
+}
+
+// The settings for document querying. See Kendra Settings below.
+func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) KendraSettings() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KendraSettings
+	}).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
+}
+
 // The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) ModelRegisterSettings() DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettings) *DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
@@ -5796,6 +5859,401 @@ func (o DomainDefaultUserSettingsCanvasAppSettingsPtrOutput) WorkspaceSettings()
 		}
 		return v.WorkspaceSettings
 	}).(DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings struct {
+	// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs struct {
+	// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput).ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs, DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtr and DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs
+
+func DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtr(v *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput {
+	return (*domainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings) *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
+		return &v
+	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) Elem() DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings) DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings
+		return ret
+	}).(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput)
+}
+
+// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting struct {
+	// The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+	DataSourceName *string `pulumi:"dataSourceName"`
+	// The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+	SecretArn string `pulumi:"secretArn"`
+	// Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs and DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs struct {
+	// The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+	DataSourceName pulumi.StringPtrInput `pulumi:"dataSourceName"`
+	// The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs) ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs) ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray and DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray{ DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{...} }
+type DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray []DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput
+
+func (DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray) ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray) ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return o
+}
+
+// The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) DataSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting) *string {
+		return v.DataSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+func (o DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting) string {
+		return v.SecretArn
+	}).(pulumi.StringOutput)
+}
+
+// Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting) *string {
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput) ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput() DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput) ToDomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput) Index(i pulumi.IntInput) DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
+		return vs[0].([]DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)[vs[1].(int)]
+	}).(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsKendraSettings struct {
+	// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs and DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsInput` via:
+//
+//	DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs{...}
+type DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs struct {
+	// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsKendraSettings)(nil)).Elem()
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput)
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput).ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs, DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtr and DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrInput` via:
+//
+//	        DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput
+	ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput
+}
+
+type domainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrType DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs
+
+func DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtr(v *DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrInput {
+	return (*domainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrType)(v)
+}
+
+func (*domainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsKendraSettings)(nil)).Elem()
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return i.ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrType) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsKendraSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o.ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettingsCanvasAppSettingsKendraSettings) *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
+		return &v
+	}).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
+}
+
+// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainDefaultUserSettingsCanvasAppSettingsKendraSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDefaultUserSettingsCanvasAppSettingsKendraSettings)(nil)).Elem()
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) ToDomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) Elem() DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings) DomainDefaultUserSettingsCanvasAppSettingsKendraSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDefaultUserSettingsCanvasAppSettingsKendraSettings
+		return ret
+	}).(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput)
+}
+
+// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDefaultUserSettingsCanvasAppSettingsKendraSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings struct {
@@ -13450,6 +13908,8 @@ func (o FeatureGroupOfflineStoreConfigDataCatalogConfigPtrOutput) TableName() pu
 type FeatureGroupOfflineStoreConfigS3StorageConfig struct {
 	// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The S3 path where offline records are written.
+	ResolvedOutputS3Uri *string `pulumi:"resolvedOutputS3Uri"`
 	// The S3 URI, or location in Amazon S3, of OfflineStore.
 	S3Uri string `pulumi:"s3Uri"`
 }
@@ -13468,6 +13928,8 @@ type FeatureGroupOfflineStoreConfigS3StorageConfigInput interface {
 type FeatureGroupOfflineStoreConfigS3StorageConfigArgs struct {
 	// The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The S3 path where offline records are written.
+	ResolvedOutputS3Uri pulumi.StringPtrInput `pulumi:"resolvedOutputS3Uri"`
 	// The S3 URI, or location in Amazon S3, of OfflineStore.
 	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
 }
@@ -13554,6 +14016,11 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) KmsKeyId() pulumi.S
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+// The S3 path where offline records are written.
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) ResolvedOutputS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) *string { return v.ResolvedOutputS3Uri }).(pulumi.StringPtrOutput)
+}
+
 // The S3 URI, or location in Amazon S3, of OfflineStore.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigOutput) S3Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v FeatureGroupOfflineStoreConfigS3StorageConfig) string { return v.S3Uri }).(pulumi.StringOutput)
@@ -13593,6 +14060,16 @@ func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) KmsKeyId() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The S3 path where offline records are written.
+func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) ResolvedOutputS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResolvedOutputS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 // The S3 URI, or location in Amazon S3, of OfflineStore.
 func (o FeatureGroupOfflineStoreConfigS3StorageConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeatureGroupOfflineStoreConfigS3StorageConfig) *string {
@@ -13608,6 +14085,10 @@ type FeatureGroupOnlineStoreConfig struct {
 	EnableOnlineStore *bool `pulumi:"enableOnlineStore"`
 	// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
 	SecurityConfig *FeatureGroupOnlineStoreConfigSecurityConfig `pulumi:"securityConfig"`
+	// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+	StorageType *string `pulumi:"storageType"`
+	// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+	TtlDuration *FeatureGroupOnlineStoreConfigTtlDuration `pulumi:"ttlDuration"`
 }
 
 // FeatureGroupOnlineStoreConfigInput is an input type that accepts FeatureGroupOnlineStoreConfigArgs and FeatureGroupOnlineStoreConfigOutput values.
@@ -13626,6 +14107,10 @@ type FeatureGroupOnlineStoreConfigArgs struct {
 	EnableOnlineStore pulumi.BoolPtrInput `pulumi:"enableOnlineStore"`
 	// Security config for at-rest encryption of your OnlineStore. See Security Config Below.
 	SecurityConfig FeatureGroupOnlineStoreConfigSecurityConfigPtrInput `pulumi:"securityConfig"`
+	// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+	StorageType pulumi.StringPtrInput `pulumi:"storageType"`
+	// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+	TtlDuration FeatureGroupOnlineStoreConfigTtlDurationPtrInput `pulumi:"ttlDuration"`
 }
 
 func (FeatureGroupOnlineStoreConfigArgs) ElementType() reflect.Type {
@@ -13717,6 +14202,16 @@ func (o FeatureGroupOnlineStoreConfigOutput) SecurityConfig() FeatureGroupOnline
 	}).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
 }
 
+// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+func (o FeatureGroupOnlineStoreConfigOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *string { return v.StorageType }).(pulumi.StringPtrOutput)
+}
+
+// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+func (o FeatureGroupOnlineStoreConfigOutput) TtlDuration() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfigTtlDuration { return v.TtlDuration }).(FeatureGroupOnlineStoreConfigTtlDurationPtrOutput)
+}
+
 type FeatureGroupOnlineStoreConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (FeatureGroupOnlineStoreConfigPtrOutput) ElementType() reflect.Type {
@@ -13759,6 +14254,26 @@ func (o FeatureGroupOnlineStoreConfigPtrOutput) SecurityConfig() FeatureGroupOnl
 		}
 		return v.SecurityConfig
 	}).(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput)
+}
+
+// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+func (o FeatureGroupOnlineStoreConfigPtrOutput) StorageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+func (o FeatureGroupOnlineStoreConfigPtrOutput) TtlDuration() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfig) *FeatureGroupOnlineStoreConfigTtlDuration {
+		if v == nil {
+			return nil
+		}
+		return v.TtlDuration
+	}).(FeatureGroupOnlineStoreConfigTtlDurationPtrOutput)
 }
 
 type FeatureGroupOnlineStoreConfigSecurityConfig struct {
@@ -13896,6 +14411,162 @@ func (o FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput) KmsKeyId() pulumi.
 		}
 		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfigTtlDuration struct {
+	// TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
+	Unit *string `pulumi:"unit"`
+	// TtlDuration time value.
+	Value *int `pulumi:"value"`
+}
+
+// FeatureGroupOnlineStoreConfigTtlDurationInput is an input type that accepts FeatureGroupOnlineStoreConfigTtlDurationArgs and FeatureGroupOnlineStoreConfigTtlDurationOutput values.
+// You can construct a concrete instance of `FeatureGroupOnlineStoreConfigTtlDurationInput` via:
+//
+//	FeatureGroupOnlineStoreConfigTtlDurationArgs{...}
+type FeatureGroupOnlineStoreConfigTtlDurationInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOnlineStoreConfigTtlDurationOutput() FeatureGroupOnlineStoreConfigTtlDurationOutput
+	ToFeatureGroupOnlineStoreConfigTtlDurationOutputWithContext(context.Context) FeatureGroupOnlineStoreConfigTtlDurationOutput
+}
+
+type FeatureGroupOnlineStoreConfigTtlDurationArgs struct {
+	// TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	// TtlDuration time value.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (FeatureGroupOnlineStoreConfigTtlDurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOnlineStoreConfigTtlDuration)(nil)).Elem()
+}
+
+func (i FeatureGroupOnlineStoreConfigTtlDurationArgs) ToFeatureGroupOnlineStoreConfigTtlDurationOutput() FeatureGroupOnlineStoreConfigTtlDurationOutput {
+	return i.ToFeatureGroupOnlineStoreConfigTtlDurationOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOnlineStoreConfigTtlDurationArgs) ToFeatureGroupOnlineStoreConfigTtlDurationOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigTtlDurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigTtlDurationOutput)
+}
+
+func (i FeatureGroupOnlineStoreConfigTtlDurationArgs) ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutput() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return i.ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(context.Background())
+}
+
+func (i FeatureGroupOnlineStoreConfigTtlDurationArgs) ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigTtlDurationOutput).ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(ctx)
+}
+
+// FeatureGroupOnlineStoreConfigTtlDurationPtrInput is an input type that accepts FeatureGroupOnlineStoreConfigTtlDurationArgs, FeatureGroupOnlineStoreConfigTtlDurationPtr and FeatureGroupOnlineStoreConfigTtlDurationPtrOutput values.
+// You can construct a concrete instance of `FeatureGroupOnlineStoreConfigTtlDurationPtrInput` via:
+//
+//	        FeatureGroupOnlineStoreConfigTtlDurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeatureGroupOnlineStoreConfigTtlDurationPtrInput interface {
+	pulumi.Input
+
+	ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutput() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput
+	ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(context.Context) FeatureGroupOnlineStoreConfigTtlDurationPtrOutput
+}
+
+type featureGroupOnlineStoreConfigTtlDurationPtrType FeatureGroupOnlineStoreConfigTtlDurationArgs
+
+func FeatureGroupOnlineStoreConfigTtlDurationPtr(v *FeatureGroupOnlineStoreConfigTtlDurationArgs) FeatureGroupOnlineStoreConfigTtlDurationPtrInput {
+	return (*featureGroupOnlineStoreConfigTtlDurationPtrType)(v)
+}
+
+func (*featureGroupOnlineStoreConfigTtlDurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOnlineStoreConfigTtlDuration)(nil)).Elem()
+}
+
+func (i *featureGroupOnlineStoreConfigTtlDurationPtrType) ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutput() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return i.ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(context.Background())
+}
+
+func (i *featureGroupOnlineStoreConfigTtlDurationPtrType) ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeatureGroupOnlineStoreConfigTtlDurationPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfigTtlDurationOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOnlineStoreConfigTtlDurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeatureGroupOnlineStoreConfigTtlDuration)(nil)).Elem()
+}
+
+func (o FeatureGroupOnlineStoreConfigTtlDurationOutput) ToFeatureGroupOnlineStoreConfigTtlDurationOutput() FeatureGroupOnlineStoreConfigTtlDurationOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigTtlDurationOutput) ToFeatureGroupOnlineStoreConfigTtlDurationOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigTtlDurationOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigTtlDurationOutput) ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutput() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return o.ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(context.Background())
+}
+
+func (o FeatureGroupOnlineStoreConfigTtlDurationOutput) ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeatureGroupOnlineStoreConfigTtlDuration) *FeatureGroupOnlineStoreConfigTtlDuration {
+		return &v
+	}).(FeatureGroupOnlineStoreConfigTtlDurationPtrOutput)
+}
+
+// TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
+func (o FeatureGroupOnlineStoreConfigTtlDurationOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfigTtlDuration) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+// TtlDuration time value.
+func (o FeatureGroupOnlineStoreConfigTtlDurationOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FeatureGroupOnlineStoreConfigTtlDuration) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type FeatureGroupOnlineStoreConfigTtlDurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FeatureGroupOnlineStoreConfigTtlDurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeatureGroupOnlineStoreConfigTtlDuration)(nil)).Elem()
+}
+
+func (o FeatureGroupOnlineStoreConfigTtlDurationPtrOutput) ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutput() FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigTtlDurationPtrOutput) ToFeatureGroupOnlineStoreConfigTtlDurationPtrOutputWithContext(ctx context.Context) FeatureGroupOnlineStoreConfigTtlDurationPtrOutput {
+	return o
+}
+
+func (o FeatureGroupOnlineStoreConfigTtlDurationPtrOutput) Elem() FeatureGroupOnlineStoreConfigTtlDurationOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfigTtlDuration) FeatureGroupOnlineStoreConfigTtlDuration {
+		if v != nil {
+			return *v
+		}
+		var ret FeatureGroupOnlineStoreConfigTtlDuration
+		return ret
+	}).(FeatureGroupOnlineStoreConfigTtlDurationOutput)
+}
+
+// TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
+func (o FeatureGroupOnlineStoreConfigTtlDurationPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfigTtlDuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// TtlDuration time value.
+func (o FeatureGroupOnlineStoreConfigTtlDurationPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FeatureGroupOnlineStoreConfigTtlDuration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
 }
 
 type FlowDefinitionHumanLoopActivationConfig struct {
@@ -15263,6 +15934,8 @@ type ModelContainer struct {
 	ImageConfig *ModelContainerImageConfig `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
+	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+	ModelDataSource *ModelContainerModelDataSource `pulumi:"modelDataSource"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
 	// The Amazon Resource Name (ARN) of the model package to use to create the model.
@@ -15292,6 +15965,8 @@ type ModelContainerArgs struct {
 	ImageConfig ModelContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+	ModelDataSource ModelContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
 	// The Amazon Resource Name (ARN) of the model package to use to create the model.
@@ -15373,6 +16048,11 @@ func (o ModelContainerOutput) ImageConfig() ModelContainerImageConfigPtrOutput {
 // The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 func (o ModelContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+func (o ModelContainerOutput) ModelDataSource() ModelContainerModelDataSourcePtrOutput {
+	return o.ApplyT(func(v ModelContainer) *ModelContainerModelDataSource { return v.ModelDataSource }).(ModelContainerModelDataSourcePtrOutput)
 }
 
 // The URL for the S3 location where model artifacts are stored.
@@ -15702,6 +16382,260 @@ func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCreden
 	}).(pulumi.StringPtrOutput)
 }
 
+type ModelContainerModelDataSource struct {
+	// The S3 location of model data to deploy.
+	S3DataSources []ModelContainerModelDataSourceS3DataSource `pulumi:"s3DataSources"`
+}
+
+// ModelContainerModelDataSourceInput is an input type that accepts ModelContainerModelDataSourceArgs and ModelContainerModelDataSourceOutput values.
+// You can construct a concrete instance of `ModelContainerModelDataSourceInput` via:
+//
+//	ModelContainerModelDataSourceArgs{...}
+type ModelContainerModelDataSourceInput interface {
+	pulumi.Input
+
+	ToModelContainerModelDataSourceOutput() ModelContainerModelDataSourceOutput
+	ToModelContainerModelDataSourceOutputWithContext(context.Context) ModelContainerModelDataSourceOutput
+}
+
+type ModelContainerModelDataSourceArgs struct {
+	// The S3 location of model data to deploy.
+	S3DataSources ModelContainerModelDataSourceS3DataSourceArrayInput `pulumi:"s3DataSources"`
+}
+
+func (ModelContainerModelDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerModelDataSource)(nil)).Elem()
+}
+
+func (i ModelContainerModelDataSourceArgs) ToModelContainerModelDataSourceOutput() ModelContainerModelDataSourceOutput {
+	return i.ToModelContainerModelDataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelContainerModelDataSourceArgs) ToModelContainerModelDataSourceOutputWithContext(ctx context.Context) ModelContainerModelDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerModelDataSourceOutput)
+}
+
+func (i ModelContainerModelDataSourceArgs) ToModelContainerModelDataSourcePtrOutput() ModelContainerModelDataSourcePtrOutput {
+	return i.ToModelContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ModelContainerModelDataSourceArgs) ToModelContainerModelDataSourcePtrOutputWithContext(ctx context.Context) ModelContainerModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerModelDataSourceOutput).ToModelContainerModelDataSourcePtrOutputWithContext(ctx)
+}
+
+// ModelContainerModelDataSourcePtrInput is an input type that accepts ModelContainerModelDataSourceArgs, ModelContainerModelDataSourcePtr and ModelContainerModelDataSourcePtrOutput values.
+// You can construct a concrete instance of `ModelContainerModelDataSourcePtrInput` via:
+//
+//	        ModelContainerModelDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelContainerModelDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToModelContainerModelDataSourcePtrOutput() ModelContainerModelDataSourcePtrOutput
+	ToModelContainerModelDataSourcePtrOutputWithContext(context.Context) ModelContainerModelDataSourcePtrOutput
+}
+
+type modelContainerModelDataSourcePtrType ModelContainerModelDataSourceArgs
+
+func ModelContainerModelDataSourcePtr(v *ModelContainerModelDataSourceArgs) ModelContainerModelDataSourcePtrInput {
+	return (*modelContainerModelDataSourcePtrType)(v)
+}
+
+func (*modelContainerModelDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerModelDataSource)(nil)).Elem()
+}
+
+func (i *modelContainerModelDataSourcePtrType) ToModelContainerModelDataSourcePtrOutput() ModelContainerModelDataSourcePtrOutput {
+	return i.ToModelContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *modelContainerModelDataSourcePtrType) ToModelContainerModelDataSourcePtrOutputWithContext(ctx context.Context) ModelContainerModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerModelDataSourcePtrOutput)
+}
+
+type ModelContainerModelDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerModelDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerModelDataSource)(nil)).Elem()
+}
+
+func (o ModelContainerModelDataSourceOutput) ToModelContainerModelDataSourceOutput() ModelContainerModelDataSourceOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceOutput) ToModelContainerModelDataSourceOutputWithContext(ctx context.Context) ModelContainerModelDataSourceOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceOutput) ToModelContainerModelDataSourcePtrOutput() ModelContainerModelDataSourcePtrOutput {
+	return o.ToModelContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerModelDataSourceOutput) ToModelContainerModelDataSourcePtrOutputWithContext(ctx context.Context) ModelContainerModelDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelContainerModelDataSource) *ModelContainerModelDataSource {
+		return &v
+	}).(ModelContainerModelDataSourcePtrOutput)
+}
+
+// The S3 location of model data to deploy.
+func (o ModelContainerModelDataSourceOutput) S3DataSources() ModelContainerModelDataSourceS3DataSourceArrayOutput {
+	return o.ApplyT(func(v ModelContainerModelDataSource) []ModelContainerModelDataSourceS3DataSource {
+		return v.S3DataSources
+	}).(ModelContainerModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelContainerModelDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerModelDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerModelDataSource)(nil)).Elem()
+}
+
+func (o ModelContainerModelDataSourcePtrOutput) ToModelContainerModelDataSourcePtrOutput() ModelContainerModelDataSourcePtrOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourcePtrOutput) ToModelContainerModelDataSourcePtrOutputWithContext(ctx context.Context) ModelContainerModelDataSourcePtrOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourcePtrOutput) Elem() ModelContainerModelDataSourceOutput {
+	return o.ApplyT(func(v *ModelContainerModelDataSource) ModelContainerModelDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret ModelContainerModelDataSource
+		return ret
+	}).(ModelContainerModelDataSourceOutput)
+}
+
+// The S3 location of model data to deploy.
+func (o ModelContainerModelDataSourcePtrOutput) S3DataSources() ModelContainerModelDataSourceS3DataSourceArrayOutput {
+	return o.ApplyT(func(v *ModelContainerModelDataSource) []ModelContainerModelDataSourceS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataSources
+	}).(ModelContainerModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelContainerModelDataSourceS3DataSource struct {
+	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+	CompressionType string `pulumi:"compressionType"`
+	// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	S3DataType string `pulumi:"s3DataType"`
+	// The S3 path of model data to deploy.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ModelContainerModelDataSourceS3DataSourceInput is an input type that accepts ModelContainerModelDataSourceS3DataSourceArgs and ModelContainerModelDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `ModelContainerModelDataSourceS3DataSourceInput` via:
+//
+//	ModelContainerModelDataSourceS3DataSourceArgs{...}
+type ModelContainerModelDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToModelContainerModelDataSourceS3DataSourceOutput() ModelContainerModelDataSourceS3DataSourceOutput
+	ToModelContainerModelDataSourceS3DataSourceOutputWithContext(context.Context) ModelContainerModelDataSourceS3DataSourceOutput
+}
+
+type ModelContainerModelDataSourceS3DataSourceArgs struct {
+	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
+	// The S3 path of model data to deploy.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelContainerModelDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i ModelContainerModelDataSourceS3DataSourceArgs) ToModelContainerModelDataSourceS3DataSourceOutput() ModelContainerModelDataSourceS3DataSourceOutput {
+	return i.ToModelContainerModelDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelContainerModelDataSourceS3DataSourceArgs) ToModelContainerModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerModelDataSourceS3DataSourceOutput)
+}
+
+// ModelContainerModelDataSourceS3DataSourceArrayInput is an input type that accepts ModelContainerModelDataSourceS3DataSourceArray and ModelContainerModelDataSourceS3DataSourceArrayOutput values.
+// You can construct a concrete instance of `ModelContainerModelDataSourceS3DataSourceArrayInput` via:
+//
+//	ModelContainerModelDataSourceS3DataSourceArray{ ModelContainerModelDataSourceS3DataSourceArgs{...} }
+type ModelContainerModelDataSourceS3DataSourceArrayInput interface {
+	pulumi.Input
+
+	ToModelContainerModelDataSourceS3DataSourceArrayOutput() ModelContainerModelDataSourceS3DataSourceArrayOutput
+	ToModelContainerModelDataSourceS3DataSourceArrayOutputWithContext(context.Context) ModelContainerModelDataSourceS3DataSourceArrayOutput
+}
+
+type ModelContainerModelDataSourceS3DataSourceArray []ModelContainerModelDataSourceS3DataSourceInput
+
+func (ModelContainerModelDataSourceS3DataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i ModelContainerModelDataSourceS3DataSourceArray) ToModelContainerModelDataSourceS3DataSourceArrayOutput() ModelContainerModelDataSourceS3DataSourceArrayOutput {
+	return i.ToModelContainerModelDataSourceS3DataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ModelContainerModelDataSourceS3DataSourceArray) ToModelContainerModelDataSourceS3DataSourceArrayOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelContainerModelDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerModelDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceOutput) ToModelContainerModelDataSourceS3DataSourceOutput() ModelContainerModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceOutput) ToModelContainerModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+func (o ModelContainerModelDataSourceS3DataSourceOutput) CompressionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
+}
+
+// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+func (o ModelContainerModelDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
+}
+
+// The S3 path of model data to deploy.
+func (o ModelContainerModelDataSourceS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerModelDataSourceS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ModelContainerModelDataSourceS3DataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerModelDataSourceS3DataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceArrayOutput) ToModelContainerModelDataSourceS3DataSourceArrayOutput() ModelContainerModelDataSourceS3DataSourceArrayOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceArrayOutput) ToModelContainerModelDataSourceS3DataSourceArrayOutputWithContext(ctx context.Context) ModelContainerModelDataSourceS3DataSourceArrayOutput {
+	return o
+}
+
+func (o ModelContainerModelDataSourceS3DataSourceArrayOutput) Index(i pulumi.IntInput) ModelContainerModelDataSourceS3DataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelContainerModelDataSourceS3DataSource {
+		return vs[0].([]ModelContainerModelDataSourceS3DataSource)[vs[1].(int)]
+	}).(ModelContainerModelDataSourceS3DataSourceOutput)
+}
+
 type ModelInferenceExecutionConfig struct {
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode string `pulumi:"mode"`
@@ -15851,6 +16785,8 @@ type ModelPrimaryContainer struct {
 	ImageConfig *ModelPrimaryContainerImageConfig `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode *string `pulumi:"mode"`
+	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+	ModelDataSource *ModelPrimaryContainerModelDataSource `pulumi:"modelDataSource"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl *string `pulumi:"modelDataUrl"`
 	// The Amazon Resource Name (ARN) of the model package to use to create the model.
@@ -15880,6 +16816,8 @@ type ModelPrimaryContainerArgs struct {
 	ImageConfig ModelPrimaryContainerImageConfigPtrInput `pulumi:"imageConfig"`
 	// The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+	ModelDataSource ModelPrimaryContainerModelDataSourcePtrInput `pulumi:"modelDataSource"`
 	// The URL for the S3 location where model artifacts are stored.
 	ModelDataUrl pulumi.StringPtrInput `pulumi:"modelDataUrl"`
 	// The Amazon Resource Name (ARN) of the model package to use to create the model.
@@ -15989,6 +16927,11 @@ func (o ModelPrimaryContainerOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
+// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+func (o ModelPrimaryContainerOutput) ModelDataSource() ModelPrimaryContainerModelDataSourcePtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainer) *ModelPrimaryContainerModelDataSource { return v.ModelDataSource }).(ModelPrimaryContainerModelDataSourcePtrOutput)
+}
+
 // The URL for the S3 location where model artifacts are stored.
 func (o ModelPrimaryContainerOutput) ModelDataUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelPrimaryContainer) *string { return v.ModelDataUrl }).(pulumi.StringPtrOutput)
@@ -16072,6 +17015,16 @@ func (o ModelPrimaryContainerPtrOutput) Mode() pulumi.StringPtrOutput {
 		}
 		return v.Mode
 	}).(pulumi.StringPtrOutput)
+}
+
+// The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+func (o ModelPrimaryContainerPtrOutput) ModelDataSource() ModelPrimaryContainerModelDataSourcePtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainer) *ModelPrimaryContainerModelDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.ModelDataSource
+	}).(ModelPrimaryContainerModelDataSourcePtrOutput)
 }
 
 // The URL for the S3 location where model artifacts are stored.
@@ -16389,6 +17342,260 @@ func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) Repositor
 		}
 		return &v.RepositoryCredentialsProviderArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type ModelPrimaryContainerModelDataSource struct {
+	// The S3 location of model data to deploy.
+	S3DataSources []ModelPrimaryContainerModelDataSourceS3DataSource `pulumi:"s3DataSources"`
+}
+
+// ModelPrimaryContainerModelDataSourceInput is an input type that accepts ModelPrimaryContainerModelDataSourceArgs and ModelPrimaryContainerModelDataSourceOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerModelDataSourceInput` via:
+//
+//	ModelPrimaryContainerModelDataSourceArgs{...}
+type ModelPrimaryContainerModelDataSourceInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerModelDataSourceOutput() ModelPrimaryContainerModelDataSourceOutput
+	ToModelPrimaryContainerModelDataSourceOutputWithContext(context.Context) ModelPrimaryContainerModelDataSourceOutput
+}
+
+type ModelPrimaryContainerModelDataSourceArgs struct {
+	// The S3 location of model data to deploy.
+	S3DataSources ModelPrimaryContainerModelDataSourceS3DataSourceArrayInput `pulumi:"s3DataSources"`
+}
+
+func (ModelPrimaryContainerModelDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerModelDataSource)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerModelDataSourceArgs) ToModelPrimaryContainerModelDataSourceOutput() ModelPrimaryContainerModelDataSourceOutput {
+	return i.ToModelPrimaryContainerModelDataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerModelDataSourceArgs) ToModelPrimaryContainerModelDataSourceOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerModelDataSourceOutput)
+}
+
+func (i ModelPrimaryContainerModelDataSourceArgs) ToModelPrimaryContainerModelDataSourcePtrOutput() ModelPrimaryContainerModelDataSourcePtrOutput {
+	return i.ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerModelDataSourceArgs) ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerModelDataSourceOutput).ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(ctx)
+}
+
+// ModelPrimaryContainerModelDataSourcePtrInput is an input type that accepts ModelPrimaryContainerModelDataSourceArgs, ModelPrimaryContainerModelDataSourcePtr and ModelPrimaryContainerModelDataSourcePtrOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerModelDataSourcePtrInput` via:
+//
+//	        ModelPrimaryContainerModelDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelPrimaryContainerModelDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerModelDataSourcePtrOutput() ModelPrimaryContainerModelDataSourcePtrOutput
+	ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(context.Context) ModelPrimaryContainerModelDataSourcePtrOutput
+}
+
+type modelPrimaryContainerModelDataSourcePtrType ModelPrimaryContainerModelDataSourceArgs
+
+func ModelPrimaryContainerModelDataSourcePtr(v *ModelPrimaryContainerModelDataSourceArgs) ModelPrimaryContainerModelDataSourcePtrInput {
+	return (*modelPrimaryContainerModelDataSourcePtrType)(v)
+}
+
+func (*modelPrimaryContainerModelDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerModelDataSource)(nil)).Elem()
+}
+
+func (i *modelPrimaryContainerModelDataSourcePtrType) ToModelPrimaryContainerModelDataSourcePtrOutput() ModelPrimaryContainerModelDataSourcePtrOutput {
+	return i.ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *modelPrimaryContainerModelDataSourcePtrType) ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerModelDataSourcePtrOutput)
+}
+
+type ModelPrimaryContainerModelDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerModelDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerModelDataSource)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerModelDataSourceOutput) ToModelPrimaryContainerModelDataSourceOutput() ModelPrimaryContainerModelDataSourceOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceOutput) ToModelPrimaryContainerModelDataSourceOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceOutput) ToModelPrimaryContainerModelDataSourcePtrOutput() ModelPrimaryContainerModelDataSourcePtrOutput {
+	return o.ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ModelPrimaryContainerModelDataSourceOutput) ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPrimaryContainerModelDataSource) *ModelPrimaryContainerModelDataSource {
+		return &v
+	}).(ModelPrimaryContainerModelDataSourcePtrOutput)
+}
+
+// The S3 location of model data to deploy.
+func (o ModelPrimaryContainerModelDataSourceOutput) S3DataSources() ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerModelDataSource) []ModelPrimaryContainerModelDataSourceS3DataSource {
+		return v.S3DataSources
+	}).(ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelPrimaryContainerModelDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerModelDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerModelDataSource)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerModelDataSourcePtrOutput) ToModelPrimaryContainerModelDataSourcePtrOutput() ModelPrimaryContainerModelDataSourcePtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourcePtrOutput) ToModelPrimaryContainerModelDataSourcePtrOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourcePtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourcePtrOutput) Elem() ModelPrimaryContainerModelDataSourceOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerModelDataSource) ModelPrimaryContainerModelDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPrimaryContainerModelDataSource
+		return ret
+	}).(ModelPrimaryContainerModelDataSourceOutput)
+}
+
+// The S3 location of model data to deploy.
+func (o ModelPrimaryContainerModelDataSourcePtrOutput) S3DataSources() ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerModelDataSource) []ModelPrimaryContainerModelDataSourceS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataSources
+	}).(ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSource struct {
+	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+	CompressionType string `pulumi:"compressionType"`
+	// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	S3DataType string `pulumi:"s3DataType"`
+	// The S3 path of model data to deploy.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// ModelPrimaryContainerModelDataSourceS3DataSourceInput is an input type that accepts ModelPrimaryContainerModelDataSourceS3DataSourceArgs and ModelPrimaryContainerModelDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerModelDataSourceS3DataSourceInput` via:
+//
+//	ModelPrimaryContainerModelDataSourceS3DataSourceArgs{...}
+type ModelPrimaryContainerModelDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerModelDataSourceS3DataSourceOutput() ModelPrimaryContainerModelDataSourceS3DataSourceOutput
+	ToModelPrimaryContainerModelDataSourceS3DataSourceOutputWithContext(context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceOutput
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSourceArgs struct {
+	// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+	CompressionType pulumi.StringInput `pulumi:"compressionType"`
+	// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+	S3DataType pulumi.StringInput `pulumi:"s3DataType"`
+	// The S3 path of model data to deploy.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (ModelPrimaryContainerModelDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerModelDataSourceS3DataSourceArgs) ToModelPrimaryContainerModelDataSourceS3DataSourceOutput() ModelPrimaryContainerModelDataSourceS3DataSourceOutput {
+	return i.ToModelPrimaryContainerModelDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerModelDataSourceS3DataSourceArgs) ToModelPrimaryContainerModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerModelDataSourceS3DataSourceOutput)
+}
+
+// ModelPrimaryContainerModelDataSourceS3DataSourceArrayInput is an input type that accepts ModelPrimaryContainerModelDataSourceS3DataSourceArray and ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerModelDataSourceS3DataSourceArrayInput` via:
+//
+//	ModelPrimaryContainerModelDataSourceS3DataSourceArray{ ModelPrimaryContainerModelDataSourceS3DataSourceArgs{...} }
+type ModelPrimaryContainerModelDataSourceS3DataSourceArrayInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput() ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput
+	ToModelPrimaryContainerModelDataSourceS3DataSourceArrayOutputWithContext(context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSourceArray []ModelPrimaryContainerModelDataSourceS3DataSourceInput
+
+func (ModelPrimaryContainerModelDataSourceS3DataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPrimaryContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerModelDataSourceS3DataSourceArray) ToModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput() ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput {
+	return i.ToModelPrimaryContainerModelDataSourceS3DataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerModelDataSourceS3DataSourceArray) ToModelPrimaryContainerModelDataSourceS3DataSourceArrayOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput)
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerModelDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceOutput() ModelPrimaryContainerModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceOutput {
+	return o
+}
+
+// How the model data is prepared. Allowed values are: `None` and `Gzip`.
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) CompressionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) string { return v.CompressionType }).(pulumi.StringOutput)
+}
+
+// The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) S3DataType() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) string { return v.S3DataType }).(pulumi.StringOutput)
+}
+
+// The S3 path of model data to deploy.
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerModelDataSourceS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelPrimaryContainerModelDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput() ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput) ToModelPrimaryContainerModelDataSourceS3DataSourceArrayOutputWithContext(ctx context.Context) ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput) Index(i pulumi.IntInput) ModelPrimaryContainerModelDataSourceS3DataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPrimaryContainerModelDataSourceS3DataSource {
+		return vs[0].([]ModelPrimaryContainerModelDataSourceS3DataSource)[vs[1].(int)]
+	}).(ModelPrimaryContainerModelDataSourceS3DataSourceOutput)
 }
 
 type ModelVpcConfig struct {
@@ -19036,6 +20243,12 @@ func (o UserProfileUserSettingsPtrOutput) TensorBoardAppSettings() UserProfileUs
 }
 
 type UserProfileUserSettingsCanvasAppSettings struct {
+	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+	DirectDeploySettings *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings `pulumi:"directDeploySettings"`
+	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+	IdentityProviderOauthSettings []UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting `pulumi:"identityProviderOauthSettings"`
+	// The settings for document querying. See Kendra Settings below.
+	KendraSettings *UserProfileUserSettingsCanvasAppSettingsKendraSettings `pulumi:"kendraSettings"`
 	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 	ModelRegisterSettings *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
@@ -19056,6 +20269,12 @@ type UserProfileUserSettingsCanvasAppSettingsInput interface {
 }
 
 type UserProfileUserSettingsCanvasAppSettingsArgs struct {
+	// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+	DirectDeploySettings UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput `pulumi:"directDeploySettings"`
+	// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+	IdentityProviderOauthSettings UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput `pulumi:"identityProviderOauthSettings"`
+	// The settings for document querying. See Kendra Settings below.
+	KendraSettings UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrInput `pulumi:"kendraSettings"`
 	// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 	ModelRegisterSettings UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput `pulumi:"modelRegisterSettings"`
 	// Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
@@ -19141,6 +20360,27 @@ func (o UserProfileUserSettingsCanvasAppSettingsOutput) ToUserProfileUserSetting
 	}).(UserProfileUserSettingsCanvasAppSettingsPtrOutput)
 }
 
+// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) DirectDeploySettings() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings {
+		return v.DirectDeploySettings
+	}).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) IdentityProviderOauthSettings() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) []UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
+		return v.IdentityProviderOauthSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput)
+}
+
+// The settings for document querying. See Kendra Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsOutput) KendraSettings() UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsKendraSettings {
+		return v.KendraSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
+}
+
 // The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsOutput) ModelRegisterSettings() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
 	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
@@ -19186,6 +20426,36 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) Elem() UserProfileUse
 	}).(UserProfileUserSettingsCanvasAppSettingsOutput)
 }
 
+// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) DirectDeploySettings() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings {
+		if v == nil {
+			return nil
+		}
+		return v.DirectDeploySettings
+	}).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) IdentityProviderOauthSettings() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) []UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityProviderOauthSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput)
+}
+
+// The settings for document querying. See Kendra Settings below.
+func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) KendraSettings() UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsKendraSettings {
+		if v == nil {
+			return nil
+		}
+		return v.KendraSettings
+	}).(UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
+}
+
 // The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
 func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) ModelRegisterSettings() UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput {
 	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettings) *UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
@@ -19214,6 +20484,399 @@ func (o UserProfileUserSettingsCanvasAppSettingsPtrOutput) WorkspaceSettings() U
 		}
 		return v.WorkspaceSettings
 	}).(UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings struct {
+	// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs and UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput
+	ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs struct {
+	// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput)
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput).ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs, UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtr and UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput
+	ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput
+}
+
+type userProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs
+
+func UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtr(v *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput {
+	return (*userProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings) *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings {
+		return &v
+	}).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput)
+}
+
+// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) Elem() UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings) UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings
+		return ret
+	}).(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput)
+}
+
+// Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsDirectDeploySettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting struct {
+	// The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+	DataSourceName *string `pulumi:"dataSourceName"`
+	// The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+	SecretArn string `pulumi:"secretArn"`
+	// Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs and UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput
+	ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs struct {
+	// The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+	DataSourceName pulumi.StringPtrInput `pulumi:"dataSourceName"`
+	// The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs) ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs) ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray and UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray{ UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{...} }
+type UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput
+	ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray []UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput
+
+func (UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray) ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray) ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return o
+}
+
+// The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+func (o UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) DataSourceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting) *string {
+		return v.DataSourceName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+func (o UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting) string {
+		return v.SecretArn
+	}).(pulumi.StringOutput)
+}
+
+// Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput) ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput() UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput) ToUserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput) Index(i pulumi.IntInput) UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting {
+		return vs[0].([]UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSetting)[vs[1].(int)]
+	}).(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsKendraSettings struct {
+	// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status *string `pulumi:"status"`
+}
+
+// UserProfileUserSettingsCanvasAppSettingsKendraSettingsInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs and UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsKendraSettingsInput` via:
+//
+//	UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs{...}
+type UserProfileUserSettingsCanvasAppSettingsKendraSettingsInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput() UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput
+	ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput
+}
+
+type UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs struct {
+	// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsKendraSettings)(nil)).Elem()
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput() UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput)
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput).ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx)
+}
+
+// UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrInput is an input type that accepts UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs, UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtr and UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput values.
+// You can construct a concrete instance of `UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrInput` via:
+//
+//	        UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput
+	ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(context.Context) UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput
+}
+
+type userProfileUserSettingsCanvasAppSettingsKendraSettingsPtrType UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs
+
+func UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtr(v *UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs) UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrInput {
+	return (*userProfileUserSettingsCanvasAppSettingsKendraSettingsPtrType)(v)
+}
+
+func (*userProfileUserSettingsCanvasAppSettingsKendraSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsKendraSettings)(nil)).Elem()
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsKendraSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return i.ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileUserSettingsCanvasAppSettingsKendraSettingsPtrType) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsKendraSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput() UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o.ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileUserSettingsCanvasAppSettingsKendraSettings) *UserProfileUserSettingsCanvasAppSettingsKendraSettings {
+		return &v
+	}).(UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput)
+}
+
+// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileUserSettingsCanvasAppSettingsKendraSettings) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileUserSettingsCanvasAppSettingsKendraSettings)(nil)).Elem()
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput() UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) ToUserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutputWithContext(ctx context.Context) UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput {
+	return o
+}
+
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) Elem() UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsKendraSettings) UserProfileUserSettingsCanvasAppSettingsKendraSettings {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileUserSettingsCanvasAppSettingsKendraSettings
+		return ret
+	}).(UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput)
+}
+
+// Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+func (o UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileUserSettingsCanvasAppSettingsKendraSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
 }
 
 type UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings struct {
@@ -23190,6 +24853,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
@@ -23288,6 +24957,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreConfigPtrInput)(nil)).Elem(), FeatureGroupOnlineStoreConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreConfigSecurityConfigInput)(nil)).Elem(), FeatureGroupOnlineStoreConfigSecurityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreConfigSecurityConfigPtrInput)(nil)).Elem(), FeatureGroupOnlineStoreConfigSecurityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreConfigTtlDurationInput)(nil)).Elem(), FeatureGroupOnlineStoreConfigTtlDurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOnlineStoreConfigTtlDurationPtrInput)(nil)).Elem(), FeatureGroupOnlineStoreConfigTtlDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigInput)(nil)).Elem(), FlowDefinitionHumanLoopActivationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigPtrInput)(nil)).Elem(), FlowDefinitionHumanLoopActivationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigInput)(nil)).Elem(), FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{})
@@ -23310,6 +24981,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigPtrInput)(nil)).Elem(), ModelContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigRepositoryAuthConfigInput)(nil)).Elem(), ModelContainerImageConfigRepositoryAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigRepositoryAuthConfigPtrInput)(nil)).Elem(), ModelContainerImageConfigRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceInput)(nil)).Elem(), ModelContainerModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourcePtrInput)(nil)).Elem(), ModelContainerModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceInput)(nil)).Elem(), ModelContainerModelDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerModelDataSourceS3DataSourceArrayInput)(nil)).Elem(), ModelContainerModelDataSourceS3DataSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigInput)(nil)).Elem(), ModelInferenceExecutionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigPtrInput)(nil)).Elem(), ModelInferenceExecutionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerInput)(nil)).Elem(), ModelPrimaryContainerArgs{})
@@ -23318,6 +24993,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigRepositoryAuthConfigInput)(nil)).Elem(), ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourcePtrInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerModelDataSourceS3DataSourceArrayInput)(nil)).Elem(), ModelPrimaryContainerModelDataSourceS3DataSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigInput)(nil)).Elem(), ModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigPtrInput)(nil)).Elem(), ModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigArgs{})
@@ -23352,6 +25031,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsKendraSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsInput)(nil)).Elem(), UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs{})
@@ -23468,6 +25153,12 @@ func init() {
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput{})
@@ -23566,6 +25257,8 @@ func init() {
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigSecurityConfigPtrOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigTtlDurationOutput{})
+	pulumi.RegisterOutputType(FeatureGroupOnlineStoreConfigTtlDurationPtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput{})
@@ -23588,6 +25281,10 @@ func init() {
 	pulumi.RegisterOutputType(ModelContainerImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigRepositoryAuthConfigOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigRepositoryAuthConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelContainerModelDataSourceOutput{})
+	pulumi.RegisterOutputType(ModelContainerModelDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(ModelContainerModelDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(ModelContainerModelDataSourceS3DataSourceArrayOutput{})
 	pulumi.RegisterOutputType(ModelInferenceExecutionConfigOutput{})
 	pulumi.RegisterOutputType(ModelInferenceExecutionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerOutput{})
@@ -23596,6 +25293,10 @@ func init() {
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerModelDataSourceS3DataSourceArrayOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigOutput{})
@@ -23630,6 +25331,12 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArrayOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsKendraSettingsOutput{})
+	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsKendraSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsOutput{})

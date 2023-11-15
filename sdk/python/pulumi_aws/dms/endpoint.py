@@ -28,6 +28,7 @@ class EndpointArgs:
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
@@ -87,6 +88,8 @@ class EndpointArgs:
             pulumi.set(__self__, "mongodb_settings", mongodb_settings)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if pause_replication_tasks is not None:
+            pulumi.set(__self__, "pause_replication_tasks", pause_replication_tasks)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if redis_settings is not None:
@@ -257,6 +260,15 @@ class EndpointArgs:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="pauseReplicationTasks")
+    def pause_replication_tasks(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "pause_replication_tasks")
+
+    @pause_replication_tasks.setter
+    def pause_replication_tasks(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "pause_replication_tasks", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
@@ -402,6 +414,7 @@ class _EndpointState:
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  redis_settings: Optional[pulumi.Input['EndpointRedisSettingsArgs']] = None,
                  redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
@@ -469,6 +482,8 @@ class _EndpointState:
             pulumi.set(__self__, "mongodb_settings", mongodb_settings)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if pause_replication_tasks is not None:
+            pulumi.set(__self__, "pause_replication_tasks", pause_replication_tasks)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if redis_settings is not None:
@@ -656,6 +671,15 @@ class _EndpointState:
         pulumi.set(self, "password", value)
 
     @property
+    @pulumi.getter(name="pauseReplicationTasks")
+    def pause_replication_tasks(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "pause_replication_tasks")
+
+    @pause_replication_tasks.setter
+    def pause_replication_tasks(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "pause_replication_tasks", value)
+
+    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
@@ -817,6 +841,7 @@ class Endpoint(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
@@ -965,6 +990,7 @@ class Endpoint(pulumi.CustomResource):
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
+                 pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
                  redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
@@ -1003,6 +1029,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["mongodb_settings"] = mongodb_settings
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["pause_replication_tasks"] = pause_replication_tasks
             __props__.__dict__["port"] = port
             __props__.__dict__["redis_settings"] = redis_settings
             __props__.__dict__["redshift_settings"] = redshift_settings
@@ -1041,6 +1068,7 @@ class Endpoint(pulumi.CustomResource):
             kms_key_arn: Optional[pulumi.Input[str]] = None,
             mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
             password: Optional[pulumi.Input[str]] = None,
+            pause_replication_tasks: Optional[pulumi.Input[bool]] = None,
             port: Optional[pulumi.Input[int]] = None,
             redis_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedisSettingsArgs']]] = None,
             redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
@@ -1104,6 +1132,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["kms_key_arn"] = kms_key_arn
         __props__.__dict__["mongodb_settings"] = mongodb_settings
         __props__.__dict__["password"] = password
+        __props__.__dict__["pause_replication_tasks"] = pause_replication_tasks
         __props__.__dict__["port"] = port
         __props__.__dict__["redis_settings"] = redis_settings
         __props__.__dict__["redshift_settings"] = redshift_settings
@@ -1223,6 +1252,11 @@ class Endpoint(pulumi.CustomResource):
         Password to be used to login to the endpoint database.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="pauseReplicationTasks")
+    def pause_replication_tasks(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "pause_replication_tasks")
 
     @property
     @pulumi.getter

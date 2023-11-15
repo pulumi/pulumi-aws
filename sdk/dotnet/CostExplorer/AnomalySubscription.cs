@@ -13,7 +13,41 @@ namespace Pulumi.Aws.CostExplorer
     /// Provides a CE Anomaly Subscription.
     /// 
     /// ## Example Usage
+    /// ### Basic Example
     /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testAnomalyMonitor = new Aws.CostExplorer.AnomalyMonitor("testAnomalyMonitor", new()
+    ///     {
+    ///         MonitorType = "DIMENSIONAL",
+    ///         MonitorDimension = "SERVICE",
+    ///     });
+    /// 
+    ///     var testAnomalySubscription = new Aws.CostExplorer.AnomalySubscription("testAnomalySubscription", new()
+    ///     {
+    ///         Frequency = "DAILY",
+    ///         MonitorArnLists = new[]
+    ///         {
+    ///             testAnomalyMonitor.Arn,
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
+    ///             {
+    ///                 Type = "EMAIL",
+    ///                 Address = "abc@example.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Threshold Expression Example
     /// ### For a Specific Dimension
     /// 
@@ -119,6 +153,131 @@ namespace Pulumi.Aws.CostExplorer
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### SNS Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var costAnomalyUpdates = new Aws.Sns.Topic("costAnomalyUpdates");
+    /// 
+    ///     var snsTopicPolicy = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         PolicyId = "__default_policy_ID",
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "AWSAnomalyDetectionSNSPublishingPermissions",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Publish",
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "Service",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "costalerts.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     costAnomalyUpdates.Arn,
+    ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Sid = "__default_statement_ID",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "SNS:Subscribe",
+    ///                     "SNS:SetTopicAttributes",
+    ///                     "SNS:RemovePermission",
+    ///                     "SNS:Receive",
+    ///                     "SNS:Publish",
+    ///                     "SNS:ListSubscriptionsByTopic",
+    ///                     "SNS:GetTopicAttributes",
+    ///                     "SNS:DeleteTopic",
+    ///                     "SNS:AddPermission",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Variable = "AWS:SourceOwner",
+    ///                         Values = new[]
+    ///                         {
+    ///                             @var.Account_id,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     costAnomalyUpdates.Arn,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var @default = new Aws.Sns.TopicPolicy("default", new()
+    ///     {
+    ///         Arn = costAnomalyUpdates.Arn,
+    ///         Policy = snsTopicPolicy.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var anomalyMonitor = new Aws.CostExplorer.AnomalyMonitor("anomalyMonitor", new()
+    ///     {
+    ///         MonitorType = "DIMENSIONAL",
+    ///         MonitorDimension = "SERVICE",
+    ///     });
+    /// 
+    ///     var realtimeSubscription = new Aws.CostExplorer.AnomalySubscription("realtimeSubscription", new()
+    ///     {
+    ///         Frequency = "IMMEDIATE",
+    ///         MonitorArnLists = new[]
+    ///         {
+    ///             anomalyMonitor.Arn,
+    ///         },
+    ///         Subscribers = new[]
+    ///         {
+    ///             new Aws.CostExplorer.Inputs.AnomalySubscriptionSubscriberArgs
+    ///             {
+    ///                 Type = "SNS",
+    ///                 Address = costAnomalyUpdates.Arn,
+    ///             },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             @default,
     ///         },
     ///     });
     /// 

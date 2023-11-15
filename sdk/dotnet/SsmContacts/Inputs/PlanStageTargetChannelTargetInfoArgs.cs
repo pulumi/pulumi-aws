@@ -12,9 +12,15 @@ namespace Pulumi.Aws.SsmContacts.Inputs
 
     public sealed class PlanStageTargetChannelTargetInfoArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the contact channel.
+        /// </summary>
         [Input("contactChannelId", required: true)]
         public Input<string> ContactChannelId { get; set; } = null!;
 
+        /// <summary>
+        /// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
+        /// </summary>
         [Input("retryIntervalInMinutes")]
         public Input<int>? RetryIntervalInMinutes { get; set; }
 

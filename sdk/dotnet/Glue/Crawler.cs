@@ -216,6 +216,9 @@ namespace Pulumi.Aws.Glue
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        /// </summary>
         [Output("catalogTargets")]
         public Output<ImmutableArray<Outputs.CrawlerCatalogTarget>> CatalogTargets { get; private set; } = null!;
 
@@ -403,6 +406,10 @@ namespace Pulumi.Aws.Glue
     {
         [Input("catalogTargets")]
         private InputList<Inputs.CrawlerCatalogTargetArgs>? _catalogTargets;
+
+        /// <summary>
+        /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        /// </summary>
         public InputList<Inputs.CrawlerCatalogTargetArgs> CatalogTargets
         {
             get => _catalogTargets ?? (_catalogTargets = new InputList<Inputs.CrawlerCatalogTargetArgs>());
@@ -605,6 +612,10 @@ namespace Pulumi.Aws.Glue
 
         [Input("catalogTargets")]
         private InputList<Inputs.CrawlerCatalogTargetGetArgs>? _catalogTargets;
+
+        /// <summary>
+        /// List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        /// </summary>
         public InputList<Inputs.CrawlerCatalogTargetGetArgs> CatalogTargets
         {
             get => _catalogTargets ?? (_catalogTargets = new InputList<Inputs.CrawlerCatalogTargetGetArgs>());

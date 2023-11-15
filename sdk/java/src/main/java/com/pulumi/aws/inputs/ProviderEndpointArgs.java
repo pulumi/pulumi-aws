@@ -1639,6 +1639,13 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.ssmincidents);
     }
 
+    @Import(name="sso")
+    private @Nullable Output<String> sso;
+
+    public Optional<Output<String>> sso() {
+        return Optional.ofNullable(this.sso);
+    }
+
     @Import(name="ssoadmin")
     private @Nullable Output<String> ssoadmin;
 
@@ -2000,6 +2007,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.ssm = $.ssm;
         this.ssmcontacts = $.ssmcontacts;
         this.ssmincidents = $.ssmincidents;
+        this.sso = $.sso;
         this.ssoadmin = $.ssoadmin;
         this.stepfunctions = $.stepfunctions;
         this.storagegateway = $.storagegateway;
@@ -4124,6 +4132,15 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
 
         public Builder ssmincidents(String ssmincidents) {
             return ssmincidents(Output.of(ssmincidents));
+        }
+
+        public Builder sso(@Nullable Output<String> sso) {
+            $.sso = sso;
+            return this;
+        }
+
+        public Builder sso(String sso) {
+            return sso(Output.of(sso));
         }
 
         public Builder ssoadmin(@Nullable Output<String> ssoadmin) {

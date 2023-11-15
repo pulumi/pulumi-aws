@@ -13,7 +13,13 @@ namespace Pulumi.Aws.SsmContacts.Outputs
     [OutputType]
     public sealed class PlanStageTarget
     {
+        /// <summary>
+        /// A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+        /// </summary>
         public readonly Outputs.PlanStageTargetChannelTargetInfo? ChannelTargetInfo;
+        /// <summary>
+        /// A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+        /// </summary>
         public readonly Outputs.PlanStageTargetContactTargetInfo? ContactTargetInfo;
 
         [OutputConstructor]

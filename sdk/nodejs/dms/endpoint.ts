@@ -128,6 +128,7 @@ export class Endpoint extends pulumi.CustomResource {
      * Password to be used to login to the endpoint database.
      */
     public readonly password!: pulumi.Output<string | undefined>;
+    public readonly pauseReplicationTasks!: pulumi.Output<boolean | undefined>;
     /**
      * Port used by the endpoint database.
      */
@@ -202,6 +203,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
             resourceInputs["mongodbSettings"] = state ? state.mongodbSettings : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["pauseReplicationTasks"] = state ? state.pauseReplicationTasks : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["redisSettings"] = state ? state.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = state ? state.redshiftSettings : undefined;
@@ -237,6 +239,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
             resourceInputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["pauseReplicationTasks"] = args ? args.pauseReplicationTasks : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["redisSettings"] = args ? args.redisSettings : undefined;
             resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
@@ -316,6 +319,7 @@ export interface EndpointState {
      * Password to be used to login to the endpoint database.
      */
     password?: pulumi.Input<string>;
+    pauseReplicationTasks?: pulumi.Input<boolean>;
     /**
      * Port used by the endpoint database.
      */
@@ -419,6 +423,7 @@ export interface EndpointArgs {
      * Password to be used to login to the endpoint database.
      */
     password?: pulumi.Input<string>;
+    pauseReplicationTasks?: pulumi.Input<boolean>;
     /**
      * Port used by the endpoint database.
      */

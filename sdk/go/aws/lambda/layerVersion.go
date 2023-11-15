@@ -76,7 +76,7 @@ type LayerVersion struct {
 	Code pulumi.ArchiveOutput `pulumi:"code"`
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayOutput `pulumi:"compatibleArchitectures"`
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayOutput `pulumi:"compatibleRuntimes"`
 	// Date this resource was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
@@ -149,7 +149,7 @@ type layerVersionState struct {
 	Code pulumi.Archive `pulumi:"code"`
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
 	// Date this resource was created.
 	CreatedDate *string `pulumi:"createdDate"`
@@ -190,7 +190,7 @@ type LayerVersionState struct {
 	Code pulumi.ArchiveInput
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayInput
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayInput
 	// Date this resource was created.
 	CreatedDate pulumi.StringPtrInput
@@ -233,7 +233,7 @@ type layerVersionArgs struct {
 	Code pulumi.Archive `pulumi:"code"`
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
 	// Description of what your Lambda Layer does.
 	Description *string `pulumi:"description"`
@@ -261,7 +261,7 @@ type LayerVersionArgs struct {
 	Code pulumi.ArchiveInput
 	// List of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayInput
-	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+	// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayInput
 	// Description of what your Lambda Layer does.
 	Description pulumi.StringPtrInput
@@ -385,7 +385,7 @@ func (o LayerVersionOutput) CompatibleArchitectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleArchitectures }).(pulumi.StringArrayOutput)
 }
 
-// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
 func (o LayerVersionOutput) CompatibleRuntimes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LayerVersion) pulumi.StringArrayOutput { return v.CompatibleRuntimes }).(pulumi.StringArrayOutput)
 }

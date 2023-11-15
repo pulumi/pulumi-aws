@@ -47,14 +47,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
-//				S3BucketName:               exampleBucketV2.ID(),
-//				S3KeyPrefix:                pulumi.String("prefix"),
-//				IncludeGlobalServiceEvents: pulumi.Bool(false),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			currentCallerIdentity, err := aws.GetCallerIdentity(ctx, nil, nil)
 //			if err != nil {
 //				return err
@@ -134,12 +126,22 @@ import (
 //					},
 //				},
 //			}, nil)
-//			_, err = s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
+//			exampleBucketPolicy, err := s3.NewBucketPolicy(ctx, "exampleBucketPolicy", &s3.BucketPolicyArgs{
 //				Bucket: exampleBucketV2.ID(),
 //				Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (*string, error) {
 //					return &examplePolicyDocument.Json, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudtrail.NewTrail(ctx, "exampleTrail", &cloudtrail.TrailArgs{
+//				S3BucketName:               exampleBucketV2.ID(),
+//				S3KeyPrefix:                pulumi.String("prefix"),
+//				IncludeGlobalServiceEvents: pulumi.Bool(false),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleBucketPolicy,
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -314,11 +316,11 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Cloudtrails using the `name`. For example:
+// Using `pulumi import`, import Cloudtrails using the `arn`. For example:
 //
 // ```sh
 //
-//	$ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+//	$ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
 //
 // ```
 type Trail struct {

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchGetArgs>? FieldToMatch { get; set; }
 
         /// <summary>
-        /// The string representing the regular expression. Minimum of `1` and maximum of `512` characters.
+        /// The string representing the regular expression. **Note:** The fixed quota for the maximum number of characters in each regex pattern is 200, which can't be changed. See [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) for details.
         /// </summary>
         [Input("regexString", required: true)]
         public Input<string> RegexString { get; set; } = null!;

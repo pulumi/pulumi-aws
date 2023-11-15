@@ -14,6 +14,18 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class DomainDefaultUserSettingsCanvasAppSettings
     {
         /// <summary>
+        /// The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings? DirectDeploySettings;
+        /// <summary>
+        /// The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> IdentityProviderOauthSettings;
+        /// <summary>
+        /// The settings for document querying. See Kendra Settings below.
+        /// </summary>
+        public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings? KendraSettings;
+        /// <summary>
         /// The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
         /// </summary>
         public readonly Outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings? ModelRegisterSettings;
@@ -28,12 +40,21 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
         [OutputConstructor]
         private DomainDefaultUserSettingsCanvasAppSettings(
+            Outputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettings? directDeploySettings,
+
+            ImmutableArray<Outputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSetting> identityProviderOauthSettings,
+
+            Outputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettings? kendraSettings,
+
             Outputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings? modelRegisterSettings,
 
             Outputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettings? timeSeriesForecastingSettings,
 
             Outputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettings? workspaceSettings)
         {
+            DirectDeploySettings = directDeploySettings;
+            IdentityProviderOauthSettings = identityProviderOauthSettings;
+            KendraSettings = kendraSettings;
             ModelRegisterSettings = modelRegisterSettings;
             TimeSeriesForecastingSettings = timeSeriesForecastingSettings;
             WorkspaceSettings = workspaceSettings;

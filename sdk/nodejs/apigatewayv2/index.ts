@@ -45,6 +45,11 @@ export const getExport: typeof import("./getExport").getExport = null as any;
 export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
 utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
 
+export { GetVpcLinkArgs, GetVpcLinkResult, GetVpcLinkOutputArgs } from "./getVpcLink";
+export const getVpcLink: typeof import("./getVpcLink").getVpcLink = null as any;
+export const getVpcLinkOutput: typeof import("./getVpcLink").getVpcLinkOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcLink","getVpcLinkOutput"], () => require("./getVpcLink"));
+
 export { IntegrationArgs, IntegrationState } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;

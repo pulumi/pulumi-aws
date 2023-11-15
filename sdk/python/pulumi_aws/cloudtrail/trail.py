@@ -642,10 +642,6 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        example_trail = aws.cloudtrail.Trail("exampleTrail",
-            s3_bucket_name=example_bucket_v2.id,
-            s3_key_prefix="prefix",
-            include_global_service_events=False)
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
         current_region = aws.get_region()
@@ -691,6 +687,11 @@ class Trail(pulumi.CustomResource):
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket_v2.id,
             policy=example_policy_document.json)
+        example_trail = aws.cloudtrail.Trail("exampleTrail",
+            s3_bucket_name=example_bucket_v2.id,
+            s3_key_prefix="prefix",
+            include_global_service_events=False,
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
         ### Data Event Logging
 
@@ -757,10 +758,10 @@ class Trail(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudtrails using the `name`. For example:
+        Using `pulumi import`, import Cloudtrails using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+         $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
         ```
 
         :param str resource_name: The name of the resource.
@@ -808,10 +809,6 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_bucket_v2 = aws.s3.BucketV2("exampleBucketV2", force_destroy=True)
-        example_trail = aws.cloudtrail.Trail("exampleTrail",
-            s3_bucket_name=example_bucket_v2.id,
-            s3_key_prefix="prefix",
-            include_global_service_events=False)
         current_caller_identity = aws.get_caller_identity()
         current_partition = aws.get_partition()
         current_region = aws.get_region()
@@ -857,6 +854,11 @@ class Trail(pulumi.CustomResource):
         example_bucket_policy = aws.s3.BucketPolicy("exampleBucketPolicy",
             bucket=example_bucket_v2.id,
             policy=example_policy_document.json)
+        example_trail = aws.cloudtrail.Trail("exampleTrail",
+            s3_bucket_name=example_bucket_v2.id,
+            s3_key_prefix="prefix",
+            include_global_service_events=False,
+            opts=pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
         ### Data Event Logging
 
@@ -923,10 +925,10 @@ class Trail(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Cloudtrails using the `name`. For example:
+        Using `pulumi import`, import Cloudtrails using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+         $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
         ```
 
         :param str resource_name: The name of the resource.

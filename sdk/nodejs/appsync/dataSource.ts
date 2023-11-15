@@ -140,7 +140,7 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly relationalDatabaseConfig!: pulumi.Output<outputs.appsync.DataSourceRelationalDatabaseConfig | undefined>;
     /**
-     * IAM service role ARN for the data source.
+     * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      */
     public readonly serviceRoleArn!: pulumi.Output<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface DataSourceState {
      */
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
     /**
-     * IAM service role ARN for the data source.
+     * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**
@@ -304,7 +304,7 @@ export interface DataSourceArgs {
      */
     relationalDatabaseConfig?: pulumi.Input<inputs.appsync.DataSourceRelationalDatabaseConfig>;
     /**
-     * IAM service role ARN for the data source.
+     * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      */
     serviceRoleArn?: pulumi.Input<string>;
     /**

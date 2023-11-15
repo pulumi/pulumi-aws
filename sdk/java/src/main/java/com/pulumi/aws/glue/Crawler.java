@@ -292,9 +292,17 @@ public class Crawler extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     * 
+     */
     @Export(name="catalogTargets", refs={List.class,CrawlerCatalogTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CrawlerCatalogTarget>> catalogTargets;
 
+    /**
+     * @return List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+     * 
+     */
     public Output<Optional<List<CrawlerCatalogTarget>>> catalogTargets() {
         return Codegen.optional(this.catalogTargets);
     }

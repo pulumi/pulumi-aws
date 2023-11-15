@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### Basic Example
- * 
  * ```java
  * package generated_program;
  * 
@@ -54,7 +53,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testAnomalySubscription = new AnomalySubscription(&#34;testAnomalySubscription&#34;, AnomalySubscriptionArgs.builder()        
- *             .threshold(100)
  *             .frequency(&#34;DAILY&#34;)
  *             .monitorArnLists(testAnomalyMonitor.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()
@@ -165,7 +163,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### SNS Example
- * 
  * ```java
  * package generated_program;
  * 
@@ -248,7 +245,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var realtimeSubscription = new AnomalySubscription(&#34;realtimeSubscription&#34;, AnomalySubscriptionArgs.builder()        
- *             .threshold(0)
  *             .frequency(&#34;IMMEDIATE&#34;)
  *             .monitorArnLists(anomalyMonitor.arn())
  *             .subscribers(AnomalySubscriptionSubscriberArgs.builder()

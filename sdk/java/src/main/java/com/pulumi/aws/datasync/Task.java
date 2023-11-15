@@ -10,6 +10,7 @@ import com.pulumi.aws.datasync.outputs.TaskExcludes;
 import com.pulumi.aws.datasync.outputs.TaskIncludes;
 import com.pulumi.aws.datasync.outputs.TaskOptions;
 import com.pulumi.aws.datasync.outputs.TaskSchedule;
+import com.pulumi.aws.datasync.outputs.TaskTaskReportConfig;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -267,6 +268,20 @@ public class Task extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+     * 
+     */
+    @Export(name="taskReportConfig", refs={TaskTaskReportConfig.class}, tree="[0]")
+    private Output</* @Nullable */ TaskTaskReportConfig> taskReportConfig;
+
+    /**
+     * @return Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+     * 
+     */
+    public Output<Optional<TaskTaskReportConfig>> taskReportConfig() {
+        return Codegen.optional(this.taskReportConfig);
     }
 
     /**

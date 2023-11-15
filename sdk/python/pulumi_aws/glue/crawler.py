@@ -42,6 +42,7 @@ class CrawlerArgs:
         The set of arguments for constructing a Crawler resource.
         :param pulumi.Input[str] database_name: Glue database where results are written.
         :param pulumi.Input[str] role: The IAM role friendly name (including path without leading slash), or ARN of an IAM role, used by the crawler to access other resources.
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[Sequence[pulumi.Input['CrawlerDeltaTargetArgs']]] delta_targets: List of nested Delta Lake target arguments. See Delta Target below.
@@ -132,6 +133,9 @@ class CrawlerArgs:
     @property
     @pulumi.getter(name="catalogTargets")
     def catalog_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]:
+        """
+        List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        """
         return pulumi.get(self, "catalog_targets")
 
     @catalog_targets.setter
@@ -397,6 +401,7 @@ class _CrawlerState:
         """
         Input properties used for looking up and filtering Crawler resources.
         :param pulumi.Input[str] arn: The ARN of the crawler
+        :param pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[str] database_name: Glue database where results are written.
@@ -487,6 +492,9 @@ class _CrawlerState:
     @property
     @pulumi.getter(name="catalogTargets")
     def catalog_targets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CrawlerCatalogTargetArgs']]]]:
+        """
+        List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        """
         return pulumi.get(self, "catalog_targets")
 
     @catalog_targets.setter
@@ -909,6 +917,7 @@ class Crawler(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerCatalogTargetArgs']]]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[str] database_name: Glue database where results are written.
@@ -1173,6 +1182,7 @@ class Crawler(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the crawler
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CrawlerCatalogTargetArgs']]]] catalog_targets: List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] classifiers: List of custom classifiers. By default, all AWS classifiers are included in a crawl, but these custom classifiers always override the default classifiers for a given classification.
         :param pulumi.Input[str] configuration: JSON string of configuration information. For more details see [Setting Crawler Configuration Options](https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html).
         :param pulumi.Input[str] database_name: Glue database where results are written.
@@ -1237,6 +1247,9 @@ class Crawler(pulumi.CustomResource):
     @property
     @pulumi.getter(name="catalogTargets")
     def catalog_targets(self) -> pulumi.Output[Optional[Sequence['outputs.CrawlerCatalogTarget']]]:
+        """
+        List of nested AWS Glue Data Catalog target arguments. See Catalog Target below.
+        """
         return pulumi.get(self, "catalog_targets")
 
     @property

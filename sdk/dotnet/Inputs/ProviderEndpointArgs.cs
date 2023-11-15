@@ -708,6 +708,9 @@ namespace Pulumi.Aws.Inputs
         [Input("ssmincidents")]
         public Input<string>? Ssmincidents { get; set; }
 
+        [Input("sso")]
+        public Input<string>? Sso { get; set; }
+
         [Input("ssoadmin")]
         public Input<string>? Ssoadmin { get; set; }
 

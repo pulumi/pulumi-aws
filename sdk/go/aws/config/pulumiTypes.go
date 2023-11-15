@@ -477,6 +477,7 @@ type Endpoints struct {
 	Ssm                                  *string `pulumi:"ssm"`
 	Ssmcontacts                          *string `pulumi:"ssmcontacts"`
 	Ssmincidents                         *string `pulumi:"ssmincidents"`
+	Sso                                  *string `pulumi:"sso"`
 	Ssoadmin                             *string `pulumi:"ssoadmin"`
 	Stepfunctions                        *string `pulumi:"stepfunctions"`
 	Storagegateway                       *string `pulumi:"storagegateway"`
@@ -741,6 +742,7 @@ type EndpointsArgs struct {
 	Ssm                                  pulumi.StringPtrInput `pulumi:"ssm"`
 	Ssmcontacts                          pulumi.StringPtrInput `pulumi:"ssmcontacts"`
 	Ssmincidents                         pulumi.StringPtrInput `pulumi:"ssmincidents"`
+	Sso                                  pulumi.StringPtrInput `pulumi:"sso"`
 	Ssoadmin                             pulumi.StringPtrInput `pulumi:"ssoadmin"`
 	Stepfunctions                        pulumi.StringPtrInput `pulumi:"stepfunctions"`
 	Storagegateway                       pulumi.StringPtrInput `pulumi:"storagegateway"`
@@ -1738,6 +1740,10 @@ func (o EndpointsOutput) Ssmcontacts() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Ssmincidents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Ssmincidents }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Sso() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Sso }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Ssoadmin() pulumi.StringPtrOutput {

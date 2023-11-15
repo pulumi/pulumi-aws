@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? ContainsHeader { get; set; }
 
         /// <summary>
-        /// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+        /// Enables the custom datatype to be configured.
         /// </summary>
         [Input("customDatatypeConfigured")]
         public Input<bool>? CustomDatatypeConfigured { get; set; }

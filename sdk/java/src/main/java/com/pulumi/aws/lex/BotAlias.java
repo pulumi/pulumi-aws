@@ -92,14 +92,14 @@ public class BotAlias extends com.pulumi.resources.CustomResource {
         return this.botName;
     }
     /**
-     * The name of the bot.
+     * The version of the bot.
      * 
      */
     @Export(name="botVersion", refs={String.class}, tree="[0]")
     private Output<String> botVersion;
 
     /**
-     * @return The name of the bot.
+     * @return The version of the bot.
      * 
      */
     public Output<String> botVersion() {

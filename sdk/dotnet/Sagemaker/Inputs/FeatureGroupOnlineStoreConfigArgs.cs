@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         [Input("securityConfig")]
         public Input<Inputs.FeatureGroupOnlineStoreConfigSecurityConfigArgs>? SecurityConfig { get; set; }
 
+        /// <summary>
+        /// Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
+
+        /// <summary>
+        /// Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+        /// </summary>
+        [Input("ttlDuration")]
+        public Input<Inputs.FeatureGroupOnlineStoreConfigTtlDurationArgs>? TtlDuration { get; set; }
+
         public FeatureGroupOnlineStoreConfigArgs()
         {
         }

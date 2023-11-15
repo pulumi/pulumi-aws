@@ -838,9 +838,17 @@ public class Group extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> forceDelete() {
         return Codegen.optional(this.forceDelete);
     }
+    /**
+     * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     * 
+     */
     @Export(name="forceDeleteWarmPool", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> forceDeleteWarmPool;
 
+    /**
+     * @return Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     * 
+     */
     public Output<Optional<Boolean>> forceDeleteWarmPool() {
         return Codegen.optional(this.forceDeleteWarmPool);
     }

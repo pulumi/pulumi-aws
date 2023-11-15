@@ -4,9 +4,11 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigSecurityConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigTtlDurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -46,11 +48,43 @@ public final class FeatureGroupOnlineStoreConfigArgs extends com.pulumi.resource
         return Optional.ofNullable(this.securityConfig);
     }
 
+    /**
+     * Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+     * 
+     */
+    @Import(name="storageType")
+    private @Nullable Output<String> storageType;
+
+    /**
+     * @return Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+     * 
+     */
+    public Optional<Output<String>> storageType() {
+        return Optional.ofNullable(this.storageType);
+    }
+
+    /**
+     * Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+     * 
+     */
+    @Import(name="ttlDuration")
+    private @Nullable Output<FeatureGroupOnlineStoreConfigTtlDurationArgs> ttlDuration;
+
+    /**
+     * @return Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+     * 
+     */
+    public Optional<Output<FeatureGroupOnlineStoreConfigTtlDurationArgs>> ttlDuration() {
+        return Optional.ofNullable(this.ttlDuration);
+    }
+
     private FeatureGroupOnlineStoreConfigArgs() {}
 
     private FeatureGroupOnlineStoreConfigArgs(FeatureGroupOnlineStoreConfigArgs $) {
         this.enableOnlineStore = $.enableOnlineStore;
         this.securityConfig = $.securityConfig;
+        this.storageType = $.storageType;
+        this.ttlDuration = $.ttlDuration;
     }
 
     public static Builder builder() {
@@ -111,6 +145,48 @@ public final class FeatureGroupOnlineStoreConfigArgs extends com.pulumi.resource
          */
         public Builder securityConfig(FeatureGroupOnlineStoreConfigSecurityConfigArgs securityConfig) {
             return securityConfig(Output.of(securityConfig));
+        }
+
+        /**
+         * @param storageType Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(@Nullable Output<String> storageType) {
+            $.storageType = storageType;
+            return this;
+        }
+
+        /**
+         * @param storageType Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageType(String storageType) {
+            return storageType(Output.of(storageType));
+        }
+
+        /**
+         * @param ttlDuration Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ttlDuration(@Nullable Output<FeatureGroupOnlineStoreConfigTtlDurationArgs> ttlDuration) {
+            $.ttlDuration = ttlDuration;
+            return this;
+        }
+
+        /**
+         * @param ttlDuration Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ttlDuration(FeatureGroupOnlineStoreConfigTtlDurationArgs ttlDuration) {
+            return ttlDuration(Output.of(ttlDuration));
         }
 
         public FeatureGroupOnlineStoreConfigArgs build() {

@@ -13,6 +13,7 @@ from .domain_name import *
 from .get_api import *
 from .get_apis import *
 from .get_export import *
+from .get_vpc_link import *
 from .integration import *
 from .integration_response import *
 from .model import *

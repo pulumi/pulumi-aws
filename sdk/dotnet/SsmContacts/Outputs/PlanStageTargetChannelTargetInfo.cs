@@ -13,7 +13,13 @@ namespace Pulumi.Aws.SsmContacts.Outputs
     [OutputType]
     public sealed class PlanStageTargetChannelTargetInfo
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the contact channel.
+        /// </summary>
         public readonly string ContactChannelId;
+        /// <summary>
+        /// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
+        /// </summary>
         public readonly int? RetryIntervalInMinutes;
 
         [OutputConstructor]

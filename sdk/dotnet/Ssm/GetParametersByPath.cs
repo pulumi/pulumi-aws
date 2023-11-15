@@ -11,65 +11,9 @@ namespace Pulumi.Aws.Ssm
 {
     public static class GetParametersByPath
     {
-        /// <summary>
-        /// Provides SSM Parameters by path.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetParametersByPath.Invoke(new()
-        ///     {
-        ///         Path = "/foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-        /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Task<GetParametersByPathResult> InvokeAsync(GetParametersByPathArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Provides SSM Parameters by path.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var foo = Aws.Ssm.GetParametersByPath.Invoke(new()
-        ///     {
-        ///         Path = "/foo",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-        /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
-        /// {{% /example %}}
-        /// {{% /examples %}}
-        /// </summary>
         public static Output<GetParametersByPathResult> Invoke(GetParametersByPathInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathInvokeArgs(), options.WithDefaults());
     }
@@ -78,21 +22,19 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParametersByPathArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Prefix path of the parameter.
+        /// The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
         /// </summary>
         [Input("path", required: true)]
         public string Path { get; set; } = null!;
 
         /// <summary>
-        /// Whether to recursively return parameters under `path`. Defaults to `false`.
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
+        /// Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
         /// </summary>
         [Input("recursive")]
         public bool? Recursive { get; set; }
 
         /// <summary>
-        /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
         /// </summary>
         [Input("withDecryption")]
         public bool? WithDecryption { get; set; }
@@ -106,21 +48,19 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParametersByPathInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Prefix path of the parameter.
+        /// The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;
 
         /// <summary>
-        /// Whether to recursively return parameters under `path`. Defaults to `false`.
-        /// 
-        /// In addition to all arguments above, the following attributes are exported:
+        /// Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
         /// </summary>
         [Input("recursive")]
         public Input<bool>? Recursive { get; set; }
 
         /// <summary>
-        /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
         /// </summary>
         [Input("withDecryption")]
         public Input<bool>? WithDecryption { get; set; }
@@ -135,15 +75,27 @@ namespace Pulumi.Aws.Ssm
     [OutputType]
     public sealed class GetParametersByPathResult
     {
+        /// <summary>
+        /// A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+        /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A list that contains the names of the retrieved parameters.
+        /// </summary>
         public readonly ImmutableArray<string> Names;
         public readonly string Path;
         public readonly bool? Recursive;
+        /// <summary>
+        /// A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
+        /// </summary>
         public readonly ImmutableArray<string> Types;
+        /// <summary>
+        /// A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
         public readonly bool? WithDecryption;
 

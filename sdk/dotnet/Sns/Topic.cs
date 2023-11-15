@@ -133,10 +133,22 @@ namespace Pulumi.Aws.Sns
         public Output<int?> ApplicationSuccessFeedbackSampleRate { get; private set; } = null!;
 
         /// <summary>
+        /// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+        /// </summary>
+        [Output("archivePolicy")]
+        public Output<string?> ArchivePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the SNS topic, as a more obvious property (clone of id)
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The oldest timestamp at which a FIFO topic subscriber can start a replay.
+        /// </summary>
+        [Output("beginningArchiveTime")]
+        public Output<string> BeginningArchiveTime { get; private set; } = null!;
 
         /// <summary>
         /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -145,7 +157,7 @@ namespace Pulumi.Aws.Sns
         public Output<bool?> ContentBasedDeduplication { get; private set; } = null!;
 
         /// <summary>
-        /// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        /// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         /// </summary>
         [Output("deliveryPolicy")]
         public Output<string?> DeliveryPolicy { get; private set; } = null!;
@@ -357,13 +369,19 @@ namespace Pulumi.Aws.Sns
         public Input<int>? ApplicationSuccessFeedbackSampleRate { get; set; }
 
         /// <summary>
+        /// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+        /// </summary>
+        [Input("archivePolicy")]
+        public Input<string>? ArchivePolicy { get; set; }
+
+        /// <summary>
         /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
         /// </summary>
         [Input("contentBasedDeduplication")]
         public Input<bool>? ContentBasedDeduplication { get; set; }
 
         /// <summary>
-        /// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        /// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         /// </summary>
         [Input("deliveryPolicy")]
         public Input<string>? DeliveryPolicy { get; set; }
@@ -527,10 +545,22 @@ namespace Pulumi.Aws.Sns
         public Input<int>? ApplicationSuccessFeedbackSampleRate { get; set; }
 
         /// <summary>
+        /// The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+        /// </summary>
+        [Input("archivePolicy")]
+        public Input<string>? ArchivePolicy { get; set; }
+
+        /// <summary>
         /// The ARN of the SNS topic, as a more obvious property (clone of id)
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The oldest timestamp at which a FIFO topic subscriber can start a replay.
+        /// </summary>
+        [Input("beginningArchiveTime")]
+        public Input<string>? BeginningArchiveTime { get; set; }
 
         /// <summary>
         /// Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
@@ -539,7 +569,7 @@ namespace Pulumi.Aws.Sns
         public Input<bool>? ContentBasedDeduplication { get; set; }
 
         /// <summary>
-        /// The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        /// The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         /// </summary>
         [Input("deliveryPolicy")]
         public Input<string>? DeliveryPolicy { get; set; }

@@ -3861,6 +3861,317 @@ func (o V2modelsBotDataPrivacyArrayOutput) Index(i pulumi.IntInput) V2modelsBotD
 	}).(V2modelsBotDataPrivacyOutput)
 }
 
+type V2modelsBotLocaleTimeouts struct {
+	Create *string `pulumi:"create"`
+	Delete *string `pulumi:"delete"`
+	Update *string `pulumi:"update"`
+}
+
+// V2modelsBotLocaleTimeoutsInput is an input type that accepts V2modelsBotLocaleTimeoutsArgs and V2modelsBotLocaleTimeoutsOutput values.
+// You can construct a concrete instance of `V2modelsBotLocaleTimeoutsInput` via:
+//
+//	V2modelsBotLocaleTimeoutsArgs{...}
+type V2modelsBotLocaleTimeoutsInput interface {
+	pulumi.Input
+
+	ToV2modelsBotLocaleTimeoutsOutput() V2modelsBotLocaleTimeoutsOutput
+	ToV2modelsBotLocaleTimeoutsOutputWithContext(context.Context) V2modelsBotLocaleTimeoutsOutput
+}
+
+type V2modelsBotLocaleTimeoutsArgs struct {
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (V2modelsBotLocaleTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotLocaleTimeouts)(nil)).Elem()
+}
+
+func (i V2modelsBotLocaleTimeoutsArgs) ToV2modelsBotLocaleTimeoutsOutput() V2modelsBotLocaleTimeoutsOutput {
+	return i.ToV2modelsBotLocaleTimeoutsOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotLocaleTimeoutsArgs) ToV2modelsBotLocaleTimeoutsOutputWithContext(ctx context.Context) V2modelsBotLocaleTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotLocaleTimeoutsOutput)
+}
+
+func (i V2modelsBotLocaleTimeoutsArgs) ToV2modelsBotLocaleTimeoutsPtrOutput() V2modelsBotLocaleTimeoutsPtrOutput {
+	return i.ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotLocaleTimeoutsArgs) ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotLocaleTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotLocaleTimeoutsOutput).ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(ctx)
+}
+
+// V2modelsBotLocaleTimeoutsPtrInput is an input type that accepts V2modelsBotLocaleTimeoutsArgs, V2modelsBotLocaleTimeoutsPtr and V2modelsBotLocaleTimeoutsPtrOutput values.
+// You can construct a concrete instance of `V2modelsBotLocaleTimeoutsPtrInput` via:
+//
+//	        V2modelsBotLocaleTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsBotLocaleTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToV2modelsBotLocaleTimeoutsPtrOutput() V2modelsBotLocaleTimeoutsPtrOutput
+	ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(context.Context) V2modelsBotLocaleTimeoutsPtrOutput
+}
+
+type v2modelsBotLocaleTimeoutsPtrType V2modelsBotLocaleTimeoutsArgs
+
+func V2modelsBotLocaleTimeoutsPtr(v *V2modelsBotLocaleTimeoutsArgs) V2modelsBotLocaleTimeoutsPtrInput {
+	return (*v2modelsBotLocaleTimeoutsPtrType)(v)
+}
+
+func (*v2modelsBotLocaleTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsBotLocaleTimeouts)(nil)).Elem()
+}
+
+func (i *v2modelsBotLocaleTimeoutsPtrType) ToV2modelsBotLocaleTimeoutsPtrOutput() V2modelsBotLocaleTimeoutsPtrOutput {
+	return i.ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsBotLocaleTimeoutsPtrType) ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotLocaleTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotLocaleTimeoutsPtrOutput)
+}
+
+type V2modelsBotLocaleTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotLocaleTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotLocaleTimeouts)(nil)).Elem()
+}
+
+func (o V2modelsBotLocaleTimeoutsOutput) ToV2modelsBotLocaleTimeoutsOutput() V2modelsBotLocaleTimeoutsOutput {
+	return o
+}
+
+func (o V2modelsBotLocaleTimeoutsOutput) ToV2modelsBotLocaleTimeoutsOutputWithContext(ctx context.Context) V2modelsBotLocaleTimeoutsOutput {
+	return o
+}
+
+func (o V2modelsBotLocaleTimeoutsOutput) ToV2modelsBotLocaleTimeoutsPtrOutput() V2modelsBotLocaleTimeoutsPtrOutput {
+	return o.ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsBotLocaleTimeoutsOutput) ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotLocaleTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsBotLocaleTimeouts) *V2modelsBotLocaleTimeouts {
+		return &v
+	}).(V2modelsBotLocaleTimeoutsPtrOutput)
+}
+
+func (o V2modelsBotLocaleTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotLocaleTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotLocaleTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotLocaleTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotLocaleTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotLocaleTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type V2modelsBotLocaleTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotLocaleTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsBotLocaleTimeouts)(nil)).Elem()
+}
+
+func (o V2modelsBotLocaleTimeoutsPtrOutput) ToV2modelsBotLocaleTimeoutsPtrOutput() V2modelsBotLocaleTimeoutsPtrOutput {
+	return o
+}
+
+func (o V2modelsBotLocaleTimeoutsPtrOutput) ToV2modelsBotLocaleTimeoutsPtrOutputWithContext(ctx context.Context) V2modelsBotLocaleTimeoutsPtrOutput {
+	return o
+}
+
+func (o V2modelsBotLocaleTimeoutsPtrOutput) Elem() V2modelsBotLocaleTimeoutsOutput {
+	return o.ApplyT(func(v *V2modelsBotLocaleTimeouts) V2modelsBotLocaleTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsBotLocaleTimeouts
+		return ret
+	}).(V2modelsBotLocaleTimeoutsOutput)
+}
+
+func (o V2modelsBotLocaleTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotLocaleTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotLocaleTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotLocaleTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotLocaleTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotLocaleTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
+type V2modelsBotLocaleVoiceSettings struct {
+	Engine  *string `pulumi:"engine"`
+	VoiceId string  `pulumi:"voiceId"`
+}
+
+// V2modelsBotLocaleVoiceSettingsInput is an input type that accepts V2modelsBotLocaleVoiceSettingsArgs and V2modelsBotLocaleVoiceSettingsOutput values.
+// You can construct a concrete instance of `V2modelsBotLocaleVoiceSettingsInput` via:
+//
+//	V2modelsBotLocaleVoiceSettingsArgs{...}
+type V2modelsBotLocaleVoiceSettingsInput interface {
+	pulumi.Input
+
+	ToV2modelsBotLocaleVoiceSettingsOutput() V2modelsBotLocaleVoiceSettingsOutput
+	ToV2modelsBotLocaleVoiceSettingsOutputWithContext(context.Context) V2modelsBotLocaleVoiceSettingsOutput
+}
+
+type V2modelsBotLocaleVoiceSettingsArgs struct {
+	Engine  pulumi.StringPtrInput `pulumi:"engine"`
+	VoiceId pulumi.StringInput    `pulumi:"voiceId"`
+}
+
+func (V2modelsBotLocaleVoiceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotLocaleVoiceSettings)(nil)).Elem()
+}
+
+func (i V2modelsBotLocaleVoiceSettingsArgs) ToV2modelsBotLocaleVoiceSettingsOutput() V2modelsBotLocaleVoiceSettingsOutput {
+	return i.ToV2modelsBotLocaleVoiceSettingsOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotLocaleVoiceSettingsArgs) ToV2modelsBotLocaleVoiceSettingsOutputWithContext(ctx context.Context) V2modelsBotLocaleVoiceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotLocaleVoiceSettingsOutput)
+}
+
+func (i V2modelsBotLocaleVoiceSettingsArgs) ToV2modelsBotLocaleVoiceSettingsPtrOutput() V2modelsBotLocaleVoiceSettingsPtrOutput {
+	return i.ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i V2modelsBotLocaleVoiceSettingsArgs) ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(ctx context.Context) V2modelsBotLocaleVoiceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotLocaleVoiceSettingsOutput).ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(ctx)
+}
+
+// V2modelsBotLocaleVoiceSettingsPtrInput is an input type that accepts V2modelsBotLocaleVoiceSettingsArgs, V2modelsBotLocaleVoiceSettingsPtr and V2modelsBotLocaleVoiceSettingsPtrOutput values.
+// You can construct a concrete instance of `V2modelsBotLocaleVoiceSettingsPtrInput` via:
+//
+//	        V2modelsBotLocaleVoiceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type V2modelsBotLocaleVoiceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToV2modelsBotLocaleVoiceSettingsPtrOutput() V2modelsBotLocaleVoiceSettingsPtrOutput
+	ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(context.Context) V2modelsBotLocaleVoiceSettingsPtrOutput
+}
+
+type v2modelsBotLocaleVoiceSettingsPtrType V2modelsBotLocaleVoiceSettingsArgs
+
+func V2modelsBotLocaleVoiceSettingsPtr(v *V2modelsBotLocaleVoiceSettingsArgs) V2modelsBotLocaleVoiceSettingsPtrInput {
+	return (*v2modelsBotLocaleVoiceSettingsPtrType)(v)
+}
+
+func (*v2modelsBotLocaleVoiceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsBotLocaleVoiceSettings)(nil)).Elem()
+}
+
+func (i *v2modelsBotLocaleVoiceSettingsPtrType) ToV2modelsBotLocaleVoiceSettingsPtrOutput() V2modelsBotLocaleVoiceSettingsPtrOutput {
+	return i.ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *v2modelsBotLocaleVoiceSettingsPtrType) ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(ctx context.Context) V2modelsBotLocaleVoiceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(V2modelsBotLocaleVoiceSettingsPtrOutput)
+}
+
+type V2modelsBotLocaleVoiceSettingsOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotLocaleVoiceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*V2modelsBotLocaleVoiceSettings)(nil)).Elem()
+}
+
+func (o V2modelsBotLocaleVoiceSettingsOutput) ToV2modelsBotLocaleVoiceSettingsOutput() V2modelsBotLocaleVoiceSettingsOutput {
+	return o
+}
+
+func (o V2modelsBotLocaleVoiceSettingsOutput) ToV2modelsBotLocaleVoiceSettingsOutputWithContext(ctx context.Context) V2modelsBotLocaleVoiceSettingsOutput {
+	return o
+}
+
+func (o V2modelsBotLocaleVoiceSettingsOutput) ToV2modelsBotLocaleVoiceSettingsPtrOutput() V2modelsBotLocaleVoiceSettingsPtrOutput {
+	return o.ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o V2modelsBotLocaleVoiceSettingsOutput) ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(ctx context.Context) V2modelsBotLocaleVoiceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v V2modelsBotLocaleVoiceSettings) *V2modelsBotLocaleVoiceSettings {
+		return &v
+	}).(V2modelsBotLocaleVoiceSettingsPtrOutput)
+}
+
+func (o V2modelsBotLocaleVoiceSettingsOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v V2modelsBotLocaleVoiceSettings) *string { return v.Engine }).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotLocaleVoiceSettingsOutput) VoiceId() pulumi.StringOutput {
+	return o.ApplyT(func(v V2modelsBotLocaleVoiceSettings) string { return v.VoiceId }).(pulumi.StringOutput)
+}
+
+type V2modelsBotLocaleVoiceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (V2modelsBotLocaleVoiceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**V2modelsBotLocaleVoiceSettings)(nil)).Elem()
+}
+
+func (o V2modelsBotLocaleVoiceSettingsPtrOutput) ToV2modelsBotLocaleVoiceSettingsPtrOutput() V2modelsBotLocaleVoiceSettingsPtrOutput {
+	return o
+}
+
+func (o V2modelsBotLocaleVoiceSettingsPtrOutput) ToV2modelsBotLocaleVoiceSettingsPtrOutputWithContext(ctx context.Context) V2modelsBotLocaleVoiceSettingsPtrOutput {
+	return o
+}
+
+func (o V2modelsBotLocaleVoiceSettingsPtrOutput) Elem() V2modelsBotLocaleVoiceSettingsOutput {
+	return o.ApplyT(func(v *V2modelsBotLocaleVoiceSettings) V2modelsBotLocaleVoiceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret V2modelsBotLocaleVoiceSettings
+		return ret
+	}).(V2modelsBotLocaleVoiceSettingsOutput)
+}
+
+func (o V2modelsBotLocaleVoiceSettingsPtrOutput) Engine() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotLocaleVoiceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Engine
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o V2modelsBotLocaleVoiceSettingsPtrOutput) VoiceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *V2modelsBotLocaleVoiceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VoiceId
+	}).(pulumi.StringPtrOutput)
+}
+
 type V2modelsBotMember struct {
 	// (Required) - Alias ID of a bot that is a member of this network of bots.
 	AliasId string `pulumi:"aliasId"`
@@ -4310,6 +4621,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotTypeEnumerationValueArrayInput)(nil)).Elem(), SlotTypeEnumerationValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotDataPrivacyInput)(nil)).Elem(), V2modelsBotDataPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotDataPrivacyArrayInput)(nil)).Elem(), V2modelsBotDataPrivacyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotLocaleTimeoutsInput)(nil)).Elem(), V2modelsBotLocaleTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotLocaleTimeoutsPtrInput)(nil)).Elem(), V2modelsBotLocaleTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotLocaleVoiceSettingsInput)(nil)).Elem(), V2modelsBotLocaleVoiceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotLocaleVoiceSettingsPtrInput)(nil)).Elem(), V2modelsBotLocaleVoiceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotMemberInput)(nil)).Elem(), V2modelsBotMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotMemberArrayInput)(nil)).Elem(), V2modelsBotMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*V2modelsBotTimeoutsInput)(nil)).Elem(), V2modelsBotTimeoutsArgs{})
@@ -4368,6 +4683,10 @@ func init() {
 	pulumi.RegisterOutputType(SlotTypeEnumerationValueArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsBotDataPrivacyOutput{})
 	pulumi.RegisterOutputType(V2modelsBotDataPrivacyArrayOutput{})
+	pulumi.RegisterOutputType(V2modelsBotLocaleTimeoutsOutput{})
+	pulumi.RegisterOutputType(V2modelsBotLocaleTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(V2modelsBotLocaleVoiceSettingsOutput{})
+	pulumi.RegisterOutputType(V2modelsBotLocaleVoiceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(V2modelsBotMemberOutput{})
 	pulumi.RegisterOutputType(V2modelsBotMemberArrayOutput{})
 	pulumi.RegisterOutputType(V2modelsBotTimeoutsOutput{})

@@ -4,6 +4,7 @@
 package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.ModelContainerImageConfigArgs;
+import com.pulumi.aws.sagemaker.inputs.ModelContainerModelDataSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -95,6 +96,21 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+     * 
+     */
+    @Import(name="modelDataSource")
+    private @Nullable Output<ModelContainerModelDataSourceArgs> modelDataSource;
+
+    /**
+     * @return The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+     * 
+     */
+    public Optional<Output<ModelContainerModelDataSourceArgs>> modelDataSource() {
+        return Optional.ofNullable(this.modelDataSource);
+    }
+
+    /**
      * The URL for the S3 location where model artifacts are stored.
      * 
      */
@@ -132,6 +148,7 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
         this.image = $.image;
         this.imageConfig = $.imageConfig;
         this.mode = $.mode;
+        this.modelDataSource = $.modelDataSource;
         this.modelDataUrl = $.modelDataUrl;
         this.modelPackageName = $.modelPackageName;
     }
@@ -259,6 +276,27 @@ public final class ModelContainerArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
+        }
+
+        /**
+         * @param modelDataSource The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelDataSource(@Nullable Output<ModelContainerModelDataSourceArgs> modelDataSource) {
+            $.modelDataSource = modelDataSource;
+            return this;
+        }
+
+        /**
+         * @param modelDataSource The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder modelDataSource(ModelContainerModelDataSourceArgs modelDataSource) {
+            return modelDataSource(Output.of(modelDataSource));
         }
 
         /**

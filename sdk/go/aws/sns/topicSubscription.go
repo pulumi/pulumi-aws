@@ -329,6 +329,8 @@ type TopicSubscription struct {
 	RawMessageDelivery pulumi.BoolPtrOutput `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrOutput `pulumi:"redrivePolicy"`
+	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+	ReplayPolicy pulumi.StringPtrOutput `pulumi:"replayPolicy"`
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn pulumi.StringPtrOutput `pulumi:"subscriptionRoleArn"`
 	// ARN of the SNS topic to subscribe to.
@@ -402,6 +404,8 @@ type topicSubscriptionState struct {
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
+	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+	ReplayPolicy *string `pulumi:"replayPolicy"`
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn *string `pulumi:"subscriptionRoleArn"`
 	// ARN of the SNS topic to subscribe to.
@@ -437,6 +441,8 @@ type TopicSubscriptionState struct {
 	RawMessageDelivery pulumi.BoolPtrInput
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrInput
+	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+	ReplayPolicy pulumi.StringPtrInput
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn pulumi.StringPtrInput
 	// ARN of the SNS topic to subscribe to.
@@ -468,6 +474,8 @@ type topicSubscriptionArgs struct {
 	RawMessageDelivery *bool `pulumi:"rawMessageDelivery"`
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy *string `pulumi:"redrivePolicy"`
+	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+	ReplayPolicy *string `pulumi:"replayPolicy"`
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn *string `pulumi:"subscriptionRoleArn"`
 	// ARN of the SNS topic to subscribe to.
@@ -496,6 +504,8 @@ type TopicSubscriptionArgs struct {
 	RawMessageDelivery pulumi.BoolPtrInput
 	// JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 	RedrivePolicy pulumi.StringPtrInput
+	// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+	ReplayPolicy pulumi.StringPtrInput
 	// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
 	SubscriptionRoleArn pulumi.StringPtrInput
 	// ARN of the SNS topic to subscribe to.
@@ -654,6 +664,11 @@ func (o TopicSubscriptionOutput) RawMessageDelivery() pulumi.BoolPtrOutput {
 // JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
 func (o TopicSubscriptionOutput) RedrivePolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.RedrivePolicy }).(pulumi.StringPtrOutput)
+}
+
+// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+func (o TopicSubscriptionOutput) ReplayPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicSubscription) pulumi.StringPtrOutput { return v.ReplayPolicy }).(pulumi.StringPtrOutput)
 }
 
 // ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).

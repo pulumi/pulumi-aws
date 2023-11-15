@@ -267,7 +267,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .predefinedLoadMetricSpecification(PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs.builder()
  *                         .predefinedMetricType(&#34;ASGTotalCPUUtilization&#34;)
- *                         .resourceLabel(&#34;testLabel&#34;)
+ *                         .resourceLabel(&#34;app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff&#34;)
  *                         .build())
  *                     .targetValue(10)
  *                     .build())
