@@ -169,7 +169,7 @@ import * as utilities from "../utilities";
  *             },
  *             predefinedLoadMetricSpecification: {
  *                 predefinedMetricType: "ASGTotalCPUUtilization",
- *                 resourceLabel: "testLabel",
+ *                 resourceLabel: "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
  *             },
  *             targetValue: 10,
  *         },

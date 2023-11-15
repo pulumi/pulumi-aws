@@ -151,8 +151,10 @@ func (o ContactChannelDeliveryAddressPtrOutput) SimpleAddress() pulumi.StringPtr
 }
 
 type PlanStage struct {
-	DurationInMinutes int               `pulumi:"durationInMinutes"`
-	Targets           []PlanStageTarget `pulumi:"targets"`
+	// The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+	DurationInMinutes int `pulumi:"durationInMinutes"`
+	// One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+	Targets []PlanStageTarget `pulumi:"targets"`
 }
 
 // PlanStageInput is an input type that accepts PlanStageArgs and PlanStageOutput values.
@@ -167,8 +169,10 @@ type PlanStageInput interface {
 }
 
 type PlanStageArgs struct {
-	DurationInMinutes pulumi.IntInput           `pulumi:"durationInMinutes"`
-	Targets           PlanStageTargetArrayInput `pulumi:"targets"`
+	// The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+	DurationInMinutes pulumi.IntInput `pulumi:"durationInMinutes"`
+	// One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+	Targets PlanStageTargetArrayInput `pulumi:"targets"`
 }
 
 func (PlanStageArgs) ElementType() reflect.Type {
@@ -222,10 +226,12 @@ func (o PlanStageOutput) ToPlanStageOutputWithContext(ctx context.Context) PlanS
 	return o
 }
 
+// The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
 func (o PlanStageOutput) DurationInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v PlanStage) int { return v.DurationInMinutes }).(pulumi.IntOutput)
 }
 
+// One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
 func (o PlanStageOutput) Targets() PlanStageTargetArrayOutput {
 	return o.ApplyT(func(v PlanStage) []PlanStageTarget { return v.Targets }).(PlanStageTargetArrayOutput)
 }
@@ -251,7 +257,9 @@ func (o PlanStageArrayOutput) Index(i pulumi.IntInput) PlanStageOutput {
 }
 
 type PlanStageTarget struct {
+	// A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
 	ChannelTargetInfo *PlanStageTargetChannelTargetInfo `pulumi:"channelTargetInfo"`
+	// A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
 	ContactTargetInfo *PlanStageTargetContactTargetInfo `pulumi:"contactTargetInfo"`
 }
 
@@ -267,7 +275,9 @@ type PlanStageTargetInput interface {
 }
 
 type PlanStageTargetArgs struct {
+	// A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
 	ChannelTargetInfo PlanStageTargetChannelTargetInfoPtrInput `pulumi:"channelTargetInfo"`
+	// A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
 	ContactTargetInfo PlanStageTargetContactTargetInfoPtrInput `pulumi:"contactTargetInfo"`
 }
 
@@ -322,10 +332,12 @@ func (o PlanStageTargetOutput) ToPlanStageTargetOutputWithContext(ctx context.Co
 	return o
 }
 
+// A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
 func (o PlanStageTargetOutput) ChannelTargetInfo() PlanStageTargetChannelTargetInfoPtrOutput {
 	return o.ApplyT(func(v PlanStageTarget) *PlanStageTargetChannelTargetInfo { return v.ChannelTargetInfo }).(PlanStageTargetChannelTargetInfoPtrOutput)
 }
 
+// A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
 func (o PlanStageTargetOutput) ContactTargetInfo() PlanStageTargetContactTargetInfoPtrOutput {
 	return o.ApplyT(func(v PlanStageTarget) *PlanStageTargetContactTargetInfo { return v.ContactTargetInfo }).(PlanStageTargetContactTargetInfoPtrOutput)
 }
@@ -351,8 +363,10 @@ func (o PlanStageTargetArrayOutput) Index(i pulumi.IntInput) PlanStageTargetOutp
 }
 
 type PlanStageTargetChannelTargetInfo struct {
-	ContactChannelId       string `pulumi:"contactChannelId"`
-	RetryIntervalInMinutes *int   `pulumi:"retryIntervalInMinutes"`
+	// The Amazon Resource Name (ARN) of the contact channel.
+	ContactChannelId string `pulumi:"contactChannelId"`
+	// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
+	RetryIntervalInMinutes *int `pulumi:"retryIntervalInMinutes"`
 }
 
 // PlanStageTargetChannelTargetInfoInput is an input type that accepts PlanStageTargetChannelTargetInfoArgs and PlanStageTargetChannelTargetInfoOutput values.
@@ -367,7 +381,9 @@ type PlanStageTargetChannelTargetInfoInput interface {
 }
 
 type PlanStageTargetChannelTargetInfoArgs struct {
-	ContactChannelId       pulumi.StringInput `pulumi:"contactChannelId"`
+	// The Amazon Resource Name (ARN) of the contact channel.
+	ContactChannelId pulumi.StringInput `pulumi:"contactChannelId"`
+	// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
 	RetryIntervalInMinutes pulumi.IntPtrInput `pulumi:"retryIntervalInMinutes"`
 }
 
@@ -448,10 +464,12 @@ func (o PlanStageTargetChannelTargetInfoOutput) ToPlanStageTargetChannelTargetIn
 	}).(PlanStageTargetChannelTargetInfoPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the contact channel.
 func (o PlanStageTargetChannelTargetInfoOutput) ContactChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanStageTargetChannelTargetInfo) string { return v.ContactChannelId }).(pulumi.StringOutput)
 }
 
+// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
 func (o PlanStageTargetChannelTargetInfoOutput) RetryIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PlanStageTargetChannelTargetInfo) *int { return v.RetryIntervalInMinutes }).(pulumi.IntPtrOutput)
 }
@@ -480,6 +498,7 @@ func (o PlanStageTargetChannelTargetInfoPtrOutput) Elem() PlanStageTargetChannel
 	}).(PlanStageTargetChannelTargetInfoOutput)
 }
 
+// The Amazon Resource Name (ARN) of the contact channel.
 func (o PlanStageTargetChannelTargetInfoPtrOutput) ContactChannelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanStageTargetChannelTargetInfo) *string {
 		if v == nil {
@@ -489,6 +508,7 @@ func (o PlanStageTargetChannelTargetInfoPtrOutput) ContactChannelId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
 func (o PlanStageTargetChannelTargetInfoPtrOutput) RetryIntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PlanStageTargetChannelTargetInfo) *int {
 		if v == nil {
@@ -499,9 +519,10 @@ func (o PlanStageTargetChannelTargetInfoPtrOutput) RetryIntervalInMinutes() pulu
 }
 
 type PlanStageTargetContactTargetInfo struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId   *string `pulumi:"contactId"`
-	IsEssential bool    `pulumi:"isEssential"`
+	// The Amazon Resource Name (ARN) of the contact.
+	ContactId *string `pulumi:"contactId"`
+	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+	IsEssential bool `pulumi:"isEssential"`
 }
 
 // PlanStageTargetContactTargetInfoInput is an input type that accepts PlanStageTargetContactTargetInfoArgs and PlanStageTargetContactTargetInfoOutput values.
@@ -516,9 +537,10 @@ type PlanStageTargetContactTargetInfoInput interface {
 }
 
 type PlanStageTargetContactTargetInfoArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
-	ContactId   pulumi.StringPtrInput `pulumi:"contactId"`
-	IsEssential pulumi.BoolInput      `pulumi:"isEssential"`
+	// The Amazon Resource Name (ARN) of the contact.
+	ContactId pulumi.StringPtrInput `pulumi:"contactId"`
+	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+	IsEssential pulumi.BoolInput `pulumi:"isEssential"`
 }
 
 func (PlanStageTargetContactTargetInfoArgs) ElementType() reflect.Type {
@@ -598,11 +620,12 @@ func (o PlanStageTargetContactTargetInfoOutput) ToPlanStageTargetContactTargetIn
 	}).(PlanStageTargetContactTargetInfoPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the contact or escalation plan.
+// The Amazon Resource Name (ARN) of the contact.
 func (o PlanStageTargetContactTargetInfoOutput) ContactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanStageTargetContactTargetInfo) *string { return v.ContactId }).(pulumi.StringPtrOutput)
 }
 
+// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
 func (o PlanStageTargetContactTargetInfoOutput) IsEssential() pulumi.BoolOutput {
 	return o.ApplyT(func(v PlanStageTargetContactTargetInfo) bool { return v.IsEssential }).(pulumi.BoolOutput)
 }
@@ -631,7 +654,7 @@ func (o PlanStageTargetContactTargetInfoPtrOutput) Elem() PlanStageTargetContact
 	}).(PlanStageTargetContactTargetInfoOutput)
 }
 
-// The Amazon Resource Name (ARN) of the contact or escalation plan.
+// The Amazon Resource Name (ARN) of the contact.
 func (o PlanStageTargetContactTargetInfoPtrOutput) ContactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanStageTargetContactTargetInfo) *string {
 		if v == nil {
@@ -641,6 +664,7 @@ func (o PlanStageTargetContactTargetInfoPtrOutput) ContactId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
 func (o PlanStageTargetContactTargetInfoPtrOutput) IsEssential() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PlanStageTargetContactTargetInfo) *bool {
 		if v == nil {

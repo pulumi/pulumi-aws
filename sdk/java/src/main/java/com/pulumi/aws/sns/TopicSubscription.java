@@ -443,6 +443,20 @@ public class TopicSubscription extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.redrivePolicy);
     }
     /**
+     * JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+     * 
+     */
+    @Export(name="replayPolicy", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> replayPolicy;
+
+    /**
+     * @return JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+     * 
+     */
+    public Output<Optional<String>> replayPolicy() {
+        return Codegen.optional(this.replayPolicy);
+    }
+    /**
      * ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
      * 
      */

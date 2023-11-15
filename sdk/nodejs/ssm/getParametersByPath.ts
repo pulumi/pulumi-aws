@@ -4,23 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * Provides SSM Parameters by path.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.ssm.getParametersByPath({
- *     path: "/foo",
- * });
- * ```
- *
- * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
- * **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
- */
 export function getParametersByPath(args: GetParametersByPathArgs, opts?: pulumi.InvokeOptions): Promise<GetParametersByPathResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,17 +19,15 @@ export function getParametersByPath(args: GetParametersByPathArgs, opts?: pulumi
  */
 export interface GetParametersByPathArgs {
     /**
-     * Prefix path of the parameter.
+     * The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
      */
     path: string;
     /**
-     * Whether to recursively return parameters under `path`. Defaults to `false`.
-     *
-     * In addition to all arguments above, the following attributes are exported:
+     * Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
      */
     recursive?: boolean;
     /**
-     * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
      */
     withDecryption?: boolean;
 }
@@ -55,35 +36,30 @@ export interface GetParametersByPathArgs {
  * A collection of values returned by getParametersByPath.
  */
 export interface GetParametersByPathResult {
+    /**
+     * A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+     */
     readonly arns: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A list that contains the names of the retrieved parameters.
+     */
     readonly names: string[];
     readonly path: string;
     readonly recursive?: boolean;
+    /**
+     * A list that contains the types (`String`, `StringList`, or `SecureString`) of retrieved parameters.
+     */
     readonly types: string[];
+    /**
+     * A list that contains the retrieved parameter values. **Note:** This value is always marked as sensitive in the pulumi preview output, regardless of whether any retrieved parameters are of `SecureString` type. Use the `nonsensitive` function to override the behavior at your own risk and discretion, if you are certain that there are no sensitive values being retrieved.
+     */
     readonly values: string[];
     readonly withDecryption?: boolean;
 }
-/**
- * Provides SSM Parameters by path.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = aws.ssm.getParametersByPath({
- *     path: "/foo",
- * });
- * ```
- *
- * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
- * **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For type `StringList`, we can use the built-in split() function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
- */
 export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParametersByPathResult> {
     return pulumi.output(args).apply((a: any) => getParametersByPath(a, opts))
 }
@@ -93,17 +69,15 @@ export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, o
  */
 export interface GetParametersByPathOutputArgs {
     /**
-     * Prefix path of the parameter.
+     * The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
      */
     path: pulumi.Input<string>;
     /**
-     * Whether to recursively return parameters under `path`. Defaults to `false`.
-     *
-     * In addition to all arguments above, the following attributes are exported:
+     * Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
      */
     recursive?: pulumi.Input<boolean>;
     /**
-     * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     * Whether to retrieve all parameters in the hierarchy, particularly those of `SecureString` type, with their value decrypted. Defaults to `true`.
      */
     withDecryption?: pulumi.Input<boolean>;
 }

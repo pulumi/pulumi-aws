@@ -122,7 +122,7 @@ export class Plan extends pulumi.CustomResource {
      */
     public readonly contactId!: pulumi.Output<string>;
     /**
-     * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */
     public readonly stages!: pulumi.Output<outputs.ssmcontacts.PlanStage[]>;
 
@@ -166,7 +166,7 @@ export interface PlanState {
      */
     contactId?: pulumi.Input<string>;
     /**
-     * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */
     stages?: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStage>[]>;
 }
@@ -180,7 +180,7 @@ export interface PlanArgs {
      */
     contactId: pulumi.Input<string>;
     /**
-     * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      */
     stages: pulumi.Input<pulumi.Input<inputs.ssmcontacts.PlanStage>[]>;
 }

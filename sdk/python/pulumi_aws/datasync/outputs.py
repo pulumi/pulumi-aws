@@ -31,6 +31,9 @@ __all__ = [
     'TaskIncludes',
     'TaskOptions',
     'TaskSchedule',
+    'TaskTaskReportConfig',
+    'TaskTaskReportConfigReportOverrides',
+    'TaskTaskReportConfigS3Destination',
 ]
 
 @pulumi.output_type
@@ -884,5 +887,234 @@ class TaskSchedule(dict):
         Specifies the schedule you want your task to use for repeated executions. For more information, see [Schedule Expressions for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html).
         """
         return pulumi.get(self, "schedule_expression")
+
+
+@pulumi.output_type
+class TaskTaskReportConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Destination":
+            suggest = "s3_destination"
+        elif key == "outputType":
+            suggest = "output_type"
+        elif key == "reportLevel":
+            suggest = "report_level"
+        elif key == "reportOverrides":
+            suggest = "report_overrides"
+        elif key == "s3ObjectVersioning":
+            suggest = "s3_object_versioning"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskTaskReportConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskTaskReportConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskTaskReportConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_destination: 'outputs.TaskTaskReportConfigS3Destination',
+                 output_type: Optional[str] = None,
+                 report_level: Optional[str] = None,
+                 report_overrides: Optional['outputs.TaskTaskReportConfigReportOverrides'] = None,
+                 s3_object_versioning: Optional[str] = None):
+        """
+        :param 'TaskTaskReportConfigS3DestinationArgs' s3_destination: Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3_destination` below.
+        :param str output_type: Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+        :param str report_level: Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        :param 'TaskTaskReportConfigReportOverridesArgs' report_overrides: Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
+        :param str s3_object_versioning: Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+        """
+        pulumi.set(__self__, "s3_destination", s3_destination)
+        if output_type is not None:
+            pulumi.set(__self__, "output_type", output_type)
+        if report_level is not None:
+            pulumi.set(__self__, "report_level", report_level)
+        if report_overrides is not None:
+            pulumi.set(__self__, "report_overrides", report_overrides)
+        if s3_object_versioning is not None:
+            pulumi.set(__self__, "s3_object_versioning", s3_object_versioning)
+
+    @property
+    @pulumi.getter(name="s3Destination")
+    def s3_destination(self) -> 'outputs.TaskTaskReportConfigS3Destination':
+        """
+        Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3_destination` below.
+        """
+        return pulumi.get(self, "s3_destination")
+
+    @property
+    @pulumi.getter(name="outputType")
+    def output_type(self) -> Optional[str]:
+        """
+        Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+        """
+        return pulumi.get(self, "output_type")
+
+    @property
+    @pulumi.getter(name="reportLevel")
+    def report_level(self) -> Optional[str]:
+        """
+        Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        """
+        return pulumi.get(self, "report_level")
+
+    @property
+    @pulumi.getter(name="reportOverrides")
+    def report_overrides(self) -> Optional['outputs.TaskTaskReportConfigReportOverrides']:
+        """
+        Configuration block containing the configuration of the reporting level for aspects of your task report. See `report_overrides` below.
+        """
+        return pulumi.get(self, "report_overrides")
+
+    @property
+    @pulumi.getter(name="s3ObjectVersioning")
+    def s3_object_versioning(self) -> Optional[str]:
+        """
+        Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+        """
+        return pulumi.get(self, "s3_object_versioning")
+
+
+@pulumi.output_type
+class TaskTaskReportConfigReportOverrides(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletedOverride":
+            suggest = "deleted_override"
+        elif key == "skippedOverride":
+            suggest = "skipped_override"
+        elif key == "transferredOverride":
+            suggest = "transferred_override"
+        elif key == "verifiedOverride":
+            suggest = "verified_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskTaskReportConfigReportOverrides. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskTaskReportConfigReportOverrides.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskTaskReportConfigReportOverrides.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deleted_override: Optional[str] = None,
+                 skipped_override: Optional[str] = None,
+                 transferred_override: Optional[str] = None,
+                 verified_override: Optional[str] = None):
+        """
+        :param str deleted_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        :param str skipped_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        :param str transferred_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        :param str verified_override: Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        """
+        if deleted_override is not None:
+            pulumi.set(__self__, "deleted_override", deleted_override)
+        if skipped_override is not None:
+            pulumi.set(__self__, "skipped_override", skipped_override)
+        if transferred_override is not None:
+            pulumi.set(__self__, "transferred_override", transferred_override)
+        if verified_override is not None:
+            pulumi.set(__self__, "verified_override", verified_override)
+
+    @property
+    @pulumi.getter(name="deletedOverride")
+    def deleted_override(self) -> Optional[str]:
+        """
+        Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        """
+        return pulumi.get(self, "deleted_override")
+
+    @property
+    @pulumi.getter(name="skippedOverride")
+    def skipped_override(self) -> Optional[str]:
+        """
+        Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        """
+        return pulumi.get(self, "skipped_override")
+
+    @property
+    @pulumi.getter(name="transferredOverride")
+    def transferred_override(self) -> Optional[str]:
+        """
+        Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        """
+        return pulumi.get(self, "transferred_override")
+
+    @property
+    @pulumi.getter(name="verifiedOverride")
+    def verified_override(self) -> Optional[str]:
+        """
+        Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+        """
+        return pulumi.get(self, "verified_override")
+
+
+@pulumi.output_type
+class TaskTaskReportConfigS3Destination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketAccessRoleArn":
+            suggest = "bucket_access_role_arn"
+        elif key == "s3BucketArn":
+            suggest = "s3_bucket_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskTaskReportConfigS3Destination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskTaskReportConfigS3Destination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskTaskReportConfigS3Destination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_access_role_arn: str,
+                 s3_bucket_arn: str,
+                 subdirectory: Optional[str] = None):
+        """
+        :param str bucket_access_role_arn: Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+        :param str s3_bucket_arn: Specifies the ARN of the S3 bucket where DataSync uploads your report.
+        :param str subdirectory: Specifies a bucket prefix for your report.
+        """
+        pulumi.set(__self__, "bucket_access_role_arn", bucket_access_role_arn)
+        pulumi.set(__self__, "s3_bucket_arn", s3_bucket_arn)
+        if subdirectory is not None:
+            pulumi.set(__self__, "subdirectory", subdirectory)
+
+    @property
+    @pulumi.getter(name="bucketAccessRoleArn")
+    def bucket_access_role_arn(self) -> str:
+        """
+        Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+        """
+        return pulumi.get(self, "bucket_access_role_arn")
+
+    @property
+    @pulumi.getter(name="s3BucketArn")
+    def s3_bucket_arn(self) -> str:
+        """
+        Specifies the ARN of the S3 bucket where DataSync uploads your report.
+        """
+        return pulumi.get(self, "s3_bucket_arn")
+
+    @property
+    @pulumi.getter
+    def subdirectory(self) -> Optional[str]:
+        """
+        Specifies a bucket prefix for your report.
+        """
+        return pulumi.get(self, "subdirectory")
 
 

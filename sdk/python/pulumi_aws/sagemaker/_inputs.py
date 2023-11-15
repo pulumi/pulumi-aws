@@ -44,6 +44,9 @@ __all__ = [
     'DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs',
     'DomainDefaultUserSettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsArgs',
+    'DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs',
+    'DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs',
+    'DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs',
     'DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs',
@@ -93,6 +96,7 @@ __all__ = [
     'FeatureGroupOfflineStoreConfigS3StorageConfigArgs',
     'FeatureGroupOnlineStoreConfigArgs',
     'FeatureGroupOnlineStoreConfigSecurityConfigArgs',
+    'FeatureGroupOnlineStoreConfigTtlDurationArgs',
     'FlowDefinitionHumanLoopActivationConfigArgs',
     'FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs',
     'FlowDefinitionHumanLoopConfigArgs',
@@ -104,10 +108,14 @@ __all__ = [
     'ModelContainerArgs',
     'ModelContainerImageConfigArgs',
     'ModelContainerImageConfigRepositoryAuthConfigArgs',
+    'ModelContainerModelDataSourceArgs',
+    'ModelContainerModelDataSourceS3DataSourceArgs',
     'ModelInferenceExecutionConfigArgs',
     'ModelPrimaryContainerArgs',
     'ModelPrimaryContainerImageConfigArgs',
     'ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs',
+    'ModelPrimaryContainerModelDataSourceArgs',
+    'ModelPrimaryContainerModelDataSourceS3DataSourceArgs',
     'ModelVpcConfigArgs',
     'MonitoringScheduleMonitoringScheduleConfigArgs',
     'MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs',
@@ -125,6 +133,9 @@ __all__ = [
     'SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs',
     'UserProfileUserSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsArgs',
+    'UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs',
+    'UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs',
+    'UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs',
     'UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs',
@@ -1806,20 +1817,68 @@ class DomainDefaultUserSettingsArgs:
 @pulumi.input_type
 class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     def __init__(__self__, *,
+                 direct_deploy_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']] = None,
+                 identity_provider_oauth_settings: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]] = None,
+                 kendra_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs']] = None,
                  model_register_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']] = None,
                  time_series_forecasting_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
                  workspace_settings: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None):
         """
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs'] direct_deploy_settings: The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs'] kendra_settings: The settings for document querying. See Kendra Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. See Time Series Forecasting Settings below.
         :param pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
+        if direct_deploy_settings is not None:
+            pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
+        if identity_provider_oauth_settings is not None:
+            pulumi.set(__self__, "identity_provider_oauth_settings", identity_provider_oauth_settings)
+        if kendra_settings is not None:
+            pulumi.set(__self__, "kendra_settings", kendra_settings)
         if model_register_settings is not None:
             pulumi.set(__self__, "model_register_settings", model_register_settings)
         if time_series_forecasting_settings is not None:
             pulumi.set(__self__, "time_series_forecasting_settings", time_series_forecasting_settings)
         if workspace_settings is not None:
             pulumi.set(__self__, "workspace_settings", workspace_settings)
+
+    @property
+    @pulumi.getter(name="directDeploySettings")
+    def direct_deploy_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]:
+        """
+        The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        """
+        return pulumi.get(self, "direct_deploy_settings")
+
+    @direct_deploy_settings.setter
+    def direct_deploy_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]):
+        pulumi.set(self, "direct_deploy_settings", value)
+
+    @property
+    @pulumi.getter(name="identityProviderOauthSettings")
+    def identity_provider_oauth_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]]:
+        """
+        The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        """
+        return pulumi.get(self, "identity_provider_oauth_settings")
+
+    @identity_provider_oauth_settings.setter
+    def identity_provider_oauth_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]]):
+        pulumi.set(self, "identity_provider_oauth_settings", value)
+
+    @property
+    @pulumi.getter(name="kendraSettings")
+    def kendra_settings(self) -> Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs']]:
+        """
+        The settings for document querying. See Kendra Settings below.
+        """
+        return pulumi.get(self, "kendra_settings")
+
+    @kendra_settings.setter
+    def kendra_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs']]):
+        pulumi.set(self, "kendra_settings", value)
 
     @property
     @pulumi.getter(name="modelRegisterSettings")
@@ -1856,6 +1915,106 @@ class DomainDefaultUserSettingsCanvasAppSettingsArgs:
     @workspace_settings.setter
     def workspace_settings(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]):
         pulumi.set(self, "workspace_settings", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] status: Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[str],
+                 data_source_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] secret_arn: The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+        :param pulumi.Input[str] data_source_name: The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+        :param pulumi.Input[str] status: Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        if data_source_name is not None:
+            pulumi.set(__self__, "data_source_name", data_source_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter(name="dataSourceName")
+    def data_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+        """
+        return pulumi.get(self, "data_source_name")
+
+    @data_source_name.setter
+    def data_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_source_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] status: Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type
@@ -4404,14 +4563,18 @@ class FeatureGroupOfflineStoreConfigDataCatalogConfigArgs:
 class FeatureGroupOfflineStoreConfigS3StorageConfigArgs:
     def __init__(__self__, *,
                  s3_uri: pulumi.Input[str],
-                 kms_key_id: Optional[pulumi.Input[str]] = None):
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 resolved_output_s3_uri: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] s3_uri: The S3 URI, or location in Amazon S3, of OfflineStore.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+        :param pulumi.Input[str] resolved_output_s3_uri: The S3 path where offline records are written.
         """
         pulumi.set(__self__, "s3_uri", s3_uri)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if resolved_output_s3_uri is not None:
+            pulumi.set(__self__, "resolved_output_s3_uri", resolved_output_s3_uri)
 
     @property
     @pulumi.getter(name="s3Uri")
@@ -4437,20 +4600,40 @@ class FeatureGroupOfflineStoreConfigS3StorageConfigArgs:
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
 
+    @property
+    @pulumi.getter(name="resolvedOutputS3Uri")
+    def resolved_output_s3_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 path where offline records are written.
+        """
+        return pulumi.get(self, "resolved_output_s3_uri")
+
+    @resolved_output_s3_uri.setter
+    def resolved_output_s3_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resolved_output_s3_uri", value)
+
 
 @pulumi.input_type
 class FeatureGroupOnlineStoreConfigArgs:
     def __init__(__self__, *,
                  enable_online_store: Optional[pulumi.Input[bool]] = None,
-                 security_config: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgs']] = None):
+                 security_config: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgs']] = None,
+                 storage_type: Optional[pulumi.Input[str]] = None,
+                 ttl_duration: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigTtlDurationArgs']] = None):
         """
         :param pulumi.Input[bool] enable_online_store: Set to `true` to disable the automatic creation of an AWS Glue table when configuring an OfflineStore.
         :param pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgs'] security_config: Security config for at-rest encryption of your OnlineStore. See Security Config Below.
+        :param pulumi.Input[str] storage_type: Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+        :param pulumi.Input['FeatureGroupOnlineStoreConfigTtlDurationArgs'] ttl_duration: Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
         """
         if enable_online_store is not None:
             pulumi.set(__self__, "enable_online_store", enable_online_store)
         if security_config is not None:
             pulumi.set(__self__, "security_config", security_config)
+        if storage_type is not None:
+            pulumi.set(__self__, "storage_type", storage_type)
+        if ttl_duration is not None:
+            pulumi.set(__self__, "ttl_duration", ttl_duration)
 
     @property
     @pulumi.getter(name="enableOnlineStore")
@@ -4476,6 +4659,30 @@ class FeatureGroupOnlineStoreConfigArgs:
     def security_config(self, value: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigSecurityConfigArgs']]):
         pulumi.set(self, "security_config", value)
 
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Option for different tiers of low latency storage for real-time data retrieval. Valid values are `Standard`, or `InMemory`.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @storage_type.setter
+    def storage_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_type", value)
+
+    @property
+    @pulumi.getter(name="ttlDuration")
+    def ttl_duration(self) -> Optional[pulumi.Input['FeatureGroupOnlineStoreConfigTtlDurationArgs']]:
+        """
+        Time to live duration, where the record is hard deleted after the expiration time is reached; ExpiresAt = EventTime + TtlDuration.. See TTl Duration Below.
+        """
+        return pulumi.get(self, "ttl_duration")
+
+    @ttl_duration.setter
+    def ttl_duration(self, value: Optional[pulumi.Input['FeatureGroupOnlineStoreConfigTtlDurationArgs']]):
+        pulumi.set(self, "ttl_duration", value)
+
 
 @pulumi.input_type
 class FeatureGroupOnlineStoreConfigSecurityConfigArgs:
@@ -4498,6 +4705,45 @@ class FeatureGroupOnlineStoreConfigSecurityConfigArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "kms_key_id", value)
+
+
+@pulumi.input_type
+class FeatureGroupOnlineStoreConfigTtlDurationArgs:
+    def __init__(__self__, *,
+                 unit: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] unit: TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
+        :param pulumi.Input[int] value: TtlDuration time value.
+        """
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        TtlDuration time unit. Valid values are `Seconds`, `Minutes`, `Hours`, `Days`, or `Weeks`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[int]]:
+        """
+        TtlDuration time value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -4892,6 +5138,7 @@ class ModelContainerArgs:
                  image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelContainerImageConfigArgs']] = None,
                  mode: Optional[pulumi.Input[str]] = None,
+                 model_data_source: Optional[pulumi.Input['ModelContainerModelDataSourceArgs']] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
                  model_package_name: Optional[pulumi.Input[str]] = None):
         """
@@ -4901,6 +5148,7 @@ class ModelContainerArgs:
         :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input['ModelContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        :param pulumi.Input['ModelContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
@@ -4914,6 +5162,8 @@ class ModelContainerArgs:
             pulumi.set(__self__, "image_config", image_config)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if model_data_source is not None:
+            pulumi.set(__self__, "model_data_source", model_data_source)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
         if model_package_name is not None:
@@ -4979,6 +5229,18 @@ class ModelContainerArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="modelDataSource")
+    def model_data_source(self) -> Optional[pulumi.Input['ModelContainerModelDataSourceArgs']]:
+        """
+        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        """
+        return pulumi.get(self, "model_data_source")
+
+    @model_data_source.setter
+    def model_data_source(self, value: Optional[pulumi.Input['ModelContainerModelDataSourceArgs']]):
+        pulumi.set(self, "model_data_source", value)
 
     @property
     @pulumi.getter(name="modelDataUrl")
@@ -5066,6 +5328,80 @@ class ModelContainerImageConfigRepositoryAuthConfigArgs:
 
 
 @pulumi.input_type
+class ModelContainerModelDataSourceArgs:
+    def __init__(__self__, *,
+                 s3_data_sources: pulumi.Input[Sequence[pulumi.Input['ModelContainerModelDataSourceS3DataSourceArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ModelContainerModelDataSourceS3DataSourceArgs']]] s3_data_sources: The S3 location of model data to deploy.
+        """
+        pulumi.set(__self__, "s3_data_sources", s3_data_sources)
+
+    @property
+    @pulumi.getter(name="s3DataSources")
+    def s3_data_sources(self) -> pulumi.Input[Sequence[pulumi.Input['ModelContainerModelDataSourceS3DataSourceArgs']]]:
+        """
+        The S3 location of model data to deploy.
+        """
+        return pulumi.get(self, "s3_data_sources")
+
+    @s3_data_sources.setter
+    def s3_data_sources(self, value: pulumi.Input[Sequence[pulumi.Input['ModelContainerModelDataSourceS3DataSourceArgs']]]):
+        pulumi.set(self, "s3_data_sources", value)
+
+
+@pulumi.input_type
+class ModelContainerModelDataSourceS3DataSourceArgs:
+    def __init__(__self__, *,
+                 compression_type: pulumi.Input[str],
+                 s3_data_type: pulumi.Input[str],
+                 s3_uri: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
+        :param pulumi.Input[str] s3_data_type: The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        :param pulumi.Input[str] s3_uri: The S3 path of model data to deploy.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input[str]:
+        """
+        How the model data is prepared. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compression_type", value)
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> pulumi.Input[str]:
+        """
+        The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @s3_data_type.setter
+    def s3_data_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_data_type", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        The S3 path of model data to deploy.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
+
+
+@pulumi.input_type
 class ModelInferenceExecutionConfigArgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str]):
@@ -5095,6 +5431,7 @@ class ModelPrimaryContainerArgs:
                  image: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['ModelPrimaryContainerImageConfigArgs']] = None,
                  mode: Optional[pulumi.Input[str]] = None,
+                 model_data_source: Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceArgs']] = None,
                  model_data_url: Optional[pulumi.Input[str]] = None,
                  model_package_name: Optional[pulumi.Input[str]] = None):
         """
@@ -5104,6 +5441,7 @@ class ModelPrimaryContainerArgs:
         :param pulumi.Input[str] image: The registry path where the inference code image is stored in Amazon ECR.
         :param pulumi.Input['ModelPrimaryContainerImageConfigArgs'] image_config: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
         :param pulumi.Input[str] mode: The container hosts value `SingleModel/MultiModel`. The default value is `SingleModel`.
+        :param pulumi.Input['ModelPrimaryContainerModelDataSourceArgs'] model_data_source: The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
         :param pulumi.Input[str] model_data_url: The URL for the S3 location where model artifacts are stored.
         :param pulumi.Input[str] model_package_name: The Amazon Resource Name (ARN) of the model package to use to create the model.
         """
@@ -5117,6 +5455,8 @@ class ModelPrimaryContainerArgs:
             pulumi.set(__self__, "image_config", image_config)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if model_data_source is not None:
+            pulumi.set(__self__, "model_data_source", model_data_source)
         if model_data_url is not None:
             pulumi.set(__self__, "model_data_url", model_data_url)
         if model_package_name is not None:
@@ -5182,6 +5522,18 @@ class ModelPrimaryContainerArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="modelDataSource")
+    def model_data_source(self) -> Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceArgs']]:
+        """
+        The location of model data to deploy. Use this for uncompressed model deployment. For information about how to deploy an uncompressed model, see [Deploying uncompressed models](https://docs.aws.amazon.com/sagemaker/latest/dg/large-model-inference-uncompressed.html) in the _AWS SageMaker Developer Guide_.
+        """
+        return pulumi.get(self, "model_data_source")
+
+    @model_data_source.setter
+    def model_data_source(self, value: Optional[pulumi.Input['ModelPrimaryContainerModelDataSourceArgs']]):
+        pulumi.set(self, "model_data_source", value)
 
     @property
     @pulumi.getter(name="modelDataUrl")
@@ -5266,6 +5618,80 @@ class ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs:
     @repository_credentials_provider_arn.setter
     def repository_credentials_provider_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository_credentials_provider_arn", value)
+
+
+@pulumi.input_type
+class ModelPrimaryContainerModelDataSourceArgs:
+    def __init__(__self__, *,
+                 s3_data_sources: pulumi.Input[Sequence[pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceArgs']]] s3_data_sources: The S3 location of model data to deploy.
+        """
+        pulumi.set(__self__, "s3_data_sources", s3_data_sources)
+
+    @property
+    @pulumi.getter(name="s3DataSources")
+    def s3_data_sources(self) -> pulumi.Input[Sequence[pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceArgs']]]:
+        """
+        The S3 location of model data to deploy.
+        """
+        return pulumi.get(self, "s3_data_sources")
+
+    @s3_data_sources.setter
+    def s3_data_sources(self, value: pulumi.Input[Sequence[pulumi.Input['ModelPrimaryContainerModelDataSourceS3DataSourceArgs']]]):
+        pulumi.set(self, "s3_data_sources", value)
+
+
+@pulumi.input_type
+class ModelPrimaryContainerModelDataSourceS3DataSourceArgs:
+    def __init__(__self__, *,
+                 compression_type: pulumi.Input[str],
+                 s3_data_type: pulumi.Input[str],
+                 s3_uri: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] compression_type: How the model data is prepared. Allowed values are: `None` and `Gzip`.
+        :param pulumi.Input[str] s3_data_type: The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        :param pulumi.Input[str] s3_uri: The S3 path of model data to deploy.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "s3_data_type", s3_data_type)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> pulumi.Input[str]:
+        """
+        How the model data is prepared. Allowed values are: `None` and `Gzip`.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @compression_type.setter
+    def compression_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compression_type", value)
+
+    @property
+    @pulumi.getter(name="s3DataType")
+    def s3_data_type(self) -> pulumi.Input[str]:
+        """
+        The type of model data to deploy. Allowed values are: `S3Object` and `S3Prefix`.
+        """
+        return pulumi.get(self, "s3_data_type")
+
+    @s3_data_type.setter
+    def s3_data_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_data_type", value)
+
+    @property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[str]:
+        """
+        The S3 path of model data to deploy.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "s3_uri", value)
 
 
 @pulumi.input_type
@@ -6093,20 +6519,68 @@ class UserProfileUserSettingsArgs:
 @pulumi.input_type
 class UserProfileUserSettingsCanvasAppSettingsArgs:
     def __init__(__self__, *,
+                 direct_deploy_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']] = None,
+                 identity_provider_oauth_settings: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]] = None,
+                 kendra_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs']] = None,
                  model_register_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs']] = None,
                  time_series_forecasting_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs']] = None,
                  workspace_settings: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']] = None):
         """
+        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs'] direct_deploy_settings: The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]] identity_provider_oauth_settings: The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs'] kendra_settings: The settings for document querying. See Kendra Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsModelRegisterSettingsArgs'] model_register_settings: The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs'] time_series_forecasting_settings: Time series forecast settings for the Canvas app. see Time Series Forecasting Settings below.
         :param pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs'] workspace_settings: The workspace settings for the SageMaker Canvas application. See Workspace Settings below.
         """
+        if direct_deploy_settings is not None:
+            pulumi.set(__self__, "direct_deploy_settings", direct_deploy_settings)
+        if identity_provider_oauth_settings is not None:
+            pulumi.set(__self__, "identity_provider_oauth_settings", identity_provider_oauth_settings)
+        if kendra_settings is not None:
+            pulumi.set(__self__, "kendra_settings", kendra_settings)
         if model_register_settings is not None:
             pulumi.set(__self__, "model_register_settings", model_register_settings)
         if time_series_forecasting_settings is not None:
             pulumi.set(__self__, "time_series_forecasting_settings", time_series_forecasting_settings)
         if workspace_settings is not None:
             pulumi.set(__self__, "workspace_settings", workspace_settings)
+
+    @property
+    @pulumi.getter(name="directDeploySettings")
+    def direct_deploy_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]:
+        """
+        The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+        """
+        return pulumi.get(self, "direct_deploy_settings")
+
+    @direct_deploy_settings.setter
+    def direct_deploy_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs']]):
+        pulumi.set(self, "direct_deploy_settings", value)
+
+    @property
+    @pulumi.getter(name="identityProviderOauthSettings")
+    def identity_provider_oauth_settings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]]:
+        """
+        The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+        """
+        return pulumi.get(self, "identity_provider_oauth_settings")
+
+    @identity_provider_oauth_settings.setter
+    def identity_provider_oauth_settings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs']]]]):
+        pulumi.set(self, "identity_provider_oauth_settings", value)
+
+    @property
+    @pulumi.getter(name="kendraSettings")
+    def kendra_settings(self) -> Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs']]:
+        """
+        The settings for document querying. See Kendra Settings below.
+        """
+        return pulumi.get(self, "kendra_settings")
+
+    @kendra_settings.setter
+    def kendra_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs']]):
+        pulumi.set(self, "kendra_settings", value)
 
     @property
     @pulumi.getter(name="modelRegisterSettings")
@@ -6143,6 +6617,106 @@ class UserProfileUserSettingsCanvasAppSettingsArgs:
     @workspace_settings.setter
     def workspace_settings(self, value: Optional[pulumi.Input['UserProfileUserSettingsCanvasAppSettingsWorkspaceSettingsArgs']]):
         pulumi.set(self, "workspace_settings", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsCanvasAppSettingsDirectDeploySettingsArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] status: Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes whether model deployment permissions are enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs:
+    def __init__(__self__, *,
+                 secret_arn: pulumi.Input[str],
+                 data_source_name: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] secret_arn: The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+        :param pulumi.Input[str] data_source_name: The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+        :param pulumi.Input[str] status: Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        if data_source_name is not None:
+            pulumi.set(__self__, "data_source_name", data_source_name)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of an Amazon Web Services Secrets Manager secret that stores the credentials from your identity provider, such as the client ID and secret, authorization URL, and token URL.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter(name="dataSourceName")
+    def data_source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the data source that you're connecting to. Canvas currently supports OAuth for Snowflake and Salesforce Data Cloud. Valid values are `SalesforceGenie` and `Snowflake`.
+        """
+        return pulumi.get(self, "data_source_name")
+
+    @data_source_name.setter
+    def data_source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_source_name", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes whether OAuth for a data source is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class UserProfileUserSettingsCanvasAppSettingsKendraSettingsArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] status: Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes whether the document querying feature is enabled or disabled in the Canvas application. Valid values are `ENABLED` and `DISABLED`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

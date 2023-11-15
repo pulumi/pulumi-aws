@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlanStage {
+    /**
+     * @return The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+     * 
+     */
     private Integer durationInMinutes;
+    /**
+     * @return One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+     * 
+     */
     private @Nullable List<PlanStageTarget> targets;
 
     private PlanStage() {}
+    /**
+     * @return The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+     * 
+     */
     public Integer durationInMinutes() {
         return this.durationInMinutes;
     }
+    /**
+     * @return One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+     * 
+     */
     public List<PlanStageTarget> targets() {
         return this.targets == null ? List.of() : this.targets;
     }

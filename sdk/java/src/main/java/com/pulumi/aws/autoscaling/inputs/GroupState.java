@@ -189,9 +189,17 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.forceDelete);
     }
 
+    /**
+     * Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     * 
+     */
     @Import(name="forceDeleteWarmPool")
     private @Nullable Output<Boolean> forceDeleteWarmPool;
 
+    /**
+     * @return Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+     * 
+     */
     public Optional<Output<Boolean>> forceDeleteWarmPool() {
         return Optional.ofNullable(this.forceDeleteWarmPool);
     }
@@ -1008,11 +1016,23 @@ public final class GroupState extends com.pulumi.resources.ResourceArgs {
             return forceDelete(Output.of(forceDelete));
         }
 
+        /**
+         * @param forceDeleteWarmPool Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceDeleteWarmPool(@Nullable Output<Boolean> forceDeleteWarmPool) {
             $.forceDeleteWarmPool = forceDeleteWarmPool;
             return this;
         }
 
+        /**
+         * @param forceDeleteWarmPool Allows deleting the Auto Scaling Group without waiting for all instances in the warm pool to terminate.
+         * 
+         * @return builder
+         * 
+         */
         public Builder forceDeleteWarmPool(Boolean forceDeleteWarmPool) {
             return forceDeleteWarmPool(Output.of(forceDeleteWarmPool));
         }

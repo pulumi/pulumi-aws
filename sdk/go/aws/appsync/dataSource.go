@@ -151,7 +151,7 @@ type DataSource struct {
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrOutput `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrOutput `pulumi:"relationalDatabaseConfig"`
-	// IAM service role ARN for the data source.
+	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
 	ServiceRoleArn pulumi.StringPtrOutput `pulumi:"serviceRoleArn"`
 	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -215,7 +215,7 @@ type dataSourceState struct {
 	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
-	// IAM service role ARN for the data source.
+	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type *string `pulumi:"type"`
@@ -244,7 +244,7 @@ type DataSourceState struct {
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
-	// IAM service role ARN for the data source.
+	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
 	ServiceRoleArn pulumi.StringPtrInput
 	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type pulumi.StringPtrInput
@@ -275,7 +275,7 @@ type dataSourceArgs struct {
 	OpensearchserviceConfig *DataSourceOpensearchserviceConfig `pulumi:"opensearchserviceConfig"`
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig *DataSourceRelationalDatabaseConfig `pulumi:"relationalDatabaseConfig"`
-	// IAM service role ARN for the data source.
+	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type string `pulumi:"type"`
@@ -303,7 +303,7 @@ type DataSourceArgs struct {
 	OpensearchserviceConfig DataSourceOpensearchserviceConfigPtrInput
 	// AWS RDS settings. See Relational Database Config
 	RelationalDatabaseConfig DataSourceRelationalDatabaseConfigPtrInput
-	// IAM service role ARN for the data source.
+	// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
 	ServiceRoleArn pulumi.StringPtrInput
 	// Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
 	Type pulumi.StringInput
@@ -451,7 +451,7 @@ func (o DataSourceOutput) RelationalDatabaseConfig() DataSourceRelationalDatabas
 	return o.ApplyT(func(v *DataSource) DataSourceRelationalDatabaseConfigPtrOutput { return v.RelationalDatabaseConfig }).(DataSourceRelationalDatabaseConfigPtrOutput)
 }
 
-// IAM service role ARN for the data source.
+// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
 func (o DataSourceOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.ServiceRoleArn }).(pulumi.StringPtrOutput)
 }

@@ -47,6 +47,36 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     }
 
     /**
+     * A JSON web token (JWT) that authorizes access to Salesforce records.
+     * 
+     */
+    @Import(name="jwtToken")
+    private @Nullable Output<String> jwtToken;
+
+    /**
+     * @return A JSON web token (JWT) that authorizes access to Salesforce records.
+     * 
+     */
+    public Optional<Output<String>> jwtToken() {
+        return Optional.ofNullable(this.jwtToken);
+    }
+
+    /**
+     * The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
+    @Import(name="oauth2GrantType")
+    private @Nullable Output<String> oauth2GrantType;
+
+    /**
+     * @return The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+     * 
+     */
+    public Optional<Output<String>> oauth2GrantType() {
+        return Optional.ofNullable(this.oauth2GrantType);
+    }
+
+    /**
      * Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
      * 
      */
@@ -81,6 +111,8 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
     private ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs(ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs $) {
         this.accessToken = $.accessToken;
         this.clientCredentialsArn = $.clientCredentialsArn;
+        this.jwtToken = $.jwtToken;
+        this.oauth2GrantType = $.oauth2GrantType;
         this.oauthRequest = $.oauthRequest;
         this.refreshToken = $.refreshToken;
     }
@@ -143,6 +175,48 @@ public final class ConnectorProfileConnectorProfileConfigConnectorProfileCredent
          */
         public Builder clientCredentialsArn(String clientCredentialsArn) {
             return clientCredentialsArn(Output.of(clientCredentialsArn));
+        }
+
+        /**
+         * @param jwtToken A JSON web token (JWT) that authorizes access to Salesforce records.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtToken(@Nullable Output<String> jwtToken) {
+            $.jwtToken = jwtToken;
+            return this;
+        }
+
+        /**
+         * @param jwtToken A JSON web token (JWT) that authorizes access to Salesforce records.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder jwtToken(String jwtToken) {
+            return jwtToken(Output.of(jwtToken));
+        }
+
+        /**
+         * @param oauth2GrantType The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oauth2GrantType(@Nullable Output<String> oauth2GrantType) {
+            $.oauth2GrantType = oauth2GrantType;
+            return this;
+        }
+
+        /**
+         * @param oauth2GrantType The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder oauth2GrantType(String oauth2GrantType) {
+            return oauth2GrantType(Output.of(oauth2GrantType));
         }
 
         /**

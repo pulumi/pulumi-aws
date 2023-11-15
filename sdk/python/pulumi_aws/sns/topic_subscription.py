@@ -24,6 +24,7 @@ class TopicSubscriptionArgs:
                  filter_policy_scope: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
+                 replay_policy: Optional[pulumi.Input[str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TopicSubscription resource.
@@ -39,6 +40,7 @@ class TopicSubscriptionArgs:
         :param pulumi.Input[str] filter_policy_scope: Whether the `filter_policy` applies to `MessageAttributes` (default) or `MessageBody`.
         :param pulumi.Input[bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         """
         pulumi.set(__self__, "endpoint", endpoint)
@@ -58,6 +60,8 @@ class TopicSubscriptionArgs:
             pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if replay_policy is not None:
+            pulumi.set(__self__, "replay_policy", replay_policy)
         if subscription_role_arn is not None:
             pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
 
@@ -184,6 +188,18 @@ class TopicSubscriptionArgs:
         pulumi.set(self, "redrive_policy", value)
 
     @property
+    @pulumi.getter(name="replayPolicy")
+    def replay_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+        """
+        return pulumi.get(self, "replay_policy")
+
+    @replay_policy.setter
+    def replay_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replay_policy", value)
+
+    @property
     @pulumi.getter(name="subscriptionRoleArn")
     def subscription_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -212,6 +228,7 @@ class _TopicSubscriptionState:
                  protocol: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
+                 replay_policy: Optional[pulumi.Input[str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None,
                  topic: Optional[pulumi.Input[str]] = None):
         """
@@ -229,6 +246,7 @@ class _TopicSubscriptionState:
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
                
@@ -260,6 +278,8 @@ class _TopicSubscriptionState:
             pulumi.set(__self__, "raw_message_delivery", raw_message_delivery)
         if redrive_policy is not None:
             pulumi.set(__self__, "redrive_policy", redrive_policy)
+        if replay_policy is not None:
+            pulumi.set(__self__, "replay_policy", replay_policy)
         if subscription_role_arn is not None:
             pulumi.set(__self__, "subscription_role_arn", subscription_role_arn)
         if topic is not None:
@@ -422,6 +442,18 @@ class _TopicSubscriptionState:
         pulumi.set(self, "redrive_policy", value)
 
     @property
+    @pulumi.getter(name="replayPolicy")
+    def replay_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+        """
+        return pulumi.get(self, "replay_policy")
+
+    @replay_policy.setter
+    def replay_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replay_policy", value)
+
+    @property
     @pulumi.getter(name="subscriptionRoleArn")
     def subscription_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -462,6 +494,7 @@ class TopicSubscription(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
+                 replay_policy: Optional[pulumi.Input[str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None,
                  topic: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -644,6 +677,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
                
@@ -847,6 +881,7 @@ class TopicSubscription(pulumi.CustomResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  raw_message_delivery: Optional[pulumi.Input[bool]] = None,
                  redrive_policy: Optional[pulumi.Input[str]] = None,
+                 replay_policy: Optional[pulumi.Input[str]] = None,
                  subscription_role_arn: Optional[pulumi.Input[str]] = None,
                  topic: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -871,6 +906,7 @@ class TopicSubscription(pulumi.CustomResource):
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["raw_message_delivery"] = raw_message_delivery
             __props__.__dict__["redrive_policy"] = redrive_policy
+            __props__.__dict__["replay_policy"] = replay_policy
             __props__.__dict__["subscription_role_arn"] = subscription_role_arn
             if topic is None and not opts.urn:
                 raise TypeError("Missing required property 'topic'")
@@ -902,6 +938,7 @@ class TopicSubscription(pulumi.CustomResource):
             protocol: Optional[pulumi.Input[str]] = None,
             raw_message_delivery: Optional[pulumi.Input[bool]] = None,
             redrive_policy: Optional[pulumi.Input[str]] = None,
+            replay_policy: Optional[pulumi.Input[str]] = None,
             subscription_role_arn: Optional[pulumi.Input[str]] = None,
             topic: Optional[pulumi.Input[str]] = None) -> 'TopicSubscription':
         """
@@ -924,6 +961,7 @@ class TopicSubscription(pulumi.CustomResource):
         :param pulumi.Input[str] protocol: Protocol to use. Valid values are: `sqs`, `sms`, `lambda`, `firehose`, and `application`. Protocols `email`, `email-json`, `http` and `https` are also valid but partially supported. See details below.
         :param pulumi.Input[bool] raw_message_delivery: Whether to enable raw message delivery (the original message is directly passed, not wrapped in JSON with the original message in the message property). Default is `false`.
         :param pulumi.Input[str] redrive_policy: JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
+        :param pulumi.Input[str] replay_policy: JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
         :param pulumi.Input[str] subscription_role_arn: ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         :param pulumi.Input[str] topic: ARN of the SNS topic to subscribe to.
                
@@ -946,6 +984,7 @@ class TopicSubscription(pulumi.CustomResource):
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["raw_message_delivery"] = raw_message_delivery
         __props__.__dict__["redrive_policy"] = redrive_policy
+        __props__.__dict__["replay_policy"] = replay_policy
         __props__.__dict__["subscription_role_arn"] = subscription_role_arn
         __props__.__dict__["topic"] = topic
         return TopicSubscription(resource_name, opts=opts, __props__=__props__)
@@ -1053,6 +1092,14 @@ class TopicSubscription(pulumi.CustomResource):
         JSON String with the redrive policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-dead-letter-queues.html#how-messages-moved-into-dead-letter-queue) for more details.
         """
         return pulumi.get(self, "redrive_policy")
+
+    @property
+    @pulumi.getter(name="replayPolicy")
+    def replay_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+        """
+        return pulumi.get(self, "replay_policy")
 
     @property
     @pulumi.getter(name="subscriptionRoleArn")

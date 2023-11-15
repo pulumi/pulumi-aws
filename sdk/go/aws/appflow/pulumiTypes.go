@@ -3667,6 +3667,10 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 	AccessToken *string `pulumi:"accessToken"`
 	// The secret manager ARN, which contains the client ID and client secret of the connected app.
 	ClientCredentialsArn *string `pulumi:"clientCredentialsArn"`
+	// A JSON web token (JWT) that authorizes access to Salesforce records.
+	JwtToken *string `pulumi:"jwtToken"`
+	// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+	Oauth2GrantType *string `pulumi:"oauth2GrantType"`
 	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
 	OauthRequest *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest `pulumi:"oauthRequest"`
 	// The refresh token used to refresh an expired access token.
@@ -3689,6 +3693,10 @@ type ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce
 	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
 	// The secret manager ARN, which contains the client ID and client secret of the connected app.
 	ClientCredentialsArn pulumi.StringPtrInput `pulumi:"clientCredentialsArn"`
+	// A JSON web token (JWT) that authorizes access to Salesforce records.
+	JwtToken pulumi.StringPtrInput `pulumi:"jwtToken"`
+	// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+	Oauth2GrantType pulumi.StringPtrInput `pulumi:"oauth2GrantType"`
 	// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
 	OauthRequest ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrInput `pulumi:"oauthRequest"`
 	// The refresh token used to refresh an expired access token.
@@ -3786,6 +3794,20 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 	}).(pulumi.StringPtrOutput)
 }
 
+// A JSON web token (JWT) that authorizes access to Salesforce records.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) Oauth2GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
+		return v.Oauth2GrantType
+	}).(pulumi.StringPtrOutput)
+}
+
 // Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
 func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOutput) OauthRequest() ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestPtrOutput {
 	return o.ApplyT(func(v ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest {
@@ -3841,6 +3863,26 @@ func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesfo
 			return nil
 		}
 		return v.ClientCredentialsArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A JSON web token (JWT) that authorizes access to Salesforce records.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+func (o ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforcePtrOutput) Oauth2GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Oauth2GrantType
 	}).(pulumi.StringPtrOutput)
 }
 

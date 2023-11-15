@@ -17,6 +17,7 @@ class TopicArgs:
                  application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+                 archive_policy: Optional[pulumi.Input[str]] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -45,8 +46,9 @@ class TopicArgs:
         :param pulumi.Input[str] application_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] application_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] application_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[str] archive_policy: The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
-        :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[str] display_name: The display name for the topic
         :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
         :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
@@ -75,6 +77,8 @@ class TopicArgs:
             pulumi.set(__self__, "application_success_feedback_role_arn", application_success_feedback_role_arn)
         if application_success_feedback_sample_rate is not None:
             pulumi.set(__self__, "application_success_feedback_sample_rate", application_success_feedback_sample_rate)
+        if archive_policy is not None:
+            pulumi.set(__self__, "archive_policy", archive_policy)
         if content_based_deduplication is not None:
             pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
         if delivery_policy is not None:
@@ -159,6 +163,18 @@ class TopicArgs:
         pulumi.set(self, "application_success_feedback_sample_rate", value)
 
     @property
+    @pulumi.getter(name="archivePolicy")
+    def archive_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+        """
+        return pulumi.get(self, "archive_policy")
+
+    @archive_policy.setter
+    def archive_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "archive_policy", value)
+
+    @property
     @pulumi.getter(name="contentBasedDeduplication")
     def content_based_deduplication(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -174,7 +190,7 @@ class TopicArgs:
     @pulumi.getter(name="deliveryPolicy")
     def delivery_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         """
         return pulumi.get(self, "delivery_policy")
 
@@ -441,7 +457,9 @@ class _TopicState:
                  application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+                 archive_policy: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 beginning_archive_time: Optional[pulumi.Input[str]] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -472,9 +490,11 @@ class _TopicState:
         :param pulumi.Input[str] application_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] application_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] application_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[str] archive_policy: The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         :param pulumi.Input[str] arn: The ARN of the SNS topic, as a more obvious property (clone of id)
+        :param pulumi.Input[str] beginning_archive_time: The oldest timestamp at which a FIFO topic subscriber can start a replay.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
-        :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[str] display_name: The display name for the topic
         :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
         :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
@@ -505,8 +525,12 @@ class _TopicState:
             pulumi.set(__self__, "application_success_feedback_role_arn", application_success_feedback_role_arn)
         if application_success_feedback_sample_rate is not None:
             pulumi.set(__self__, "application_success_feedback_sample_rate", application_success_feedback_sample_rate)
+        if archive_policy is not None:
+            pulumi.set(__self__, "archive_policy", archive_policy)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if beginning_archive_time is not None:
+            pulumi.set(__self__, "beginning_archive_time", beginning_archive_time)
         if content_based_deduplication is not None:
             pulumi.set(__self__, "content_based_deduplication", content_based_deduplication)
         if delivery_policy is not None:
@@ -598,6 +622,18 @@ class _TopicState:
         pulumi.set(self, "application_success_feedback_sample_rate", value)
 
     @property
+    @pulumi.getter(name="archivePolicy")
+    def archive_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+        """
+        return pulumi.get(self, "archive_policy")
+
+    @archive_policy.setter
+    def archive_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "archive_policy", value)
+
+    @property
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -608,6 +644,18 @@ class _TopicState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="beginningArchiveTime")
+    def beginning_archive_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The oldest timestamp at which a FIFO topic subscriber can start a replay.
+        """
+        return pulumi.get(self, "beginning_archive_time")
+
+    @beginning_archive_time.setter
+    def beginning_archive_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "beginning_archive_time", value)
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
@@ -625,7 +673,7 @@ class _TopicState:
     @pulumi.getter(name="deliveryPolicy")
     def delivery_policy(self) -> Optional[pulumi.Input[str]]:
         """
-        The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         """
         return pulumi.get(self, "delivery_policy")
 
@@ -921,6 +969,7 @@ class Topic(pulumi.CustomResource):
                  application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+                 archive_policy: Optional[pulumi.Input[str]] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -1020,8 +1069,9 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] application_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] application_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] application_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[str] archive_policy: The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
-        :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[str] display_name: The display name for the topic
         :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
         :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
@@ -1138,6 +1188,7 @@ class Topic(pulumi.CustomResource):
                  application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
                  application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+                 archive_policy: Optional[pulumi.Input[str]] = None,
                  content_based_deduplication: Optional[pulumi.Input[bool]] = None,
                  delivery_policy: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -1173,6 +1224,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["application_failure_feedback_role_arn"] = application_failure_feedback_role_arn
             __props__.__dict__["application_success_feedback_role_arn"] = application_success_feedback_role_arn
             __props__.__dict__["application_success_feedback_sample_rate"] = application_success_feedback_sample_rate
+            __props__.__dict__["archive_policy"] = archive_policy
             __props__.__dict__["content_based_deduplication"] = content_based_deduplication
             __props__.__dict__["delivery_policy"] = delivery_policy
             __props__.__dict__["display_name"] = display_name
@@ -1197,6 +1249,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tracing_config"] = tracing_config
             __props__.__dict__["arn"] = None
+            __props__.__dict__["beginning_archive_time"] = None
             __props__.__dict__["owner"] = None
             __props__.__dict__["tags_all"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["tagsAll"])
@@ -1214,7 +1267,9 @@ class Topic(pulumi.CustomResource):
             application_failure_feedback_role_arn: Optional[pulumi.Input[str]] = None,
             application_success_feedback_role_arn: Optional[pulumi.Input[str]] = None,
             application_success_feedback_sample_rate: Optional[pulumi.Input[int]] = None,
+            archive_policy: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            beginning_archive_time: Optional[pulumi.Input[str]] = None,
             content_based_deduplication: Optional[pulumi.Input[bool]] = None,
             delivery_policy: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
@@ -1250,9 +1305,11 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] application_failure_feedback_role_arn: IAM role for failure feedback
         :param pulumi.Input[str] application_success_feedback_role_arn: The IAM role permitted to receive success feedback for this topic
         :param pulumi.Input[int] application_success_feedback_sample_rate: Percentage of success to sample
+        :param pulumi.Input[str] archive_policy: The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
         :param pulumi.Input[str] arn: The ARN of the SNS topic, as a more obvious property (clone of id)
+        :param pulumi.Input[str] beginning_archive_time: The oldest timestamp at which a FIFO topic subscriber can start a replay.
         :param pulumi.Input[bool] content_based_deduplication: Enables content-based deduplication for FIFO topics. For more information, see the [related documentation](https://docs.aws.amazon.com/sns/latest/dg/fifo-message-dedup.html)
-        :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        :param pulumi.Input[str] delivery_policy: The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         :param pulumi.Input[str] display_name: The display name for the topic
         :param pulumi.Input[bool] fifo_topic: Boolean indicating whether or not to create a FIFO (first-in-first-out) topic (default is `false`).
         :param pulumi.Input[str] firehose_failure_feedback_role_arn: IAM role for failure feedback
@@ -1284,7 +1341,9 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["application_failure_feedback_role_arn"] = application_failure_feedback_role_arn
         __props__.__dict__["application_success_feedback_role_arn"] = application_success_feedback_role_arn
         __props__.__dict__["application_success_feedback_sample_rate"] = application_success_feedback_sample_rate
+        __props__.__dict__["archive_policy"] = archive_policy
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["beginning_archive_time"] = beginning_archive_time
         __props__.__dict__["content_based_deduplication"] = content_based_deduplication
         __props__.__dict__["delivery_policy"] = delivery_policy
         __props__.__dict__["display_name"] = display_name
@@ -1337,12 +1396,28 @@ class Topic(pulumi.CustomResource):
         return pulumi.get(self, "application_success_feedback_sample_rate")
 
     @property
+    @pulumi.getter(name="archivePolicy")
+    def archive_policy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The message archive policy for FIFO topics. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-topic-owner.html).
+        """
+        return pulumi.get(self, "archive_policy")
+
+    @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
         The ARN of the SNS topic, as a more obvious property (clone of id)
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="beginningArchiveTime")
+    def beginning_archive_time(self) -> pulumi.Output[str]:
+        """
+        The oldest timestamp at which a FIFO topic subscriber can start a replay.
+        """
+        return pulumi.get(self, "beginning_archive_time")
 
     @property
     @pulumi.getter(name="contentBasedDeduplication")
@@ -1356,7 +1431,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="deliveryPolicy")
     def delivery_policy(self) -> pulumi.Output[Optional[str]]:
         """
-        The SNS delivery policy. More on [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html)
+        The SNS delivery policy. More details in the [AWS documentation](https://docs.aws.amazon.com/sns/latest/dg/DeliveryPolicies.html).
         """
         return pulumi.get(self, "delivery_policy")
 

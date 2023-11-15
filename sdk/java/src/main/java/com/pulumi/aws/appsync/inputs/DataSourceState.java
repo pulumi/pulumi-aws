@@ -188,14 +188,14 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * IAM service role ARN for the data source.
+     * IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     @Import(name="serviceRoleArn")
     private @Nullable Output<String> serviceRoleArn;
 
     /**
-     * @return IAM service role ARN for the data source.
+     * @return IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
      * 
      */
     public Optional<Output<String>> serviceRoleArn() {
@@ -485,7 +485,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRoleArn IAM service role ARN for the data source.
+         * @param serviceRoleArn IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class DataSourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRoleArn IAM service role ARN for the data source.
+         * @param serviceRoleArn IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
          * 
          * @return builder
          * 

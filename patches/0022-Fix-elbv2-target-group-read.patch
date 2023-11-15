@@ -1,0 +1,25 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Daniel Bradley <daniel@pulumi.com>
+Date: Fri, 12 May 2023 10:55:42 +0100
+Subject: [PATCH 22/29] Fix elbv2 target group read
+
+Workaround for https://github.com/pulumi/pulumi-aws/issues/2517
+Don't return single empty map. Return empty list instead.
+
+diff --git a/internal/service/elbv2/target_group.go b/internal/service/elbv2/target_group.go
+index 3c510e710b..26903193f9 100644
+--- a/internal/service/elbv2/target_group.go
++++ b/internal/service/elbv2/target_group.go
+@@ -1201,6 +1201,12 @@ func flattenTargetGroupFailover(attributes []*elbv2.TargetGroupAttribute) []inte
+ 		}
+ 	}
+ 
++	// Workaround for https://github.com/pulumi/pulumi-aws/issues/2517
++	// Don't return single empty map. Return empty list instead.
++	if len(m) == 0 {
++		return []interface{}{}
++	}
++
+ 	return []interface{}{m}
+ }
+ 

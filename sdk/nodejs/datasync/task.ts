@@ -129,6 +129,10 @@ export class Task extends pulumi.CustomResource {
      * @deprecated Please use `tags` instead.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+     */
+    public readonly taskReportConfig!: pulumi.Output<outputs.datasync.TaskTaskReportConfig | undefined>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -154,6 +158,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["sourceLocationArn"] = state ? state.sourceLocationArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["taskReportConfig"] = state ? state.taskReportConfig : undefined;
         } else {
             const args = argsOrState as TaskArgs | undefined;
             if ((!args || args.destinationLocationArn === undefined) && !opts.urn) {
@@ -171,6 +176,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["sourceLocationArn"] = args ? args.sourceLocationArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskReportConfig"] = args ? args.taskReportConfig : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -231,6 +237,10 @@ export interface TaskState {
      * @deprecated Please use `tags` instead.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+     */
+    taskReportConfig?: pulumi.Input<inputs.datasync.TaskTaskReportConfig>;
 }
 
 /**
@@ -273,4 +283,8 @@ export interface TaskArgs {
      * Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+     */
+    taskReportConfig?: pulumi.Input<inputs.datasync.TaskTaskReportConfig>;
 }

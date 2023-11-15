@@ -11,7 +11,25 @@ import * as utilities from "../utilities";
  * Provides a CE Anomaly Subscription.
  *
  * ## Example Usage
+ * ### Basic Example
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const testAnomalyMonitor = new aws.costexplorer.AnomalyMonitor("testAnomalyMonitor", {
+ *     monitorType: "DIMENSIONAL",
+ *     monitorDimension: "SERVICE",
+ * });
+ * const testAnomalySubscription = new aws.costexplorer.AnomalySubscription("testAnomalySubscription", {
+ *     frequency: "DAILY",
+ *     monitorArnLists: [testAnomalyMonitor.arn],
+ *     subscribers: [{
+ *         type: "EMAIL",
+ *         address: "abc@example.com",
+ *     }],
+ * });
+ * ```
  * ### Threshold Expression Example
  * ### For a Specific Dimension
  *
@@ -66,6 +84,72 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
+ * });
+ * ```
+ * ### SNS Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const costAnomalyUpdates = new aws.sns.Topic("costAnomalyUpdates", {});
+ * const snsTopicPolicy = pulumi.all([costAnomalyUpdates.arn, costAnomalyUpdates.arn]).apply(([costAnomalyUpdatesArn, costAnomalyUpdatesArn1]) => aws.iam.getPolicyDocumentOutput({
+ *     policyId: "__default_policy_ID",
+ *     statements: [
+ *         {
+ *             sid: "AWSAnomalyDetectionSNSPublishingPermissions",
+ *             actions: ["SNS:Publish"],
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["costalerts.amazonaws.com"],
+ *             }],
+ *             resources: [costAnomalyUpdatesArn],
+ *         },
+ *         {
+ *             sid: "__default_statement_ID",
+ *             actions: [
+ *                 "SNS:Subscribe",
+ *                 "SNS:SetTopicAttributes",
+ *                 "SNS:RemovePermission",
+ *                 "SNS:Receive",
+ *                 "SNS:Publish",
+ *                 "SNS:ListSubscriptionsByTopic",
+ *                 "SNS:GetTopicAttributes",
+ *                 "SNS:DeleteTopic",
+ *                 "SNS:AddPermission",
+ *             ],
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 variable: "AWS:SourceOwner",
+ *                 values: [_var["account-id"]],
+ *             }],
+ *             effect: "Allow",
+ *             principals: [{
+ *                 type: "AWS",
+ *                 identifiers: ["*"],
+ *             }],
+ *             resources: [costAnomalyUpdatesArn1],
+ *         },
+ *     ],
+ * }));
+ * const _default = new aws.sns.TopicPolicy("default", {
+ *     arn: costAnomalyUpdates.arn,
+ *     policy: snsTopicPolicy.apply(snsTopicPolicy => snsTopicPolicy.json),
+ * });
+ * const anomalyMonitor = new aws.costexplorer.AnomalyMonitor("anomalyMonitor", {
+ *     monitorType: "DIMENSIONAL",
+ *     monitorDimension: "SERVICE",
+ * });
+ * const realtimeSubscription = new aws.costexplorer.AnomalySubscription("realtimeSubscription", {
+ *     frequency: "IMMEDIATE",
+ *     monitorArnLists: [anomalyMonitor.arn],
+ *     subscribers: [{
+ *         type: "SNS",
+ *         address: costAnomalyUpdates.arn,
+ *     }],
+ * }, {
+ *     dependsOn: [_default],
  * });
  * ```
  *

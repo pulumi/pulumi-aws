@@ -24,7 +24,7 @@ public final class ClassifierCsvClassifier {
      */
     private @Nullable String containsHeader;
     /**
-     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * @return Enables the custom datatype to be configured.
      * 
      */
     private @Nullable Boolean customDatatypeConfigured;
@@ -70,7 +70,7 @@ public final class ClassifierCsvClassifier {
         return Optional.ofNullable(this.containsHeader);
     }
     /**
-     * @return A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+     * @return Enables the custom datatype to be configured.
      * 
      */
     public Optional<Boolean> customDatatypeConfigured() {

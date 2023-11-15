@@ -60,7 +60,7 @@ type BotAlias struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the bot.
 	BotName pulumi.StringOutput `pulumi:"botName"`
-	// The name of the bot.
+	// The version of the bot.
 	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
 	// Checksum of the bot alias.
 	Checksum pulumi.StringOutput `pulumi:"checksum"`
@@ -116,7 +116,7 @@ type botAliasState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the bot.
 	BotName *string `pulumi:"botName"`
-	// The name of the bot.
+	// The version of the bot.
 	BotVersion *string `pulumi:"botVersion"`
 	// Checksum of the bot alias.
 	Checksum *string `pulumi:"checksum"`
@@ -137,7 +137,7 @@ type BotAliasState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the bot.
 	BotName pulumi.StringPtrInput
-	// The name of the bot.
+	// The version of the bot.
 	BotVersion pulumi.StringPtrInput
 	// Checksum of the bot alias.
 	Checksum pulumi.StringPtrInput
@@ -160,7 +160,7 @@ func (BotAliasState) ElementType() reflect.Type {
 type botAliasArgs struct {
 	// The name of the bot.
 	BotName string `pulumi:"botName"`
-	// The name of the bot.
+	// The version of the bot.
 	BotVersion string `pulumi:"botVersion"`
 	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
 	ConversationLogs *BotAliasConversationLogs `pulumi:"conversationLogs"`
@@ -174,7 +174,7 @@ type botAliasArgs struct {
 type BotAliasArgs struct {
 	// The name of the bot.
 	BotName pulumi.StringInput
-	// The name of the bot.
+	// The version of the bot.
 	BotVersion pulumi.StringInput
 	// The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
 	ConversationLogs BotAliasConversationLogsPtrInput
@@ -281,7 +281,7 @@ func (o BotAliasOutput) BotName() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotName }).(pulumi.StringOutput)
 }
 
-// The name of the bot.
+// The version of the bot.
 func (o BotAliasOutput) BotVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *BotAlias) pulumi.StringOutput { return v.BotVersion }).(pulumi.StringOutput)
 }

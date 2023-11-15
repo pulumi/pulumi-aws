@@ -41,7 +41,7 @@ class DataSourceArgs:
         :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See OpenSearch Service Config
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
-        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
+        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "type", type)
@@ -202,7 +202,7 @@ class DataSourceArgs:
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        IAM service role ARN for the data source.
+        IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -240,7 +240,7 @@ class _DataSourceState:
         :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input['DataSourceOpensearchserviceConfigArgs'] opensearchservice_config: Amazon OpenSearch Service settings. See OpenSearch Service Config
         :param pulumi.Input['DataSourceRelationalDatabaseConfigArgs'] relational_database_config: AWS RDS settings. See Relational Database Config
-        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
+        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         """
         if api_id is not None:
@@ -406,7 +406,7 @@ class _DataSourceState:
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        IAM service role ARN for the data source.
+        IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -510,7 +510,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceOpensearchserviceConfigArgs']] opensearchservice_config: Amazon OpenSearch Service settings. See OpenSearch Service Config
         :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
-        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
+        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         """
         ...
@@ -666,7 +666,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[str] name: User-supplied name for the data source.
         :param pulumi.Input[pulumi.InputType['DataSourceOpensearchserviceConfigArgs']] opensearchservice_config: Amazon OpenSearch Service settings. See OpenSearch Service Config
         :param pulumi.Input[pulumi.InputType['DataSourceRelationalDatabaseConfigArgs']] relational_database_config: AWS RDS settings. See Relational Database Config
-        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source.
+        :param pulumi.Input[str] service_role_arn: IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         :param pulumi.Input[str] type: Type of the Data Source. Valid values: `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `HTTP`, `NONE`, `RELATIONAL_DATABASE`, `AMAZON_EVENTBRIDGE`, `AMAZON_OPENSEARCH_SERVICE`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -780,7 +780,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        IAM service role ARN for the data source.
+        IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         """
         return pulumi.get(self, "service_role_arn")
 

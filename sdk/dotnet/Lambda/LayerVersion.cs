@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Lambda
         public Output<ImmutableArray<string>> CompatibleArchitectures { get; private set; } = null!;
 
         /// <summary>
-        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         /// </summary>
         [Output("compatibleRuntimes")]
         public Output<ImmutableArray<string>> CompatibleRuntimes { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _compatibleRuntimes;
 
         /// <summary>
-        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         /// </summary>
         public InputList<string> CompatibleRuntimes
         {
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _compatibleRuntimes;
 
         /// <summary>
-        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
+        /// List of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 15 runtimes can be specified.
         /// </summary>
         public InputList<string> CompatibleRuntimes
         {

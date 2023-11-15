@@ -3146,6 +3146,588 @@ func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskTaskReportConfig struct {
+	// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+	OutputType *string `pulumi:"outputType"`
+	// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	ReportLevel *string `pulumi:"reportLevel"`
+	// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+	ReportOverrides *TaskTaskReportConfigReportOverrides `pulumi:"reportOverrides"`
+	// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+	S3Destination TaskTaskReportConfigS3Destination `pulumi:"s3Destination"`
+	// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+	S3ObjectVersioning *string `pulumi:"s3ObjectVersioning"`
+}
+
+// TaskTaskReportConfigInput is an input type that accepts TaskTaskReportConfigArgs and TaskTaskReportConfigOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigInput` via:
+//
+//	TaskTaskReportConfigArgs{...}
+type TaskTaskReportConfigInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigOutput() TaskTaskReportConfigOutput
+	ToTaskTaskReportConfigOutputWithContext(context.Context) TaskTaskReportConfigOutput
+}
+
+type TaskTaskReportConfigArgs struct {
+	// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+	OutputType pulumi.StringPtrInput `pulumi:"outputType"`
+	// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	ReportLevel pulumi.StringPtrInput `pulumi:"reportLevel"`
+	// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+	ReportOverrides TaskTaskReportConfigReportOverridesPtrInput `pulumi:"reportOverrides"`
+	// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+	S3Destination TaskTaskReportConfigS3DestinationInput `pulumi:"s3Destination"`
+	// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+	S3ObjectVersioning pulumi.StringPtrInput `pulumi:"s3ObjectVersioning"`
+}
+
+func (TaskTaskReportConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfig)(nil)).Elem()
+}
+
+func (i TaskTaskReportConfigArgs) ToTaskTaskReportConfigOutput() TaskTaskReportConfigOutput {
+	return i.ToTaskTaskReportConfigOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigArgs) ToTaskTaskReportConfigOutputWithContext(ctx context.Context) TaskTaskReportConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigOutput)
+}
+
+func (i TaskTaskReportConfigArgs) ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput {
+	return i.ToTaskTaskReportConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigArgs) ToTaskTaskReportConfigPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigOutput).ToTaskTaskReportConfigPtrOutputWithContext(ctx)
+}
+
+// TaskTaskReportConfigPtrInput is an input type that accepts TaskTaskReportConfigArgs, TaskTaskReportConfigPtr and TaskTaskReportConfigPtrOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigPtrInput` via:
+//
+//	        TaskTaskReportConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskTaskReportConfigPtrInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput
+	ToTaskTaskReportConfigPtrOutputWithContext(context.Context) TaskTaskReportConfigPtrOutput
+}
+
+type taskTaskReportConfigPtrType TaskTaskReportConfigArgs
+
+func TaskTaskReportConfigPtr(v *TaskTaskReportConfigArgs) TaskTaskReportConfigPtrInput {
+	return (*taskTaskReportConfigPtrType)(v)
+}
+
+func (*taskTaskReportConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfig)(nil)).Elem()
+}
+
+func (i *taskTaskReportConfigPtrType) ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput {
+	return i.ToTaskTaskReportConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *taskTaskReportConfigPtrType) ToTaskTaskReportConfigPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigPtrOutput)
+}
+
+type TaskTaskReportConfigOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfig)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigOutput() TaskTaskReportConfigOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigOutputWithContext(ctx context.Context) TaskTaskReportConfigOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput {
+	return o.ToTaskTaskReportConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTaskReportConfigOutput) ToTaskTaskReportConfigPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTaskReportConfig) *TaskTaskReportConfig {
+		return &v
+	}).(TaskTaskReportConfigPtrOutput)
+}
+
+// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+func (o TaskTaskReportConfigOutput) OutputType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.OutputType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigOutput) ReportLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.ReportLevel }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+func (o TaskTaskReportConfigOutput) ReportOverrides() TaskTaskReportConfigReportOverridesPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) *TaskTaskReportConfigReportOverrides { return v.ReportOverrides }).(TaskTaskReportConfigReportOverridesPtrOutput)
+}
+
+// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+func (o TaskTaskReportConfigOutput) S3Destination() TaskTaskReportConfigS3DestinationOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) TaskTaskReportConfigS3Destination { return v.S3Destination }).(TaskTaskReportConfigS3DestinationOutput)
+}
+
+// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+func (o TaskTaskReportConfigOutput) S3ObjectVersioning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfig) *string { return v.S3ObjectVersioning }).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfig)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigPtrOutput) ToTaskTaskReportConfigPtrOutput() TaskTaskReportConfigPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigPtrOutput) ToTaskTaskReportConfigPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigPtrOutput) Elem() TaskTaskReportConfigOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) TaskTaskReportConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TaskTaskReportConfig
+		return ret
+	}).(TaskTaskReportConfigOutput)
+}
+
+// Specifies the type of task report you'd like. Valid values: `SUMMARY_ONLY` and `STANDARD`.
+func (o TaskTaskReportConfigPtrOutput) OutputType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether you want your task report to include only what went wrong with your transfer or a list of what succeeded and didn't. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigPtrOutput) ReportLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReportLevel
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block containing the configuration of the reporting level for aspects of your task report. See `reportOverrides` below.
+func (o TaskTaskReportConfigPtrOutput) ReportOverrides() TaskTaskReportConfigReportOverridesPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *TaskTaskReportConfigReportOverrides {
+		if v == nil {
+			return nil
+		}
+		return v.ReportOverrides
+	}).(TaskTaskReportConfigReportOverridesPtrOutput)
+}
+
+// Configuration block containing the configuration for the Amazon S3 bucket where DataSync uploads your task report. See `s3Destination` below.
+func (o TaskTaskReportConfigPtrOutput) S3Destination() TaskTaskReportConfigS3DestinationPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *TaskTaskReportConfigS3Destination {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Destination
+	}).(TaskTaskReportConfigS3DestinationPtrOutput)
+}
+
+// Specifies whether your task report includes the new version of each object transferred into an S3 bucket. This only applies if you enable versioning on your bucket. Keep in mind that setting this to INCLUDE can increase the duration of your task execution. Valid values: `INCLUDE` and `NONE`.
+func (o TaskTaskReportConfigPtrOutput) S3ObjectVersioning() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3ObjectVersioning
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigReportOverrides struct {
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	DeletedOverride *string `pulumi:"deletedOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	SkippedOverride *string `pulumi:"skippedOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	TransferredOverride *string `pulumi:"transferredOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	VerifiedOverride *string `pulumi:"verifiedOverride"`
+}
+
+// TaskTaskReportConfigReportOverridesInput is an input type that accepts TaskTaskReportConfigReportOverridesArgs and TaskTaskReportConfigReportOverridesOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigReportOverridesInput` via:
+//
+//	TaskTaskReportConfigReportOverridesArgs{...}
+type TaskTaskReportConfigReportOverridesInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigReportOverridesOutput() TaskTaskReportConfigReportOverridesOutput
+	ToTaskTaskReportConfigReportOverridesOutputWithContext(context.Context) TaskTaskReportConfigReportOverridesOutput
+}
+
+type TaskTaskReportConfigReportOverridesArgs struct {
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	DeletedOverride pulumi.StringPtrInput `pulumi:"deletedOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	SkippedOverride pulumi.StringPtrInput `pulumi:"skippedOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	TransferredOverride pulumi.StringPtrInput `pulumi:"transferredOverride"`
+	// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+	VerifiedOverride pulumi.StringPtrInput `pulumi:"verifiedOverride"`
+}
+
+func (TaskTaskReportConfigReportOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfigReportOverrides)(nil)).Elem()
+}
+
+func (i TaskTaskReportConfigReportOverridesArgs) ToTaskTaskReportConfigReportOverridesOutput() TaskTaskReportConfigReportOverridesOutput {
+	return i.ToTaskTaskReportConfigReportOverridesOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigReportOverridesArgs) ToTaskTaskReportConfigReportOverridesOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigReportOverridesOutput)
+}
+
+func (i TaskTaskReportConfigReportOverridesArgs) ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput {
+	return i.ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigReportOverridesArgs) ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigReportOverridesOutput).ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx)
+}
+
+// TaskTaskReportConfigReportOverridesPtrInput is an input type that accepts TaskTaskReportConfigReportOverridesArgs, TaskTaskReportConfigReportOverridesPtr and TaskTaskReportConfigReportOverridesPtrOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigReportOverridesPtrInput` via:
+//
+//	        TaskTaskReportConfigReportOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskTaskReportConfigReportOverridesPtrInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput
+	ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(context.Context) TaskTaskReportConfigReportOverridesPtrOutput
+}
+
+type taskTaskReportConfigReportOverridesPtrType TaskTaskReportConfigReportOverridesArgs
+
+func TaskTaskReportConfigReportOverridesPtr(v *TaskTaskReportConfigReportOverridesArgs) TaskTaskReportConfigReportOverridesPtrInput {
+	return (*taskTaskReportConfigReportOverridesPtrType)(v)
+}
+
+func (*taskTaskReportConfigReportOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfigReportOverrides)(nil)).Elem()
+}
+
+func (i *taskTaskReportConfigReportOverridesPtrType) ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput {
+	return i.ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *taskTaskReportConfigReportOverridesPtrType) ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigReportOverridesPtrOutput)
+}
+
+type TaskTaskReportConfigReportOverridesOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigReportOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfigReportOverrides)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportOverridesOutput() TaskTaskReportConfigReportOverridesOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportOverridesOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput {
+	return o.ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTaskReportConfigReportOverridesOutput) ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTaskReportConfigReportOverrides) *TaskTaskReportConfigReportOverrides {
+		return &v
+	}).(TaskTaskReportConfigReportOverridesPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesOutput) DeletedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.DeletedOverride }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesOutput) SkippedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.SkippedOverride }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesOutput) TransferredOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.TransferredOverride }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesOutput) VerifiedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigReportOverrides) *string { return v.VerifiedOverride }).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigReportOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigReportOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfigReportOverrides)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigReportOverridesPtrOutput) ToTaskTaskReportConfigReportOverridesPtrOutput() TaskTaskReportConfigReportOverridesPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigReportOverridesPtrOutput) ToTaskTaskReportConfigReportOverridesPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigReportOverridesPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigReportOverridesPtrOutput) Elem() TaskTaskReportConfigReportOverridesOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) TaskTaskReportConfigReportOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret TaskTaskReportConfigReportOverrides
+		return ret
+	}).(TaskTaskReportConfigReportOverridesOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to delete in your destination location. This only applies if you configure your task to delete data in the destination that isn't in the source. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesPtrOutput) DeletedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DeletedOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to skip during your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesPtrOutput) SkippedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SkippedOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesPtrOutput) TransferredOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TransferredOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the level of reporting for the files, objects, and directories that DataSync attempted to verify at the end of your transfer. Valid values: `ERRORS_ONLY` and `SUCCESSES_AND_ERRORS`.
+func (o TaskTaskReportConfigReportOverridesPtrOutput) VerifiedOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigReportOverrides) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VerifiedOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigS3Destination struct {
+	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+	BucketAccessRoleArn string `pulumi:"bucketAccessRoleArn"`
+	// Specifies the ARN of the S3 bucket where DataSync uploads your report.
+	S3BucketArn string `pulumi:"s3BucketArn"`
+	// Specifies a bucket prefix for your report.
+	Subdirectory *string `pulumi:"subdirectory"`
+}
+
+// TaskTaskReportConfigS3DestinationInput is an input type that accepts TaskTaskReportConfigS3DestinationArgs and TaskTaskReportConfigS3DestinationOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigS3DestinationInput` via:
+//
+//	TaskTaskReportConfigS3DestinationArgs{...}
+type TaskTaskReportConfigS3DestinationInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigS3DestinationOutput() TaskTaskReportConfigS3DestinationOutput
+	ToTaskTaskReportConfigS3DestinationOutputWithContext(context.Context) TaskTaskReportConfigS3DestinationOutput
+}
+
+type TaskTaskReportConfigS3DestinationArgs struct {
+	// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+	BucketAccessRoleArn pulumi.StringInput `pulumi:"bucketAccessRoleArn"`
+	// Specifies the ARN of the S3 bucket where DataSync uploads your report.
+	S3BucketArn pulumi.StringInput `pulumi:"s3BucketArn"`
+	// Specifies a bucket prefix for your report.
+	Subdirectory pulumi.StringPtrInput `pulumi:"subdirectory"`
+}
+
+func (TaskTaskReportConfigS3DestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfigS3Destination)(nil)).Elem()
+}
+
+func (i TaskTaskReportConfigS3DestinationArgs) ToTaskTaskReportConfigS3DestinationOutput() TaskTaskReportConfigS3DestinationOutput {
+	return i.ToTaskTaskReportConfigS3DestinationOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigS3DestinationArgs) ToTaskTaskReportConfigS3DestinationOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigS3DestinationOutput)
+}
+
+func (i TaskTaskReportConfigS3DestinationArgs) ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput {
+	return i.ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i TaskTaskReportConfigS3DestinationArgs) ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigS3DestinationOutput).ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx)
+}
+
+// TaskTaskReportConfigS3DestinationPtrInput is an input type that accepts TaskTaskReportConfigS3DestinationArgs, TaskTaskReportConfigS3DestinationPtr and TaskTaskReportConfigS3DestinationPtrOutput values.
+// You can construct a concrete instance of `TaskTaskReportConfigS3DestinationPtrInput` via:
+//
+//	        TaskTaskReportConfigS3DestinationArgs{...}
+//
+//	or:
+//
+//	        nil
+type TaskTaskReportConfigS3DestinationPtrInput interface {
+	pulumi.Input
+
+	ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput
+	ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(context.Context) TaskTaskReportConfigS3DestinationPtrOutput
+}
+
+type taskTaskReportConfigS3DestinationPtrType TaskTaskReportConfigS3DestinationArgs
+
+func TaskTaskReportConfigS3DestinationPtr(v *TaskTaskReportConfigS3DestinationArgs) TaskTaskReportConfigS3DestinationPtrInput {
+	return (*taskTaskReportConfigS3DestinationPtrType)(v)
+}
+
+func (*taskTaskReportConfigS3DestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfigS3Destination)(nil)).Elem()
+}
+
+func (i *taskTaskReportConfigS3DestinationPtrType) ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput {
+	return i.ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *taskTaskReportConfigS3DestinationPtrType) ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskTaskReportConfigS3DestinationPtrOutput)
+}
+
+type TaskTaskReportConfigS3DestinationOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigS3DestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskTaskReportConfigS3Destination)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3DestinationOutput() TaskTaskReportConfigS3DestinationOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3DestinationOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput {
+	return o.ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(context.Background())
+}
+
+func (o TaskTaskReportConfigS3DestinationOutput) ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskTaskReportConfigS3Destination) *TaskTaskReportConfigS3Destination {
+		return &v
+	}).(TaskTaskReportConfigS3DestinationPtrOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+func (o TaskTaskReportConfigS3DestinationOutput) BucketAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
+}
+
+// Specifies the ARN of the S3 bucket where DataSync uploads your report.
+func (o TaskTaskReportConfigS3DestinationOutput) S3BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) string { return v.S3BucketArn }).(pulumi.StringOutput)
+}
+
+// Specifies a bucket prefix for your report.
+func (o TaskTaskReportConfigS3DestinationOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskTaskReportConfigS3Destination) *string { return v.Subdirectory }).(pulumi.StringPtrOutput)
+}
+
+type TaskTaskReportConfigS3DestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskTaskReportConfigS3DestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskTaskReportConfigS3Destination)(nil)).Elem()
+}
+
+func (o TaskTaskReportConfigS3DestinationPtrOutput) ToTaskTaskReportConfigS3DestinationPtrOutput() TaskTaskReportConfigS3DestinationPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigS3DestinationPtrOutput) ToTaskTaskReportConfigS3DestinationPtrOutputWithContext(ctx context.Context) TaskTaskReportConfigS3DestinationPtrOutput {
+	return o
+}
+
+func (o TaskTaskReportConfigS3DestinationPtrOutput) Elem() TaskTaskReportConfigS3DestinationOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) TaskTaskReportConfigS3Destination {
+		if v != nil {
+			return *v
+		}
+		var ret TaskTaskReportConfigS3Destination
+		return ret
+	}).(TaskTaskReportConfigS3DestinationOutput)
+}
+
+// Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+func (o TaskTaskReportConfigS3DestinationPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ARN of the S3 bucket where DataSync uploads your report.
+func (o TaskTaskReportConfigS3DestinationPtrOutput) S3BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies a bucket prefix for your report.
+func (o TaskTaskReportConfigS3DestinationPtrOutput) Subdirectory() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTaskReportConfigS3Destination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Subdirectory
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationEc2ConfigInput)(nil)).Elem(), EfsLocationEc2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationEc2ConfigPtrInput)(nil)).Elem(), EfsLocationEc2ConfigArgs{})
@@ -3187,6 +3769,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsPtrInput)(nil)).Elem(), TaskOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleInput)(nil)).Elem(), TaskScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigInput)(nil)).Elem(), TaskTaskReportConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigPtrInput)(nil)).Elem(), TaskTaskReportConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigReportOverridesInput)(nil)).Elem(), TaskTaskReportConfigReportOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigReportOverridesPtrInput)(nil)).Elem(), TaskTaskReportConfigReportOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigS3DestinationInput)(nil)).Elem(), TaskTaskReportConfigS3DestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskTaskReportConfigS3DestinationPtrInput)(nil)).Elem(), TaskTaskReportConfigS3DestinationArgs{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigOutput{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigPtrOutput{})
 	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolOutput{})
@@ -3227,4 +3815,10 @@ func init() {
 	pulumi.RegisterOutputType(TaskOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TaskScheduleOutput{})
 	pulumi.RegisterOutputType(TaskSchedulePtrOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigPtrOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigReportOverridesOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigReportOverridesPtrOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigS3DestinationOutput{})
+	pulumi.RegisterOutputType(TaskTaskReportConfigS3DestinationPtrOutput{})
 }

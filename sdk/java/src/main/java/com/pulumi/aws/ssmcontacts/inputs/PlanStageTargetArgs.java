@@ -16,16 +16,32 @@ public final class PlanStageTargetArgs extends com.pulumi.resources.ResourceArgs
 
     public static final PlanStageTargetArgs Empty = new PlanStageTargetArgs();
 
+    /**
+     * A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+     * 
+     */
     @Import(name="channelTargetInfo")
     private @Nullable Output<PlanStageTargetChannelTargetInfoArgs> channelTargetInfo;
 
+    /**
+     * @return A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+     * 
+     */
     public Optional<Output<PlanStageTargetChannelTargetInfoArgs>> channelTargetInfo() {
         return Optional.ofNullable(this.channelTargetInfo);
     }
 
+    /**
+     * A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+     * 
+     */
     @Import(name="contactTargetInfo")
     private @Nullable Output<PlanStageTargetContactTargetInfoArgs> contactTargetInfo;
 
+    /**
+     * @return A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+     * 
+     */
     public Optional<Output<PlanStageTargetContactTargetInfoArgs>> contactTargetInfo() {
         return Optional.ofNullable(this.contactTargetInfo);
     }
@@ -55,20 +71,44 @@ public final class PlanStageTargetArgs extends com.pulumi.resources.ResourceArgs
             $ = new PlanStageTargetArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param channelTargetInfo A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelTargetInfo(@Nullable Output<PlanStageTargetChannelTargetInfoArgs> channelTargetInfo) {
             $.channelTargetInfo = channelTargetInfo;
             return this;
         }
 
+        /**
+         * @param channelTargetInfo A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder channelTargetInfo(PlanStageTargetChannelTargetInfoArgs channelTargetInfo) {
             return channelTargetInfo(Output.of(channelTargetInfo));
         }
 
+        /**
+         * @param contactTargetInfo A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contactTargetInfo(@Nullable Output<PlanStageTargetContactTargetInfoArgs> contactTargetInfo) {
             $.contactTargetInfo = contactTargetInfo;
             return this;
         }
 
+        /**
+         * @param contactTargetInfo A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder contactTargetInfo(PlanStageTargetContactTargetInfoArgs contactTargetInfo) {
             return contactTargetInfo(Output.of(contactTargetInfo));
         }

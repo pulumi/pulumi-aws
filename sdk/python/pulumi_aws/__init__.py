@@ -71,6 +71,8 @@ if typing.TYPE_CHECKING:
     backup = __backup
     import pulumi_aws.batch as __batch
     batch = __batch
+    import pulumi_aws.bedrockfoundation as __bedrockfoundation
+    bedrockfoundation = __bedrockfoundation
     import pulumi_aws.budgets as __budgets
     budgets = __budgets
     import pulumi_aws.cfg as __cfg
@@ -430,6 +432,7 @@ else:
     autoscalingplans = _utilities.lazy_import('pulumi_aws.autoscalingplans')
     backup = _utilities.lazy_import('pulumi_aws.backup')
     batch = _utilities.lazy_import('pulumi_aws.batch')
+    bedrockfoundation = _utilities.lazy_import('pulumi_aws.bedrockfoundation')
     budgets = _utilities.lazy_import('pulumi_aws.budgets')
     cfg = _utilities.lazy_import('pulumi_aws.cfg')
     chime = _utilities.lazy_import('pulumi_aws.chime')
@@ -1479,6 +1482,14 @@ _utilities.register(
   "fqn": "pulumi_aws.athena",
   "classes": {
    "aws:athena/namedQuery:NamedQuery": "NamedQuery"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "athena/preparedStatement",
+  "fqn": "pulumi_aws.athena",
+  "classes": {
+   "aws:athena/preparedStatement:PreparedStatement": "PreparedStatement"
   }
  },
  {
@@ -6535,6 +6546,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lex",
   "classes": {
    "aws:lex/v2modelsBot:V2modelsBot": "V2modelsBot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lex/v2modelsBotLocale",
+  "fqn": "pulumi_aws.lex",
+  "classes": {
+   "aws:lex/v2modelsBotLocale:V2modelsBotLocale": "V2modelsBotLocale"
   }
  },
  {

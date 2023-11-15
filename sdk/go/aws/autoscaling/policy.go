@@ -244,7 +244,7 @@ import (
 //						},
 //						PredefinedLoadMetricSpecification: &autoscaling.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs{
 //							PredefinedMetricType: pulumi.String("ASGTotalCPUUtilization"),
-//							ResourceLabel:        pulumi.String("testLabel"),
+//							ResourceLabel:        pulumi.String("app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff"),
 //						},
 //						TargetValue: pulumi.Float64(10),
 //					},

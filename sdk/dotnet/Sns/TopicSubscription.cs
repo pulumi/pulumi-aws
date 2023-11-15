@@ -396,6 +396,12 @@ namespace Pulumi.Aws.Sns
         public Output<string?> RedrivePolicy { get; private set; } = null!;
 
         /// <summary>
+        /// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+        /// </summary>
+        [Output("replayPolicy")]
+        public Output<string?> ReplayPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         /// </summary>
         [Output("subscriptionRoleArn")]
@@ -510,6 +516,12 @@ namespace Pulumi.Aws.Sns
         public Input<string>? RedrivePolicy { get; set; }
 
         /// <summary>
+        /// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+        /// </summary>
+        [Input("replayPolicy")]
+        public Input<string>? ReplayPolicy { get; set; }
+
+        /// <summary>
         /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).
         /// </summary>
         [Input("subscriptionRoleArn")]
@@ -608,6 +620,12 @@ namespace Pulumi.Aws.Sns
         /// </summary>
         [Input("redrivePolicy")]
         public Input<string>? RedrivePolicy { get; set; }
+
+        /// <summary>
+        /// JSON String with the archived message replay policy that will be used in the subscription. Refer to the [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/message-archiving-and-replay-subscriber.html) for more details.
+        /// </summary>
+        [Input("replayPolicy")]
+        public Input<string>? ReplayPolicy { get; set; }
 
         /// <summary>
         /// ARN of the IAM role to publish to Kinesis Data Firehose delivery stream. Refer to [SNS docs](https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html).

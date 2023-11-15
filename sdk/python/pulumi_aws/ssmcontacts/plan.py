@@ -21,7 +21,7 @@ class PlanArgs:
         """
         The set of arguments for constructing a Plan resource.
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         pulumi.set(__self__, "contact_id", contact_id)
         pulumi.set(__self__, "stages", stages)
@@ -42,7 +42,7 @@ class PlanArgs:
     @pulumi.getter
     def stages(self) -> pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]:
         """
-        List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         return pulumi.get(self, "stages")
 
@@ -59,7 +59,7 @@ class _PlanState:
         """
         Input properties used for looking up and filtering Plan resources.
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         if contact_id is not None:
             pulumi.set(__self__, "contact_id", contact_id)
@@ -82,7 +82,7 @@ class _PlanState:
     @pulumi.getter
     def stages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanStageArgs']]]]:
         """
-        List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         return pulumi.get(self, "stages")
 
@@ -177,7 +177,7 @@ class Plan(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]] stages: List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         ...
     @overload
@@ -312,7 +312,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]] stages: List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PlanStageArgs']]]] stages: One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -334,7 +334,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def stages(self) -> pulumi.Output[Sequence['outputs.PlanStage']]:
         """
-        List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+        One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
         """
         return pulumi.get(self, "stages")
 

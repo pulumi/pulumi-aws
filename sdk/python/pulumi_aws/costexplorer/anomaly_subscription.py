@@ -305,7 +305,23 @@ class AnomalySubscription(pulumi.CustomResource):
         Provides a CE Anomaly Subscription.
 
         ## Example Usage
+        ### Basic Example
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_anomaly_monitor = aws.costexplorer.AnomalyMonitor("testAnomalyMonitor",
+            monitor_type="DIMENSIONAL",
+            monitor_dimension="SERVICE")
+        test_anomaly_subscription = aws.costexplorer.AnomalySubscription("testAnomalySubscription",
+            frequency="DAILY",
+            monitor_arn_lists=[test_anomaly_monitor.arn],
+            subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
+                type="EMAIL",
+                address="abc@example.com",
+            )])
+        ```
         ### Threshold Expression Example
         ### For a Specific Dimension
 
@@ -359,6 +375,66 @@ class AnomalySubscription(pulumi.CustomResource):
                     ),
                 ],
             ))
+        ```
+        ### SNS Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost_anomaly_updates = aws.sns.Topic("costAnomalyUpdates")
+        sns_topic_policy = pulumi.Output.all(cost_anomaly_updates.arn, cost_anomaly_updates.arn).apply(lambda costAnomalyUpdatesArn, costAnomalyUpdatesArn1: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+            statements=[
+                aws.iam.GetPolicyDocumentStatementArgs(
+                    sid="AWSAnomalyDetectionSNSPublishingPermissions",
+                    actions=["SNS:Publish"],
+                    effect="Allow",
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                        type="Service",
+                        identifiers=["costalerts.amazonaws.com"],
+                    )],
+                    resources=[cost_anomaly_updates_arn],
+                ),
+                aws.iam.GetPolicyDocumentStatementArgs(
+                    sid="__default_statement_ID",
+                    actions=[
+                        "SNS:Subscribe",
+                        "SNS:SetTopicAttributes",
+                        "SNS:RemovePermission",
+                        "SNS:Receive",
+                        "SNS:Publish",
+                        "SNS:ListSubscriptionsByTopic",
+                        "SNS:GetTopicAttributes",
+                        "SNS:DeleteTopic",
+                        "SNS:AddPermission",
+                    ],
+                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="AWS:SourceOwner",
+                        values=[var["account-id"]],
+                    )],
+                    effect="Allow",
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                        type="AWS",
+                        identifiers=["*"],
+                    )],
+                    resources=[cost_anomaly_updates_arn1],
+                ),
+            ]))
+        default = aws.sns.TopicPolicy("default",
+            arn=cost_anomaly_updates.arn,
+            policy=sns_topic_policy.json)
+        anomaly_monitor = aws.costexplorer.AnomalyMonitor("anomalyMonitor",
+            monitor_type="DIMENSIONAL",
+            monitor_dimension="SERVICE")
+        realtime_subscription = aws.costexplorer.AnomalySubscription("realtimeSubscription",
+            frequency="IMMEDIATE",
+            monitor_arn_lists=[anomaly_monitor.arn],
+            subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
+                type="SNS",
+                address=cost_anomaly_updates.arn,
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[default]))
         ```
 
         ## Import
@@ -389,7 +465,23 @@ class AnomalySubscription(pulumi.CustomResource):
         Provides a CE Anomaly Subscription.
 
         ## Example Usage
+        ### Basic Example
 
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test_anomaly_monitor = aws.costexplorer.AnomalyMonitor("testAnomalyMonitor",
+            monitor_type="DIMENSIONAL",
+            monitor_dimension="SERVICE")
+        test_anomaly_subscription = aws.costexplorer.AnomalySubscription("testAnomalySubscription",
+            frequency="DAILY",
+            monitor_arn_lists=[test_anomaly_monitor.arn],
+            subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
+                type="EMAIL",
+                address="abc@example.com",
+            )])
+        ```
         ### Threshold Expression Example
         ### For a Specific Dimension
 
@@ -443,6 +535,66 @@ class AnomalySubscription(pulumi.CustomResource):
                     ),
                 ],
             ))
+        ```
+        ### SNS Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cost_anomaly_updates = aws.sns.Topic("costAnomalyUpdates")
+        sns_topic_policy = pulumi.Output.all(cost_anomaly_updates.arn, cost_anomaly_updates.arn).apply(lambda costAnomalyUpdatesArn, costAnomalyUpdatesArn1: aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
+            statements=[
+                aws.iam.GetPolicyDocumentStatementArgs(
+                    sid="AWSAnomalyDetectionSNSPublishingPermissions",
+                    actions=["SNS:Publish"],
+                    effect="Allow",
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                        type="Service",
+                        identifiers=["costalerts.amazonaws.com"],
+                    )],
+                    resources=[cost_anomaly_updates_arn],
+                ),
+                aws.iam.GetPolicyDocumentStatementArgs(
+                    sid="__default_statement_ID",
+                    actions=[
+                        "SNS:Subscribe",
+                        "SNS:SetTopicAttributes",
+                        "SNS:RemovePermission",
+                        "SNS:Receive",
+                        "SNS:Publish",
+                        "SNS:ListSubscriptionsByTopic",
+                        "SNS:GetTopicAttributes",
+                        "SNS:DeleteTopic",
+                        "SNS:AddPermission",
+                    ],
+                    conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                        test="StringEquals",
+                        variable="AWS:SourceOwner",
+                        values=[var["account-id"]],
+                    )],
+                    effect="Allow",
+                    principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                        type="AWS",
+                        identifiers=["*"],
+                    )],
+                    resources=[cost_anomaly_updates_arn1],
+                ),
+            ]))
+        default = aws.sns.TopicPolicy("default",
+            arn=cost_anomaly_updates.arn,
+            policy=sns_topic_policy.json)
+        anomaly_monitor = aws.costexplorer.AnomalyMonitor("anomalyMonitor",
+            monitor_type="DIMENSIONAL",
+            monitor_dimension="SERVICE")
+        realtime_subscription = aws.costexplorer.AnomalySubscription("realtimeSubscription",
+            frequency="IMMEDIATE",
+            monitor_arn_lists=[anomaly_monitor.arn],
+            subscribers=[aws.costexplorer.AnomalySubscriptionSubscriberArgs(
+                type="SNS",
+                address=cost_anomaly_updates.arn,
+            )],
+            opts=pulumi.ResourceOptions(depends_on=[default]))
         ```
 
         ## Import

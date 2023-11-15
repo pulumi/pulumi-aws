@@ -3,11 +3,15 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsTimeSeriesForecastingSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDefaultUserSettingsCanvasAppSettingsWorkspaceSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,6 +20,51 @@ import javax.annotation.Nullable;
 public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DomainDefaultUserSettingsCanvasAppSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsArgs();
+
+    /**
+     * The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+     * 
+     */
+    @Import(name="directDeploySettings")
+    private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings;
+
+    /**
+     * @return The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs>> directDeploySettings() {
+        return Optional.ofNullable(this.directDeploySettings);
+    }
+
+    /**
+     * The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+     * 
+     */
+    @Import(name="identityProviderOauthSettings")
+    private @Nullable Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> identityProviderOauthSettings;
+
+    /**
+     * @return The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+     * 
+     */
+    public Optional<Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>>> identityProviderOauthSettings() {
+        return Optional.ofNullable(this.identityProviderOauthSettings);
+    }
+
+    /**
+     * The settings for document querying. See Kendra Settings below.
+     * 
+     */
+    @Import(name="kendraSettings")
+    private @Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs> kendraSettings;
+
+    /**
+     * @return The settings for document querying. See Kendra Settings below.
+     * 
+     */
+    public Optional<Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs>> kendraSettings() {
+        return Optional.ofNullable(this.kendraSettings);
+    }
 
     /**
      * The model registry settings for the SageMaker Canvas application. See Model Register Settings below.
@@ -65,6 +114,9 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
     private DomainDefaultUserSettingsCanvasAppSettingsArgs() {}
 
     private DomainDefaultUserSettingsCanvasAppSettingsArgs(DomainDefaultUserSettingsCanvasAppSettingsArgs $) {
+        this.directDeploySettings = $.directDeploySettings;
+        this.identityProviderOauthSettings = $.identityProviderOauthSettings;
+        this.kendraSettings = $.kendraSettings;
         this.modelRegisterSettings = $.modelRegisterSettings;
         this.timeSeriesForecastingSettings = $.timeSeriesForecastingSettings;
         this.workspaceSettings = $.workspaceSettings;
@@ -86,6 +138,79 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsArgs extends com.pu
 
         public Builder(DomainDefaultUserSettingsCanvasAppSettingsArgs defaults) {
             $ = new DomainDefaultUserSettingsCanvasAppSettingsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param directDeploySettings The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder directDeploySettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs> directDeploySettings) {
+            $.directDeploySettings = directDeploySettings;
+            return this;
+        }
+
+        /**
+         * @param directDeploySettings The model deployment settings for the SageMaker Canvas application. See Direct Deploy Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder directDeploySettings(DomainDefaultUserSettingsCanvasAppSettingsDirectDeploySettingsArgs directDeploySettings) {
+            return directDeploySettings(Output.of(directDeploySettings));
+        }
+
+        /**
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityProviderOauthSettings(@Nullable Output<List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs>> identityProviderOauthSettings) {
+            $.identityProviderOauthSettings = identityProviderOauthSettings;
+            return this;
+        }
+
+        /**
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityProviderOauthSettings(List<DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs> identityProviderOauthSettings) {
+            return identityProviderOauthSettings(Output.of(identityProviderOauthSettings));
+        }
+
+        /**
+         * @param identityProviderOauthSettings The settings for connecting to an external data source with OAuth. See Identity Provider OAuth Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityProviderOauthSettings(DomainDefaultUserSettingsCanvasAppSettingsIdentityProviderOauthSettingArgs... identityProviderOauthSettings) {
+            return identityProviderOauthSettings(List.of(identityProviderOauthSettings));
+        }
+
+        /**
+         * @param kendraSettings The settings for document querying. See Kendra Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kendraSettings(@Nullable Output<DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs> kendraSettings) {
+            $.kendraSettings = kendraSettings;
+            return this;
+        }
+
+        /**
+         * @param kendraSettings The settings for document querying. See Kendra Settings below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kendraSettings(DomainDefaultUserSettingsCanvasAppSettingsKendraSettingsArgs kendraSettings) {
+            return kendraSettings(Output.of(kendraSettings));
         }
 
         /**

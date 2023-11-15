@@ -20,6 +20,8 @@ type OrganizationConfigurationAutoEnable struct {
 	Ecr bool `pulumi:"ecr"`
 	// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
 	Lambda *bool `pulumi:"lambda"`
+	// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+	LambdaCode *bool `pulumi:"lambdaCode"`
 }
 
 // OrganizationConfigurationAutoEnableInput is an input type that accepts OrganizationConfigurationAutoEnableArgs and OrganizationConfigurationAutoEnableOutput values.
@@ -40,6 +42,8 @@ type OrganizationConfigurationAutoEnableArgs struct {
 	Ecr pulumi.BoolInput `pulumi:"ecr"`
 	// Whether Lambda Function scans are automatically enabled for new members of your Amazon Inspector organization.
 	Lambda pulumi.BoolPtrInput `pulumi:"lambda"`
+	// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+	LambdaCode pulumi.BoolPtrInput `pulumi:"lambdaCode"`
 }
 
 func (OrganizationConfigurationAutoEnableArgs) ElementType() reflect.Type {
@@ -134,6 +138,11 @@ func (o OrganizationConfigurationAutoEnableOutput) Lambda() pulumi.BoolPtrOutput
 	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) *bool { return v.Lambda }).(pulumi.BoolPtrOutput)
 }
 
+// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+func (o OrganizationConfigurationAutoEnableOutput) LambdaCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v OrganizationConfigurationAutoEnable) *bool { return v.LambdaCode }).(pulumi.BoolPtrOutput)
+}
+
 type OrganizationConfigurationAutoEnablePtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationConfigurationAutoEnablePtrOutput) ElementType() reflect.Type {
@@ -185,6 +194,16 @@ func (o OrganizationConfigurationAutoEnablePtrOutput) Lambda() pulumi.BoolPtrOut
 			return nil
 		}
 		return v.Lambda
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether AWS Lambda code scans are automatically enabled for new members of your Amazon Inspector organization. **Note:** Lambda code scanning requires Lambda standard scanning to be activated. Consequently, if you are setting this argument to `true`, you must also set the `lambda` argument to `true`. See [Scanning AWS Lambda functions with Amazon Inspector](https://docs.aws.amazon.com/inspector/latest/user/scanning-lambda.html#lambda-code-scans) for more information.
+func (o OrganizationConfigurationAutoEnablePtrOutput) LambdaCode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationAutoEnable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LambdaCode
 	}).(pulumi.BoolPtrOutput)
 }
 

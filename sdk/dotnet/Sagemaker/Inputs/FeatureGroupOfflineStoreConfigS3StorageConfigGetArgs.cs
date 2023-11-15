@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
+        /// The S3 path where offline records are written.
+        /// </summary>
+        [Input("resolvedOutputS3Uri")]
+        public Input<string>? ResolvedOutputS3Uri { get; set; }
+
+        /// <summary>
         /// The S3 URI, or location in Amazon S3, of OfflineStore.
         /// </summary>
         [Input("s3Uri", required: true)]

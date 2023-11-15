@@ -191,7 +191,7 @@ namespace Pulumi.Aws.AppSync
         public Output<Outputs.DataSourceRelationalDatabaseConfig?> RelationalDatabaseConfig { get; private set; } = null!;
 
         /// <summary>
-        /// IAM service role ARN for the data source.
+        /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Output("serviceRoleArn")]
         public Output<string?> ServiceRoleArn { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceRelationalDatabaseConfigArgs>? RelationalDatabaseConfig { get; set; }
 
         /// <summary>
-        /// IAM service role ARN for the data source.
+        /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.AppSync
         public Input<Inputs.DataSourceRelationalDatabaseConfigGetArgs>? RelationalDatabaseConfig { get; set; }
 
         /// <summary>
-        /// IAM service role ARN for the data source.
+        /// IAM service role ARN for the data source. Required if `type` is specified as `AWS_LAMBDA`, `AMAZON_DYNAMODB`, `AMAZON_ELASTICSEARCH`, `AMAZON_EVENTBRIDGE`, or `AMAZON_OPENSEARCH_SERVICE`.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }

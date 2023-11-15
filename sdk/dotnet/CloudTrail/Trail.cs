@@ -35,13 +35,6 @@ namespace Pulumi.Aws.CloudTrail
     ///         ForceDestroy = true,
     ///     });
     /// 
-    ///     var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new()
-    ///     {
-    ///         S3BucketName = exampleBucketV2.Id,
-    ///         S3KeyPrefix = "prefix",
-    ///         IncludeGlobalServiceEvents = false,
-    ///     });
-    /// 
     ///     var currentCallerIdentity = Aws.GetCallerIdentity.Invoke();
     /// 
     ///     var currentPartition = Aws.GetPartition.Invoke();
@@ -140,6 +133,19 @@ namespace Pulumi.Aws.CloudTrail
     ///     {
     ///         Bucket = exampleBucketV2.Id,
     ///         Policy = examplePolicyDocument.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var exampleTrail = new Aws.CloudTrail.Trail("exampleTrail", new()
+    ///     {
+    ///         S3BucketName = exampleBucketV2.Id,
+    ///         S3KeyPrefix = "prefix",
+    ///         IncludeGlobalServiceEvents = false,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleBucketPolicy,
+    ///         },
     ///     });
     /// 
     /// });
@@ -283,10 +289,10 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudtrails using the `name`. For example:
+    /// Using `pulumi import`, import Cloudtrails using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudtrail/trail:Trail sample my-sample-trail
+    ///  $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudtrail/trail:Trail")]

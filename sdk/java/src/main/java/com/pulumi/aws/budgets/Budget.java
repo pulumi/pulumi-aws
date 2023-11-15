@@ -341,7 +341,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import budgets using `AccountID:ActionID:BudgetName`. For example:
+ * Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
  * 
  * ```sh
  *  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget

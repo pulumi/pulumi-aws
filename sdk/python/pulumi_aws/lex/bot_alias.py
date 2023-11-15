@@ -24,7 +24,7 @@ class BotAliasArgs:
         """
         The set of arguments for constructing a BotAlias resource.
         :param pulumi.Input[str] bot_name: The name of the bot.
-        :param pulumi.Input[str] bot_version: The name of the bot.
+        :param pulumi.Input[str] bot_version: The version of the bot.
         :param pulumi.Input['BotAliasConversationLogsArgs'] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
@@ -54,7 +54,7 @@ class BotAliasArgs:
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Input[str]:
         """
-        The name of the bot.
+        The version of the bot.
         """
         return pulumi.get(self, "bot_version")
 
@@ -115,7 +115,7 @@ class _BotAliasState:
         Input properties used for looking up and filtering BotAlias resources.
         :param pulumi.Input[str] arn: The ARN of the bot alias.
         :param pulumi.Input[str] bot_name: The name of the bot.
-        :param pulumi.Input[str] bot_version: The name of the bot.
+        :param pulumi.Input[str] bot_version: The version of the bot.
         :param pulumi.Input[str] checksum: Checksum of the bot alias.
         :param pulumi.Input['BotAliasConversationLogsArgs'] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] created_date: The date that the bot alias was created.
@@ -170,7 +170,7 @@ class _BotAliasState:
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the bot.
+        The version of the bot.
         """
         return pulumi.get(self, "bot_version")
 
@@ -290,7 +290,7 @@ class BotAlias(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the bot.
-        :param pulumi.Input[str] bot_version: The name of the bot.
+        :param pulumi.Input[str] bot_version: The version of the bot.
         :param pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] description: A description of the alias. Must be less than or equal to 200 characters in length.
         :param pulumi.Input[str] name: The name of the alias. The name is not case sensitive. Must be less than or equal to 100 characters in length.
@@ -396,7 +396,7 @@ class BotAlias(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the bot alias.
         :param pulumi.Input[str] bot_name: The name of the bot.
-        :param pulumi.Input[str] bot_version: The name of the bot.
+        :param pulumi.Input[str] bot_version: The version of the bot.
         :param pulumi.Input[str] checksum: Checksum of the bot alias.
         :param pulumi.Input[pulumi.InputType['BotAliasConversationLogsArgs']] conversation_logs: The settings that determine how Amazon Lex uses conversation logs for the alias. Attributes are documented under conversation_logs.
         :param pulumi.Input[str] created_date: The date that the bot alias was created.
@@ -439,7 +439,7 @@ class BotAlias(pulumi.CustomResource):
     @pulumi.getter(name="botVersion")
     def bot_version(self) -> pulumi.Output[str]:
         """
-        The name of the bot.
+        The version of the bot.
         """
         return pulumi.get(self, "bot_version")
 

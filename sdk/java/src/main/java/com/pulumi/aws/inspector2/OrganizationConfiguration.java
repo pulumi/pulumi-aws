@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **NOTE:** In order for this resource to work, the account you use must be an Inspector Delegated Admin Account.
  * 
- * &gt; **NOTE:** When this resource is deleted, EC2, ECR and Lambda scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
+ * &gt; **NOTE:** When this resource is deleted, EC2, ECR, Lambda, and Lambda code scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
  * 
  * ## Example Usage
  * ### Basic Usage
@@ -50,6 +50,7 @@ import javax.annotation.Nullable;
  *                 .ec2(true)
  *                 .ecr(false)
  *                 .lambda(true)
+ *                 .lambdaCode(true)
  *                 .build())
  *             .build());
  * 

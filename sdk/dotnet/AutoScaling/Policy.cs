@@ -251,7 +251,7 @@ namespace Pulumi.Aws.AutoScaling
     ///                 PredefinedLoadMetricSpecification = new Aws.AutoScaling.Inputs.PolicyPredictiveScalingConfigurationMetricSpecificationPredefinedLoadMetricSpecificationArgs
     ///                 {
     ///                     PredefinedMetricType = "ASGTotalCPUUtilization",
-    ///                     ResourceLabel = "testLabel",
+    ///                     ResourceLabel = "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
     ///                 },
     ///                 TargetValue = 10,
     ///             },

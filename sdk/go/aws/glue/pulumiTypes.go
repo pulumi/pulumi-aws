@@ -2438,7 +2438,7 @@ type ClassifierCsvClassifier struct {
 	AllowSingleColumn *bool `pulumi:"allowSingleColumn"`
 	// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
 	ContainsHeader *string `pulumi:"containsHeader"`
-	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+	// Enables the custom datatype to be configured.
 	CustomDatatypeConfigured *bool `pulumi:"customDatatypeConfigured"`
 	// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
 	CustomDatatypes []string `pulumi:"customDatatypes"`
@@ -2468,7 +2468,7 @@ type ClassifierCsvClassifierArgs struct {
 	AllowSingleColumn pulumi.BoolPtrInput `pulumi:"allowSingleColumn"`
 	// Indicates whether the CSV file contains a header. This can be one of "ABSENT", "PRESENT", or "UNKNOWN".
 	ContainsHeader pulumi.StringPtrInput `pulumi:"containsHeader"`
-	// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+	// Enables the custom datatype to be configured.
 	CustomDatatypeConfigured pulumi.BoolPtrInput `pulumi:"customDatatypeConfigured"`
 	// A list of supported custom datatypes. Valid values are `BINARY`, `BOOLEAN`, `DATE`, `DECIMAL`, `DOUBLE`, `FLOAT`, `INT`, `LONG`, `SHORT`, `STRING`, `TIMESTAMP`.
 	CustomDatatypes pulumi.StringArrayInput `pulumi:"customDatatypes"`
@@ -2569,7 +2569,7 @@ func (o ClassifierCsvClassifierOutput) ContainsHeader() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *string { return v.ContainsHeader }).(pulumi.StringPtrOutput)
 }
 
-// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+// Enables the custom datatype to be configured.
 func (o ClassifierCsvClassifierOutput) CustomDatatypeConfigured() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ClassifierCsvClassifier) *bool { return v.CustomDatatypeConfigured }).(pulumi.BoolPtrOutput)
 }
@@ -2643,7 +2643,7 @@ func (o ClassifierCsvClassifierPtrOutput) ContainsHeader() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A custom symbol to denote what combines content into a single column value. It must be different from the column delimiter.
+// Enables the custom datatype to be configured.
 func (o ClassifierCsvClassifierPtrOutput) CustomDatatypeConfigured() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClassifierCsvClassifier) *bool {
 		if v == nil {

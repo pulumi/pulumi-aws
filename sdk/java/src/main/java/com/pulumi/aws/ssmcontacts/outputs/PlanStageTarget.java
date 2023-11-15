@@ -12,13 +12,29 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PlanStageTarget {
+    /**
+     * @return A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+     * 
+     */
     private @Nullable PlanStageTargetChannelTargetInfo channelTargetInfo;
+    /**
+     * @return A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+     * 
+     */
     private @Nullable PlanStageTargetContactTargetInfo contactTargetInfo;
 
     private PlanStageTarget() {}
+    /**
+     * @return A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+     * 
+     */
     public Optional<PlanStageTargetChannelTargetInfo> channelTargetInfo() {
         return Optional.ofNullable(this.channelTargetInfo);
     }
+    /**
+     * @return A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+     * 
+     */
     public Optional<PlanStageTargetContactTargetInfo> contactTargetInfo() {
         return Optional.ofNullable(this.contactTargetInfo);
     }

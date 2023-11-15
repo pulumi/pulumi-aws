@@ -22,6 +22,14 @@ namespace Pulumi.Aws.AppFlow.Outputs
         /// </summary>
         public readonly string? ClientCredentialsArn;
         /// <summary>
+        /// A JSON web token (JWT) that authorizes access to Salesforce records.
+        /// </summary>
+        public readonly string? JwtToken;
+        /// <summary>
+        /// The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+        /// </summary>
+        public readonly string? Oauth2GrantType;
+        /// <summary>
         /// Used by select connectors for which the OAuth workflow is supported. See OAuth Request for more details.
         /// </summary>
         public readonly Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest? OauthRequest;
@@ -36,12 +44,18 @@ namespace Pulumi.Aws.AppFlow.Outputs
 
             string? clientCredentialsArn,
 
+            string? jwtToken,
+
+            string? oauth2GrantType,
+
             Outputs.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest? oauthRequest,
 
             string? refreshToken)
         {
             AccessToken = accessToken;
             ClientCredentialsArn = clientCredentialsArn;
+            JwtToken = jwtToken;
+            Oauth2GrantType = oauth2GrantType;
             OauthRequest = oauthRequest;
             RefreshToken = refreshToken;
         }

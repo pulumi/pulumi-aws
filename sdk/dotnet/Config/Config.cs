@@ -594,6 +594,7 @@ namespace Pulumi.Aws
                 public string? Ssm { get; set; } = null!;
                 public string? Ssmcontacts { get; set; } = null!;
                 public string? Ssmincidents { get; set; } = null!;
+                public string? Sso { get; set; } = null!;
                 public string? Ssoadmin { get; set; } = null!;
                 public string? Stepfunctions { get; set; } = null!;
                 public string? Storagegateway { get; set; } = null!;

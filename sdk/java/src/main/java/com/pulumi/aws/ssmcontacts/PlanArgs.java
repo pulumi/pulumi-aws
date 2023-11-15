@@ -31,14 +31,14 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+     * One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      * 
      */
     @Import(name="stages", required=true)
     private Output<List<PlanStageArgs>> stages;
 
     /**
-     * @return List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+     * @return One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
      * 
      */
     public Output<List<PlanStageArgs>> stages() {
@@ -92,7 +92,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stages List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+         * @param stages One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stages List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+         * @param stages One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class PlanArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stages List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+         * @param stages One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
          * 
          * @return builder
          * 

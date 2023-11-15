@@ -162,7 +162,7 @@ type Plan struct {
 
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringOutput `pulumi:"contactId"`
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayOutput `pulumi:"stages"`
 }
 
@@ -204,14 +204,14 @@ func GetPlan(ctx *pulumi.Context,
 type planState struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId *string `pulumi:"contactId"`
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages []PlanStage `pulumi:"stages"`
 }
 
 type PlanState struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringPtrInput
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayInput
 }
 
@@ -222,7 +222,7 @@ func (PlanState) ElementType() reflect.Type {
 type planArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId string `pulumi:"contactId"`
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages []PlanStage `pulumi:"stages"`
 }
 
@@ -230,7 +230,7 @@ type planArgs struct {
 type PlanArgs struct {
 	// The Amazon Resource Name (ARN) of the contact or escalation plan.
 	ContactId pulumi.StringInput
-	// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+	// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 	Stages PlanStageArrayInput
 }
 
@@ -326,7 +326,7 @@ func (o PlanOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.ContactId }).(pulumi.StringOutput)
 }
 
-// List of stages. A contact has an engagement plan with stages that contact specified contact channels. An escalation plan uses stages that contact specified contacts.
+// One or more configuration blocks for specifying a list of stages that the escalation plan or engagement plan uses to engage contacts and contact methods. See Stage below for more details.
 func (o PlanOutput) Stages() PlanStageArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanStageArrayOutput { return v.Stages }).(PlanStageArrayOutput)
 }

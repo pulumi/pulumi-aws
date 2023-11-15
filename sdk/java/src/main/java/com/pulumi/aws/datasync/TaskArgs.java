@@ -7,6 +7,7 @@ import com.pulumi.aws.datasync.inputs.TaskExcludesArgs;
 import com.pulumi.aws.datasync.inputs.TaskIncludesArgs;
 import com.pulumi.aws.datasync.inputs.TaskOptionsArgs;
 import com.pulumi.aws.datasync.inputs.TaskScheduleArgs;
+import com.pulumi.aws.datasync.inputs.TaskTaskReportConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -155,6 +156,21 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+     * 
+     */
+    @Import(name="taskReportConfig")
+    private @Nullable Output<TaskTaskReportConfigArgs> taskReportConfig;
+
+    /**
+     * @return Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+     * 
+     */
+    public Optional<Output<TaskTaskReportConfigArgs>> taskReportConfig() {
+        return Optional.ofNullable(this.taskReportConfig);
+    }
+
     private TaskArgs() {}
 
     private TaskArgs(TaskArgs $) {
@@ -167,6 +183,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         this.schedule = $.schedule;
         this.sourceLocationArn = $.sourceLocationArn;
         this.tags = $.tags;
+        this.taskReportConfig = $.taskReportConfig;
     }
 
     public static Builder builder() {
@@ -374,6 +391,27 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param taskReportConfig Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskReportConfig(@Nullable Output<TaskTaskReportConfigArgs> taskReportConfig) {
+            $.taskReportConfig = taskReportConfig;
+            return this;
+        }
+
+        /**
+         * @param taskReportConfig Configuration block containing the configuration of a DataSync Task Report. See `task_report_config` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taskReportConfig(TaskTaskReportConfigArgs taskReportConfig) {
+            return taskReportConfig(Output.of(taskReportConfig));
         }
 
         public TaskArgs build() {

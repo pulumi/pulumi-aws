@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
+        /// The S3 path where offline records are written.
+        /// </summary>
+        public readonly string? ResolvedOutputS3Uri;
+        /// <summary>
         /// The S3 URI, or location in Amazon S3, of OfflineStore.
         /// </summary>
         public readonly string S3Uri;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private FeatureGroupOfflineStoreConfigS3StorageConfig(
             string? kmsKeyId,
 
+            string? resolvedOutputS3Uri,
+
             string s3Uri)
         {
             KmsKeyId = kmsKeyId;
+            ResolvedOutputS3Uri = resolvedOutputS3Uri;
             S3Uri = s3Uri;
         }
     }

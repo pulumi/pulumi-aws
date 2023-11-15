@@ -116,6 +116,8 @@ import * as utilities from "../utilities";
  *
  * If the record also contains a set identifier, append it:
  *
+ * If the record name is the empty string, it can be omitted:
+ *
  * __Using `pulumi import` to import__ Route53 Records using the ID of the record, record name, record type, and set identifier. For example:
  *
  * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):

@@ -117,6 +117,8 @@ type Task struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig TaskTaskReportConfigPtrOutput `pulumi:"taskReportConfig"`
 }
 
 // NewTask registers a new resource with the given unique name, arguments, and options.
@@ -183,6 +185,8 @@ type taskState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
 
 type TaskState struct {
@@ -210,6 +214,8 @@ type TaskState struct {
 	//
 	// Deprecated: Please use `tags` instead.
 	TagsAll pulumi.StringMapInput
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig TaskTaskReportConfigPtrInput
 }
 
 func (TaskState) ElementType() reflect.Type {
@@ -235,6 +241,8 @@ type taskArgs struct {
 	SourceLocationArn string `pulumi:"sourceLocationArn"`
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig *TaskTaskReportConfig `pulumi:"taskReportConfig"`
 }
 
 // The set of arguments for constructing a Task resource.
@@ -257,6 +265,8 @@ type TaskArgs struct {
 	SourceLocationArn pulumi.StringInput
 	// Key-value pairs of resource tags to assign to the DataSync Task. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+	TaskReportConfig TaskTaskReportConfigPtrInput
 }
 
 func (TaskArgs) ElementType() reflect.Type {
@@ -401,6 +411,11 @@ func (o TaskOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: Please use `tags` instead.
 func (o TaskOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Task) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// Configuration block containing the configuration of a DataSync Task Report. See `taskReportConfig` below.
+func (o TaskOutput) TaskReportConfig() TaskTaskReportConfigPtrOutput {
+	return o.ApplyT(func(v *Task) TaskTaskReportConfigPtrOutput { return v.TaskReportConfig }).(TaskTaskReportConfigPtrOutput)
 }
 
 type TaskArrayOutput struct{ *pulumi.OutputState }

@@ -139,6 +139,9 @@ namespace Pulumi.Aws.Dms
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        [Output("pauseReplicationTasks")]
+        public Output<bool?> PauseReplicationTasks { get; private set; } = null!;
+
         /// <summary>
         /// Port used by the endpoint database.
         /// </summary>
@@ -343,6 +346,9 @@ namespace Pulumi.Aws.Dms
             }
         }
 
+        [Input("pauseReplicationTasks")]
+        public Input<bool>? PauseReplicationTasks { get; set; }
+
         /// <summary>
         /// Port used by the endpoint database.
         /// </summary>
@@ -509,6 +515,9 @@ namespace Pulumi.Aws.Dms
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        [Input("pauseReplicationTasks")]
+        public Input<bool>? PauseReplicationTasks { get; set; }
 
         /// <summary>
         /// Port used by the endpoint database.
