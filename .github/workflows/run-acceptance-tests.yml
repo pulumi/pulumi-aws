@@ -30,6 +30,11 @@ env:
   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   TF_APPEND_USER_AGENT: pulumi
   TRAVIS_OS_NAME: linux
+
+# This should cancel any previous runs of the same workflow on the same branch which are still running.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build_sdk:
     if: github.event_name == 'repository_dispatch' ||
